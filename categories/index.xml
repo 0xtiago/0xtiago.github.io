@@ -12,15 +12,6 @@
     
     
     <item>
-      <title>DevOps</title>
-      <link>https://tiagotavares.io/categories/devops/</link>
-      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://tiagotavares.io/categories/devops/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Hacking</title>
       <link>https://tiagotavares.io/categories/hacking/</link>
       <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
@@ -30,11 +21,11 @@
     </item>
     
     <item>
-      <title>Projetos</title>
-      <link>https://tiagotavares.io/categories/projetos/</link>
+      <title>Projetos, DevOps</title>
+      <link>https://tiagotavares.io/categories/projetos-devops/</link>
       <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://tiagotavares.io/categories/projetos/</guid>
+      <guid>https://tiagotavares.io/categories/projetos-devops/</guid>
       <description></description>
     </item>
     
