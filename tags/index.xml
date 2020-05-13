@@ -6,7 +6,7 @@
     <description>Recent content in Tags on debugging the life</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 02 Apr 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 28 Jul 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://tiagotavares.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>ctf</title>
       <link>https://tiagotavares.io/tags/ctf/</link>
-      <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://tiagotavares.io/tags/ctf/</guid>
       <description></description>
@@ -23,9 +23,27 @@
     <item>
       <title>hacking</title>
       <link>https://tiagotavares.io/tags/hacking/</link>
-      <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://tiagotavares.io/tags/hacking/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>lampiao</title>
+      <link>https://tiagotavares.io/tags/lampiao/</link>
+      <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/lampiao/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vulnhub</title>
+      <link>https://tiagotavares.io/tags/vulnhub/</link>
+      <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/vulnhub/</guid>
       <description></description>
     </item>
     
@@ -35,15 +53,6 @@
       <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
       
       <guid>https://tiagotavares.io/tags/jarbas/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>vulnhub</title>
-      <link>https://tiagotavares.io/tags/vulnhub/</link>
-      <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://tiagotavares.io/tags/vulnhub/</guid>
       <description></description>
     </item>
     
