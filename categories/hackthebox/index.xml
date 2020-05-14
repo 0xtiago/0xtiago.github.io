@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>👨‍💻HackTheBox on debugging the life</title>
+    <link>https://tiagotavares.io/categories/hackthebox/</link>
+    <description>Recent content in 👨‍💻HackTheBox on debugging the life</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 14 May 2020 16:31:51 -0300</lastBuildDate>
+    
+	<atom:link href="https://tiagotavares.io/categories/hackthebox/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Lame - Hack The Box (Retired)</title>
+      <link>https://tiagotavares.io/2020/05/lame-hack-the-box-retired/</link>
+      <pubDate>Thu, 14 May 2020 16:31:51 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/2020/05/lame-hack-the-box-retired/</guid>
+      <description>&lt;p&gt;Lame - Hack The Box retired machine walkthrough.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

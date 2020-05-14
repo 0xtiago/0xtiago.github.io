@@ -6,10 +6,28 @@
     <description>Recent content in Categories on debugging the life</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 28 Jul 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 14 May 2020 16:31:51 -0300</lastBuildDate>
     
 	<atom:link href="https://tiagotavares.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>👨‍💻HackTheBox</title>
+      <link>https://tiagotavares.io/categories/hackthebox/</link>
+      <pubDate>Thu, 14 May 2020 16:31:51 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/categories/hackthebox/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>📜Walkthroughs</title>
+      <link>https://tiagotavares.io/categories/walkthroughs/</link>
+      <pubDate>Thu, 14 May 2020 16:31:51 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/categories/walkthroughs/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>🐞Vulnerable Machines</title>

