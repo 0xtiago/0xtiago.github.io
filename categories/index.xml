@@ -6,13 +6,31 @@
     <description>Recent content in Categories on debugging the life</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 28 Jul 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 12 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://tiagotavares.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Projects</title>
+      <title>Projetos</title>
+      <link>https://tiagotavares.io/categories/projetos/</link>
+      <pubDate>Tue, 12 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiagotavares.io/categories/projetos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>🐞Vulnerable Machines</title>
+      <link>https://tiagotavares.io/categories/vulnerable-machines/</link>
+      <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiagotavares.io/categories/vulnerable-machines/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>🔨Projects</title>
       <link>https://tiagotavares.io/categories/projects/</link>
       <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
       
@@ -21,11 +39,11 @@
     </item>
     
     <item>
-      <title>Vulnerable Machines</title>
-      <link>https://tiagotavares.io/categories/vulnerable-machines/</link>
-      <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
+      <title>🎽Running</title>
+      <link>https://tiagotavares.io/categories/running/</link>
+      <pubDate>Tue, 24 Jul 2018 14:40:20 -0300</pubDate>
       
-      <guid>https://tiagotavares.io/categories/vulnerable-machines/</guid>
+      <guid>https://tiagotavares.io/categories/running/</guid>
       <description></description>
     </item>
     
