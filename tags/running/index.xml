@@ -6,10 +6,19 @@
     <description>Recent content in running on debugging the life</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 24 Jul 2018 14:40:20 -0300</lastBuildDate>
+    <lastBuildDate>Fri, 17 Apr 2020 22:09:49 -0300</lastBuildDate>
     
 	<atom:link href="https://tiagotavares.io/tags/running/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Análise dos dados da Maratona de Porto Alegre 2019</title>
+      <link>https://tiagotavares.io/2020/04/an%C3%A1lise-dos-dados-da-maratona-de-porto-alegre-2019/</link>
+      <pubDate>Fri, 17 Apr 2020 22:09:49 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/2020/04/an%C3%A1lise-dos-dados-da-maratona-de-porto-alegre-2019/</guid>
+      <description>&lt;p&gt;Análise de dados dos participantes da Maratona de Porto Alegre 2019, usando Python, Pandas, Matplotlib e Seaborb.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>A minha estreia em maratonas 🏅</title>

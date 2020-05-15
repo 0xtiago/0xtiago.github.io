@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>python on debugging the life</title>
+    <link>https://tiagotavares.io/tags/python/</link>
+    <description>Recent content in python on debugging the life</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 17 Apr 2020 22:09:49 -0300</lastBuildDate>
+    
+	<atom:link href="https://tiagotavares.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Análise dos dados da Maratona de Porto Alegre 2019</title>
+      <link>https://tiagotavares.io/2020/04/an%C3%A1lise-dos-dados-da-maratona-de-porto-alegre-2019/</link>
+      <pubDate>Fri, 17 Apr 2020 22:09:49 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/2020/04/an%C3%A1lise-dos-dados-da-maratona-de-porto-alegre-2019/</guid>
+      <description>&lt;p&gt;Análise de dados dos participantes da Maratona de Porto Alegre 2019, usando Python, Pandas, Matplotlib e Seaborb.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Faustao Invader</title>
+      <link>https://tiagotavares.io/2020/04/faustao-invader/</link>
+      <pubDate>Thu, 09 Apr 2020 22:33:47 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/2020/04/faustao-invader/</guid>
+      <description>&lt;p&gt;Faustão Invader - A shooter game created during the coronavirus quarantine. 😷&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
