@@ -7,58 +7,42 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.70.0 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Tiago Tavares">
-<meta name="keywords" content="">
-<meta name="description" content="Análise de dados dos participantes da Maratona de Porto Alegre 2019, usando Python, Pandas, Matplotlib e Seaborb.">
+<meta name="keywords" content="hackthebox">
+<meta name="description" content="MACHINE XXX - Hack The Box retired machine walkthrough.">
 
 
-<meta property="og:description" content="Análise de dados dos participantes da Maratona de Porto Alegre 2019, usando Python, Pandas, Matplotlib e Seaborb.">
+<meta property="og:description" content="MACHINE XXX - Hack The Box retired machine walkthrough.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Análise dos dados da Maratona de Porto Alegre 2019">
-<meta name="twitter:title" content="Análise dos dados da Maratona de Porto Alegre 2019">
-<meta property="og:url" content="https://tiagotavares.io/2020/04/an%C3%A1lise-dos-dados-da-maratona-de-porto-alegre-2019/">
-<meta property="twitter:url" content="https://tiagotavares.io/2020/04/an%C3%A1lise-dos-dados-da-maratona-de-porto-alegre-2019/">
+<meta property="og:title" content="MACHINE XXX - Hack The Box (Retired)">
+<meta name="twitter:title" content="MACHINE XXX - Hack The Box (Retired)">
+<meta property="og:url" content="https://tiagotavares.io/2020/05/machine-xxx-hack-the-box-retired/">
+<meta property="twitter:url" content="https://tiagotavares.io/2020/05/machine-xxx-hack-the-box-retired/">
 <meta property="og:site_name" content="debugging the life">
-<meta property="og:description" content="Análise de dados dos participantes da Maratona de Porto Alegre 2019, usando Python, Pandas, Matplotlib e Seaborb.">
-<meta name="twitter:description" content="Análise de dados dos participantes da Maratona de Porto Alegre 2019, usando Python, Pandas, Matplotlib e Seaborb.">
+<meta property="og:description" content="MACHINE XXX - Hack The Box retired machine walkthrough.">
+<meta name="twitter:description" content="MACHINE XXX - Hack The Box retired machine walkthrough.">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2020-04-17T22:09:49">
+    <meta property="article:published_time" content="2020-05-14T16:31:51">
   
   
-    <meta property="article:modified_time" content="2020-04-17T22:09:49">
+    <meta property="article:modified_time" content="2020-05-14T16:31:51">
   
-  
-  
-    
-      <meta property="article:section" content="🐍Python">
-    
-      <meta property="article:section" content="📊Data Analytics">
-    
-      <meta property="article:section" content="🎽Running">
-    
   
   
     
-      <meta property="article:tag" content="corrida">
+      <meta property="article:section" content="📜Walkthroughs">
     
-      <meta property="article:tag" content="marathon">
+      <meta property="article:section" content="👨‍💻HackTheBox">
     
-      <meta property="article:tag" content="maratona">
+  
+  
     
-      <meta property="article:tag" content="running">
+      <meta property="article:tag" content="hackthebox">
     
-      <meta property="article:tag" content="Porto Alegre">
+      <meta property="article:tag" content="hacking">
     
-      <meta property="article:tag" content="python">
-    
-      <meta property="article:tag" content="pandas">
-    
-      <meta property="article:tag" content="matplotlib">
-    
-      <meta property="article:tag" content="seaborn">
-    
-      <meta property="article:tag" content="data analytics">
+      <meta property="article:tag" content="ctf">
     
   
 
@@ -75,27 +59,10 @@
 
 
 
-  <meta property="og:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589505792/blog/UtpAxakOHkRTkWIFql4kr5XxKs4OQM9t3OuP-xwCVTQMKl7KV81alKtwRjlIJRH50kcqSZ-ywKHmSXZmLLsgipS-KmP0FLPnxYXWA_KSuw6eZKYt0DkD1eF0nJtISvtW1CoJtRO9Tw_humj67.jpg">
-  <meta property="twitter:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589505792/blog/UtpAxakOHkRTkWIFql4kr5XxKs4OQM9t3OuP-xwCVTQMKl7KV81alKtwRjlIJRH50kcqSZ-ywKHmSXZmLLsgipS-KmP0FLPnxYXWA_KSuw6eZKYt0DkD1eF0nJtISvtW1CoJtRO9Tw_humj67.jpg">
+  <meta property="og:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589483960/blog/fb2d9f98400e3c802a0d7145e125c4ff_fytbfk.png">
+  <meta property="twitter:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589483960/blog/fb2d9f98400e3c802a0d7145e125c4ff_fytbfk.png">
 
 
-
-  
-    <meta property="og:image" content="https://tiagotavares.files.wordpress.com/2020/04/quantidade-de-participantes-por-idade.png">
-    <meta property="twitter:image" content="https://tiagotavares.files.wordpress.com/2020/04/quantidade-de-participantes-por-idade.png">
-  
-    <meta property="og:image" content="https://tiagotavares.files.wordpress.com/2020/04/participantes-por-idade-e-genero.png">
-    <meta property="twitter:image" content="https://tiagotavares.files.wordpress.com/2020/04/participantes-por-idade-e-genero.png">
-  
-    <meta property="og:image" content="https://tiagotavares.files.wordpress.com/2020/04/distribuic3a7c3a3o-de-finalistas-por-faixa-etc3a1ria.png">
-    <meta property="twitter:image" content="https://tiagotavares.files.wordpress.com/2020/04/distribuic3a7c3a3o-de-finalistas-por-faixa-etc3a1ria.png">
-  
-    <meta property="og:image" content="https://tiagotavares.files.wordpress.com/2020/04/distribuic3a7c3a3o-do-tempo-liquido-por-grupos-de-idade.png">
-    <meta property="twitter:image" content="https://tiagotavares.files.wordpress.com/2020/04/distribuic3a7c3a3o-do-tempo-liquido-por-grupos-de-idade.png">
-  
-    <meta property="og:image" content="https://tiagotavares.files.wordpress.com/2020/04/equipes-com-mais-participantes.png">
-    <meta property="twitter:image" content="https://tiagotavares.files.wordpress.com/2020/04/equipes-com-mais-participantes.png">
-  
 
 
 
@@ -103,14 +70,14 @@
   <meta property="twitter:image" content="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=640">
 
 
-    <title>Análise dos dados da Maratona de Porto Alegre 2019</title>
+    <title>MACHINE XXX - Hack The Box (Retired)</title>
 
     <link rel="icon" href="images/favicon-32x32.png">
     
 
     
 
-    <link rel="canonical" href="https://tiagotavares.io/2020/04/an%C3%A1lise-dos-dados-da-maratona-de-porto-alegre-2019/">
+    <link rel="canonical" href="https://tiagotavares.io/2020/05/machine-xxx-hack-the-box-retired/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -293,15 +260,15 @@ if (!doNotTrack) {
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      Análise dos dados da Maratona de Porto Alegre 2019
+      MACHINE XXX - Hack The Box (Retired)
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2020-04-17T22:09:49-03:00">
+      <time itemprop="datePublished" datetime="2020-05-14T16:31:51-03:00">
         
-  April 17, 2020
+  May 14, 2020
 
       </time>
     
@@ -310,11 +277,9 @@ if (!doNotTrack) {
   
     <span>in</span>
     
-      <a class="category-link" href="https://tiagotavares.io/categories/python">🐍Python</a>, 
+      <a class="category-link" href="https://tiagotavares.io/categories/walkthroughs">📜Walkthroughs</a>, 
     
-      <a class="category-link" href="https://tiagotavares.io/categories/data-analytics">📊Data Analytics</a>, 
-    
-      <a class="category-link" href="https://tiagotavares.io/categories/running">🎽Running</a>
+      <a class="category-link" href="https://tiagotavares.io/categories/hackthebox">👨‍💻HackTheBox</a>
     
   
 
@@ -324,69 +289,12 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>Análise de dados dos participantes da Maratona de Porto Alegre 2019, usando Python, Pandas, Matplotlib e Seaborb.</p>
-<p>Após alguns dias estudando e fuçando nas bibliotecas Pandas, Matplotlib e Seaborn, fica fácil analisar uma boa quantidade de informação a partir de uma grande massa de dados. Segue uma análise dos dados da <a href="https://www.maratonadeportoalegre.com.br/">Maratona de Porto Alegre</a> de 2019, na qual tive a felicidade de participar. 🏃🏅</p>
-<p>Link para o notebook está disponível em <a href="https://github.com/tiagotvrs/RunningDataAnalytics/tree/master/MaratonaDePoA2019">https://github.com/tiagotvrs/RunningDataAnalytics/tree/master/MaratonaDePoA2019</a>.</p>
-<p>Aqui podemos ver nitidamente que os homens dominam em quantidade de finalistas e também costumam ser mais rápidos, em média.</p>
+              <p>MACHINE XXX - Hack The Box retired machine walkthrough.</p>
+<h2 id="-enumeration">🔎 Enumeration</h2>
+<h2 id="-foothold">🚪🚶 Foothold</h2>
+<h2 id="-privilege-escalation">🛡️ Privilege Escalation</h2>
+<h2 id="-complete">🍻 Complete</h2>
               
-  
-  
-  
-    <div class="image-gallery">
-      <div class="image-gallery-metabar">
-        <span>Gallery 5 images</span>
-      </div>
-      <div class="image-gallery-photos image-gallery-photos--thumbnail">
-        
-          
-          
-          <div class="photo-box">
-            <a class="photo-box-inner fancybox" data-fancybox-group="gallery-400fa7a86e3fabd2b53e820b9686374c"
-               title="" href="https://tiagotavares.files.wordpress.com/2020/04/quantidade-de-participantes-por-idade.png">
-              <img class="photo" src="https://tiagotavares.files.wordpress.com/2020/04/quantidade-de-participantes-por-idade.png" itemprop="image">
-            </a>
-          </div>
-        
-          
-          
-          <div class="photo-box">
-            <a class="photo-box-inner fancybox" data-fancybox-group="gallery-400fa7a86e3fabd2b53e820b9686374c"
-               title="" href="https://tiagotavares.files.wordpress.com/2020/04/participantes-por-idade-e-genero.png">
-              <img class="photo" src="https://tiagotavares.files.wordpress.com/2020/04/participantes-por-idade-e-genero.png" itemprop="image">
-            </a>
-          </div>
-        
-          
-          
-          <div class="photo-box">
-            <a class="photo-box-inner fancybox" data-fancybox-group="gallery-400fa7a86e3fabd2b53e820b9686374c"
-               title="" href="https://tiagotavares.files.wordpress.com/2020/04/distribuic3a7c3a3o-de-finalistas-por-faixa-etc3a1ria.png">
-              <img class="photo" src="https://tiagotavares.files.wordpress.com/2020/04/distribuic3a7c3a3o-de-finalistas-por-faixa-etc3a1ria.png" itemprop="image">
-            </a>
-          </div>
-        
-          
-          
-          <div class="photo-box">
-            <a class="photo-box-inner fancybox" data-fancybox-group="gallery-400fa7a86e3fabd2b53e820b9686374c"
-               title="" href="https://tiagotavares.files.wordpress.com/2020/04/distribuic3a7c3a3o-do-tempo-liquido-por-grupos-de-idade.png">
-              <img class="photo" src="https://tiagotavares.files.wordpress.com/2020/04/distribuic3a7c3a3o-do-tempo-liquido-por-grupos-de-idade.png" itemprop="image">
-            </a>
-          </div>
-        
-          
-          
-          <div class="photo-box">
-            <a class="photo-box-inner fancybox" data-fancybox-group="gallery-400fa7a86e3fabd2b53e820b9686374c"
-               title="" href="https://tiagotavares.files.wordpress.com/2020/04/equipes-com-mais-participantes.png">
-              <img class="photo" src="https://tiagotavares.files.wordpress.com/2020/04/equipes-com-mais-participantes.png" itemprop="image">
-            </a>
-          </div>
-        
-      </div>
-    </div>
-    
-
             </div>
           </div>
           <div id="post-footer" class="post-footer main-content-wrap">
@@ -397,25 +305,11 @@ if (!doNotTrack) {
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/corrida/">corrida</a>
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/hackthebox/">hackthebox</a>
 
-  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/marathon/">marathon</a>
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/hacking/">hacking</a>
 
-  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/maratona/">maratona</a>
-
-  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/running/">running</a>
-
-  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/porto-alegre/">Porto Alegre</a>
-
-  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/python/">python</a>
-
-  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/pandas/">pandas</a>
-
-  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/matplotlib/">matplotlib</a>
-
-  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/seaborn/">seaborn</a>
-
-  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/data-analytics/">data analytics</a>
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/ctf/">ctf</a>
 
                   </div>
                 
@@ -428,7 +322,7 @@ if (!doNotTrack) {
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/04/openadmin-hack-the-box-retired/" data-tooltip="OpenAdmin - Hack The Box (Retired)">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/05/lame-hack-the-box-retired/" data-tooltip="Lame - Hack The Box (Retired)">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -436,7 +330,7 @@ if (!doNotTrack) {
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/04/faustao-invader/" data-tooltip="Faustao Invader">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/04/openadmin-hack-the-box-retired/" data-tooltip="OpenAdmin - Hack The Box (Retired)">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -454,19 +348,19 @@ if (!doNotTrack) {
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2020/04/an%C3%A1lise-dos-dados-da-maratona-de-porto-alegre-2019/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2020/05/machine-xxx-hack-the-box-retired/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2020/04/an%C3%A1lise-dos-dados-da-maratona-de-porto-alegre-2019/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2020/05/machine-xxx-hack-the-box-retired/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2020/04/an%C3%A1lise-dos-dados-da-maratona-de-porto-alegre-2019/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2020/05/machine-xxx-hack-the-box-retired/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -514,7 +408,7 @@ if (!doNotTrack) {
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/04/openadmin-hack-the-box-retired/" data-tooltip="OpenAdmin - Hack The Box (Retired)">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/05/lame-hack-the-box-retired/" data-tooltip="Lame - Hack The Box (Retired)">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -522,7 +416,7 @@ if (!doNotTrack) {
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/04/faustao-invader/" data-tooltip="Faustao Invader">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/04/openadmin-hack-the-box-retired/" data-tooltip="OpenAdmin - Hack The Box (Retired)">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -540,19 +434,19 @@ if (!doNotTrack) {
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2020/04/an%C3%A1lise-dos-dados-da-maratona-de-porto-alegre-2019/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2020/05/machine-xxx-hack-the-box-retired/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2020/04/an%C3%A1lise-dos-dados-da-maratona-de-porto-alegre-2019/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2020/05/machine-xxx-hack-the-box-retired/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2020/04/an%C3%A1lise-dos-dados-da-maratona-de-porto-alegre-2019/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2020/05/machine-xxx-hack-the-box-retired/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -582,19 +476,19 @@ if (!doNotTrack) {
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftiagotavares.io%2F2020%2F04%2Fan%25C3%25A1lise-dos-dados-da-maratona-de-porto-alegre-2019%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftiagotavares.io%2F2020%2F05%2Fmachine-xxx-hack-the-box-retired%2F">
           <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Ftiagotavares.io%2F2020%2F04%2Fan%25C3%25A1lise-dos-dados-da-maratona-de-porto-alegre-2019%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Ftiagotavares.io%2F2020%2F05%2Fmachine-xxx-hack-the-box-retired%2F">
           <i class="fa fa-twitter"></i><span>Share on Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Ftiagotavares.io%2F2020%2F04%2Fan%25C3%25A1lise-dos-dados-da-maratona-de-porto-alegre-2019%2F">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Ftiagotavares.io%2F2020%2F05%2Fmachine-xxx-hack-the-box-retired%2F">
           <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
         </a>
       </li>
@@ -684,9 +578,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/tiagotavares.io\/2020\/04\/an%C3%A1lise-dos-dados-da-maratona-de-porto-alegre-2019\/';
+          this.page.url = 'https:\/\/tiagotavares.io\/2020\/05\/machine-xxx-hack-the-box-retired\/';
           
-            this.page.identifier = '\/2020\/04\/an%C3%A1lise-dos-dados-da-maratona-de-porto-alegre-2019\/'
+            this.page.identifier = '\/2020\/05\/machine-xxx-hack-the-box-retired\/'
           
         };
         (function() {

