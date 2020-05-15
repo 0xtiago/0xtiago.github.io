@@ -18,12 +18,12 @@
   </url>
   
   <url>
-    <loc>https://tiagotavares.io/tags/hackthebox/</loc>
+    <loc>https://tiagotavares.io/tags/hacking/</loc>
     <lastmod>2020-05-14T16:31:51-03:00</lastmod>
   </url>
   
   <url>
-    <loc>https://tiagotavares.io/tags/haking/</loc>
+    <loc>https://tiagotavares.io/tags/hackthebox/</loc>
     <lastmod>2020-05-14T16:31:51-03:00</lastmod>
   </url>
   
@@ -50,11 +50,6 @@
   <url>
     <loc>https://tiagotavares.io/categories/walkthroughs/</loc>
     <lastmod>2020-05-14T16:31:51-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tiagotavares.io/tags/hacking/</loc>
-    <lastmod>2018-07-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -125,6 +120,11 @@
   <url>
     <loc>https://tiagotavares.io/2018/04/jarbas-1/</loc>
     <lastmod>2018-04-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/2017/11/mirai-hack-the-box-retired/</loc>
+    <lastmod>2017-11-23T16:31:51-03:00</lastmod>
   </url>
   
   <url>

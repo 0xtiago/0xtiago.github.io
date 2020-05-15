@@ -7,44 +7,42 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.70.0 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Tiago Tavares">
-<meta name="keywords" content="vulnhub">
-<meta name="description" content="Jarbas 1 – A tribute to a nostalgic Brazilian search engine in the end of 90’s.">
+<meta name="keywords" content="hackthebox">
+<meta name="description" content="Mirai - Hack The Box retired machine walkthrough.">
 
 
-<meta property="og:description" content="Jarbas 1 – A tribute to a nostalgic Brazilian search engine in the end of 90’s.">
+<meta property="og:description" content="Mirai - Hack The Box retired machine walkthrough.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Jarbas 1">
-<meta name="twitter:title" content="Jarbas 1">
-<meta property="og:url" content="https://tiagotavares.io/2018/04/jarbas-1/">
-<meta property="twitter:url" content="https://tiagotavares.io/2018/04/jarbas-1/">
+<meta property="og:title" content="Mirai - Hack The Box (Retired)">
+<meta name="twitter:title" content="Mirai - Hack The Box (Retired)">
+<meta property="og:url" content="https://tiagotavares.io/2017/11/mirai-hack-the-box-retired/">
+<meta property="twitter:url" content="https://tiagotavares.io/2017/11/mirai-hack-the-box-retired/">
 <meta property="og:site_name" content="debugging the life">
-<meta property="og:description" content="Jarbas 1 – A tribute to a nostalgic Brazilian search engine in the end of 90’s.">
-<meta name="twitter:description" content="Jarbas 1 – A tribute to a nostalgic Brazilian search engine in the end of 90’s.">
+<meta property="og:description" content="Mirai - Hack The Box retired machine walkthrough.">
+<meta name="twitter:description" content="Mirai - Hack The Box retired machine walkthrough.">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2018-04-02T00:00:00">
+    <meta property="article:published_time" content="2017-11-23T16:31:51">
   
   
-    <meta property="article:modified_time" content="2018-04-02T00:00:00">
+    <meta property="article:modified_time" content="2017-11-23T16:31:51">
   
-  
-  
-    
-      <meta property="article:section" content="🔨Projects">
-    
-      <meta property="article:section" content="🐞Vulnerable Machines">
-    
   
   
     
-      <meta property="article:tag" content="ctf">
+      <meta property="article:section" content="📜Walkthroughs">
+    
+      <meta property="article:section" content="👨‍💻HackTheBox">
+    
+  
+  
+    
+      <meta property="article:tag" content="hackthebox">
     
       <meta property="article:tag" content="hacking">
     
-      <meta property="article:tag" content="jarbas">
-    
-      <meta property="article:tag" content="vulnhub">
+      <meta property="article:tag" content="ctf">
     
   
 
@@ -61,15 +59,10 @@
 
 
 
-  <meta property="og:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589369024/jarbas_thumb_zzxqka.gif">
-  <meta property="twitter:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589369024/jarbas_thumb_zzxqka.gif">
+  <meta property="og:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589501545/blog/4ef1ea77e69185063d4200d7d0142baa_wzhzzn.webp">
+  <meta property="twitter:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589501545/blog/4ef1ea77e69185063d4200d7d0142baa_wzhzzn.webp">
 
 
-
-  
-    <meta property="og:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589393255/blog/jarbas-01_jzt4iy.png">
-    <meta property="twitter:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589393255/blog/jarbas-01_jzt4iy.png">
-  
 
 
 
@@ -77,14 +70,14 @@
   <meta property="twitter:image" content="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=640">
 
 
-    <title>Jarbas 1</title>
+    <title>Mirai - Hack The Box (Retired)</title>
 
     <link rel="icon" href="images/favicon-32x32.png">
     
 
     
 
-    <link rel="canonical" href="https://tiagotavares.io/2018/04/jarbas-1/">
+    <link rel="canonical" href="https://tiagotavares.io/2017/11/mirai-hack-the-box-retired/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -247,15 +240,15 @@ if (!doNotTrack) {
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      Jarbas 1
+      Mirai - Hack The Box (Retired)
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2018-04-02T00:00:00Z">
+      <time itemprop="datePublished" datetime="2017-11-23T16:31:51-03:00">
         
-  April 2, 2018
+  November 23, 2017
 
       </time>
     
@@ -264,9 +257,9 @@ if (!doNotTrack) {
   
     <span>in</span>
     
-      <a class="category-link" href="https://tiagotavares.io/categories/projects">🔨Projects</a>, 
+      <a class="category-link" href="https://tiagotavares.io/categories/walkthroughs">📜Walkthroughs</a>, 
     
-      <a class="category-link" href="https://tiagotavares.io/categories/vulnerable-machines">🐞Vulnerable Machines</a>
+      <a class="category-link" href="https://tiagotavares.io/categories/hackthebox">👨‍💻HackTheBox</a>
     
   
 
@@ -276,56 +269,43 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p><strong>Jarbas 1</strong> – A tribute to a nostalgic Brazilian search engine in the end of 90’s.</p>
-<h2 id="description">Description</h2>
-<p>If you want to keep your hacking studies, please try out this machine!
-<strong>Jarbas 1</strong> – A tribute to a nostalgic Brazilian search engine in the end of 90’s.</p>
-<p>Objective: Get root shell!</p>
-<h1 id="jarbaszip">Jarbas.zip</h1>
-<ul>
-<li><strong>Download:</strong> <a href="https://goo.gl/ZRWRKD">https://goo.gl/ZRWRKD</a></li>
-<li><strong>Download (Mirror Vulnhub):</strong> <a href="https://download.vulnhub.com/jarbas/Jarbas.zip">https://download.vulnhub.com/jarbas/Jarbas.zip</a></li>
-</ul>
-<h2 id="file-information">File Information</h2>
-<ul>
-<li><strong>Filename:</strong> Jarbas.zip</li>
-<li><strong>File size:</strong> 1.1 GB</li>
-<li><strong>MD5:</strong> 85A1698DB39908E101317ECD9BCA4322</li>
-<li><strong>SHA1:</strong> 91FC13F42E1E3D470F4C66A0B73B28EC973AE6AC</li>
-</ul>
-<h2 id="virtual-machine">Virtual Machine</h2>
-<ul>
-<li><strong>Format:</strong> Virtual Machine (VMware)</li>
-<li><strong>Operating System:</strong> Linux</li>
-</ul>
-<h2 id="networking">Networking</h2>
-<ul>
-<li><strong>DHCP service:</strong> Enabled</li>
-<li><strong>IP address:</strong> Automatically assign</li>
-</ul>
+              <p>Mirai - Hack The Box retired machine walkthrough.</p>
+<h2 id="-enumeration">🔎 Enumeration</h2>
+<pre><code>nmap -sV 10.10.10.48
+</code></pre>
+<p><img src="https://tiagotavares.files.wordpress.com/2017/11/1.png?w=768" alt="enter image description here"></p>
+<p>Found an application running on port 80, we can identify an entry service to RaspberryPi.</p>
+<p><img src="https://tiagotavares.files.wordpress.com/2017/11/2.png" alt="enter image description here"></p>
+<h2 id="-foothold">🚪🚶 Foothold</h2>
+<p>Looking further how Raspberry works, it&rsquo;s easy to get in. It&rsquo;s defaut user and password are <strong>pi/raspberry</strong>.</p>
+<p><img src="https://tiagotavares.files.wordpress.com/2017/11/3.png?w=768" alt="enter image description here"></p>
+<p>Getting <strong>user flag</strong>.</p>
+<pre><code>cat /home/pi/Desktop/user.txt
+</code></pre>
+<h2 id="-privilege-escalation">🛡️ Privilege Escalation</h2>
+<p>The pi user is a sudoer, we can easily escalate privileges. Unfortunately the root flag is not present. But we have a message telling us what happened. Accidentaly someone deleted it. 😒</p>
+<p><img src="https://tiagotavares.files.wordpress.com/2017/11/5.png" alt="enter image description here"></p>
+<p>This tip tells us that the flag has been lost after an accidental removal of the USB stick. I created a copy of sdb volume to analyse it.</p>
+<pre><code>root@raspberrypi:/# dd if=/dev/sdb of=usb.img
+20480+0 records in
+20480+0 records out
+10485760 bytes (10 MB) copied, 0.166908 s, 62.8 MB/s
+</code></pre>
+<p>Copied to my Kali.</p>
+<pre><code>root@kali:~# scp pi@10.10.10.48:/usb.img /root/usb.img
+pi@10.10.10.48's password:
+usb.img 100% 10MB 1.4MB/s 00:06
+</code></pre>
+<p>Then I needed to create a mount folder in my Kali. It&rsquo;s not needed to mount the image finish this machine, I did to check if it was not corrupted.</p>
+<pre><code>root@kali:~# mkdir /mnt/teste
+root@kali:~# mount -o loop usb.img /mnt/teste
+</code></pre>
+<h2 id="-complete">🍻 Complete</h2>
+<p>In order to recover the flag file, I used the <strong>extundelete</strong> program.</p>
+<pre><code>extundelete --restore-all usb.img
+</code></pre>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589503017/blog/Image_2_gpbng2.png" alt="enter image description here"></p>
               
-  
-  
-  
-    <div class="image-gallery">
-      <div class="image-gallery-metabar">
-        <span>Gallery 1 images</span>
-      </div>
-      <div class="image-gallery-photos ">
-        
-          
-          
-          <div class="photo-box">
-            <a class="photo-box-inner fancybox" data-fancybox-group="gallery-0e627794fe3c69b728246c501b0cd764"
-               title="" href="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589393255/blog/jarbas-01_jzt4iy.png">
-              <img class="photo" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589393255/blog/jarbas-01_jzt4iy.png" itemprop="image">
-            </a>
-          </div>
-        
-      </div>
-    </div>
-    
-
             </div>
           </div>
           <div id="post-footer" class="post-footer main-content-wrap">
@@ -336,13 +316,11 @@ if (!doNotTrack) {
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/ctf/">ctf</a>
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/hackthebox/">hackthebox</a>
 
   <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/hacking/">hacking</a>
 
-  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/jarbas/">jarbas</a>
-
-  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/vulnhub/">vulnhub</a>
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/ctf/">ctf</a>
 
                   </div>
                 
@@ -355,7 +333,7 @@ if (!doNotTrack) {
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2018/07/a-minha-estreia-em-maratonas/" data-tooltip="A minha estreia em maratonas 🏅">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2018/04/jarbas-1/" data-tooltip="Jarbas 1">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -363,7 +341,7 @@ if (!doNotTrack) {
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2017/11/mirai-hack-the-box-retired/" data-tooltip="Mirai - Hack The Box (Retired)">
+                <a class="post-action-btn btn btn--disabled">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -381,19 +359,19 @@ if (!doNotTrack) {
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2018/04/jarbas-1/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2017/11/mirai-hack-the-box-retired/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2018/04/jarbas-1/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2017/11/mirai-hack-the-box-retired/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2018/04/jarbas-1/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2017/11/mirai-hack-the-box-retired/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -441,7 +419,7 @@ if (!doNotTrack) {
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2018/07/a-minha-estreia-em-maratonas/" data-tooltip="A minha estreia em maratonas 🏅">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2018/04/jarbas-1/" data-tooltip="Jarbas 1">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -449,7 +427,7 @@ if (!doNotTrack) {
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2017/11/mirai-hack-the-box-retired/" data-tooltip="Mirai - Hack The Box (Retired)">
+                <a class="post-action-btn btn btn--disabled">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -467,19 +445,19 @@ if (!doNotTrack) {
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2018/04/jarbas-1/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2017/11/mirai-hack-the-box-retired/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2018/04/jarbas-1/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2017/11/mirai-hack-the-box-retired/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2018/04/jarbas-1/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2017/11/mirai-hack-the-box-retired/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -509,19 +487,19 @@ if (!doNotTrack) {
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftiagotavares.io%2F2018%2F04%2Fjarbas-1%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftiagotavares.io%2F2017%2F11%2Fmirai-hack-the-box-retired%2F">
           <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Ftiagotavares.io%2F2018%2F04%2Fjarbas-1%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Ftiagotavares.io%2F2017%2F11%2Fmirai-hack-the-box-retired%2F">
           <i class="fa fa-twitter"></i><span>Share on Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Ftiagotavares.io%2F2018%2F04%2Fjarbas-1%2F">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Ftiagotavares.io%2F2017%2F11%2Fmirai-hack-the-box-retired%2F">
           <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
         </a>
       </li>
@@ -611,9 +589,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/tiagotavares.io\/2018\/04\/jarbas-1\/';
+          this.page.url = 'https:\/\/tiagotavares.io\/2017\/11\/mirai-hack-the-box-retired\/';
           
-            this.page.identifier = '\/2018\/04\/jarbas-1\/'
+            this.page.identifier = '\/2017\/11\/mirai-hack-the-box-retired\/'
           
         };
         (function() {
