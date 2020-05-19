@@ -18,6 +18,11 @@
   </url>
   
   <url>
+    <loc>https://tiagotavares.io/draft/</loc>
+    <lastmod>2020-05-14T16:31:51-03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://tiagotavares.io/tags/hacking/</loc>
     <lastmod>2020-05-14T16:31:51-03:00</lastmod>
   </url>
@@ -33,7 +38,7 @@
   </url>
   
   <url>
-    <loc>https://tiagotavares.io/posts/template-htb/</loc>
+    <loc>https://tiagotavares.io/draft/template-htb/</loc>
     <lastmod>2020-05-14T16:31:51-03:00</lastmod>
   </url>
   
