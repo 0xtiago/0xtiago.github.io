@@ -3,17 +3,62 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://tiagotavares.io/categories/</loc>
-    <lastmod>2020-05-14T16:31:51-03:00</lastmod>
+    <loc>https://tiagotavares.io/2020/05/a-dor-do-confinamento/</loc>
+    <lastmod>2020-05-23T19:50:51-03:00</lastmod>
   </url>
   
   <url>
-    <loc>https://tiagotavares.io/tags/ctf/</loc>
-    <lastmod>2020-05-14T16:31:51-03:00</lastmod>
+    <loc>https://tiagotavares.io/categories/</loc>
+    <lastmod>2020-05-23T19:50:51-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/tags/confinamento/</loc>
+    <lastmod>2020-05-23T19:50:51-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/tags/coronavirus/</loc>
+    <lastmod>2020-05-23T19:50:51-03:00</lastmod>
   </url>
   
   <url>
     <loc>https://tiagotavares.io/</loc>
+    <lastmod>2020-05-23T19:50:51-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/tags/life/</loc>
+    <lastmod>2020-05-23T19:50:51-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/post/</loc>
+    <lastmod>2020-05-23T19:50:51-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/tags/quarantine/</loc>
+    <lastmod>2020-05-23T19:50:51-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/tags/</loc>
+    <lastmod>2020-05-23T19:50:51-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/tags/vida/</loc>
+    <lastmod>2020-05-23T19:50:51-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/categories/life/</loc>
+    <lastmod>2020-05-23T19:50:51-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/tags/ctf/</loc>
     <lastmod>2020-05-14T16:31:51-03:00</lastmod>
   </url>
   
@@ -39,16 +84,6 @@
   
   <url>
     <loc>https://tiagotavares.io/draft/template-htb/</loc>
-    <lastmod>2020-05-14T16:31:51-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tiagotavares.io/post/</loc>
-    <lastmod>2020-05-14T16:31:51-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tiagotavares.io/tags/</loc>
     <lastmod>2020-05-14T16:31:51-03:00</lastmod>
   </url>
   

