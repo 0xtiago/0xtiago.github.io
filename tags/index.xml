@@ -290,5 +290,32 @@
       <description></description>
     </item>
     
+    <item>
+      <title>Curso</title>
+      <link>https://tiagotavares.io/tags/curso/</link>
+      <pubDate>Wed, 02 Jan 2013 14:08:21 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/curso/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Estudos</title>
+      <link>https://tiagotavares.io/tags/estudos/</link>
+      <pubDate>Wed, 02 Jan 2013 14:08:21 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/estudos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://tiagotavares.io/tags/linux/</link>
+      <pubDate>Wed, 02 Jan 2013 14:08:21 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

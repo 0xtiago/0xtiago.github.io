@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>🐧Curso de Linux on debugging the life</title>
+    <link>https://tiagotavares.io/categories/curso-de-linux/</link>
+    <description>Recent content in 🐧Curso de Linux on debugging the life</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 02 Jan 2013 14:08:21 -0300</lastBuildDate>
+    
+	<atom:link href="https://tiagotavares.io/categories/curso-de-linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Curso de Linux – Módulo 1 – Iniciante</title>
+      <link>https://tiagotavares.io/2013/01/curso-de-linux-m%C3%B3dulo-1-iniciante/</link>
+      <pubDate>Wed, 02 Jan 2013 14:08:21 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/2013/01/curso-de-linux-m%C3%B3dulo-1-iniciante/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
