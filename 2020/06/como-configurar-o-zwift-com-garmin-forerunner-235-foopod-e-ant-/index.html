@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.70.0 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="author" content="Tiago Tavares">
+<meta name="keywords" content="">
+<meta name="description" content="">
+
+
+<meta property="og:description" content="">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Como configurar o Zwift com Garmin Forerunner 235, Foopod e ANT&#43;">
+<meta name="twitter:title" content="Como configurar o Zwift com Garmin Forerunner 235, Foopod e ANT&#43;">
+<meta property="og:url" content="https://tiagotavares.io/2020/06/como-configurar-o-zwift-com-garmin-forerunner-235-foopod-e-ant-/">
+<meta property="twitter:url" content="https://tiagotavares.io/2020/06/como-configurar-o-zwift-com-garmin-forerunner-235-foopod-e-ant-/">
+<meta property="og:site_name" content="debugging the life">
+<meta property="og:description" content="">
+<meta name="twitter:description" content="">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2020-06-02T08:40:20">
+  
+  
+    <meta property="article:modified_time" content="2020-06-02T08:40:20">
+  
+  
+  
+    
+      <meta property="article:section" content="🎽Running">
+    
+  
+  
+    
+      <meta property="article:tag" content="corrida">
+    
+      <meta property="article:tag" content="zwift">
+    
+      <meta property="article:tag" content="garmin">
+    
+      <meta property="article:tag" content="forerunner">
+    
+      <meta property="article:tag" content="footpod">
+    
+      <meta property="article:tag" content="ant&#43;">
+    
+      <meta property="article:tag" content="quarentena">
+    
+      <meta property="article:tag" content="running">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@tiagotavares_">
+
+
+  <meta name="twitter:creator" content="@tiagotavares_">
+
+
+
+
+
+
+  <meta property="og:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1591108591/blog/zwift_garmin_xbimzy.png">
+  <meta property="twitter:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1591108591/blog/zwift_garmin_xbimzy.png">
+
+
+  <meta property="og:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1591108827/blog/zwift-run-01_ug23g5.jpg">
+  <meta property="twitter:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1591108827/blog/zwift-run-01_ug23g5.jpg">
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=640">
+
+
+    <title>Como configurar o Zwift com Garmin Forerunner 235, Foopod e ANT&#43;</title>
+
+    <link rel="icon" href="images/favicon-32x32.png">
+    
+
+    
+
+    <link rel="canonical" href="https://tiagotavares.io/2020/06/como-configurar-o-zwift-com-garmin-forerunner-235-foopod-e-ant-/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://tiagotavares.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-36987137-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://tiagotavares.io/">debugging the life</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://tiagotavares.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://tiagotavares.io/#about">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Tiago Tavares</h4>
+        
+          <h5 class="sidebar-profile-bio">Eternal student, cybersecurity pro, husband, runner.</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/tiagotvrs" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.linkedin.com/in/tiagotvrs/" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-linkedin"></i>
+      
+      <span class="sidebar-button-desc">LinkedIn</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.strava.com/athletes/tiagotavares" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-heartbeat"></i>
+      
+      <span class="sidebar-button-desc">Strava</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://twitter.com/tiagotavares_" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+      
+      <span class="sidebar-button-desc">Twitter</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-center
+              "
+       style="background-image:url('https://res.cloudinary.com/dtr6hzxnx/image/upload/v1591108827/blog/zwift-run-01_ug23g5.jpg')"
+       data-behavior="4">
+    
+      <div class="post-header main-content-wrap text-center">
+  
+    <h1 class="post-title" itemprop="headline">
+      Como configurar o Zwift com Garmin Forerunner 235, Foopod e ANT&#43;
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2020-06-02T08:40:20-03:00">
+        
+  June 2, 2020
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://tiagotavares.io/categories/running">🎽Running</a>
+    
+  
+
+  </div>
+
+</div>
+    
+  </div>
+
+
+      <div id="main" data-behavior="4"
+        class="hasCover
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <h2 id="introdução">Introdução</h2>
+<p>Neste período de quarentena tem se intensificado a utilização de dispositivos para mensurar o volume de exercícios realizados indoor. Para quem tem esteira em casa houve um boom de relógios com bons potenciômetros ou footpods, que são pequenos dispositivos amarrados ao seu tênis que são capazes de medir a distancia dos seus passos, consequentemente a distância percorrida, com baixa margem de erro.</p>
+<p>Além disso, houve uma procura muito grande de sistemas que pudessem ajudar no entretenimento durante uma corrida ou ciclismo indoor, onde o <a href="https://zwift.com/">Zwift</a> entra em cena.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1591104030/blog/Zwift_Cycling-Setup-TV_199916372_272178211-920x614_s2pjgw.jpg" alt="enter image description here"></p>
+<p>O Zwift é um simulador de corrida ou ciclismo que pode ser instalado em seu computador, iPad, iPhone ou Apple TV, permitindo que você corra ou pedale com outros atletas em um ambiente virtual, ajudando assim a aliviar parte do tédio dos exercícios em ambiente fechado.</p>
+<p>No meu caso, com exceção da esteira que tive que adquirir pra permanecer treinando razoavelmente, eu já possuía todos os ítens necessários. Hoje possuo o Garmin Forerunner 235, e como eu treinava bastante em esteira, eu tenho fixação por exatidão e registro dos meus treinos, assim decidi também há pelo menos 3 anos comprar um footpod da Garmin para controlar os treinos em esteira.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1591104567/blog/jungle-race_nlsbqe.jpg" alt="enter image description here"></p>
+<p>Meu primeiro relógio de corrida foi um Garmin Forerunner 610, como ele não possuía comunicação Bluetooth, ele se comunicava com o computador através de uma dispositivo Ant+, que além de ser usado para sincronismo de dados de corridas gravadas, ele também e capaz de captar em tempo real o que o relógio está registrando.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1591105644/blog/IMG_1767_dhw7qp.jpg" alt="enter image description here"></p>
+<h2 id="setup">Setup</h2>
+<p>Aqui vou direto ao assunto baseado em no setup que possuo, caso tenham dúvidas, podem deixar nos comentários que irei responder brevemente.</p>
+<h3 id="entenda-a-comunicação">Entenda a comunicação</h3>
+<p>Abaixo coloquei mostro de forma sequencial como funciona a comunicação entre os dispositivos.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1591107865/blog/Zwift_forerunner235_aropc0.png" alt="enter image description here"></p>
+<ol>
+<li>Relógio GPS Forerunner 235, que captará as comunicações do footpod.</li>
+<li>Footpod envia as informações dos passos para o relógio.</li>
+<li>ANT+ receberá em tempo real as informações enviadas pelo relógio.</li>
+<li>O Zwift já configurado recebe as informações e envia para o simulador.</li>
+<li>Smart TV recebendo os dados do computador. Momento de diversão! 😎</li>
+</ol>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1591108683/blog/Watopia_kifeqm.jpg" alt="Utilizando a versão free do Zwift, em circuiti curto."></p>
+<h3 id="passo-a-passo">Passo a passo</h3>
+<ol>
+<li>Criar conta em <a href="https://zwift.com/">Zwift.com</a>. Você pode usar de forma gratuíta, porém com diversas limitações, como percursos, eventos e etc.</li>
+<li>Realizar o download para o seus computador.</li>
+<li>Plugar o dispositivo Ant+ em seu computador.</li>
+<li>Parar o Ant+ com seu Forerunner. Mais detalhes <a href="https://www8.garmin.com/manuals/webhelp/forerunner230/EN-US/GUID-AE5D9A3D-4AC1-4968-829B-549DAF0ED564.html">aqui</a>.</li>
+<li>Configurar seu dispositivo Ant+ no Zwift. Mais detalhes <a href="https://www.youtube.com/watch?v=yb7gidaq-xU">aqui</a> e <a href="https://support.zwift.com/en_us/issues-with-zwift-finding-your-usb-ant-dongle-BkxCqa2GB">aqui</a>.</li>
+<li>Sincronizar seu footpod com seu Forerunner, Mais detalhes <a href="https://www.youtube.com/watch?v=JgDmmY2iHIQ">aqui</a>.</li>
+<li>Executar o simulador Zwift e pé na esteira! 🏃🏿‍♂️</li>
+</ol>
+<h2 id="referências">Referências:</h2>
+<p>Zwift Running Setup: Best Footpods
+<a href="https://www.youtube.com/watch?v=cSRiinN7sSg">https://www.youtube.com/watch?v=cSRiinN7sSg</a></p>
+<p>Zwift Running - Testing ANT+ Garmin Footpod
+<a href="https://www.youtube.com/watch?v=cCFxqJ_iejM">https://www.youtube.com/watch?v=cCFxqJ_iejM</a></p>
+<p>Connecting Your ANT+ Dongle to Zwift — Official Instructions | Zwift
+<a href="https://www.youtube.com/watch?v=yb7gidaq-xU">https://www.youtube.com/watch?v=yb7gidaq-xU</a></p>
+<p>Zwift | Ultimate Footpod Battle | Stryd, Garmin, Milestone, Polar, Tickr
+<a href="https://www.youtube.com/watch?v=MT07ncU9GJA">https://www.youtube.com/watch?v=MT07ncU9GJA</a></p>
+<p>How To Use Zwift Running | A Beginners Guide
+<a href="https://www.youtube.com/watch?v=G6Ukvo64kn4">https://www.youtube.com/watch?v=G6Ukvo64kn4</a></p>
+<p>RECOMMENDED ANT+ STICKS (DONGLES) FOR ZWIFT
+<a href="https://zwiftinsider.com/ant-dongles-for-zwift/">https://zwiftinsider.com/ant-dongles-for-zwift/</a></p>
+<p>Issues with Zwift Finding Your USB ANT+ Dongle
+<a href="https://support.zwift.com/en_us/issues-with-zwift-finding-your-usb-ant-dongle-BkxCqa2GB">https://support.zwift.com/en_us/issues-with-zwift-finding-your-usb-ant-dongle-BkxCqa2GB</a></p>
+<p>Pairing ANT‍+ Sensors
+<a href="https://www8.garmin.com/manuals/webhelp/forerunner230/EN-US/GUID-AE5D9A3D-4AC1-4968-829B-549DAF0ED564.html">https://www8.garmin.com/manuals/webhelp/forerunner230/EN-US/GUID-AE5D9A3D-4AC1-4968-829B-549DAF0ED564.html</a></p>
+<p>Garmin Foot Pod Setup
+<a href="https://www.youtube.com/watch?v=JgDmmY2iHIQ">https://www.youtube.com/watch?v=JgDmmY2iHIQ</a></p>
+<p>Foot Pod
+<a href="https://www8.garmin.com/manuals/webhelp/forerunner235/EN-US/GUID-5B7E3136-E4DC-47ED-89EB-60794DCF1408.html">https://www8.garmin.com/manuals/webhelp/forerunner235/EN-US/GUID-5B7E3136-E4DC-47ED-89EB-60794DCF1408.html</a></p>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/corrida/">corrida</a>
+
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/zwift/">zwift</a>
+
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/garmin/">garmin</a>
+
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/forerunner/">forerunner</a>
+
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/footpod/">footpod</a>
+
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/ant&#43;/">ant&#43;</a>
+
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/quarentena/">quarentena</a>
+
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/running/">running</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/05/a-dor-do-confinamento/" data-tooltip="A dor do confinamento">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2020/06/como-configurar-o-zwift-com-garmin-forerunner-235-foopod-e-ant-/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2020/06/como-configurar-o-zwift-com-garmin-forerunner-235-foopod-e-ant-/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2020/06/como-configurar-o-zwift-com-garmin-forerunner-235-foopod-e-ant-/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2020 Tiago Tavares. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/05/a-dor-do-confinamento/" data-tooltip="A dor do confinamento">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2020/06/como-configurar-o-zwift-com-garmin-forerunner-235-foopod-e-ant-/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2020/06/como-configurar-o-zwift-com-garmin-forerunner-235-foopod-e-ant-/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2020/06/como-configurar-o-zwift-com-garmin-forerunner-235-foopod-e-ant-/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftiagotavares.io%2F2020%2F06%2Fcomo-configurar-o-zwift-com-garmin-forerunner-235-foopod-e-ant-%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Ftiagotavares.io%2F2020%2F06%2Fcomo-configurar-o-zwift-com-garmin-forerunner-235-foopod-e-ant-%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Ftiagotavares.io%2F2020%2F06%2Fcomo-configurar-o-zwift-com-garmin-forerunner-235-foopod-e-ant-%2F">
+          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Tiago Tavares</h4>
+    
+      <div id="about-card-bio">Eternal student, cybersecurity pro, husband, runner.</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Cybersecurity Consultant
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Brazil
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    <div id="cover" style="background-image:url('https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589318923/last_jedi1_ybpjeb.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://tiagotavares.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/tiagotavares.io\/2020\/06\/como-configurar-o-zwift-com-garmin-forerunner-235-foopod-e-ant-\/';
+          
+            this.page.identifier = '\/2020\/06\/como-configurar-o-zwift-com-garmin-forerunner-235-foopod-e-ant-\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'tiagotavares-io';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+
