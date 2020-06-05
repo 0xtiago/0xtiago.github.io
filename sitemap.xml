@@ -3,12 +3,72 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://tiagotavares.io/tags/ant&#43;/</loc>
-    <lastmod>2020-06-02T08:40:20-03:00</lastmod>
+    <loc>https://tiagotavares.io/tags/application/</loc>
+    <lastmod>2020-06-05T12:02:56-03:00</lastmod>
   </url>
   
   <url>
     <loc>https://tiagotavares.io/categories/</loc>
+    <lastmod>2020-06-05T12:02:56-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/tags/cybersecurity/</loc>
+    <lastmod>2020-06-05T12:02:56-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/</loc>
+    <lastmod>2020-06-05T12:02:56-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/tags/development/</loc>
+    <lastmod>2020-06-05T12:02:56-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/tags/lascon/</loc>
+    <lastmod>2020-06-05T12:02:56-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/2020/06/o-fim-dos-times-de-appsec/</loc>
+    <lastmod>2020-06-05T12:02:56-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/tags/owasp/</loc>
+    <lastmod>2020-06-05T12:02:56-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/post/</loc>
+    <lastmod>2020-06-05T12:02:56-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/tags/security/</loc>
+    <lastmod>2020-06-05T12:02:56-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/tags/security-champions/</loc>
+    <lastmod>2020-06-05T12:02:56-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/tags/</loc>
+    <lastmod>2020-06-05T12:02:56-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/categories/%EF%B8%8Fapplication-security/</loc>
+    <lastmod>2020-06-05T12:02:56-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/tags/ant&#43;/</loc>
     <lastmod>2020-06-02T08:40:20-03:00</lastmod>
   </url>
   
@@ -19,11 +79,6 @@
   
   <url>
     <loc>https://tiagotavares.io/tags/corrida/</loc>
-    <lastmod>2020-06-02T08:40:20-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tiagotavares.io/</loc>
     <lastmod>2020-06-02T08:40:20-03:00</lastmod>
   </url>
   
@@ -43,22 +98,12 @@
   </url>
   
   <url>
-    <loc>https://tiagotavares.io/post/</loc>
-    <lastmod>2020-06-02T08:40:20-03:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://tiagotavares.io/tags/quarentena/</loc>
     <lastmod>2020-06-02T08:40:20-03:00</lastmod>
   </url>
   
   <url>
     <loc>https://tiagotavares.io/tags/running/</loc>
-    <lastmod>2020-06-02T08:40:20-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tiagotavares.io/tags/</loc>
     <lastmod>2020-06-02T08:40:20-03:00</lastmod>
   </url>
   
@@ -333,17 +378,7 @@
   </url>
   
   <url>
-    <loc>https://tiagotavares.io/tags/cybersecurity/</loc>
-    <lastmod>2015-02-10T14:40:20-03:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://tiagotavares.io/2015/02/o-uso-seguro-da-internet-e-os-10-nuncas/</loc>
-    <lastmod>2015-02-10T14:40:20-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tiagotavares.io/tags/security/</loc>
     <lastmod>2015-02-10T14:40:20-03:00</lastmod>
   </url>
   

@@ -7,50 +7,48 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.70.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Tiago Tavares">
-<meta name="keywords" content="">
-<meta name="description" content="">
+<meta name="keywords" content="tech">
+<meta name="description" content="O paradoxo da segurança em aplicações.">
 
 
-<meta property="og:description" content="">
+<meta property="og:description" content="O paradoxo da segurança em aplicações.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Como configurar o Zwift com Garmin Forerunner 235, Foopod e ANT&#43;">
-<meta name="twitter:title" content="Como configurar o Zwift com Garmin Forerunner 235, Foopod e ANT&#43;">
-<meta property="og:url" content="https://tiagotavares.io/2020/06/como-configurar-o-zwift-com-garmin-forerunner-235-foopod-e-ant-/">
-<meta property="twitter:url" content="https://tiagotavares.io/2020/06/como-configurar-o-zwift-com-garmin-forerunner-235-foopod-e-ant-/">
+<meta property="og:title" content="O fim dos times de AppSec">
+<meta name="twitter:title" content="O fim dos times de AppSec">
+<meta property="og:url" content="https://tiagotavares.io/2020/06/o-fim-dos-times-de-appsec/">
+<meta property="twitter:url" content="https://tiagotavares.io/2020/06/o-fim-dos-times-de-appsec/">
 <meta property="og:site_name" content="debugging the life">
-<meta property="og:description" content="">
-<meta name="twitter:description" content="">
+<meta property="og:description" content="O paradoxo da segurança em aplicações.">
+<meta name="twitter:description" content="O paradoxo da segurança em aplicações.">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2020-06-02T08:40:20">
+    <meta property="article:published_time" content="2020-06-05T12:02:56">
   
   
-    <meta property="article:modified_time" content="2020-06-02T08:40:20">
+    <meta property="article:modified_time" content="2020-06-05T12:02:56">
   
-  
-  
-    
-      <meta property="article:section" content="🎽Running">
-    
   
   
     
-      <meta property="article:tag" content="corrida">
+      <meta property="article:section" content="🛡️Application Security">
     
-      <meta property="article:tag" content="zwift">
+  
+  
     
-      <meta property="article:tag" content="garmin">
+      <meta property="article:tag" content="application">
     
-      <meta property="article:tag" content="forerunner">
+      <meta property="article:tag" content="development">
     
-      <meta property="article:tag" content="footpod">
+      <meta property="article:tag" content="security">
     
-      <meta property="article:tag" content="ant&#43;">
+      <meta property="article:tag" content="cybersecurity">
     
-      <meta property="article:tag" content="quarentena">
+      <meta property="article:tag" content="lascon">
     
-      <meta property="article:tag" content="running">
+      <meta property="article:tag" content="owasp">
+    
+      <meta property="article:tag" content="security champions">
     
   
 
@@ -67,12 +65,12 @@
 
 
 
-  <meta property="og:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1591108591/blog/zwift_garmin_xbimzy.png">
-  <meta property="twitter:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1591108591/blog/zwift_garmin_xbimzy.png">
+  <meta property="og:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1591370073/blog/10facc7e838977af12a73e3635250386_ttgcls.jpg">
+  <meta property="twitter:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1591370073/blog/10facc7e838977af12a73e3635250386_ttgcls.jpg">
 
 
-  <meta property="og:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1591108827/blog/zwift-run-01_ug23g5.jpg">
-  <meta property="twitter:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1591108827/blog/zwift-run-01_ug23g5.jpg">
+  <meta property="og:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1591370546/blog/6a0168ea36d6b2970c022ad383a9eb200d_kfk9j3.png">
+  <meta property="twitter:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1591370546/blog/6a0168ea36d6b2970c022ad383a9eb200d_kfk9j3.png">
 
 
 
@@ -81,14 +79,14 @@
   <meta property="twitter:image" content="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=640">
 
 
-    <title>Como configurar o Zwift com Garmin Forerunner 235, Foopod e ANT&#43;</title>
+    <title>O fim dos times de AppSec</title>
 
     <link rel="icon" href="images/favicon-32x32.png">
     
 
     
 
-    <link rel="canonical" href="https://tiagotavares.io/2020/06/como-configurar-o-zwift-com-garmin-forerunner-235-foopod-e-ant-/">
+    <link rel="canonical" href="https://tiagotavares.io/2020/06/o-fim-dos-times-de-appsec/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -273,21 +271,21 @@ if (!doNotTrack) {
   <div class="post-header-cover
               text-center
               "
-       style="background-image:url('https://res.cloudinary.com/dtr6hzxnx/image/upload/v1591108827/blog/zwift-run-01_ug23g5.jpg')"
+       style="background-image:url('https://res.cloudinary.com/dtr6hzxnx/image/upload/v1591370546/blog/6a0168ea36d6b2970c022ad383a9eb200d_kfk9j3.png')"
        data-behavior="4">
     
       <div class="post-header main-content-wrap text-center">
   
     <h1 class="post-title" itemprop="headline">
-      Como configurar o Zwift com Garmin Forerunner 235, Foopod e ANT&#43;
+      O fim dos times de AppSec
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2020-06-02T08:40:20-03:00">
+      <time itemprop="datePublished" datetime="2020-06-05T12:02:56-03:00">
         
-  June 2, 2020
+  June 5, 2020
 
       </time>
     
@@ -296,7 +294,7 @@ if (!doNotTrack) {
   
     <span>in</span>
     
-      <a class="category-link" href="https://tiagotavares.io/categories/running">🎽Running</a>
+      <a class="category-link" href="https://tiagotavares.io/categories/%ef%b8%8fapplication-security">🛡️Application Security</a>
     
   
 
@@ -316,59 +314,19 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <h2 id="introdução">Introdução</h2>
-<p>Neste período de quarentena tem se intensificado a utilização de dispositivos para mensurar o volume de exercícios realizados indoor. Para quem tem esteira em casa houve um boom de relógios com bons potenciômetros ou footpods, que são pequenos dispositivos amarrados ao seu tênis que são capazes de medir a distancia dos seus passos, consequentemente a distância percorrida, com baixa margem de erro.</p>
-<p>Além disso, houve uma procura muito grande de sistemas que pudessem ajudar no entretenimento durante uma corrida ou ciclismo indoor, onde o <a href="https://zwift.com/">Zwift</a> entra em cena.</p>
-<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1591104030/blog/Zwift_Cycling-Setup-TV_199916372_272178211-920x614_s2pjgw.jpg" alt="enter image description here"></p>
-<p>O Zwift é um simulador de corrida ou ciclismo que pode ser instalado em seu computador, iPad, iPhone ou Apple TV, permitindo que você corra ou pedale com outros atletas em um ambiente virtual, ajudando assim a aliviar parte do tédio dos exercícios em ambiente fechado.</p>
-<p>No meu caso, com exceção da esteira que tive que adquirir pra permanecer treinando razoavelmente, eu já possuía todos os ítens necessários. Hoje possuo o Garmin Forerunner 235, e como eu treinava bastante em esteira, eu tenho fixação por exatidão e registro dos meus treinos, assim decidi também há pelo menos 3 anos comprar um footpod da Garmin para controlar os treinos em esteira.</p>
-<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1591104567/blog/jungle-race_nlsbqe.jpg" alt="enter image description here"></p>
-<p>Meu primeiro relógio de corrida foi um Garmin Forerunner 610, como ele não possuía comunicação Bluetooth, ele se comunicava com o computador através de uma dispositivo Ant+, que além de ser usado para sincronismo de dados de corridas gravadas, ele também e capaz de captar em tempo real o que o relógio está registrando.</p>
-<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1591105644/blog/IMG_1767_dhw7qp.jpg" alt="enter image description here"></p>
-<h2 id="setup">Setup</h2>
-<p>Aqui vou direto ao assunto baseado em no setup que possuo, caso tenham dúvidas, podem deixar nos comentários que irei responder brevemente.</p>
-<h3 id="entenda-a-comunicação">Entenda a comunicação</h3>
-<p>Abaixo coloquei mostro de forma sequencial como funciona a comunicação entre os dispositivos.</p>
-<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1591107865/blog/Zwift_forerunner235_aropc0.png" alt="enter image description here"></p>
-<ol>
-<li>Relógio GPS Forerunner 235, que captará as comunicações do footpod.</li>
-<li>Footpod envia as informações dos passos para o relógio.</li>
-<li>ANT+ receberá em tempo real as informações enviadas pelo relógio.</li>
-<li>O Zwift já configurado recebe as informações e envia para o simulador.</li>
-<li>Smart TV recebendo os dados do computador. Momento de diversão! 😎</li>
-</ol>
-<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1591108683/blog/Watopia_kifeqm.jpg" alt="Utilizando a versão free do Zwift, em circuiti curto."></p>
-<h3 id="passo-a-passo">Passo a passo</h3>
-<ol>
-<li>Criar conta em <a href="https://zwift.com/">Zwift.com</a>. Você pode usar de forma gratuíta, porém com diversas limitações, como percursos, eventos e etc.</li>
-<li>Realizar o download para o seus computador.</li>
-<li>Plugar o dispositivo Ant+ em seu computador.</li>
-<li>Parar o Ant+ com seu Forerunner. Mais detalhes <a href="https://www8.garmin.com/manuals/webhelp/forerunner230/EN-US/GUID-AE5D9A3D-4AC1-4968-829B-549DAF0ED564.html">aqui</a>.</li>
-<li>Configurar seu dispositivo Ant+ no Zwift. Mais detalhes <a href="https://www.youtube.com/watch?v=yb7gidaq-xU">aqui</a> e <a href="https://support.zwift.com/en_us/issues-with-zwift-finding-your-usb-ant-dongle-BkxCqa2GB">aqui</a>.</li>
-<li>Sincronizar seu footpod com seu Forerunner, Mais detalhes <a href="https://www.youtube.com/watch?v=JgDmmY2iHIQ">aqui</a>.</li>
-<li>Executar o simulador Zwift e pé na esteira! 🏃🏿‍♂️</li>
-</ol>
-<h2 id="referências">Referências:</h2>
-<p>Zwift Running Setup: Best Footpods
-<a href="https://www.youtube.com/watch?v=cSRiinN7sSg">https://www.youtube.com/watch?v=cSRiinN7sSg</a></p>
-<p>Zwift Running - Testing ANT+ Garmin Footpod
-<a href="https://www.youtube.com/watch?v=cCFxqJ_iejM">https://www.youtube.com/watch?v=cCFxqJ_iejM</a></p>
-<p>Connecting Your ANT+ Dongle to Zwift — Official Instructions | Zwift
-<a href="https://www.youtube.com/watch?v=yb7gidaq-xU">https://www.youtube.com/watch?v=yb7gidaq-xU</a></p>
-<p>Zwift | Ultimate Footpod Battle | Stryd, Garmin, Milestone, Polar, Tickr
-<a href="https://www.youtube.com/watch?v=MT07ncU9GJA">https://www.youtube.com/watch?v=MT07ncU9GJA</a></p>
-<p>How To Use Zwift Running | A Beginners Guide
-<a href="https://www.youtube.com/watch?v=G6Ukvo64kn4">https://www.youtube.com/watch?v=G6Ukvo64kn4</a></p>
-<p>RECOMMENDED ANT+ STICKS (DONGLES) FOR ZWIFT
-<a href="https://zwiftinsider.com/ant-dongles-for-zwift/">https://zwiftinsider.com/ant-dongles-for-zwift/</a></p>
-<p>Issues with Zwift Finding Your USB ANT+ Dongle
-<a href="https://support.zwift.com/en_us/issues-with-zwift-finding-your-usb-ant-dongle-BkxCqa2GB">https://support.zwift.com/en_us/issues-with-zwift-finding-your-usb-ant-dongle-BkxCqa2GB</a></p>
-<p>Pairing ANT‍+ Sensors
-<a href="https://www8.garmin.com/manuals/webhelp/forerunner230/EN-US/GUID-AE5D9A3D-4AC1-4968-829B-549DAF0ED564.html">https://www8.garmin.com/manuals/webhelp/forerunner230/EN-US/GUID-AE5D9A3D-4AC1-4968-829B-549DAF0ED564.html</a></p>
-<p>Garmin Foot Pod Setup
-<a href="https://www.youtube.com/watch?v=JgDmmY2iHIQ">https://www.youtube.com/watch?v=JgDmmY2iHIQ</a></p>
-<p>Foot Pod
-<a href="https://www8.garmin.com/manuals/webhelp/forerunner235/EN-US/GUID-5B7E3136-E4DC-47ED-89EB-60794DCF1408.html">https://www8.garmin.com/manuals/webhelp/forerunner235/EN-US/GUID-5B7E3136-E4DC-47ED-89EB-60794DCF1408.html</a></p>
+              <p>O paradoxo da segurança em aplicações.</p>
+<p>Hoje temos times de cybersegurança estão bem consolidados nas organizações, com pessoas dedicadas inclusive a análise de aplicações, mas a integração nunca é fluída, dificilmente o time responsável por arquitetura, análise e testes estão de fato próximos aos times de desenvolvimento. Mas será que mesmo que estivessem próximos aos times de engenharia seria viável acompanhar a curva de entrega dos times de desenvolvimento? Isso sempre foi uma questão de reflexão, paradoxal ao ponto de estar como um cão correndo atrás do próprio rabo.</p>
+<p>Após algumas situações de análise de requisitos em meu atual empregados junto com meu time e pesquisas, encontrei uma boa referência no material apresentado pelo Justin Collins (@presidentbeef) na Lonestar Application Security Conference (LASCON) de 2019, que ocorre todos os anos em Austin, TX.</p>
+<blockquote>
+<p>&ldquo;Sua equipe de segurança de aplicações é grande o suficiente? Depois de crescer além de algumas pessoas, as equipes de segurança geralmente se desesperam tentando contratar mais pessoal de AppSec. Embora isso seja bom para os profissionais do setor, é ainda matematicamente possível contratar pessoal da AppSec suficiente para lidar com a quantidade de código, recursos, plataformas e produtos que o resto da sua organização está produzindo? Mesmo com todas as ferramentas que se pode comprar, é improvável que o time de AppSec possa acompanhar o ritmo do restante da equipe de desenvolvimento. Se o time de AppSec nunca pode ser grande o suficiente, o que podemos fazer? Bem, vamos entrar em nossas máquinas do tempo, pular a rotina atual do AppSec e dar uma olhada no futuro no final da equipe do AppSec.&rdquo;</p>
+</blockquote>
+<h2 id="-youtube">▶ Youtube</h2>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/7CIW1P2fnGw" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<h2 id="-download-da-apresentação7dthe20end20of20the20appsec20team20-20justin20collinspdf">📄 <a href="7d/The%20End%20of%20the%20AppSec%20Team%20-%20Justin%20Collins.pdf">Download da apresentação</a></h2>
               
             </div>
           </div>
@@ -380,21 +338,19 @@ if (!doNotTrack) {
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/corrida/">corrida</a>
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/application/">application</a>
 
-  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/zwift/">zwift</a>
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/development/">development</a>
 
-  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/garmin/">garmin</a>
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/security/">security</a>
 
-  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/forerunner/">forerunner</a>
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/cybersecurity/">cybersecurity</a>
 
-  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/footpod/">footpod</a>
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/lascon/">lascon</a>
 
-  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/ant&#43;/">ant&#43;</a>
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/owasp/">owasp</a>
 
-  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/quarentena/">quarentena</a>
-
-  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/running/">running</a>
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/security-champions/">security champions</a>
 
                   </div>
                 
@@ -407,7 +363,7 @@ if (!doNotTrack) {
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/06/o-fim-dos-times-de-appsec/" data-tooltip="O fim dos times de AppSec">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -415,7 +371,7 @@ if (!doNotTrack) {
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/05/a-dor-do-confinamento/" data-tooltip="A dor do confinamento">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/06/como-configurar-o-zwift-com-garmin-forerunner-235-foopod-e-ant-/" data-tooltip="Como configurar o Zwift com Garmin Forerunner 235, Foopod e ANT&#43;">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -433,19 +389,19 @@ if (!doNotTrack) {
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2020/06/como-configurar-o-zwift-com-garmin-forerunner-235-foopod-e-ant-/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2020/06/o-fim-dos-times-de-appsec/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2020/06/como-configurar-o-zwift-com-garmin-forerunner-235-foopod-e-ant-/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2020/06/o-fim-dos-times-de-appsec/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2020/06/como-configurar-o-zwift-com-garmin-forerunner-235-foopod-e-ant-/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2020/06/o-fim-dos-times-de-appsec/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -493,7 +449,7 @@ if (!doNotTrack) {
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/06/o-fim-dos-times-de-appsec/" data-tooltip="O fim dos times de AppSec">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -501,7 +457,7 @@ if (!doNotTrack) {
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/05/a-dor-do-confinamento/" data-tooltip="A dor do confinamento">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/06/como-configurar-o-zwift-com-garmin-forerunner-235-foopod-e-ant-/" data-tooltip="Como configurar o Zwift com Garmin Forerunner 235, Foopod e ANT&#43;">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -519,19 +475,19 @@ if (!doNotTrack) {
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2020/06/como-configurar-o-zwift-com-garmin-forerunner-235-foopod-e-ant-/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2020/06/o-fim-dos-times-de-appsec/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2020/06/como-configurar-o-zwift-com-garmin-forerunner-235-foopod-e-ant-/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2020/06/o-fim-dos-times-de-appsec/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2020/06/como-configurar-o-zwift-com-garmin-forerunner-235-foopod-e-ant-/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2020/06/o-fim-dos-times-de-appsec/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -561,19 +517,19 @@ if (!doNotTrack) {
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftiagotavares.io%2F2020%2F06%2Fcomo-configurar-o-zwift-com-garmin-forerunner-235-foopod-e-ant-%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftiagotavares.io%2F2020%2F06%2Fo-fim-dos-times-de-appsec%2F">
           <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Ftiagotavares.io%2F2020%2F06%2Fcomo-configurar-o-zwift-com-garmin-forerunner-235-foopod-e-ant-%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Ftiagotavares.io%2F2020%2F06%2Fo-fim-dos-times-de-appsec%2F">
           <i class="fa fa-twitter"></i><span>Share on Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Ftiagotavares.io%2F2020%2F06%2Fcomo-configurar-o-zwift-com-garmin-forerunner-235-foopod-e-ant-%2F">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Ftiagotavares.io%2F2020%2F06%2Fo-fim-dos-times-de-appsec%2F">
           <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
         </a>
       </li>
@@ -663,9 +619,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/tiagotavares.io\/2020\/06\/como-configurar-o-zwift-com-garmin-forerunner-235-foopod-e-ant-\/';
+          this.page.url = 'https:\/\/tiagotavares.io\/2020\/06\/o-fim-dos-times-de-appsec\/';
           
-            this.page.identifier = '\/2020\/06\/como-configurar-o-zwift-com-garmin-forerunner-235-foopod-e-ant-\/'
+            this.page.identifier = '\/2020\/06\/o-fim-dos-times-de-appsec\/'
           
         };
         (function() {

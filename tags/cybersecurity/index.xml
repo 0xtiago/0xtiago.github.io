@@ -6,10 +6,19 @@
     <description>Recent content in cybersecurity on debugging the life</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 10 Feb 2015 14:40:20 -0300</lastBuildDate>
+    <lastBuildDate>Fri, 05 Jun 2020 12:02:56 -0300</lastBuildDate>
     
 	<atom:link href="https://tiagotavares.io/tags/cybersecurity/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>O fim dos times de AppSec</title>
+      <link>https://tiagotavares.io/2020/06/o-fim-dos-times-de-appsec/</link>
+      <pubDate>Fri, 05 Jun 2020 12:02:56 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/2020/06/o-fim-dos-times-de-appsec/</guid>
+      <description>&lt;p&gt;O paradoxo da segurança em aplicações.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>O uso seguro da internet e &#39;Os 10 nuncas&#39;</title>
