@@ -6,7 +6,7 @@
     <description>Recent content in Tags on debugging the life</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 05 Jun 2020 12:02:56 -0300</lastBuildDate>
+    <lastBuildDate>Fri, 12 Jun 2020 12:15:12 -0300</lastBuildDate>
     
 	<atom:link href="https://tiagotavares.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,16 +14,25 @@
     <item>
       <title>application</title>
       <link>https://tiagotavares.io/tags/application/</link>
-      <pubDate>Fri, 05 Jun 2020 12:02:56 -0300</pubDate>
+      <pubDate>Fri, 12 Jun 2020 12:15:12 -0300</pubDate>
       
       <guid>https://tiagotavares.io/tags/application/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>criptography</title>
+      <link>https://tiagotavares.io/tags/criptography/</link>
+      <pubDate>Fri, 12 Jun 2020 12:15:12 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/criptography/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>cybersecurity</title>
       <link>https://tiagotavares.io/tags/cybersecurity/</link>
-      <pubDate>Fri, 05 Jun 2020 12:02:56 -0300</pubDate>
+      <pubDate>Fri, 12 Jun 2020 12:15:12 -0300</pubDate>
       
       <guid>https://tiagotavares.io/tags/cybersecurity/</guid>
       <description></description>
@@ -32,9 +41,36 @@
     <item>
       <title>development</title>
       <link>https://tiagotavares.io/tags/development/</link>
-      <pubDate>Fri, 05 Jun 2020 12:02:56 -0300</pubDate>
+      <pubDate>Fri, 12 Jun 2020 12:15:12 -0300</pubDate>
       
       <guid>https://tiagotavares.io/tags/development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jwt</title>
+      <link>https://tiagotavares.io/tags/jwt/</link>
+      <pubDate>Fri, 12 Jun 2020 12:15:12 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/jwt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>owasp</title>
+      <link>https://tiagotavares.io/tags/owasp/</link>
+      <pubDate>Fri, 12 Jun 2020 12:15:12 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/owasp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>security</title>
+      <link>https://tiagotavares.io/tags/security/</link>
+      <pubDate>Fri, 12 Jun 2020 12:15:12 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/security/</guid>
       <description></description>
     </item>
     
@@ -44,24 +80,6 @@
       <pubDate>Fri, 05 Jun 2020 12:02:56 -0300</pubDate>
       
       <guid>https://tiagotavares.io/tags/lascon/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>owasp</title>
-      <link>https://tiagotavares.io/tags/owasp/</link>
-      <pubDate>Fri, 05 Jun 2020 12:02:56 -0300</pubDate>
-      
-      <guid>https://tiagotavares.io/tags/owasp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>security</title>
-      <link>https://tiagotavares.io/tags/security/</link>
-      <pubDate>Fri, 05 Jun 2020 12:02:56 -0300</pubDate>
-      
-      <guid>https://tiagotavares.io/tags/security/</guid>
       <description></description>
     </item>
     

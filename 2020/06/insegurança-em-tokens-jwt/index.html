@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.70.0 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="author" content="Tiago Tavares">
+<meta name="keywords" content="tech">
+<meta name="description" content="Existem muitas bibliotecas disponíveis que suportam JWT, e o próprio padrão possui “rico suporte para mecanismos criptográficos”. Tudo isso significa que o JWT é inerentemente seguro? Vamos ver.">
+
+
+<meta property="og:description" content="Existem muitas bibliotecas disponíveis que suportam JWT, e o próprio padrão possui “rico suporte para mecanismos criptográficos”. Tudo isso significa que o JWT é inerentemente seguro? Vamos ver.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="(In)segurança em tokens JWT">
+<meta name="twitter:title" content="(In)segurança em tokens JWT">
+<meta property="og:url" content="https://tiagotavares.io/2020/06/inseguran%C3%A7a-em-tokens-jwt/">
+<meta property="twitter:url" content="https://tiagotavares.io/2020/06/inseguran%C3%A7a-em-tokens-jwt/">
+<meta property="og:site_name" content="debugging the life">
+<meta property="og:description" content="Existem muitas bibliotecas disponíveis que suportam JWT, e o próprio padrão possui “rico suporte para mecanismos criptográficos”. Tudo isso significa que o JWT é inerentemente seguro? Vamos ver.">
+<meta name="twitter:description" content="Existem muitas bibliotecas disponíveis que suportam JWT, e o próprio padrão possui “rico suporte para mecanismos criptográficos”. Tudo isso significa que o JWT é inerentemente seguro? Vamos ver.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2020-06-12T12:15:12">
+  
+  
+    <meta property="article:modified_time" content="2020-06-12T12:15:12">
+  
+  
+  
+    
+      <meta property="article:section" content="Application Security">
+    
+  
+  
+    
+      <meta property="article:tag" content="application">
+    
+      <meta property="article:tag" content="development">
+    
+      <meta property="article:tag" content="security">
+    
+      <meta property="article:tag" content="cybersecurity">
+    
+      <meta property="article:tag" content="jwt">
+    
+      <meta property="article:tag" content="owasp">
+    
+      <meta property="article:tag" content="criptography">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@tiagotavares_">
+
+
+  <meta name="twitter:creator" content="@tiagotavares_">
+
+
+
+
+
+
+  <meta property="og:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1591987649/blog/chave_quebrada_fafcvp.png">
+  <meta property="twitter:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1591987649/blog/chave_quebrada_fafcvp.png">
+
+
+  <meta property="og:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1591986661/blog/photo_keys-on-wooden-background_iwl6ae.jpg">
+  <meta property="twitter:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1591986661/blog/photo_keys-on-wooden-background_iwl6ae.jpg">
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=640">
+
+
+    <title>(In)segurança em tokens JWT</title>
+
+    <link rel="icon" href="images/favicon-32x32.png">
+    
+
+    
+
+    <link rel="canonical" href="https://tiagotavares.io/2020/06/inseguran%C3%A7a-em-tokens-jwt/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://tiagotavares.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-36987137-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://tiagotavares.io/">debugging the life</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://tiagotavares.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://tiagotavares.io/#about">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Tiago Tavares</h4>
+        
+          <h5 class="sidebar-profile-bio">Eternal student, cybersecurity pro, husband, runner.</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/tiagotvrs" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.linkedin.com/in/tiagotvrs/" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-linkedin"></i>
+      
+      <span class="sidebar-button-desc">LinkedIn</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.strava.com/athletes/tiagotavares" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-heartbeat"></i>
+      
+      <span class="sidebar-button-desc">Strava</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://twitter.com/tiagotavares_" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+      
+      <span class="sidebar-button-desc">Twitter</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-center
+              "
+       style="background-image:url('https://res.cloudinary.com/dtr6hzxnx/image/upload/v1591986661/blog/photo_keys-on-wooden-background_iwl6ae.jpg')"
+       data-behavior="4">
+    
+      <div class="post-header main-content-wrap text-center">
+  
+    <h1 class="post-title" itemprop="headline">
+      (In)segurança em tokens JWT
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2020-06-12T12:15:12-03:00">
+        
+  June 12, 2020
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://tiagotavares.io/categories/application-security">Application Security</a>
+    
+  
+
+  </div>
+
+</div>
+    
+  </div>
+
+
+      <div id="main" data-behavior="4"
+        class="hasCover
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>Existem muitas bibliotecas disponíveis que suportam JWT, e o próprio padrão possui “rico suporte para mecanismos criptográficos”. Tudo isso significa que o JWT é inerentemente seguro? Vamos ver.</p>
+<p><em>Texto de pesquisa traduzido do <a href="https://research.securitum.com/jwt-json-web-token-security/">original</a> por <a href="https://www.linkedin.com/in/sekurak/">MICHAŁ SAJDAK</a>.</em></p>
+<hr>
+<p>O JWT (JSON Web Token) é um mecanismo usado com frequência nas APIs REST e pode ser encontrado em padrões populares, como o OpenID Connect, mas também o encontramos algumas vezes usando o OAuth2. É usado tanto em grandes empresas quanto em organizações menores.</p>
+<h2 id="sumário">Sumário</h2>
+<ul>
+<li><a href="#introdu%C3%A7%C3%A3o-ao-jwt">Introdução ao JWT</a></li>
+<li><a href="#outros-examples-de-jwt-e-seus-primeiros-problemas-de-seguran%C3%A7a">Outros examples de JWT e seus primeiros problemas de segurança</a></li>
+<li><a href="#espinhos-do-jwt-">Espinhos do JWT 🌹</a>
+<ul>
+<li><a href="#primeiro-espinho-%C3%A9-complexo">Primeiro espinho: é complexo!</a></li>
+<li><a href="#segundo-espinho-none">Segundo espinho: none!</a></li>
+<li><a href="#terceiro-espinho-quebrando-a-chave-hmac">Terceiro espinho: quebrando a chave HMAC</a></li>
+<li><a href="#quarto-espinho-muitos-cozinheiros-estragam-o-caldo-do-jwt">Quarto espinho: muitos cozinheiros estragam o caldo do JWT</a></li>
+<li><a href="#quinto-espinho-fornecendo-sua-pr%C3%B3pria-chave">Quinto espinho: fornecendo sua própria chave</a></li>
+<li><a href="#sexto-espinho-a-criptografia-jwt-funciona-mesmo">Sexto espinho: a criptografia JWT funciona mesmo?</a></li>
+<li><a href="#s%C3%A9timo-espinho-decodifica%C3%A7%C3%A3o--verifica%C3%A7%C3%A3o---isso-importa-">Sétimo espinho: decodificação / verificação - isso importa? 😉</a></li>
+<li><a href="#oitavo-espinho-capturar-qualquer-token--assumir-o-acesso-%C3%A0-api">Oitavo espinho: capturar qualquer token = assumir o acesso à API?</a></li>
+<li><a href="#nono-espinho-replay-jwt">Nono espinho: replay JWT</a></li>
+<li><a href="#d%C3%A9cimo-espinho-timing-attacks-na-assinatura">Décimo espinho: <em>timing attacks</em> na assinatura</a></li>
+<li><a href="#d%C3%A9cimo-primeiro-espinho-grande-quantidade-de-bibliotecas-dispon%C3%ADveis">Décimo-primeiro espinho: grande quantidade de bibliotecas disponíveis</a></li>
+</ul>
+</li>
+<li><a href="#alternativa-ao-jwt">Alternativa ao JWT?</a></li>
+<li><a href="#o-jwt-pode-ser-seguro">O JWT pode ser seguro?</a>
+<ul>
+<li><a href="#o-que-devo-fazer">O que devo fazer?</a>
+<ul>
+<li><a href="#pra-come%C3%A7ar">Pra começar</a></li>
+<li><a href="#chaves">Chaves</a></li>
+<li><a href="#assinatura">Assinatura</a></li>
+<li><a href="#regras-gerais">Regras gerais</a></li>
+<li><a href="#payload">Payload</a></li>
+<li><a href="#bibliotecas">Bibliotecas</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#refer%C3%AAncias">Referências</a></li>
+</ul>
+<h2 id="introdução-ao-jwt">Introdução ao JWT</h2>
+<p>A <a href="https://tools.ietf.org/html/rfc7519">RFC 7519</a> diz:</p>
+<blockquote>
+<p><em>O JSON Web Token (JWT) é um meio compacto e seguro de URL de representar <em>claims</em> a serem transferidas entre duas partes. As <em>claims</em> em um JWT são codificadas como um objeto JSON usado como payload de uma estrutura JSON Web Signature (JWS) ou como texto sem formatação de uma estrutura JSON Web Encryption (JWE) (…)</em></p>
+</blockquote>
+<p>Simplificando, o JWT é uma sequência de caracteres no formato JSON (<a href="https://www.json.org/">https://www.json.org/</a>) codificado na estrutura JWS (JSON Web Signature) ou JWE (JSON Web Encryption). Além disso, cada uma dessas opções deve ser serializada de maneira compacta (uma das duas serializações no JWS e JWE). <strong>Na maioria das vezes você pode ver o JWS, e é essa estrutura que é popularmente chamada JWT</strong>. Por sua vez, <a href="https://tools.ietf.org/html/rfc7519#section-4">&ldquo;claim&rdquo;</a> é geralmente um simples par de &ldquo;chave&rdquo;: &ldquo;valor&rdquo;</p>
+<p>Um exemplo de um JWT é mostrado abaixo:</p>
+<p><img src="https://research.securitum.com/wp-content/uploads/sites/2/2019/10/jwt_ng1_en.png" alt="enter image description here"></p>
+<p>Você pode ver que temos aqui três longas sequências de caracteres separadas por um ponto. A estrutura do todo é a seguinte:</p>
+<p><em>cabeçalho . payload . assinatura</em></p>
+<p>Os três elementos acima são codificados com o algoritmo BASE64URL (que se parece muito com o BASE64, onde o sinal de mais (+) na saída é substituído por hífen (-), a barra (/) é substituída pelo <em>undescore</em> (_) e existe nenhum preenchimento BASE64 padrão, que geralmente consiste em sinais de igual (=)).</p>
+<p>Após decodificar a sequência acima (que pode ser feita, por exemplo, por <a href="https://jwt.io/),">https://jwt.io/),</a> podemos ver um cabeçalho e payload totalmente legíveis.</p>
+<p>Se você quiser saber mais sobre o JWT, os seguintes recursos podem ser úteis:</p>
+<ol>
+<li><a href="https://tools.ietf.org/wg/jose/">Introdução</a>.</li>
+<li><a href="https://tools.ietf.org/html/rfc7519">Mais detalhes técnicos</a>.</li>
+<li><a href="https://tools.ietf.org/wg/jose/https://tools.ietf.org/wg/jose/">JOSE Project</a> (Javascript Object Signing and Encryption) – exceto para JWT / JWT, você pode ler mais sobre JWK (JSON Web Key), JWA (JSON Web Algorithms), uso diferente dos mecanismos no OAuth2 / OpenID Connect; acontece que o JWS pode ter mais de uma assinatura, os JWTs podem ser aninhados…
+Um bom resumo <a href="https://www.iana.org/assignments/jose/jose.xhtml">disponível aqui</a>.</li>
+</ol>
+<h2 id="outros-examples-de-jwt-e-seus-primeiros-problemas-de-segurança">Outros examples de JWT e seus primeiros problemas de segurança</h2>
+<p>Vamos para o tópico principal - segurança JWT. Às vezes, os JWTs podem ser usados ​​como &ldquo;chaves de API&rdquo;. No exemplo de uma chave desse tipo, pode ser assim:</p>
+<pre><code>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOiIxNDE2OTI5MDYxIiwianRpIjoiODAyMDU3ZmY5YjViNGViN2ZiYjg4NTZiNmViMmNjNWIiLCJzY29wZXMiOnsidXNlcnMiOnsiYWN0aW9ucyI6WyJyZWFkIiwiY3JlYXRlIl19LCJ1c2Vyc19hcHBfbWV0YWRhdGEiOnsiYWN0aW9ucyI6WyJyZWFkIiwiY3JlYXRlIl19fX0.gll8YBKPLq6ZLkCPLoghaBZG_ojFLREyLQYx0l2BG3E
+</code></pre><p>Após decodificar com a função de decodificação BASE64URL, temos as seguintes seções:</p>
+<p><strong>Cabeçalho:</strong>
+{<br>
+“alg “: “HS256 “,<br>
+“typ “: “JWT “<br>
+}</p>
+<p><strong>Payload:</strong>
+{<br>
+“iat”: “1416929061”,<br>
+“jti”: “802057ff9b5b4eb7fbb8856b6eb2cc5b”,<br>
+“scopes”: {<br>
+“users”: {<br>
+“actions”: [<br>
+“read”,<br>
+“create”<br>
+]<br>
+},<br>
+“users_app_metadata”: {<br>
+“actions”: [<br>
+“read”,<br>
+“create”<br>
+]<br>
+}<br>
+}<br>
+}</p>
+<p><strong>Assinatura:</strong></p>
+<p>Apenas um conteúdo binário.</p>
+<p>Como você pode ver, com essa “chave da API” (seu conteúdo principal está no payload), podemos implementar a autenticação (tenho o privilégio de me comunicar com a API) e a autorização (no payload acima, você pode ver exemplos de ações que pode ser realizada pelo proprietário da chave).</p>
+<p>Do ponto de vista da segurança, existem pelo menos dois <strong>problemas em potencial</strong>, para começar.</p>
+<p><strong>O primeiro</strong> é a falta de confidencialidade - conseguimos decodificar o payload (e o cabeçalho) facilmente. Às vezes, não é um problema (ou é mesmo uma vantagem), mas quando exigimos confidencialidade dos dados enviados no token, há uma maneira melhor de fazê-lo: JWE (JSON Web Encryption).</p>
+<p><strong>O segundo</strong> problema é uma possibilidade potencial de inserir outra ação pelo usuário - por exemplo, excluir - e, assim, ignorar a autorização. Nesse caso, a solução está usando assinaturas em tokens (observe que no exemplo acima, vimos uma &ldquo;assinatura&rdquo;). O algoritmo HS256 indicado no cabeçalho é um HMAC-SHA256 padrão - um mecanismo que garante a integridade de toda a mensagem (graças a ele, o usuário não pode alterar o payload; ou então - ele pode, mas a API que aceita o token detectar adulteração durante a verificação da assinatura). Para configurar o HS256, você precisa gerar uma chave (string) e colocá-la na configuração da API.</p>
+<p>Por uma questão de clareza da mensagem, é possível imaginar a assinatura de uma maneira muito simples:</p>
+<p><em>SHA-256(cabeçalho || payload || chave) – onde || concatenação</em></p>
+<p><strong>Aviso:</strong> falando formalmente, é um pouco mais complicado: usamos o algoritmo <a href="https://en.wikipedia.org/wiki/HMAC">HMAC</a>-SHA256 ao qual atribuímos uma chave e uma mensagem igual ao resultado:</p>
+<p><em>BASE64URL(UTF8(Cabeçalho protegido JWS )) || ‘.’ || BASE64URL(JWS Payload)</em></p>
+<p><img src="%5Bhttps://res.cloudinary.com/dtr6hzxnx/image/upload/v1591984302/blog/jwt_ng_sig_en-1_y3mtjj.png%5D(https://res.cloudinary.com/dtr6hzxnx/image/upload/v1591984302/blog/jwt_ng_sig_en-1_y3mtjj.png)" alt="enter image description here"></p>
+<p>Se alguém alterar o payload, ele não poderá gerar uma nova assinatura (porque ele precisa de uma chave para ela, que está apenas na configuração da API).</p>
+<p>Em resumo, o JWT parece muito mais flexível do que as chaves da API - você pode facilmente transferir quaisquer dados, garantir sua integridade e, se necessário, manter a confidencialidade. Além disso, todas as informações (exceto a chave secreta) podem estar no próprio token. No entanto, não há rosa sem espinhos. 🌹</p>
+<h2 id="espinhos-do-jwt-">Espinhos do JWT 🌹</h2>
+<h3 id="primeiro-espinho-é-complexo">Primeiro espinho: é complexo!</h3>
+<p>Um dos principais problemas é que o JWT é um mecanismo muito complexo. JWT / JWS / JWE / JWK, uma infinidade de algoritmos criptográficos, duas maneiras diferentes de codificação (serialização), compactação, possibilidade de mais de uma assinatura, criptografia para vários destinatários - esses são apenas alguns exemplos. Todas as especificações relacionadas à JWT têm mais de 300 páginas! A complexidade certamente não é amiga da segurança.</p>
+<h3 id="segundo-espinho-none">Segundo espinho: none!</h3>
+<p>Como já mencionado, muitas vezes presume-se que o JWT &ldquo;adequado&rdquo; seja um JWT com uma assinatura (JWS), embora, de acordo com a especificação formal do JWT, uma <strong>assinatura não seja obrigatória</strong>. O <a href="https://tools.ietf.org/html/rfc7519">documento RFC</a> indica o chamado &ldquo;JWT não seguro&rdquo; (ou seja, sem assinatura). Como é o JWT não assinado? No cabeçalho, temos:</p>
+<p>{<br>
+“alg “: “none “,<br>
+“typ “: “JWT “<br>
+}</p>
+<p>No payload, as coisas de sempre. A seção de assinatura está vazia (ou pode ser ignorada pelo processador de tokens). Curiosamente, o algoritmo “none” é um dos dois algoritmos que DEVEM ser implementados de acordo com a RFC:</p>
+<blockquote>
+<p><em>Of the signature and MAC algorithms specified in JSON Web Algorithms [JWA], only HMAC SHA-256 (“HS256”) and “none” MUST be implemented by conforming JWT implementations.</em></p>
+</blockquote>
+<p>O que isso dá ao atacante? Bem, ele pode obter um JWT (com uma assinatura), alterá-lo (por exemplo, adicionar nova permissão) e colocá-lo no cabeçalho {“alg”: ”none”}. Em seguida, envie tudo para a API com ou sem uma assinatura. O servidor deve aceitar esse token? Teoricamente sim, mas isso destruiria toda a idéia de assinaturas JWT. No entanto, essas situações realmente ocorreram (talvez ainda ocorram?) Em muitas bibliotecas que implementam JWTs: <a href="https://auth0.com/blog/critical-vulnerabilities-in-json-web-token-libraries/">https://auth0.com/blog/critical-vulnerabilities-in-json-web-token-libraries/</a>, <a href="https://www.cvedetails.com/cve/CVE-2018-1000531/">https://www.cvedetails.com/cve/CVE-2018-1000531/</a>.</p>
+<p><img src="https://research.securitum.com/wp-content/uploads/sites/2/2019/10/jwt-ksiazka-podpis-none-ng2-en.png" alt="enter image description here"></p>
+<p>A propósito, vale a pena mencionar outro problema: o que acontece se tivermos um algoritmo de assinatura no cabeçalho (por exemplo, HS256 ou HS512), mas removermos toda a seção de assinatura do token?</p>
+<p>Como você pode ver <a href="https://github.com/inversoft/prime-jwt/issues/2">aqui</a>, algumas vezes esse token será verificado corretamente! Você pode dizer um pouco ironicamente - esta é uma versão moderna do problema “nenhum” (veja a figura abaixo):</p>
+<p><em>(…) Uma vulnerabilidade de validação de entrada no JWTDecoder.decode que pode resultar em um JWT decodificado e, portanto, validado implicitamente, mesmo que não possua uma assinatura válida.</em></p>
+<p><img src="https://research.securitum.com/wp-content/uploads/sites/2/2019/10/jwt-ksiazka-podpis-atak-ng2-en.png" alt="enter image description here"></p>
+<p>Às vezes, há outro problema - se o invasor não souber criar uma assinatura adequada, talvez ele seja inserido em uma mensagem de erro? Inacreditável? Vamos ver <a href="https://github.com/jwt-dotnet/jwt/issues/61">esta vulnerabilidade</a>:</p>
+<p><em>Critical Security Fix Required: You disclose the correct signature with each SignatureVerificationException.</em></p>
+<p>Portanto, se alguém alterou o payload e enviou um token para o servidor, o servidor nos informou educadamente sobre isso, fornecendo um token correto que corresponda ao nosso payload:</p>
+<p><img src="https://research.securitum.com/wp-content/uploads/sites/2/2019/09/image-23.png" alt="enter image description here"></p>
+<p>Para fazê-lo funcionar, o servidor precisou ser configurado para exibir exceções ao usuário, mas essa não é uma configuração muito rara (embora incorreta). Problema semelhante foi descoberto em <a href="https://auth0.com/docs/security/bulletins/cve-2019-7644">outra biblioteca</a>:</p>
+<p><em>All versions of</em> <a href="https://www.nuget.org/packages/Auth0-WCF-Service-JWT/">Auth0-WCF-Service-JWT</a> <em>NuGet package lower than 1.0.4 include sensitive information about the expected JWT signature in an error message emitted when JWT signature validation fails</em>.</p>
+<h3 id="terceiro-espinho-quebrando-a-chave-hmac">Terceiro espinho: quebrando a chave HMAC</h3>
+<p>Vamos voltar à assinatura, ou seja, o algoritmo HS256 (HMAC-SHA256). Como é calculada a assinatura? Como vimos um pouco antes:</p>
+<p><img src="https://research.securitum.com/wp-content/uploads/sites/2/2019/10/jwt_ng_sig_en-2.png" alt="enter image description here"></p>
+<p>Como recuperar a chave do JWT (e ter a capacidade de criar uma assinatura válida para qualquer JWT)? A abordagem padrão utiliza um token gerado pela API e executa ataques clássicos de força bruta / dicionário / híbrido. Uma iteração requer o cálculo de dois hashes do SHA256 (é assim que o HMAC-SHA256 funciona) e também existem ferramentas que automatizam toda a operação, como o <a href="https://hashcat.net/hashcat/">hashcat</a> que implementa a quebra da chave JWT usando GPU (s). Com algumas GPUs rápidas, você pode atingir velocidades de mais de um bilhão de verificações por segundo. Além disso, toda a operação pode ser feita offline, sem qualquer interação com a API (basta obter um token arbitrário com uma assinatura). Um exemplo de uma sessão de quebra do JWT se parece com isso:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">Session……….: hashcat  
+Status………..: Running  
+Hash.Type……..: JWT <span style="color:#f92672">(</span>JSON Web Token<span style="color:#f92672">)</span>  
+Hash.Target……: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMj…  
+Guess.Mask…….: ?1?2?2?2?2?2?2 <span style="color:#f92672">[</span>7<span style="color:#f92672">]</span>  
+Guess.Charset….: -1 ?l?d?u, -2 ?l?d, -3 ?l?d*!$@_, -4 Undefined  
+Guess.Queue……: 7/15 <span style="color:#f92672">(</span>46.67%<span style="color:#f92672">)</span>  
+Speed.Dev.#1…..: 198.0 MH/s <span style="color:#f92672">(</span>9.68ms<span style="color:#f92672">)</span> @ Accel:32 Loops:8 Thr:512 Vec:1  
+Recovered……..: 0/1 <span style="color:#f92672">(</span>0.00%<span style="color:#f92672">)</span> Digests, 0/1 <span style="color:#f92672">(</span>0.00%<span style="color:#f92672">)</span> Salts  
+Progress………: 17964072960/134960504832 <span style="color:#f92672">(</span>13.31%<span style="color:#f92672">)</span>  
+Rejected………: 0/17964072960 <span style="color:#f92672">(</span>0.00%<span style="color:#f92672">)</span>  
+Restore.Point….: 0/1679616 <span style="color:#f92672">(</span>0.00%<span style="color:#f92672">)</span>  
+Candidates.#1….: U7veran -&gt; a2vbj14
+</code></pre></div><p>Em uma única placa Nvidia GTX 1070, obtemos uma velocidade de quebra de cerca de 200 milhões de verificações por segundo. Se o hashcat conseguir quebrar a chave, você obterá o resultado abaixo (onde <em><strong>secrety</strong></em> é a chave que você está procurando):</p>
+<p>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.W7TG0x5Ed1GLN6eOPhTNHErL8TfwBFRSQnqleolhXG0:<em><strong>secrety</strong></em></p>
+<p>Uma chave do mesmo tamanho da saída de hash (por exemplo, 256 bits para &ldquo;HS256&rdquo;) ou maior DEVE ser usada com esse algoritmo. (Este requisito baseia-se na Seção 5.3.4 (Efeito de segurança da chave HMAC) do NIST SP 800-117 [NIST.800-107], que afirma que a força de segurança efetiva é o mínimo da força de segurança da chave e duas vezes o tamanho do valor do hash interno.).</p>
+<p>A propósito, vale enfatizar mais uma vez que a quebra da chave JWT pode ser feita completamente offline.</p>
+<h3 id="quarto-espinho-muitos-cozinheiros-estragam-o-caldo-do-jwt">Quarto espinho: muitos cozinheiros estragam o caldo do JWT</h3>
+<p>Muitos problemas de segurança da JWT surgem como resultado da implementação do padrão (realmente complexo). Vamos ver um exemplo.</p>
+<p>Como podemos escolher o algoritmo de assinatura no JWS? Até agora, mencionei o HMAC (e apenas com a função SHA256), mas não é a única opção. Uma visão geral das várias variantes de assinatura pode ser encontrada aqui: <a href="https://auth0.com/blog/json-web-token-signing-algorithms-overview/">https://auth0.com/blog/json-web-token-signing-algorithms-overview/</a>.</p>
+<p>Uma opção comum é usar um algoritmo assimétrico - RSA. Nesse caso, veremos no cabeçalho &ldquo;alg&rdquo;: &ldquo;RS512&rdquo; ou &ldquo;alg&rdquo;: &ldquo;RS256&rdquo;.</p>
+<p>Apenas um pequeno lembrete: uma chave privada RSA é usada para assinaturas e uma chave pública associada a ela pode verificar assinaturas. Portanto, neste caso, em vez de uma chave simétrica (como no algoritmo HS256), geramos um par de chaves RSA.</p>
+<p>A propósito, se você vir o RS512 ou o RS256 pela primeira vez, poderá pensar em um requisito para usar chaves RSA de 512 ou 256 bits? Essas chaves podem ser quebradas a um custo e tempo mínimos (consulte: <a href="https://eprint.iacr.org/2015/1000.pdf">https://eprint.iacr.org/2015/1000.pdf</a> ou <a href="https://www.theregister.co.uk/2010/01/07/rsa_768_broken/)">https://www.theregister.co.uk/2010/01/07/rsa_768_broken/)</a>. Atualmente, mesmo uma chave RSA de 1024 bits não é considerada segura. Felizmente, isso apenas aponta para a função SHA específica usada em conexão com o RSA. Por exemplo, RS512 significa função RSA mais SHA512. Mas e a chave RSA? O comprimento é definido pela pessoa que o gera, o que é outro problema em potencial (além disso, em diferentes tutoriais online, você pode encontrar comandos específicos usando o OpenSSL e gerando chaves de 1024 bits). Também é importante lembrar que o uso do RSA terá um impacto na eficiência de todo o sistema (verificação de assinatura); portanto, nesse caso, escolhemos uma variante mais lenta que o HS256.</p>
+<p>Voltando ao ponto, com o algoritmo RSA, temos pelo menos mais um problema de segurança interessante. Como escrevi anteriormente, uma chave pública é usada para verificação de assinatura; portanto, ela geralmente é definida na configuração da API como a chave de verificação. Aqui, é importante notar que, para o HMAC, temos apenas uma chave simétrica usada para assinatura e verificação.</p>
+<p>Como um invasor pode <strong>forjar um token JWT</strong>?</p>
+<ol>
+<li>
+<p>Ele obtém uma chave pública (o próprio nome indica que ela pode estar disponível publicamente). Às vezes, é transmitido dentro do próprio JWT.</p>
+</li>
+<li>
+<p>Envia o token (com payload alterado) com o <strong>algoritmo HS256 definido</strong> no cabeçalho (ou seja, HMAC, não RSA) e assina o token com a chave pública RSA. Sim, não há erro aqui - usamos a chave pública RSA (que fornecemos na forma de uma string) como uma chave simétrica para o HMAC.</p>
+</li>
+<li>
+<p>O servidor recebe o token, verifica qual algoritmo foi usado para a assinatura (HS256). A chave de verificação foi definida na configuração como a chave pública RSA, então…:</p>
+</li>
+<li>
+<p>A assinatura é validada (porque exatamente a mesma chave de verificação foi usada para criar a assinatura e o invasor configurou o algoritmo de assinatura como HS256).</p>
+</li>
+</ol>
+<p><img src="https://research.securitum.com/wp-content/uploads/sites/2/2019/10/diagrsa.jpg" alt="enter image description here"></p>
+<p>Qual foi o problema aqui? O fato de ser possível fornecer o algoritmo de assinatura pelo usuário, embora tenhamos a intenção de verificar a assinatura do token usando apenas RSA. Portanto, forçamos apenas um algoritmo de assinatura selecionado (não oferecemos a possibilidade de alterá-lo alterando o token) ou vamos fornecer métodos de verificação separados (e chaves!) Para cada algoritmo de assinatura que suportamos. Aqui está um <a href="https://www.cvedetails.com/cve/CVE-2016-10555/">exemplo real desta vulnerabilidade</a>:</p>
+<blockquote>
+<p><em>If the server is expecting RSA but is sent HMAC-SHA with RSA’s public key, the server will think the public key is actually an HMAC private key. This could be used to forge any data an attacker wants.</em></p>
+</blockquote>
+<h3 id="quinto-espinho-fornecendo-sua-própria-chave">Quinto espinho: fornecendo sua própria chave</h3>
+<p>Às vezes, você pode fornecer sua própria chave no token, que será usado pela API para verificá-lo! Parece inacreditável, certo? Consulte os detalhes da vulnerabilidade do CVE-2018-0114 na biblioteca node-jose: <a href="https://tools.cisco.com/security/center/viewAlert.x?alertId=56326">https://tools.cisco.com/security/center/viewAlert.x?alertId=56326</a>.</p>
+<blockquote>
+<p><em>The vulnerability is due to node-jose following the JSON Web Signature (JWS) standard for JSON Web Tokens (JWTs). This standard specifies that a JSON Web Key (JWK) representing a public key can be embedded within the header of a JWS. This public key is then trusted for verification. An attacker could exploit this by forging valid JWS objects by removing the original signature, adding a new public key to the header, and then signing the object using the (attacker-owned) private key associated with the public key embedded in that JWS header.</em></p>
+</blockquote>
+<p>O problema não é novo, anteriormente (2016), uma vulnerabilidade semelhante foi detectada na biblioteca Go-jose (<a href="https://mailarchive.ietf.org/arch/msgif/jose/gQU_C_QURVuwmy-Q2qyVwPLQlcg):">https://mailarchive.ietf.org/arch/msgif/jose/gQU_C_QURVuwmy-Q2qyVwPLQlcg):</a></p>
+<blockquote>
+<p><em>RFC 7515, <a href="https://tools.ietf.org/html/rfc7515#section-4.1.3">https://tools.ietf.org/html/rfc7515#section-4.1.3</a> “jwk” (JSON Web Key) Header Parameter allows the signature to include the public key that corresponds to the key used to digitally sign the JWS. This is a really dangerous option.</em></p>
+</blockquote>
+<p>Um outro exemplo <a href="https://github.com/DCIT/perl-Crypt-JWT/commit/b98a59b42ded9f9e51b2560410106207c2152d6c">está aqui</a> (perl-Crypt-JWT):</p>
+<blockquote>
+<p><em>ADDED in 0.23<br>
+1 – use “jwk” header value for validating JWS signature if neither   “key” nor “kid_keys” specified, BEWARE: DANGEROUS, UNSECURE!!!<br>
+0 (default) – ignore “jwk” header value when validating JWS signature</em></p>
+</blockquote>
+<h3 id="sexto-espinho-a-criptografia-jwt-funciona-mesmo">Sexto espinho: a criptografia JWT funciona mesmo?</h3>
+<p>E a criptografia (JSON Web Encryption)? Aqui, você pode escolher entre vários algoritmos (criptografia da própria mensagem ou criptografia da chave simétrica usada para criptografar a mensagem). Novamente, há algumas pesquisas interessantes, ou seja, várias implementações do JWE tornaram possível ao invasor recuperar a chave privada: <a href="https://blogs.adobe.com/security/2017/03/critical-vulnerability-uncovered-in">https://blogs.adobe.com/security/2017/03/critical-vulnerability-uncovered-in</a> -json-encryption.html. Mais especificamente, houve um problema na implementação do algoritmo ECDH-ES (que, a propósito, tem o status “Recomendado +” no documento RFC: <a href="https://tools.ietf.org/html/rfc7518)">https://tools.ietf.org/html/rfc7518)</a>.</p>
+<p>Talvez a vulnerabilidade anterior tenha sido apenas um acidente? Vamos ver o AES no modo GCM: <a href="https://rwc.iacr.org/2017/Slides/nguyen.quan.pdf">https://rwc.iacr.org/2017/Slides/nguyen.quan.pdf</a>. Os pesquisadores do Google estão escrevendo sobre isso no contexto da JWT e resumem: <em>o GCM é frágil, mas suas implementações raramente foram verificadas</em>.</p>
+<p>Também podemos escolher o algoritmo RSA com preenchimento PKCS1v1.5. O que há de errado com isso? Os problemas são conhecidos desde 1998: <a href="ftp://ftp.rsa.com/pub/pdfs/bulletn7.pdf">ftp://ftp.rsa.com/pub/pdfs/bulletn7.pdf</a>. E <a href="https://blog.cryptographyengineering.com/2012/09/06/on-provable-security-of-tls-part-1/">algumas pessoas</a> resumem assim:</p>
+<blockquote>
+<p><em>PKCS#1v1.5 is awesome – if you’re teaching a class on how to attack cryptographic protocols.</em></p>
+</blockquote>
+<p>Mais detalhes sobre possíveis algoritmos e possíveis problemas podem ser encontrados aqui:</p>
+<ul>
+<li>
+<p><a href="https://paragonie.com/blog/2017/03/jwt-json-web-tokens-is-bad-standardthat-everyone-should-avoid">https:/paragonie.com/blog/2017/03/jwt-json-web-tokens-is-bad-standardthat-everyone-should-avoid</a></p>
+</li>
+<li>
+<p><a href="https://paragonie.com/blog/2016/12/everything-you-know-about-public-keyencryption-in-php-is-wrong">https://paragonie.com/blog/2016/12/everything-you-know-about-public-keyencryption-in-php-is-wrong</a></p>
+</li>
+<li>
+<p><a href="https://paragonie.com/blog/2018/04/protecting-rsa-based-protocols-againstadaptive-chosen-ciphertext-attacks%20">https://paragonie.com/blog/2018/04/protecting-rsa-based-protocols-againstadaptive-chosen-ciphertext-attacks</a></p>
+</li>
+</ul>
+<p>Sempre estaremos fadados ao fracasso usando o JWE? Claro que não, mas vale a pena verificar se usamos um algoritmo de criptografia adequadamente seguro (e sua implementação segura).</p>
+<h3 id="sétimo-espinho-decodificação--verificação---isso-importa-">Sétimo espinho: decodificação / verificação - isso importa? 😉</h3>
+<p>Agora podemos nos sentir um pouco sobrecarregados pela multiplicidade de opções. Afinal, queremos apenas “decodificar” o token no lado da API e usar as informações nele contidas. Lembre-se, no entanto, que “decodificar” nem sempre significa o mesmo que “verificar” - supostamente óbvio, mas bibliotecas diferentes podem fornecer funções diferentes para decodificar e / ou verificar tokens. Um exemplo desse tipo de pergunta ou dúvida pode ser encontrado <a href="https://github.com/auth0/jwt-decode/issues/4">aqui</a>.</p>
+<p>Em resumo, se eu usar a função decode (), só posso decodificar o payload (ou o cabeçalho) de BASE64URL sem nenhuma verificação. A verificação pode ser uma função separada, embora também possa ser incorporada em um decode (). Às vezes, são os usuários que solicitam essa opção - no caso citado abaixo - alguém pede para sobrecarregar o método decode () para que ele também possa aceitar o próprio token (sem a chave):</p>
+<p>Eu vi um problema na estrutura para obter o payload  de um JWT. Para obter um payload de um JWT sem validação, não precisamos de uma chave / segredo. Portanto, no arquivo <a href="https://github.com/jwt-dotnet/jwt/blob/master/src/JWT/JwtDecoder.cs">jwt/src/JWT/JwtDecoder.cs</a>, perdemos uma sobrecarga para o método Decode que precisa apenas de um token.</p>
+<p>Se o programador, usando a biblioteca, agora usar a decodificação de chamada mais simples (token), a assinatura não será verificada.</p>
+<p>Além disso, <a href="https://github.com/jwt-dotnet/jwt/blob/master/src/JWT/JwtDecoder.cs">na discussão</a> citada acima, há uma pergunta sobre a possibilidade de verificar a assinatura no lado do cliente, que, como já sabemos no caso do HS256, pode ser complicada (o cliente deve ter uma chave secreta, que pode ser extraída por um atacante). Infelizmente, muitas vezes o uso do JWT se resume ao seguinte: vamos escolher os primeiros algoritmos que vemos e copiar os trechos de código dos tutoriais. Funciona? Sim, então qual é o problema?</p>
+<h3 id="oitavo-espinho-capturar-qualquer-token--assumir-o-acesso-à-api">Oitavo espinho: capturar qualquer token = assumir o acesso à API?</h3>
+<p>Uma das vantagens frequentemente apontadas do JWT é a implementação da autenticação (ou autorização - depende do contexto em que o todo será usado) sem a necessidade de executar uma consulta no banco de dados. Além disso, podemos fazer isso em paralelo em vários servidores independentes (APIs). Afinal, apenas o conteúdo do token é suficiente para tomar uma decisão aqui. Ele também tem uma desvantagem - e se a chave de assinatura disponível em muitos servidores vazar? Obviamente, será possível gerar tokens assinados corretamente, aceitos por todas as máquinas que usam a chave apropriada para verificação. O que um invasor pode ganhar com isso? Por exemplo, acesso não autorizado a funções da API ou outras contas de usuário.</p>
+<p>Também temos um problema potencialmente diferente aqui - e se um token gerado puder ser usado em muitos contextos diferentes? Por exemplo, geramos um token válido com o conteúdo de {&ldquo;login&rdquo; = &ldquo;manager&rdquo;}. E em uma função da API, é possível editar alguns dados, mas, ao mesmo tempo, esquecemos que uma função completamente diferente, recebendo o mesmo token, oferece a possibilidade de acesso total!</p>
+<p>Nesse caso, é possível usar determinados parâmetros definidos pela própria especificação: <strong>iss</strong> (<em>issuer</em>) e <strong>aud</strong> (<em>audience</em>). Graças a eles, os tokens podem ser aceitos apenas por nossos destinatários específicos.</p>
+<p>Por exemplo:</p>
+<p>{<br>
+“iss ” = “my_api “,<br>
+“login ” = “manager “,<br>
+“aud ” = “store_api “<br>
+}</p>
+<p>Podemos apontar outro problema - algumas palavras-chave reservadas no JWT (Registered Claim Names) - por exemplo iss / aud / iat / jti - pode ser colocado ao lado de qualquer elemento definido pelo usuário do JWT - por exemplo faça login a partir do nosso exemplo. Isso está causando outra confusão, que vou apontar no próximo problema.</p>
+<h3 id="nono-espinho-replay-jwt">Nono espinho: replay JWT</h3>
+<p>E se um token específico deve ser usado apenas uma vez? Vamos imaginar um cenário em que um usuário grave um token gerado para executar o método DELETE em nossa API. Então, por exemplo depois de um ano - quando ele teoricamente não tem mais as permissões apropriadas - ele tenta usá-lo novamente (o chamado <em>replay attack</em>).</p>
+<p>A maneira de fazer isso é usar as seguintes <em>claims</em>: jti e exp. Jti (JWT ID) é um identificador de token, que deve ser exclusivo, e exp é uma definição da data de validade de um token. A combinação de ambos os campos nos dará uma validade adequadamente curta do token e sua singularidade.</p>
+<p>Vale ressaltar, no entanto, se temos uma implementação correta dessas metades. Agora observe o bug no qual o valor exp não foi levado em consideração (<a href="https://github.com/jwt-dotnet/jwt/issues/134)">https://github.com/jwt-dotnet/jwt/issues/134)</a>.</p>
+<blockquote>
+<p><em>JWT not throwing ExpiredTokenException in .NetCore</em></p>
+</blockquote>
+<p>Os desenvolvedores de bibliotecas usaram a declaração de <strong>expiração</strong> (que não está na especificação da JWT) para executar verificações de expiração; o bug foi corrigido após o relatório.</p>
+<h3 id="décimo-espinho-_timing-attacks_-na-assinatura">Décimo espinho: <em>timing attacks</em> na assinatura</h3>
+<p>Se a assinatura do JWS for verificada <strong>byte por byte</strong> com a assinatura correta (gerada pela parte que aceita o JWS) e se a verificação <strong>terminar no primeiro byte inconsistente</strong>, podemos ser suscetíveis a <em>timing attacks</em>.</p>
+<p>Observe que, nesse caso, quanto mais bytes correspondentes tivermos, mais comparações serão necessárias e, portanto, maior o tempo necessário para a resposta.</p>
+<p>É possível observar os tempos de resposta gerando assinaturas sucessivas, começando no primeiro byte da assinatura, passando para o segundo, etc. A descrição exata desse ataque pode ser vista aqui: <a href="https://hackernoon.com/can-timing-attack-be-a-practical-security-threat-on-jwt-signature-ba3c8340dea9.9">https://hackernoon.com/can-timing-attack-be-a-practical-security-threat-on-jwt-signature-ba3c8340dea9.9</a>.</p>
+<p>Segundo o <a href="https://hackernoon.com/can-timing-attack-be-a-practical-security-threat-on-jwt-signature-ba3c8340dea9">relatório</a>, com uma grande quantidade de tráfego gerado (até 55 mil solicitações por segundo), a assinatura de qualquer mensagem pode ser obtida em 22 horas (condições laboratoriais). Com menos tráfego, é claro, precisaremos de mais tempo (vários dias), mas o efeito pode ser chocante (podemos gerar qualquer JWT e preparar uma assinatura que será verificada como correta).</p>
+<p>O ataque é realmente possível no cenário real? Como você pode imaginar, as mudanças no tempo de resposta são mínimas, mas você pode tentar medi-las. Nesse ponto, também vale lembrar um texto um pouco mais antigo sobre ataques de tempo: <a href="https://www.cs.rice.edu/~dwallach/pub/crosby-timing2009.pdf">https://www.cs.rice.edu/~dwallach/pub/crosby-timing2009.pdf</a>. As seguintes medidas foram alcançadas:</p>
+<blockquote>
+<p><em>Our work analyses the limits of attacks based on accurately measuring network response times and jitter over a local network and across the Internet. We present the design of filters to significantly reduce the effects of jitter, allowing an attacker to measure events with 15-100µs accuracy across the Internet and as good as 100ns over a local network.</em></p>
+</blockquote>
+<p>Por outro lado, um exemplo de declaração de um tipo específico de vulnerabilidade pode ser encontrado, por exemplo, <a href="https://github.com/jasongoodwin/authentikat-jwt/issues/12">aqui</a> ou <a href="https://github.com/emarref/jwt/pull/20">aqui</a>.</p>
+<h3 id="décimo-primeiro-espinho-grande-quantidade-de-bibliotecas-disponíveis">Décimo-primeiro espinho: grande quantidade de bibliotecas disponíveis</h3>
+<p>Como um dos primeiros problemas relacionados ao JWT, menciono várias opções disponíveis e vários algoritmos. Há também um grande número de implementações de JWT, muitas vezes incompletas, escritas, para dizer o mínimo, no joelho. Não é fácil de seguir e, às vezes, problemático em termos de padrão de segurança, requer o uso de algoritmos criptográficos complexos por pessoas que geralmente não possuem um conhecimento profundo de criptografia. Garbage in - garbage out: é difícil esperar bibliotecas super seguras aqui.</p>
+<p>Outros exemplos de bugs em bibliotecas:</p>
+<ul>
+<li><a href="https://auth0.com/docs/security/bulletins/cve-2019-13483">https://auth0.com/docs/security/bulletins/cve-2019-13483</a></li>
+<li><a href="https://www.cvedetails.com/cve/CVE-2017-12973/">https://www.cvedetails.com/cve/CVE-2017-12973/</a></li>
+<li><a href="https://www.cvedetails.com/cve/CVE-2017-10862/">https://www.cvedetails.com/cve/CVE-2017-10862/</a></li>
+<li><a href="https://pivotal.io/security/cve-2017-2773">https://pivotal.io/security/cve-2017-2773</a></li>
+<li><a href="https://github.com/auth0/node-jsonwebtoken/issues/212">https://github.com/auth0/node-jsonwebtoken/issues/212</a></li>
+<li><a href="https://github.com/auth0/node-jsonwebtoken/commit/%20adcfd6ae4088c838769d169f8cd9154265aa13e0">https://github.com/auth0/node-jsonwebtoken/commit/ adcfd6ae4088c838769d169f8cd9154265aa13e0</a></li>
+<li><a href="https://www.cvedetails.com/cve/CVE-2019-17195/">https://www.cvedetails.com/cve/CVE-2019-17195/</a></li>
+</ul>
+<p>Ao mesmo tempo, vale mencionar problemas de segurança relacionados às bibliotecas usadas em geral. Vale a pena verificar se eu uso uma biblioteca com vulnerabilidades públicas conhecidas. Ou talvez minhas bibliotecas estejam usando dependências vulneráveis? Será que não é necessário eu desenvolver um mecanismo de monitoramento da biblioteca usada caso alguém localize uma vulnerabilidade significativa no futuro?</p>
+<h2 id="alternativa-ao-jwt">Alternativa ao JWT?</h2>
+<p>Olhando para muitos dos problemas de segurança que apontei no JWT, pode-se perguntar se temos uma alternativa comprovada. No momento, a resposta é não. Uma das novas idéias é o <a href="https://paseto.io/">PASETO</a>:</p>
+<blockquote>
+<p><em>Paseto is everything you love about JOSE (JWT, JWE, JWS) without any of the many design deficits that plague the JOSE standards.</em></p>
+</blockquote>
+<p>Simplificando, o PASETO deve ser uma versão segura do JWT. Realmente cumprirá as promessas? No momento, é realmente difícil dizer - é um projeto muito jovem e ainda em fase de desenvolvimento. Mais informações podem ser encontradas <a href="https://paragonie.com/blog/2018/03/paseto-platformagnostic-security-tokens-is-secure-alternative-jose-standards-jwt-etc">aqui</a> e <a href="https://developer.okta.com/blog/2019/10/17/a-thorough-introduction-to-paseto">aqui</a>. As motivações por trás do deste projeto podemos ler <a href="https://paragonie.com/blog/2017/03/jwt-json-web-tokens-is-bad-standard-thateveryone-should-avoid">aqui</a>.</p>
+<h2 id="o-jwt-pode-ser-seguro">O JWT pode ser seguro?</h2>
+<p>As opiniões na comunidade de segurança são divididas. Algumas pessoas desencorajam categoricamente o uso do JWT, outras apontam para implementações mal preparadas, enquanto outras descrevem os mecanismos do JWT exatamente como são, deixando a decisão para o usuário. Além disso, o JWT é um mecanismo muito popular, para o qual não há alternativa popular e padronizada, que comprovou adicionalmente sua segurança.</p>
+<p>Os problemas de segurança mostrados antes podem ser colocados em três categorias:</p>
+<ol>
+<li>Problemas com a própria especificação JWT (por exemplo, nenhum algoritmo).</li>
+<li>Erros de implementação de biblioteca, incluindo erros de implementação de algoritmo criptográfico (é provavelmente o grupo mais numeroso).</li>
+<li>Uso incorreto da biblioteca.</li>
+</ol>
+<p>A maioria dos problemas comuns é apresentada abaixo.</p>
+<p>Vamos resumir tudo com conselhos práticos que podem aumentar a segurança de uso da JWT. Algumas recomendações podem conter abreviaturas de pensamento, explicadas anteriormente no texto e adicionalmente abordadas nos materiais de origem vinculados.</p>
+<p><img src="https://research.securitum.com/wp-content/uploads/sites/2/2019/10/jwt_podsumowanie-ng-en-1.png" alt="enter image description here"></p>
+<h3 id="o-que-devo-fazer">O que devo fazer?</h3>
+<h4 id="pra-começar">Pra começar</h4>
+<ol>
+<li>Entenda o que você deseja usar: considere se você precisa do JWS ou JWE, escolha os algoritmos apropriados, entenda sua finalidade (pelo menos em um nível geral - por exemplo, HMAC, chave pública, chave privada). Descubra o que exatamente oferece a biblioteca JWT que você escolheu. Talvez exista um mecanismo mais simples e pronto que você possa usar?</li>
+</ol>
+<h4 id="chaves">Chaves</h4>
+<ol start="2">
+<li>
+<p>Use chaves simétricas / assimétricas adequadamente complexas.</p>
+</li>
+<li>
+<p>Tenha um cenário preparado em caso de comprometimento (divulgação) de uma das chaves.</p>
+</li>
+<li>
+<p>Mantenha as chaves em um local seguro (por exemplo, não as codifique permanentemente no código-fonte).</p>
+</li>
+<li>
+<p>Idealmente, não permita definir o algoritmo de assinatura arbitrário pela parte remetente (é melhor forçar um algoritmo (s) de assinatura específico (s) no lado do servidor).</p>
+</li>
+</ol>
+<h4 id="assinatura">Assinatura</h4>
+<ol start="6">
+<li>
+<p>Verifique se sua implementação não aceita o algoritmo de nenhuma assinatura.</p>
+</li>
+<li>
+<p>Verifique se sua implementação não aceita uma assinatura vazia (ou seja, a assinatura não está marcada).</p>
+</li>
+<li>
+<p>Se você usa o JWE, verifique se está usando algoritmos seguros e se está usando a implementação segura desses algoritmos.</p>
+</li>
+<li>
+<p>Distinga entre Verifique () e Decodifique (). Em outras palavras, verifique se você tem certeza de que está verificando a assinatura.</p>
+</li>
+</ol>
+<h4 id="regras-gerais">Regras gerais</h4>
+<ol start="10">
+<li>
+<p>Verifique se o token gerado em um local não pode ser usado em outro para obter acesso não autorizado.</p>
+</li>
+<li>
+<p>Verifique se o modo de depuração está desativado e se não pode ser ativado com um truque simples (por exemplo,? Debug = true).</p>
+</li>
+<li>
+<p>Evite enviar tokens em URLs (isso pode vazar dados confidenciais - por exemplo, esses tokens são gravados nos logs do servidor da web).</p>
+</li>
+</ol>
+<h4 id="payload">Payload</h4>
+<ol start="13">
+<li>
+<p>Verifique se você está colocando informações confidenciais no payload do JWS (não recomendado).</p>
+</li>
+<li>
+<p>Verifique se você está protegido contra um ataque de repetição (reenviando um token).</p>
+</li>
+<li>
+<p>Certifique-se de que os tokens tenham um período de validade suficientemente curto (por exemplo, usando a <em>claim</em> &ldquo;exp&rdquo;).</p>
+</li>
+<li>
+<p>Verifique se a “exp” está realmente marcada. Pense se você precisa invalidar um token específico (s) (o padrão não fornece ferramentas para isso, mas existem várias maneiras de implementar esse tipo de mecanismo).</p>
+</li>
+</ol>
+<h4 id="bibliotecas">Bibliotecas</h4>
+<ol start="17">
+<li>
+<p>Leia a documentação da biblioteca com atenção.</p>
+</li>
+<li>
+<p>Verifique as vulnerabilidades na biblioteca que você usa (por exemplo cvedetails.com ou no site do projeto).</p>
+</li>
+<li>
+<p>Verifique se seus projetos anteriores não usam uma biblioteca vulnerável; verifique se você está monitorando novos erros na biblioteca (eles podem aparecer, por exemplo, após um mês de implementação).</p>
+</li>
+<li>
+<p>Acompanhe novas vulnerabilidades em bibliotecas que suportam JWT. Talvez, no futuro, alguém encontre uma vulnerabilidade em outro projeto, que pode ser explorada da mesma forma na biblioteca que você está usando.</p>
+</li>
+</ol>
+<h2 id="referências">Referências</h2>
+<ol>
+<li>
+<p>JSON Web Token Best Current Practices:
+<a href="https://tools.ietf.org/html/draft-ietf-oauth-jwt-bcp-04">https://tools.ietf.org/html/draft-ietf-oauth-jwt-bcp-04</a></p>
+</li>
+<li>
+<p>JWT Handbook:
+<a href="https://auth0.com/resources/ebooks/jwt-handbook">https://auth0.com/resources/ebooks/jwt-handbook</a></p>
+</li>
+<li>
+<p>Discussão sobre vulnerabildiade no JWT:
+<a href="https://lobste.rs/s/r4lv76/jwt_is_bad_standard_everyone_should_avoid">https://lobste.rs/s/r4lv76/jwt_is_bad_standard_everyone_should_avoid</a></p>
+</li>
+<li>
+<p>JWT Cheat Sheet for Java (OWASP).
+<a href="https://www.owasp.org/index.php/JSON_Web_Token_(JWT)_Cheat_Sheet_for_Java"></a><a href="https://cheatsheetseries.owasp.org/cheatsheets/JSON_Web_Token_Cheat_Sheet_for_Java.html">https://www.owasp.org/index.php/JSON_Web_Token_(JWT)_Cheat_Sheet_for_Java</a></p>
+</li>
+<li>
+<p>Algumas de idéias de uso mais seguro do JWT:
+<a href="https://dev.to/neilmadden/7-best-practices-for-json-web-tokens">https://dev.to/neilmadden/7-best-practices-for-json-web-tokens</a></p>
+</li>
+<li>
+<p>Alguns arguntos contra o uso JWT para sessões:
+<a href="http://cryto.net/~joepie91/blog/2016/06/13/stop-using-jwt-for-sessions/">http://cryto.net/~joepie91/blog/2016/06/13/stop-using-jwt-for-sessions/</a></p>
+</li>
+<li>
+<p>Comparação de JWTs com IDs de sessão e outros recursos de segurança relevantes:
+<a href="http://by.jtl.xyz/2016/06/the-unspoken-vulnerability-of-jwts.html">http://by.jtl.xyz/2016/06/the-unspoken-vulnerability-of-jwts.html</a></p>
+</li>
+</ol>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/application/">application</a>
+
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/development/">development</a>
+
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/security/">security</a>
+
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/cybersecurity/">cybersecurity</a>
+
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/jwt/">jwt</a>
+
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/owasp/">owasp</a>
+
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/criptography/">criptography</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/06/o-fim-dos-times-de-appsec/" data-tooltip="O fim dos times de AppSec">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2020/06/inseguran%C3%A7a-em-tokens-jwt/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2020/06/inseguran%C3%A7a-em-tokens-jwt/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2020/06/inseguran%C3%A7a-em-tokens-jwt/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2020 Tiago Tavares. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/06/o-fim-dos-times-de-appsec/" data-tooltip="O fim dos times de AppSec">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2020/06/inseguran%C3%A7a-em-tokens-jwt/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2020/06/inseguran%C3%A7a-em-tokens-jwt/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2020/06/inseguran%C3%A7a-em-tokens-jwt/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftiagotavares.io%2F2020%2F06%2Finseguran%25C3%25A7a-em-tokens-jwt%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Ftiagotavares.io%2F2020%2F06%2Finseguran%25C3%25A7a-em-tokens-jwt%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Ftiagotavares.io%2F2020%2F06%2Finseguran%25C3%25A7a-em-tokens-jwt%2F">
+          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Tiago Tavares</h4>
+    
+      <div id="about-card-bio">Eternal student, cybersecurity pro, husband, runner.</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Cybersecurity Consultant
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Brazil
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    <div id="cover" style="background-image:url('https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589318923/last_jedi1_ybpjeb.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://tiagotavares.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/tiagotavares.io\/2020\/06\/inseguran%C3%A7a-em-tokens-jwt\/';
+          
+            this.page.identifier = '\/2020\/06\/inseguran%C3%A7a-em-tokens-jwt\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'tiagotavares-io';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+
