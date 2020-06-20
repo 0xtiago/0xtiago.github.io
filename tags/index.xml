@@ -6,10 +6,64 @@
     <description>Recent content in Tags on debugging the life</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 12 Jun 2020 12:15:12 -0300</lastBuildDate>
+    <lastBuildDate>Fri, 19 Jun 2020 22:41:04 -0300</lastBuildDate>
     
 	<atom:link href="https://tiagotavares.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Argentina</title>
+      <link>https://tiagotavares.io/tags/argentina/</link>
+      <pubDate>Fri, 19 Jun 2020 22:41:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/argentina/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Buenos Aires</title>
+      <link>https://tiagotavares.io/tags/buenos-aires/</link>
+      <pubDate>Fri, 19 Jun 2020 22:41:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/buenos-aires/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>conference</title>
+      <link>https://tiagotavares.io/tags/conference/</link>
+      <pubDate>Fri, 19 Jun 2020 22:41:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/conference/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ekoparty</title>
+      <link>https://tiagotavares.io/tags/ekoparty/</link>
+      <pubDate>Fri, 19 Jun 2020 22:41:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/ekoparty/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hacking</title>
+      <link>https://tiagotavares.io/tags/hacking/</link>
+      <pubDate>Fri, 19 Jun 2020 22:41:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/hacking/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>security</title>
+      <link>https://tiagotavares.io/tags/security/</link>
+      <pubDate>Fri, 19 Jun 2020 22:41:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/security/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>application</title>
@@ -62,15 +116,6 @@
       <pubDate>Fri, 12 Jun 2020 12:15:12 -0300</pubDate>
       
       <guid>https://tiagotavares.io/tags/owasp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>security</title>
-      <link>https://tiagotavares.io/tags/security/</link>
-      <pubDate>Fri, 12 Jun 2020 12:15:12 -0300</pubDate>
-      
-      <guid>https://tiagotavares.io/tags/security/</guid>
       <description></description>
     </item>
     
@@ -215,15 +260,6 @@
       <pubDate>Thu, 14 May 2020 16:31:51 -0300</pubDate>
       
       <guid>https://tiagotavares.io/tags/ctf/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>hacking</title>
-      <link>https://tiagotavares.io/tags/hacking/</link>
-      <pubDate>Thu, 14 May 2020 16:31:51 -0300</pubDate>
-      
-      <guid>https://tiagotavares.io/tags/hacking/</guid>
       <description></description>
     </item>
     
@@ -404,15 +440,6 @@
       <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://tiagotavares.io/tags/vulnhub/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Buenos Aires</title>
-      <link>https://tiagotavares.io/tags/buenos-aires/</link>
-      <pubDate>Tue, 24 Jul 2018 14:40:20 -0300</pubDate>
-      
-      <guid>https://tiagotavares.io/tags/buenos-aires/</guid>
       <description></description>
     </item>
     

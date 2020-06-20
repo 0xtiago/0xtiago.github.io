@@ -6,10 +6,19 @@
     <description>Recent content in Posts on debugging the life</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 12 Jun 2020 12:15:12 -0300</lastBuildDate>
+    <lastBuildDate>Fri, 19 Jun 2020 22:41:04 -0300</lastBuildDate>
     
 	<atom:link href="https://tiagotavares.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Ekoparty Security Conference 13 (2017) - Talks</title>
+      <link>https://tiagotavares.io/2020/06/ekoparty-security-conference-13-2017-talks/</link>
+      <pubDate>Fri, 19 Jun 2020 22:41:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/2020/06/ekoparty-security-conference-13-2017-talks/</guid>
+      <description>&lt;p&gt;Desde 2017, estive presente todos os anos em Buenos Aires para participar do evento, que sempre me supreende com o ótimo nível dos materiais apresentados pelos palestrantes.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>(In)segurança em tokens JWT</title>

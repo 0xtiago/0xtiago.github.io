@@ -3,6 +3,66 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://tiagotavares.io/tags/argentina/</loc>
+    <lastmod>2020-06-19T22:41:04-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/tags/buenos-aires/</loc>
+    <lastmod>2020-06-19T22:41:04-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/categories/</loc>
+    <lastmod>2020-06-19T22:41:04-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/tags/conference/</loc>
+    <lastmod>2020-06-19T22:41:04-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/</loc>
+    <lastmod>2020-06-19T22:41:04-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/tags/ekoparty/</loc>
+    <lastmod>2020-06-19T22:41:04-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/2020/06/ekoparty-security-conference-13-2017-talks/</loc>
+    <lastmod>2020-06-19T22:41:04-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/tags/hacking/</loc>
+    <lastmod>2020-06-19T22:41:04-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/post/</loc>
+    <lastmod>2020-06-19T22:41:04-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/tags/security/</loc>
+    <lastmod>2020-06-19T22:41:04-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/tags/</loc>
+    <lastmod>2020-06-19T22:41:04-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/categories/conferences/</loc>
+    <lastmod>2020-06-19T22:41:04-03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://tiagotavares.io/2020/06/inseguran%C3%A7a-em-tokens-jwt/</loc>
     <lastmod>2020-06-12T12:15:12-03:00</lastmod>
   </url>
@@ -18,22 +78,12 @@
   </url>
   
   <url>
-    <loc>https://tiagotavares.io/categories/</loc>
-    <lastmod>2020-06-12T12:15:12-03:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://tiagotavares.io/tags/criptography/</loc>
     <lastmod>2020-06-12T12:15:12-03:00</lastmod>
   </url>
   
   <url>
     <loc>https://tiagotavares.io/tags/cybersecurity/</loc>
-    <lastmod>2020-06-12T12:15:12-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tiagotavares.io/</loc>
     <lastmod>2020-06-12T12:15:12-03:00</lastmod>
   </url>
   
@@ -49,21 +99,6 @@
   
   <url>
     <loc>https://tiagotavares.io/tags/owasp/</loc>
-    <lastmod>2020-06-12T12:15:12-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tiagotavares.io/post/</loc>
-    <lastmod>2020-06-12T12:15:12-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tiagotavares.io/tags/security/</loc>
-    <lastmod>2020-06-12T12:15:12-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tiagotavares.io/tags/</loc>
     <lastmod>2020-06-12T12:15:12-03:00</lastmod>
   </url>
   
@@ -179,11 +214,6 @@
   
   <url>
     <loc>https://tiagotavares.io/tags/ctf/</loc>
-    <lastmod>2020-05-14T16:31:51-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tiagotavares.io/tags/hacking/</loc>
     <lastmod>2020-05-14T16:31:51-03:00</lastmod>
   </url>
   
@@ -368,11 +398,6 @@
   </url>
   
   <url>
-    <loc>https://tiagotavares.io/tags/buenos-aires/</loc>
-    <lastmod>2018-07-24T14:40:20-03:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://tiagotavares.io/tags/jarbas/</loc>
     <lastmod>2018-04-02T00:00:00+00:00</lastmod>
   </url>
@@ -456,6 +481,14 @@
   
   <url>
     <loc>https://tiagotavares.io/draft/norma_descarte_reten%C3%A7%C3%A3o_dadoscartao/</loc>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/draft/norma_gestao_de_mudancas/</loc>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/draft/norma_gest%C3%A3o_incidentes/</loc>
   </url>
   
   <url>

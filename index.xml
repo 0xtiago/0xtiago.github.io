@@ -6,10 +6,19 @@
     <description>Recent content on debugging the life</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 12 Jun 2020 12:15:12 -0300</lastBuildDate>
+    <lastBuildDate>Fri, 19 Jun 2020 22:41:04 -0300</lastBuildDate>
     
 	<atom:link href="https://tiagotavares.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Ekoparty Security Conference 13 (2017) - Talks</title>
+      <link>https://tiagotavares.io/2020/06/ekoparty-security-conference-13-2017-talks/</link>
+      <pubDate>Fri, 19 Jun 2020 22:41:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/2020/06/ekoparty-security-conference-13-2017-talks/</guid>
+      <description>&lt;p&gt;Desde 2017, estive presente todos os anos em Buenos Aires para participar do evento, que sempre me supreende com o ótimo nível dos materiais apresentados pelos palestrantes.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>(In)segurança em tokens JWT</title>
@@ -198,6 +207,24 @@
       
       <guid>https://tiagotavares.io/draft/norma_descarte_reten%C3%A7%C3%A3o_dadoscartao/</guid>
       <description>Norma de Descarte e Retenção de Dados de Cartão Sumário  1. Objetivo 2.Abrangência 3. Responsabilidades 4. Disposições Gerais 5. Termos e Definições 6. Diretrizes  6.1 Retenção de dados de cartão 6.2 Visualização 6.3 Deleção ou expurgo 6.4 Gerenciamento de Chaves Criptográficas 6.5 Transmissão 6.6 Tratamento de incidentes com dado de cartão 6.7 Escopo PCI 6.8 Avaliação interna PCI-DSS   7. Penalidades 8. Referências 9. Histórico de Revisões  1.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://tiagotavares.io/draft/norma_gestao_de_mudancas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiagotavares.io/draft/norma_gestao_de_mudancas/</guid>
+      <description>Norma de Gestão de Mudanças de TI Sumário  Sumário 1. Objetivo 2.Abrangência 3. Responsabilidades 4. Termos e Definições 5. Diretrizes  5.1 Tipos de Mudanças 5.2 Ambientes de Homologação 5.3 Informações Documentadas 5.4 Fluxo de Requisição de Mudanças   6. Penalidades 7 Referências 8. Histórico de Revisões  1. Objetivo Este documento descreve o processo de gestão de mudanças no ambiente e recursos de tecnologia da EMPRESA, visando reduzir os impactos gerados por mudanças não planejadas ou por falhas no planejamento, propiciando aumento da disponibilidade do ambiente de produção e consequentemente a elevação da qualidade dos produtos e serviços disponibilizados.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://tiagotavares.io/draft/norma_gest%C3%A3o_incidentes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiagotavares.io/draft/norma_gest%C3%A3o_incidentes/</guid>
+      <description>Norma de Reposta a Incidentes de Segurança Sumário  1. Objetivo 2. Abrangência 3. Responsabilidades 4. Termos e Definições 5. Classificação  5.1 Classificação de Incidente de Segurança 5.2 Treinamento de Recursos 5.3 Processo para treinamento contra ameaças   6. Procedimento para resposta a incidentes de segurança  6.1 Escalonamento 6.2 Severidades  6.2.1 Severidades Médias e Baixas 6.2.2 Severidade Alta 6.2.3 Severidade Crítica 6.2.4 Problemas internos   6.</description>
     </item>
     
     <item>
