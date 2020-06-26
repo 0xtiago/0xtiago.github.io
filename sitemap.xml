@@ -3,6 +3,46 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://tiagotavares.io/categories/</loc>
+    <lastmod>2020-06-26T17:30:24-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/</loc>
+    <lastmod>2020-06-26T17:30:24-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/2020/06/fontes-de-amostra-de-malwares-para-pesquisadores/</loc>
+    <lastmod>2020-06-26T17:30:24-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/tags/malware/</loc>
+    <lastmod>2020-06-26T17:30:24-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/categories/malware-research/</loc>
+    <lastmod>2020-06-26T17:30:24-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/post/</loc>
+    <lastmod>2020-06-26T17:30:24-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/tags/research/</loc>
+    <lastmod>2020-06-26T17:30:24-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/tags/</loc>
+    <lastmod>2020-06-26T17:30:24-03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://tiagotavares.io/tags/argentina/</loc>
     <lastmod>2020-06-19T22:41:04-03:00</lastmod>
   </url>
@@ -13,17 +53,7 @@
   </url>
   
   <url>
-    <loc>https://tiagotavares.io/categories/</loc>
-    <lastmod>2020-06-19T22:41:04-03:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://tiagotavares.io/tags/conference/</loc>
-    <lastmod>2020-06-19T22:41:04-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tiagotavares.io/</loc>
     <lastmod>2020-06-19T22:41:04-03:00</lastmod>
   </url>
   
@@ -43,17 +73,7 @@
   </url>
   
   <url>
-    <loc>https://tiagotavares.io/post/</loc>
-    <lastmod>2020-06-19T22:41:04-03:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://tiagotavares.io/tags/security/</loc>
-    <lastmod>2020-06-19T22:41:04-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tiagotavares.io/tags/</loc>
     <lastmod>2020-06-19T22:41:04-03:00</lastmod>
   </url>
   
