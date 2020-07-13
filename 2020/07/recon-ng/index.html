@@ -476,7 +476,7 @@ info     install  refresh  remove   search
 </code></pre><p>Precisamos nos organizar, criaremos um workspace para nosso site.</p>
 <pre><code>[recon-ng][default] &gt; workspaces create tiagotavares.io
 [recon-ng][tiagotavares.io] &gt; 
-</code></pre><h1 id="adicionando-organizações-ao-workspace">Adicionando organizações ao workspace</h1>
+</code></pre><h1 id="adicionando-organizações-e-seus-domínios-ao-workspace">Adicionando organizações e seus domínios ao <em>workspace</em></h1>
 <p>Agora vamos começar a inserir informações das empresas que vamos analisar, para teste vamos exemplificar com a Boeing ✈️.</p>
 <p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594643447/blog/boeing_website_pweudr.png" alt=""></p>
 <pre><code>[recon-ng][tiagotavares.io] &gt; db insert companies 
@@ -503,7 +503,23 @@ notes (TEXT):
 [*] 1 rows affected.
 </code></pre><pre><code>[recon-ng][tiagotavares.io] &gt; show companies
 </code></pre><p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594643858/blog/Snipaste_2020-07-13_09-37-23_ohzctn.png" alt=""></p>
-<h1 id="trabalhando-com-o-marketplace-e-seus-módulos">Trabalhando com o <em>marketplace</em> e seus módulos</h1>
+<p>Vamos adicionar agora seus respectivos domínios para iniciar os trabalhos.</p>
+<p>Adicionando boeing.com</p>
+<pre><code>[recon-ng][tiago.tavares.io] &gt; db insert domains
+domain (TEXT): boeing.com
+notes (TEXT): 
+[*] 1 rows affected.
+</code></pre><p>Adicionando airbus.com</p>
+<pre><code>[recon-ng][tiago.tavares.io] &gt; db insert domains
+domain (TEXT): airbus.com
+notes (TEXT): 
+[*] 1 rows affected.
+</code></pre><p>Adicionando embraer.com</p>
+<pre><code>[recon-ng][tiago.tavares.io] &gt; db insert domains
+domain (TEXT): embraer.com
+notes (TEXT): 
+[*] 1 rows affected.
+</code></pre><h1 id="trabalhando-com-o-marketplace-e-seus-módulos">Trabalhando com o <em>marketplace</em> e seus módulos</h1>
 <p>Precisamos tornar o Recon-ng em algo útil, vamos começar a utilizar o marketplace para começar a dar funções a ferramenta.</p>
 <p>Primeiro vamos atualizar a base.</p>
 <pre><code>[recon-ng][tiagotavares.io] &gt; marketplace refresh
