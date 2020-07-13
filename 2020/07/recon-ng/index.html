@@ -1,0 +1,1670 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.70.0 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="author" content="Tiago Tavares">
+<meta name="keywords" content="">
+<meta name="description" content="Como obter informações de organizações alvo, sua infraestrutura e seus colaboradores sem qualquer interação direta.">
+
+
+<meta property="og:description" content="Como obter informações de organizações alvo, sua infraestrutura e seus colaboradores sem qualquer interação direta.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Recon-NG">
+<meta name="twitter:title" content="Recon-NG">
+<meta property="og:url" content="https://tiagotavares.io/2020/07/recon-ng/">
+<meta property="twitter:url" content="https://tiagotavares.io/2020/07/recon-ng/">
+<meta property="og:site_name" content="debugging the life">
+<meta property="og:description" content="Como obter informações de organizações alvo, sua infraestrutura e seus colaboradores sem qualquer interação direta.">
+<meta name="twitter:description" content="Como obter informações de organizações alvo, sua infraestrutura e seus colaboradores sem qualquer interação direta.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2020-07-12T08:41:04">
+  
+  
+    <meta property="article:modified_time" content="2020-07-12T08:41:04">
+  
+  
+  
+    
+      <meta property="article:section" content="👀OSINT">
+    
+  
+  
+    
+      <meta property="article:tag" content="osint">
+    
+      <meta property="article:tag" content="recon-ng">
+    
+      <meta property="article:tag" content="security">
+    
+      <meta property="article:tag" content="information gathering">
+    
+      <meta property="article:tag" content="coleta de informações">
+    
+      <meta property="article:tag" content="red team">
+    
+      <meta property="article:tag" content="cyber kill chain">
+    
+      <meta property="article:tag" content="mitre att&amp;ck">
+    
+      <meta property="article:tag" content="bug bounty">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@tiagotavares_">
+
+
+  <meta name="twitter:creator" content="@tiagotavares_">
+
+
+
+
+
+
+  <meta property="og:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594604315/blog/joseph-rosales-m0yRv0GxkV8-unsplash_dpfmmd.jpg">
+  <meta property="twitter:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594604315/blog/joseph-rosales-m0yRv0GxkV8-unsplash_dpfmmd.jpg">
+
+
+  <meta property="og:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594603418/blog/curious-1140x445_luy6q5.jpg">
+  <meta property="twitter:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594603418/blog/curious-1140x445_luy6q5.jpg">
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=640">
+
+
+    <title>Recon-NG</title>
+
+    <link rel="icon" href="images/favicon-32x32.png">
+    
+
+    
+
+    <link rel="canonical" href="https://tiagotavares.io/2020/07/recon-ng/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://tiagotavares.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-36987137-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://tiagotavares.io/">debugging the life</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://tiagotavares.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://tiagotavares.io/#about">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Tiago Tavares</h4>
+        
+          <h5 class="sidebar-profile-bio">Eternal student, cybersecurity pro, husband, runner.</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/tiagotvrs" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.linkedin.com/in/tiagotvrs/" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-linkedin"></i>
+      
+      <span class="sidebar-button-desc">LinkedIn</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.strava.com/athletes/tiagotavares" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-heartbeat"></i>
+      
+      <span class="sidebar-button-desc">Strava</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://twitter.com/tiagotavares_" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+      
+      <span class="sidebar-button-desc">Twitter</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-center
+              "
+       style="background-image:url('https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594603418/blog/curious-1140x445_luy6q5.jpg')"
+       data-behavior="4">
+    
+      <div class="post-header main-content-wrap text-center">
+  
+    <h1 class="post-title" itemprop="headline">
+      Recon-NG
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2020-07-12T08:41:04-03:00">
+        
+  July 12, 2020
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://tiagotavares.io/categories/osint">👀OSINT</a>
+    
+  
+
+  </div>
+
+</div>
+    
+  </div>
+
+
+      <div id="main" data-behavior="4"
+        class="hasCover
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>Como obter informações de organizações alvo, sua infraestrutura e seus colaboradores sem qualquer interação direta.</p>
+<h1 id="sumário">Sumário</h1>
+<ul>
+<li><a href="#o-recon-ng">O Recon-NG</a></li>
+<li><a href="#introdu%C3%A7%C3%A3o">Introdução</a>
+<ul>
+<li><a href="#recon-ng-cyberkillchain--mitre-att&amp;ck--bug-bounties">Recon-NG - CyberKillChain, Mitre ATT&amp;CK, Bug Bounties</a></li>
+</ul>
+</li>
+<li><a href="#iniciando-recon-ng">Iniciando Recon-NG</a></li>
+<li><a href="#configura--o-de-proxy">Configuração de proxy</a></li>
+<li><a href="#organizando-workspaces">Organizando workspaces</a></li>
+<li><a href="#adicionando-organiza--es-ao-workspace">Adicionando organizações ao workspace</a></li>
+<li><a href="#trabalhando-com-o--marketplace--e-seus-m-dulos">Trabalhando com o <em>marketplace</em> e seus módulos</a>
+<ul>
+<li><a href="#instalando-m-dulos">Instalando módulos</a></li>
+</ul>
+</li>
+<li><a href="#executando-os-m-dulos-e-obtendo-informa--es">Executando os módulos e obtendo informações</a>
+<ul>
+<li><a href="#whois-miner">whois_miner</a></li>
+<li><a href="#whois-pocs">whois_pocs</a></li>
+<li><a href="#google-site-web">google_site_web</a></li>
+<li><a href="#brute-hosts">brute_hosts</a></li>
+<li><a href="#ipinfodb">ipinfodb</a></li>
+<li><a href="#shodan-ip">shodan_ip</a></li>
+<li><a href="#netcraft">netcraft</a></li>
+<li><a href="#resolve">resolve</a></li>
+<li><a href="#reverse-resolve">reverse_resolve</a></li>
+<li><a href="#hibp-paste">hibp_paste</a></li>
+<li><a href="#github-miner">github_miner</a></li>
+<li><a href="#interesting-files">interesting_files</a></li>
+<li><a href="#exibindo-na-tela-informa--es-coletadas">Exibindo na tela informações coletadas</a></li>
+</ul>
+</li>
+<li><a href="#criando-relat-rio">Criando Relatório</a>
+<ul>
+<li><a href="#html">html</a></li>
+</ul>
+</li>
+<li><a href="#recon-web">Recon-web</a></li>
+<li><a href="#conclus-o">Conclusão</a></li>
+<li><a href="#ap-ndice-i---configura--o-de-apis">Apêndice I - Configuração de APIs</a>
+<ul>
+<li><a href="#ipinfodb">IPinfoDB</a></li>
+<li><a href="#github">Github</a></li>
+<li><a href="#haveibeenpwned">HaveIBeenPwned</a></li>
+<li><a href="#shodan">Shodan</a></li>
+</ul>
+</li>
+</ul>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->Table of contents generated with markdown-toc<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h1 id="o-recon-ng">O Recon-NG</h1>
+<p>O <strong>Recon-NG</strong>, desenvolvido por <a href="https://twitter.com/LaNMaSteR53">Tim Tomes</a>, é um framework de reconhecimento construído com o objetivo de prover um ambiente poderoso e customizável para condução de análise passiva a partir de informações públicas em contexto web.</p>
+<p>O Recon-NG pode ser baixado em <a href="https://github.com/lanmaster53/recon-ng">https://github.com/lanmaster53/recon-ng</a> e por padrão já vem instalado no Kali Linux.</p>
+<h1 id="introdução">Introdução</h1>
+<p>Como membro do Red Team, você frequentemente enfrenta o dilema de quanto tempo, se houver, de se comprometer com a coleta de informações técnicas.</p>
+<p>Nas campanhas é necessário olhar para tudo que está ao redor do alvo a ser analisado, antes mesmo de realizar uma análise ativa diretamente nos recursos conhecidos do alvo, é totalmente viável ter um bom panorama a partir de informações disponíveis publicamente e conhecer melhor o seu alvo de forma <strong>passiva</strong>. Aí que entramos no conceito de <strong>OSINT (Open Source Intelligence)</strong>.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594609614/blog/osint_ustfsk.png" alt=""></p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594611069/blog/mchammer_ucanttouchthis.gif" alt=""></p>
+<p>O <strong>Recon-NG</strong> é apenas uma das ferramentas disponíveis para este tipo de trabalho. Mais opções para cada tipo de atividade pode ser consultada no site <a href="https://osintframework.com/">https://osintframework.com/</a>.</p>
+<p>Abaixo um mapa mental inicial das atividades e suas ferramentas exemplificadas em <a href="https://osintframework.com/">https://osintframework.com/</a>.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594607003/blog/Snipaste_2020-07-12_23-22-49_gjqroh.png" alt=""></p>
+<p><strong>Os motivos que me fizeram a escrever material são:</strong></p>
+<ol>
+<li>Trabalhei com a versão 3 ou 4 (não me lembro) do Recon-NG, e quando me deparei com a versão 5, todos os comandos que eu me lembrava não funcionavam mais&hellip;😒</li>
+<li>Quase todo material disponível nos livros que possuo e nos materiais online disponíveis são para versões abaixo da versão 5. Mudou muito a forma de trabalhar com a ferramenta.</li>
+<li>Praticamente não há materiais em Português para a nova versão.</li>
+</ol>
+<p><strong>Principais características do Recon-NG</strong></p>
+<ul>
+<li>Mais de 100 módulos disponíveis no <em>marketplace</em>;</li>
+<li>Pela ferramenta ser construída em Python, é relativamente simples de construir seu próprio módulo. <a href="https://github.com/lanmaster53/recon-ng/wiki/Development-Guide;">https://github.com/lanmaster53/recon-ng/wiki/Development-Guide;</a></li>
+<li>Através de scripts é possível a coleta de informações praticamente sem interrupção, mesmo que levo algumas horas para terminar. Mais informações em <a href="https://github.com/lanmaster53/recon-ng/wiki/Features#automation;">https://github.com/lanmaster53/recon-ng/wiki/Features#automation;</a></li>
+<li>Web API. <a href="https://github.com/lanmaster53/recon-ng/wiki/Development-Guide#web-api;">https://github.com/lanmaster53/recon-ng/wiki/Development-Guide#web-api;</a></li>
+<li>Mais informações em <a href="https://github.com/lanmaster53/recon-ng/wiki/Features">https://github.com/lanmaster53/recon-ng/wiki/Features</a>.</li>
+</ul>
+<h2 id="recon-ng---cyberkillchain-mitre-attck-bug-bounties">Recon-NG - CyberKillChain, Mitre ATT&amp;CK, Bug Bounties</h2>
+<p>Olhando para as metodologias utilizadas, no modelo <a href="https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html"><strong>CyberKillChain</strong></a> o <strong>Recon-NG</strong> se situa na fase de Reconhecimento (<strong>Recon</strong>), como já foi mencionado anteriormente.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594607811/blog/Cyber_Kill_Chain_u8fevd.jpg" alt=""></p>
+<p>Olhando no detalhe para as táticas de <a href="https://attack.mitre.org/tactics/pre/"><strong>PRE-ATT&amp;CK</strong></a> do <strong>MITRE</strong>, o Recon-NG imediatamente atende aos itens <a href="https://attack.mitre.org/tactics/TA0015/">TA0015 (Technical Information Gathering)</a> e <a href="https://attack.mitre.org/tactics/TA0016/">TA0016 (People Information Gathering)</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Tactic</th>
+<th>Technique ID</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Technical Information Gathering</td>
+<td><a href="https://attack.mitre.org/techniques/T1250">T1250</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1250">Determine domain and IP address space</a></td>
+<td>Domain Names are the human readable names used to represent one or more IP addresses. IP addresses are the unique identifier of computing devices on a network. Both pieces of information are valuable to an adversary who is looking to understand the structure of a network.</td>
+</tr>
+<tr>
+<td>Technical Information Gathering</td>
+<td><a href="https://attack.mitre.org/techniques/T1261">T1261</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1261">Enumerate externally facing software applications technologies, languages, and dependencies</a></td>
+<td>Software applications will be built using different technologies, languages, and dependencies. This information may reveal vulnerabilities or opportunities to an adversary.</td>
+</tr>
+<tr>
+<td>People Information Gathering</td>
+<td><a href="https://attack.mitre.org/techniques/T1271">T1271</a></td>
+<td><a href="https://attack.mitre.org/techniques/T1271">Identify personnel with an authority/privilege</a></td>
+<td>Personnel internally to a company may have non-electronic specialized access, authorities, or privilege that make them an attractive target for an adversary. One example of this is an individual with financial authority to authorize large transactions. An adversary who compromises this individual might be able to subvert large dollar transfers.</td>
+</tr>
+</tbody>
+</table>
+<p>Em programas de <em>bug bounty</em> como <strong>HackerOne</strong> ou <strong>BugCrowd</strong>, em escopos mais abertos você pode utilizar esta ferramenta e automatizá-la para monitorar as empresas quer você busca por vulnerabilidades e consequentemente recompensas. 🤑</p>
+<h1 id="iniciando-recon-ng">Iniciando Recon-NG</h1>
+<p><code>root@kali:~# recon-ng</code></p>
+<p>Listando opções</p>
+<pre><code>[recon-ng][default] &gt; help
+
+Commands (type [help|?] &lt;topic&gt;):
+---------------------------------
+back            Exits the current context
+dashboard       Displays a summary of activity
+db              Interfaces with the workspace's database
+exit            Exits the framework
+help            Displays this menu
+index           Creates a module index (dev only)
+keys            Manages third party resource credentials
+marketplace     Interfaces with the module marketplace
+modules         Interfaces with installed modules
+options         Manages the current context options
+pdb             Starts a Python Debugger session (dev only)
+script          Records and executes command scripts
+shell           Executes shell commands
+show            Shows various framework items
+snapshots       Manages workspace snapshots
+spool           Spools output to a file
+workspaces      Manages workspaces
+
+</code></pre><h1 id="configuração-de-proxy">Configuração de proxy</h1>
+<p>Se precisar configurar um proxy, você pode utilizar a opção options.</p>
+<pre><code>recon-ng][Boeing] &gt; options list
+
+  Name        Current Value  Required  Description
+  ----------  -------------  --------  -----------
+  NAMESERVER  8.8.8.8        yes       default nameserver for the resolver mixin
+  PROXY                      no        proxy server (address:port)
+  THREADS     10             yes       number of threads (where applicable)
+  TIMEOUT     10             yes       socket timeout (seconds)
+  USER-AGENT  Recon-ng/v5    yes       user-agent string
+  VERBOSITY   1              yes       verbosity level (0 = minimal, 1 = verbose, 2 = debug)
+</code></pre><p>Para configurar algo necessário, basta utilizar a seguinte expressão, declarando 192.168.0.1 como proxy:</p>
+<pre><code>[recon-ng][Boeing] &gt; option set PROXY 192.168.0.1
+</code></pre><p>Se precisar desconfigurar algo, ou vc pode subscrever com o próprio set ou usar o unset.</p>
+<h1 id="organizando-workspaces">Organizando workspaces</h1>
+<p>Sempre que quiser ver todas as opções de uma determinada opção basta usar a tecla <strong>TAB</strong> para listar.</p>
+<pre><code>[recon-ng] &gt; marketplace &lt;TAB&gt;
+info     install  refresh  remove   search
+</code></pre><p>Precisamos nos organizar, criaremos um workspace para nosso site.</p>
+<pre><code>[recon-ng][default] &gt; workspaces create tiagotavares.io
+[recon-ng][tiagotavares.io] &gt; 
+</code></pre><h1 id="adicionando-organizações-ao-workspace">Adicionando organizações ao workspace</h1>
+<p>Agora vamos começar a inserir informações das empresas que vamos analisar, para teste vamos exemplificar com a Boeing ✈️.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594643447/blog/boeing_website_pweudr.png" alt=""></p>
+<pre><code>[recon-ng][tiagotavares.io] &gt; db insert companies 
+company (TEXT): Boeing
+description (TEXT): Boeing is the world's largest aerospace company and leading manufacturer.
+notes (TEXT): 
+[*] 1 rows affected.
+[recon-ng][tiagotavares.io] &gt;
+</code></pre><p>Podemos listar workspaces e companies, como no exemplo abaixo.</p>
+<pre><code>[recon-ng][tiagotavares.io] &gt; show companies
+</code></pre><p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594577604/blog/Snipaste_2020-07-12_15-12-59_k92tfj.png" alt=""></p>
+<p>No mesmo workplaces podemos adicionar quantos empresas quisermos. Vamos adicionar agora a concorrente Airbus e o orgulho nacional, a Embraer.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594643598/blog/airbus_site_yrxjro.png" alt=""></p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594643685/blog/embraer_site_jrjzro.png" alt=""></p>
+<pre><code>[recon-ng][tiagotavares.io] &gt; db insert companies
+company (TEXT): Airbus
+description (TEXT): 
+notes (TEXT): 
+[*] 1 rows affected.
+[recon-ng][tiagotavares.io] &gt; db insert companies
+company (TEXT): Embraer
+description (TEXT): 
+notes (TEXT): 
+[*] 1 rows affected.
+</code></pre><pre><code>[recon-ng][tiagotavares.io] &gt; show companies
+</code></pre><p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594643858/blog/Snipaste_2020-07-13_09-37-23_ohzctn.png" alt=""></p>
+<h1 id="trabalhando-com-o-marketplace-e-seus-módulos">Trabalhando com o <em>marketplace</em> e seus módulos</h1>
+<p>Precisamos tornar o Recon-ng em algo útil, vamos começar a utilizar o marketplace para começar a dar funções a ferramenta.</p>
+<p>Primeiro vamos atualizar a base.</p>
+<pre><code>[recon-ng][tiagotavares.io] &gt; marketplace refresh
+</code></pre><p>Agora vamos buscar todos os módulos disponíveis. Lembrando que é possível desenvolver seu próprio modulo que atenda melhoras as suas necessidades.  😉</p>
+<p>Nas últimas colunas D e K respectivamente mostram informações se o módulo possui <strong>dependências</strong> ou se ele precisa de alguma <strong>chave de API</strong>.</p>
+<pre><code>[recon-ng][tiagotavares.io] &gt; marketplace search
+
+  +---------------------------------------------------------------------------------------------------+
+  |                        Path                        | Version |     Status    |  Updated   | D | K |
+  +---------------------------------------------------------------------------------------------------+
+  | discovery/info_disclosure/cache_snoop              | 1.0     | not installed | 2019-06-24 |   |   |
+  | discovery/info_disclosure/interesting_files        | 1.1     | not installed | 2020-01-13 |   |   |
+  | exploitation/injection/command_injector            | 1.0     | not installed | 2019-06-24 |   |   |
+  | exploitation/injection/xpath_bruter                | 1.2     | not installed | 2019-10-08 |   |   |
+  | import/csv_file                                    | 1.1     | not installed | 2019-08-09 |   |   |
+  | import/list                                        | 1.1     | not installed | 2019-06-24 |   |   |
+  | import/masscan                                     | 1.0     | not installed | 2020-04-07 |   |   |
+  | import/nmap                                        | 1.0     | not installed | 2019-06-24 |   |   |
+  | recon/companies-contacts/bing_linkedin_cache       | 1.0     | not installed | 2019-06-24 |   | * |
+  | recon/companies-contacts/censys_email_address      | 1.0     | not installed | 2019-08-22 |   | * |
+  | recon/companies-contacts/pen                       | 1.1     | not installed | 2019-10-15 |   |   |
+  | recon/companies-domains/censys_subdomains          | 1.0     | not installed | 2019-08-22 |   | * |
+  | recon/companies-domains/pen                        | 1.1     | not installed | 2019-10-15 |   |   |
+  | recon/companies-domains/viewdns_reverse_whois      | 1.0     | not installed | 2019-08-08 |   |   |
+  | recon/companies-domains/whoxy_dns                  | 1.0     | not installed | 2020-06-17 |   | * |
+  | recon/companies-hosts/censys_org                   | 1.0     | not installed | 2019-08-22 |   | * |
+  | recon/companies-hosts/censys_tls_subjects          | 1.0     | not installed | 2019-08-22 |   | * |
+  | recon/companies-multi/github_miner                 | 1.1     | not installed | 2020-05-15 |   | * |
+  | recon/companies-multi/shodan_org                   | 1.1     | not installed | 2020-07-01 | * | * |
+  | recon/companies-multi/whois_miner                  | 1.1     | not installed | 2019-10-15 |   |   |
+  | recon/contacts-contacts/abc                        | 1.0     | not installed | 2019-10-11 | * |   |
+  | recon/contacts-contacts/mailtester                 | 1.0     | not installed | 2019-06-24 |   |   |
+  | recon/contacts-contacts/mangle                     | 1.0     | not installed | 2019-06-24 |   |   |
+  | recon/contacts-contacts/unmangle                   | 1.1     | not installed | 2019-10-27 |   |   |
+  | recon/contacts-credentials/hibp_breach             | 1.2     | not installed | 2019-09-10 |   | * |
+  | recon/contacts-credentials/hibp_paste              | 1.1     | not installed | 2019-09-10 |   | * |
+  | recon/contacts-credentials/scylla                  | 1.2     | not installed | 2020-06-05 |   |   |
+  | recon/contacts-domains/migrate_contacts            | 1.1     | not installed | 2020-05-17 |   |   |
+  | recon/contacts-profiles/fullcontact                | 1.1     | not installed | 2019-07-24 |   | * |
+  | recon/credentials-credentials/adobe                | 1.0     | not installed | 2019-06-24 |   |   |
+  | recon/credentials-credentials/bozocrack            | 1.0     | not installed | 2019-06-24 |   |   |
+  | recon/credentials-credentials/hashes_org           | 1.0     | not installed | 2019-06-24 |   | * |
+  | recon/domains-companies/censys_companies           | 1.0     | not installed | 2019-08-22 |   | * |
+  | recon/domains-companies/pen                        | 1.1     | not installed | 2019-10-15 |   |   |
+  | recon/domains-companies/whoxy_whois                | 1.1     | not installed | 2020-06-24 |   | * |
+  | recon/domains-contacts/hunter_io                   | 1.2     | not installed | 2020-04-14 |   | * |
+  | recon/domains-contacts/metacrawler                 | 1.1     | not installed | 2019-06-24 | * |   |
+  | recon/domains-contacts/pen                         | 1.1     | not installed | 2019-10-15 |   |   |
+  | recon/domains-contacts/pgp_search                  | 1.4     | not installed | 2019-10-16 |   |   |
+  | recon/domains-contacts/whois_pocs                  | 1.0     | not installed | 2019-06-24 |   |   |
+  | recon/domains-contacts/wikileaker                  | 1.0     | not installed | 2020-04-08 |   |   |
+  | recon/domains-credentials/pwnedlist/account_creds  | 1.0     | not installed | 2019-06-24 | * | * |
+  | recon/domains-credentials/pwnedlist/api_usage      | 1.0     | not installed | 2019-06-24 |   | * |
+  | recon/domains-credentials/pwnedlist/domain_creds   | 1.0     | not installed | 2019-06-24 | * | * |
+  | recon/domains-credentials/pwnedlist/domain_ispwned | 1.0     | not installed | 2019-06-24 |   | * |
+  | recon/domains-credentials/pwnedlist/leak_lookup    | 1.0     | not installed | 2019-06-24 |   |   |
+  | recon/domains-credentials/pwnedlist/leaks_dump     | 1.0     | not installed | 2019-06-24 |   | * |
+  | recon/domains-credentials/scylla                   | 1.2     | not installed | 2020-04-14 |   |   |
+  | recon/domains-domains/brute_suffix                 | 1.1     | not installed | 2020-05-17 |   |   |
+  | recon/domains-hosts/binaryedge                     | 1.2     | not installed | 2020-06-18 |   | * |
+  | recon/domains-hosts/bing_domain_api                | 1.0     | not installed | 2019-06-24 |   | * |
+  | recon/domains-hosts/bing_domain_web                | 1.1     | not installed | 2019-07-04 |   |   |
+  | recon/domains-hosts/brute_hosts                    | 1.0     | not installed | 2019-06-24 |   |   |
+  | recon/domains-hosts/builtwith                      | 1.0     | not installed | 2019-06-24 |   | * |
+  | recon/domains-hosts/censys_domain                  | 1.0     | not installed | 2019-08-22 |   | * |
+  | recon/domains-hosts/certificate_transparency       | 1.2     | not installed | 2019-09-16 |   |   |
+  | recon/domains-hosts/findsubdomains                 | 1.0     | not installed | 2019-06-24 |   |   |
+  | recon/domains-hosts/google_site_web                | 1.0     | not installed | 2019-06-24 |   |   |
+  | recon/domains-hosts/hackertarget                   | 1.1     | installed     | 2020-05-17 |   |   |
+  | recon/domains-hosts/mx_spf_ip                      | 1.0     | not installed | 2019-06-24 |   |   |
+  | recon/domains-hosts/netcraft                       | 1.1     | not installed | 2020-02-05 |   |   |
+  | recon/domains-hosts/shodan_hostname                | 1.1     | not installed | 2020-07-01 | * | * |
+  | recon/domains-hosts/ssl_san                        | 1.0     | not installed | 2019-06-24 |   |   |
+  | recon/domains-hosts/threatcrowd                    | 1.0     | not installed | 2019-06-24 |   |   |
+  | recon/domains-hosts/threatminer                    | 1.0     | not installed | 2019-06-24 |   |   |
+  | recon/domains-vulnerabilities/ghdb                 | 1.1     | not installed | 2019-06-26 |   |   |
+  | recon/domains-vulnerabilities/xssed                | 1.0     | not installed | 2019-06-24 |   |   |
+  | recon/hosts-domains/migrate_hosts                  | 1.1     | not installed | 2020-05-17 |   |   |
+  | recon/hosts-hosts/bing_ip                          | 1.0     | not installed | 2019-06-24 |   | * |
+  | recon/hosts-hosts/censys_hostname                  | 1.0     | not installed | 2019-08-22 |   | * |
+  | recon/hosts-hosts/censys_ip                        | 1.0     | not installed | 2019-08-22 |   | * |
+  | recon/hosts-hosts/censys_query                     | 1.0     | not installed | 2019-08-22 |   | * |
+  | recon/hosts-hosts/ipinfodb                         | 1.1     | not installed | 2020-06-08 |   | * |
+  | recon/hosts-hosts/ipstack                          | 1.0     | not installed | 2019-06-24 |   | * |
+  | recon/hosts-hosts/resolve                          | 1.0     | not installed | 2019-06-24 |   |   |
+  | recon/hosts-hosts/reverse_resolve                  | 1.0     | not installed | 2019-06-24 |   |   |
+  | recon/hosts-hosts/ssltools                         | 1.0     | not installed | 2019-06-24 |   |   |
+  | recon/hosts-hosts/virustotal                       | 1.0     | not installed | 2019-06-24 |   | * |
+  | recon/hosts-locations/migrate_hosts                | 1.0     | not installed | 2019-06-24 |   |   |
+  | recon/hosts-ports/binaryedge                       | 1.0     | not installed | 2019-06-24 |   | * |
+  | recon/hosts-ports/shodan_ip                        | 1.2     | not installed | 2020-07-01 | * | * |
+  | recon/locations-locations/geocode                  | 1.0     | not installed | 2019-06-24 |   | * |
+  | recon/locations-locations/reverse_geocode          | 1.0     | not installed | 2019-06-24 |   | * |
+  | recon/locations-pushpins/flickr                    | 1.0     | not installed | 2019-06-24 |   | * |
+  | recon/locations-pushpins/shodan                    | 1.1     | not installed | 2020-07-01 |   | * |
+  | recon/locations-pushpins/twitter                   | 1.1     | not installed | 2019-10-17 |   | * |
+  | recon/locations-pushpins/youtube                   | 1.1     | not installed | 2019-10-15 |   | * |
+  | recon/netblocks-companies/censys_netblock_company  | 1.0     | not installed | 2019-08-22 |   | * |
+  | recon/netblocks-companies/whois_orgs               | 1.0     | not installed | 2019-06-24 |   |   |
+  | recon/netblocks-hosts/censys_netblock              | 1.0     | not installed | 2019-08-22 |   | * |
+  | recon/netblocks-hosts/reverse_resolve              | 1.0     | not installed | 2019-06-24 |   |   |
+  | recon/netblocks-hosts/shodan_net                   | 1.1     | installed     | 2020-07-01 | * | * |
+  | recon/netblocks-hosts/virustotal                   | 1.0     | not installed | 2019-06-24 |   | * |
+  | recon/netblocks-ports/census_2012                  | 1.0     | not installed | 2019-06-24 |   |   |
+  | recon/netblocks-ports/censysio                     | 1.0     | not installed | 2019-06-24 |   | * |
+  | recon/ports-hosts/migrate_ports                    | 1.0     | not installed | 2019-06-24 |   |   |
+  | recon/ports-hosts/ssl_scan                         | 1.0     | not installed | 2020-04-13 |   |   |
+  | recon/profiles-contacts/bing_linkedin_contacts     | 1.1     | not installed | 2019-10-08 |   | * |
+  | recon/profiles-contacts/dev_diver                  | 1.1     | not installed | 2020-05-15 |   |   |
+  | recon/profiles-contacts/github_users               | 1.0     | not installed | 2019-06-24 |   | * |
+  | recon/profiles-profiles/namechk                    | 1.0     | not installed | 2019-06-24 |   | * |
+  | recon/profiles-profiles/profiler                   | 1.0     | not installed | 2019-06-24 |   |   |
+  | recon/profiles-profiles/twitter_mentioned          | 1.0     | not installed | 2019-06-24 |   | * |
+  | recon/profiles-profiles/twitter_mentions           | 1.0     | not installed | 2019-06-24 |   | * |
+  | recon/profiles-repositories/github_repos           | 1.1     | not installed | 2020-05-15 |   | * |
+  | recon/repositories-profiles/github_commits         | 1.0     | not installed | 2019-06-24 |   | * |
+  | recon/repositories-vulnerabilities/gists_search    | 1.0     | not installed | 2019-06-24 |   |   |
+  | recon/repositories-vulnerabilities/github_dorks    | 1.0     | not installed | 2019-06-24 |   | * |
+  | reporting/csv                                      | 1.0     | not installed | 2019-06-24 |   |   |
+  | reporting/html                                     | 1.0     | not installed | 2019-06-24 |   |   |
+  | reporting/json                                     | 1.0     | not installed | 2019-06-24 |   |   |
+  | reporting/list                                     | 1.0     | not installed | 2019-06-24 |   |   |
+  | reporting/proxifier                                | 1.0     | not installed | 2019-06-24 |   |   |
+  | reporting/pushpin                                  | 1.0     | not installed | 2019-06-24 |   | * |
+  | reporting/xlsx                                     | 1.0     | not installed | 2019-06-24 |   |   |
+  | reporting/xml                                      | 1.1     | not installed | 2019-06-24 |   |   |
+  +---------------------------------------------------------------------------------------------------+
+
+  D = Has dependencies. See info for details.
+  K = Requires keys. See info for details.
+
+</code></pre><p>Em nosso exemplo, iremos utilizar os seguintes módulos para realizar nosso trabalho.</p>
+<table>
+<thead>
+<tr>
+<th>Path</th>
+<th>Version</th>
+<th>Status</th>
+<th>Updated</th>
+<th>D</th>
+<th>K</th>
+<th>Como Configurar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>recon/companies-multi/whois_miner</td>
+<td>1.1</td>
+<td>not installed</td>
+<td>2019-10-15</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>recon/domains-hosts/google_site_web</td>
+<td>1.0</td>
+<td>not installed</td>
+<td>2019-06-24</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>recon/domains-hosts/brute_hosts</td>
+<td>1.0</td>
+<td>not installed</td>
+<td>2019-06-24</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>recon/domains-hosts/netcraft</td>
+<td>1.1</td>
+<td>not installed</td>
+<td>2020-02-05</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>recon/hosts-hosts/resolve</td>
+<td>1.0</td>
+<td>not installed</td>
+<td>2019-06-24</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>recon/hosts-hosts/reverse_resolve</td>
+<td>1.0</td>
+<td>not installed</td>
+<td>2019-06-24</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>discovery/info_disclosure/interesting_files</td>
+<td>1.1</td>
+<td>not installed</td>
+<td>2020-01-13</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>recon/hosts-hosts/ipinfodb</td>
+<td>1.1</td>
+<td>not installed</td>
+<td>2020-06-08</td>
+<td></td>
+<td>*</td>
+<td>Aqui!</td>
+</tr>
+<tr>
+<td>recon/domains-contacts/whois_pocs</td>
+<td>1.0</td>
+<td>not installed</td>
+<td>2019-06-24</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>recon/contacts-credentials/hibp_paste</td>
+<td>1.2</td>
+<td>not installed</td>
+<td>2019-09-10</td>
+<td></td>
+<td>*</td>
+<td>Aqui!</td>
+</tr>
+<tr>
+<td>recon/companies-multi/github_miner</td>
+<td>1.1</td>
+<td>not installed</td>
+<td>2020-05-15</td>
+<td></td>
+<td>*</td>
+<td>Aqui!</td>
+</tr>
+<tr>
+<td>recon/hosts-ports/shodan_ip</td>
+<td>1.2</td>
+<td>not installed</td>
+<td>2020-07-01</td>
+<td>*</td>
+<td>*</td>
+<td>Aqui!</td>
+</tr>
+<tr>
+<td>recon/domains-hosts/shodan_hostname</td>
+<td>1.1</td>
+<td>not installed</td>
+<td>2020-07-01</td>
+<td>*</td>
+<td>*</td>
+<td>Aqui!</td>
+</tr>
+<tr>
+<td>recon/netblocks-hosts/shodan_net</td>
+<td>1.1</td>
+<td>installed</td>
+<td>2020-07-01</td>
+<td>*</td>
+<td>*</td>
+<td>Aqui!</td>
+</tr>
+<tr>
+<td>reporting/html</td>
+<td>1.0</td>
+<td>not installed</td>
+<td>2019-06-24</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Atenção para a configuração das keys das APIs necessárias. Utilize os link acima para a configuração ou role a página para o fim do post para o passo a passo. A ordem entre configurar e instalar não importa,</p>
+<h2 id="instalando-módulos">Instalando módulos</h2>
+<p>Vamos instalar todos os módulos que separamos para o nosso teste. Até a versão atual que estou testando, a v5.1.1, só é possível instalar um módulo de cada vez. 😑</p>
+<pre><code>[recon-ng] &gt; marketplace install whois-miner
+[recon-ng] &gt; marketplace install google_site_web
+[recon-ng] &gt; marketplace install brute_hosts
+[recon-ng] &gt; marketplace install netcraft
+[recon-ng] &gt; marketplace install resolve
+[recon-ng] &gt; marketplace install reverse_resolve
+[recon-ng] &gt; marketplace install interesting_files
+[recon-ng] &gt; marketplace install ipinfodb
+[recon-ng] &gt; marketplace install whois_pocs
+[recon-ng] &gt; marketplace install hibp_paste
+[recon-ng] &gt; marketplace install scylla
+[recon-ng] &gt; marketplace install github_miner 
+[recon-ng] &gt; marketplace install shodan_ip
+[recon-ng] &gt; marketplace install shodan_hostname
+[recon-ng] &gt; marketplace install shodan_net
+[recon-ng] &gt; marketplace install html
+</code></pre><h1 id="executando-os-módulos-e-obtendo-informações">Executando os módulos e obtendo informações</h1>
+<p>Com os nossos módulos instalados, vamos configurá-los e executá-los.</p>
+<h2 id="whois_miner">whois_miner</h2>
+<p>Neste, vamos deixar a opção default e executar.</p>
+<pre><code>[recon-ng][tiagotavares.io] &gt; modules load whois_miner
+[recon-ng][tiagotavares.io][whois_miner] &gt; info
+
+      Name: Whois Data Miner
+    Author: Tim Tomes (@lanmaster53)
+   Version: 1.1
+
+Description:
+  Uses the ARIN Whois RWS to harvest companies, locations, netblocks, and contacts associated with the
+  given company search string. Updates the respective tables with the results.
+
+Options:
+  Name    Current Value  Required  Description
+  ------  -------------  --------  -----------
+  SOURCE  default        yes       source of input (see 'info' for details)
+
+Source Options:
+  default        SELECT DISTINCT company FROM companies WHERE company IS NOT NULL
+  &lt;string&gt;       string representing a single input
+  &lt;path&gt;         path to a file containing a list of inputs
+  query &lt;sql&gt;    database query returning one column of inputs
+
+Comments:
+  * Wildcard searches are allowed using the &quot;*&quot; character.
+  * Validate results of the SEARCH string with these URLs:
+    - http://whois.arin.net/rest/orgs;name=&lt;SEARCH&gt;
+    - http://whois.arin.net/rest/customers;name=&lt;SEARCH&gt;
+</code></pre><pre><code>[recon-ng][tiagotavares.io][whois_miner] &gt; options set SOURCE boeing
+</code></pre><pre><code>[recon-ng][tiagotavares.io][whois_miner] &gt; run
+[*] URL: http://whois.arin.net/rest/orgs;name=boeing
+[*] No ORGS found.
+[*] URL: http://whois.arin.net/rest/customers;name=boeing
+[*] No CUSTOMERS found.
+</code></pre><h2 id="whois_pocs">whois_pocs</h2>
+<pre><code>[recon-ng][tiagotavares.io] &gt; modules load whois_pocs
+[recon-ng][tiagotavares.io][whois_pocs] &gt; info
+
+      Name: Whois POC Harvester
+    Author: Tim Tomes (@lanmaster53)
+   Version: 1.0
+
+Description:
+  Uses the ARIN Whois RWS to harvest POC data from whois queries for the given domain. Updates the
+  'contacts' table with the results.
+
+Options:
+  Name    Current Value  Required  Description
+  ------  -------------  --------  -----------
+  SOURCE  default        yes       source of input (see 'info' for details)
+
+Source Options:
+  default        SELECT DISTINCT domain FROM domains WHERE domain IS NOT NULL
+  &lt;string&gt;       string representing a single input
+  &lt;path&gt;         path to a file containing a list of inputs
+  query &lt;sql&gt;    database query returning one column of inputs
+
+[recon-ng][tiagotavares.io][whois_pocs] &gt; 
+
+</code></pre><pre><code>[recon-ng][tiagotavares.io][whois_pocs] &gt; options set SOURCE boeing.com
+</code></pre><pre><code>[recon-ng][tiagotavares.io][whois_pocs] &gt; run
+...
+...
+...
+[*] --------------------------------------------------
+[*] URL: http://whois.arin.net/rest/poc/AWO19-ARIN
+[*] Country: United States
+[*] Email: JohnDoe@boeing.com
+[*] First_Name: Al
+[*] Last_Name: Wood
+[*] Middle_Name: None
+[*] Notes: None
+[*] Phone: None
+[*] Region: Seal Beach, CA
+[*] Title: Whois contact
+[*] --------------------------------------------------
+
+-------
+SUMMARY
+-------
+[*] 159 total (80 new) contacts found.
+[recon-ng][tiagotavares.io][whois_pocs] &gt;
+</code></pre><h2 id="google_site_web">google_site_web</h2>
+<pre><code>[recon-ng][tiagotavares.io] &gt; modules load google_site_web
+</code></pre><p>Configure o domínio inicial que será realizada a busca.</p>
+<pre><code>[recon-ng][tiagotavares.io][google_site_web] &gt; options set SOURCE boeing.com
+</code></pre><p>Rode o módulo. Abaixo foram identificado 27 hosts, mas a busca parou após o Captcha do Google, que precisará ser bypassado.</p>
+<pre><code>[recon-ng][tiagotavares.io][google_site_web] &gt; run
+
+----------
+BOEING.COM
+----------
+...
+...
+...
+...
+Google CAPTCHA triggered. No bypass available.
+
+-------
+SUMMARY
+-------
+[*] 27 total (27 new) hosts found.
+</code></pre><h2 id="brute_hosts">brute_hosts</h2>
+<pre><code>[recon-ng][tiagotavares.io] &gt; modules load brute_hosts
+[recon-ng][tiagotavares.io][brute_hosts] &gt; options set SOURCE boeing.com
+[recon-ng][tiagotavares.io][brute_hosts] &gt; run
+...
+...
+...
+[*] zera.boeing.com =&gt; No record found.
+[*] zeus.boeing.com =&gt; No record found.
+[*] zlog.boeing.com =&gt; No record found.
+[*] zm.boeing.com =&gt; No record found.
+[*] zulu.boeing.com =&gt; No record found.
+[*] zw.boeing.com =&gt; No record found.
+
+-------
+SUMMARY
+-------
+[*] 55 total (42 new) hosts found.
+</code></pre><h2 id="ipinfodb">ipinfodb</h2>
+<pre><code>[recon-ng][tiagotavares.io] &gt; modules load infodb
+[recon-ng][tiagotavares.io][ipinfodb] &gt; info
+
+      Name: IPInfoDB GeoIP
+    Author: Tim Tomes (@lanmaster53)
+   Version: 1.1
+      Keys: ipinfodb_api
+
+Description:
+  Leverages the ipinfodb.com API to geolocate a host by IP address. Updates the 'hosts' table with the
+  results.
+
+Options:
+  Name    Current Value  Required  Description
+  ------  -------------  --------  -----------
+  LIMIT   True           yes       toggle rate limiting
+  SOURCE  default        yes       source of input (see 'info' for details)
+
+Source Options:
+  default        SELECT DISTINCT ip_address FROM hosts WHERE ip_address IS NOT NULL
+  &lt;string&gt;       string representing a single input
+  &lt;path&gt;         path to a file containing a list of inputs
+  query &lt;sql&gt;    database query returning one column of inputs
+
+Comments:
+  * Free API access requires the use of rate limiting.
+
+</code></pre><pre><code>[recon-ng][tiagotavares.io][ipinfodb] &gt; run
+</code></pre><h2 id="shodan_ip">shodan_ip</h2>
+<pre><code>[recon-ng][tiagotavares.io] &gt; modules load shodan_ip
+[recon-ng][tiagotavares.io][shodan_ip] &gt; info
+
+      Name: Shodan IP Enumerator
+    Author: Tim Tomes (@lanmaster53) and Matt Puckett (@t3lc0) &amp; Ryan Hays (@_ryanhays)
+   Version: 1.2
+      Keys: shodan_api
+
+Description:
+  Harvests port information from the Shodan API by using the 'ip' search operator. Updates the 'ports'
+  table with the results.
+
+Options:
+  Name    Current Value  Required  Description
+  ------  -------------  --------  -----------
+  LIMIT   1              yes       limit number of api requests per input source (0 = unlimited)
+  SOURCE  default        yes       source of input (see 'info' for details)
+
+Source Options:
+  default        SELECT DISTINCT ip_address FROM hosts WHERE ip_address IS NOT NULL
+  &lt;string&gt;       string representing a single input
+  &lt;path&gt;         path to a file containing a list of inputs
+  query &lt;sql&gt;    database query returning one column of inputs
+
+</code></pre><p>Não é necessário realizar nenhum configuração adicional além das configurações de chave de API.</p>
+<pre><code>[recon-ng][tiagotavares.io][shodan_ip] &gt; run
+...
+...
+...
+-------
+SUMMARY
+-------
+[*] 15 total (13 new) ports found.
+</code></pre><h2 id="netcraft">netcraft</h2>
+<pre><code>[recon-ng][tiagotavares.io] &gt; modules load  netcraft
+[recon-ng][tiagotavares.io][netcraft] &gt; info
+
+      Name: Netcraft Hostname Enumerator
+    Author: thrapt (thrapt@gmail.com)
+   Version: 1.1
+
+Description:
+  Harvests hosts from Netcraft.com. Updates the 'hosts' table with the results.
+
+Options:
+  Name    Current Value  Required  Description
+  ------  -------------  --------  -----------
+  SOURCE  default        yes       source of input (see 'info' for details)
+
+Source Options:
+  default        SELECT DISTINCT domain FROM domains WHERE domain IS NOT NULL
+  &lt;string&gt;       string representing a single input
+  &lt;path&gt;         path to a file containing a list of inputs
+  query &lt;sql&gt;    database query returning one column of inputs
+</code></pre><pre><code>[recon-ng][tiagotavares.io][netcraft] &gt; options set SOURCE boeing.com
+</code></pre><pre><code>[recon-ng][tiagotavares.io][netcraft] &gt; run
+...
+...
+...
+-------
+SUMMARY
+-------
+[*] 9 total (2 new) hosts found.
+</code></pre><h2 id="resolve">resolve</h2>
+<pre><code>[recon-ng][tiagotavares.io] &gt; modules load recon/hosts-hosts/resolve
+[recon-ng][tiagotavares.io][resolve] &gt; info
+
+      Name: Hostname Resolver
+    Author: Tim Tomes (@lanmaster53)
+   Version: 1.0
+
+Description:
+  Resolves the IP address for a host. Updates the 'hosts' table with the results.
+
+Options:
+  Name    Current Value  Required  Description
+  ------  -------------  --------  -----------
+  SOURCE  default        yes       source of input (see 'info' for details)
+
+Source Options:
+  default        SELECT DISTINCT host FROM hosts WHERE host IS NOT NULL AND ip_address IS NULL
+  &lt;string&gt;       string representing a single input
+  &lt;path&gt;         path to a file containing a list of inputs
+  query &lt;sql&gt;    database query returning one column of inputs
+
+Comments:
+  * Note: Nameserver must be in IP form.
+
+[recon-ng][tiagotavares.io][resolve] &gt; 
+</code></pre><p>Aqui não configuraremos nada! Pois ele obterá o IP dos domínios já obtidos!</p>
+<pre><code>[recon-ng][tiagotavares.io][resolve] &gt; run
+...
+...
+...
+[*] active.boeing.com =&gt; 130.76.22.22
+[*] securelogon.boeing.com =&gt; 130.76.144.230
+[*] securelogon.boeing.com =&gt; 130.76.144.227
+
+-------
+SUMMARY
+-------
+[*] 21 total (21 new) hosts found.
+[recon-ng][tiagotavares.io][resolve] &gt; 
+</code></pre><h2 id="reverse_resolve">reverse_resolve</h2>
+<pre><code>[recon-ng][tiagotavares.io] &gt; modules load recon/hosts-hosts/reverse_resolve
+[recon-ng][tiagotavares.io][reverse_resolve] &gt; info
+
+      Name: Reverse Resolver
+    Author: John Babio (@3vi1john), @vulp1n3, and Tim Tomes (@lanmaster53)
+   Version: 1.0
+
+Description:
+  Conducts a reverse lookup for each IP address to resolve the hostname. Updates the 'hosts' table
+  with the results.
+
+Options:
+  Name    Current Value  Required  Description
+  ------  -------------  --------  -----------
+  SOURCE  default        yes       source of input (see 'info' for details)
+
+Source Options:
+  default        SELECT DISTINCT ip_address FROM hosts WHERE ip_address IS NOT NULL
+  &lt;string&gt;       string representing a single input
+  &lt;path&gt;         path to a file containing a list of inputs
+  query &lt;sql&gt;    database query returning one column of inputs
+
+[recon-ng][tiagotavares.io][reverse_resolve] &gt;
+</code></pre><pre><code>[recon-ng][tiagotavares.io][reverse_resolve] &gt; run
+...
+...
+...
+
+-------
+SUMMARY
+-------
+[*] 89 total (11 new) hosts found.
+</code></pre><h2 id="hibp_paste">hibp_paste</h2>
+<pre><code>[recon-ng][tiagotavares.io] &gt; modules load hibp_paste
+[recon-ng][tiagotavares.io][hibp_paste] &gt; info
+
+      Name: Have I been pwned? Paste Search
+    Author: Tim Tomes (@lanmaster53) and Geoff Pamerleau (@_geoff_p_)
+   Version: 1.1
+      Keys: hibp_api
+
+Description:
+  Leverages the haveibeenpwned.com API to determine if email addresses have been published to various
+  paste sites. Adds compromised email addresses to the 'credentials' table.
+
+Options:
+  Name      Current Value  Required  Description
+  --------  -------------  --------  -----------
+  DOWNLOAD  True           yes       download pastes
+  SOURCE    default        yes       source of input (see 'info' for details)
+
+Source Options:
+  default        SELECT DISTINCT email FROM contacts WHERE email IS NOT NULL
+  &lt;string&gt;       string representing a single input
+  &lt;path&gt;         path to a file containing a list of inputs
+  query &lt;sql&gt;    database query returning one column of inputs
+
+Comments:
+  * Paste sites supported: Pastebin, Pastie, Slexy, Ghostbin, QuickLeak, JustPaste, AdHocUrl, and
+  OptOut.The HIBP API is rate limited to 1 request per 1.5 seconds.
+
+
+</code></pre><pre><code>[recon-ng][tiagotavares.io][hibp_paste] &gt; run
+[*] --------------------------------------------------
+[*] Hash: None
+[*] Leak: None
+[*] Notes: None
+[*] Password: None
+[*] Type: None
+[*] Username: LeakedEmail@boeing.com
+[*] --------------------------------------------------
+
+...
+...
+...
+[*] john.doe@boeing.com =&gt; Not Found.
+
+-------
+SUMMARY
+-------
+[*] 4 total (0 new) contacts found.
+[*] 4 total (4 new) credentials found.
+
+</code></pre><h2 id="github_miner">github_miner</h2>
+<pre><code>[recon-ng][tiagotavares.io] &gt; modules load github_miner
+[recon-ng][tiagotavares.io][github_miner] &gt; info
+
+      Name: Github Resource Miner
+    Author: Tim Tomes (@lanmaster53)
+   Version: 1.1
+      Keys: github_api
+
+Description:
+  Uses the Github API to enumerate repositories and member profiles associated with a company search
+  string. Updates the respective tables with the results.
+
+Options:
+  Name         Current Value  Required  Description
+  -----------  -------------  --------  -----------
+  IGNOREFORKS  True           yes       ignore forks
+  SOURCE       default        yes       source of input (see 'info' for details)
+
+Source Options:
+  default        SELECT DISTINCT company FROM companies WHERE company IS NOT NULL
+  &lt;string&gt;       string representing a single input
+  &lt;path&gt;         path to a file containing a list of inputs
+  query &lt;sql&gt;    database query returning one column of inputs
+</code></pre><pre><code>
+[recon-ng][tiagotavares.io][github_miner] &gt; run
+
+------
+BOEING
+------
+
+</code></pre><h2 id="interesting_files">interesting_files</h2>
+<pre><code>[recon-ng][tiagotavares.io] &gt; modules load interesting_files
+[recon-ng][tiagotavares.io][interesting_files] &gt; info
+
+      Name: Interesting File Finder
+    Author: Tim Tomes (@lanmaster53), thrapt (thrapt@gmail.com), Jay Turla (@shipcod3), and Mark Jeffery
+   Version: 1.1
+
+Description:
+  Checks hosts for interesting files in predictable locations.
+
+Options:
+  Name      Current Value  Required  Description
+  --------  -------------  --------  -----------
+  DOWNLOAD  True           yes       download discovered files
+  PORT      80             yes       request port
+  PROTOCOL  http           yes       request protocol
+  SOURCE    default        yes       source of input (see 'info' for details)
+
+Source Options:
+  default        SELECT DISTINCT host FROM hosts WHERE host IS NOT NULL
+  &lt;string&gt;       string representing a single input
+  &lt;path&gt;         path to a file containing a list of inputs
+  query &lt;sql&gt;    database query returning one column of inputs
+
+Comments:
+  * Files: robots.txt, sitemap.xml, sitemap.xml.gz, crossdomain.xml, phpinfo.php, test.php, elmah.axd,
+  server-status, jmx-console/, admin-console/, web-console/
+  * Google Dorks:
+    - inurl:robots.txt ext:txt
+    - inurl:elmah.axd ext:axd intitle:&quot;Error log for&quot;
+    - inurl:server-status &quot;Apache Status&quot;
+
+[recon-ng][tiagotavares.io][interesting_files] &gt;
+</code></pre><p>Vai demorar um bocado esta parte, você pode ir dormir e voltar para obter o resultado. Porque ele vai analisar cada domínio e subdomínio.</p>
+<pre><code>[recon-ng][tiagotavares.io][interesting_files] &gt; run
+[*] http://m.shop.boeing.com:80/robots.txt =&gt; 404
+[*] http://m.shop.boeing.com:80/sitemap.xml =&gt; 404
+[*] http://m.shop.boeing.com:80/sitemap.xml.gz =&gt; 404
+[*] http://m.shop.boeing.com:80/crossdomain.xml =&gt; 404
+[*] http://m.shop.boeing.com:80/phpinfo.php =&gt; 404
+[*] http://m.shop.boeing.com:80/test.php =&gt; 404
+[*] http://m.shop.boeing.com:80/elmah.axd =&gt; 404
+[*] http://m.shop.boeing.com:80/server-status =&gt; 404
+[*] http://m.shop.boeing.com:80/jmx-console/ =&gt; Error
+[*] http://m.shop.boeing.com:80/admin-console/ =&gt; Error
+[*] http://m.shop.boeing.com:80/web-console/ =&gt; Error
+[*] http://mft.boeing.com:80/robots.txt =&gt; Error
+...
+
+</code></pre><h2 id="exibindo-na-tela-informações-coletadas">Exibindo na tela informações coletadas</h2>
+<p>Antes de se gerar qualquer relatório, podemos visualizar todas as informações que estão organizadas em categorias. Estas categorias podem ser listadas e exibidas como no exemplo abaixo.</p>
+<pre><code>[recon-ng][tiagotavares.io] &gt; show &lt;TAB&gt;
+companies        hosts            ports            vulnerabilities
+contacts         leaks            profiles         
+credentials      locations        pushpins         
+domains          netblocks        repositories 
+</code></pre><p>Mostrando todos os hosts coletados em nosso trabalho.</p>
+<pre><code>[recon-ng][tiagotavares.io] &gt; show hosts
+</code></pre><p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594610042/blog/Snipaste_2020-07-13_00-13-43_wdbcfr.png" alt=""></p>
+<h1 id="criando-relatório">Criando Relatório</h1>
+<h2 id="html">html</h2>
+<pre><code>[recon-ng][tiagotavares.io] &gt; modules load html
+[recon-ng][tiagotavares.io][html] &gt; info
+
+      Name: HTML Report Generator
+    Author: Tim Tomes (@lanmaster53)
+   Version: 1.0
+
+Description:
+  Creates an HTML report.
+
+Options:
+  Name      Current Value                                            Required  Description
+  --------  -------------                                            --------  -----------
+  CREATOR                                                            yes       use creator name in the report footer
+  CUSTOMER                                                           yes       use customer name in the report header
+  FILENAME  /root/.recon-ng/workspaces/tiagotavares.io/results.html  yes       path and filename for report output
+  SANITIZE  True                                                     yes       mask sensitive data in the report
+
+</code></pre><pre><code>[recon-ng][tiagotavares.io][html] &gt; options set CREATOR TT
+CREATOR =&gt; TT
+[recon-ng][tiagotavares.io][html] &gt; options set CUSTOMER Boeing
+CUSTOMER =&gt; Boeing
+</code></pre><pre><code>[recon-ng][tiagotavares.io][html] &gt; run
+[*] Report generated at '/root/.recon-ng/workspaces/tiagotavares.io/results.html'.
+</code></pre><p>Agora basta abrir o nosso relatório em HTML.</p>
+<pre><code>root@kali:~# firefox /root/.recon-ng/workspaces/tiagotavares.io/results.html
+</code></pre><p><img src="Recon-NG/image-20200712202727224.png" alt=""></p>
+<h1 id="recon-web">Recon-web</h1>
+<p>No capítulo anterior foi mostrar a geração de um relatório em HTML e também como exibir resultados na tela do terminal, mas é possível acessar as informações em uma plataforma web com o <strong>recon-web</strong>.</p>
+<pre><code>root@kali:~# recon-web 
+*************************************************************************
+ * Welcome to Recon-web, the analytics and reporting engine for Recon-ng!
+ * This is a web-based user interface. Open the URL below in your browser to begin.
+ * Recon-web includes the Recon-API, which can be accessed via the `/api/` URL.
+*************************************************************************
+[*] Marketplace disabled.
+[*] Version check disabled.
+ * Workspace initialized: default
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+
+</code></pre><p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594601126/blog/recon-web_alqtzu.png" alt=""></p>
+<p>Escolha o workspace onde realizou o trabalho anterior.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594601509/blog/Untitled_zh9apx.png" alt=""></p>
+<p>Agora você pode exibir as informações das tabelas de informações criadas pelo Recon-NG, criando filtros e exportando no formato que desejar.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594601433/blog/Snipaste_2020-07-12_21-50-05_vkicch.png" alt=""></p>
+<h1 id="conclusão">Conclusão</h1>
+<p>A única coisa que posso concluir sem enrolação é que este framework e seus módulos podem perfeitamente substituir uma infinidade de ferramentas que você utiliza para realizar o reconhecimento de organizações, sem muito trabalho para configuração e maleável para trabalhar em qualquer tipo de ambiente, como por exemplo em containers.</p>
+<h1 id="apêndice-i---configuração-de-apis">Apêndice I - Configuração de APIs</h1>
+<h2 id="ipinfodb-1">IPinfoDB</h2>
+<p><strong>Site:</strong> <a href="https://ipinfodb.com/">https://ipinfodb.com/</a></p>
+<p><strong>Módulos dependentes deste tutorial:</strong> ipinfodb</p>
+<p><strong>Procedimento</strong>:</p>
+<p>Crie uma conta ou utilize sua conta do Google para facilitar a criação.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594581449/blog/Snipaste_2020-07-12_16-17-07_jbhspj.png" alt=""></p>
+<p>Infelizmente ele só vai permitir resquisições após especificar exatamente de qual iP serão feitad.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594581749/blog/Snipaste_2020-07-12_16-22-14_jrlwxa.png" alt=""></p>
+<p>Agora é só copiar a chave de API&hellip;</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594582272/blog/ipinfodb_bfcljc.png" alt=""></p>
+<p>&hellip; e configurar o recon-ng.</p>
+<pre><code>[recon-ng][tiagotavares.io] &gt; keys add ipinfodb_api 94cfe253....a790
+[*] Key 'ipinfodb_api' added.
+</code></pre><h2 id="github">Github</h2>
+<p><strong>Site:</strong> <a href="https://github.com/">https://github.com/</a></p>
+<p><strong>Módulos dependentes deste tutorial:</strong> github_api</p>
+<p><strong>Procedimento:</strong></p>
+<p>Crie um perfil no Github caso não possua.</p>
+<p>Vá até a opção Settings.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594582654/blog/Snipaste_2020-07-12_16-37-23_vcc0xv.png" alt=""></p>
+<p>Depois procure pela opção Developer settings &ndash;&gt; Personal access tokens &ndash;&gt; Generate new token.</p>
+<p>Para fins de teste, vamos apenas dar a permissão de acessar repositórios públicos.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594582895/blog/github_j69ysi.png" alt=""></p>
+<p>Pronto! Assim como diz mensagem, copie o token e guarde caso precise para outros fins, pois uma vez configurado no recon-ng o token ficará salvo.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594582993/blog/Snipaste_2020-07-12_16-43-06_ygwzpi.png" alt=""></p>
+<p>Adicionando a chave no recon-ng.</p>
+<pre><code>[recon-ng][tiagotavares.io] &gt; keys add github_api 00783....
+[*] Key 'github_api' added.
+</code></pre><h2 id="haveibeenpwned">HaveIBeenPwned</h2>
+<p><strong>Site:</strong> <a href="https://haveibeenpwned.com/">https://haveibeenpwned.com/</a></p>
+<p><strong>Preço:</strong> US$3,50</p>
+<p><strong>Módulos dependentes deste tutorial:</strong> hibp_api</p>
+<p><strong>Procedimento:</strong></p>
+<p>Acesse o link de API. Em seguida preencha com seu email.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594584106/blog/Snipaste_2020-07-12_17-01-38_uq9kja.png" alt=""></p>
+<p>Logo em seguida você receberá um email para confirmação. Basta clicar em Verify my email.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594584284/blog/Snipaste_2020-07-12_17-04-28_opovg2.png" alt=""></p>
+<p>Para testar, vou comprar um mês de licença.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594584494/blog/Snipaste_2020-07-12_17-07-58_szld6l.png" alt=""></p>
+<p>Pronto, temos a nossa chave!</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594584647/blog/Snipaste_2020-07-12_17-10-34_vdn116.png" alt=""></p>
+<p>Agora vamos adicionar a chave ao recon-ng.</p>
+<pre><code>[recon-ng][tiagotavares.io] &gt; keys add hibp_api d8e...
+[*] Key 'hibp_api' added.
+</code></pre><h2 id="shodan">Shodan</h2>
+<p><strong>Site:</strong> <a href="https://www.shodan.io/">https://www.shodan.io/</a></p>
+<p><strong>Módulos dependentes deste tutorial:</strong> shodan_hostname,  shodan_ip,  shodan_net</p>
+<p><strong>Procedimento:</strong></p>
+<p>Acesse a sua conta ou crie uma caso necessário. Depois clique em My Account.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594583714/blog/Snipaste_2020-07-12_16-55-01_g3hscl.png" alt=""></p>
+<p>Depois é só copiar a chave de API gerada por ele.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594583783/blog/Snipaste_2020-07-12_16-56-15_cxhrfm.png" alt=""></p>
+<p>Vamos adicionar a chave ao recon-ng.</p>
+<pre><code>[recon-ng][tiagotavares.io] &gt; keys add shodan_api WaI93t.....
+[*] Key 'shodan_api' added.
+</code></pre>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/osint/">osint</a>
+
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/recon-ng/">recon-ng</a>
+
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/security/">security</a>
+
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/information-gathering/">information gathering</a>
+
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/coleta-de-informa%C3%A7%C3%B5es/">coleta de informações</a>
+
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/red-team/">red team</a>
+
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/cyber-kill-chain/">cyber kill chain</a>
+
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/mitre-attck/">mitre att&amp;ck</a>
+
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/bug-bounty/">bug bounty</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/06/fontes-de-amostra-de-malwares-para-pesquisadores/" data-tooltip="Fontes de amostra de malwares para pesquisadores">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2020/07/recon-ng/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2020/07/recon-ng/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2020/07/recon-ng/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2020 Tiago Tavares. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/06/fontes-de-amostra-de-malwares-para-pesquisadores/" data-tooltip="Fontes de amostra de malwares para pesquisadores">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2020/07/recon-ng/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2020/07/recon-ng/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2020/07/recon-ng/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftiagotavares.io%2F2020%2F07%2Frecon-ng%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Ftiagotavares.io%2F2020%2F07%2Frecon-ng%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Ftiagotavares.io%2F2020%2F07%2Frecon-ng%2F">
+          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Tiago Tavares</h4>
+    
+      <div id="about-card-bio">Eternal student, cybersecurity pro, husband, runner.</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Cybersecurity Consultant
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Brazil
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    <div id="cover" style="background-image:url('https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589318923/last_jedi1_ybpjeb.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://tiagotavares.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/tiagotavares.io\/2020\/07\/recon-ng\/';
+          
+            this.page.identifier = '\/2020\/07\/recon-ng\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'tiagotavares-io';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+

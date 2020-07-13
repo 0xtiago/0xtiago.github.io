@@ -6,10 +6,91 @@
     <description>Recent content in Tags on debugging the life</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 26 Jun 2020 17:30:24 -0300</lastBuildDate>
+    <lastBuildDate>Sun, 12 Jul 2020 08:41:04 -0300</lastBuildDate>
     
 	<atom:link href="https://tiagotavares.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>bug bounty</title>
+      <link>https://tiagotavares.io/tags/bug-bounty/</link>
+      <pubDate>Sun, 12 Jul 2020 08:41:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/bug-bounty/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>coleta de informações</title>
+      <link>https://tiagotavares.io/tags/coleta-de-informa%C3%A7%C3%B5es/</link>
+      <pubDate>Sun, 12 Jul 2020 08:41:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/coleta-de-informa%C3%A7%C3%B5es/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cyber kill chain</title>
+      <link>https://tiagotavares.io/tags/cyber-kill-chain/</link>
+      <pubDate>Sun, 12 Jul 2020 08:41:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/cyber-kill-chain/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>information gathering</title>
+      <link>https://tiagotavares.io/tags/information-gathering/</link>
+      <pubDate>Sun, 12 Jul 2020 08:41:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/information-gathering/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mitre att&amp;ck</title>
+      <link>https://tiagotavares.io/tags/mitre-attck/</link>
+      <pubDate>Sun, 12 Jul 2020 08:41:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/mitre-attck/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>osint</title>
+      <link>https://tiagotavares.io/tags/osint/</link>
+      <pubDate>Sun, 12 Jul 2020 08:41:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/osint/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>recon-ng</title>
+      <link>https://tiagotavares.io/tags/recon-ng/</link>
+      <pubDate>Sun, 12 Jul 2020 08:41:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/recon-ng/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>red team</title>
+      <link>https://tiagotavares.io/tags/red-team/</link>
+      <pubDate>Sun, 12 Jul 2020 08:41:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/red-team/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>security</title>
+      <link>https://tiagotavares.io/tags/security/</link>
+      <pubDate>Sun, 12 Jul 2020 08:41:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/security/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>malware</title>
@@ -71,15 +152,6 @@
       <pubDate>Fri, 19 Jun 2020 22:41:04 -0300</pubDate>
       
       <guid>https://tiagotavares.io/tags/hacking/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>security</title>
-      <link>https://tiagotavares.io/tags/security/</link>
-      <pubDate>Fri, 19 Jun 2020 22:41:04 -0300</pubDate>
-      
-      <guid>https://tiagotavares.io/tags/security/</guid>
       <description></description>
     </item>
     

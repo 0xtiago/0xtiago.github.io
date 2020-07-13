@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>👀OSINT on debugging the life</title>
+    <link>https://tiagotavares.io/categories/osint/</link>
+    <description>Recent content in 👀OSINT on debugging the life</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 12 Jul 2020 08:41:04 -0300</lastBuildDate>
+    
+	<atom:link href="https://tiagotavares.io/categories/osint/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Recon-NG</title>
+      <link>https://tiagotavares.io/2020/07/recon-ng/</link>
+      <pubDate>Sun, 12 Jul 2020 08:41:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/2020/07/recon-ng/</guid>
+      <description>&lt;p&gt;Como obter informações de organizações alvo, sua infraestrutura e seus colaboradores sem qualquer interação direta.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
