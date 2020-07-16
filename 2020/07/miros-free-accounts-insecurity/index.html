@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.70.0 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="author" content="Tiago Tavares">
+<meta name="keywords" content="tech">
+<meta name="description" content="&ldquo;This is not a bug, is a feature!&quot;.
+Me apaixonei por uma plataforma de colaboração e tive meu coração despedaçado. 💔">
+
+
+<meta property="og:description" content="&ldquo;This is not a bug, is a feature!&quot;.
+Me apaixonei por uma plataforma de colaboração e tive meu coração despedaçado. 💔">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Miro&#39;s free accounts (in)security">
+<meta name="twitter:title" content="Miro&#39;s free accounts (in)security">
+<meta property="og:url" content="https://tiagotavares.io/2020/07/miros-free-accounts-insecurity/">
+<meta property="twitter:url" content="https://tiagotavares.io/2020/07/miros-free-accounts-insecurity/">
+<meta property="og:site_name" content="debugging the life">
+<meta property="og:description" content="&ldquo;This is not a bug, is a feature!&quot;.
+Me apaixonei por uma plataforma de colaboração e tive meu coração despedaçado. 💔">
+<meta name="twitter:description" content="&ldquo;This is not a bug, is a feature!&quot;.
+Me apaixonei por uma plataforma de colaboração e tive meu coração despedaçado. 💔">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2020-07-16T08:15:12">
+  
+  
+    <meta property="article:modified_time" content="2020-07-16T08:15:12">
+  
+  
+  
+    
+      <meta property="article:section" content="🔒Data Privacy">
+    
+  
+  
+    
+      <meta property="article:tag" content="research">
+    
+      <meta property="article:tag" content="data privacy">
+    
+      <meta property="article:tag" content="security">
+    
+      <meta property="article:tag" content="miro">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@tiagotavares_">
+
+
+  <meta name="twitter:creator" content="@tiagotavares_">
+
+
+
+
+
+
+  <meta property="og:image" content="https://startupstash.com/wp-content/uploads/2020/04/1MYeZHg9_400x400.png">
+  <meta property="twitter:image" content="https://startupstash.com/wp-content/uploads/2020/04/1MYeZHg9_400x400.png">
+
+
+  <meta property="og:image" content="https://miro.com/static/images/share/miro.png">
+  <meta property="twitter:image" content="https://miro.com/static/images/share/miro.png">
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=640">
+
+
+    <title>Miro&#39;s free accounts (in)security</title>
+
+    <link rel="icon" href="images/favicon-32x32.png">
+    
+
+    
+
+    <link rel="canonical" href="https://tiagotavares.io/2020/07/miros-free-accounts-insecurity/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://tiagotavares.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-36987137-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://tiagotavares.io/">debugging the life</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://tiagotavares.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://tiagotavares.io/#about">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Tiago Tavares</h4>
+        
+          <h5 class="sidebar-profile-bio">Eternal student, cybersecurity pro, husband, runner.</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/tiagotvrs" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.linkedin.com/in/tiagotvrs/" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-linkedin"></i>
+      
+      <span class="sidebar-button-desc">LinkedIn</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.strava.com/athletes/tiagotavares" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-heartbeat"></i>
+      
+      <span class="sidebar-button-desc">Strava</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://twitter.com/tiagotavares_" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+      
+      <span class="sidebar-button-desc">Twitter</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-center
+              "
+       style="background-image:url('https://miro.com/static/images/share/miro.png')"
+       data-behavior="4">
+    
+      <div class="post-header main-content-wrap text-center">
+  
+    <h1 class="post-title" itemprop="headline">
+      Miro&#39;s free accounts (in)security
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2020-07-16T08:15:12-03:00">
+        
+  July 16, 2020
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://tiagotavares.io/categories/data-privacy">🔒Data Privacy</a>
+    
+  
+
+  </div>
+
+</div>
+    
+  </div>
+
+
+      <div id="main" data-behavior="4"
+        class="hasCover
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p><em><strong>&ldquo;This is not a bug, is a feature!&quot;</strong></em>.</p>
+<p>Me apaixonei por uma plataforma de colaboração e tive meu coração despedaçado. 💔</p>
+<h1 id="sumário">Sumário</h1>
+<ul>
+<li><a href="#o-que-%C3%A9-o-miro-qual-sua-proposta">O que é o Miro, qual sua proposta?</a></li>
+<li><a href="#o-alerta">O alerta</a></li>
+<li><a href="##acessando-informa%C3%A7%C3%B5es-alheias">Acessando informações alheias</a>
+<ul>
+<li><a href="#-google-dorks"><em>Google Dorks</em></a></li>
+<li><a href="#-bruteforcing"><em>Bruteforcing</em></a></li>
+</ul>
+</li>
+<li><a href="#conclus%C3%A3o">Conclusão</a></li>
+</ul>
+<h1 id="o-que-é-o-miro-qual-sua-proposta">O que é o Miro, qual sua proposta?</h1>
+<p>Buscando por novas ferramentas de trabalho, encontrei o Miro, uma ferramenta realmente incrível! Mas até onde vale a pena abrir mão de privacidade e aceitar a possibilidade de ter seus trabalhos e possivelmente informações confidenciais vazados?</p>
+<div class="alert warning ">
+  <p>Esta é uma fragilidade na versão <strong>FREE</strong>. 😉</p>
+</div>
+<p>O <strong>Miro</strong> (<a href="https://miro.com/">https://miro.com/</a>) é uma plataforma de colaboração baseada em quadros, onde times podem acessar remotamente e  trabalharem no mesmo material ao mesmo tempo. É realmente interessante e gostei muito da experiência que tive.</p>
+<p><img src="http://g.recordit.co/wPuTM5jeth.gif" alt=""></p>
+<p><img src="http://g.recordit.co/fSG2uBFTIL.gif" alt=""></p>
+<p><img src="http://g.recordit.co/mjjNkDqdOa.gif" alt=""></p>
+<h1 id="o-alerta">O alerta</h1>
+<p>Essa semana durante uma aula de <em>design thinking</em>, ligou um alerta e observei um alto grau de exposição que eu não tinha observado no Miro. Mas antes, deixa eu mostrar uma coisa.</p>
+<p>A plataforma te possibilita usar até três quadros de forma gratuíta, o que é ótimo! Porém você não tem a opção de deixar em modo privado estes boards. Para isso você deverá desenbolsar pelo menos US$8 mensais. O que acredito ser um preço justo para quem depende de uma ferramenta que pode literalmente concentrar diversas atividades em um lugar apenas.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594922544/blog/tt_2020-07-16_15-02-03_dhybhm.png" alt=""></p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594922795/blog/tt_2020-07-16_15-06-22_j7wdxv.png" alt=""></p>
+<p>Voltando ao assunto da aula que despertou minha atençao, foi justamente a URL. Cada board possui um ID, que é referenciado na URL.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594922402/blog/tt_2020-07-15_19-25-49_yxzkk0.png" alt=""></p>
+<p>Só que ao olhar para meu perfil no Miro e verificando as URLs dos meus quadros, identifiquei que possuem padrões.</p>
+<p>No exemplo abaixo mostro as URLs dos meus três boards. Compare com a URL da aula da minha professora na imagem acima. É o mesmo padrão no começo e no fim. Assim, o que era pra ser um ID de <strong>12 caracteres</strong>, os esforço de um possível bruteforce e diminuído pela metade, onde precisamos buscar apenas por <strong>6 caracteres</strong>!  <a href="https://miro.com/app/board/o9J_kXXXXXX=/">https://miro.com/app/board/o9J_kXXXXXX=/</a></p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594923013/blog/tt_2020-07-15_19-22-46_nmon6d.png" alt=""></p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594923351/blog/alemanha_l6bmfw.jpg" alt=""></p>
+<h1 id="acessando-informações-alheias">Acessando informações alheias</h1>
+<p>Ok e agora?</p>
+<p>O que vocês já estão carecas de saber!</p>
+<h2 id="google-dorks"><em>Google Dorks</em></h2>
+<p>Mas antes de qualquer esforço, poremos utilizar o bom e velho dork para encontrar URLs indexadas em páginas do Google. O Miro não permite que o conteúdo dos quadros sejam indexados, mas vamos buscar por páginas que em seu conteúdo possuam links do disponíveis. Ex: <code>intext:miro.com/app/board/</code></p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594924120/blog/tt_2020-07-16_15-28-19_gc2lru.png" alt=""></p>
+<p>Ou então, procurar por quadros do Miro em quandros do <strong>Trello</strong> (que é outra plataforma interessante, mas se não bem gerenciada, pode comprometer informações sigilosas do seu grupo de trabalho). Ex.: <code>intext:miro.com/app/board/ site:trello.com</code></p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594924580/blog/tt_2020-07-16_15-35-56_mdmajo.png" alt=""></p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594925010/blog/tt_2020-07-16_15-37-43_vujm3l.png" alt=""></p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594925019/blog/tt_2020-07-16_15-41-53_etpryg.png" alt=""></p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594925014/blog/tt_2020-07-16_15-39-24_vyrl0a.png" alt=""></p>
+<h2 id="bruteforcing"><em>Bruteforcing</em></h2>
+<p>Ok, entendidos como acessar quadros públicos do Miro e do Trello, vamos para o bruteforce.</p>
+<p>Para facilitar, vou utilizar o Burp Suite para o ataque. Para diminuir o escopo de tentativas vou me resumir apenas a 3 caracteres, não mais 6, resultando em <strong>+50K</strong> tentativas.</p>
+<p>Enviei uma requição para o módulo Intruder e coloquei como escopo do payload apenas nos ultimos 3 caracteres:</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594925487/blog/tt_2020-07-16_15-51-01_iujhmn.png" alt=""></p>
+<p>Na configuração do payload, adicionei o hífen como caractere utilizado, pois existem boards que em seu id é composto também pelo hífen. Além disso, configurei o tamanho máximo e mínimo para 3, que é o nosso objetivo.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594925593/blog/tt_2020-07-16_15-52-48_w235m6.png" alt=""></p>
+<p>Em Option, na configuraçao de filtro por Grep, coloquei o texto &ldquo;<em>This boards is no longer shared</em>&rdquo; para me diferenciar dos quadros existentes e não existentes. Você pode também realizar este filtro se baseado pelo tamanho do <em>Response</em>.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594925777/blog/tt_2020-07-16_15-55-50_qld8kh.png" alt=""></p>
+<p>O que iremos ver a partir de agora são três tipos de resposta:</p>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th>Tipo de cenário</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>Quadro existente e público</td>
+</tr>
+<tr>
+<td>200</td>
+<td>Quadro removido ou não criado</td>
+</tr>
+<tr>
+<td>302</td>
+<td>Quandro existente e privado</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594928809/blog/tt_2020-07-16_16-05-18_o99d2g.png" alt=""></p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594928952/blog/tt_2020-07-16_16-48-58_vhster.png" alt=""></p>
+<p>Neste breve exercício, encontramos <strong>14 quadros públicos</strong>. Alguns exemplos abaixo obtidos pelo bruteforce.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594929398/blog/tt_2020-07-16_16-52-51_pncap5.png" alt=""></p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594929392/blog/tt_2020-07-16_16-55-47_cdozdn.png" alt=""></p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594929394/blog/tt_2020-07-16_16-54-13_xyjwpr.png" alt=""></p>
+<h1 id="conclusão">Conclusão</h1>
+<p>Como dito anteriormente, eu acho esta plataforma sensacional para trabalho colaborativo, a proposta é interessante e ela provê um nível de segurança adequado para seus clientes <strong>PREMIUM</strong>.</p>
+<p>Quando falamos de licenças <strong>FREE</strong>, sabemos que <strong>&ldquo;não existe almoço grátis&rdquo;</strong>. Mas neste caso, quem está usando nossos dados para benefício próprio? 🤔</p>
+<p>O Miro ainda está amadurecendo e crescendo. Acredito que em breve removerão esta <em><strong>feature</strong></em>. 🥰</p>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/research/">research</a>
+
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/data-privacy/">data privacy</a>
+
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/security/">security</a>
+
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/miro/">miro</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/07/recon-ng/" data-tooltip="Recon-NG">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2020/07/miros-free-accounts-insecurity/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2020/07/miros-free-accounts-insecurity/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2020/07/miros-free-accounts-insecurity/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2020 Tiago Tavares. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/07/recon-ng/" data-tooltip="Recon-NG">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2020/07/miros-free-accounts-insecurity/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2020/07/miros-free-accounts-insecurity/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2020/07/miros-free-accounts-insecurity/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftiagotavares.io%2F2020%2F07%2Fmiros-free-accounts-insecurity%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Ftiagotavares.io%2F2020%2F07%2Fmiros-free-accounts-insecurity%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Ftiagotavares.io%2F2020%2F07%2Fmiros-free-accounts-insecurity%2F">
+          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Tiago Tavares</h4>
+    
+      <div id="about-card-bio">Eternal student, cybersecurity pro, husband, runner.</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Cybersecurity Consultant
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Brazil
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    <div id="cover" style="background-image:url('https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589318923/last_jedi1_ybpjeb.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://tiagotavares.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/tiagotavares.io\/2020\/07\/miros-free-accounts-insecurity\/';
+          
+            this.page.identifier = '\/2020\/07\/miros-free-accounts-insecurity\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'tiagotavares-io';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+

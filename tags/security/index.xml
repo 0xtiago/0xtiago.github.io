@@ -6,10 +6,20 @@
     <description>Recent content in security on debugging the life</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 12 Jul 2020 08:41:04 -0300</lastBuildDate>
+    <lastBuildDate>Thu, 16 Jul 2020 08:15:12 -0300</lastBuildDate>
     
 	<atom:link href="https://tiagotavares.io/tags/security/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Miro&#39;s free accounts (in)security</title>
+      <link>https://tiagotavares.io/2020/07/miros-free-accounts-insecurity/</link>
+      <pubDate>Thu, 16 Jul 2020 08:15:12 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/2020/07/miros-free-accounts-insecurity/</guid>
+      <description>&lt;p&gt;&lt;em&gt;&lt;strong&gt;&amp;ldquo;This is not a bug, is a feature!&amp;quot;&lt;/strong&gt;&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Me apaixonei por uma plataforma de colaboração e tive meu coração despedaçado. 💔&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Recon-NG</title>
@@ -27,16 +37,6 @@
       
       <guid>https://tiagotavares.io/2020/06/ekoparty-security-conference-13-2017-talks/</guid>
       <description>&lt;p&gt;Desde 2017, estive presente todos os anos em Buenos Aires para participar do evento, que sempre me suepreende com o ótimo nível dos materiais apresentados pelos palestrantes.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Miro&#39;s free accounts (in)security</title>
-      <link>https://tiagotavares.io/2020/06/miros-free-accounts-insecurity/</link>
-      <pubDate>Wed, 17 Jun 2020 08:15:12 -0300</pubDate>
-      
-      <guid>https://tiagotavares.io/2020/06/miros-free-accounts-insecurity/</guid>
-      <description>&lt;p&gt;&lt;em&gt;&lt;strong&gt;&amp;ldquo;This is not a bug, is a feature!&amp;quot;&lt;/strong&gt;&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;Me apaixonei por uma plataforma de colaboração e tive meu coração despedaçado. 💔&lt;/p&gt;</description>
     </item>
     
     <item>

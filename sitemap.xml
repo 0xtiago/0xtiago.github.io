@@ -3,12 +3,57 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://tiagotavares.io/tags/bug-bounty/</loc>
-    <lastmod>2020-07-12T08:41:04-03:00</lastmod>
+    <loc>https://tiagotavares.io/categories/</loc>
+    <lastmod>2020-07-16T08:15:12-03:00</lastmod>
   </url>
   
   <url>
-    <loc>https://tiagotavares.io/categories/</loc>
+    <loc>https://tiagotavares.io/tags/data-privacy/</loc>
+    <lastmod>2020-07-16T08:15:12-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/</loc>
+    <lastmod>2020-07-16T08:15:12-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/tags/miro/</loc>
+    <lastmod>2020-07-16T08:15:12-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/2020/07/miros-free-accounts-insecurity/</loc>
+    <lastmod>2020-07-16T08:15:12-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/post/</loc>
+    <lastmod>2020-07-16T08:15:12-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/tags/research/</loc>
+    <lastmod>2020-07-16T08:15:12-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/tags/security/</loc>
+    <lastmod>2020-07-16T08:15:12-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/tags/</loc>
+    <lastmod>2020-07-16T08:15:12-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/categories/data-privacy/</loc>
+    <lastmod>2020-07-16T08:15:12-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/tags/bug-bounty/</loc>
     <lastmod>2020-07-12T08:41:04-03:00</lastmod>
   </url>
   
@@ -19,11 +64,6 @@
   
   <url>
     <loc>https://tiagotavares.io/tags/cyber-kill-chain/</loc>
-    <lastmod>2020-07-12T08:41:04-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tiagotavares.io/</loc>
     <lastmod>2020-07-12T08:41:04-03:00</lastmod>
   </url>
   
@@ -43,11 +83,6 @@
   </url>
   
   <url>
-    <loc>https://tiagotavares.io/post/</loc>
-    <lastmod>2020-07-12T08:41:04-03:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://tiagotavares.io/2020/07/recon-ng/</loc>
     <lastmod>2020-07-12T08:41:04-03:00</lastmod>
   </url>
@@ -59,16 +94,6 @@
   
   <url>
     <loc>https://tiagotavares.io/tags/red-team/</loc>
-    <lastmod>2020-07-12T08:41:04-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tiagotavares.io/tags/security/</loc>
-    <lastmod>2020-07-12T08:41:04-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tiagotavares.io/tags/</loc>
     <lastmod>2020-07-12T08:41:04-03:00</lastmod>
   </url>
   
@@ -89,11 +114,6 @@
   
   <url>
     <loc>https://tiagotavares.io/categories/malware-research/</loc>
-    <lastmod>2020-06-26T17:30:24-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tiagotavares.io/tags/research/</loc>
     <lastmod>2020-06-26T17:30:24-03:00</lastmod>
   </url>
   
@@ -130,26 +150,6 @@
   <url>
     <loc>https://tiagotavares.io/categories/conferences/</loc>
     <lastmod>2020-06-19T22:41:04-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tiagotavares.io/tags/data-privacy/</loc>
-    <lastmod>2020-06-17T08:15:12-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tiagotavares.io/tags/miro/</loc>
-    <lastmod>2020-06-17T08:15:12-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tiagotavares.io/2020/06/miros-free-accounts-insecurity/</loc>
-    <lastmod>2020-06-17T08:15:12-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tiagotavares.io/categories/data-privacy/</loc>
-    <lastmod>2020-06-17T08:15:12-03:00</lastmod>
   </url>
   
   <url>
