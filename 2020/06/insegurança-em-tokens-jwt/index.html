@@ -411,7 +411,7 @@ Um bom resumo <a href="https://www.iana.org/assignments/jose/jose.xhtml">dispon�
 <p><em>SHA-256(cabeçalho || payload || chave) – onde || concatenação</em></p>
 <p><strong>Aviso:</strong> falando formalmente, é um pouco mais complicado: usamos o algoritmo <a href="https://en.wikipedia.org/wiki/HMAC">HMAC</a>-SHA256 ao qual atribuímos uma chave e uma mensagem igual ao resultado:</p>
 <p><em>BASE64URL(UTF8(Cabeçalho protegido JWS )) || ‘.’ || BASE64URL(JWS Payload)</em></p>
-<p><img src="%5Bhttps://res.cloudinary.com/dtr6hzxnx/image/upload/v1591984302/blog/jwt_ng_sig_en-1_y3mtjj.png%5D(https://res.cloudinary.com/dtr6hzxnx/image/upload/v1591984302/blog/jwt_ng_sig_en-1_y3mtjj.png)" alt="enter image description here"></p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1591984302/blog/jwt_ng_sig_en-1_y3mtjj.png" alt="enter image description here"></p>
 <p>Se alguém alterar o payload, ele não poderá gerar uma nova assinatura (porque ele precisa de uma chave para ela, que está apenas na configuração da API).</p>
 <p>Em resumo, o JWT parece muito mais flexível do que as chaves da API - você pode facilmente transferir quaisquer dados, garantir sua integridade e, se necessário, manter a confidencialidade. Além disso, todas as informações (exceto a chave secreta) podem estar no próprio token. No entanto, não há rosa sem espinhos. 🌹</p>
 <h2 id="espinhos-do-jwt-">Espinhos do JWT 🌹</h2>

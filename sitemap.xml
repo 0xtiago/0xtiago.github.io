@@ -3,17 +3,62 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://tiagotavares.io/categories/</loc>
-    <lastmod>2020-07-16T08:15:12-03:00</lastmod>
+    <loc>https://tiagotavares.io/tags/blueteam/</loc>
+    <lastmod>2020-07-20T08:00:04-03:00</lastmod>
   </url>
   
   <url>
-    <loc>https://tiagotavares.io/tags/data-privacy/</loc>
-    <lastmod>2020-07-16T08:15:12-03:00</lastmod>
+    <loc>https://tiagotavares.io/categories/</loc>
+    <lastmod>2020-07-20T08:00:04-03:00</lastmod>
   </url>
   
   <url>
     <loc>https://tiagotavares.io/</loc>
+    <lastmod>2020-07-20T08:00:04-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/draft/</loc>
+    <lastmod>2020-07-20T08:00:04-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/categories/powershell/</loc>
+    <lastmod>2020-07-20T08:00:04-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/tags/powershell/</loc>
+    <lastmod>2020-07-20T08:00:04-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/tags/redteam/</loc>
+    <lastmod>2020-07-20T08:00:04-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/tags/</loc>
+    <lastmod>2020-07-20T08:00:04-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/categories/windows/</loc>
+    <lastmod>2020-07-20T08:00:04-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/tags/windows/</loc>
+    <lastmod>2020-07-20T08:00:04-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/draft/powershell-pt1-inicio/</loc>
+    <lastmod>2020-07-20T08:00:04-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/tags/data-privacy/</loc>
     <lastmod>2020-07-16T08:15:12-03:00</lastmod>
   </url>
   
@@ -44,11 +89,6 @@
   
   <url>
     <loc>https://tiagotavares.io/tags/security/</loc>
-    <lastmod>2020-07-16T08:15:12-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tiagotavares.io/tags/</loc>
     <lastmod>2020-07-16T08:15:12-03:00</lastmod>
   </url>
   
@@ -274,11 +314,6 @@
   
   <url>
     <loc>https://tiagotavares.io/tags/coronavirus/</loc>
-    <lastmod>2020-05-23T19:50:51-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tiagotavares.io/draft/</loc>
     <lastmod>2020-05-23T19:50:51-03:00</lastmod>
   </url>
   
