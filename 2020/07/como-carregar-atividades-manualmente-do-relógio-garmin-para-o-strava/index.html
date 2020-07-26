@@ -7,48 +7,52 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.70.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Tiago Tavares">
-<meta name="keywords" content="tech">
-<meta name="description" content="&ldquo;This is not a bug, is a feature!&quot;.
-Me apaixonei por uma plataforma de colaboração e tive meu coração despedaçado. 💔">
+<meta name="keywords" content="">
+<meta name="description" content="A ransomware story. 😞
+Além do procedimento, uma explicação do incidente que pôde ter custado ao Garmin milhões de dólares!  💸💸💸">
 
 
-<meta property="og:description" content="&ldquo;This is not a bug, is a feature!&quot;.
-Me apaixonei por uma plataforma de colaboração e tive meu coração despedaçado. 💔">
+<meta property="og:description" content="A ransomware story. 😞
+Além do procedimento, uma explicação do incidente que pôde ter custado ao Garmin milhões de dólares!  💸💸💸">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Miro&#39;s free accounts (in)security">
-<meta name="twitter:title" content="Miro&#39;s free accounts (in)security">
-<meta property="og:url" content="https://tiagotavares.io/2020/07/miros-free-accounts-insecurity/">
-<meta property="twitter:url" content="https://tiagotavares.io/2020/07/miros-free-accounts-insecurity/">
+<meta property="og:title" content="Como carregar atividades manualmente do relógio Garmin para o Strava">
+<meta name="twitter:title" content="Como carregar atividades manualmente do relógio Garmin para o Strava">
+<meta property="og:url" content="https://tiagotavares.io/2020/07/como-carregar-atividades-manualmente-do-rel%C3%B3gio-garmin-para-o-strava/">
+<meta property="twitter:url" content="https://tiagotavares.io/2020/07/como-carregar-atividades-manualmente-do-rel%C3%B3gio-garmin-para-o-strava/">
 <meta property="og:site_name" content="debugging the life">
-<meta property="og:description" content="&ldquo;This is not a bug, is a feature!&quot;.
-Me apaixonei por uma plataforma de colaboração e tive meu coração despedaçado. 💔">
-<meta name="twitter:description" content="&ldquo;This is not a bug, is a feature!&quot;.
-Me apaixonei por uma plataforma de colaboração e tive meu coração despedaçado. 💔">
+<meta property="og:description" content="A ransomware story. 😞
+Além do procedimento, uma explicação do incidente que pôde ter custado ao Garmin milhões de dólares!  💸💸💸">
+<meta name="twitter:description" content="A ransomware story. 😞
+Além do procedimento, uma explicação do incidente que pôde ter custado ao Garmin milhões de dólares!  💸💸💸">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2020-07-16T08:15:12">
+    <meta property="article:published_time" content="2020-07-26T13:30:00">
   
   
-    <meta property="article:modified_time" content="2020-07-16T08:15:12">
+    <meta property="article:modified_time" content="2020-07-26T13:30:00">
   
-  
-  
-    
-      <meta property="article:section" content="🔒Data Privacy">
-    
   
   
     
-      <meta property="article:tag" content="research">
+      <meta property="article:section" content="🎽Running">
     
-      <meta property="article:tag" content="data privacy">
+  
+  
     
-      <meta property="article:tag" content="security">
+      <meta property="article:tag" content="corrida">
     
-      <meta property="article:tag" content="miro">
+      <meta property="article:tag" content="running">
     
-      <meta property="article:tag" content="hacking">
+      <meta property="article:tag" content="strava">
+    
+      <meta property="article:tag" content="garmin">
+    
+      <meta property="article:tag" content="malware">
+    
+      <meta property="article:tag" content="cybersecurity">
+    
+      <meta property="article:tag" content="ransomware">
     
   
 
@@ -65,12 +69,12 @@ Me apaixonei por uma plataforma de colaboração e tive meu coração despedaça
 
 
 
-  <meta property="og:image" content="https://startupstash.com/wp-content/uploads/2020/04/1MYeZHg9_400x400.png">
-  <meta property="twitter:image" content="https://startupstash.com/wp-content/uploads/2020/04/1MYeZHg9_400x400.png">
+  <meta property="og:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1595783632/blog/tt_2020-07-26_14-13-23_llrgwl.png">
+  <meta property="twitter:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1595783632/blog/tt_2020-07-26_14-13-23_llrgwl.png">
 
 
-  <meta property="og:image" content="https://miro.com/static/images/share/miro.png">
-  <meta property="twitter:image" content="https://miro.com/static/images/share/miro.png">
+  <meta property="og:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1595783393/blog/analise-ransomware-atinge-Honda_oslkcy.jpg">
+  <meta property="twitter:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1595783393/blog/analise-ransomware-atinge-Honda_oslkcy.jpg">
 
 
 
@@ -79,14 +83,14 @@ Me apaixonei por uma plataforma de colaboração e tive meu coração despedaça
   <meta property="twitter:image" content="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=640">
 
 
-    <title>Miro&#39;s free accounts (in)security</title>
+    <title>Como carregar atividades manualmente do relógio Garmin para o Strava</title>
 
     <link rel="icon" href="images/favicon-32x32.png">
     
 
     
 
-    <link rel="canonical" href="https://tiagotavares.io/2020/07/miros-free-accounts-insecurity/">
+    <link rel="canonical" href="https://tiagotavares.io/2020/07/como-carregar-atividades-manualmente-do-rel%C3%B3gio-garmin-para-o-strava/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -271,21 +275,21 @@ if (!doNotTrack) {
   <div class="post-header-cover
               text-center
               "
-       style="background-image:url('https://miro.com/static/images/share/miro.png')"
+       style="background-image:url('https://res.cloudinary.com/dtr6hzxnx/image/upload/v1595783393/blog/analise-ransomware-atinge-Honda_oslkcy.jpg')"
        data-behavior="4">
     
       <div class="post-header main-content-wrap text-center">
   
     <h1 class="post-title" itemprop="headline">
-      Miro&#39;s free accounts (in)security
+      Como carregar atividades manualmente do relógio Garmin para o Strava
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2020-07-16T08:15:12-03:00">
+      <time itemprop="datePublished" datetime="2020-07-26T13:30:00-03:00">
         
-  July 16, 2020
+  July 26, 2020
 
       </time>
     
@@ -294,7 +298,7 @@ if (!doNotTrack) {
   
     <span>in</span>
     
-      <a class="category-link" href="https://tiagotavares.io/categories/data-privacy">🔒Data Privacy</a>
+      <a class="category-link" href="https://tiagotavares.io/categories/running">🎽Running</a>
     
   
 
@@ -314,93 +318,65 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p><em><strong>&ldquo;This is not a bug, is a feature!&quot;</strong></em>.</p>
-<p>Me apaixonei por uma plataforma de colaboração e tive meu coração despedaçado. 💔</p>
+              <p><em><strong>A ransomware story</strong></em>. 😞</p>
+<p>Além do procedimento, uma explicação do incidente que pôde ter custado ao Garmin milhões de dólares!  💸💸💸</p>
 <h1 id="sumário">Sumário</h1>
 <ul>
-<li><a href="#o-que-%C3%A9-o-miro-qual-sua-proposta">O que é o Miro, qual sua proposta?</a></li>
-<li><a href="#o-alerta">O alerta</a></li>
-<li><a href="##acessando-informa%C3%A7%C3%B5es-alheias">Acessando informações alheias</a>
-<ul>
-<li><a href="#-google-dorks"><em>Google Dorks</em></a></li>
-<li><a href="#-bruteforcing"><em>Bruteforcing</em></a></li>
+<li><a href="#a-not%C3%ADcia">A notícia</a></li>
+<li><a href="#o-problema-de-us10-milh%C3%B5es">O problema de US$10 milhões</a></li>
+<li><a href="#carregando-manualmente-dados-para-o-strava">Carregando manualmente dados para o Strava</a></li>
 </ul>
-</li>
-<li><a href="#conclus%C3%A3o">Conclusão</a></li>
-</ul>
-<h1 id="o-que-é-o-miro-qual-sua-proposta">O que é o Miro, qual sua proposta?</h1>
-<p>Buscando por novas ferramentas de trabalho, encontrei o Miro, uma ferramenta realmente incrível! Mas até onde vale a pena abrir mão de privacidade e aceitar a possibilidade de ter seus trabalhos e possivelmente informações confidenciais vazados?</p>
 <div class="alert warning ">
-  <p>Esta é uma fragilidade na versão <strong>FREE</strong>. 😉</p>
+  <p>Se você veio até aqui pelo procedimento de carregamento manual no <strong>Strava</strong>, clique <a href="#carregando-manualmente-dados-para-o-strava">aqui</a>!</p>
 </div>
-<p>O <strong>Miro</strong> (<a href="https://miro.com/">https://miro.com/</a>) é uma plataforma de colaboração baseada em quadros, onde times podem acessar remotamente e  trabalharem no mesmo material ao mesmo tempo. É realmente interessante e gostei muito da experiência que tive.</p>
-<p><img src="http://g.recordit.co/wPuTM5jeth.gif" alt=""></p>
-<p><img src="http://g.recordit.co/fSG2uBFTIL.gif" alt=""></p>
-<p><img src="http://g.recordit.co/mjjNkDqdOa.gif" alt=""></p>
-<h1 id="o-alerta">O alerta</h1>
-<p>Essa semana durante uma aula de <em>design thinking</em>, ligou um alerta e observei um alto grau de exposição que eu não tinha observado no Miro. Mas antes, deixa eu mostrar uma coisa.</p>
-<p>A plataforma te possibilita usar até três quadros de forma gratuíta, o que é ótimo! Porém você não tem a opção de deixar em modo privado estes boards. Para isso você deverá desenbolsar pelo menos US$8 mensais. O que acredito ser um preço justo para quem depende de uma ferramenta que pode literalmente concentrar diversas atividades em um lugar apenas.</p>
-<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594922544/blog/tt_2020-07-16_15-02-03_dhybhm.png" alt=""></p>
-<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594922795/blog/tt_2020-07-16_15-06-22_j7wdxv.png" alt=""></p>
-<p>Voltando ao assunto da aula que despertou minha atençao, foi justamente a URL. Cada board possui um ID, que é referenciado na URL.</p>
-<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594922402/blog/tt_2020-07-15_19-25-49_yxzkk0.png" alt=""></p>
-<p>Só que ao olhar para meu perfil no Miro e verificando as URLs dos meus quadros, identifiquei que possuem padrões.</p>
-<p>No exemplo abaixo mostro as URLs dos meus três boards. Compare com a URL da aula da minha professora na imagem acima. É o mesmo padrão no começo e no fim. Assim, o que era pra ser um ID de <strong>12 caracteres</strong>, os esforço de um possível bruteforce e diminuído pela metade, onde precisamos buscar apenas por <strong>6 caracteres</strong>!  <a href="https://miro.com/app/board/o9J_kXXXXXX=/">https://miro.com/app/board/o9J_kXXXXXX=/</a></p>
-<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594923013/blog/tt_2020-07-15_19-22-46_nmon6d.png" alt=""></p>
-<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594923351/blog/alemanha_l6bmfw.jpg" alt=""></p>
-<h1 id="acessando-informações-alheias">Acessando informações alheias</h1>
-<p>Ok e agora?</p>
-<p>O que vocês já estão carecas de saber!</p>
-<h2 id="google-dorks"><em>Google Dorks</em></h2>
-<p>Mas antes de qualquer esforço, podemos utilizar o bom e velho dork para encontrar URLs indexadas em páginas do Google. O Miro não permite que o conteúdo dos quadros sejam indexados, mas vamos buscar por páginas que em seu conteúdo possuam links disponíveis. Ex: <code>intext:miro.com/app/board/</code></p>
-<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594924120/blog/tt_2020-07-16_15-28-19_gc2lru.png" alt=""></p>
-<p>Ou então, procurar por quadros do Miro em quadros do <strong>Trello</strong> (que é outra plataforma interessante, mas se não bem gerenciada, pode comprometer informações sigilosas do seu grupo de trabalho). Ex.: <code>intext:miro.com/app/board/ site:trello.com</code></p>
-<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594924580/blog/tt_2020-07-16_15-35-56_mdmajo.png" alt=""></p>
-<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594925010/blog/tt_2020-07-16_15-37-43_vujm3l.png" alt=""></p>
-<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594925019/blog/tt_2020-07-16_15-41-53_etpryg.png" alt=""></p>
-<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594925014/blog/tt_2020-07-16_15-39-24_vyrl0a.png" alt=""></p>
-<h2 id="bruteforcing"><em>Bruteforcing</em></h2>
-<p>Ok, entendidos como acessar quadros públicos do Miro e do Trello, vamos para o bruteforce.</p>
-<p>Para facilitar, vou utilizar o Burp Suite para o ataque. Para diminuir o escopo de tentativas vou me resumir apenas a 3 caracteres, não mais 6, resultando em <strong>+50K</strong> tentativas.</p>
-<p>Enviei uma requição para o módulo Intruder e coloquei como escopo do payload apenas nos ultimos 3 caracteres:</p>
-<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594925487/blog/tt_2020-07-16_15-51-01_iujhmn.png" alt=""></p>
-<p>Na configuração do payload, adicionei o hífen como caractere utilizado, pois existem boards que o utilizam em seu ID. Além disso, configurei o tamanho máximo e mínimo para 3, que é o nosso objetivo.</p>
-<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594925593/blog/tt_2020-07-16_15-52-48_w235m6.png" alt=""></p>
-<p>Em Option, na configuraçao de filtro por Grep, coloquei o texto &ldquo;<em>This boards is no longer shared</em>&rdquo; para diferenciar os quadros existentes dos não existentes. Você pode também realizar este filtro se baseando pelo tamanho do <em>Response</em>.</p>
-<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594925777/blog/tt_2020-07-16_15-55-50_qld8kh.png" alt=""></p>
-<p>O que iremos ver a partir de agora são três tipos de resposta:</p>
-<table>
-<thead>
-<tr>
-<th>Status</th>
-<th>Tipo de cenário</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>200</td>
-<td>Quadro existente e público</td>
-</tr>
-<tr>
-<td>200</td>
-<td>Quadro removido ou não criado</td>
-</tr>
-<tr>
-<td>302</td>
-<td>Quandro existente e privado</td>
-</tr>
-</tbody>
-</table>
-<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594928809/blog/tt_2020-07-16_16-05-18_o99d2g.png" alt=""></p>
-<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594928952/blog/tt_2020-07-16_16-48-58_vhster.png" alt=""></p>
-<p>Neste breve exercício, encontramos <strong>14 quadros públicos</strong>. Alguns exemplos abaixo obtidos pelo bruteforce.</p>
-<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594929398/blog/tt_2020-07-16_16-52-51_pncap5.png" alt=""></p>
-<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594929392/blog/tt_2020-07-16_16-55-47_cdozdn.png" alt=""></p>
-<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594929394/blog/tt_2020-07-16_16-54-13_xyjwpr.png" alt=""></p>
-<h1 id="conclusão">Conclusão</h1>
-<p>Como dito anteriormente, eu acho esta plataforma sensacional para trabalho colaborativo, a proposta é interessante e ela provê um nível de segurança adequado para seus clientes <strong>PREMIUM</strong>.</p>
-<p>Quando falamos de licenças <strong>FREE</strong>, sabemos que <strong>&ldquo;não existe almoço grátis&rdquo;</strong>. Mas neste caso, quem está usando nossos dados para benefício próprio? 🤔</p>
-<p>O Miro ainda está amadurecendo e crescendo. Acredito que em breve irão ajustar e reforçar esta <em><strong>feature</strong></em>. 🥰</p>
+<h1 id="a-notícia">A notícia</h1>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1595783783/blog/Power-Plant-e1440171091880_cjlgdq.jpg" alt=""></p>
+<p>Nesta semana do dia 20 de Julho de 2020, todos os usuários de dispositivos Garmin ao redor do mundo, que utilizam seus serviços de nuvem, como o Garmin Connect, foram surpreendidos com a impossibilidade de sincronização de dados e atualização de dispositivos. Ao verificar na <a href="https://connect.garmin.com/status/">página de status</a> de serviços da Garmin observamos que todos os serviços estavam down. Mas o que será que aconteceu?</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1595702252/blog/tt_2020-07-25_15-37-02_fhwyyg.png" alt=""></p>
+<p>Nos dispositivos móveis podemos ver as mensagens de erro com as abaixo.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1595702434/blog/IMG_2263_pvzhun.jpg" alt=""></p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1595702433/blog/IMG_2262_ywzp5b.jpg" alt=""></p>
+<p>Ao procurar em alguns forums e sites especializados da Asia, onde naturalmente foram os primeiros impactados chegamos a conclusão que algo sério tinha acontecido.  Como pode ser visto nos links abaixo:</p>
+<ul>
+<li><a href="https://www.reddit.com/r/kansascity/comments/hwg8vt/garmin_hacked/">https://www.reddit.com/r/kansascity/comments/hwg8vt/garmin_hacked/</a></li>
+<li><a href="https://translate.google.com/translate?sl=auto&amp;tl=en&amp;u=https%3A%2F%2Fwww.ithome.com.tw%2Fnews%2F139004">https://translate.google.com/translate?sl=auto&amp;tl=en&amp;u=https%3A%2F%2Fwww.ithome.com.tw%2Fnews%2F139004</a></li>
+<li><a href="https://the5krunner.com/2020/07/23/garminpocalypse-major-outage-workaround-hacked-or-messed-up/">https://the5krunner.com/2020/07/23/garminpocalypse-major-outage-workaround-hacked-or-messed-up/</a></li>
+</ul>
+<p>Dias depois vieram a confirmação através de outros veículos de imprensa.</p>
+<p><a href="https://edition.cnn.com/2020/07/24/tech/garmin-ransomware-attack/index.html"><strong>CNN</strong></a></p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1595702072/blog/tt_2020-07-25_15-32-05_jlddpt.png" alt=""></p>
+<p><a href="https://www.forbes.com/sites/leemathews/2020/07/23/garmins-alleged-ransomware-wastedlocker-evil-corp/#18312d43156d"><strong>Forbes</strong></a></p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1595702071/blog/tt_2020-07-25_15-33-22_cfu6ox.png" alt=""></p>
+<h1 id="o-problema-de-us10-milhões">O problema de US$10 milhões</h1>
+<p>Segundo a <a href="https://techcrunch.com/2020/07/25/garmin-outage-ransomware-sources/">TechCrunch</a> em um texto atualizado neste sábado dia 25/07/2020, o comprometimento dos serviços da <strong>Garmin</strong> foram causados devido a um ataque de <strong>ransomware</strong>, de acordo com fontes distintas consultadas.</p>
+<p>Uma das fontes consultadas confirmou que se tratava especificamente do ransomware <a href="https://blog.malwarebytes.com/threat-spotlight/2020/07/threat-spotlight-wastedlocker-customized-ransomware/"><strong>WastedLocker</strong></a>, que segundo a Malwarebytes é um malware operado pelo grupo chamado Evil Corp, que visa sempre organizações específicas.</p>
+<p><strong>Mas que diabos é um ransomware?</strong></p>
+<div class="alert info ">
+  <p>Ransomware é um software malicioso que infecta seu computador e exibe mensagens exigindo o pagamento de uma taxa para fazer o sistema voltar a funcionar. Essa classe de malware é um esquema de lucro criminoso, que pode ser instalado por meio de links enganosos em uma mensagem de e-mail, mensagens instantâneas ou sites.</p>
+</div>
+<p>Uma solicitação de resgate parecido com o abaixo pode ter aparecido no ambiente da Garmin após ter seus sistemas criptografados.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1595781540/blog/wastedlocker-ransomware-ransom-note_fstkr8.jpg" alt=""></p>
+<p>Pelo tempo que os serviços estão indisponíveis, <strong>claramente a Garmin não possuía uma infraestrutura que seguisse as melhores práticas de segurança, e isso falamos de um espectro enorme de requisitos técnicos e de governança.</strong> Além disso, infelizmente, fica evidente que não estão utilizam de práticas de <strong>escalabilidade de infraestrutura com nuvem e infraestrutura como código.</strong></p>
+<p>Será que a Garmin irá pagar pelo <a href="https://www.forbes.com/sites/barrycollins/2020/07/25/will-garmin-pay-10m-ransom-to-end-two-day-outage/#749cc5a23164">resgate</a> de seus sistemas?</p>
+<h1 id="carregando-manualmente-dados-para-o-strava">Carregando manualmente dados para o Strava</h1>
+<p>Conecte seu dispositivo Garmin na porta USB do seu computador. No meu caso, estou utilizando o Windows 10.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1595701380/blog/IMG_2305_i6poer.jpg" alt=""></p>
+<p>Aparecerá um disco removível na lista de <em>drives</em> do seu computador.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1595688119/blog/tt_2020-07-25_11-11-47_cxbsjk.png" alt=""></p>
+<p>Seus treinos estarão gravados na pasta <strong>ACTIVITY</strong>. Todos os arquivos possuem a extensão <strong>.FIT</strong>.</p>
+<p>Mas ainda voltaremos nesta parte.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1595688119/blog/tt_2020-07-25_11-12-24_xj5fln.png" alt=""></p>
+<p>Acesse sua conta no Strava, clique no sinal de <strong>+</strong> e depois em <strong>Carregar atividade</strong>.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1595688121/blog/tt_2020-07-25_11-14-28_kirnfb.png" alt=""></p>
+<p>Escolha <strong>Arquivo</strong>, e depois clique em <em><strong>Choose files</strong></em>.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1595688119/blog/tt_2020-07-25_11-15-40_m7f7at.png" alt=""></p>
+<p>Selecione todos os treinos que deseja carregar.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1595688120/blog/tt_2020-07-25_11-16-25_mlzwsq.png" alt=""></p>
+<p>Após o carregamento, todos os seus treinos aparecerão numa mesma página para qualquer alteração que deseja realizar, como por exemplo o nome do treino, e posteriormente confirmar.</p>
+<p><img src="http://g.recordit.co/PIkjPHx6wK.gif" alt=""></p>
+<p>Pronto! Seus treinos estão disponíveis no Strava para visualizão completa dos dados do treino!</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1595688120/blog/tt_2020-07-25_11-26-52_dx3lte.png" alt=""></p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1595688122/blog/tt_2020-07-25_11-19-19_i6xytu.png" alt=""></p>
               
             </div>
           </div>
@@ -412,15 +388,19 @@ if (!doNotTrack) {
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/research/">research</a>
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/corrida/">corrida</a>
 
-  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/data-privacy/">data privacy</a>
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/running/">running</a>
 
-  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/security/">security</a>
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/strava/">strava</a>
 
-  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/miro/">miro</a>
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/garmin/">garmin</a>
 
-  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/hacking/">hacking</a>
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/malware/">malware</a>
+
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/cybersecurity/">cybersecurity</a>
+
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/ransomware/">ransomware</a>
 
                   </div>
                 
@@ -433,7 +413,7 @@ if (!doNotTrack) {
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/07/como-carregar-atividades-manualmente-do-rel%C3%B3gio-garmin-para-o-strava/" data-tooltip="Como carregar atividades manualmente do relógio Garmin para o Strava">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -441,7 +421,7 @@ if (!doNotTrack) {
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/07/recon-ng/" data-tooltip="Recon-NG">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/07/miros-free-accounts-insecurity/" data-tooltip="Miro&#39;s free accounts (in)security">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -459,19 +439,19 @@ if (!doNotTrack) {
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2020/07/miros-free-accounts-insecurity/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2020/07/como-carregar-atividades-manualmente-do-rel%C3%B3gio-garmin-para-o-strava/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2020/07/miros-free-accounts-insecurity/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2020/07/como-carregar-atividades-manualmente-do-rel%C3%B3gio-garmin-para-o-strava/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2020/07/miros-free-accounts-insecurity/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2020/07/como-carregar-atividades-manualmente-do-rel%C3%B3gio-garmin-para-o-strava/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -519,7 +499,7 @@ if (!doNotTrack) {
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/07/como-carregar-atividades-manualmente-do-rel%C3%B3gio-garmin-para-o-strava/" data-tooltip="Como carregar atividades manualmente do relógio Garmin para o Strava">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -527,7 +507,7 @@ if (!doNotTrack) {
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/07/recon-ng/" data-tooltip="Recon-NG">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/07/miros-free-accounts-insecurity/" data-tooltip="Miro&#39;s free accounts (in)security">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -545,19 +525,19 @@ if (!doNotTrack) {
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2020/07/miros-free-accounts-insecurity/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2020/07/como-carregar-atividades-manualmente-do-rel%C3%B3gio-garmin-para-o-strava/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2020/07/miros-free-accounts-insecurity/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2020/07/como-carregar-atividades-manualmente-do-rel%C3%B3gio-garmin-para-o-strava/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2020/07/miros-free-accounts-insecurity/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2020/07/como-carregar-atividades-manualmente-do-rel%C3%B3gio-garmin-para-o-strava/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -587,19 +567,19 @@ if (!doNotTrack) {
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftiagotavares.io%2F2020%2F07%2Fmiros-free-accounts-insecurity%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftiagotavares.io%2F2020%2F07%2Fcomo-carregar-atividades-manualmente-do-rel%25C3%25B3gio-garmin-para-o-strava%2F">
           <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Ftiagotavares.io%2F2020%2F07%2Fmiros-free-accounts-insecurity%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Ftiagotavares.io%2F2020%2F07%2Fcomo-carregar-atividades-manualmente-do-rel%25C3%25B3gio-garmin-para-o-strava%2F">
           <i class="fa fa-twitter"></i><span>Share on Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Ftiagotavares.io%2F2020%2F07%2Fmiros-free-accounts-insecurity%2F">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Ftiagotavares.io%2F2020%2F07%2Fcomo-carregar-atividades-manualmente-do-rel%25C3%25B3gio-garmin-para-o-strava%2F">
           <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
         </a>
       </li>
@@ -689,9 +669,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/tiagotavares.io\/2020\/07\/miros-free-accounts-insecurity\/';
+          this.page.url = 'https:\/\/tiagotavares.io\/2020\/07\/como-carregar-atividades-manualmente-do-rel%C3%B3gio-garmin-para-o-strava\/';
           
-            this.page.identifier = '\/2020\/07\/miros-free-accounts-insecurity\/'
+            this.page.identifier = '\/2020\/07\/como-carregar-atividades-manualmente-do-rel%C3%B3gio-garmin-para-o-strava\/'
           
         };
         (function() {

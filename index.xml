@@ -6,18 +6,19 @@
     <description>Recent content on debugging the life</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Jul 2020 08:00:04 -0300</lastBuildDate>
+    <lastBuildDate>Sun, 26 Jul 2020 13:30:00 -0300</lastBuildDate>
     
 	<atom:link href="https://tiagotavares.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Windows PowerShell - Parte 1 - Introdução</title>
-      <link>https://tiagotavares.io/draft/powershell-pt1-inicio/</link>
-      <pubDate>Mon, 20 Jul 2020 08:00:04 -0300</pubDate>
+      <title>Como carregar atividades manualmente do relógio Garmin para o Strava</title>
+      <link>https://tiagotavares.io/2020/07/como-carregar-atividades-manualmente-do-rel%C3%B3gio-garmin-para-o-strava/</link>
+      <pubDate>Sun, 26 Jul 2020 13:30:00 -0300</pubDate>
       
-      <guid>https://tiagotavares.io/draft/powershell-pt1-inicio/</guid>
-      <description>&lt;p&gt;Este é o primeiro post de um total de X.&lt;/p&gt;</description>
+      <guid>https://tiagotavares.io/2020/07/como-carregar-atividades-manualmente-do-rel%C3%B3gio-garmin-para-o-strava/</guid>
+      <description>&lt;p&gt;&lt;em&gt;&lt;strong&gt;A ransomware story&lt;/strong&gt;&lt;/em&gt;. 😞&lt;/p&gt;
+&lt;p&gt;Além do procedimento, uma explicação do incidente que pôde ter custado ao Garmin milhões de dólares!  💸💸💸&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -86,15 +87,6 @@
     
     <item>
       <title>A dor do confinamento</title>
-      <link>https://tiagotavares.io/draft/vida_0106-0707/</link>
-      <pubDate>Sat, 23 May 2020 19:50:51 -0300</pubDate>
-      
-      <guid>https://tiagotavares.io/draft/vida_0106-0707/</guid>
-      <description>&lt;p&gt;..mas tudo isso vai passar. ✌️&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>A dor do confinamento</title>
       <link>https://tiagotavares.io/2020/05/a-dor-do-confinamento/</link>
       <pubDate>Sat, 23 May 2020 19:50:51 -0300</pubDate>
       
@@ -109,15 +101,6 @@
       
       <guid>https://tiagotavares.io/2020/05/lame-hack-the-box-retired/</guid>
       <description>&lt;p&gt;Lame - Hack The Box retired machine walkthrough.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>MACHINE XXX - Hack The Box (Retired)</title>
-      <link>https://tiagotavares.io/draft/template-htb/</link>
-      <pubDate>Thu, 14 May 2020 16:31:51 -0300</pubDate>
-      
-      <guid>https://tiagotavares.io/draft/template-htb/</guid>
-      <description>&lt;p&gt;MACHINE XXX - Hack The Box retired machine walkthrough.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -226,69 +209,6 @@
       
       <guid>https://tiagotavares.io/2013/01/curso-de-linux-m%C3%B3dulo-1-iniciante/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://tiagotavares.io/draft/norma_admin_dispositivos_rede/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://tiagotavares.io/draft/norma_admin_dispositivos_rede/</guid>
-      <description>Norma de Administração de Dispositivos de Rede Sumário  1. Objetivo 2. Abrangência 3. Responsabilidades 4. Termos e Definições 5. Descrição 6. Referências 7. Histórico de Revisões  1. Objetivo Este documento tem como objetivo estabelecer os procedimentos para administração dos dispositivos de rede, como firewalls, roteadores, switches, dispositivos de rede wireless entre outros, adotados pela EMPRESA para a comunicação, segregação e/ou proteção de suas redes. Estes procedimentos baseiam-se em melhores práticas de segurança da informação e padrões de mercado (ISO/IEC 27005), estabelecendo diretrizes e recomendações para a instalação, configuração e manutenção correta e segura, minimizando os riscos de falhas de segurança.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://tiagotavares.io/draft/norma_antimalware/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://tiagotavares.io/draft/norma_antimalware/</guid>
-      <description>Norma de Antimalware Sumário  1. Objetivo 2. Abrangência 3. Responsabilidades 4. Termos e Definições 5. Descrição 6. Referências 7. Histórico de Revisões  1. Objetivo Este documento tem como objetivo estabelecer os procedimentos para administração do antimalware adotado pela EMPRESA para garantir um processo de detecção, remoção e proteção contra todos os tipos conhecidos de softwares mal-intencionados. Estes procedimentos baseiam-se em melhores práticas de segurança da informação e padrões de mercado, estabelecendo diretrizes e recomendações para a instalação, configuração e manutenção correta e segura, minimizando os riscos de falhas de segurança.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://tiagotavares.io/draft/norma_aquis_software_dev_seguro/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://tiagotavares.io/draft/norma_aquis_software_dev_seguro/</guid>
-      <description>Norma de Aquisição de Sistemas e Desenvolvimento Seguro Sumário  1. Objetivo 2. Abrangência 3. Responsabilidades 4. Termos e Definições 5. Descrição  5.1 Formalização dos responsáveis pelos sistemas 5.2 Análise de riscos de Segurança da Informação 5.3 Segurança dos ambientes de TI 5.4 Requisitos de Segurança para Sistemas 5.5 Conformidade com PCI-DSS 5.6 Proteção dos Códigos Fonte 5.7 Controle de Acesso Lógico 5.8 Testes e Homologação 5.9 Documentação e Gestão do Conhecimento 5.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://tiagotavares.io/draft/norma_descarte_reten%C3%A7%C3%A3o_dadoscartao/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://tiagotavares.io/draft/norma_descarte_reten%C3%A7%C3%A3o_dadoscartao/</guid>
-      <description>Norma de Descarte e Retenção de Dados de Cartão Sumário  1. Objetivo 2.Abrangência 3. Responsabilidades 4. Disposições Gerais 5. Termos e Definições 6. Diretrizes  6.1 Retenção de dados de cartão 6.2 Visualização 6.3 Deleção ou expurgo 6.4 Gerenciamento de Chaves Criptográficas 6.5 Transmissão 6.6 Tratamento de incidentes com dado de cartão 6.7 Escopo PCI 6.8 Avaliação interna PCI-DSS   7. Penalidades 8. Referências 9. Histórico de Revisões  1.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://tiagotavares.io/draft/norma_gestao_de_mudancas/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://tiagotavares.io/draft/norma_gestao_de_mudancas/</guid>
-      <description>Norma de Gestão de Mudanças de TI Sumário  Sumário 1. Objetivo 2.Abrangência 3. Responsabilidades 4. Termos e Definições 5. Diretrizes  5.1 Tipos de Mudanças 5.2 Ambientes de Homologação 5.3 Informações Documentadas 5.4 Fluxo de Requisição de Mudanças   6. Penalidades 7 Referências 8. Histórico de Revisões  1. Objetivo Este documento descreve o processo de gestão de mudanças no ambiente e recursos de tecnologia da EMPRESA, visando reduzir os impactos gerados por mudanças não planejadas ou por falhas no planejamento, propiciando aumento da disponibilidade do ambiente de produção e consequentemente a elevação da qualidade dos produtos e serviços disponibilizados.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://tiagotavares.io/draft/norma_gest%C3%A3o_incidentes/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://tiagotavares.io/draft/norma_gest%C3%A3o_incidentes/</guid>
-      <description>Norma de Reposta a Incidentes de Segurança Sumário  1. Objetivo 2. Abrangência 3. Responsabilidades 4. Termos e Definições 5. Classificação  5.1 Classificação de Incidente de Segurança 5.2 Treinamento de Recursos 5.3 Processo para treinamento contra ameaças   6. Procedimento para resposta a incidentes de segurança  6.1 Escalonamento 6.2 Severidades  6.2.1 Severidades Médias e Baixas 6.2.2 Severidade Alta 6.2.3 Severidade Crítica 6.2.4 Problemas internos   6.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://tiagotavares.io/draft/norma_vuln_patch_hardening/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://tiagotavares.io/draft/norma_vuln_patch_hardening/</guid>
-      <description>Norma de Gestão de Vulnerabilidades, Hardening e Patches de Segurança Sumário  1. Objetivo 2. Abrangência 3. Responsabilidades 4. Termos e Definições 5. Descrição 6. Referências 7. Histórico de Revisões  1. Objetivo Este documento estabelece diretrizes para correção de vulnerabilidades, de aplicações de hardenings e de patches de segurança, que devem ser instalados em todos os componentes de sistema, sejam estações de trabalho, servidores e/ou dispositivos de rede adotados pela ==EMPRESA==.</description>
     </item>
     
   </channel>
