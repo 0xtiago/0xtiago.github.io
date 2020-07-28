@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Red Team on debugging the life</title>
+    <link>https://tiagotavares.io/categories/red-team/</link>
+    <description>Recent content in Red Team on debugging the life</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 27 Jul 2020 21:00:00 -0300</lastBuildDate>
+    
+	<atom:link href="https://tiagotavares.io/categories/red-team/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Breach and Attack Simulation com Infection Monkey 🐵</title>
+      <link>https://tiagotavares.io/2020/07/breach-and-attack-simulation-com-infection-monkey/</link>
+      <pubDate>Mon, 27 Jul 2020 21:00:00 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/2020/07/breach-and-attack-simulation-com-infection-monkey/</guid>
+      <description>&lt;p&gt;Realize simulações de ataque em um clique!&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

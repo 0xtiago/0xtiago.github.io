@@ -6,10 +6,73 @@
     <description>Recent content in Tags on debugging the life</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 Jul 2020 13:30:00 -0300</lastBuildDate>
+    <lastBuildDate>Mon, 27 Jul 2020 21:00:00 -0300</lastBuildDate>
     
 	<atom:link href="https://tiagotavares.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>breach and attack simulation</title>
+      <link>https://tiagotavares.io/tags/breach-and-attack-simulation/</link>
+      <pubDate>Mon, 27 Jul 2020 21:00:00 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/breach-and-attack-simulation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>guardicore</title>
+      <link>https://tiagotavares.io/tags/guardicore/</link>
+      <pubDate>Mon, 27 Jul 2020 21:00:00 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/guardicore/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hacking</title>
+      <link>https://tiagotavares.io/tags/hacking/</link>
+      <pubDate>Mon, 27 Jul 2020 21:00:00 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/hacking/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>infection monkey</title>
+      <link>https://tiagotavares.io/tags/infection-monkey/</link>
+      <pubDate>Mon, 27 Jul 2020 21:00:00 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/infection-monkey/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>red team</title>
+      <link>https://tiagotavares.io/tags/red-team/</link>
+      <pubDate>Mon, 27 Jul 2020 21:00:00 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/red-team/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>resiliência</title>
+      <link>https://tiagotavares.io/tags/resili%C3%AAncia/</link>
+      <pubDate>Mon, 27 Jul 2020 21:00:00 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/resili%C3%AAncia/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>security</title>
+      <link>https://tiagotavares.io/tags/security/</link>
+      <pubDate>Mon, 27 Jul 2020 21:00:00 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/security/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>corrida</title>
@@ -84,15 +147,6 @@
     </item>
     
     <item>
-      <title>hacking</title>
-      <link>https://tiagotavares.io/tags/hacking/</link>
-      <pubDate>Thu, 16 Jul 2020 08:15:12 -0300</pubDate>
-      
-      <guid>https://tiagotavares.io/tags/hacking/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>miro</title>
       <link>https://tiagotavares.io/tags/miro/</link>
       <pubDate>Thu, 16 Jul 2020 08:15:12 -0300</pubDate>
@@ -107,15 +161,6 @@
       <pubDate>Thu, 16 Jul 2020 08:15:12 -0300</pubDate>
       
       <guid>https://tiagotavares.io/tags/research/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>security</title>
-      <link>https://tiagotavares.io/tags/security/</link>
-      <pubDate>Thu, 16 Jul 2020 08:15:12 -0300</pubDate>
-      
-      <guid>https://tiagotavares.io/tags/security/</guid>
       <description></description>
     </item>
     
@@ -179,15 +224,6 @@
       <pubDate>Sun, 12 Jul 2020 08:41:04 -0300</pubDate>
       
       <guid>https://tiagotavares.io/tags/recon-ng/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>red team</title>
-      <link>https://tiagotavares.io/tags/red-team/</link>
-      <pubDate>Sun, 12 Jul 2020 08:41:04 -0300</pubDate>
-      
-      <guid>https://tiagotavares.io/tags/red-team/</guid>
       <description></description>
     </item>
     
