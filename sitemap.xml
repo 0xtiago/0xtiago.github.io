@@ -3,6 +3,56 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://tiagotavares.io/categories/</loc>
+    <lastmod>2020-07-31T12:00:51-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/tags/ctf/</loc>
+    <lastmod>2020-07-31T12:00:51-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/</loc>
+    <lastmod>2020-07-31T12:00:51-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/tags/hacking/</loc>
+    <lastmod>2020-07-31T12:00:51-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/2020/07/photographer-1-vulnhub/</loc>
+    <lastmod>2020-07-31T12:00:51-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/post/</loc>
+    <lastmod>2020-07-31T12:00:51-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/tags/</loc>
+    <lastmod>2020-07-31T12:00:51-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/tags/vulnhub/</loc>
+    <lastmod>2020-07-31T12:00:51-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/categories/vulnhub/</loc>
+    <lastmod>2020-07-31T12:00:51-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/categories/walkthroughs/</loc>
+    <lastmod>2020-07-31T12:00:51-03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://tiagotavares.io/tags/breach-and-attack-simulation/</loc>
     <lastmod>2020-07-27T21:00:00-03:00</lastmod>
   </url>
@@ -13,32 +63,12 @@
   </url>
   
   <url>
-    <loc>https://tiagotavares.io/categories/</loc>
-    <lastmod>2020-07-27T21:00:00-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tiagotavares.io/</loc>
-    <lastmod>2020-07-27T21:00:00-03:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://tiagotavares.io/tags/guardicore/</loc>
     <lastmod>2020-07-27T21:00:00-03:00</lastmod>
   </url>
   
   <url>
-    <loc>https://tiagotavares.io/tags/hacking/</loc>
-    <lastmod>2020-07-27T21:00:00-03:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://tiagotavares.io/tags/infection-monkey/</loc>
-    <lastmod>2020-07-27T21:00:00-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tiagotavares.io/post/</loc>
     <lastmod>2020-07-27T21:00:00-03:00</lastmod>
   </url>
   
@@ -59,11 +89,6 @@
   
   <url>
     <loc>https://tiagotavares.io/tags/security/</loc>
-    <lastmod>2020-07-27T21:00:00-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tiagotavares.io/tags/</loc>
     <lastmod>2020-07-27T21:00:00-03:00</lastmod>
   </url>
   
@@ -338,11 +363,6 @@
   </url>
   
   <url>
-    <loc>https://tiagotavares.io/tags/ctf/</loc>
-    <lastmod>2020-05-14T16:31:51-03:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://tiagotavares.io/tags/hackthebox/</loc>
     <lastmod>2020-05-14T16:31:51-03:00</lastmod>
   </url>
@@ -354,11 +374,6 @@
   
   <url>
     <loc>https://tiagotavares.io/categories/hackthebox/</loc>
-    <lastmod>2020-05-14T16:31:51-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tiagotavares.io/categories/walkthroughs/</loc>
     <lastmod>2020-05-14T16:31:51-03:00</lastmod>
   </url>
   
@@ -494,11 +509,6 @@
   
   <url>
     <loc>https://tiagotavares.io/2018/07/lampi%C3%A3o-1/</loc>
-    <lastmod>2018-07-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tiagotavares.io/tags/vulnhub/</loc>
     <lastmod>2018-07-28T00:00:00+00:00</lastmod>
   </url>
   

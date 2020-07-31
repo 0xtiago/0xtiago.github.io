@@ -6,10 +6,19 @@
     <description>Recent content in hacking on debugging the life</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 Jul 2020 21:00:00 -0300</lastBuildDate>
+    <lastBuildDate>Fri, 31 Jul 2020 12:00:51 -0300</lastBuildDate>
     
 	<atom:link href="https://tiagotavares.io/tags/hacking/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Photographer: 1 - Vulnhub </title>
+      <link>https://tiagotavares.io/2020/07/photographer-1-vulnhub/</link>
+      <pubDate>Fri, 31 Jul 2020 12:00:51 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/2020/07/photographer-1-vulnhub/</guid>
+      <description>&lt;p&gt;Photographer: 1 - A Vulnhub vulnerable machine walkthrough.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Breach and Attack Simulation com Infection Monkey 🐵</title>

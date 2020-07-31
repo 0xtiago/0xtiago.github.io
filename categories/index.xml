@@ -6,10 +6,28 @@
     <description>Recent content in Categories on debugging the life</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 Jul 2020 21:00:00 -0300</lastBuildDate>
+    <lastBuildDate>Fri, 31 Jul 2020 12:00:51 -0300</lastBuildDate>
     
 	<atom:link href="https://tiagotavares.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>👨‍💻Vulnhub</title>
+      <link>https://tiagotavares.io/categories/vulnhub/</link>
+      <pubDate>Fri, 31 Jul 2020 12:00:51 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/categories/vulnhub/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>📜Walkthroughs</title>
+      <link>https://tiagotavares.io/categories/walkthroughs/</link>
+      <pubDate>Fri, 31 Jul 2020 12:00:51 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/categories/walkthroughs/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Red Team</title>
@@ -89,15 +107,6 @@
       <pubDate>Thu, 14 May 2020 16:31:51 -0300</pubDate>
       
       <guid>https://tiagotavares.io/categories/hackthebox/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>📜Walkthroughs</title>
-      <link>https://tiagotavares.io/categories/walkthroughs/</link>
-      <pubDate>Thu, 14 May 2020 16:31:51 -0300</pubDate>
-      
-      <guid>https://tiagotavares.io/categories/walkthroughs/</guid>
       <description></description>
     </item>
     
