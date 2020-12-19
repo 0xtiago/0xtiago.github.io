@@ -6,10 +6,19 @@
     <description>Recent content in vulnhub on debugging the life</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 15 Dec 2020 08:40:51 -0300</lastBuildDate>
+    <lastBuildDate>Sat, 19 Dec 2020 08:00:51 -0300</lastBuildDate>
     
 	<atom:link href="https://tiagotavares.io/tags/vulnhub/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ChillHack: 1 - Vulnhub </title>
+      <link>https://tiagotavares.io/2020/12/chillhack-1-vulnhub/</link>
+      <pubDate>Sat, 19 Dec 2020 08:00:51 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/2020/12/chillhack-1-vulnhub/</guid>
+      <description>&lt;p&gt;ChillHack: 1 - A Vulnhub vulnerable machine walkthrough.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>DevGuru: 1 - Vulnhub </title>

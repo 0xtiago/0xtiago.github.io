@@ -4,51 +4,66 @@
   
   <url>
     <loc>https://tiagotavares.io/categories/</loc>
-    <lastmod>2020-12-15T08:40:51-03:00</lastmod>
+    <lastmod>2020-12-19T08:00:51-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/2020/12/chillhack-1-vulnhub/</loc>
+    <lastmod>2020-12-19T08:00:51-03:00</lastmod>
   </url>
   
   <url>
     <loc>https://tiagotavares.io/tags/ctf/</loc>
-    <lastmod>2020-12-15T08:40:51-03:00</lastmod>
+    <lastmod>2020-12-19T08:00:51-03:00</lastmod>
   </url>
   
   <url>
     <loc>https://tiagotavares.io/</loc>
-    <lastmod>2020-12-15T08:40:51-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tiagotavares.io/2020/12/devguru-1-vulnhub/</loc>
-    <lastmod>2020-12-15T08:40:51-03:00</lastmod>
+    <lastmod>2020-12-19T08:00:51-03:00</lastmod>
   </url>
   
   <url>
     <loc>https://tiagotavares.io/tags/hacking/</loc>
-    <lastmod>2020-12-15T08:40:51-03:00</lastmod>
+    <lastmod>2020-12-19T08:00:51-03:00</lastmod>
   </url>
   
   <url>
     <loc>https://tiagotavares.io/post/</loc>
-    <lastmod>2020-12-15T08:40:51-03:00</lastmod>
+    <lastmod>2020-12-19T08:00:51-03:00</lastmod>
   </url>
   
   <url>
     <loc>https://tiagotavares.io/tags/</loc>
-    <lastmod>2020-12-15T08:40:51-03:00</lastmod>
+    <lastmod>2020-12-19T08:00:51-03:00</lastmod>
   </url>
   
   <url>
     <loc>https://tiagotavares.io/tags/vulnhub/</loc>
-    <lastmod>2020-12-15T08:40:51-03:00</lastmod>
+    <lastmod>2020-12-19T08:00:51-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/tags/walkthrough/</loc>
+    <lastmod>2020-12-19T08:00:51-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/tags/writeup/</loc>
+    <lastmod>2020-12-19T08:00:51-03:00</lastmod>
   </url>
   
   <url>
     <loc>https://tiagotavares.io/categories/vulnhub/</loc>
-    <lastmod>2020-12-15T08:40:51-03:00</lastmod>
+    <lastmod>2020-12-19T08:00:51-03:00</lastmod>
   </url>
   
   <url>
     <loc>https://tiagotavares.io/categories/walkthroughs/</loc>
+    <lastmod>2020-12-19T08:00:51-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tiagotavares.io/2020/12/devguru-1-vulnhub/</loc>
     <lastmod>2020-12-15T08:40:51-03:00</lastmod>
   </url>
   
