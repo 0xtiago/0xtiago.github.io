@@ -6,10 +6,15 @@
     <description>Recent content in Posts on debugging the life</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 19 Dec 2020 08:00:51 -0300</lastBuildDate>
-    
-	<atom:link href="https://tiagotavares.io/post/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Wed, 07 Jul 2021 10:20:09 -0300</lastBuildDate><atom:link href="https://tiagotavares.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gestao de vulnerabilidades com Greenbone Openvas</title>
+      <link>https://tiagotavares.io/2021/07/gestao-de-vulnerabilidades-com-greenbone-openvas/</link>
+      <pubDate>Wed, 07 Jul 2021 10:20:09 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/2021/07/gestao-de-vulnerabilidades-com-greenbone-openvas/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>ChillHack: 1 - Vulnhub </title>
@@ -190,7 +195,7 @@
       <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://tiagotavares.io/2018/07/lampi%C3%A3o-1/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;&amp;ldquo;Lampião 1&amp;rdquo;&lt;/strong&gt; - &amp;ldquo;It&amp;rsquo;s Easy, fi duma égua!&amp;quot;.&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;strong&gt;&amp;ldquo;Lampião 1&amp;rdquo;&lt;/strong&gt; - &amp;ldquo;It&amp;rsquo;s Easy, fi duma égua!&amp;rdquo;.&lt;/p&gt;</description>
     </item>
     
     <item>

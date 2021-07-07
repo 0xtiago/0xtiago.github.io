@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="generator" content="Hugo 0.85.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Tiago Tavares">
-<meta name="keywords" content="tech">
+<meta name="keywords" content="tech, cybersecurity, information security, running, hacking, programming, offensive security, red team">
 <meta name="description" content="Realize simulações de ataque em um clique!">
 
 
@@ -31,7 +31,7 @@
   
   
     
-      <meta property="article:section" content="Red Team">
+      <meta property="article:section" content="Red Team Operations">
     
   
   
@@ -55,10 +55,10 @@
 
 <meta name="twitter:card" content="summary">
 
-  <meta name="twitter:site" content="@tiagotavares_">
+  <meta name="twitter:site" content="@0xtiago">
 
 
-  <meta name="twitter:creator" content="@tiagotavares_">
+  <meta name="twitter:creator" content="@0xtiago">
 
 
 
@@ -112,7 +112,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
     
     
   </head>
@@ -210,7 +209,7 @@ if (!doNotTrack) {
       
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://github.com/tiagotvrs" target="_blank" rel="noopener">
+      <a class="sidebar-button-link " href="https://github.com/0xtiago" target="_blank" rel="noopener">
     
       <i class="sidebar-button-icon fa fa-lg fa-github"></i>
       
@@ -294,7 +293,7 @@ if (!doNotTrack) {
   
     <span>in</span>
     
-      <a class="category-link" href="https://tiagotavares.io/categories/red-team">Red Team</a>
+      <a class="category-link" href="https://tiagotavares.io/categories/red-team-operations">Red Team Operations</a>
     
   
 
@@ -424,7 +423,7 @@ monkey_island_deb.deb
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo systemctl status monkey-*
 </code></pre></div><p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1595896196/blog/image-20200724120502719_mw1chg.png" alt="image-20200724120502719"></p>
 <p>A aplicação receberá requisições HTTP pela porta <strong>5000/tcp</strong>. Vamos ver se ela está aberta.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo netstat -putan | grep 500
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo netstat -putan | grep <span style="color:#ae81ff">500</span>
 ...
 tcp        <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span> 0.0.0.0:5000            0.0.0.0:*               LISTEN      1926/python
 tcp        <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span> 0.0.0.0:5001            0.0.0.0:*               LISTEN      1926/python
@@ -649,7 +648,7 @@ Bootloader finished.
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2020 Tiago Tavares. All Rights Reserved
+    &copy; 2021 Tiago Tavares. All Rights Reserved
   </span>
 </footer>
 

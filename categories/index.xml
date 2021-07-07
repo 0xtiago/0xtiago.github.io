@@ -6,10 +6,15 @@
     <description>Recent content in Categories on debugging the life</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 19 Dec 2020 08:00:51 -0300</lastBuildDate>
-    
-	<atom:link href="https://tiagotavares.io/categories/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Wed, 07 Jul 2021 10:20:09 -0300</lastBuildDate><atom:link href="https://tiagotavares.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vulnerability Management</title>
+      <link>https://tiagotavares.io/categories/vulnerability-management/</link>
+      <pubDate>Wed, 07 Jul 2021 10:20:09 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/categories/vulnerability-management/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>👨‍💻Vulnhub</title>
@@ -30,11 +35,11 @@
     </item>
     
     <item>
-      <title>Red Team</title>
-      <link>https://tiagotavares.io/categories/red-team/</link>
+      <title>Red Team Operations</title>
+      <link>https://tiagotavares.io/categories/red-team-operations/</link>
       <pubDate>Mon, 27 Jul 2020 21:00:00 -0300</pubDate>
       
-      <guid>https://tiagotavares.io/categories/red-team/</guid>
+      <guid>https://tiagotavares.io/categories/red-team-operations/</guid>
       <description></description>
     </item>
     

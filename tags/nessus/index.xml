@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nessus on debugging the life</title>
+    <link>https://tiagotavares.io/tags/nessus/</link>
+    <description>Recent content in nessus on debugging the life</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 07 Jul 2021 10:20:09 -0300</lastBuildDate><atom:link href="https://tiagotavares.io/tags/nessus/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gestao de vulnerabilidades com Greenbone Openvas</title>
+      <link>https://tiagotavares.io/2021/07/gestao-de-vulnerabilidades-com-greenbone-openvas/</link>
+      <pubDate>Wed, 07 Jul 2021 10:20:09 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/2021/07/gestao-de-vulnerabilidades-com-greenbone-openvas/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

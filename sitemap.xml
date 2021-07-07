@@ -1,669 +1,424 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://tiagotavares.io/categories/</loc>
-    <lastmod>2020-12-19T08:00:51-03:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-07-07T10:20:09-03:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/</loc>
+    <lastmod>2021-07-07T10:20:09-03:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/2021/07/gestao-de-vulnerabilidades-com-greenbone-openvas/</loc>
+    <lastmod>2021-07-07T10:20:09-03:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/tags/greenbone/</loc>
+    <lastmod>2021-07-07T10:20:09-03:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/tags/nessus/</loc>
+    <lastmod>2021-07-07T10:20:09-03:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/tags/openvas/</loc>
+    <lastmod>2021-07-07T10:20:09-03:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/post/</loc>
+    <lastmod>2021-07-07T10:20:09-03:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/tags/scanner/</loc>
+    <lastmod>2021-07-07T10:20:09-03:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/tags/</loc>
+    <lastmod>2021-07-07T10:20:09-03:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/tags/vulnerability/</loc>
+    <lastmod>2021-07-07T10:20:09-03:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/categories/vulnerability-management/</loc>
+    <lastmod>2021-07-07T10:20:09-03:00</lastmod>
+  </url><url>
     <loc>https://tiagotavares.io/2020/12/chillhack-1-vulnhub/</loc>
     <lastmod>2020-12-19T08:00:51-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/ctf/</loc>
     <lastmod>2020-12-19T08:00:51-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tiagotavares.io/</loc>
-    <lastmod>2020-12-19T08:00:51-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/hacking/</loc>
     <lastmod>2020-12-19T08:00:51-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tiagotavares.io/post/</loc>
-    <lastmod>2020-12-19T08:00:51-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tiagotavares.io/tags/</loc>
-    <lastmod>2020-12-19T08:00:51-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/vulnhub/</loc>
     <lastmod>2020-12-19T08:00:51-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/walkthrough/</loc>
     <lastmod>2020-12-19T08:00:51-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/writeup/</loc>
     <lastmod>2020-12-19T08:00:51-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/categories/vulnhub/</loc>
     <lastmod>2020-12-19T08:00:51-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/categories/walkthroughs/</loc>
     <lastmod>2020-12-19T08:00:51-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/2020/12/devguru-1-vulnhub/</loc>
     <lastmod>2020-12-15T08:40:51-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/2020/08/funbox-1-vulnhub/</loc>
     <lastmod>2020-08-13T21:40:51-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/2020/07/photographer-1-vulnhub/</loc>
     <lastmod>2020-07-31T12:00:51-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/breach-and-attack-simulation/</loc>
     <lastmod>2020-07-27T21:00:00-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/2020/07/breach-and-attack-simulation-com-infection-monkey/</loc>
     <lastmod>2020-07-27T21:00:00-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/guardicore/</loc>
     <lastmod>2020-07-27T21:00:00-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/infection-monkey/</loc>
     <lastmod>2020-07-27T21:00:00-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tiagotavares.io/categories/red-team/</loc>
-    <lastmod>2020-07-27T21:00:00-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/red-team/</loc>
     <lastmod>2020-07-27T21:00:00-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://tiagotavares.io/categories/red-team-operations/</loc>
+    <lastmod>2020-07-27T21:00:00-03:00</lastmod>
+  </url><url>
     <loc>https://tiagotavares.io/tags/resili%C3%AAncia/</loc>
     <lastmod>2020-07-27T21:00:00-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/security/</loc>
     <lastmod>2020-07-27T21:00:00-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/2020/07/como-carregar-atividades-manualmente-do-rel%C3%B3gio-garmin-para-o-strava/</loc>
     <lastmod>2020-07-26T13:30:00-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/corrida/</loc>
     <lastmod>2020-07-26T13:30:00-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/cybersecurity/</loc>
     <lastmod>2020-07-26T13:30:00-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/garmin/</loc>
     <lastmod>2020-07-26T13:30:00-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/malware/</loc>
     <lastmod>2020-07-26T13:30:00-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/ransomware/</loc>
     <lastmod>2020-07-26T13:30:00-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/running/</loc>
     <lastmod>2020-07-26T13:30:00-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/strava/</loc>
     <lastmod>2020-07-26T13:30:00-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/categories/running/</loc>
     <lastmod>2020-07-26T13:30:00-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/data-privacy/</loc>
     <lastmod>2020-07-16T08:15:12-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/miro/</loc>
     <lastmod>2020-07-16T08:15:12-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/2020/07/miros-free-accounts-insecurity/</loc>
     <lastmod>2020-07-16T08:15:12-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/research/</loc>
     <lastmod>2020-07-16T08:15:12-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/categories/data-privacy/</loc>
     <lastmod>2020-07-16T08:15:12-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/bug-bounty/</loc>
     <lastmod>2020-07-12T08:41:04-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/coleta-de-informa%C3%A7%C3%B5es/</loc>
     <lastmod>2020-07-12T08:41:04-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/cyber-kill-chain/</loc>
     <lastmod>2020-07-12T08:41:04-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/information-gathering/</loc>
     <lastmod>2020-07-12T08:41:04-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/mitre-attck/</loc>
     <lastmod>2020-07-12T08:41:04-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/osint/</loc>
     <lastmod>2020-07-12T08:41:04-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/2020/07/recon-ng/</loc>
     <lastmod>2020-07-12T08:41:04-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/recon-ng/</loc>
     <lastmod>2020-07-12T08:41:04-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/categories/osint/</loc>
     <lastmod>2020-07-12T08:41:04-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/2020/06/fontes-de-amostra-de-malwares-para-pesquisadores/</loc>
     <lastmod>2020-06-26T17:30:24-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/categories/malware-research/</loc>
     <lastmod>2020-06-26T17:30:24-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/argentina/</loc>
     <lastmod>2020-06-19T22:41:04-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/buenos-aires/</loc>
     <lastmod>2020-06-19T22:41:04-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/conference/</loc>
     <lastmod>2020-06-19T22:41:04-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/ekoparty/</loc>
     <lastmod>2020-06-19T22:41:04-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/2020/06/ekoparty-security-conference-13-2017-talks/</loc>
     <lastmod>2020-06-19T22:41:04-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/categories/conferences/</loc>
     <lastmod>2020-06-19T22:41:04-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/2020/06/inseguran%C3%A7a-em-tokens-jwt/</loc>
     <lastmod>2020-06-12T12:15:12-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/application/</loc>
     <lastmod>2020-06-12T12:15:12-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/categories/application-security/</loc>
     <lastmod>2020-06-12T12:15:12-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/criptography/</loc>
     <lastmod>2020-06-12T12:15:12-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/development/</loc>
     <lastmod>2020-06-12T12:15:12-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/jwt/</loc>
     <lastmod>2020-06-12T12:15:12-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/owasp/</loc>
     <lastmod>2020-06-12T12:15:12-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/lascon/</loc>
     <lastmod>2020-06-05T12:02:56-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/2020/06/o-fim-dos-times-de-appsec/</loc>
     <lastmod>2020-06-05T12:02:56-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/security-champions/</loc>
     <lastmod>2020-06-05T12:02:56-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/ant&#43;/</loc>
     <lastmod>2020-06-02T08:40:20-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/2020/06/como-configurar-o-zwift-com-garmin-forerunner-235-foopod-e-ant-/</loc>
     <lastmod>2020-06-02T08:40:20-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/footpod/</loc>
     <lastmod>2020-06-02T08:40:20-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/forerunner/</loc>
     <lastmod>2020-06-02T08:40:20-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/quarentena/</loc>
     <lastmod>2020-06-02T08:40:20-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/zwift/</loc>
     <lastmod>2020-06-02T08:40:20-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/2020/05/a-dor-do-confinamento/</loc>
     <lastmod>2020-05-23T19:50:51-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/confinamento/</loc>
     <lastmod>2020-05-23T19:50:51-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/coronavirus/</loc>
     <lastmod>2020-05-23T19:50:51-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/life/</loc>
     <lastmod>2020-05-23T19:50:51-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/quarantine/</loc>
     <lastmod>2020-05-23T19:50:51-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/vida/</loc>
     <lastmod>2020-05-23T19:50:51-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/categories/life/</loc>
     <lastmod>2020-05-23T19:50:51-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/hackthebox/</loc>
     <lastmod>2020-05-14T16:31:51-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/2020/05/lame-hack-the-box-retired/</loc>
     <lastmod>2020-05-14T16:31:51-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/categories/hackthebox/</loc>
     <lastmod>2020-05-14T16:31:51-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/2020/04/openadmin-hack-the-box-retired/</loc>
     <lastmod>2020-04-23T16:31:51-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/2020/04/an%C3%A1lise-dos-dados-da-maratona-de-porto-alegre-2019/</loc>
     <lastmod>2020-04-17T22:09:49-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/data-analytics/</loc>
     <lastmod>2020-04-17T22:09:49-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/marathon/</loc>
     <lastmod>2020-04-17T22:09:49-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/maratona/</loc>
     <lastmod>2020-04-17T22:09:49-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/matplotlib/</loc>
     <lastmod>2020-04-17T22:09:49-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/pandas/</loc>
     <lastmod>2020-04-17T22:09:49-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/porto-alegre/</loc>
     <lastmod>2020-04-17T22:09:49-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/python/</loc>
     <lastmod>2020-04-17T22:09:49-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/seaborn/</loc>
     <lastmod>2020-04-17T22:09:49-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/categories/python/</loc>
     <lastmod>2020-04-17T22:09:49-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/categories/data-analytics/</loc>
     <lastmod>2020-04-17T22:09:49-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/2020/04/faustao-invader/</loc>
     <lastmod>2020-04-09T22:33:47-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/faust%C3%A3o-invader/</loc>
     <lastmod>2020-04-09T22:33:47-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/game/</loc>
     <lastmod>2020-04-09T22:33:47-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/pygame/</loc>
     <lastmod>2020-04-09T22:33:47-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/categories/%EF%B8%8Fgames/</loc>
     <lastmod>2020-04-09T22:33:47-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/acm.org/</loc>
     <lastmod>2020-03-16T21:35:28-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/2020/03/association-for-computing-machinery-oreilly-safari/</loc>
     <lastmod>2020-03-16T21:35:28-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/books/</loc>
     <lastmod>2020-03-16T21:35:28-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/oreilly/</loc>
     <lastmod>2020-03-16T21:35:28-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/safari/</loc>
     <lastmod>2020-03-16T21:35:28-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/study/</loc>
     <lastmod>2020-03-16T21:35:28-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/tip/</loc>
     <lastmod>2020-03-16T21:35:28-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/categories/study/</loc>
     <lastmod>2020-03-16T21:35:28-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/lampiao/</loc>
     <lastmod>2018-07-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/2018/07/lampi%C3%A3o-1/</loc>
     <lastmod>2018-07-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/categories/vulnerable-machines/</loc>
     <lastmod>2018-07-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/categories/projects/</loc>
     <lastmod>2018-07-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/2018/07/a-minha-estreia-em-maratonas/</loc>
     <lastmod>2018-07-24T14:40:20-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/jarbas/</loc>
     <lastmod>2018-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/2018/04/jarbas-1/</loc>
     <lastmod>2018-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/2017/11/mirai-hack-the-box-retired/</loc>
     <lastmod>2017-11-23T16:31:51-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/ccsp/</loc>
     <lastmod>2017-03-29T22:00:04-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/categories/certifications/</loc>
     <lastmod>2017-03-29T22:00:04-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/cloud-computing/</loc>
     <lastmod>2017-03-29T22:00:04-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/isc2/</loc>
     <lastmod>2017-03-29T22:00:04-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/2017/03/passed-isc2-ccsp-certified-cloud-security-professional/</loc>
     <lastmod>2017-03-29T22:00:04-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/cissp/</loc>
     <lastmod>2015-02-27T20:00:01-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/issa/</loc>
     <lastmod>2015-02-27T20:00:01-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/2015/02/passed-isc2-cissp-certified-information-systems-security-professional/</loc>
     <lastmod>2015-02-27T20:00:01-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/conscientiza%C3%A7%C3%A3o/</loc>
     <lastmod>2015-02-10T14:40:20-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/2015/02/o-uso-seguro-da-internet-e-os-10-nuncas/</loc>
     <lastmod>2015-02-10T14:40:20-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/security-awareness/</loc>
     <lastmod>2015-02-10T14:40:20-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/seguran%C3%A7a-da-informa%C3%A7%C3%A3o/</loc>
     <lastmod>2015-02-10T14:40:20-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/user-security/</loc>
     <lastmod>2015-02-10T14:40:20-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/categories/security-awareness/</loc>
     <lastmod>2015-02-10T14:40:20-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/curso/</loc>
     <lastmod>2013-01-02T14:08:21-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/2013/01/curso-de-linux-m%C3%B3dulo-1-iniciante/</loc>
     <lastmod>2013-01-02T14:08:21-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/estudos/</loc>
     <lastmod>2013-01-02T14:08:21-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/tags/linux/</loc>
     <lastmod>2013-01-02T14:08:21-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/categories/curso-de-linux/</loc>
     <lastmod>2013-01-02T14:08:21-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tiagotavares.io/archives/</loc>
   </url>
-  
 </urlset>

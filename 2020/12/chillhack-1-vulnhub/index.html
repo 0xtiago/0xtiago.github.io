@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="generator" content="Hugo 0.85.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Tiago Tavares">
-<meta name="keywords" content="vulnhub">
+<meta name="keywords" content="vulnhub, cybersecurity, information security, running, hacking, programming, offensive security, red team">
 <meta name="description" content="ChillHack: 1 - A Vulnhub vulnerable machine walkthrough.">
 
 
@@ -53,10 +53,10 @@
 
 <meta name="twitter:card" content="summary">
 
-  <meta name="twitter:site" content="@tiagotavares_">
+  <meta name="twitter:site" content="@0xtiago">
 
 
-  <meta name="twitter:creator" content="@tiagotavares_">
+  <meta name="twitter:creator" content="@0xtiago">
 
 
 
@@ -107,7 +107,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
     
     
   </head>
@@ -205,7 +204,7 @@ if (!doNotTrack) {
       
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://github.com/tiagotvrs" target="_blank" rel="noopener">
+      <a class="sidebar-button-link " href="https://github.com/0xtiago" target="_blank" rel="noopener">
     
       <i class="sidebar-button-icon fa fa-lg fa-github"></i>
       
@@ -601,13 +600,13 @@ account.php  hacker.php  images  index.php  style.css
 
 </code></pre><pre><code>cat /var/www/files/index.php
 </code></pre><p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608376755/blog/image-20201218215614910_jog0x4.png" alt="image-20201218215614910"></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">...
-		try
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#f92672">...</span>
+		<span style="color:#66d9ef">try</span>
 		{
-			$con = new PDO(&#34;mysql:dbname=webportal;host=localhost&#34;,&#34;root&#34;,&#34;!@m+her00+@db&#34;);
-			$con-&gt;setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_WARNING);
+			$con <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">PDO</span>(<span style="color:#e6db74">&#34;mysql:dbname=webportal;host=localhost&#34;</span>,<span style="color:#e6db74">&#34;root&#34;</span>,<span style="color:#e6db74">&#34;!@m+her00+@db&#34;</span>);
+			$con<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">setAttribute</span>(<span style="color:#a6e22e">PDO</span><span style="color:#f92672">::</span><span style="color:#a6e22e">ATTR_ERRMODE</span>,<span style="color:#a6e22e">PDO</span><span style="color:#f92672">::</span><span style="color:#a6e22e">ERRMODE_WARNING</span>);
 		}
-...
+<span style="color:#f92672">...</span>
 </code></pre></div><p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608376755/blog/image-20201218215808026_qi3i1x.png" alt="image-20201218215808026"></p>
 <p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608376755/blog/image-20201218220041891_xtlzqu.png" alt="image-20201218220041891"></p>
 <pre><code>+----+-----------+----------+-----------+----------------------------------+
@@ -621,21 +620,21 @@ account.php  hacker.php  images  index.php  style.css
 <table>
 <thead>
 <tr>
-<th align="center">Hash</th>
-<th align="center">Type</th>
-<th align="center">Result</th>
+<th style="text-align:center">Hash</th>
+<th style="text-align:center">Type</th>
+<th style="text-align:center">Result</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center">7e53614ced3640d5de23f111806cc4fd</td>
-<td align="center">md5</td>
-<td align="center">masterpassword</td>
+<td style="text-align:center">7e53614ced3640d5de23f111806cc4fd</td>
+<td style="text-align:center">md5</td>
+<td style="text-align:center">masterpassword</td>
 </tr>
 <tr>
-<td align="center">686216240e5af30df0501e53c789a649</td>
-<td align="center">md5</td>
-<td align="center">dontaskdonttell</td>
+<td style="text-align:center">686216240e5af30df0501e53c789a649</td>
+<td style="text-align:center">md5</td>
+<td style="text-align:center">dontaskdonttell</td>
 </tr>
 </tbody>
 </table>
@@ -755,7 +754,7 @@ Linkedin
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2021/07/gestao-de-vulnerabilidades-com-greenbone-openvas/" data-tooltip="Gestao de vulnerabilidades com Greenbone Openvas">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -828,7 +827,7 @@ Linkedin
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2020 Tiago Tavares. All Rights Reserved
+    &copy; 2021 Tiago Tavares. All Rights Reserved
   </span>
 </footer>
 
@@ -841,7 +840,7 @@ Linkedin
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2021/07/gestao-de-vulnerabilidades-com-greenbone-openvas/" data-tooltip="Gestao de vulnerabilidades com Greenbone Openvas">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>

@@ -6,11 +6,7 @@
     <description>Recent content in owasp on debugging the life</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 12 Jun 2020 12:15:12 -0300</lastBuildDate>
-    
-	<atom:link href="https://tiagotavares.io/tags/owasp/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 12 Jun 2020 12:15:12 -0300</lastBuildDate><atom:link href="https://tiagotavares.io/tags/owasp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>(In)segurança em tokens JWT</title>
       <link>https://tiagotavares.io/2020/06/inseguran%C3%A7a-em-tokens-jwt/</link>
