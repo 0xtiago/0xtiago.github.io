@@ -8,18 +8,18 @@
 <meta name="generator" content="Hugo 0.85.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Tiago Tavares">
 <meta name="keywords" content="tech, cybersecurity, information security, running, hacking, programming, offensive security, red team">
-<meta name="description" content="Um rápido how-to de como instalar o Greenbone Openvas no Ubuntu 20.04, além de uma breve introdução a gestão de vulnerabilidades.">
+<meta name="description" content="">
 
 
-<meta property="og:description" content="Um rápido how-to de como instalar o Greenbone Openvas no Ubuntu 20.04, além de uma breve introdução a gestão de vulnerabilidades.">
+<meta property="og:description" content="">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Gestão de vulnerabilidades com Greenbone Openvas - Ubuntu 20.04">
-<meta name="twitter:title" content="Gestão de vulnerabilidades com Greenbone Openvas - Ubuntu 20.04">
-<meta property="og:url" content="https://tiagotavares.io/2021/07/gest%C3%A3o-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04/">
-<meta property="twitter:url" content="https://tiagotavares.io/2021/07/gest%C3%A3o-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04/">
+<meta property="og:title" content="Gestao de vulnerabilidades com Greenbone Openvas">
+<meta name="twitter:title" content="Gestao de vulnerabilidades com Greenbone Openvas">
+<meta property="og:url" content="https://tiagotavares.io/2021/07/gestao-de-vulnerabilidades-com-greenbone-openvas/">
+<meta property="twitter:url" content="https://tiagotavares.io/2021/07/gestao-de-vulnerabilidades-com-greenbone-openvas/">
 <meta property="og:site_name" content="debugging the life">
-<meta property="og:description" content="Um rápido how-to de como instalar o Greenbone Openvas no Ubuntu 20.04, além de uma breve introdução a gestão de vulnerabilidades.">
-<meta name="twitter:description" content="Um rápido how-to de como instalar o Greenbone Openvas no Ubuntu 20.04, além de uma breve introdução a gestão de vulnerabilidades.">
+<meta property="og:description" content="">
+<meta name="twitter:description" content="">
 <meta property="og:locale" content="en-us">
 
   
@@ -45,10 +45,6 @@
       <meta property="article:tag" content="scanner">
     
       <meta property="article:tag" content="nessus">
-    
-      <meta property="article:tag" content="ubuntu">
-    
-      <meta property="article:tag" content="linux">
     
   
 
@@ -79,14 +75,14 @@
   <meta property="twitter:image" content="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=640">
 
 
-    <title>Gestão de vulnerabilidades com Greenbone Openvas - Ubuntu 20.04</title>
+    <title>Gestao de vulnerabilidades com Greenbone Openvas</title>
 
     <link rel="icon" href="images/favicon-32x32.png">
     
 
     
 
-    <link rel="canonical" href="https://tiagotavares.io/2021/07/gest%C3%A3o-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04/">
+    <link rel="canonical" href="https://tiagotavares.io/2021/07/gestao-de-vulnerabilidades-com-greenbone-openvas/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -276,7 +272,7 @@ if (!doNotTrack) {
       <div class="post-header main-content-wrap text-center">
   
     <h1 class="post-title" itemprop="headline">
-      Gestão de vulnerabilidades com Greenbone Openvas - Ubuntu 20.04
+      Gestao de vulnerabilidades com Greenbone Openvas
     </h1>
   
   
@@ -313,8 +309,7 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>Um rápido <em>how-to</em> de como instalar o Greenbone Openvas no Ubuntu 20.04, além de uma breve introdução a gestão de vulnerabilidades.</p>
-<h1 id="sumário">Sumário</h1>
+              <h1 id="sumário">Sumário</h1>
 <ul>
 <li><a href="#sum%C3%A1rio">Sumário</a></li>
 <li><a href="#introdu%C3%A7%C3%A3o">Introdução</a></li>
@@ -344,7 +339,7 @@ if (!doNotTrack) {
 <p>Outra motivação é poder ajudar todas as comunidades que possuem o Português como língua mãe.  🇵🇹 🇧🇷 🇦🇴 🇹🇱 🇲🇿 🇨🇻 🇬🇶 🇬🇼 🇸🇹</p>
 <p>Os componentes a serem instalados serão:</p>
 <ul>
-<li><strong>OpenVas (Open Vulnerability Assessment Scanner) 20.8</strong> - Scanner de Vulnerabilidades;</li>
+<li><strong>Openvas 20.8</strong> - Scanner de Vulnerabilidades;</li>
 <li><strong>GVM (Greenbone Vulnerability Manager) 20.8</strong> - Responsável por gerenciar as tasks de scan;</li>
 <li><strong>GSA (Greenbone Security Assistant) 20.8</strong> - Responsável por prover a interface web para gestão do usuário;</li>
 <li>Outros componentes auxiliares e bibliotecas.</li>
@@ -488,10 +483,6 @@ total 1.1M
 
   <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/nessus/">nessus</a>
 
-  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/ubuntu/">ubuntu</a>
-
-  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/linux/">linux</a>
-
                   </div>
                 
               
@@ -529,19 +520,19 @@ total 1.1M
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2021/07/gest%C3%A3o-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2021/07/gestao-de-vulnerabilidades-com-greenbone-openvas/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2021/07/gest%C3%A3o-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2021/07/gestao-de-vulnerabilidades-com-greenbone-openvas/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2021/07/gest%C3%A3o-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2021/07/gestao-de-vulnerabilidades-com-greenbone-openvas/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -615,19 +606,19 @@ total 1.1M
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2021/07/gest%C3%A3o-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2021/07/gestao-de-vulnerabilidades-com-greenbone-openvas/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2021/07/gest%C3%A3o-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2021/07/gestao-de-vulnerabilidades-com-greenbone-openvas/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2021/07/gest%C3%A3o-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2021/07/gestao-de-vulnerabilidades-com-greenbone-openvas/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -657,19 +648,19 @@ total 1.1M
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftiagotavares.io%2F2021%2F07%2Fgest%25C3%25A3o-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftiagotavares.io%2F2021%2F07%2Fgestao-de-vulnerabilidades-com-greenbone-openvas%2F">
           <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Ftiagotavares.io%2F2021%2F07%2Fgest%25C3%25A3o-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Ftiagotavares.io%2F2021%2F07%2Fgestao-de-vulnerabilidades-com-greenbone-openvas%2F">
           <i class="fa fa-twitter"></i><span>Share on Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Ftiagotavares.io%2F2021%2F07%2Fgest%25C3%25A3o-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04%2F">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Ftiagotavares.io%2F2021%2F07%2Fgestao-de-vulnerabilidades-com-greenbone-openvas%2F">
           <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
         </a>
       </li>
@@ -759,9 +750,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/tiagotavares.io\/2021\/07\/gest%C3%A3o-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04\/';
+          this.page.url = 'https:\/\/tiagotavares.io\/2021\/07\/gestao-de-vulnerabilidades-com-greenbone-openvas\/';
           
-            this.page.identifier = '\/2021\/07\/gest%C3%A3o-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04\/'
+            this.page.identifier = '\/2021\/07\/gestao-de-vulnerabilidades-com-greenbone-openvas\/'
           
         };
         (function() {
