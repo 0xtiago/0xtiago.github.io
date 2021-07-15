@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.85.0" />
+    <meta name="description" content="">
+<meta name="author" content="Tiago Tavares">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>6. Laços/Loops com For - Python Para Todos</title>
+
+    
+    <link href="/css/nucleus.css?1626388747" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1626388747" rel="stylesheet">
+    <link href="/css/hybrid.css?1626388747" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1626388747" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1626388747" rel="stylesheet">
+    <link href="/css/auto-complete.css?1626388747" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1626388747" rel="stylesheet">
+    <link href="/css/theme.css?1626388747" rel="stylesheet">
+    <link href="/css/tabs.css?1626388747" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1626388747" rel="stylesheet">
+    
+    <link href="/css/theme-blue.css?1626388747" rel="stylesheet">
+    
+    <link href="/css/foo.css?1626388747" rel="stylesheet"><link href="/css/bar.css?1626388747" rel="stylesheet">
+
+    <script src="/js/jquery-3.3.1.min.js?1626388747"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/basicao/aula06/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href='/'>
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" style="width:100%; height:100%;" viewBox="0 0 1024 200" xml:space="preserve">
+        <desc>Created with Fabric.js 4.2.0</desc>
+<defs>
+</defs>
+<rect x="0" y="0" width="100%" height="100%" fill="transparent"></rect>
+<g transform="matrix(1 0 0 1 512 100)" id="12a7f881-fcf4-4d44-93e4-10560ebbd235"  >
+<rect style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-opacity: 0; fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke"  x="-512" y="-100" rx="0" ry="0" width="1024" height="200" />
+</g>
+<g transform="matrix(Infinity NaN NaN Infinity 0 0)" id="509340af-1f6e-49e5-8cdd-28b91665b911"  >
+</g>
+<g transform="matrix(0.66 0 0 0.66 106.12 100)" id="7fbd0b2e-5bb9-4043-b872-ab15da9002ec"  >
+	<image style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke"  xlink:href="data:image/png;base64,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" x="-120" y="-120" width="240" height="240"></image>
+</g>
+<g transform="matrix(1 0 0 1 642.21 100)" style="" id="a7337bea-2edb-4152-87e2-688488d6d6b8"  >
+		<text xml:space="preserve" font-family="Roboto" font-size="88" font-style="normal" font-weight="900" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-409.6" y="27.64" >Python Para Todos</tspan></text>
+</g>
+    </svg>
+  </a>
+  
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1626388747"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1626388747"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1626388747"></script>
+
+    
+  </div>
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/basicao/" title="Basicão" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/basicao/">
+          <b>1. </b>Basicão
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/basicao/aula01/" title="1. Números, Aritmética e Impressão na Tela!" class="dd-item
+        
+        
+        
+        ">
+      <a href="/basicao/aula01/">
+          1. Números, Aritmética e Impressão na Tela!
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/basicao/aula02/" title="2. Strings, Variáveis, e obtendo entrada de dados" class="dd-item
+        
+        
+        
+        ">
+      <a href="/basicao/aula02/">
+          2. Strings, Variáveis, e obtendo entrada de dados
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/basicao/aula03/" title="3. Formatando Strings e Processando Entrada do Usuário" class="dd-item
+        
+        
+        
+        ">
+      <a href="/basicao/aula03/">
+          3. Formatando Strings e Processando Entrada do Usuário
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/basicao/aula04/" title="4. Coleções - Listas e Tuplas" class="dd-item
+        
+        
+        
+        ">
+      <a href="/basicao/aula04/">
+          4. Coleções - Listas e Tuplas
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/basicao/aula05/" title="5. Booleanos e Condicionais" class="dd-item
+        
+        
+        
+        ">
+      <a href="/basicao/aula05/">
+          5. Booleanos e Condicionais
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/basicao/aula06/" title="6. Laços/Loops com For" class="dd-item
+        parent
+        active
+        
+        ">
+      <a href="/basicao/aula06/">
+          6. Laços/Loops com For
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/basicao/aula07/" title="7. Laços/Loops com While" class="dd-item
+        
+        
+        
+        ">
+      <a href="/basicao/aula07/">
+          7. Laços/Loops com While
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+        
+    </ul>
+
+    
+    
+
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                   6. Laços/Loops com For
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#por-que-precisamos-dos-loops">Por que precisamos dos <em>loops</em>?</a></li>
+    <li><a href="#o-que-é-um-loop-for">O que é um <em>loop</em> <code>for</code>?</a></li>
+    <li><a href="#definindo-um-loop-for">Definindo um <em>loop</em> <code>for</code></a></li>
+    <li><a href="#declarando-uma-parada-com-o-break">Declarando uma parada com o <code>break</code></a></li>
+    <li><a href="#a-função-range">A função <code>range</code></a>
+      <ul>
+        <li><a href="#usando-range-em-loops-for">Usando <code>range</code> em loops <code>for</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#importante">Importante</a></li>
+    <li><a href="#exercícios">Exercícios</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              6. Laços/Loops com For
+            </h1>
+          
+
+        
+
+
+
+	<ul>
+<li><a href="#por-que-precisamos-dos-loops">Por que precisamos dos <em>loops</em>?</a></li>
+<li><a href="#o-que-%C3%A9-um-loop-for">O que é um <em>loop</em> <code>for</code>?</a></li>
+<li><a href="#definindo-um-loop-for">Definindo um <em>loop</em> <code>for</code></a></li>
+<li><a href="#declarando-uma-parada-com-o-break">Declarando uma parada com o <code>break</code></a></li>
+<li><a href="#a-fun%C3%A7%C3%A3o-range">A função <code>range</code></a>
+<ul>
+<li><a href="#usando-range-em-loops-for">Usando <code>range</code> em loops <code>for</code></a></li>
+</ul>
+</li>
+<li><a href="#importante">Importante</a></li>
+<li><a href="#exerc%C3%ADcios">Exercícios</a></li>
+</ul>
+<p>Neste capítulo vamos falar sobre <em>loops</em> <code>for</code>, que nos permitirão repetir algumas ações uma vez para cada item de uma coleção(ex: lista).</p>
+<h2 id="por-que-precisamos-dos-loops">Por que precisamos dos <em>loops</em>?</h2>
+<p>Vamos utilzar um exemplo anterior, onde definimos uma lista com tuplas para representar filmes de um catálogo.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">filmes <span style="color:#f92672">=</span> [
+    (
+        <span style="color:#e6db74">&#34;Tropa de Elite 2 - O Inimigo Agora é Outro&#34;</span>, 
+        <span style="color:#e6db74">&#34;José Padilha&#34;</span>,
+        <span style="color:#ae81ff">2010</span>
+    ), 
+    (
+        <span style="color:#e6db74">&#34;Austin Powers 2&#34;</span>, 
+        <span style="color:#e6db74">&#34;Jay Roach&#34;</span>,
+        <span style="color:#ae81ff">1999</span>
+    ),
+    (
+        <span style="color:#e6db74">&#34;O Auto da Compadecida&#34;</span>, 
+        <span style="color:#e6db74">&#34;Guel Arraes&#34;</span>,
+        <span style="color:#ae81ff">2000</span>
+    )]
+</code></pre></div><p>Aqui temos uma lista chamada <code>filmes</code>, que contém várias tuplas. Essas tuplas contêm dados em uma ordem definida: o primeiro elemento em cada tupla é o título do filme; o segundo elemento é o diretor do filme; e o elemento final é o ano de lançamento.</p>
+<p>Imagine que queremos imprimir o conteúdo desta lista de filmes. Usando nosso conhecimento atual, podemos fazer algo assim:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">filme <span style="color:#f92672">=</span> filmes[<span style="color:#ae81ff">0</span>]
+print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>filme[<span style="color:#ae81ff">0</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74"> (</span><span style="color:#e6db74">{</span>filme[<span style="color:#ae81ff">2</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">), por </span><span style="color:#e6db74">{</span>filme[<span style="color:#ae81ff">1</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+
+filme <span style="color:#f92672">=</span> filmes[<span style="color:#ae81ff">1</span>]
+print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>filme[<span style="color:#ae81ff">0</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74"> (</span><span style="color:#e6db74">{</span>filme[<span style="color:#ae81ff">2</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">), por </span><span style="color:#e6db74">{</span>filme[<span style="color:#ae81ff">1</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+
+filme <span style="color:#f92672">=</span> filmes[<span style="color:#ae81ff">2</span>]
+print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>filme[<span style="color:#ae81ff">0</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74"> (</span><span style="color:#e6db74">{</span>filme[<span style="color:#ae81ff">2</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">), por </span><span style="color:#e6db74">{</span>filme[<span style="color:#ae81ff">1</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</code></pre></div><p>O que imprimirá na tela da seguinte forma:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">Tropa de Elite <span style="color:#ae81ff">2</span> <span style="color:#f92672">-</span> O Inimigo Agora é Outro (<span style="color:#ae81ff">2010</span>), por José Padilha
+Austin Powers <span style="color:#ae81ff">2</span> (<span style="color:#ae81ff">1999</span>), por Jay Roach        
+O Auto da Compadecida (<span style="color:#ae81ff">2000</span>), por Guel Arraes
+</code></pre></div><p>Se quiséssemos ser um pouco mais sucintos, poderíamos deixar de lado as variáveis do filme e encadear várias expressões de assinatura:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>filmes[<span style="color:#ae81ff">0</span>][<span style="color:#ae81ff">0</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74"> (</span><span style="color:#e6db74">{</span>filmes[<span style="color:#ae81ff">0</span>][<span style="color:#ae81ff">2</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">), por </span><span style="color:#e6db74">{</span>filmes[<span style="color:#ae81ff">0</span>][<span style="color:#ae81ff">1</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>filmes[<span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">0</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74"> (</span><span style="color:#e6db74">{</span>filmes[<span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">2</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">), por </span><span style="color:#e6db74">{</span>filmes[<span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">1</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>filmes[<span style="color:#ae81ff">2</span>][<span style="color:#ae81ff">0</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74"> (</span><span style="color:#e6db74">{</span>filmes[<span style="color:#ae81ff">2</span>][<span style="color:#ae81ff">2</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">), por </span><span style="color:#e6db74">{</span>filmes[<span style="color:#ae81ff">2</span>][<span style="color:#ae81ff">1</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</code></pre></div><p>Existem alguns problemas com o tipo de código que escrevemos acima. Em primeiro lugar, temos muitos códigos duplicados, o que torna este programa difícil de manter. Imagine se quiséssemos alterar a saída do programa deste:</p>
+<pre><code>O Auto da Compadecida (2000), por Guel Arraes
+</code></pre><p>Para este:</p>
+<pre><code>O Auto da Compadecida (2000) - Guel Arraes
+</code></pre><p>Temos que fazer essa mudança em 3 lugares diferentes. Mesmo com esse pequeno número de filmes, é muito fácil se perder um ou cometer um pequeno erro na formatação, o que pode levar a diferenças não intencionais na saída de filme para filme.</p>
+<p>Agora imagine que temos 50 filmes. Ou 1.000 filmes. Nosso problema de manutenção não só ficou muito pior, como até escrever isso pela primeira vez será um pesadelo.</p>
+<p>Nosso código também é muito frágil. Não podemos contabilizar nenhuma alteração na lista de <code>filmes</code> e precisamos saber com antecedência quantos filmes existem, para que possamos escrever um número apropriado de chamadas da função <code>print</code>.</p>
+<p>Como esse tipo de duplicação de código apresenta grandes desafios, as linguagens de programação modernas nos fornecem muitas ferramentas para remover esse tipo de duplicação. Neste caso particular, a ferramenta que queremos é um loop <code>for</code>.</p>
+<h2 id="o-que-é-um-loop-for">O que é um <em>loop</em> <code>for</code>?</h2>
+<p>Um loop <code>for</code> em Python é um meio de realizar algum conjunto de operações para cada item em uma coleção ou, mais geralmente, um iterável. Em um sentido muito vago, podemos pensar em um iterável como algo que é capaz de nos dar valores um de cada vez, como uma lista, onde você pode percorrê-la.</p>
+<p>No caso de nosso exemplo de biblioteca de filmes, um loop for nos permitirá obter itens da lista de filmes um de cada vez e executar uma ação (ou série de ações) para cada filme. Nesse caso, essa ação é imprimir o filme em algum formato específico.</p>
+<p>Aqui está um exemplo concreto de um loop para imprimir cada filme na lista de filmes no formato que usamos anteriormente:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">filmes <span style="color:#f92672">=</span> [
+    (
+        <span style="color:#e6db74">&#34;Tropa de Elite 2 - O Inimigo Agora é Outro&#34;</span>, 
+        <span style="color:#e6db74">&#34;José Padilha&#34;</span>,
+        <span style="color:#ae81ff">2010</span>
+    ), 
+    (
+        <span style="color:#e6db74">&#34;Austin Powers 2&#34;</span>, 
+        <span style="color:#e6db74">&#34;Jay Roach&#34;</span>,
+        <span style="color:#ae81ff">1999</span>
+    ),
+    (
+        <span style="color:#e6db74">&#34;O Auto da Compadecida&#34;</span>, 
+        <span style="color:#e6db74">&#34;Guel Arraes&#34;</span>,
+        <span style="color:#ae81ff">2000</span>
+    )]
+
+<span style="color:#66d9ef">for</span> filme <span style="color:#f92672">in</span> filmes:
+    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>filme[<span style="color:#ae81ff">0</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74"> (</span><span style="color:#e6db74">{</span>filme[<span style="color:#ae81ff">2</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">), por </span><span style="color:#e6db74">{</span>filme[<span style="color:#ae81ff">1</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</code></pre></div><p>Como você pode ver, esse tipo de loop pode ser extremamente poderoso. A lista de filmes pode ter 10.000 filmes e conseguimos imprimi-los todos com apenas duas linhas de código.</p>
+<h2 id="definindo-um-loop-for">Definindo um <em>loop</em> <code>for</code></h2>
+<p>A definição do <em>loop</em> começa com a palavra-chave <code>for</code> <strong>(para)</strong>. Esta palavra-chave é o que diz ao Python que queremos definir um loop <code>for</code>.</p>
+<p>Logo depois disso, temos um nome de variável, mas não é um nome que definimos em outro lugar em nosso código. Voltaremos a isso em um momento.</p>
+<p>Em seguida, temos a palavra-chave <code>in</code> <strong>(em)</strong>, seguida pelo iterável <strong>(ex: lista)</strong> do qual queremos obter valores. Toda esta linha é finalizada com dois pontos.</p>
+<p>Indentado abaixo do bloco está o código que queremos executar para cada item em nosso iterável. Assim como acontece com as instruções condicionais, esse recuo é importante, pois indica qual código está associado ao loop for. Esse bloco recuado às vezes é chamado de corpo do loop.</p>
+<p>Ok, então o que está acontecendo com este nome, filme, em nosso exemplo? Na verdade, estamos definindo uma nova variável como parte do loop, e essa variável nos permitirá referir-nos a um determinado valor em nosso iterável.</p>
+<p>Quando executamos um loop for, começamos a iteração sobre o iterável que fornecemos. Isso significa apenas que estamos obtendo valores do iterável um de cada vez.</p>
+<p>Quando obtemos um novo valor de nosso iterável, atribuímos esse nome que definimos como parte do loop e, em seguida, executamos o código no corpo do loop. Assim que terminarmos, pegamos um novo valor do iterável, atribuímos esse novo valor à variável de loop e executamos o corpo do loop novamente com esse novo valor.</p>
+<p>Quando esgotamos os valores, o loop termina e passamos para qualquer código que vier após o loop.</p>
+<p>Se pensarmos sobre isso em termos de nosso exemplo de biblioteca de filmes, definiremos uma variável de loop chamada filme, e o iterável do qual estamos pegando valores é a lista de filmes.</p>
+<p>Durante a primeira iteração (ciclo) do loop, pegamos o primeiro item dos filmes, que é esta tupla:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">(
+        <span style="color:#e6db74">&#34;Tropa de Elite 2 - O Inimigo Agora é Outro&#34;</span>, 
+        <span style="color:#e6db74">&#34;José Padilha&#34;</span>,
+        <span style="color:#ae81ff">2010</span>
+    )
+</code></pre></div><p>Essa tupla é atribuída ao <code>filme</code> e, em seguida, executamos o código no corpo do loop. Temos apenas uma linha de código no corpo, que se parece com isto:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>filme[<span style="color:#ae81ff">0</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74"> (</span><span style="color:#e6db74">{</span>filme[<span style="color:#ae81ff">2</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">), por </span><span style="color:#e6db74">{</span>filme[<span style="color:#ae81ff">1</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</code></pre></div><p>Como você pode ver, estamos nos referindo a esta variável <code>filme</code> aqui, portanto, nesta primeira iteração do loop, <code>filme[0]</code> é a <code>string</code> &ldquo;<strong>Tropa de Elite 2 - O Inimigo Agora é Outro</strong>&quot;; <code>filme[1]</code> é a <code>string</code>, &ldquo;<strong>José Padilha</strong>&quot;; e <code>filme[2]</code> é o número inteiro, <strong>2010</strong>.</p>
+<p>Agora terminamos de executar o código no corpo do loop, então tentamos obter outro valor de <code>filmes</code>. Como ainda temos filmes na lista, Python nos dá a próxima tupla:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">(
+        <span style="color:#e6db74">&#34;Austin Powers 2&#34;</span>, 
+        <span style="color:#e6db74">&#34;Jay Roach&#34;</span>,
+        <span style="color:#ae81ff">1999</span>
+    )
+</code></pre></div><p>Essa nova tupla é atribuída ao <code>filme</code>, substituindo o valor antigo, e executamos o corpo do loop novamente.</p>
+<p>Isso acontece de novo e de novo até acabar a lista de filmes.</p>
+<p>É importante ter em mente que o nome, <code>filme</code>, não é importante do ponto de vista da funcionalidade. Python não está fazendo magicamente a conexão entre os nomes de filme e filmes. Poderíamos fazer qualquer um dos seguintes e funcionaria da mesma forma:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">for</span> f <span style="color:#f92672">in</span> filmes:
+	print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>f[<span style="color:#ae81ff">0</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74"> (</span><span style="color:#e6db74">{</span>f[<span style="color:#ae81ff">2</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">), por </span><span style="color:#e6db74">{</span>f[<span style="color:#ae81ff">1</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">for</span> flm <span style="color:#f92672">in</span> filmes:
+	print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>flm[<span style="color:#ae81ff">0</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74"> (</span><span style="color:#e6db74">{</span>flm[<span style="color:#ae81ff">2</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">), por </span><span style="color:#e6db74">{</span>flm[<span style="color:#ae81ff">1</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">for</span> detalhes_do_filme <span style="color:#f92672">in</span> filmes:
+	print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>detalhes_do_filme[<span style="color:#ae81ff">0</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74"> (</span><span style="color:#e6db74">{</span>detalhes_do_filme[<span style="color:#ae81ff">2</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">), by </span><span style="color:#e6db74">{</span>detalhes_do_filme[<span style="color:#ae81ff">1</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</code></pre></div><p>É apenas um nome de variável como qualquer outro que possamos definir.</p>
+<h2 id="declarando-uma-parada-com-o-break">Declarando uma parada com o <code>break</code></h2>
+<p>Às vezes, não queremos iterar em uma coleção inteira ou queremos parar o loop em certas circunstâncias. Nesses casos, podemos usar uma instrução chamada <code>break</code>.</p>
+<p><code>break</code> é geralmente usado em conjunto com uma instrução condicional, porque caso contrário, ele será executado durante a primeira iteração do loop, o que torna o loop basicamente discutível.</p>
+<p>Uma maneira comum de usar uma instrução break é evitar operações desnecessárias. Por exemplo, digamos que queremos verificar se um determinado filme está na biblioteca de filmes a que sempre nos referimos.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">filmes <span style="color:#f92672">=</span> [
+    (
+        <span style="color:#e6db74">&#34;Tropa de Elite 2 - O Inimigo Agora é Outro&#34;</span>, 
+        <span style="color:#e6db74">&#34;José Padilha&#34;</span>,
+        <span style="color:#ae81ff">2010</span>
+    ), 
+    (
+        <span style="color:#e6db74">&#34;Austin Powers 2&#34;</span>, 
+        <span style="color:#e6db74">&#34;Jay Roach&#34;</span>,
+        <span style="color:#ae81ff">1999</span>
+    ),
+    (
+        <span style="color:#e6db74">&#34;O Auto da Compadecida&#34;</span>, 
+        <span style="color:#e6db74">&#34;Guel Arraes&#34;</span>,
+        <span style="color:#ae81ff">2000</span>
+    )]
+
+<span style="color:#66d9ef">for</span> filme <span style="color:#f92672">in</span> filmes:
+    <span style="color:#75715e"># Verifique se o título do filme é &#34;O Auto da Compadecida&#34;</span>
+    <span style="color:#66d9ef">if</span> filme[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;O Auto da Compadecida&#34;</span>:
+    
+    	<span style="color:#75715e"># Se o título &#34;O Auto da Compadecida&#34; for encontrado, informe o usuário e pare o loop.</span>
+        print(<span style="color:#e6db74">&#34;&#39;O Auto da Compadecida&#39; está no catálogo!&#34;</span>)
+        <span style="color:#66d9ef">break</span>
+</code></pre></div><p>Nesse caso, tudo o que importa é que o filme exista, então, se acabar sendo o primeiro item, não há necessidade de ficarmos checando o resto. Se houver 10.000 filmes, nós potencialmente nos salvamos verificando 9.999 filmes.</p>
+<p>Lembre-se de que, para incluir a instrução <code>if </code>dentro do loop <code>for</code>, ela precisa ser indentada com 4 espaços. Portanto, o corpo da instrução if precisa ser indentado com 8 espaços para estar dentro do <code>loop</code>e da instrução <code>if</code>.</p>
+<p><strong>IMPORTANTE</strong>: Os editores atuais permitem usar o TAB, que é automaticamente formatado para 4 espaços.</p>
+<h2 id="a-função-range">A função <code>range</code></h2>
+<p>Python tem uma função interna chamada <strong><code>range</code> (intervalo)</strong>, que é capaz de produzir uma série de <strong>inteiros</strong> de acordo com algum padrão definido. Por exemplo, podemos querer obter uma série de números começando em 1 e terminando em 100, movendo-se em etapas de 3. Nesse caso, teríamos 1, 4, 7, 10, 13, 16, 19, etc.</p>
+<p>Chamamos a função <code>range</code>da mesma forma que fazemos para algo como imprimir (<code>print</code>) ou inserir (<code>input</code>), mas o <code>range</code> pode assumir um número variável de valores.</p>
+<p>A maneira mais simples de definir um <code>range</code> é fornecer o valor de parada para o intervalo:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">range(<span style="color:#ae81ff">10</span>)
+</code></pre></div><p>Isso nos dará uma sequência de inteiros começando em zero e indo até, <strong>mas não incluindo</strong>, o valor de parada. <code>range(10)</code>, portanto, nos dará uma sequência como esta:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">9</span>
+</code></pre></div><p>Como alternativa, podemos fornecer um valor inicial e um valor final. Nesse caso, o valor inicial vem primeiro e esse valor é incluído no intervalo. <code>range(10)</code> é, portanto, o mesmo que escrever range <code>(0, 10)</code>.</p>
+<p>Digamos que queremos que nosso intervalo comece em 3 por algum motivo e que vá até, mas não incluindo 10. Definiríamos um intervalo assim:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">range(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">10</span>)
+</code></pre></div><p>Que vai retornar os seguintes valores:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">9</span>
+</code></pre></div><p>Se especificarmos um valor inicial e um valor final, podemos opcionalmente especificar um valor de etapa. Por padrão, esse valor é 1, o que significa que o próximo número na sequência é 1 maior do que o número anterior.</p>
+<p>Se, em vez disso, quiséssemos obter todos os outros números, poderíamos especificar uma etapa de 2. Se quiséssemos a cada três números, especificaríamos uma etapa de 3.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">range(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">2</span>)  <span style="color:#75715e"># 0, 2, 4, 6, 8</span>
+range(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">3</span>)  <span style="color:#75715e"># 0, 3, 6, 9</span>
+</code></pre></div><p>Também podemos especificar um valor de passo negativo, o que significa que retrocedemos do valor inicial ao valor final.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">range(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">0</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)  <span style="color:#75715e"># 10, 9, 8, 7, 6, 5, 4, 3, 2, 1</span>
+</code></pre></div><p>Tenha cuidado, porque se especificarmos um intervalo onde não podemos ir de um valor para outro, intervalo não vai reclamar: ele apenas nos dará uma sequência vazia. Por exemplo:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">range(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">10</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+</code></pre></div><p>Não há como obtermos de 0 a 10 em etapas de -1, portanto, o intervalo não nos dá nada, em vez de uma coleção infinita.</p>
+<p>Uma coisa interessante sobre o <code>range</code> é que ele é um tipo <em>lazy</em> (preguiçoso). Isso significa que nosso intervalo não contém, na verdade, todos os valores nesta sequência. Em vez disso, ele apenas descobre qual deve ser o próximo número quando o pedimos.</p>
+<p>Isso significa que se você tentar imprimir um intervalo, não verá todos os valores:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">print(range(<span style="color:#ae81ff">1000</span>))  <span style="color:#75715e">#range(0, 1000)</span>
+</code></pre></div><p>Tudo o que temos é uma definição para o intervalo que geramos. Esse intervalo começa em 0, vai para 1000 e usa um valor de etapa padrão. Isso torna o intervalo realmente eficiente em termos de memória, porque ele não precisa armazenar uma coleção de potencialmente milhões de números.</p>
+<p><code>range</code> é iterável, o que significa que podemos usá-lo em loops <code>for</code>. Também significa que podemos convertê-lo em uma lista ou tupla, se quisermos.</p>
+<p>Podemos fazer isso usando as funções de lista (<code>list</code>) e tupla (<code>tuple</code>), assim como convertemos inteiros, flutuantes e strings usando <code>int</code>, <code>float</code> e <code>str</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">numeros <span style="color:#f92672">=</span> list(range(<span style="color:#ae81ff">10</span>))             <span style="color:#75715e"># [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span>
+numeros_imutaveis <span style="color:#f92672">=</span> tuple(range(<span style="color:#ae81ff">10</span>))  <span style="color:#75715e"># (0, 1, 2, 3, 4, 5, 6, 7, 8, 9)</span>
+</code></pre></div><h3 id="usando-range-em-loops-for">Usando <code>range</code> em loops <code>for</code></h3>
+<p>Uma coisa para a qual o intervalo é realmente útil é executar um loop um determinado número de vezes.</p>
+<p>Se gerarmos um intervalo usando algo como intervalo (10), esse intervalo é capaz de fornecer dez números. Se iterarmos sobre essa coleção, intervalo vai nos dar esses números um de cada vez, e vamos executar o corpo do loop uma vez para cada número.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">for</span> numero <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">10</span>):
+    print(numero)
+
+<span style="color:#75715e"># 0</span>
+<span style="color:#75715e"># 1</span>
+<span style="color:#75715e"># 2</span>
+<span style="color:#75715e"># ...</span>
+<span style="color:#75715e"># 9</span>
+</code></pre></div><p>Mesmo se não usarmos o intervalo de números gerado, ainda sabemos que obteremos dez iterações do loop.</p>
+<p>Por exemplo, podemos imprimir uma determinada string dez vezes assim:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">for</span> numero <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">10</span>):
+	print(<span style="color:#e6db74">&#34;Oi mané!&#34;</span>)
+</code></pre></div><p>A saída ficará assim:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">Oi mané<span style="color:#960050;background-color:#1e0010">!</span>
+Oi mané<span style="color:#960050;background-color:#1e0010">!</span>
+Oi mané<span style="color:#960050;background-color:#1e0010">!</span>
+Oi mané<span style="color:#960050;background-color:#1e0010">!</span>
+Oi mané<span style="color:#960050;background-color:#1e0010">!</span>
+Oi mané<span style="color:#960050;background-color:#1e0010">!</span>
+Oi mané<span style="color:#960050;background-color:#1e0010">!</span>
+Oi mané<span style="color:#960050;background-color:#1e0010">!</span>
+Oi mané<span style="color:#960050;background-color:#1e0010">!</span>
+Oi mané<span style="color:#960050;background-color:#1e0010">!</span>
+</code></pre></div><p>Quando escrevemos um loop como este, onde o número que estamos gerando não está sendo usado, é uma convenção comum nomear a variável do loop, <code>_</code>. Este é um sinal claro para os leitores de nosso código de que a variável de loop não está presente em nosso corpo de loop.</p>
+<h2 id="importante">Importante</h2>
+<p>Às vezes, você encontrará loops com <code>_</code> como a variável de loop. Isso é perfeitamente legal, porque <code>_</code> é um nome de variável válido e, portanto, Python não reclamará.</p>
+<p>Embora seja legal, não use <code>_</code> no lugar de bons nomes descritivos. Ele serve a um propósito específico, que é indicar aos leitores que a variável de loop não está realmente sendo usada no corpo do loop.</p>
+<p>Um bom momento para usar <code>_</code> como uma variável de loop é em situações como esta:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">10</span>):
+	print(<span style="color:#e6db74">&#34;Oi mané!&#34;</span>)
+</code></pre></div><p>Aqui, estamos apenas usando o intervalo para garantir um certo número de iterações. Nunca nos referimos aos números que o intervalo está gerando. Essa é uma boa prática e muito útil para os leitores acostumados a essa convenção de nomenclatura.</p>
+<p>Nunca devemos usar <code>_</code> em um loop como o mostrado abaixo:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">10</span>):
+	print(_)
+</code></pre></div><p>Aqui estamos fazendo referência <code>_</code> dentro do corpo do loop, o que não é apenas muito feio, mas também está desperdiçando a oportunidade de usar nomes bons e descritivos.</p>
+<h2 id="exercícios">Exercícios</h2>
+<ol>
+<li>
+<p>Abaixo está uma lista de tuplas, onde cada tupla contém detalhes sobre um funcionário de uma loja: seu nome, o número de horas trabalhadas na semana passada e sua taxa horária. Imprima o quanto cada funcionário deve receber no final da semana em um formato legível.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">empregados <span style="color:#f92672">=</span> [
+    (<span style="color:#e6db74">&#34;João Almeida&#34;</span>, <span style="color:#ae81ff">35</span>, <span style="color:#ae81ff">8.75</span>),
+    (<span style="color:#e6db74">&#34;Adalberto Paiva&#34;</span>, <span style="color:#ae81ff">30</span>, <span style="color:#ae81ff">12.50</span>),
+    (<span style="color:#e6db74">&#34;Cleonice Silva&#34;</span>, <span style="color:#ae81ff">50</span>, <span style="color:#ae81ff">15.50</span>),
+    (<span style="color:#e6db74">&#34;Joaquim Silva&#34;</span>, <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">7.00</span>)
+]
+</code></pre></div></li>
+<li>
+<p>Para os funcionários acima, imprima aqueles que estão ganhando um salário por hora acima da média.</p>
+<p>Dica: você pode usar um loop for e duas variáveis para controlar o salário total e o número de funcionários. Em seguida, use as duas variáveis para calcular a média. Por fim, adicione outro loop que percorra a lista de funcionários novamente e imprima apenas aqueles que têm uma remuneração por hora acima da média calculada.</p>
+</li>
+</ol>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1626388747"></script>
+    <script src="/js/perfect-scrollbar.min.js?1626388747"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1626388747"></script>
+    <script src="/js/jquery.sticky.js?1626388747"></script>
+    <script src="/js/featherlight.min.js?1626388747"></script>
+    <script src="/js/highlight.pack.js?1626388747"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1626388747"></script>
+    <script src="/js/learn.js?1626388747"></script>
+    <script src="/js/hugo-learn.js?1626388747"></script>
+    
+        
+            <script src="/mermaid/mermaid.js?1626388747"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+
+  </body>
+</html>
