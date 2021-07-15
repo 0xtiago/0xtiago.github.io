@@ -2,36 +2,36 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/basicao/</loc>
+    <loc>https://tiagotavares.io/content/pythonparatodos/basicao/</loc>
     <lastmod>2021-07-10T16:19:59-03:00</lastmod>
   </url><url>
-    <loc>/</loc>
+    <loc>https://tiagotavares.io/content/pythonparatodos/</loc>
     <lastmod>2021-07-15T17:13:16-03:00</lastmod>
     <priority>0</priority>
   </url><url>
-    <loc>/basicao/aula07/</loc>
+    <loc>https://tiagotavares.io/content/pythonparatodos/basicao/aula07/</loc>
     <lastmod>2021-07-15T17:13:16-03:00</lastmod>
   </url><url>
-    <loc>/basicao/aula06/</loc>
+    <loc>https://tiagotavares.io/content/pythonparatodos/basicao/aula06/</loc>
     <lastmod>2021-07-10T16:42:37-03:00</lastmod>
   </url><url>
-    <loc>/basicao/aula05/</loc>
+    <loc>https://tiagotavares.io/content/pythonparatodos/basicao/aula05/</loc>
     <lastmod>2021-07-10T16:42:32-03:00</lastmod>
   </url><url>
-    <loc>/basicao/aula04/</loc>
+    <loc>https://tiagotavares.io/content/pythonparatodos/basicao/aula04/</loc>
     <lastmod>2021-07-10T16:42:29-03:00</lastmod>
   </url><url>
-    <loc>/basicao/aula03/</loc>
+    <loc>https://tiagotavares.io/content/pythonparatodos/basicao/aula03/</loc>
     <lastmod>2021-07-10T16:42:24-03:00</lastmod>
   </url><url>
-    <loc>/basicao/aula02/</loc>
+    <loc>https://tiagotavares.io/content/pythonparatodos/basicao/aula02/</loc>
     <lastmod>2021-07-10T16:39:15-03:00</lastmod>
   </url><url>
-    <loc>/basicao/aula01/</loc>
+    <loc>https://tiagotavares.io/content/pythonparatodos/basicao/aula01/</loc>
     <lastmod>2021-07-10T16:27:49-03:00</lastmod>
   </url><url>
-    <loc>/categories/</loc>
+    <loc>https://tiagotavares.io/content/pythonparatodos/categories/</loc>
   </url><url>
-    <loc>/tags/</loc>
+    <loc>https://tiagotavares.io/content/pythonparatodos/tags/</loc>
   </url>
 </urlset>
