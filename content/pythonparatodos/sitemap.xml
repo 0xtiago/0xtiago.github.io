@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://tiagotavares.io/content/pythonparatodos/basicao/aula01/</loc>
+  </url><url>
+    <loc>https://tiagotavares.io/content/pythonparatodos/basicao/aula02/</loc>
+    <lastmod>2021-07-10T16:39:15-03:00</lastmod>
+  </url><url>
     <loc>https://tiagotavares.io/content/pythonparatodos/basicao/</loc>
     <lastmod>2021-07-10T16:19:59-03:00</lastmod>
   </url><url>
@@ -23,12 +28,6 @@
   </url><url>
     <loc>https://tiagotavares.io/content/pythonparatodos/basicao/aula03/</loc>
     <lastmod>2021-07-10T16:42:24-03:00</lastmod>
-  </url><url>
-    <loc>https://tiagotavares.io/content/pythonparatodos/basicao/aula02/</loc>
-    <lastmod>2021-07-10T16:39:15-03:00</lastmod>
-  </url><url>
-    <loc>https://tiagotavares.io/content/pythonparatodos/basicao/aula01/</loc>
-    <lastmod>2021-07-10T16:27:49-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/content/pythonparatodos/categories/</loc>
   </url><url>
