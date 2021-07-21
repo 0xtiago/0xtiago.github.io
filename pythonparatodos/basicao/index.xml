@@ -5,7 +5,26 @@
     <link>https://tiagotavares.io/pythonparatodos/basicao/</link>
     <description>Recent content in Basicão on Python Para Todos</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-US</language>
-    <lastBuildDate>Sat, 10 Jul 2021 16:19:59 -0300</lastBuildDate><atom:link href="https://tiagotavares.io/pythonparatodos/basicao/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-US</language><atom:link href="https://tiagotavares.io/pythonparatodos/basicao/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Projeto 1 - Loteria Mega Sena 🤑</title>
+      <link>https://tiagotavares.io/pythonparatodos/basicao/projeto-1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiagotavares.io/pythonparatodos/basicao/projeto-1/</guid>
+      <description>Introdução  Características da Mega Sena   Requisitos Dicas  Introdução Vamos começar a colocar em prática tudo o que aprendemos até agora escrevendo um programa de loteria, o mais famoso aqui no Brasil é a Mega Sena. 🤑
+Características da Mega Sena  Você pode apostar em 6 números, de 1 a 60. São sorteados 6 números, de 1 a 60.  Requisitos  Você deve apostar 6 números, eles nunca devem se repetir e devem ser de 1 a 60.</description>
+    </item>
+    
+    <item>
+      <title>Projeto 2 - Pizzaria 🍕</title>
+      <link>https://tiagotavares.io/pythonparatodos/basicao/projeto-2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiagotavares.io/pythonparatodos/basicao/projeto-2/</guid>
+      <description>Introdução Com tudo o que aprendemos até agora, podemos também criar um programa para controlar pedidos de um pizzaria.
+Requisitos  Você deve criar uma lista de todos os ingredientes que você quer adicionar a sua pizza. Fique a vontade para colocar quantos ingredientes disponíveis quiser! O programa deve iniciar mostrando na tela todas as opções de ingredientes, e em seguida solicitando qual ingrediente ele quer na pizza. Cada ingrediente deve ser colocado numa lista de pedido.</description>
+    </item>
+    
   </channel>
 </rss>
