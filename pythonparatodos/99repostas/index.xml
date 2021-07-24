@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Python Para Todos</title>
-    <link>https://tiagotavares.io/pythonparatodos/</link>
-    <description>Recent content on Python Para Todos</description>
+    <title>Soluções para exercícios e projetos on Python Para Todos</title>
+    <link>https://tiagotavares.io/pythonparatodos/99repostas/</link>
+    <description>Recent content in Soluções para exercícios e projetos on Python Para Todos</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-US</language><atom:link href="https://tiagotavares.io/pythonparatodos/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-US</language><atom:link href="https://tiagotavares.io/pythonparatodos/99repostas/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Aula 8</title>
       <link>https://tiagotavares.io/pythonparatodos/99repostas/aula08/</link>
@@ -13,16 +13,6 @@
       
       <guid>https://tiagotavares.io/pythonparatodos/99repostas/aula08/</guid>
       <description>Exercício 1 Exercício 2 Exercício 3 Exercício 4  Exercício 1 &amp;#39;&amp;#39;&amp;#39; Peça ao usuário para inserir seu nome e sobrenome em resposta a uma única solicitação. Use split para extrair os nomes e, em seguida, atribua cada nome a uma variável diferente. Para este exercício, você pode supor que o usuário tenha um único nome e um único sobrenome. &amp;#39;&amp;#39;&amp;#39; nome_completo = (input(&amp;#34;Por favor digite seu primeiro e último nome: &amp;#34;).</description>
-    </item>
-    
-    <item>
-      <title>Projeto 1 - Loteria Mega Sena 🤑</title>
-      <link>https://tiagotavares.io/pythonparatodos/01basico/projeto-1/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://tiagotavares.io/pythonparatodos/01basico/projeto-1/</guid>
-      <description>Introdução  Características da Mega Sena   Requisitos Dicas  Introdução Vamos começar a colocar em prática tudo o que aprendemos até agora escrevendo um programa de loteria, o mais famoso aqui no Brasil é a Mega Sena. 🤑
-Características da Mega Sena  Você pode apostar em 6 números, de 1 a 60. São sorteados 6 números, de 1 a 60.  Requisitos  Você deve apostar 6 números, eles nunca devem se repetir e devem ser de 1 a 60.</description>
     </item>
     
     <item>
@@ -41,16 +31,6 @@ Características da Mega Sena  Você pode apostar em 6 números, de 1 a 60. São
       
       <guid>https://tiagotavares.io/pythonparatodos/99repostas/projeto02_pizzaria/</guid>
       <description>ingredientes = [&amp;#39;Muzzarella&amp;#39;, &amp;#39;Calabresa&amp;#39;, &amp;#39;Pepperoni&amp;#39;, &amp;#39;Bacon&amp;#39;, &amp;#39;Catupity&amp;#39;, &amp;#39;Frango&amp;#39;, &amp;#39;Tomate&amp;#39;, &amp;#39;Azeitona&amp;#39;,&amp;#39;Oregano&amp;#39;, &amp;#39;Atum&amp;#39;, &amp;#39;Presunto&amp;#39;] max_ingredientes = 5 pedido = [] print(&amp;#34;Faça seu pedido! Escolha as opções desejadas!&amp;#34;) print(&amp;#34;Você pode escolher no máximo 5 opções&amp;#34;) contador_opcao = 0 for ingrediente in ingredientes: print (f&amp;#34;{contador_opcao+1}- {ingrediente}&amp;#34;) contador_opcao = contador_opcao + 1 opcao = int(input(&amp;#34;Digite o número da opção desejada: &amp;#34;)) pedido.append(ingredientes.pop(opcao-1)) #print(ingredientes) #print(pedido) while True: if len(pedido) &amp;lt; max_ingredientes: print(f&amp;#34;Você ainda pode pedir {max_ingredientes-len(pedido)}.&amp;#34;) print(f&amp;#34;Digite o número da próxima opção desejada ou &amp;#39;s&amp;#39; para sair e finalizar seu pedido.</description>
-    </item>
-    
-    <item>
-      <title>Projeto 2 - Pizzaria 🍕</title>
-      <link>https://tiagotavares.io/pythonparatodos/01basico/projeto-2/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://tiagotavares.io/pythonparatodos/01basico/projeto-2/</guid>
-      <description>Introdução Com tudo o que aprendemos até agora, podemos também criar um programa para controlar pedidos de um pizzaria.
-Requisitos  Você deve criar uma lista de todos os ingredientes que você quer adicionar a sua pizza. Fique a vontade para colocar quantos ingredientes disponíveis quiser! O programa deve iniciar mostrando na tela todas as opções de ingredientes, e em seguida solicitando qual ingrediente ele quer na pizza. Cada ingrediente deve ser colocado numa lista de pedido.</description>
     </item>
     
   </channel>

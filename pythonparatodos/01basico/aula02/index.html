@@ -9,25 +9,25 @@
 
     <link rel="icon" href="/pythonparatodos/images/favicon.png" type="image/png">
 
-    <title>Categories :: Python Para Todos</title>
+    <title>2. Strings, Variáveis, e obtendo entrada de dados :: Python Para Todos</title>
 
     
-    <link href="/pythonparatodos/css/nucleus.css?1627086795" rel="stylesheet">
-    <link href="/pythonparatodos/css/fontawesome-all.min.css?1627086795" rel="stylesheet">
-    <link href="/pythonparatodos/css/hybrid.css?1627086795" rel="stylesheet">
-    <link href="/pythonparatodos/css/featherlight.min.css?1627086795" rel="stylesheet">
-    <link href="/pythonparatodos/css/perfect-scrollbar.min.css?1627086795" rel="stylesheet">
-    <link href="/pythonparatodos/css/auto-complete.css?1627086795" rel="stylesheet">
-    <link href="/pythonparatodos/css/atom-one-dark-reasonable.css?1627086795" rel="stylesheet">
-    <link href="/pythonparatodos/css/theme.css?1627086795" rel="stylesheet">
-    <link href="/pythonparatodos/css/tabs.css?1627086795" rel="stylesheet">
-    <link href="/pythonparatodos/css/hugo-theme.css?1627086795" rel="stylesheet">
+    <link href="/pythonparatodos/css/nucleus.css?1627086794" rel="stylesheet">
+    <link href="/pythonparatodos/css/fontawesome-all.min.css?1627086794" rel="stylesheet">
+    <link href="/pythonparatodos/css/hybrid.css?1627086794" rel="stylesheet">
+    <link href="/pythonparatodos/css/featherlight.min.css?1627086794" rel="stylesheet">
+    <link href="/pythonparatodos/css/perfect-scrollbar.min.css?1627086794" rel="stylesheet">
+    <link href="/pythonparatodos/css/auto-complete.css?1627086794" rel="stylesheet">
+    <link href="/pythonparatodos/css/atom-one-dark-reasonable.css?1627086794" rel="stylesheet">
+    <link href="/pythonparatodos/css/theme.css?1627086794" rel="stylesheet">
+    <link href="/pythonparatodos/css/tabs.css?1627086794" rel="stylesheet">
+    <link href="/pythonparatodos/css/hugo-theme.css?1627086794" rel="stylesheet">
     
-    <link href="/pythonparatodos/css/theme-green.css?1627086795" rel="stylesheet">
+    <link href="/pythonparatodos/css/theme-green.css?1627086794" rel="stylesheet">
     
     
 
-    <script src="/pythonparatodos/js/jquery-3.3.1.min.js?1627086795"></script>
+    <script src="/pythonparatodos/js/jquery-3.3.1.min.js?1627086794"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -37,7 +37,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/pythonparatodos/categories/">
+  <body class="" data-url="/pythonparatodos/01basico/aula02/">
     <nav id="sidebar" class="showVisitedLinks">
 
 
@@ -72,14 +72,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/pythonparatodos/js/lunr.min.js?1627086795"></script>
-<script type="text/javascript" src="/pythonparatodos/js/auto-complete.js?1627086795"></script>
+<script type="text/javascript" src="/pythonparatodos/js/lunr.min.js?1627086794"></script>
+<script type="text/javascript" src="/pythonparatodos/js/auto-complete.js?1627086794"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/tiagotavares.io\/pythonparatodos";
     
 </script>
-<script type="text/javascript" src="/pythonparatodos/js/search.js?1627086795"></script>
+<script type="text/javascript" src="/pythonparatodos/js/search.js?1627086794"></script>
 
     
   </div>
@@ -99,7 +99,7 @@
   
     
     <li data-nav-id="/pythonparatodos/01basico/" title="Basicão" class="dd-item
-        
+        parent
         
         
         ">
@@ -158,8 +158,8 @@
   
     
     <li data-nav-id="/pythonparatodos/01basico/aula02/" title="2. Strings, Variáveis, e obtendo entrada de dados" class="dd-item
-        
-        
+        parent
+        active
         
         ">
       <a href="/pythonparatodos/01basico/aula02/">
@@ -586,7 +586,13 @@
             
           
           
-            <a href='/pythonparatodos/'></a> > Categories
+            
+            
+          
+          
+            <a href='/pythonparatodos/'></a> > <a href='/pythonparatodos/01basico/'>Basicão</a> > 2. Strings, Variáveis, e obtendo entrada de dados
+          
+        
           
         
           
@@ -597,7 +603,18 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#noções-básicas-de-strings-texto">Noções básicas de strings (texto)</a></li>
+    <li><a href="#variáveis-dando-nome-aos-bois">Variáveis: dando nome aos bois!</a>
+      <ul>
+        <li><a href="#lendo-valores-das-variaveis">Lendo valores das variaveis</a></li>
+      </ul>
+    </li>
+    <li><a href="#obtendo-valores-do-usuário">Obtendo valores do usuário</a></li>
+    <li><a href="#exercícios">Exercícios</a></li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -613,9 +630,7 @@
           
             <h1>
               
-                category ::
-              
-              Categories
+              2. Strings, Variáveis, e obtendo entrada de dados
             </h1>
           
 
@@ -623,11 +638,115 @@
 
 
 
-
-
+	<ul>
+<li><a href="#no%C3%A7%C3%B5es-b%C3%A1sicas-de-strings-texto">Noções básicas de strings (texto)</a></li>
+<li><a href="#vari%C3%A1veis-dando-nome-aos-bois">Variáveis: dando nome aos bois!</a>
 <ul>
-	
+<li><a href="#lendo-valores-das-variaveis">Lendo valores das variaveis</a></li>
 </ul>
+</li>
+<li><a href="#obtendo-valores-do-usu%C3%A1rio">Obtendo valores do usuário</a></li>
+<li><a href="#exerc%C3%ADcios">Exercícios</a></li>
+</ul>
+<p>Nesta aula vamos falar sobre como usar strings, obter a entrada do usuário e nomear valores em nossos programas usando variáveis.</p>
+<p>Se você perdeu a aula 1, recomendo dar uma olhada, caso não se sinta confortável com algum dos itens a seguir:</p>
+<ul>
+<li>Inteiros</li>
+<li>Floats</li>
+<li>Operadores aritméticos simples (<code>+</code> , <code>-</code>, <code>/</code> e <code>*</code>)</li>
+<li>A função <code>print</code></li>
+<li>O que são expressões</li>
+</ul>
+<h2 id="noções-básicas-de-strings-texto">Noções básicas de strings (texto)</h2>
+<p>Strings em Python são sequências ordenadas de zero ou mais caracteres e podemos usá-las para representar um conjunto de  símbolos. Podem ser palavras, frases inteiras ou sequências aleatórias de letras, números e pontuação.</p>
+<p>Para criar uma string, só precisamos colocar algumas séries de caracteres entre aspas:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#e6db74">&#34;Isso é uma string!&#34;</span>
+</code></pre></div><p>Podemos utilizar aspas duplas ou simples. Para o Python tanto faz! E não há razão específica para utilizar um ou o outo.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#e6db74">&#39;Isso também é uma string válida&#39;</span>
+</code></pre></div><p>⚠️ Porém não podemos começar nosso texto um tipo de aspas e terminar com outra.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#e6db74">&#34;Isto não é uma string válida&#39;</span>
+</code></pre></div><p>Imprimir strings (texto) funciona exatamente como utilizamos com números. Nós apenas precisamos passar o valor para a função <code>print</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">print(<span style="color:#e6db74">&#34;Olá mundo!&#34;</span>)
+</code></pre></div><h2 id="variáveis-dando-nome-aos-bois">Variáveis: dando nome aos bois!</h2>
+<p>Uma ferramenta vital que estamos perdendo no momento é uma forma de nos referirmos aos valores que calculamos. Lembre-se de que podemos escrever expressões como <code>45 + 56</code>, e o Python faz esse cálculo, embora não tenhamos imprimido nada no console. A questão é: como nos referimos ao resultado dessa expressão?</p>
+<p>Acontece que podemos nomear valores em Python usando uma operação de atribuição. A sintaxe para vincular um valor a um nome é relativamente simples. Precisamos apenas escrever o <strong>nome</strong> que queremos usar, um símbolo <code>=</code> e a expressão ou valor que será atribuído a este <strong>nome</strong>. Este <strong>nome</strong> é denominado <em><strong>variável</strong></em>.</p>
+<p>Aqui estão alguns exemplos:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">nome <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Sócrates&#34;</span>
+idade <span style="color:#f92672">=</span> <span style="color:#ae81ff">28</span>
+</code></pre></div><p>Os nomes de variáveis que escolhemos dependem inteiramente de nós, mas existem algumas regras que precisamos ter em mente:</p>
+<ul>
+<li>Os nomes das variáveis podem incluir letras, números e caracteres de sublinhado (<code>_</code>).</li>
+<li>Os nomes das variáveis não podem começar com um número, embora seja permitido começar com um sublinhado.</li>
+<li>Os nomes das variáveis diferenciam maiúsculas de minúsculas.</li>
+</ul>
+<p>Essas limitações significam que todos os seguintes nomes de variáveis são <strong>inválidos</strong>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ae81ff">1</span>st_value
+nome<span style="color:#f92672">-</span>sobrenome
+joaquim<span style="color:#e6db74">&#39;s_age</span>
+exemplo de variavel
+</code></pre></div><ul>
+<li>
+<p><code>1st_value</code> não é permitido porque começa com um número.</p>
+</li>
+<li>
+<p><code>nome-sobrenome</code> contém um hífen (<code>-</code>), que não é permitido.</p>
+</li>
+<li>
+<p><code>joaquim's_age</code> não é permitido porque possui um apóstrofo.</p>
+</li>
+<li>
+<p><code>exemplo de variavel</code> possui espaços, o que também não é permitido.</p>
+</li>
+</ul>
+<p>Essas regras fazem muito sentido. Por exemplo, se os números fossem permitidos como o primeiro caractere de um nome de variável, poderíamos usar nomes de caractere único como <code>4</code>. No entanto, também é assim que criamos um número inteiro e pode levar a confusão.</p>
+<p>Da mesma forma, o <code>sobre-nome</code> contém um caractere <code>-</code>, que entra em conflito com o operador <code>-</code> para subtração, e <code>joaquim's_age</code> tem um problema semelhante com o <code>'</code>, que é usado para definir strings.</p>
+<p>Um nome de variável válido que pode surpreendê-lo é <code>_</code>. Este é um caso de uso especial que abordaremos posteriormente na série.</p>
+<p>Se quisermos definir nomes de variáveis com várias palavras, podemos separar essas palavras com um sublinhado, assim:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">nome <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Leonel&#34;</span>
+sobrenome <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Messi&#34;</span>
+</code></pre></div><h3 id="lendo-valores-das-variaveis">Lendo valores das variaveis</h3>
+<p>Agora que sabemos como vincular valores a nomes, a próxima etapa é aprender como recuperar esses valores de nossas variáveis. A boa notícia é que isso é extremamente simples. Tudo o que temos a fazer é escrever o nome da variável onde queremos usar o valor.</p>
+<p>Por exemplo, podemos escrever algo assim:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">valor_hora <span style="color:#f92672">=</span> <span style="color:#ae81ff">20.00</span>
+horas_trabalhadas <span style="color:#f92672">=</span> <span style="color:#ae81ff">40</span>
+
+print(valor_hora <span style="color:#f92672">*</span> horas_trabalhadas)
+</code></pre></div><p>Aqui, definimos duas variáveis <code>valor_hora</code>, que é um float, e <code>horas_trabalhadas</code>, que é um número inteiro. Em seguida, nos referimos aos valores e os usamos como operandos para o operador <code>*</code>.</p>
+<p>Se executarmos o código acima, veremos <code>800.00</code> impresso na tela. Lembre-se de que multiplicar qualquer número por um float resulta em um float.</p>
+<p>Por acaso, referir-se a um nome de variável é outro tipo de expressão. Quando escrevemos um nome de variável em qualquer lugar de nosso código, ele é avaliado como o valor que associamos a esse nome.</p>
+<h2 id="obtendo-valores-do-usuário">Obtendo valores do usuário</h2>
+<p>Até agora, fornecemos todos os valores em nosso código Python, mas às vezes precisamos obter valores do usuário. Por exemplo, talvez queiramos saber o nome e a idade do usuário.</p>
+<p>Felizmente, não precisamos implementar algo assim do zero, porque o Python vem com outra função para fazer exatamente esse trabalho. Esta função é chamada de <code>input</code>.</p>
+<p>Chamamos <code>input</code> exatamente da mesma maneira que <code>print</code>, só precisamos escrever o nome da função e colocar os parênteses de abertura e fechamento logo após:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">input()
+</code></pre></div><p>Se você executar o código acima, não verá nada no console, mas se olhar o botão “Run” no repl.it, verá que diz “Stop”. Isso significa que o programa ainda está em execução. Você também descobrirá que pode digitar no console.</p>
+<p>Se você pressionar Enter, o programa será encerrado. Isso ocorre porque quando você pressiona enter, a função de entrada vai parar de aceitar a entrada do usuário. Como não temos nenhum outro código em nosso programa, Python então fica sem código para executar e termina o programa.</p>
+<p>Embora possamos chamar a entrada de dados apenas escrevendo <code>input()</code>, normalmente vamos fornecer algum tipo de <em>prompt</em> (texto), para que o usuário saiba o que queremos deles. Seu primeiro instinto pode ser fazer algo assim:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">print(<span style="color:#e6db74">&#34;Qual o seu nome?: &#34;</span>)
+input()
+</code></pre></div><p>Isso certamente funcionará, mas a entrada é realmente capaz de fornecer seu próprio texto. Precisamos apenas escrever o texto desejado entre parênteses quando chamamos a função:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">input(<span style="color:#e6db74">&#34;Qual o seu nome?: &#34;</span>)
+</code></pre></div><p>A última peça do quebra-cabeça é armazenar esse valor em algum lugar. Lembre-se de que as chamadas de função são expressões e, portanto, elas geram algum valor. A função <code>input</code> é avaliada como uma string que contém tudo o que o usuário escreveu em resposta ao <em>prompt</em>. Podemos, portanto, atribuir esta string a uma variável se quisermos, assim:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">nome <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;Qual o seu nome? &#34;</span>)
+</code></pre></div><p>Se você digitar <code>Manoel</code>, a variável <code>nome</code> terá gravado em memória o nome <code>&quot;Manoel&quot;</code> como uma string.</p>
+<h2 id="exercícios">Exercícios</h2>
+<p>Agora que sabemos como usar strings, variáveis e a função de entrada (<code>input</code>), é hora de praticar alguns exercícios.</p>
+<ol>
+<li>Pergunte ao usuário o nome e a idade, atribua esses valores a duas variáveis e, em seguida, imprima-os.</li>
+<li>Investigue o que acontece quando você tenta atribuir um valor a uma variável que você já definiu. Tente imprimir a variável antes e depois de reutilizar o nome.</li>
+<li>Abaixo, você encontrará alguns códigos com vários erros. Tente percorrer o programa linha por linha e corrigir os problemas no código. Recomendo que você tente executar o programa enquanto está trabalhando nele, pois ler as mensagens de erro é uma ótima prática para depurar seus próprios programas.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">valor_hora <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;Digite o valor da sua hora de trabalho: &#39;)</span>
+
+prnt(<span style="color:#e6db74">&#34;Valor hora: &#34;</span>)
+print(valorhora)
+print(<span style="color:#e6db74">&#34;Horas trabalhadas: &#34;</span>)
+print(horas_trabalhadas)
+
+horas_trabalhadas <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;Quantas horas você trabalhou esta semana? &#34;</span>)
+</code></pre></div>
+
+
 
 
 <footer class=" footline" >
@@ -665,8 +784,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -682,6 +799,26 @@
             
             
                 
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
                     
                 
                 
@@ -699,21 +836,8 @@
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
-            
-            
-                
+                        
                     
                 
                 
@@ -932,8 +1056,10 @@
 	 
 	 
 		
+			<a class="nav nav-prev" href="/pythonparatodos/01basico/aula01/" title="1. Números, Aritmética e Impressão na Tela!"> <i class="fa fa-chevron-left"></i></a>
 		
-			<a class="nav nav-next" href="/pythonparatodos/01basico/" title="Basicão" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+			<a class="nav nav-next" href="/pythonparatodos/01basico/aula03/" title="3. Formatando Strings e Processando Entrada do Usuário" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -943,19 +1069,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/pythonparatodos/js/clipboard.min.js?1627086795"></script>
-    <script src="/pythonparatodos/js/perfect-scrollbar.min.js?1627086795"></script>
-    <script src="/pythonparatodos/js/perfect-scrollbar.jquery.min.js?1627086795"></script>
-    <script src="/pythonparatodos/js/jquery.sticky.js?1627086795"></script>
-    <script src="/pythonparatodos/js/featherlight.min.js?1627086795"></script>
-    <script src="/pythonparatodos/js/highlight.pack.js?1627086795"></script>
+    <script src="/pythonparatodos/js/clipboard.min.js?1627086794"></script>
+    <script src="/pythonparatodos/js/perfect-scrollbar.min.js?1627086794"></script>
+    <script src="/pythonparatodos/js/perfect-scrollbar.jquery.min.js?1627086794"></script>
+    <script src="/pythonparatodos/js/jquery.sticky.js?1627086794"></script>
+    <script src="/pythonparatodos/js/featherlight.min.js?1627086794"></script>
+    <script src="/pythonparatodos/js/highlight.pack.js?1627086794"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/pythonparatodos/js/modernizr.custom-3.6.0.js?1627086795"></script>
-    <script src="/pythonparatodos/js/learn.js?1627086795"></script>
-    <script src="/pythonparatodos/js/hugo-learn.js?1627086795"></script>
+    <script src="/pythonparatodos/js/modernizr.custom-3.6.0.js?1627086794"></script>
+    <script src="/pythonparatodos/js/learn.js?1627086794"></script>
+    <script src="/pythonparatodos/js/hugo-learn.js?1627086794"></script>
     
         
-            <script src="/pythonparatodos/mermaid/mermaid.js?1627086795"></script>
+            <script src="/pythonparatodos/mermaid/mermaid.js?1627086794"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

@@ -2,25 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://tiagotavares.io/pythonparatodos/basicao/aula01/</loc>
+    <loc>https://tiagotavares.io/pythonparatodos/01basico/aula01/</loc>
   </url><url>
-    <loc>https://tiagotavares.io/pythonparatodos/basicao/</loc>
+    <loc>https://tiagotavares.io/pythonparatodos/01basico/</loc>
   </url><url>
-    <loc>https://tiagotavares.io/pythonparatodos/basicao/aula02/</loc>
+    <loc>https://tiagotavares.io/pythonparatodos/01basico/aula02/</loc>
   </url><url>
-    <loc>https://tiagotavares.io/pythonparatodos/basicao/aula03/</loc>
+    <loc>https://tiagotavares.io/pythonparatodos/02dados/</loc>
   </url><url>
-    <loc>https://tiagotavares.io/pythonparatodos/basicao/aula04/</loc>
+    <loc>https://tiagotavares.io/pythonparatodos/01basico/aula03/</loc>
   </url><url>
-    <loc>https://tiagotavares.io/pythonparatodos/basicao/aula05/</loc>
+    <loc>https://tiagotavares.io/pythonparatodos/01basico/aula04/</loc>
   </url><url>
-    <loc>https://tiagotavares.io/pythonparatodos/basicao/aula06/</loc>
+    <loc>https://tiagotavares.io/pythonparatodos/01basico/aula05/</loc>
   </url><url>
-    <loc>https://tiagotavares.io/pythonparatodos/basicao/aula07/</loc>
+    <loc>https://tiagotavares.io/pythonparatodos/01basico/aula06/</loc>
   </url><url>
-    <loc>https://tiagotavares.io/pythonparatodos/basicao/projeto-1/</loc>
+    <loc>https://tiagotavares.io/pythonparatodos/01basico/aula07/</loc>
   </url><url>
-    <loc>https://tiagotavares.io/pythonparatodos/basicao/projeto-2/</loc>
+    <loc>https://tiagotavares.io/pythonparatodos/02dados/aula08/</loc>
+  </url><url>
+    <loc>https://tiagotavares.io/pythonparatodos/99repostas/aula08/</loc>
+  </url><url>
+    <loc>https://tiagotavares.io/pythonparatodos/01basico/projeto-1/</loc>
+  </url><url>
+    <loc>https://tiagotavares.io/pythonparatodos/99repostas/projeto01_megasena/</loc>
+  </url><url>
+    <loc>https://tiagotavares.io/pythonparatodos/99repostas/projeto02_pizzaria/</loc>
+  </url><url>
+    <loc>https://tiagotavares.io/pythonparatodos/01basico/projeto-2/</loc>
+  </url><url>
+    <loc>https://tiagotavares.io/pythonparatodos/99repostas/</loc>
   </url><url>
     <loc>https://tiagotavares.io/pythonparatodos/</loc>
     <priority>0</priority>

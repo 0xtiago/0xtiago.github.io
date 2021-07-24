@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/pythonparatodos/images/favicon.png" type="image/png">
 
-    <title>Categories :: Python Para Todos</title>
+    <title>7. Laços/Loops com While :: Python Para Todos</title>
 
     
     <link href="/pythonparatodos/css/nucleus.css?1627086795" rel="stylesheet">
@@ -37,7 +37,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/pythonparatodos/categories/">
+  <body class="" data-url="/pythonparatodos/01basico/aula07/">
     <nav id="sidebar" class="showVisitedLinks">
 
 
@@ -99,7 +99,7 @@
   
     
     <li data-nav-id="/pythonparatodos/01basico/" title="Basicão" class="dd-item
-        
+        parent
         
         
         ">
@@ -298,8 +298,8 @@
   
     
     <li data-nav-id="/pythonparatodos/01basico/aula07/" title="7. Laços/Loops com While" class="dd-item
-        
-        
+        parent
+        active
         
         ">
       <a href="/pythonparatodos/01basico/aula07/">
@@ -586,7 +586,13 @@
             
           
           
-            <a href='/pythonparatodos/'></a> > Categories
+            
+            
+          
+          
+            <a href='/pythonparatodos/'></a> > <a href='/pythonparatodos/01basico/'>Basicão</a> > 7. Laços/Loops com While
+          
+        
           
         
           
@@ -597,7 +603,18 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#loops-infinitos">Loops infinitos</a>
+      <ul>
+        <li><a href="#dica">Dica</a></li>
+      </ul>
+    </li>
+    <li><a href="#a-palavra-continue">A palavra <code>continue</code></a></li>
+    <li><a href="#usando-else-com-loops">Usando <code>else</code> com loops</a></li>
+    <li><a href="#exercícios">Exercícios</a></li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -613,9 +630,7 @@
           
             <h1>
               
-                category ::
-              
-              Categories
+              7. Laços/Loops com While
             </h1>
           
 
@@ -623,11 +638,141 @@
 
 
 
-
-
+	<ul>
+<li><a href="#loops-infinitos">Loops infinitos</a>
 <ul>
-	
+<li><a href="#dica">Dica</a></li>
 </ul>
+</li>
+<li><a href="#a-palavra-continue">A palavra <code>continue</code></a></li>
+<li><a href="#usando-else-com-loops">Usando <code>else</code> com loops</a></li>
+<li><a href="#exerc%C3%ADcios">Exercícios</a></li>
+</ul>
+<p>Na último capítulo, demos uma olhada nos loops <code>for</code> como um meio de reduzir a repetição de código. Os loops <code>for</code> são ótimos para dois tipos de ações repetidas:</p>
+<ul>
+<li>
+<p>Quando queremos fazer algo para cada item em algum grupo.</p>
+</li>
+<li>
+<p>Quando queremos fazer algo um determinado número de vezes.</p>
+</li>
+</ul>
+<p>Existem, no entanto, outros tipos de repetição que podemos querer realizar. Por exemplo, e se quisermos realizar uma ação quantas vezes forem necessárias até que alguma condição seja atendida? E se quisermos realizar alguma ação repetidamente para sempre?</p>
+<p>Para esse tipo de ação repetida, podemos usar um loop <code>while</code>.</p>
+<p>Um loop <code>while</code> é um pouco mais simples do que um loop <code>for</code>. Precisamos apenas usar a palavra-chave <code>while</code>, seguida por alguma condição de teste. Se a condição for avaliada como um valor verdadeiro, o loop executará uma iteração e, em seguida, testará a condição novamente.</p>
+<p>Por exemplo, podemos escrever um loop <code>while</code> que será executado até que o usuário insira um valor igual ou superior a 10.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">numero_usuario <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;Por favor digite um número: &#34;</span>)
+
+<span style="color:#66d9ef">while</span> int(numero_usuario) <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">10</span>:
+	print(<span style="color:#e6db74">&#34;Seu número é menor que 10.&#34;</span>)
+	numero_usuario <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;Por favor escolha outro número: &#34;</span>)
+
+print(<span style="color:#e6db74">&#34;Seu número é igual ou maior a 10.&#34;</span>)
+</code></pre></div><p>Primeiro, solicitamos um número inicial antes de iniciar o loop. Precisamos fazer isso, porque nos referimos ao nome <code>numero_usuario</code> como parte da condição do loop <code>while</code>, portanto, se não definirmos esse nome de antemão, obteremos um <code>NameError</code>.</p>
+<p>Mesmo se não fosse o caso, ainda não teríamos um valor para <code>numero_usuario</code>, então o que estaríamos verificando?</p>
+<p>Depois que um usuário insere um número, atingimos a linha onde o loop <code>while</code> começa. Verificamos a condição e, se ela for atendida, executaremos o corpo do loop uma vez. No caso acima, o corpo do loop será executado se o usuário inserir 9 ou menos.</p>
+<p>Se terminarmos dentro do corpo do loop, acabaremos imprimindo a mensagem sobre o número ser menor que 10 e, em seguida, pediremos outro número ao usuário. Observe que atribuímos esse novo valor a <code>numero_usuario</code>, o que significa que quando testamos a condição novamente, agora estamos testando um novo valor.</p>
+<p>Se nomearmos essa variável de outra forma, continuaremos verificando o valor original indefinidamente e, claro, nada mudará se o valor permanecer o mesmo. Isso pode nos levar a uma situação difícil, porque o loop vai acabar iterando infinitamente, e não intencionalmente.</p>
+<p>Quando temos um loop <code>while</code> onde estamos verificando um valor como este, certifique-se de que podemos alterar o valor dentro do loop.</p>
+<h2 id="loops-infinitos">Loops infinitos</h2>
+<p>Às vezes, um loop infinito é o que desejamos e há muitas maneiras de conseguir isso.</p>
+<p>Muito parecido com as instruções condicionais, não precisamos usar operadores de comparação para nossa condição de loop: podemos apenas especificar um valor, e a veracidade desse valor determinará se o loop executa ou não a próxima iteração.</p>
+<p>Na verdade, podemos usar qualquer expressão que quisermos, porque todas as expressões serão avaliadas para algum valor e, se obtivermos um valor, podemos testar seu valor verdadeiro. Podemos usar chamadas de função ou operações aritméticas, ou podemos nos referir a variáveis. O céu é o limite.</p>
+<p>Quando queremos especificar um loop infinito, queremos escrever uma expressão que sempre será avaliada como um valor verdadeiro. Um bom exemplo é o valor booleano <code>True</code>, que sempre será avaliado como <code>True</code> se testarmos seu valor verdade.</p>
+<p>Não recomendo que você execute este código, mas poderíamos escrever algo assim:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
+	print(<span style="color:#e6db74">&#34;Olá meu amigo!&#34;</span>)
+</code></pre></div><p>O que vai acontecer aqui é que o Python executará muito rapidamente muitas iterações desse loop e terminaremos com um fluxo constante de <code>&quot;Olá me amigo!&quot;</code> impresso no console.</p>
+<p>Quando escrevemos um loop explicitamente infinito como este, geralmente é importante que tenhamos alguma maneira de interrompê-lo, e isso é mais frequentemente realizado com algum tipo de instrução condicional em combinação com <code>break</code>.</p>
+<p>Como exemplo, vamos criar o esqueleto de um menu de texto simples. Teremos algumas opções que o usuário pode selecionar e uma dessas opções fechará o menu. Essa opção será a string <code>&quot;q&quot;</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
+	opcao <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;Por favor, digite &#39;a&#39;, &#39;b&#39;, ou &#39;c&#39;, ou digite &#39;s&#39; para sair: &#34;</span>)
+
+	<span style="color:#66d9ef">if</span> opcao <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;a&#34;</span>:
+		print(<span style="color:#e6db74">&#34;Você selecionou a opção &#39;a&#39;!&#34;</span>)
+	<span style="color:#66d9ef">elif</span> opcao <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;b&#34;</span>:
+		print(<span style="color:#e6db74">&#34;Você selecionou a opção &#39;b&#39;!&#34;</span>)
+	<span style="color:#66d9ef">elif</span> opcao <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;c&#34;</span>:
+		print(<span style="color:#e6db74">&#34;Você selecionou a opção &#39;c&#39;!&#34;</span>)
+	<span style="color:#66d9ef">elif</span> opcao <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;q&#34;</span>:
+		print(<span style="color:#e6db74">&#34;Você selecionou a opção &#39;s&#39;! Saindo do menu!&#34;</span>)
+		<span style="color:#66d9ef">break</span>
+	<span style="color:#66d9ef">else</span>:
+		print(<span style="color:#e6db74">&#34;Você digitou uma opção inválida&#34;</span>)
+</code></pre></div><p>Podemos imaginar que, em vez de simplesmente imprimir a seleção do usuário, cada uma dessas ramificações executaria algumas ações em nome do usuário e, quando terminarmos, solicitamos outra opção ao usuário.</p>
+<p>Se o usuário inserir uma opção inválida, chegamos até o  <code>else</code> e informamos o usuário de seu erro.</p>
+<p>Se o usuário digitar <code>&quot;s&quot;</code>, informamos ao usuário que estamos fechando o menu e, em seguida, usamos uma instrução <code>break</code> para sair do loop.</p>
+<p>Observe que, para este estilo de loop, não precisamos definir nada fora do loop, porque não temos uma condição que dependa de alguma variável.</p>
+<h3 id="dica">Dica</h3>
+<p>Se você começar a olhar o código de outras pessoas, poderá ver alguns loops escritos como o abaixo, com <code>1</code> como a condição do loop:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">while</span> <span style="color:#ae81ff">1</span>:
+	<span style="color:#f92672">...</span> algumas ações aqui <span style="color:#f92672">...</span>
+</code></pre></div><p>Isso funciona porque <code>1</code> é um valor verdadeiro, assim como todos os números diferentes de zero. Embora funcione, eu pessoalmente desaconselho seu uso, pelo mesmo motivo, não o aconselharia a escrever um loop como este:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">while</span> <span style="color:#e6db74">&#34;carneirinho&#34;</span>:
+</code></pre></div><p>Tanto <code>1</code> quanto <code>&quot;carneirinho&quot;</code> são valores verdadeiros, mas são muito menos explícitos do que apenas escrever enquanto <code>True</code>. Ser explícito e tornar nosso código o mais fácil de ler possível é mais importante do que economizar ao escrever três caracteres.</p>
+<h2 id="a-palavra-continue">A palavra <code>continue</code></h2>
+<p>Já usamos a instrução <code>break</code> várias vezes, mas não é nossa única opção para controlar o fluxo de nossos loops. Outra opção que temos disponível é a palavra-chave <code>continue</code>.</p>
+<p>Enquanto <code>break</code> nos permite sair de um loop, <code>continue</code> nos permite pular o restante do corpo do loop para a iteração atual.</p>
+<p>Por exemplo, vamos criar um loop que imprime apenas números pares:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">for</span> numero <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">10</span>):
+	<span style="color:#66d9ef">if</span> numero <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>: <span style="color:#75715e">## Verifica se o resto da divisão por 2 é diferente de 0.</span>
+		<span style="color:#66d9ef">continue</span>
+	print(numero)
+</code></pre></div><p>Para cada iteração do loop, usamos o operador módulo(<code>%</code>) para determinar se o número atual é divisível por 2. Se não for, encontramos esta instrução <code>continue</code>, que nos move imediatamente para a próxima iteração do loop. Isso significa que pulamos o restante do corpo do loop e não imprimimos o número.</p>
+<p>A saída, portanto, será semelhante a esta:</p>
+<pre><code>0
+2
+4
+6
+8
+</code></pre><p>Embora este exemplo use uma instrução <code>continue</code> em um loop <code>for</code>, eles também podem ser usados com loops <code>while</code>.</p>
+<p>As declarações <code>continue</code> geralmente não são tão úteis, mas de vez em quando elas podem realmente ajudar a simplificar o código com condições complexas.</p>
+<h2 id="usando-else-com-loops">Usando <code>else</code> com loops</h2>
+<p>Na aula 5,  demos uma olhada no <code>else</code> no contexto das declarações condicionais, mas eu disse na época que também podemos usar o <code>else</code> com outras estruturas. loops <code>for</code> e <code>while</code> estão entre essas estruturas.</p>
+<p>A cláusula <code>else</code> no contexto de loops é um pouco estranha e não parece fazer muito sentido. Certamente não é tão intuitivo quanto é com uma instrução <code>if</code>. Acho que vale a pena pensar em outra coisa como uma cláusula &ldquo;sem interrupção&rdquo; quando a usamos com loops.</p>
+<p>O motivo pelo qual digo que é bom pensar em <code>else</code> como significando &ldquo;sem interrupção&rdquo; é porque uma cláusula <code>else</code> anexada a um loop só será executada se uma instrução break não for encontrada durante a execução desse loop.</p>
+<p>Por exemplo, vamos escrever um loop para determinar se um número é primo ou não. Um número primo é um número divisível apenas por ele mesmo e 1. Por exemplo, 2, 3, 5, 7, 11 e 13 são números primos.</p>
+<p>Uma maneira de determinar se algo é primo ou não é dividindo-o por cada número que vem antes dele. Se nenhuma dessas divisões produzir um resultado inteiro, sabemos que o número é primo.</p>
+<p>No entanto, não precisamos verificar todos os números. Se encontrarmos uma divisão que produz um resultado inteiro, sabemos que o número não é primo, então não precisamos verificar mais. Podemos, portanto, quebrar o ciclo.</p>
+<p>Se quebrarmos sempre que descobrirmos que um número não é primo, isso significa que se completarmos o loop e, portanto, não encontrarmos uma instrução <code>break</code>, teremos um número primo. Essas também são as condições para acionar uma cláusula <code>else</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Solicite um número ao usuário</span>
+dividendo <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#34;Por favor digite um número: &#34;</span>))
+
+<span style="color:#75715e"># Cria um range de 2 até o número escolhido e guarda em divisor</span>
+<span style="color:#66d9ef">for</span> divisor <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">2</span>, dividendo):
+	<span style="color:#75715e"># Se o número usuário escolhido for divisível (não restar nada) por algum dos numeros da lista, o número não é primo</span>
+	<span style="color:#66d9ef">if</span> dividendo <span style="color:#f92672">%</span> divisor <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+		print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>dividendo<span style="color:#e6db74">}</span><span style="color:#e6db74"> não é primo!&#34;</span>)
+		<span style="color:#66d9ef">break</span>
+<span style="color:#66d9ef">else</span>:
+	<span style="color:#75715e"># Essa linha apenas rodará se nenhum divisor produzir números inteiros</span>
+	print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>dividendo<span style="color:#e6db74">}</span><span style="color:#e6db74"> é primo!&#34;</span>)
+</code></pre></div><p>Podemos fazer algo com o loop <code>while</code> também:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Solicite um número ao usuário, e configure o divisor inicial em 2.</span>
+dividendo <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#34;Por favor digite um número: &#34;</span>))
+divisor <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+
+<span style="color:#75715e"># Continue repetindo até que o divisor seja igual ao número que estamos testando</span>
+<span style="color:#66d9ef">while</span> divisor <span style="color:#f92672">&lt;</span> dividendo:
+    <span style="color:#75715e"># Se o número for divisivel pelo divisor, quebra o loop</span>
+    <span style="color:#66d9ef">if</span> dividendo <span style="color:#f92672">%</span> divisor <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+	    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>dividendo<span style="color:#e6db74">}</span><span style="color:#e6db74"> não é primo!&#34;</span>)
+	    <span style="color:#66d9ef">break</span>
+	
+    <span style="color:#75715e"># Incrementa o divisor para a próxima iteração</span>
+    divisor <span style="color:#f92672">=</span> divisor <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+<span style="color:#66d9ef">else</span>:
+	<span style="color:#75715e"># Essa linha apenas rodará se nenhum divisor produzir números inteiros</span>
+	print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>dividendo<span style="color:#e6db74">}</span><span style="color:#e6db74"> é primo!&#34;</span>)
+</code></pre></div><p>Existem maneiras mais sofisticadas de encontrar números primos, mas elas servem muito bem como demonstrações. Se você gostaria de um desafio, veja se pode torná-los mais eficientes.</p>
+<h2 id="exercícios">Exercícios</h2>
+<ol>
+<li>Escreva um pequeno programa de jogo de adivinhação usando um loop <code>while</code>. O usuário deve ser solicitado a adivinhar um número entre 1 e 100 e você deve dizer se a estimativa foi muito alta ou muito baixa após cada estimativa. O loop deve continuar funcionando até que o usuário adivinhe o número corretamente.</li>
+<li>Usando um dos exemplos anteriores - ou uma solução inteiramente sua - crie um programa que imprima todos os números primos entre 1 e 100.</li>
+</ol>
+
+
+
 
 
 <footer class=" footline" >
@@ -665,8 +810,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -682,6 +825,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -779,6 +925,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -794,6 +941,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -932,8 +1082,10 @@
 	 
 	 
 		
+			<a class="nav nav-prev" href="/pythonparatodos/01basico/aula06/" title="6. Laços/Loops com For"> <i class="fa fa-chevron-left"></i></a>
 		
-			<a class="nav nav-next" href="/pythonparatodos/01basico/" title="Basicão" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+			<a class="nav nav-next" href="/pythonparatodos/01basico/projeto-1/" title="Projeto 1 - Loteria Mega Sena 🤑" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
