@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pages on debugging the life</title>
+    <link>https://tiagotavares.io/page/</link>
+    <description>Recent content in Pages on debugging the life</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 10 Jul 2021 14:05:04 -0300</lastBuildDate><atom:link href="https://tiagotavares.io/page/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python 4 Padawans</title>
+      <link>https://tiagotavares.io/page/python4padawans/</link>
+      <pubDate>Sat, 10 Jul 2021 14:05:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/page/python4padawans/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

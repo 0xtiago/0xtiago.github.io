@@ -6,7 +6,133 @@
     <description>Recent content in Tags on debugging the life</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 07 Jul 2021 10:20:09 -0300</lastBuildDate><atom:link href="https://tiagotavares.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 13 Aug 2021 11:15:12 -0300</lastBuildDate><atom:link href="https://tiagotavares.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>application</title>
+      <link>https://tiagotavares.io/tags/application/</link>
+      <pubDate>Fri, 13 Aug 2021 11:15:12 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/application/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cafe seguro</title>
+      <link>https://tiagotavares.io/tags/cafe-seguro/</link>
+      <pubDate>Fri, 13 Aug 2021 11:15:12 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/cafe-seguro/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cybersecurity</title>
+      <link>https://tiagotavares.io/tags/cybersecurity/</link>
+      <pubDate>Fri, 13 Aug 2021 11:15:12 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/cybersecurity/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>development</title>
+      <link>https://tiagotavares.io/tags/development/</link>
+      <pubDate>Fri, 13 Aug 2021 11:15:12 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>owasp</title>
+      <link>https://tiagotavares.io/tags/owasp/</link>
+      <pubDate>Fri, 13 Aug 2021 11:15:12 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/owasp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>podcast</title>
+      <link>https://tiagotavares.io/tags/podcast/</link>
+      <pubDate>Fri, 13 Aug 2021 11:15:12 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/podcast/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>security</title>
+      <link>https://tiagotavares.io/tags/security/</link>
+      <pubDate>Fri, 13 Aug 2021 11:15:12 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>wss</title>
+      <link>https://tiagotavares.io/tags/wss/</link>
+      <pubDate>Fri, 13 Aug 2021 11:15:12 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/wss/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>force</title>
+      <link>https://tiagotavares.io/tags/force/</link>
+      <pubDate>Sat, 10 Jul 2021 14:05:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/force/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>inclusão</title>
+      <link>https://tiagotavares.io/tags/inclus%C3%A3o/</link>
+      <pubDate>Sat, 10 Jul 2021 14:05:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/inclus%C3%A3o/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>padawan</title>
+      <link>https://tiagotavares.io/tags/padawan/</link>
+      <pubDate>Sat, 10 Jul 2021 14:05:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/padawan/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>https://tiagotavares.io/tags/python/</link>
+      <pubDate>Sat, 10 Jul 2021 14:05:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>star wars</title>
+      <link>https://tiagotavares.io/tags/star-wars/</link>
+      <pubDate>Sat, 10 Jul 2021 14:05:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/star-wars/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tech</title>
+      <link>https://tiagotavares.io/tags/tech/</link>
+      <pubDate>Sat, 10 Jul 2021 14:05:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/tech/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>greenbone</title>
       <link>https://tiagotavares.io/tags/greenbone/</link>
@@ -161,29 +287,11 @@
     </item>
     
     <item>
-      <title>security</title>
-      <link>https://tiagotavares.io/tags/security/</link>
-      <pubDate>Mon, 27 Jul 2020 21:00:00 -0300</pubDate>
-      
-      <guid>https://tiagotavares.io/tags/security/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>corrida</title>
       <link>https://tiagotavares.io/tags/corrida/</link>
       <pubDate>Sun, 26 Jul 2020 13:30:00 -0300</pubDate>
       
       <guid>https://tiagotavares.io/tags/corrida/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>cybersecurity</title>
-      <link>https://tiagotavares.io/tags/cybersecurity/</link>
-      <pubDate>Sun, 26 Jul 2020 13:30:00 -0300</pubDate>
-      
-      <guid>https://tiagotavares.io/tags/cybersecurity/</guid>
       <description></description>
     </item>
     
@@ -359,15 +467,6 @@
     </item>
     
     <item>
-      <title>application</title>
-      <link>https://tiagotavares.io/tags/application/</link>
-      <pubDate>Fri, 12 Jun 2020 12:15:12 -0300</pubDate>
-      
-      <guid>https://tiagotavares.io/tags/application/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>criptography</title>
       <link>https://tiagotavares.io/tags/criptography/</link>
       <pubDate>Fri, 12 Jun 2020 12:15:12 -0300</pubDate>
@@ -377,29 +476,11 @@
     </item>
     
     <item>
-      <title>development</title>
-      <link>https://tiagotavares.io/tags/development/</link>
-      <pubDate>Fri, 12 Jun 2020 12:15:12 -0300</pubDate>
-      
-      <guid>https://tiagotavares.io/tags/development/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>jwt</title>
       <link>https://tiagotavares.io/tags/jwt/</link>
       <pubDate>Fri, 12 Jun 2020 12:15:12 -0300</pubDate>
       
       <guid>https://tiagotavares.io/tags/jwt/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>owasp</title>
-      <link>https://tiagotavares.io/tags/owasp/</link>
-      <pubDate>Fri, 12 Jun 2020 12:15:12 -0300</pubDate>
-      
-      <guid>https://tiagotavares.io/tags/owasp/</guid>
       <description></description>
     </item>
     
@@ -571,15 +652,6 @@
       <pubDate>Fri, 17 Apr 2020 22:09:49 -0300</pubDate>
       
       <guid>https://tiagotavares.io/tags/porto-alegre/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>python</title>
-      <link>https://tiagotavares.io/tags/python/</link>
-      <pubDate>Fri, 17 Apr 2020 22:09:49 -0300</pubDate>
-      
-      <guid>https://tiagotavares.io/tags/python/</guid>
       <description></description>
     </item>
     
