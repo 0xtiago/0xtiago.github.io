@@ -452,7 +452,9 @@ OSP Server <span style="color:#66d9ef">for</span> openvas: 21.4.3
 <p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1625664500/blog/image-20210705134600081_oxbofx.png" alt="image-20210705134600081"></p>
 <p>Como vamos utilizar a autenticação <code>ident</code>do Posgresql, vamos deixar a senha em branco.
 <img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1625664511/blog/image-20210705134612366_tzarux.png" alt="image-20210705134612366"></p>
-<p>Precisamos realizar apenas um pequeno ajuste nas roles do usuário <code>gvmduser</code></p>
+<div class="alert info ">
+  <p>Precisamos realizar apenas um pequeno ajuste nas roles do usuário <code>gvmduser</code>.</p>
+</div>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo -i -u postgres
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">psql -U postgres
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"> alter role gvmduser with login Superuser Createrole CreateDB Replication BypassRLS;
@@ -462,7 +464,7 @@ OSP Server <span style="color:#66d9ef">for</span> openvas: 21.4.3
 <div class="alert info ">
   <p>Nesta ultima versão pré-compilada, também é necessário realizar um pequeno ajuste para atribuir o arquivo de socket correto ao scanner do OpenVAS. Sem este ajuste não será possível construir os feed e configurações do OpenVAS.</p>
 </div>
-<p>Primeiro vamos obter as informações de socket e scanner a atribuir às suas respectivas variáveis:</p>
+<p>Primeiro vamos obter as informações de socket e scanner a atribuir às suas respectivas variáveis. Copie o bloco inteiro de comando abaixo, cole e execute em ser terminal:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">socket<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>cat /etc/gvm/ospd-openvas.conf | grep unix_socket | cut -d <span style="color:#e6db74">&#34; &#34;</span> -f 3<span style="color:#66d9ef">)</span> ; <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>scanner<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>sudo -u gvm -g gvm gvmd --get-scanners | grep OpenVAS | cut -d <span style="color:#e6db74">&#34; &#34;</span> -f 1<span style="color:#66d9ef">)</span> 
 </code></pre></div><p>Agora vamos configurar o <code>gvmd</code> com as informações corretas.</p>
@@ -489,10 +491,10 @@ OSP Server <span style="color:#66d9ef">for</span> openvas: 21.4.3
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo vim /usr/local/bin/gvm-feedupdate.sh
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
 </span><span style="color:#75715e"></span>
-greenbone-nvt-sync
-greenbone-feed-sync --type GVMD_DATA 
-greenbone-feed-sync --type SCAP 
-greenbone-feed-sync --type CERT
+/usr/bin/greenbone-nvt-sync
+/usr/bin/greenbone-nvt-sync --type SCAP
+/usr/bin/greenbone-nvt-sync --type CERT 
+/usr/bin/greenbone-nvt-sync --type GVMD_DATA
 
 
 <span style="color:#75715e">#/var/log/gvm/update_feed.log</span>
@@ -501,9 +503,9 @@ greenbone-feed-sync --type CERT
 </code></pre></div><p>Agora, vamos adicionar o agendamento no crontab do usuario <code>gvm</code>:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo -u gvm -g gvm crontab -e
 </code></pre></div><p>Adicione linha a seguir em nosso arquivo. Ele o sistema operacional agendará para que <strong>todos os dias</strong>, ao <strong>meio dia</strong>, seja <strong>executada</strong> a série de <strong>comandos</strong> para atualização dos feeds, e que grave em <code>update_feed.log</code> os logs do update.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#ae81ff">0</span> <span style="color:#ae81ff">12</span> <span style="color:#ae81ff">1</span> * * /usr/local/bin/gvm-feedupdate.sh &gt; /var/log/gvm/update_feed.log
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#ae81ff">0</span> <span style="color:#ae81ff">12</span> <span style="color:#ae81ff">1</span> * * bash /usr/local/bin/gvm-feedupdate.sh 
 </code></pre></div><p>Ficará mais ou menos assim:</p>
-<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1625664520/blog/image-20210706220308635_u8ehrr.png" alt="image-20210706220308635"></p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1640196293/blog/cron_feed_igp3hx.png" alt="image-20210706220308635"></p>
 <h2 id="atualizando-certificados">Atualizando certificados</h2>
 <p>Esta tarefa pode ser necessária para corrigir problemas de comunicação entre o GVM e o Openvas Scanner, assim precisando reconfigu os certificados.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo -u gvm -g gvm gvm-manage-certs -f -a
