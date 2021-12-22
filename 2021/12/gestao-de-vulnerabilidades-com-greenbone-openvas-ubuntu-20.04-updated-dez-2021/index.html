@@ -13,20 +13,20 @@
 
 <meta property="og:description" content="Um rápido how-to de como instalar o Greenbone Openvas no Ubuntu 20.04, além de uma breve introdução a gestão de vulnerabilidades.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Gestão de vulnerabilidades com Greenbone Openvas - Ubuntu 20.04">
-<meta name="twitter:title" content="Gestão de vulnerabilidades com Greenbone Openvas - Ubuntu 20.04">
-<meta property="og:url" content="https://tiagotavares.io/2021/07/gest%C3%A3o-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04/">
-<meta property="twitter:url" content="https://tiagotavares.io/2021/07/gest%C3%A3o-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04/">
+<meta property="og:title" content="Gestao de vulnerabilidades com Greenbone Openvas - Ubuntu 20.04 | Updated Dez 2021">
+<meta name="twitter:title" content="Gestao de vulnerabilidades com Greenbone Openvas - Ubuntu 20.04 | Updated Dez 2021">
+<meta property="og:url" content="https://tiagotavares.io/2021/12/gestao-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04-updated-dez-2021/">
+<meta property="twitter:url" content="https://tiagotavares.io/2021/12/gestao-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04-updated-dez-2021/">
 <meta property="og:site_name" content="debugging the life">
 <meta property="og:description" content="Um rápido how-to de como instalar o Greenbone Openvas no Ubuntu 20.04, além de uma breve introdução a gestão de vulnerabilidades.">
 <meta name="twitter:description" content="Um rápido how-to de como instalar o Greenbone Openvas no Ubuntu 20.04, além de uma breve introdução a gestão de vulnerabilidades.">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2021-07-07T10:20:09">
+    <meta property="article:published_time" content="2021-12-22T11:00:09">
   
   
-    <meta property="article:modified_time" content="2021-07-07T10:20:09">
+    <meta property="article:modified_time" content="2021-12-22T11:00:09">
   
   
   
@@ -65,8 +65,8 @@
 
 
 
-  <meta property="og:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1625666005/blog/greenbone_logo_500x471_stedtv.png">
-  <meta property="twitter:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1625666005/blog/greenbone_logo_500x471_stedtv.png">
+  <meta property="og:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1640180845/blog/novo_openvas_logo_t3tdr7.png">
+  <meta property="twitter:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1640180845/blog/novo_openvas_logo_t3tdr7.png">
 
 
   <meta property="og:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1625666640/blog/wp2732954-dark-gray-background-texture_bmsqig.jpg">
@@ -79,14 +79,14 @@
   <meta property="twitter:image" content="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=640">
 
 
-    <title>Gestão de vulnerabilidades com Greenbone Openvas - Ubuntu 20.04</title>
+    <title>Gestao de vulnerabilidades com Greenbone Openvas - Ubuntu 20.04 | Updated Dez 2021</title>
 
     <link rel="icon" href="images/favicon-32x32.png">
     
 
     
 
-    <link rel="canonical" href="https://tiagotavares.io/2021/07/gest%C3%A3o-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04/">
+    <link rel="canonical" href="https://tiagotavares.io/2021/12/gestao-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04-updated-dez-2021/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -276,15 +276,15 @@ if (!doNotTrack) {
       <div class="post-header main-content-wrap text-center">
   
     <h1 class="post-title" itemprop="headline">
-      Gestão de vulnerabilidades com Greenbone Openvas - Ubuntu 20.04
+      Gestao de vulnerabilidades com Greenbone Openvas - Ubuntu 20.04 | Updated Dez 2021
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2021-07-07T10:20:09-03:00">
+      <time itemprop="datePublished" datetime="2021-12-22T11:00:09-03:00">
         
-  July 7, 2021
+  December 22, 2021
 
       </time>
     
@@ -314,12 +314,28 @@ if (!doNotTrack) {
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <p>Um rápido <em>how-to</em> de como instalar o Greenbone Openvas no Ubuntu 20.04, além de uma breve introdução a gestão de vulnerabilidades.</p>
-<h2 id="-alerta">🚫 Alerta</h2>
-<div class="alert danger ">
-  <p>Este post está desatualizado, e poderá ter alguns problemas na utilização do OpenVAS. Sugiro ir ao novo post para ter a experiência esperada: <a href="https://tiagotavares.io/2021/12/gestao-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04-updated-dez-2021">https://tiagotavares.io/2021/12/gestao-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04-updated-dez-2021</a></p>
-</div>
+<h1 id="controle-de-atualizações">Controle de Atualizações</h1>
+<table>
+<thead>
+<tr>
+<th>Data</th>
+<th>Atualização</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>07/07/2021</td>
+<td><a href="https://tiagotavares.io/2021/07/gest%C3%A3o-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04/">Primeira Versão</a>.</td>
+</tr>
+<tr>
+<td>22/12/2021</td>
+<td>Correções de texto, revisão de configuração na nova versão pré-compilada e alterações de scripts e comandos.</td>
+</tr>
+</tbody>
+</table>
 <h1 id="sumário">Sumário</h1>
 <ul>
+<li><a href="#controle-de-atualiza%C3%A7%C3%B5es">Controle de Atualizações</a></li>
 <li><a href="#sum%C3%A1rio">Sumário</a></li>
 <li><a href="#introdu%C3%A7%C3%A3o">Introdução</a></li>
 <li><a href="#por-qu%C3%AA-gerir-vulnerabilidades-e-como-fazer-isso">Por quê gerir vulnerabilidades e como fazer isso</a></li>
@@ -327,34 +343,66 @@ if (!doNotTrack) {
 <li><a href="#instala%C3%A7%C3%A3o-e-configura%C3%A7%C3%A3o">Instalação e Configuração</a>
 <ul>
 <li><a href="#instala%C3%A7%C3%A3o-do-postgresql">Instalação do Postgresql</a></li>
-<li><a href="#instala%C3%A7%C3%A3o-do-openvas">Instalação do Openvas</a>
+<li><a href="#instala%C3%A7%C3%A3o-do-openvas">Instalação do OpenVAS</a>
 <ul>
 <li><a href="#configura%C3%A7%C3%A3o-do-redis">Configuração do Redis</a></li>
-<li><a href="#configura%C3%A7%C3%A3o-do-postgressql">Configuração do Postgressql</a></li>
+<li><a href="#configura%C3%A7%C3%A3o-do-postgresql">Configuração do Postgresql</a></li>
+<li><a href="#ajustando-socket-ao-scanner">Ajustando socket ao scanner</a></li>
 </ul>
 </li>
+<li><a href="#instalando-pacotes-adicionais">Instalando pacotes adicionais</a></li>
 <li><a href="#atualiza%C3%A7%C3%A3o-dos-feeds-">Atualização dos feeds ☕</a></li>
 <li><a href="#configurando-cron-para-atualiza%C3%A7%C3%A3o-dos-feeds-diariamente">Configurando cron para atualização dos feeds diariamente</a></li>
 <li><a href="#atualizando-certificados">Atualizando certificados</a></li>
 <li><a href="#configurando-o-gsa-web-interface-para-acesso-externo">Configurando o GSA (Web Interface) para acesso externo</a></li>
-<li><a href="#reconstruindo-nvt-db">Reconstruindo NVT db</a></li>
+<li><a href="#-acessando-o-openvas">🥳 Acessando o OpenVAS!</a></li>
+<li><a href="#reconstruindo-nvts-e-configura%C3%A7%C3%B5es">Reconstruindo NVTs e Configurações</a></li>
 <li><a href="#deu-pau-olhe-os-logs">Deu pau? Olhe os logs!</a></li>
+<li><a href="#criando-novos-usu%C3%A1rios">Criando novos usuários</a></li>
 </ul>
 </li>
-<li><a href="#-b%C3%B4nus---m%C3%A1quina-virtual">🎁 Bônus - Máquina Virtual</a></li>
+<li><a href="#-v%C3%ADdeos-demonstrativos">🎬 Vídeos demonstrativos</a>
+<ul>
+<li><a href="#criando-grupos-de-alvos">Criando grupos de alvos</a></li>
+<li><a href="#criando-tarefa-de-scan">Criando tarefa de scan</a></li>
+<li><a href="#exportando-relat%C3%B3rio-em-pdf">Exportando relatório em PDF</a></li>
+<li><a href="#exportando-relat%C3%B3rio-em-pdf-com-filtro-de-severidade">Exportando relatório em PDF com filtro de severidade</a></li>
+</ul>
+</li>
+<li><a href="#-b%C3%B4nus---m%C3%A1quina-virtual---dez-2021">🎁 Bônus - Máquina Virtual - Dez 2021</a></li>
+<li><a href="#agradecimentos">Agradecimentos</a></li>
 </ul>
 <h1 id="introdução">Introdução</h1>
 <p>Neste post vou passar alguns passos e possíveis armadilhas a serem evitadas para instalação do Openvas, que é um scanner de vulnerabilidades opensource que pode auxiliar seu time na detecção de riscos em seus ativos tecnológicos.</p>
 <p>Outra motivação é poder ajudar todas as comunidades que possuem o Português como língua mãe.  🇵🇹 🇧🇷 🇦🇴 🇹🇱 🇲🇿 🇨🇻 🇬🇶 🇬🇼 🇸🇹</p>
 <p>Os componentes a serem instalados serão:</p>
 <ul>
-<li><strong>OpenVas (Open Vulnerability Assessment Scanner) 20.8</strong> - Scanner de Vulnerabilidades;</li>
-<li><strong>GVM (Greenbone Vulnerability Manager) 20.8</strong> - Responsável por gerenciar as tasks de scan;</li>
-<li><strong>GSA (Greenbone Security Assistant) 20.8</strong> - Responsável por prover a interface web para gestão do usuário;</li>
-<li>Outros componentes auxiliares e bibliotecas.</li>
+<li>
+<p><strong>OpenVas (Open Vulnerability Assessment Scanner) 21.4.3</strong> - Scanner de Vulnerabilidades;</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ openvas --version
+OpenVAS 21.4.3
+</code></pre></div></li>
+<li>
+<p><strong>GVM (Greenbone Vulnerability Manager) 21.4.4</strong> - Responsável por gerenciar as tasks de scan;</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ gvmd --version
+Greenbone Vulnerability Manager 21.4.4
+</code></pre></div></li>
+<li>
+<p><strong>GSA (Greenbone Security Assistant) 21.4.3</strong> - Responsável por prover a interface web para gestão do usuário;</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ gsad --version
+Greenbone Security Assistant 21.4.3
+</code></pre></div></li>
+<li>
+<p><strong>OSP (Open Scanner Protocol) 21.4.3</strong>;</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo ospd-openvas --version
+OSP Server <span style="color:#66d9ef">for</span> openvas: 21.4.3
+</code></pre></div></li>
+<li>
+<p>Outros componentes auxiliares e bibliotecas.</p>
+</li>
 </ul>
 <h1 id="por-quê-gerir-vulnerabilidades-e-como-fazer-isso">Por quê gerir vulnerabilidades e como fazer isso</h1>
-<p>A gestão de vulnerabilidades, apesar de ser apenas uma parte dos seus processos de Gestão de Segurança da Informaçâo, ela é de extrema importância para ter visibilidades dos riscos em seu ambiente.</p>
+<p>A gestão de vulnerabilidades, apesar de ser apenas uma parte dos seus processos de Gestão de Segurança da Informação, ela é de extrema importância para ter visibilidades dos riscos em seu ambiente.</p>
 <p>Algumas boas referências da importância desses processos podem ser encontrados em:</p>
 <ul>
 <li><a href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf">https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf</a></li>
@@ -392,26 +440,50 @@ if (!doNotTrack) {
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo systemctl enable postgresql
 </code></pre></div><p>Reinicie o serviço do Postgresql</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo systemctl restart postgresql
-</code></pre></div><h2 id="instalação-do-openvas">Instalação do Openvas</h2>
+</code></pre></div><h2 id="instalação-do-openvas">Instalação do OpenVAS</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install gvm
 </code></pre></div><h3 id="configuração-do-redis">Configuração do Redis</h3>
-<p>O Redis será utilizado para armazenar toda a documentação do Openvas, sem ele nenhum scan iniciará. Basta seguir com a configuração padrão.</p>
+<p>O Redis será utilizado para armazenar toda a documentação do OpenVas, sem ele nenhum scan iniciará. Basta seguir com a configuração padrão.</p>
 <p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1625664474/blog/image-20210705134226224_yt7guv.png" alt="image-20210705134226224"></p>
-<h3 id="configuração-do-postgressql">Configuração do Postgressql</h3>
+<h3 id="configuração-do-postgresql">Configuração do Postgresql</h3>
 <p>Pode seguir com a configuração pelo módulo <code>gvmd-pg</code>.</p>
 <p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1625664487/blog/image-20210705134542799_jk4cfu.png" alt="image-20210705134542799"></p>
-<p>Em nosso exemplo, utilizaremos um Postgresql local, portando vamos seguir com <code>locallhost</code>.</p>
+<p>Em nosso exemplo, utilizaremos um Postgresql local, portando vamos seguir com <code>localhost</code>.</p>
 <p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1625664500/blog/image-20210705134600081_oxbofx.png" alt="image-20210705134600081"></p>
 <p>Como vamos utilizar a autenticação <code>ident</code>do Posgresql, vamos deixar a senha em branco.
 <img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1625664511/blog/image-20210705134612366_tzarux.png" alt="image-20210705134612366"></p>
-<h2 id="atualização-dos-feeds-">Atualização dos feeds ☕</h2>
+<p>Precisamos realizar apenas um pequeno ajuste nas roles do usuário <code>gvmduser</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo -i -u postgres
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">psql -U postgres
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"> alter role gvmduser with login Superuser Createrole CreateDB Replication BypassRLS;
+</code></pre></div><p>Saia do terminal do Postgres:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">exit
+</code></pre></div><h3 id="ajustando-socket-ao-scanner">Ajustando socket ao scanner</h3>
+<div class="alert info ">
+  <p>Nesta ultima versão pré-compilada, também é necessário realizar um pequeno ajuste para atribuir o arquivo de socket correto ao scanner do OpenVAS. Sem este ajuste não será possível construir os feed e configurações do OpenVAS.</p>
+</div>
+<p>Primeiro vamos obter as informações de socket e scanner a atribuir às suas respectivas variáveis:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">socket<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>cat /etc/gvm/ospd-openvas.conf | grep unix_socket | cut -d <span style="color:#e6db74">&#34; &#34;</span> -f 3<span style="color:#66d9ef">)</span> ; <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>scanner<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>sudo -u gvm -g gvm gvmd --get-scanners | grep OpenVAS | cut -d <span style="color:#e6db74">&#34; &#34;</span> -f 1<span style="color:#66d9ef">)</span> 
+</code></pre></div><p>Agora vamos configurar o <code>gvmd</code> com as informações corretas.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo -u gvm -g gvm gvmd --modify-scanner<span style="color:#f92672">=</span>$scanner --scanner-host<span style="color:#f92672">=</span>$socket
+</code></pre></div><h2 id="instalando-pacotes-adicionais">Instalando pacotes adicionais</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install texlive-fonts-recommended xsltproc xmlstarlet zip -y 
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install texlive-latex-extra --no-install-recommends -y
+</code></pre></div><h2 id="atualização-dos-feeds-">Atualização dos feeds ☕</h2>
 <p>Siga a sequência abaixo para atualizar dos feed de vulnerabilidades.</p>
 <p>Busque um café porque essa parte irá demorar.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo -u gvm -g gvm greenbone-nvt-sync
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo -u gvm -g gvm greenbone-feed-sync --type GVMD_DATA
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo -u gvm -g gvm greenbone-feed-sync --type SCAP
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo -u gvm -g gvm greenbone-feed-sync --type CERT
-</code></pre></div><h2 id="configurando-cron-para-atualização-dos-feeds-diariamente">Configurando cron para atualização dos feeds diariamente</h2>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo -u gvm -g gvm greenbone-feed-sync --type GVMD_DATA
+</code></pre></div><div class="alert warning ">
+  <p>A partir deste momento, sugiro fortemente aguardar a finalização de todas as atualizações. Você só conseguirá acompanhar o status lendo os logs do <code>gvmd.log</code>.</p>
+</div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo tail -f gvmd.log
+</code></pre></div><p>Como pode ver abaixo, o processo de atualização continuará a popular o banco de dados em segundo plano.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1640137090/blog/feed_update1_m2h5ay.png" alt=""></p>
+<h2 id="configurando-cron-para-atualização-dos-feeds-diariamente">Configurando cron para atualização dos feeds diariamente</h2>
 <p>Precisaremos que todos os dias sejam atualizadas a lista de vulnerabilidades a partir dos feeds.</p>
 <p>Vamos criar um script de atualização do feed.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo vim /usr/local/bin/gvm-feedupdate.sh
@@ -438,8 +510,10 @@ greenbone-feed-sync --type CERT
 </code></pre></div><h2 id="configurando-o-gsa-web-interface-para-acesso-externo">Configurando o GSA (Web Interface) para acesso externo</h2>
 <p>A princípio, o módulo GSA (Greenbone Security Assistant), que é responsável pelo gerenciamento da interface web, não permitie acesso de fora do servidor do Openvas. Para permitir acessos externos a interface web é necessário alterar o parâmetro <code>GSAD_ADDRESS</code> de <code>127.0.0.1</code> para <code>0.0.0.0</code>.</p>
 <p>Você pode utilizar o <code>sed</code>&hellip;</p>
+<p>Adicionalmente, iremos habilitar o HTTPS para acessar a manager com criptografia.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd /etc/default ;<span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>sudo sed -e <span style="color:#e6db74">&#39;s/127.0.0.1/0.0.0.0/g&#39;</span> gsad
+</span><span style="color:#ae81ff"></span>sudo sed -i <span style="color:#e6db74">&#39;s/127.0.0.1/0.0.0.0/g&#39;</span> gsad ; <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>sudo sed -i <span style="color:#e6db74">&#39;s/GSAD_OPTIONS=&#34; --http-only&#34;//g&#39;</span> gsad
 </code></pre></div><p>Ou simplesmente alterando o arquivo do serviço.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vim /etc/default/gsad
 </code></pre></div><p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1625664532/blog/image-20210705143846510_rd5lx9.png" alt="image-20210705143846510"></p>
@@ -447,17 +521,20 @@ greenbone-feed-sync --type CERT
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"> sudo systemctl daemon-reload
 </code></pre></div><p>Reinicie todos os serviços instalados.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo systemctl restart ospd-openvas gsad gvmd
-</code></pre></div><p>Agora basta acessar a interface na porta <code>9392</code>.</p>
+</code></pre></div><h2 id="-acessando-o-openvas">🥳 Acessando o OpenVAS!</h2>
+<p>Agora basta acessar a interface na porta <code>9392</code>.</p>
 <p><strong>Credenciais:</strong> admin/admin</p>
 <p>https://IP_DO_SERVIDOR:9392</p>
-<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1625664546/blog/image-20210705143428431_zpybqa.png" alt="image-20210705143428431"></p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1640139307/blog/login_tp4rxf.png" alt="image-20210705143428431"></p>
 <p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1625664556/blog/image-20210705191147439_cz3tk6.png" alt="image-20210705191147439"></p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1640139619/blog/scanconfigs_ds4mpo.png" alt=""></p>
 <p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1625666486/blog/Snipaste_2021-07-07_10-57-49_zk3uf6.png" alt=""></p>
 <p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1625666487/blog/Snipaste_2021-07-07_10-55-40_hqydnb.png" alt=""></p>
-<h2 id="reconstruindo-nvt-db">Reconstruindo NVT db</h2>
-<p>Pode acontecer de no momento da atualização dos feeds por alguma instabilidade de rede ocorrer algum interrupção e por sua vez crashear o banco dos NVTs (Network Vulnerability Testes). Para resolver esse problema basta executar os comandos abaixo, e realizar os feeds.</p>
+<h2 id="reconstruindo-nvts-e-configurações">Reconstruindo NVTs e Configurações</h2>
+<p>Pode acontecer de no momento da atualização dos feeds por alguma instabilidade de rede ocorrer algum interrupção e por sua vez crashear o banco dos NVTs (Network Vulnerability Tests) e demais configurações do scanner, como lista de portas, templates de scan, etc. Para resolver esse problema basta executar os comandos abaixo, e realizar os feeds.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">export <span style="color:#66d9ef">$(</span>sudo cat /etc/default/gvmd-pg<span style="color:#66d9ef">)</span>
 sudo -E -u gvm -g gvm gvmd --rebuild
+sudo -u gvm -g gvm gvmd --rebuild-gvmd-data<span style="color:#f92672">=</span>all
 </code></pre></div><h2 id="deu-pau-olhe-os-logs">Deu pau? Olhe os logs!</h2>
 <p>Todos os logs estão em <code>/var/log/gvm</code>. Se em algum momento tiver algum problema com a aplicação, verique o que ocorre lendo os logs.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ls -lh
@@ -467,9 +544,53 @@ total 1.1M
 -rw-r--r-- <span style="color:#ae81ff">1</span> gvm gvm 873K Jul  <span style="color:#ae81ff">7</span> 09:40 openvas.log
 -rw-r--r-- <span style="color:#ae81ff">1</span> gvm gvm 9.4K Jul  <span style="color:#ae81ff">7</span> 07:53 ospd-openvas.log
 </code></pre></div><p>No momento da instalação, se suspeitar que há algo errado bom o Postrgresql, basta olhar seu log tabém para investigação em <code>/var/log/postgresql/postgresql*.log</code>.</p>
-<h1 id="-bônus---máquina-virtual">🎁 Bônus - Máquina Virtual</h1>
+<h2 id="criando-novos-usuários">Criando novos usuários</h2>
+<p>Você pode utilizar a facilidade da linha de comando para já iniciar a criação de usuários.</p>
+<p>Primeiro de tudo, você deve entender qual a função do usuário a ser criado, você pode obter as roles disponíveis da seguinte forma:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo -u gvm -g gvm gvmd --get-roles
+
+Admin
+Guest
+Info
+Monitor
+User
+Super Admin
+Observer
+</code></pre></div><p>Usando como exemplo que o usuário será o &ldquo;todo poderoso&rdquo; , ele deve ter a role de <code>Super Admin</code>. Caso ele tenha toda a liberdade de configurar scans, targets e configurações, porém você não quer que ele veja os scans de outros usuários também administradores, ele deve conter a role <code>Admin</code>.</p>
+<p>Para criar o usuário com a role desejada, basta usar o comando de exemplo abaixo:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo -u gvm -g gvm gvmd --create-user<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tiago.tavares&#34;</span> --password<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;SENHA&#34;</span> --role<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Super Admin&#34;</span>
+</code></pre></div><h1 id="-vídeos-demonstrativos">🎬 Vídeos demonstrativos</h1>
+<p>Segue alguns vídeos para facilitar o início da utilização.</p>
+<h2 id="criando-grupos-de-alvos">Criando grupos de alvos</h2>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/NwUUQAt1Smc" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<h2 id="criando-tarefa-de-scan">Criando tarefa de scan</h2>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/5u1E2YSb2Rc" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<h2 id="exportando-relatório-em-pdf">Exportando relatório em PDF</h2>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/eCvTgFdh3PI" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<h2 id="exportando-relatório-em-pdf-com-filtro-de-severidade">Exportando relatório em PDF com filtro de severidade</h2>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/2_hvNAxY9j0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<h1 id="-bônus---máquina-virtual---dez-2021">🎁 Bônus - Máquina Virtual - Dez 2021</h1>
 <p>Caso tenha problemas na instalação ou queira realizar um <em>assessment</em> rápido basta baixar a máquina virtual (VMware) clicando <a href="https://bit.ly/2SRFVl5">aqui</a>.</p>
 <p>Lembre-se logar no Ubuntu e atualizar os feed, conforme mostro acima.</p>
+<h1 id="agradecimentos">Agradecimentos</h1>
+<p>Abro este espaço também para agradecer a toda comunidade que me retornou ótimos feedbacks e me ajudou a melhorar o procedimento.
+Obrigado <a href="https://www.linkedin.com/in/maicon-triches-843a5725/">Maicon Triches</a> pelo apoio nas melhorias!</p>
 <p>👾</p>
               
             </div>
@@ -507,7 +628,7 @@ total 1.1M
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2021/08/caf%C3%A9-seguro-23-caf%C3%A9-na-conta-de...-tiago-tavares/" data-tooltip="Café Seguro 23 Café na conta de... Tiago Tavares">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -515,7 +636,7 @@ total 1.1M
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/12/chillhack-1-vulnhub/" data-tooltip="ChillHack: 1 - Vulnhub ">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2021/08/caf%C3%A9-seguro-23-caf%C3%A9-na-conta-de...-tiago-tavares/" data-tooltip="Café Seguro 23 Café na conta de... Tiago Tavares">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -533,19 +654,19 @@ total 1.1M
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2021/07/gest%C3%A3o-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2021/12/gestao-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04-updated-dez-2021/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2021/07/gest%C3%A3o-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2021/12/gestao-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04-updated-dez-2021/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2021/07/gest%C3%A3o-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2021/12/gestao-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04-updated-dez-2021/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -593,7 +714,7 @@ total 1.1M
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2021/08/caf%C3%A9-seguro-23-caf%C3%A9-na-conta-de...-tiago-tavares/" data-tooltip="Café Seguro 23 Café na conta de... Tiago Tavares">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -601,7 +722,7 @@ total 1.1M
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/12/chillhack-1-vulnhub/" data-tooltip="ChillHack: 1 - Vulnhub ">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2021/08/caf%C3%A9-seguro-23-caf%C3%A9-na-conta-de...-tiago-tavares/" data-tooltip="Café Seguro 23 Café na conta de... Tiago Tavares">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -619,19 +740,19 @@ total 1.1M
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2021/07/gest%C3%A3o-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2021/12/gestao-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04-updated-dez-2021/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2021/07/gest%C3%A3o-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2021/12/gestao-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04-updated-dez-2021/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2021/07/gest%C3%A3o-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2021/12/gestao-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04-updated-dez-2021/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -661,19 +782,19 @@ total 1.1M
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftiagotavares.io%2F2021%2F07%2Fgest%25C3%25A3o-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftiagotavares.io%2F2021%2F12%2Fgestao-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04-updated-dez-2021%2F">
           <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Ftiagotavares.io%2F2021%2F07%2Fgest%25C3%25A3o-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Ftiagotavares.io%2F2021%2F12%2Fgestao-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04-updated-dez-2021%2F">
           <i class="fa fa-twitter"></i><span>Share on Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Ftiagotavares.io%2F2021%2F07%2Fgest%25C3%25A3o-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04%2F">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Ftiagotavares.io%2F2021%2F12%2Fgestao-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04-updated-dez-2021%2F">
           <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
         </a>
       </li>
@@ -763,9 +884,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/tiagotavares.io\/2021\/07\/gest%C3%A3o-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04\/';
+          this.page.url = 'https:\/\/tiagotavares.io\/2021\/12\/gestao-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04-updated-dez-2021\/';
           
-            this.page.identifier = '\/2021\/07\/gest%C3%A3o-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04\/'
+            this.page.identifier = '\/2021\/12\/gestao-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04-updated-dez-2021\/'
           
         };
         (function() {

@@ -6,7 +6,70 @@
     <description>Recent content in Tags on debugging the life</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 13 Aug 2021 11:15:12 -0300</lastBuildDate><atom:link href="https://tiagotavares.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 22 Dec 2021 11:00:09 -0300</lastBuildDate><atom:link href="https://tiagotavares.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>greenbone</title>
+      <link>https://tiagotavares.io/tags/greenbone/</link>
+      <pubDate>Wed, 22 Dec 2021 11:00:09 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/greenbone/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://tiagotavares.io/tags/linux/</link>
+      <pubDate>Wed, 22 Dec 2021 11:00:09 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nessus</title>
+      <link>https://tiagotavares.io/tags/nessus/</link>
+      <pubDate>Wed, 22 Dec 2021 11:00:09 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/nessus/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>openvas</title>
+      <link>https://tiagotavares.io/tags/openvas/</link>
+      <pubDate>Wed, 22 Dec 2021 11:00:09 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/openvas/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>scanner</title>
+      <link>https://tiagotavares.io/tags/scanner/</link>
+      <pubDate>Wed, 22 Dec 2021 11:00:09 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/scanner/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ubuntu</title>
+      <link>https://tiagotavares.io/tags/ubuntu/</link>
+      <pubDate>Wed, 22 Dec 2021 11:00:09 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/ubuntu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vulnerability</title>
+      <link>https://tiagotavares.io/tags/vulnerability/</link>
+      <pubDate>Wed, 22 Dec 2021 11:00:09 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/vulnerability/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>application</title>
       <link>https://tiagotavares.io/tags/application/</link>
@@ -130,69 +193,6 @@
       <pubDate>Sat, 10 Jul 2021 14:05:04 -0300</pubDate>
       
       <guid>https://tiagotavares.io/tags/tech/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>greenbone</title>
-      <link>https://tiagotavares.io/tags/greenbone/</link>
-      <pubDate>Wed, 07 Jul 2021 10:20:09 -0300</pubDate>
-      
-      <guid>https://tiagotavares.io/tags/greenbone/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Linux</title>
-      <link>https://tiagotavares.io/tags/linux/</link>
-      <pubDate>Wed, 07 Jul 2021 10:20:09 -0300</pubDate>
-      
-      <guid>https://tiagotavares.io/tags/linux/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>nessus</title>
-      <link>https://tiagotavares.io/tags/nessus/</link>
-      <pubDate>Wed, 07 Jul 2021 10:20:09 -0300</pubDate>
-      
-      <guid>https://tiagotavares.io/tags/nessus/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>openvas</title>
-      <link>https://tiagotavares.io/tags/openvas/</link>
-      <pubDate>Wed, 07 Jul 2021 10:20:09 -0300</pubDate>
-      
-      <guid>https://tiagotavares.io/tags/openvas/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>scanner</title>
-      <link>https://tiagotavares.io/tags/scanner/</link>
-      <pubDate>Wed, 07 Jul 2021 10:20:09 -0300</pubDate>
-      
-      <guid>https://tiagotavares.io/tags/scanner/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ubuntu</title>
-      <link>https://tiagotavares.io/tags/ubuntu/</link>
-      <pubDate>Wed, 07 Jul 2021 10:20:09 -0300</pubDate>
-      
-      <guid>https://tiagotavares.io/tags/ubuntu/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>vulnerability</title>
-      <link>https://tiagotavares.io/tags/vulnerability/</link>
-      <pubDate>Wed, 07 Jul 2021 10:20:09 -0300</pubDate>
-      
-      <guid>https://tiagotavares.io/tags/vulnerability/</guid>
       <description></description>
     </item>
     
