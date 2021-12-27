@@ -331,6 +331,10 @@ if (!doNotTrack) {
 <td>22/12/2021</td>
 <td>Correções de texto, revisão de configuração na nova versão pré-compilada e alterações de scripts e comandos.</td>
 </tr>
+<tr>
+<td>27/12/2021</td>
+<td>Revisão de procedimento de configuração do Postgres, troubleshooting e no script cron.</td>
+</tr>
 </tbody>
 </table>
 <h1 id="sumário">Sumário</h1>
@@ -351,17 +355,21 @@ if (!doNotTrack) {
 </ul>
 </li>
 <li><a href="#instalando-pacotes-adicionais">Instalando pacotes adicionais</a></li>
-<li><a href="#atualiza%C3%A7%C3%A3o-dos-feeds-">Atualização dos feeds ☕</a></li>
-<li><a href="#configurando-cron-para-atualiza%C3%A7%C3%A3o-dos-feeds-diariamente">Configurando cron para atualização dos feeds diariamente</a></li>
+<li><a href="#atualiza%C3%A7%C3%A3o-dos-feeds">☕Atualização dos feeds</a></li>
 <li><a href="#atualizando-certificados">Atualizando certificados</a></li>
 <li><a href="#configurando-o-gsa-web-interface-para-acesso-externo">Configurando o GSA (Web Interface) para acesso externo</a></li>
-<li><a href="#-acessando-o-openvas">🥳 Acessando o OpenVAS!</a></li>
+<li><a href="#acessando-o-openvas">🥳Acessando o OpenVAS!</a></li>
+<li><a href="#configurando-cron-para-atualiza%C3%A7%C3%A3o-dos-feeds-diariamente">🤖Configurando cron para atualização dos feeds diariamente</a></li>
+<li><a href="#deu-pau">Deu pau?</a>
+<ul>
+<li><a href="#leia-os-logs">Leia os logs!</a></li>
 <li><a href="#reconstruindo-nvts-e-configura%C3%A7%C3%B5es">Reconstruindo NVTs e Configurações</a></li>
-<li><a href="#deu-pau-olhe-os-logs">Deu pau? Olhe os logs!</a></li>
+</ul>
+</li>
 <li><a href="#criando-novos-usu%C3%A1rios">Criando novos usuários</a></li>
 </ul>
 </li>
-<li><a href="#-v%C3%ADdeos-demonstrativos">🎬 Vídeos demonstrativos</a>
+<li><a href="#v%C3%ADdeos-demonstrativos">🎬Vídeos demonstrativos</a>
 <ul>
 <li><a href="#criando-grupos-de-alvos">Criando grupos de alvos</a></li>
 <li><a href="#criando-tarefa-de-scan">Criando tarefa de scan</a></li>
@@ -369,7 +377,7 @@ if (!doNotTrack) {
 <li><a href="#exportando-relat%C3%B3rio-em-pdf-com-filtro-de-severidade">Exportando relatório em PDF com filtro de severidade</a></li>
 </ul>
 </li>
-<li><a href="#-b%C3%B4nus---m%C3%A1quina-virtual---dez-2021">🎁 Bônus - Máquina Virtual - Dez 2021</a></li>
+<li><a href="#b%C3%B4nus---m%C3%A1quina-virtual---dez-2021">🎁Bônus - Máquina Virtual - Dez 2021</a></li>
 <li><a href="#agradecimentos">Agradecimentos</a></li>
 </ul>
 <h1 id="introdução">Introdução</h1>
@@ -457,7 +465,10 @@ OSP Server <span style="color:#66d9ef">for</span> openvas: 21.4.3
 </div>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo -i -u postgres
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">psql -U postgres
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"> alter role gvmduser with login Superuser Createrole CreateDB Replication BypassRLS;
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">ROLE</span> gvm;
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"> <span style="color:#66d9ef">alter</span> <span style="color:#66d9ef">role</span> gvm <span style="color:#66d9ef">with</span> login Superuser Createrole <span style="color:#66d9ef">CreateDB</span> Replication BypassRLS;
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">grant</span> gvm <span style="color:#66d9ef">to</span> gvmduser;
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">revoke</span> dba <span style="color:#66d9ef">from</span> gvmduser;
 </code></pre></div><p>Saia do terminal do Postgres:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">exit
 </code></pre></div><h3 id="ajustando-socket-ao-scanner">Ajustando socket ao scanner</h3>
@@ -472,40 +483,23 @@ OSP Server <span style="color:#66d9ef">for</span> openvas: 21.4.3
 </code></pre></div><h2 id="instalando-pacotes-adicionais">Instalando pacotes adicionais</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install texlive-fonts-recommended xsltproc xmlstarlet zip -y 
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install texlive-latex-extra --no-install-recommends -y
-</code></pre></div><h2 id="atualização-dos-feeds-">Atualização dos feeds ☕</h2>
-<p>Siga a sequência abaixo para atualizar dos feed de vulnerabilidades.</p>
-<p>Busque um café porque essa parte irá demorar.</p>
+</code></pre></div><h2 id="atualização-dos-feeds">☕Atualização dos feeds</h2>
+<p>Siga a sequência abaixo para atualização dos feeds de novas configurações e vulnerabilidades emergentes.</p>
+<p>A partir daqui, a cada passo pode buscar um café ou chimarrão, porque vai levar tempo. 🧉</p>
+<p>Aproveite para ler o cada feed irá trazer ao ser server em <a href="https://docs.greenbone.net/GSM-Manual/gos-21.04/en/managing-secinfo.html">https://docs.greenbone.net/GSM-Manual/gos-21.04/en/managing-secinfo.html</a>.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo -u gvm -g gvm greenbone-nvt-sync
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo -u gvm -g gvm greenbone-feed-sync --type SCAP
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo -u gvm -g gvm greenbone-feed-sync --type CERT
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo -u gvm -g gvm greenbone-feed-sync --type GVMD_DATA
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo -u gvm -g gvm greenbone-feed-sync --type SCAP
 </code></pre></div><div class="alert warning ">
-  <p>A partir deste momento, sugiro fortemente aguardar a finalização de todas as atualizações. Você só conseguirá acompanhar o status lendo os logs do <code>gvmd.log</code>.</p>
+  <p>Em background o processo continuará populando o banco de dandos. Antes de ir para o próximo passo, aguarde até o fim deste processo observando o arquivo de log conforme é demonstrado na imagem abaixo ao executar o comando <code>sudo tail -f /var/log/gvm/gvmd.log</code>.</p>
 </div>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo tail -f gvmd.log
-</code></pre></div><p>Como pode ver abaixo, o processo de atualização continuará a popular o banco de dados em segundo plano.</p>
-<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1640137090/blog/feed_update1_m2h5ay.png" alt=""></p>
-<h2 id="configurando-cron-para-atualização-dos-feeds-diariamente">Configurando cron para atualização dos feeds diariamente</h2>
-<p>Precisaremos que todos os dias sejam atualizadas a lista de vulnerabilidades a partir dos feeds.</p>
-<p>Vamos criar um script de atualização do feed.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo vim /usr/local/bin/gvm-feedupdate.sh
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
-</span><span style="color:#75715e"></span>
-/usr/bin/greenbone-nvt-sync
-/usr/bin/greenbone-nvt-sync --type SCAP
-/usr/bin/greenbone-nvt-sync --type CERT 
-/usr/bin/greenbone-nvt-sync --type GVMD_DATA
-
-
-<span style="color:#75715e">#/var/log/gvm/update_feed.log</span>
-</code></pre></div><p>Precisarmos dar permissão de execução e passar a propriedade do script para o usuário <code>gvm</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo chmod +x /usr/local/bin/gvm-feedupdate.sh ; sudo chown gvm.gvm /usr/local/bin/gvm-feedupdate.sh
-</code></pre></div><p>Agora, vamos adicionar o agendamento no crontab do usuario <code>gvm</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo -u gvm -g gvm crontab -e
-</code></pre></div><p>Adicione linha a seguir em nosso arquivo. Ele o sistema operacional agendará para que <strong>todos os dias</strong>, ao <strong>meio dia</strong>, seja <strong>executada</strong> a série de <strong>comandos</strong> para atualização dos feeds, e que grave em <code>update_feed.log</code> os logs do update.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#ae81ff">0</span> <span style="color:#ae81ff">12</span> <span style="color:#ae81ff">1</span> * * bash /usr/local/bin/gvm-feedupdate.sh 
-</code></pre></div><p>Ficará mais ou menos assim:</p>
-<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1640196293/blog/cron_feed_igp3hx.png" alt="image-20210706220308635"></p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1640542910/blog/finish_scap_x2yu9u.png" alt=""></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo -u gvm -g gvm greenbone-feed-sync --type CERT
+</code></pre></div><div class="alert warning ">
+  <p>Em background o processo continuará populando o banco de dandos. Antes de ir para o próximo passo, aguarde até o fim deste processo observando o arquivo de log conforme é demonstrado na imagem abaixo ao executar o comando <code>sudo tail -f /var/log/gvm/gvmd.log</code>.</p>
+</div>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1640542914/blog/finish_cert_l3yus2.png" alt=""></p>
+<p>Tudo isso que fizemos acima, iremos automatizar nos capítulos seguintes.  😜</p>
 <h2 id="atualizando-certificados">Atualizando certificados</h2>
 <p>Esta tarefa pode ser necessária para corrigir problemas de comunicação entre o GVM e o Openvas Scanner, assim precisando reconfigu os certificados.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo -u gvm -g gvm gvm-manage-certs -f -a
@@ -523,7 +517,7 @@ OSP Server <span style="color:#66d9ef">for</span> openvas: 21.4.3
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"> sudo systemctl daemon-reload
 </code></pre></div><p>Reinicie todos os serviços instalados.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo systemctl restart ospd-openvas gsad gvmd
-</code></pre></div><h2 id="-acessando-o-openvas">🥳 Acessando o OpenVAS!</h2>
+</code></pre></div><h2 id="acessando-o-openvas">🥳Acessando o OpenVAS!</h2>
 <p>Agora basta acessar a interface na porta <code>9392</code>.</p>
 <p><strong>Credenciais:</strong> admin/admin</p>
 <p>https://IP_DO_SERVIDOR:9392</p>
@@ -532,21 +526,54 @@ OSP Server <span style="color:#66d9ef">for</span> openvas: 21.4.3
 <p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1640139619/blog/scanconfigs_ds4mpo.png" alt=""></p>
 <p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1625666486/blog/Snipaste_2021-07-07_10-57-49_zk3uf6.png" alt=""></p>
 <p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1625666487/blog/Snipaste_2021-07-07_10-55-40_hqydnb.png" alt=""></p>
-<h2 id="reconstruindo-nvts-e-configurações">Reconstruindo NVTs e Configurações</h2>
+<h2 id="configurando-cron-para-atualização-dos-feeds-diariamente">🤖Configurando cron para atualização dos feeds diariamente</h2>
+<p>Precisaremos que todos os dias sejam atualizadas a lista de vulnerabilidades a partir dos feeds.</p>
+<p>Vamos criar um script de atualização do feed.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo vim /usr/local/bin/gvm-feedupdate.sh
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>
+/usr/bin/greenbone-nvt-sync &amp;
+wait $!
+echo <span style="color:#e6db74">&#34;\nFinalizado NVT Update.\n&#34;</span>
+
+/usr/sbin/greenbone-feed-sync --type GVMD_DATA &amp;
+wait $!
+echo <span style="color:#e6db74">&#34;\nFinalizado GVM_DATA Update.\n&#34;</span>
+
+/usr/sbin/greenbone-feed-sync --type SCAP &amp;
+wait $!
+echo <span style="color:#e6db74">&#34;\nFinalizado SCAP Update.\n&#34;</span>
+
+/usr/sbin/greenbone-feed-sync --type CERT &amp;
+wait $!
+echo <span style="color:#e6db74">&#34;\nFinalizado CERT Update.\n&#34;</span>
+</code></pre></div><p>Precisarmos dar permissão de execução e passar a propriedade do script para o usuário <code>gvm</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo chmod +x /usr/local/bin/gvm-feedupdate.sh ; sudo chown gvm.gvm /usr/local/bin/gvm-feedupdate.sh
+</code></pre></div><p>Agora, vamos adicionar o agendamento no crontab do usuario <code>gvm</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo -u gvm -g gvm crontab -e
+</code></pre></div><p>Adicione linha a seguir em nosso arquivo. Ele o sistema operacional agendará para que <strong>todos os dias</strong>, ao <strong>meio dia</strong>, seja <strong>executada</strong> a série de <strong>comandos</strong> para atualização dos feeds, e que grave em <code>update_feed.log</code> os logs do update.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#ae81ff">0</span> <span style="color:#ae81ff">12</span> <span style="color:#ae81ff">1</span> * * bash /usr/local/bin/gvm-feedupdate.sh 
+</code></pre></div><p>Ficará mais ou menos assim:</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1640196293/blog/cron_feed_igp3hx.png" alt="image-20210706220308635"></p>
+<h2 id="deu-pau">Deu pau?</h2>
+<h3 id="leia-os-logs">Leia os logs!</h3>
+<p>Todos os logs estão em <code>/var/log/gvm</code>. Se em algum momento tiver algum problema com a aplicação, verique o que ocorre lendo os logs.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ls -lh /var/log/gvm/
+total 68K
+-rw-r--r-- <span style="color:#ae81ff">1</span> gvm gvm 2.2K Dec <span style="color:#ae81ff">26</span> 19:58 gsad.log
+-rw------- <span style="color:#ae81ff">1</span> gvm gvm  43K Dec <span style="color:#ae81ff">26</span> 19:15 gvmd.log
+-rw-r--r-- <span style="color:#ae81ff">1</span> gvm gvm 8.3K Dec <span style="color:#ae81ff">26</span> 19:35 openvas.log
+-rw-r--r-- <span style="color:#ae81ff">1</span> gvm gvm 1.9K Dec <span style="color:#ae81ff">26</span> 17:04 ospd-openvas.log
+</code></pre></div><p>No momento da instalação, se suspeitar que há algo errado bom o Postrgresql, basta olhar seu log tabém para investigação em <code>/var/log/postgresql/postgresql*.log</code>.</p>
+<h3 id="reconstruindo-nvts-e-configurações">Reconstruindo NVTs e Configurações</h3>
 <p>Pode acontecer de no momento da atualização dos feeds por alguma instabilidade de rede ocorrer algum interrupção e por sua vez crashear o banco dos NVTs (Network Vulnerability Tests) e demais configurações do scanner, como lista de portas, templates de scan, etc. Para resolver esse problema basta executar os comandos abaixo, e realizar os feeds.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">export <span style="color:#66d9ef">$(</span>sudo cat /etc/default/gvmd-pg<span style="color:#66d9ef">)</span>
 sudo -E -u gvm -g gvm gvmd --rebuild
-sudo -u gvm -g gvm gvmd --rebuild-gvmd-data<span style="color:#f92672">=</span>all
-</code></pre></div><h2 id="deu-pau-olhe-os-logs">Deu pau? Olhe os logs!</h2>
-<p>Todos os logs estão em <code>/var/log/gvm</code>. Se em algum momento tiver algum problema com a aplicação, verique o que ocorre lendo os logs.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ls -lh
-total 1.1M
--rw-r--r-- <span style="color:#ae81ff">1</span> gvm gvm  18K Jul  <span style="color:#ae81ff">7</span> 09:25 gsad.log
--rw------- <span style="color:#ae81ff">1</span> gvm gvm 190K Jul  <span style="color:#ae81ff">7</span> 07:53 gvmd.log
--rw-r--r-- <span style="color:#ae81ff">1</span> gvm gvm 873K Jul  <span style="color:#ae81ff">7</span> 09:40 openvas.log
--rw-r--r-- <span style="color:#ae81ff">1</span> gvm gvm 9.4K Jul  <span style="color:#ae81ff">7</span> 07:53 ospd-openvas.log
-</code></pre></div><p>No momento da instalação, se suspeitar que há algo errado bom o Postrgresql, basta olhar seu log tabém para investigação em <code>/var/log/postgresql/postgresql*.log</code>.</p>
-<h2 id="criando-novos-usuários">Criando novos usuários</h2>
+sudo -E -u gvm -g gvm gvmd --rebuild-gvmd-data<span style="color:#f92672">=</span>all
+sudo -E -u gvm -g gvm gvmd --rebuild-scap<span style="color:#f92672">=</span>all
+</code></pre></div><p>Reinicie todos os serviços instalados.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo systemctl restart ospd-openvas gsad gvmd
+</code></pre></div><h2 id="criando-novos-usuários">Criando novos usuários</h2>
 <p>Você pode utilizar a facilidade da linha de comando para já iniciar a criação de usuários.</p>
 <p>Primeiro de tudo, você deve entender qual a função do usuário a ser criado, você pode obter as roles disponíveis da seguinte forma:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo -u gvm -g gvm gvmd --get-roles
@@ -561,7 +588,7 @@ Observer
 </code></pre></div><p>Usando como exemplo que o usuário será o &ldquo;todo poderoso&rdquo; , ele deve ter a role de <code>Super Admin</code>. Caso ele tenha toda a liberdade de configurar scans, targets e configurações, porém você não quer que ele veja os scans de outros usuários também administradores, ele deve conter a role <code>Admin</code>.</p>
 <p>Para criar o usuário com a role desejada, basta usar o comando de exemplo abaixo:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo -u gvm -g gvm gvmd --create-user<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tiago.tavares&#34;</span> --password<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;SENHA&#34;</span> --role<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Super Admin&#34;</span>
-</code></pre></div><h1 id="-vídeos-demonstrativos">🎬 Vídeos demonstrativos</h1>
+</code></pre></div><h1 id="vídeos-demonstrativos">🎬Vídeos demonstrativos</h1>
 <p>Segue alguns vídeos para facilitar o início da utilização.</p>
 <h2 id="criando-grupos-de-alvos">Criando grupos de alvos</h2>
 
@@ -587,8 +614,8 @@ Observer
   <iframe src="https://www.youtube.com/embed/2_hvNAxY9j0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
 </div>
 
-<h1 id="-bônus---máquina-virtual---dez-2021">🎁 Bônus - Máquina Virtual - Dez 2021</h1>
-<p>Caso tenha problemas na instalação ou queira realizar um <em>assessment</em> rápido basta baixar a máquina virtual (VMware) clicando <a href="https://bit.ly/32ohU9z">aqui</a>.</p>
+<h1 id="bônus---máquina-virtual---dez-2021">🎁Bônus - Máquina Virtual - Dez 2021</h1>
+<p>Caso tenha problemas na instalação ou queira realizar um <em>assessment</em> rápido basta baixar a máquina virtual (VMware) clicando <a href="https://bit.ly/3es6DYC">aqui</a>.</p>
 <p>Lembre-se logar no Ubuntu e atualizar os feed, conforme mostro acima.</p>
 <h1 id="agradecimentos">Agradecimentos</h1>
 <p>Abro este espaço também para agradecer a toda comunidade que me retornou ótimos feedbacks e me ajudou a melhorar o procedimento.
