@@ -6,7 +6,16 @@
     <description>Recent content on debugging the life</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 Dec 2021 11:00:09 -0300</lastBuildDate><atom:link href="https://tiagotavares.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 27 Dec 2021 09:16:19 -0300</lastBuildDate><atom:link href="https://tiagotavares.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Log4J2 JNDI/LDAP Lookups - Dos elos evitáveis ao apocalipse 🔥 | CVE-2021-44228</title>
+      <link>https://tiagotavares.io/2021/12/log4j2-jndi/ldap-lookups-dos-elos-evit%C3%A1veis-ao-apocalipse-cve-2021-44228/</link>
+      <pubDate>Mon, 27 Dec 2021 09:16:19 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/2021/12/log4j2-jndi/ldap-lookups-dos-elos-evit%C3%A1veis-ao-apocalipse-cve-2021-44228/</guid>
+      <description>&lt;p&gt;🧵 Uma thread de quase 10 anos de acontecimentos que poderiam ter sido previstos e evitados.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Gestao de vulnerabilidades com Greenbone Openvas - Ubuntu 20.04 | Updated Dez 2021</title>
       <link>https://tiagotavares.io/2021/12/gestao-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04-updated-dez-2021/</link>

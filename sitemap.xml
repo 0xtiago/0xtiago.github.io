@@ -2,11 +2,53 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://tiagotavares.io/tags/apache/</loc>
+    <lastmod>2021-12-27T09:16:19-03:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/categories/application-security/</loc>
+    <lastmod>2021-12-27T09:16:19-03:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/tags/blackhat/</loc>
+    <lastmod>2021-12-27T09:16:19-03:00</lastmod>
+  </url><url>
     <loc>https://tiagotavares.io/categories/</loc>
-    <lastmod>2021-12-22T11:00:09-03:00</lastmod>
+    <lastmod>2021-12-27T09:16:19-03:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/tags/cve-2021-44228/</loc>
+    <lastmod>2021-12-27T09:16:19-03:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/tags/cve-2021-45046/</loc>
+    <lastmod>2021-12-27T09:16:19-03:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/tags/cve-2021-45105/</loc>
+    <lastmod>2021-12-27T09:16:19-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/</loc>
-    <lastmod>2021-12-22T11:00:09-03:00</lastmod>
+    <lastmod>2021-12-27T09:16:19-03:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/tags/jndi/</loc>
+    <lastmod>2021-12-27T09:16:19-03:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/tags/ldap/</loc>
+    <lastmod>2021-12-27T09:16:19-03:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/tags/log4j2/</loc>
+    <lastmod>2021-12-27T09:16:19-03:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/2021/12/log4j2-jndi/ldap-lookups-dos-elos-evit%C3%A1veis-ao-apocalipse-cve-2021-44228/</loc>
+    <lastmod>2021-12-27T09:16:19-03:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/tags/openctibr/</loc>
+    <lastmod>2021-12-27T09:16:19-03:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/post/</loc>
+    <lastmod>2021-12-27T09:16:19-03:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/tags/research/</loc>
+    <lastmod>2021-12-27T09:16:19-03:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/tags/</loc>
+    <lastmod>2021-12-27T09:16:19-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/2021/12/gestao-de-vulnerabilidades-com-greenbone-openvas-ubuntu-20.04-updated-dez-2021/</loc>
     <lastmod>2021-12-22T11:00:09-03:00</lastmod>
@@ -23,13 +65,7 @@
     <loc>https://tiagotavares.io/tags/openvas/</loc>
     <lastmod>2021-12-22T11:00:09-03:00</lastmod>
   </url><url>
-    <loc>https://tiagotavares.io/post/</loc>
-    <lastmod>2021-12-22T11:00:09-03:00</lastmod>
-  </url><url>
     <loc>https://tiagotavares.io/tags/scanner/</loc>
-    <lastmod>2021-12-22T11:00:09-03:00</lastmod>
-  </url><url>
-    <loc>https://tiagotavares.io/tags/</loc>
     <lastmod>2021-12-22T11:00:09-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/tags/ubuntu/</loc>
@@ -191,9 +227,6 @@
     <loc>https://tiagotavares.io/2020/07/miros-free-accounts-insecurity/</loc>
     <lastmod>2020-07-16T08:15:12-03:00</lastmod>
   </url><url>
-    <loc>https://tiagotavares.io/tags/research/</loc>
-    <lastmod>2020-07-16T08:15:12-03:00</lastmod>
-  </url><url>
     <loc>https://tiagotavares.io/categories/data-privacy/</loc>
     <lastmod>2020-07-16T08:15:12-03:00</lastmod>
   </url><url>
@@ -249,9 +282,6 @@
     <lastmod>2020-06-19T22:41:04-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/2020/06/inseguran%C3%A7a-em-tokens-jwt/</loc>
-    <lastmod>2020-06-12T12:15:12-03:00</lastmod>
-  </url><url>
-    <loc>https://tiagotavares.io/categories/application-security/</loc>
     <lastmod>2020-06-12T12:15:12-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/tags/criptography/</loc>
