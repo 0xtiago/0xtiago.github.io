@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Development on Hinode</title>
+    <link>https://example.com/tags/development/</link>
+    <description>Recent content in Development on Hinode</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>Copyright © 2024 Mark Dumay.</copyright>
+    <lastBuildDate>Fri, 13 Aug 2021 11:15:12 -0300</lastBuildDate>
+    <atom:link href="https://example.com/tags/development/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Café Seguro 23 Café na conta de... Tiago Tavares</title>
+      <link>https://example.com/blog/participacao_podcast_cafeseguro/</link>
+      <pubDate>Fri, 13 Aug 2021 11:15:12 -0300</pubDate>
+      <guid>https://example.com/blog/participacao_podcast_cafeseguro/</guid>
+      <description>&lt;p&gt;Minha participação no podcast &lt;strong&gt;Café Seguro&lt;/strong&gt;, da WSS Security, e apresentado Daniel Dalalana, Pedro Kassick e Ben Hur Ott.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>(In)segurança em tokens JWT</title>
+      <link>https://example.com/blog/jwt_insecurity/</link>
+      <pubDate>Fri, 12 Jun 2020 12:15:12 -0300</pubDate>
+      <guid>https://example.com/blog/jwt_insecurity/</guid>
+      <description>&lt;p&gt;Existem muitas bibliotecas disponíveis que suportam JWT, e o próprio padrão possui “rico suporte para mecanismos criptográficos”. Tudo isso significa que o JWT é realmente seguro? Vamos ver.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>O fim dos times de AppSec</title>
+      <link>https://example.com/blog/ofimdostimesdeappsec/</link>
+      <pubDate>Fri, 05 Jun 2020 12:02:56 -0300</pubDate>
+      <guid>https://example.com/blog/ofimdostimesdeappsec/</guid>
+      <description>&lt;p&gt;O paradoxo da segurança em aplicações.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

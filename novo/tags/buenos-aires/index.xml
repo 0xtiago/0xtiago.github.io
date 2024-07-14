@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Buenos Aires on Hinode</title>
+    <link>https://example.com/tags/buenos-aires/</link>
+    <description>Recent content in Buenos Aires on Hinode</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>Copyright © 2024 Mark Dumay.</copyright>
+    <lastBuildDate>Fri, 19 Jun 2020 22:41:04 -0300</lastBuildDate>
+    <atom:link href="https://example.com/tags/buenos-aires/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ekoparty Security Conference 13 (2017) - Talks</title>
+      <link>https://example.com/blog/ekoparty13/</link>
+      <pubDate>Fri, 19 Jun 2020 22:41:04 -0300</pubDate>
+      <guid>https://example.com/blog/ekoparty13/</guid>
+      <description>&lt;p&gt;Desde 2017, estive presente todos os anos em Buenos Aires para participar do evento, que sempre me suepreende com o ótimo nível dos materiais apresentados pelos palestrantes.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>A minha estreia em maratonas 🏅</title>
+      <link>https://example.com/blog/maratonadebuenosaires2018/</link>
+      <pubDate>Tue, 24 Jul 2018 14:40:20 -0300</pubDate>
+      <guid>https://example.com/blog/maratonadebuenosaires2018/</guid>
+      <description>&lt;p&gt;Sofra e divirta-se comigo, além de d    icas de como não errar em sua estréia em maratonas! 👟&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hackthebox on Hinode</title>
+    <link>https://example.com/tags/hackthebox/</link>
+    <description>Recent content in Hackthebox on Hinode</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>Copyright © 2024 Mark Dumay.</copyright>
+    <lastBuildDate>Thu, 14 May 2020 16:31:51 -0300</lastBuildDate>
+    <atom:link href="https://example.com/tags/hackthebox/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lame - Hack The Box (Retired)</title>
+      <link>https://example.com/blog/lame-htb/</link>
+      <pubDate>Thu, 14 May 2020 16:31:51 -0300</pubDate>
+      <guid>https://example.com/blog/lame-htb/</guid>
+      <description>&lt;p&gt;Lame - Hack The Box retired machine walkthrough.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>OpenAdmin - Hack The Box (Retired)</title>
+      <link>https://example.com/blog/openadmin-htb/</link>
+      <pubDate>Thu, 23 Apr 2020 16:31:51 -0300</pubDate>
+      <guid>https://example.com/blog/openadmin-htb/</guid>
+      <description>&lt;p&gt;OpenAdmin - Hack The Box retired machine walkthrough.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Mirai - Hack The Box (Retired)</title>
+      <link>https://example.com/blog/mirai_hdb/</link>
+      <pubDate>Thu, 23 Nov 2017 16:31:51 -0300</pubDate>
+      <guid>https://example.com/blog/mirai_hdb/</guid>
+      <description>&lt;p&gt;Mirai - Hack The Box retired machine walkthrough.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

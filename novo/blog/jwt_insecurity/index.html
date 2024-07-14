@@ -1,0 +1,2027 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+    <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.128.2">
+    <meta name="theme" content="Hinode 0.14.0">
+    
+
+
+
+
+
+    
+    
+<link rel="stylesheet" href="/css/main.min.efe232a6d505bfd4eebc021116f402279b8f9434777650f9bc099c4caff52542.css" integrity="sha256-7+IyptUFv9TuvAIRFvQCJ5uPlDR3dlD5vAmcTK/1JUI=" crossorigin="anonymous">
+    
+        
+    
+    
+         
+        <link rel="preload" href="/fonts/inter-v12-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+
+
+
+
+    
+
+
+  <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <title>Hinode - (In)segurança em tokens JWT</title>
+    <meta name="description" content="Existem muitas bibliotecas disponíveis que suportam JWT, e o próprio padrão possui “rico suporte para mecanismos criptográficos”. Tudo isso significa ...">
+
+<link rel="canonical" href="https://example.com/blog/jwt_insecurity/">
+
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="(In)segurança em tokens JWT">
+<meta property="og:description" content="Existem muitas bibliotecas disponíveis que suportam JWT, e o próprio padrão possui “rico suporte para mecanismos criptográficos”. Tudo isso significa ...">
+<meta property="og:url" content="https://example.com/blog/jwt_insecurity/">
+<meta property="og:site_name" content="Hinode">
+<meta property="article:published_time" content="2020-06-12T12:15:12-03:00">
+    <meta property="article:modified_time" content="2020-06-12T12:15:12-03:00">
+    <meta property="og:image" content="https://example.com/logo.png">
+<meta property="og:image:alt" content="(In)segurança em tokens JWT">
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+
+
+<meta name="twitter:title" content="(In)segurança em tokens JWT">
+<meta name="twitter:description" content="Existem muitas bibliotecas disponíveis que suportam JWT, e o próprio padrão possui “rico suporte para mecanismos criptográficos”. Tudo isso significa ...">
+<meta name="twitter:image" content="https://example.com/logo.png">
+<meta name="twitter:image:alt" content="(In)segurança em tokens JWT">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+        "@id": "https://example.com/#/schema/organization/1",
+      "name": "Hinode",
+      "url": "https://example.com/",
+      "sameAs": [
+        , "https://github.com/gethinode/hinode"
+        ],
+      "image": {
+          "@type": "ImageObject",
+          "@id": "https://example.com/#/schema/image/1",
+          "url": "https://example.com/\u003cnil\u003e",
+          "width": null ,
+          "height": null ,
+          "caption": "Hinode"
+        }
+      },
+    {
+      "@type": "WebSite",
+      "@id": "https://example.com/#/schema/website/1",
+      "url": "https://example.com/",
+      "name": "Hinode",
+      "description": "Hinode is a clean documentation and blog theme for your Hugo site based on Bootstrap 5.",
+      "publisher": {
+          "@id": "https://example.com/#/schema/organization/1"
+        }
+      },
+    {
+      "@type": "WebPage",
+      "@id": "https://example.com/blog/jwt_insecurity/",
+      "url": "https://example.com/blog/jwt_insecurity/",
+      "name": "(In)segurança em tokens JWT",
+      "description": "",
+      "isPartOf": {
+        "@id": "https://example.com/#/schema/website/1"
+      },
+      "about": {
+          "@id": "https://example.com/#/schema/organization/1"
+        },
+      "datePublished": "2020-06-12T12:15:12CET",
+      "dateModified": "2020-06-12T12:15:12CET",
+      "breadcrumb": {
+        "@id": "https://example.com/blog/jwt_insecurity/#/schema/breadcrumb/1"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://example.com/blog/jwt_insecurity/#/schema/image/2"
+      },
+      "inLanguage": "en-US",
+      "potentialAction": [{
+        "@type": "ReadAction", "target": ["https://example.com/blog/jwt_insecurity/"]
+      }]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://example.com/blog/jwt_insecurity/#/schema/breadcrumb/1",
+      "name": "Breadcrumbs",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position":  1 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://example.com/",
+          "url": "https://example.com/",
+          "name": "Home"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  2 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://example.com/blog/",
+          "url": "https://example.com/blog/",
+          "name": "Blog"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  3 ,
+        "item": {
+          "@id": "https://example.com/blog/jwt_insecurity/"
+          }
+        }]
+    },
+
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "@id": "https://example.com/#/schema/article/1",
+          "headline": "(In)segurança em tokens JWT",
+          "description": "",
+          "isPartOf": {
+            "@id": "https://example.com/blog/jwt_insecurity/"
+          },
+          "mainEntityOfPage": {
+            "@id": "https://example.com/blog/jwt_insecurity/"
+          },
+          "datePublished": "2020-06-12T12:15:12CET",
+          "dateModified": "2020-06-12T12:15:12CET",
+          "author": {
+            "@id": "https://example.com/#/schema/person/2"
+          },
+          "publisher": {
+              "@id": "https://example.com/#/schema/organization/1"
+            },
+          "image": {
+            "@id": "https://example.com/blog/jwt_insecurity/#/schema/image/2"
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://example.com/#/schema/person/2",
+          "name":  null ,
+          "sameAs": [
+            ]
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ImageObject",
+          "@id": "https://example.com/blog/jwt_insecurity/#/schema/image/2",
+          "url": "https://example.com/logo.png",
+          "contentUrl": "https://example.com/logo.png",
+          "caption": "(In)segurança em tokens JWT"
+        }
+      ]
+    }
+
+  ]
+}
+</script>
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon_hu29d17b5413868ec40c659bb26691088e_2409_16x16_resize_catmullrom_3.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon_hu29d17b5413868ec40c659bb26691088e_2409_32x32_resize_catmullrom_3.png">
+        <link rel="icon" type="image/png" sizes="48x48" href="/img/favicon_hu29d17b5413868ec40c659bb26691088e_2409_48x48_resize_catmullrom_3.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon_hu29d17b5413868ec40c659bb26691088e_2409_180x0_resize_catmullrom_3.png">
+    
+
+</head>
+
+    <body>
+<script src="/js/critical.bundle.min.a73ed0b9da936bca55cd96a54840ab270bde232f86b9b2f7ca2026635b177982.js" integrity="sha256-pz7QudqTa8pVzZalSECrJwveIy&#43;GubL3yiAmY1sXeYI=" crossorigin="anonymous"></script>
+    <div class="d-flex flex-column min-vh-100">
+            <div class="d-flex flex-column ">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container-fluid fixed-top p-0">
+
+
+
+
+
+
+<nav class="navbar p-4 bg-body navbar-fixed-top navbar-expand-md"
+        
+        
+        >
+        <div class="container-xxl p-0">
+            <div class="d-flex navbar-container justify-content-center">
+                
+                <div class="d-flex align-items-center">
+                        <button class="navbar-toggler collapsed p-0 mx-auto invisible fw-30" type="button">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-ellipsis fa-fw"></i> --><svg class="svg-inline--fa fas fa-ellipsis fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/></svg>
+
+    
+</button></div>
+        
+                
+                <div class="mx-auto">
+                    <a class="navbar-brand" href="/" aria-label="Home">
+                            <img src="/img/tt-logo-icon.svg" alt="Hinode logo" height="30"></a>
+                </div>
+        
+                
+                <div class="d-flex align-items-center">
+                    <button class="navbar-toggler main-nav-toggler collapsed p-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-0-collapse"
+                        aria-controls="navbar-0" aria-expanded="false" aria-label="Toggle main navigation">
+                        <span class="toggler-icon top-bar emphasis"></span>
+                        <span class="toggler-icon middle-bar emphasis"></span>
+                        <span class="toggler-icon bottom-bar emphasis"></span>
+                    </button>
+                </div>
+            </div>
+    
+            <div class="navbar-collapse collapse" id="navbar-0-collapse">
+                <div class="d-flex flex-fill ms-md-3">
+    <form class="search flex-fill position-relative me-auto">
+        <input class="search-input form-control is-search" type="search" placeholder="Search this site" aria-label="Search this site" autocomplete="off">
+        <div class="search-suggestions shadow bg-body rounded d-none" data-no-results="No results for"></div>
+    </form>
+</div>
+
+                <ul class="navbar-nav ms-auto">
+                            <li class="nav-item ">
+
+
+
+
+
+
+
+
+    
+        <a class="nav-link" 
+            
+            data-nav="main" data-nav-main="home" 
+            href="/" ><span >Home</span>&nbsp;</a>
+    
+</li>
+                            <li class="nav-item ">
+
+
+
+
+
+
+
+
+    
+        <a class="nav-link" 
+            
+            data-nav="main" data-nav-main="tags" 
+            href="/tags" ><span >Tags</span>&nbsp;</a>
+    
+</li><div class="d-flex mode-switch align-items-center" id="navbar-mode">
+        <input type="checkbox" class="checkbox navbar-mode-selector" id="navbar-mode-checkbox" />
+        <label class="label" for="navbar-mode-checkbox">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-sun fa-fw"></i> --><svg class="svg-inline--fa fas fa-sun fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512"><path d="M361.5 1.2c5 2.1 8.6 6.6 9.6 11.9L391 121l107.9 19.8c5.3 1 9.8 4.6 11.9 9.6s1.5 10.7-1.6 15.2L446.9 256l62.3 90.3c3.1 4.5 3.7 10.2 1.6 15.2s-6.6 8.6-11.9 9.6L391 391 371.1 498.9c-1 5.3-4.6 9.8-9.6 11.9s-10.7 1.5-15.2-1.6L256 446.9l-90.3 62.3c-4.5 3.1-10.2 3.7-15.2 1.6s-8.6-6.6-9.6-11.9L121 391 13.1 371.1c-5.3-1-9.8-4.6-11.9-9.6s-1.5-10.7 1.6-15.2L65.1 256 2.8 165.7c-3.1-4.5-3.7-10.2-1.6-15.2s6.6-8.6 11.9-9.6L121 121 140.9 13.1c1-5.3 4.6-9.8 9.6-11.9s10.7-1.5 15.2 1.6L256 65.1 346.3 2.8c4.5-3.1 10.2-3.7 15.2-1.6zM160 256a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zm224 0a128 128 0 1 0 -256 0 128 128 0 1 0 256 0z"/></svg>
+
+    
+
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-moon fa-fw"></i> --><svg class="svg-inline--fa fas fa-moon fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 384 512"><path d="M223.5 32C100 32 0 132.3 0 256S100 480 223.5 480c60.6 0 115.5-24.2 155.8-63.4c5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6c-96.9 0-175.5-78.8-175.5-176c0-65.8 36-123.1 89.3-153.3c6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"/></svg>
+
+    
+
+            <div class="ball"></div>
+        </label>
+    </div></ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="main-content">
+                    </div>
+                
+            </div>
+
+            
+                
+    
+
+    
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvass-sidebar" aria-inledby="offcanvas-label">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvas-label">Blog</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                
+
+            </div>
+        </div>
+    
+
+    <div class="container-xxl flex-fill p-4 px-xxl-0">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+                <div class="col col-lg-2 d-none d-lg-block sidebar-overflow sticky-top pt-5">
+                    
+
+                </div>
+                <div class="col-12 col-md-9 col-lg-8 mb-5 p-4">
+                    
+
+
+
+
+
+
+
+
+
+
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                
+                    <li class="breadcrumb-item"><a href="/blog/">Blogs</a></li>
+                <li class="breadcrumb-item active" aria-current="page">(In)segurança em tokens JWT</li>
+        </ol>
+    </nav>
+<p class="display-4 mt-5">(In)segurança em tokens JWT</p>
+
+    <small class="text-body-secondary text-uppercase">
+        Posted on June 12, 2020
+            
+        
+        &bull;
+        23&nbsp;min read &bull;
+        4,760&nbsp;words
+    </small>
+<div class="mt-3">
+        <div class="d-none-dark">
+            <div class="hstack gap-1">
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Application"
+        href="/tags/application/" class="btn btn-light btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Application</div>
+        </div></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Development"
+        href="/tags/development/" class="btn btn-light btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Development</div>
+        </div></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Security"
+        href="/tags/security/" class="btn btn-light btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Security</div>
+        </div></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Cybersecurity"
+        href="/tags/cybersecurity/" class="btn btn-light btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Cybersecurity</div>
+        </div></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Jwt"
+        href="/tags/jwt/" class="btn btn-light btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Jwt</div>
+        </div></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Owasp"
+        href="/tags/owasp/" class="btn btn-light btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Owasp</div>
+        </div></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Criptography"
+        href="/tags/criptography/" class="btn btn-light btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Criptography</div>
+        </div></a>&nbsp;
+
+                </div>
+        </div>
+        
+        <div class="d-none-light">
+            <div class="hstack gap-1">
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Application"
+        href="/tags/application/" class="btn btn-outline-primary btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Application</div>
+        </div></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Development"
+        href="/tags/development/" class="btn btn-outline-primary btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Development</div>
+        </div></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Security"
+        href="/tags/security/" class="btn btn-outline-primary btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Security</div>
+        </div></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Cybersecurity"
+        href="/tags/cybersecurity/" class="btn btn-outline-primary btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Cybersecurity</div>
+        </div></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Jwt"
+        href="/tags/jwt/" class="btn btn-outline-primary btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Jwt</div>
+        </div></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Owasp"
+        href="/tags/owasp/" class="btn btn-outline-primary btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Owasp</div>
+        </div></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Criptography"
+        href="/tags/criptography/" class="btn btn-outline-primary btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Criptography</div>
+        </div></a>&nbsp;
+
+                </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+<div class="py-3 text-body-secondary hstack gap-1">
+            Share via 
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Share via LinkedIn"
+        href="https://www.linkedin.com/sharing/share-offsite/?url=https://example.com/blog/jwt_insecurity/" class="btn btn-primary  position-relative  btn-social p-0"
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto"></div><div class="align-self-center">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fab fa-linkedin fa-fw"></i> --><svg class="svg-inline--fa fab fa-linkedin fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+
+    
+</div>
+        </div></a>
+
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Share via Twitter"
+        href="https://twitter.com/home?status=https://example.com/blog/jwt_insecurity/" class="btn btn-primary  position-relative  btn-social p-0"
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto"></div><div class="align-self-center">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fab fa-x-twitter fa-fw"></i> --><svg class="svg-inline--fa fab fa-x-twitter fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+
+    
+</div>
+        </div></a>
+
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Share via Facebook"
+        href="https://www.facebook.com/sharer.php?u=https://example.com/blog/jwt_insecurity/" class="btn btn-primary  position-relative  btn-social p-0"
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto"></div><div class="align-self-center">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fab fa-facebook fa-fw"></i> --><svg class="svg-inline--fa fab fa-facebook fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512"><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z"/></svg>
+
+    
+</div>
+        </div></a>
+
+
+
+
+
+
+
+
+
+
+
+    <a aria-label="Share via WhatsApp"
+        href="whatsapp://send?text=%28In%29seguran%C3%A7a&#43;em&#43;tokens&#43;JWT%20https://example.com/blog/jwt_insecurity/" class="btn btn-primary  position-relative  btn-social p-0"
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto"></div><div class="align-self-center">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fab fa-whatsapp fa-fw"></i> --><svg class="svg-inline--fa fab fa-whatsapp fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+
+    
+</div>
+        </div></a>
+
+
+
+
+
+
+
+
+<div id="toast-message-email-4" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+        <strong class="me-auto">Hinode</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">Link copied to clipboard</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Share via email"
+        href="#!" data-toast-target="toast-message-email-4" data-clipboard="https://example.com/blog/jwt_insecurity/" class="btn btn-primary  position-relative  btn-social p-0"
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto"></div><div class="align-self-center">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link fa-fw"></i> --><svg class="svg-inline--fa fas fa-link fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    
+</div>
+        </div></a>
+
+                
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Share via system"
+        href="#!" id="btn-webshare" class="btn btn-primary  position-relative  btn-social p-0"
+         data-sharing-description="%!s(<nil>)" data-sharing-title="%!s(<nil>)" data-sharing-url="%!s(<nil>)"role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto"></div><div class="align-self-center">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-share-nodes fa-fw"></i> --><svg class="svg-inline--fa fas fa-share-nodes fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><path d="M352 224c53 0 96-43 96-96s-43-96-96-96s-96 43-96 96c0 4 .2 8 .7 11.9l-94.1 47C145.4 170.2 121.9 160 96 160c-53 0-96 43-96 96s43 96 96 96c25.9 0 49.4-10.2 66.6-26.9l94.1 47c-.5 3.9-.7 7.8-.7 11.9c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-25.9 0-49.4 10.2-66.6 26.9l-94.1-47c.5-3.9 .7-7.8 .7-11.9s-.2-8-.7-11.9l94.1-47C302.6 213.8 326.1 224 352 224z"/></svg>
+
+    
+</div>
+        </div></a>
+</div>
+<p class="lead mb-5 mt-3"></p>
+<div class="d-md-none pb-5">
+
+
+
+
+
+
+<div class="d-grid gap-2 mx-auto">
+        
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="On this page"
+        href="#toc-collapse" class="btn btn-outline-secondary  position-relative  toc-button"
+         data-bs-toggle="collapse" aria-expanded="false" aria-controls="toc-collapse"role="button"
+        >
+        <div class="d-flex justify-content-between">
+            <div class="my-auto">On this page</div><div class="align-self-center ps-1">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-sort "></i> --><svg class="svg-inline--fa fas fa-sort " fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 320 512"><path d="M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8H32c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8H288c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z"/></svg>
+
+    
+</div>
+        </div></a>
+</div>
+
+    <div class="collapse border bg-body-tertiary rounded p-1 navbar-nav-scroll" id="toc-collapse">
+        <div class="toc toc-panel text-body p-2">
+            <small><nav id="TableOfContents">
+  <ul>
+    <li><a href="#sumário">Sumário</a></li>
+    <li><a href="#introdução-ao-jwt">Introdução ao JWT</a></li>
+    <li><a href="#outros-examples-de-jwt-e-seus-primeiros-problemas-de-segurança">Outros examples de JWT e seus primeiros problemas de segurança</a></li>
+    <li><a href="#espinhos-do-jwt-">Espinhos do JWT 🌹</a>
+      <ul>
+        <li><a href="#primeiro-espinho-é-complexo">Primeiro espinho: é complexo!</a></li>
+        <li><a href="#segundo-espinho-none">Segundo espinho: none!</a></li>
+        <li><a href="#terceiro-espinho-quebrando-a-chave-hmac">Terceiro espinho: quebrando a chave HMAC</a></li>
+        <li><a href="#quarto-espinho-muitos-cozinheiros-estragam-o-caldo-do-jwt">Quarto espinho: muitos cozinheiros estragam o caldo do JWT</a></li>
+        <li><a href="#quinto-espinho-fornecendo-sua-própria-chave">Quinto espinho: fornecendo sua própria chave</a></li>
+        <li><a href="#sexto-espinho-a-criptografia-jwt-funciona-mesmo">Sexto espinho: a criptografia JWT funciona mesmo?</a></li>
+        <li><a href="#sétimo-espinho-decodificação--verificação---isso-importa-">Sétimo espinho: decodificação / verificação - isso importa? 😉</a></li>
+        <li><a href="#oitavo-espinho-capturar-qualquer-token--assumir-o-acesso-à-api">Oitavo espinho: capturar qualquer token = assumir o acesso à API?</a></li>
+        <li><a href="#nono-espinho-replay-jwt">Nono espinho: replay JWT</a></li>
+        <li><a href="#décimo-espinho-_timing-attacks_-na-assinatura">Décimo espinho: <em>timing attacks</em> na assinatura</a></li>
+        <li><a href="#décimo-primeiro-espinho-grande-quantidade-de-bibliotecas-disponíveis">Décimo-primeiro espinho: grande quantidade de bibliotecas disponíveis</a></li>
+      </ul>
+    </li>
+    <li><a href="#alternativa-ao-jwt">Alternativa ao JWT?</a></li>
+    <li><a href="#o-jwt-pode-ser-seguro">O JWT pode ser seguro?</a>
+      <ul>
+        <li><a href="#o-que-devo-fazer">O que devo fazer?</a></li>
+      </ul>
+    </li>
+    <li><a href="#referências">Referências</a></li>
+  </ul>
+</nav></small>
+        </div>
+    </div>
+</div>
+<p>Existem muitas bibliotecas disponíveis que suportam JWT, e o próprio padrão possui “rico suporte para mecanismos criptográficos”. Tudo isso significa que o JWT é realmente seguro? Vamos ver.</p>
+<!-- raw HTML omitted -->
+<p><em>Texto de pesquisa traduzido do <a href="https://research.securitum.com/jwt-json-web-token-security/">original</a> por <a href="https://www.linkedin.com/in/sekurak/">MICHAŁ SAJDAK</a>.</em></p>
+<hr>
+<p>O JWT (JSON Web Token) é um mecanismo usado com frequência nas APIs REST e pode ser encontrado em padrões populares, como o OpenID Connect, mas também o encontramos algumas vezes usando o OAuth2. É usado tanto em grandes empresas quanto em organizações menores.</p>
+
+<h2 id="sumário" class="heading">Sumário <a href="#sum%c3%a1rio" aria-labelledby="sumário">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h2>
+<ul>
+<li><a href="/blog/jwt_insecurity/#introdução-ao-jwt">Introdução ao JWT</a></li>
+<li><a href="/blog/jwt_insecurity/#outros-examples-de-jwt-e-seus-primeiros-problemas-de-segurança">Outros examples de JWT e seus primeiros problemas de segurança</a></li>
+<li><a href="/blog/jwt_insecurity/#espinhos-do-jwt-">Espinhos do JWT 🌹</a>
+<ul>
+<li><a href="/blog/jwt_insecurity/#primeiro-espinho-é-complexo">Primeiro espinho: é complexo!</a></li>
+<li><a href="/blog/jwt_insecurity/#segundo-espinho-none">Segundo espinho: none!</a></li>
+<li><a href="/blog/jwt_insecurity/#terceiro-espinho-quebrando-a-chave-hmac">Terceiro espinho: quebrando a chave HMAC</a></li>
+<li><a href="/blog/jwt_insecurity/#quarto-espinho-muitos-cozinheiros-estragam-o-caldo-do-jwt">Quarto espinho: muitos cozinheiros estragam o caldo do JWT</a></li>
+<li><a href="/blog/jwt_insecurity/#quinto-espinho-fornecendo-sua-própria-chave">Quinto espinho: fornecendo sua própria chave</a></li>
+<li><a href="/blog/jwt_insecurity/#sexto-espinho-a-criptografia-jwt-funciona-mesmo">Sexto espinho: a criptografia JWT funciona mesmo?</a></li>
+<li><a href="/blog/jwt_insecurity/#sétimo-espinho-decodificação--verificação---isso-importa-">Sétimo espinho: decodificação / verificação - isso importa? 😉</a></li>
+<li><a href="/blog/jwt_insecurity/#oitavo-espinho-capturar-qualquer-token--assumir-o-acesso-à-api">Oitavo espinho: capturar qualquer token = assumir o acesso à API?</a></li>
+<li><a href="/blog/jwt_insecurity/#nono-espinho-replay-jwt">Nono espinho: replay JWT</a></li>
+<li><a href="/blog/jwt_insecurity/#décimo-espinho-timing-attacks-na-assinatura">Décimo espinho: <em>timing attacks</em> na assinatura</a></li>
+<li><a href="/blog/jwt_insecurity/#décimo-primeiro-espinho-grande-quantidade-de-bibliotecas-disponíveis">Décimo-primeiro espinho: grande quantidade de bibliotecas disponíveis</a></li>
+</ul>
+</li>
+<li><a href="/blog/jwt_insecurity/#alternativa-ao-jwt">Alternativa ao JWT?</a></li>
+<li><a href="/blog/jwt_insecurity/#o-jwt-pode-ser-seguro">O JWT pode ser seguro?</a>
+<ul>
+<li><a href="/blog/jwt_insecurity/#o-que-devo-fazer">O que devo fazer?</a>
+<ul>
+<li><a href="/blog/jwt_insecurity/#pra-começar">Pra começar</a></li>
+<li><a href="/blog/jwt_insecurity/#chaves">Chaves</a></li>
+<li><a href="/blog/jwt_insecurity/#assinatura">Assinatura</a></li>
+<li><a href="/blog/jwt_insecurity/#regras-gerais">Regras gerais</a></li>
+<li><a href="/blog/jwt_insecurity/#payload">Payload</a></li>
+<li><a href="/blog/jwt_insecurity/#bibliotecas">Bibliotecas</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="/blog/jwt_insecurity/#referências">Referências</a></li>
+</ul>
+
+<h2 id="introdução-ao-jwt" class="heading">Introdução ao JWT <a href="#introdu%c3%a7%c3%a3o-ao-jwt" aria-labelledby="introdução-ao-jwt">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h2>
+<p>A <a href="https://tools.ietf.org/html/rfc7519">RFC 7519</a> diz:</p>
+<blockquote>
+<p><em>O JSON Web Token (JWT) é um meio compacto e seguro de URL de representar <em>claims</em> a serem transferidas entre duas partes. As <em>claims</em> em um JWT são codificadas como um objeto JSON usado como payload de uma estrutura JSON Web Signature (JWS) ou como texto sem formatação de uma estrutura JSON Web Encryption (JWE) (…)</em></p>
+</blockquote>
+<p>Simplificando, o JWT é uma sequência de caracteres no formato JSON (<a href="https://www.json.org/">https://www.json.org/</a>) codificado na estrutura JWS (JSON Web Signature) ou JWE (JSON Web Encryption). Além disso, cada uma dessas opções deve ser serializada de maneira compacta (uma das duas serializações no JWS e JWE). <strong>Na maioria das vezes você pode ver o JWS, e é essa estrutura que é popularmente chamada JWT</strong>. Por sua vez, <a href="https://tools.ietf.org/html/rfc7519#section-4">&ldquo;claim&rdquo;</a> é geralmente um simples par de &ldquo;chave&rdquo;: &ldquo;valor&rdquo;</p>
+<p>Um exemplo de um JWT é mostrado abaixo:</p>
+<p><img alt="enter image description here" src="https://research.securitum.com/wp-content/uploads/sites/2/2019/10/jwt_ng1_en.png"></p>
+<p>Você pode ver que temos aqui três longas sequências de caracteres separadas por um ponto. A estrutura do todo é a seguinte:</p>
+<p><em>cabeçalho . payload . assinatura</em></p>
+<p>Os três elementos acima são codificados com o algoritmo BASE64URL (que se parece muito com o BASE64, onde o sinal de mais (+) na saída é substituído por hífen (-), a barra (/) é substituída pelo <em>undescore</em> (_) e existe nenhum preenchimento BASE64 padrão, que geralmente consiste em sinais de igual (=)).</p>
+<p>Após decodificar a sequência acima (que pode ser feita, por exemplo, por <a href="https://jwt.io/)">https://jwt.io/)</a>, podemos ver um cabeçalho e payload totalmente legíveis.</p>
+<p>Se você quiser saber mais sobre o JWT, os seguintes recursos podem ser úteis:</p>
+<ol>
+<li><a href="https://tools.ietf.org/wg/jose/">Introdução</a>.</li>
+<li><a href="https://tools.ietf.org/html/rfc7519">Mais detalhes técnicos</a>.</li>
+<li><a href="https://tools.ietf.org/wg/jose/https://tools.ietf.org/wg/jose/">JOSE Project</a> (Javascript Object Signing and Encryption) – exceto para JWT / JWT, você pode ler mais sobre JWK (JSON Web Key), JWA (JSON Web Algorithms), uso diferente dos mecanismos no OAuth2 / OpenID Connect; acontece que o JWS pode ter mais de uma assinatura, os JWTs podem ser aninhados…
+Um bom resumo <a href="https://www.iana.org/assignments/jose/jose.xhtml">disponível aqui</a>.</li>
+</ol>
+
+<h2 id="outros-examples-de-jwt-e-seus-primeiros-problemas-de-segurança" class="heading">Outros examples de JWT e seus primeiros problemas de segurança <a href="#outros-examples-de-jwt-e-seus-primeiros-problemas-de-seguran%c3%a7a" aria-labelledby="outros-examples-de-jwt-e-seus-primeiros-problemas-de-segurança">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h2>
+<p>Vamos para o tópico principal - segurança JWT. Às vezes, os JWTs podem ser usados ​​como &ldquo;chaves de API&rdquo;. No exemplo de uma chave desse tipo, pode ser assim:</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOiIxNDE2OTI5MDYxIiwianRpIjoiODAyMDU3ZmY5YjViNGViN2ZiYjg4NTZiNmViMmNjNWIiLCJzY29wZXMiOnsidXNlcnMiOnsiYWN0aW9ucyI6WyJyZWFkIiwiY3JlYXRlIl19LCJ1c2Vyc19hcHBfbWV0YWRhdGEiOnsiYWN0aW9ucyI6WyJyZWFkIiwiY3JlYXRlIl19fX0.gll8YBKPLq6ZLkCPLoghaBZG_ojFLREyLQYx0l2BG3E</span></span></code></pre></div></div><p>Após decodificar com a função de decodificação BASE64URL, temos as seguintes seções:</p>
+<p><strong>Cabeçalho:</strong>
+{<br>
+“alg “: “HS256 “,<br>
+“typ “: “JWT “<br>
+}</p>
+<p><strong>Payload:</strong>
+{<br>
+“iat”: “1416929061”,<br>
+“jti”: “802057ff9b5b4eb7fbb8856b6eb2cc5b”,<br>
+“scopes”: {<br>
+“users”: {<br>
+“actions”: [<br>
+“read”,<br>
+“create”<br>
+]<br>
+},<br>
+“users_app_metadata”: {<br>
+“actions”: [<br>
+“read”,<br>
+“create”<br>
+]<br>
+}<br>
+}<br>
+}</p>
+<p><strong>Assinatura:</strong></p>
+<p>Apenas um conteúdo binário.</p>
+<p>Como você pode ver, com essa “chave da API” (seu conteúdo principal está no payload), podemos implementar a autenticação (tenho o privilégio de me comunicar com a API) e a autorização (no payload acima, você pode ver exemplos de ações que pode ser realizada pelo proprietário da chave).</p>
+<p>Do ponto de vista da segurança, existem pelo menos dois <strong>problemas em potencial</strong>, para começar.</p>
+<p><strong>O primeiro</strong> é a falta de confidencialidade - conseguimos decodificar o payload (e o cabeçalho) facilmente. Às vezes, não é um problema (ou é mesmo uma vantagem), mas quando exigimos confidencialidade dos dados enviados no token, há uma maneira melhor de fazê-lo: JWE (JSON Web Encryption).</p>
+<p><strong>O segundo</strong> problema é uma possibilidade potencial de inserir outra ação pelo usuário - por exemplo, excluir - e, assim, ignorar a autorização. Nesse caso, a solução está usando assinaturas em tokens (observe que no exemplo acima, vimos uma &ldquo;assinatura&rdquo;). O algoritmo HS256 indicado no cabeçalho é um HMAC-SHA256 padrão - um mecanismo que garante a integridade de toda a mensagem (graças a ele, o usuário não pode alterar o payload; ou então - ele pode, mas a API que aceita o token detectar adulteração durante a verificação da assinatura). Para configurar o HS256, você precisa gerar uma chave (string) e colocá-la na configuração da API.</p>
+<p>Por uma questão de clareza da mensagem, é possível imaginar a assinatura de uma maneira muito simples:</p>
+<p><em>SHA-256(cabeçalho || payload || chave) – onde || concatenação</em></p>
+<p><strong>Aviso:</strong> falando formalmente, é um pouco mais complicado: usamos o algoritmo <a href="https://en.wikipedia.org/wiki/HMAC">HMAC</a>-SHA256 ao qual atribuímos uma chave e uma mensagem igual ao resultado:</p>
+<p><em>BASE64URL(UTF8(Cabeçalho protegido JWS )) || ‘.’ || BASE64URL(JWS Payload)</em></p>
+<p><img alt="enter image description here" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1591984302/blog/jwt_ng_sig_en-1_y3mtjj.png"></p>
+<p>Se alguém alterar o payload, ele não poderá gerar uma nova assinatura (porque ele precisa de uma chave para ela, que está apenas na configuração da API).</p>
+<p>Em resumo, o JWT parece muito mais flexível do que as chaves da API - você pode facilmente transferir quaisquer dados, garantir sua integridade e, se necessário, manter a confidencialidade. Além disso, todas as informações (exceto a chave secreta) podem estar no próprio token. No entanto, não há rosa sem espinhos. 🌹</p>
+
+<h2 id="espinhos-do-jwt-" class="heading">Espinhos do JWT 🌹 <a href="#espinhos-do-jwt-" aria-labelledby="espinhos-do-jwt-">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h2>
+
+<h3 id="primeiro-espinho-é-complexo" class="heading">Primeiro espinho: é complexo! <a href="#primeiro-espinho-%c3%a9-complexo" aria-labelledby="primeiro-espinho-é-complexo">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h3>
+<p>Um dos principais problemas é que o JWT é um mecanismo muito complexo. JWT / JWS / JWE / JWK, uma infinidade de algoritmos criptográficos, duas maneiras diferentes de codificação (serialização), compactação, possibilidade de mais de uma assinatura, criptografia para vários destinatários - esses são apenas alguns exemplos. Todas as especificações relacionadas à JWT têm mais de 300 páginas! A complexidade certamente não é amiga da segurança.</p>
+
+<h3 id="segundo-espinho-none" class="heading">Segundo espinho: none! <a href="#segundo-espinho-none" aria-labelledby="segundo-espinho-none">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h3>
+<p>Como já mencionado, muitas vezes presume-se que o JWT &ldquo;adequado&rdquo; seja um JWT com uma assinatura (JWS), embora, de acordo com a especificação formal do JWT, uma <strong>assinatura não seja obrigatória</strong>. O <a href="https://tools.ietf.org/html/rfc7519">documento RFC</a> indica o chamado &ldquo;JWT não seguro&rdquo; (ou seja, sem assinatura). Como é o JWT não assinado? No cabeçalho, temos:</p>
+<p>{<br>
+“alg “: “none “,<br>
+“typ “: “JWT “<br>
+}</p>
+<p>No payload, as coisas de sempre. A seção de assinatura está vazia (ou pode ser ignorada pelo processador de tokens). Curiosamente, o algoritmo “none” é um dos dois algoritmos que DEVEM ser implementados de acordo com a RFC:</p>
+<blockquote>
+<p><em>Of the signature and MAC algorithms specified in JSON Web Algorithms [JWA], only HMAC SHA-256 (“HS256”) and “none” MUST be implemented by conforming JWT implementations.</em></p>
+</blockquote>
+<p>O que isso dá ao atacante? Bem, ele pode obter um JWT (com uma assinatura), alterá-lo (por exemplo, adicionar nova permissão) e colocá-lo no cabeçalho {“alg”: ”none”}. Em seguida, envie tudo para a API com ou sem uma assinatura. O servidor deve aceitar esse token? Teoricamente sim, mas isso destruiria toda a idéia de assinaturas JWT. No entanto, essas situações realmente ocorreram (talvez ainda ocorram?) Em muitas bibliotecas que implementam JWTs: <a href="https://auth0.com/blog/critical-vulnerabilities-in-json-web-token-libraries/">https://auth0.com/blog/critical-vulnerabilities-in-json-web-token-libraries/</a>, <a href="https://www.cvedetails.com/cve/CVE-2018-1000531/">https://www.cvedetails.com/cve/CVE-2018-1000531/</a>.</p>
+<p><img alt="enter image description here" src="https://research.securitum.com/wp-content/uploads/sites/2/2019/10/jwt-ksiazka-podpis-none-ng2-en.png"></p>
+<p>A propósito, vale a pena mencionar outro problema: o que acontece se tivermos um algoritmo de assinatura no cabeçalho (por exemplo, HS256 ou HS512), mas removermos toda a seção de assinatura do token?</p>
+<p>Como você pode ver <a href="https://github.com/inversoft/prime-jwt/issues/2">aqui</a>, algumas vezes esse token será verificado corretamente! Você pode dizer um pouco ironicamente - esta é uma versão moderna do problema “nenhum” (veja a figura abaixo):</p>
+<p><em>(…) Uma vulnerabilidade de validação de entrada no JWTDecoder.decode que pode resultar em um JWT decodificado e, portanto, validado implicitamente, mesmo que não possua uma assinatura válida.</em></p>
+<p><img alt="enter image description here" src="https://research.securitum.com/wp-content/uploads/sites/2/2019/10/jwt-ksiazka-podpis-atak-ng2-en.png"></p>
+<p>Às vezes, há outro problema - se o invasor não souber criar uma assinatura adequada, talvez ele seja inserido em uma mensagem de erro? Inacreditável? Vamos ver <a href="https://github.com/jwt-dotnet/jwt/issues/61">esta vulnerabilidade</a>:</p>
+<p><em>Critical Security Fix Required: You disclose the correct signature with each SignatureVerificationException.</em></p>
+<p>Portanto, se alguém alterou o payload e enviou um token para o servidor, o servidor nos informou educadamente sobre isso, fornecendo um token correto que corresponda ao nosso payload:</p>
+<p><img alt="enter image description here" src="https://research.securitum.com/wp-content/uploads/sites/2/2019/09/image-23.png"></p>
+<p>Para fazê-lo funcionar, o servidor precisou ser configurado para exibir exceções ao usuário, mas essa não é uma configuração muito rara (embora incorreta). Problema semelhante foi descoberto em <a href="https://auth0.com/docs/security/bulletins/cve-2019-7644">outra biblioteca</a>:</p>
+<p><em>All versions of</em> <a href="https://www.nuget.org/packages/Auth0-WCF-Service-JWT/">Auth0-WCF-Service-JWT</a> <em>NuGet package lower than 1.0.4 include sensitive information about the expected JWT signature in an error message emitted when JWT signature validation fails</em>.</p>
+
+<h3 id="terceiro-espinho-quebrando-a-chave-hmac" class="heading">Terceiro espinho: quebrando a chave HMAC <a href="#terceiro-espinho-quebrando-a-chave-hmac" aria-labelledby="terceiro-espinho-quebrando-a-chave-hmac">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h3>
+<p>Vamos voltar à assinatura, ou seja, o algoritmo HS256 (HMAC-SHA256). Como é calculada a assinatura? Como vimos um pouco antes:</p>
+<p><img alt="enter image description here" src="https://research.securitum.com/wp-content/uploads/sites/2/2019/10/jwt_ng_sig_en-2.png"></p>
+<p>Como recuperar a chave do JWT (e ter a capacidade de criar uma assinatura válida para qualquer JWT)? A abordagem padrão utiliza um token gerado pela API e executa ataques clássicos de força bruta / dicionário / híbrido. Uma iteração requer o cálculo de dois hashes do SHA256 (é assim que o HMAC-SHA256 funciona) e também existem ferramentas que automatizam toda a operação, como o <a href="https://hashcat.net/hashcat/">hashcat</a> que implementa a quebra da chave JWT usando GPU (s). Com algumas GPUs rápidas, você pode atingir velocidades de mais de um bilhão de verificações por segundo. Além disso, toda a operação pode ser feita offline, sem qualquer interação com a API (basta obter um token arbitrário com uma assinatura). Um exemplo de uma sessão de quebra do JWT se parece com isso:</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">Session……….: hashcat  
+</span></span><span class="line"><span class="cl">Status………..: Running  
+</span></span><span class="line"><span class="cl">Hash.Type……..: JWT <span class="o">(</span>JSON Web Token<span class="o">)</span>  
+</span></span><span class="line"><span class="cl">Hash.Target……: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMj…  
+</span></span><span class="line"><span class="cl">Guess.Mask…….: ?1?2?2?2?2?2?2 <span class="o">[</span>7<span class="o">]</span>  
+</span></span><span class="line"><span class="cl">Guess.Charset….: -1 ?l?d?u, -2 ?l?d, -3 ?l?d*!<span class="nv">$@</span>_, -4 Undefined  
+</span></span><span class="line"><span class="cl">Guess.Queue……: 7/15 <span class="o">(</span>46.67%<span class="o">)</span>  
+</span></span><span class="line"><span class="cl">Speed.Dev.#1…..: 198.0 MH/s <span class="o">(</span>9.68ms<span class="o">)</span> @ Accel:32 Loops:8 Thr:512 Vec:1  
+</span></span><span class="line"><span class="cl">Recovered……..: 0/1 <span class="o">(</span>0.00%<span class="o">)</span> Digests, 0/1 <span class="o">(</span>0.00%<span class="o">)</span> Salts  
+</span></span><span class="line"><span class="cl">Progress………: 17964072960/134960504832 <span class="o">(</span>13.31%<span class="o">)</span>  
+</span></span><span class="line"><span class="cl">Rejected………: 0/17964072960 <span class="o">(</span>0.00%<span class="o">)</span>  
+</span></span><span class="line"><span class="cl">Restore.Point….: 0/1679616 <span class="o">(</span>0.00%<span class="o">)</span>  
+</span></span><span class="line"><span class="cl">Candidates.#1….: U7veran -&gt; a2vbj14</span></span></code></pre></div></div><p>Em uma única placa Nvidia GTX 1070, obtemos uma velocidade de quebra de cerca de 200 milhões de verificações por segundo. Se o hashcat conseguir quebrar a chave, você obterá o resultado abaixo (onde <em><strong>secrety</strong></em> é a chave que você está procurando):</p>
+<p>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.W7TG0x5Ed1GLN6eOPhTNHErL8TfwBFRSQnqleolhXG0:<em><strong>secrety</strong></em></p>
+<p>Uma chave do mesmo tamanho da saída de hash (por exemplo, 256 bits para &ldquo;HS256&rdquo;) ou maior DEVE ser usada com esse algoritmo. (Este requisito baseia-se na Seção 5.3.4 (Efeito de segurança da chave HMAC) do NIST SP 800-117 [NIST.800-107], que afirma que a força de segurança efetiva é o mínimo da força de segurança da chave e duas vezes o tamanho do valor do hash interno.).</p>
+<p>A propósito, vale enfatizar mais uma vez que a quebra da chave JWT pode ser feita completamente offline.</p>
+
+<h3 id="quarto-espinho-muitos-cozinheiros-estragam-o-caldo-do-jwt" class="heading">Quarto espinho: muitos cozinheiros estragam o caldo do JWT <a href="#quarto-espinho-muitos-cozinheiros-estragam-o-caldo-do-jwt" aria-labelledby="quarto-espinho-muitos-cozinheiros-estragam-o-caldo-do-jwt">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h3>
+<p>Muitos problemas de segurança da JWT surgem como resultado da implementação do padrão (realmente complexo). Vamos ver um exemplo.</p>
+<p>Como podemos escolher o algoritmo de assinatura no JWS? Até agora, mencionei o HMAC (e apenas com a função SHA256), mas não é a única opção. Uma visão geral das várias variantes de assinatura pode ser encontrada aqui: <a href="https://auth0.com/blog/json-web-token-signing-algorithms-overview/">https://auth0.com/blog/json-web-token-signing-algorithms-overview/</a>.</p>
+<p>Uma opção comum é usar um algoritmo assimétrico - RSA. Nesse caso, veremos no cabeçalho &ldquo;alg&rdquo;: &ldquo;RS512&rdquo; ou &ldquo;alg&rdquo;: &ldquo;RS256&rdquo;.</p>
+<p>Apenas um pequeno lembrete: uma chave privada RSA é usada para assinaturas e uma chave pública associada a ela pode verificar assinaturas. Portanto, neste caso, em vez de uma chave simétrica (como no algoritmo HS256), geramos um par de chaves RSA.</p>
+<p>A propósito, se você vir o RS512 ou o RS256 pela primeira vez, poderá pensar em um requisito para usar chaves RSA de 512 ou 256 bits? Essas chaves podem ser quebradas a um custo e tempo mínimos (consulte: <a href="https://eprint.iacr.org/2015/1000.pdf">https://eprint.iacr.org/2015/1000.pdf</a> ou <a href="https://www.theregister.co.uk/2010/01/07/rsa_768_broken/)">https://www.theregister.co.uk/2010/01/07/rsa_768_broken/)</a>. Atualmente, mesmo uma chave RSA de 1024 bits não é considerada segura. Felizmente, isso apenas aponta para a função SHA específica usada em conexão com o RSA. Por exemplo, RS512 significa função RSA mais SHA512. Mas e a chave RSA? O comprimento é definido pela pessoa que o gera, o que é outro problema em potencial (além disso, em diferentes tutoriais online, você pode encontrar comandos específicos usando o OpenSSL e gerando chaves de 1024 bits). Também é importante lembrar que o uso do RSA terá um impacto na eficiência de todo o sistema (verificação de assinatura); portanto, nesse caso, escolhemos uma variante mais lenta que o HS256.</p>
+<p>Voltando ao ponto, com o algoritmo RSA, temos pelo menos mais um problema de segurança interessante. Como escrevi anteriormente, uma chave pública é usada para verificação de assinatura; portanto, ela geralmente é definida na configuração da API como a chave de verificação. Aqui, é importante notar que, para o HMAC, temos apenas uma chave simétrica usada para assinatura e verificação.</p>
+<p>Como um invasor pode <strong>forjar um token JWT</strong>?</p>
+<ol>
+<li>
+<p>Ele obtém uma chave pública (o próprio nome indica que ela pode estar disponível publicamente). Às vezes, é transmitido dentro do próprio JWT.</p>
+</li>
+<li>
+<p>Envia o token (com payload alterado) com o <strong>algoritmo HS256 definido</strong> no cabeçalho (ou seja, HMAC, não RSA) e assina o token com a chave pública RSA. Sim, não há erro aqui - usamos a chave pública RSA (que fornecemos na forma de uma string) como uma chave simétrica para o HMAC.</p>
+</li>
+<li>
+<p>O servidor recebe o token, verifica qual algoritmo foi usado para a assinatura (HS256). A chave de verificação foi definida na configuração como a chave pública RSA, então…:</p>
+</li>
+<li>
+<p>A assinatura é validada (porque exatamente a mesma chave de verificação foi usada para criar a assinatura e o invasor configurou o algoritmo de assinatura como HS256).</p>
+</li>
+</ol>
+<p><img alt="enter image description here" src="https://research.securitum.com/wp-content/uploads/sites/2/2019/10/diagrsa.jpg"></p>
+<p>Qual foi o problema aqui? O fato de ser possível fornecer o algoritmo de assinatura pelo usuário, embora tenhamos a intenção de verificar a assinatura do token usando apenas RSA. Portanto, forçamos apenas um algoritmo de assinatura selecionado (não oferecemos a possibilidade de alterá-lo alterando o token) ou vamos fornecer métodos de verificação separados (e chaves!) Para cada algoritmo de assinatura que suportamos. Aqui está um <a href="https://www.cvedetails.com/cve/CVE-2016-10555/">exemplo real desta vulnerabilidade</a>:</p>
+<blockquote>
+<p><em>If the server is expecting RSA but is sent HMAC-SHA with RSA’s public key, the server will think the public key is actually an HMAC private key. This could be used to forge any data an attacker wants.</em></p>
+</blockquote>
+
+<h3 id="quinto-espinho-fornecendo-sua-própria-chave" class="heading">Quinto espinho: fornecendo sua própria chave <a href="#quinto-espinho-fornecendo-sua-pr%c3%b3pria-chave" aria-labelledby="quinto-espinho-fornecendo-sua-própria-chave">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h3>
+<p>Às vezes, você pode fornecer sua própria chave no token, que será usado pela API para verificá-lo! Parece inacreditável, certo? Consulte os detalhes da vulnerabilidade do CVE-2018-0114 na biblioteca node-jose: <a href="https://tools.cisco.com/security/center/viewAlert.x?alertId=56326">https://tools.cisco.com/security/center/viewAlert.x?alertId=56326</a>.</p>
+<blockquote>
+<p><em>The vulnerability is due to node-jose following the JSON Web Signature (JWS) standard for JSON Web Tokens (JWTs). This standard specifies that a JSON Web Key (JWK) representing a public key can be embedded within the header of a JWS. This public key is then trusted for verification. An attacker could exploit this by forging valid JWS objects by removing the original signature, adding a new public key to the header, and then signing the object using the (attacker-owned) private key associated with the public key embedded in that JWS header.</em></p>
+</blockquote>
+<p>O problema não é novo, anteriormente (2016), uma vulnerabilidade semelhante foi detectada na biblioteca Go-jose (<a href="https://mailarchive.ietf.org/arch/msgif/jose/gQU_C_QURVuwmy-Q2qyVwPLQlcg)">https://mailarchive.ietf.org/arch/msgif/jose/gQU_C_QURVuwmy-Q2qyVwPLQlcg)</a>:</p>
+<blockquote>
+<p><em>RFC 7515, <a href="https://tools.ietf.org/html/rfc7515#section-4.1.3">https://tools.ietf.org/html/rfc7515#section-4.1.3</a> “jwk” (JSON Web Key) Header Parameter allows the signature to include the public key that corresponds to the key used to digitally sign the JWS. This is a really dangerous option.</em></p>
+</blockquote>
+<p>Um outro exemplo <a href="https://github.com/DCIT/perl-Crypt-JWT/commit/b98a59b42ded9f9e51b2560410106207c2152d6c">está aqui</a> (perl-Crypt-JWT):</p>
+<blockquote>
+<p><em>ADDED in 0.23<br>
+1 – use “jwk” header value for validating JWS signature if neither   “key” nor “kid_keys” specified, BEWARE: DANGEROUS, UNSECURE!!!<br>
+0 (default) – ignore “jwk” header value when validating JWS signature</em></p>
+</blockquote>
+
+<h3 id="sexto-espinho-a-criptografia-jwt-funciona-mesmo" class="heading">Sexto espinho: a criptografia JWT funciona mesmo? <a href="#sexto-espinho-a-criptografia-jwt-funciona-mesmo" aria-labelledby="sexto-espinho-a-criptografia-jwt-funciona-mesmo">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h3>
+<p>E a criptografia (JSON Web Encryption)? Aqui, você pode escolher entre vários algoritmos (criptografia da própria mensagem ou criptografia da chave simétrica usada para criptografar a mensagem). Novamente, há algumas pesquisas interessantes, ou seja, várias implementações do JWE tornaram possível ao invasor recuperar a chave privada: <a href="https://blogs.adobe.com/security/2017/03/critical-vulnerability-uncovered-in">https://blogs.adobe.com/security/2017/03/critical-vulnerability-uncovered-in</a> -json-encryption.html. Mais especificamente, houve um problema na implementação do algoritmo ECDH-ES (que, a propósito, tem o status “Recomendado +” no documento RFC: <a href="https://tools.ietf.org/html/rfc7518)">https://tools.ietf.org/html/rfc7518)</a>.</p>
+<p>Talvez a vulnerabilidade anterior tenha sido apenas um acidente? Vamos ver o AES no modo GCM: <a href="https://rwc.iacr.org/2017/Slides/nguyen.quan.pdf">https://rwc.iacr.org/2017/Slides/nguyen.quan.pdf</a>. Os pesquisadores do Google estão escrevendo sobre isso no contexto da JWT e resumem: <em>o GCM é frágil, mas suas implementações raramente foram verificadas</em>.</p>
+<p>Também podemos escolher o algoritmo RSA com preenchimento PKCS1v1.5. O que há de errado com isso? Os problemas são conhecidos desde 1998: <a href="ftp://ftp.rsa.com/pub/pdfs/bulletn7.pdf">ftp://ftp.rsa.com/pub/pdfs/bulletn7.pdf</a>. E <a href="https://blog.cryptographyengineering.com/2012/09/06/on-provable-security-of-tls-part-1/">algumas pessoas</a> resumem assim:</p>
+<blockquote>
+<p><em>PKCS#1v1.5 is awesome – if you’re teaching a class on how to attack cryptographic protocols.</em></p>
+</blockquote>
+<p>Mais detalhes sobre possíveis algoritmos e possíveis problemas podem ser encontrados aqui:</p>
+<ul>
+<li>
+<p><a href="https://paragonie.com/blog/2017/03/jwt-json-web-tokens-is-bad-standardthat-everyone-should-avoid">https:/paragonie.com/blog/2017/03/jwt-json-web-tokens-is-bad-standardthat-everyone-should-avoid</a></p>
+</li>
+<li>
+<p><a href="https://paragonie.com/blog/2016/12/everything-you-know-about-public-keyencryption-in-php-is-wrong">https://paragonie.com/blog/2016/12/everything-you-know-about-public-keyencryption-in-php-is-wrong</a></p>
+</li>
+<li>
+<p><a href="https://paragonie.com/blog/2018/04/protecting-rsa-based-protocols-againstadaptive-chosen-ciphertext-attacks%20">https://paragonie.com/blog/2018/04/protecting-rsa-based-protocols-againstadaptive-chosen-ciphertext-attacks</a></p>
+</li>
+</ul>
+<p>Sempre estaremos fadados ao fracasso usando o JWE? Claro que não, mas vale a pena verificar se usamos um algoritmo de criptografia adequadamente seguro (e sua implementação segura).</p>
+
+<h3 id="sétimo-espinho-decodificação--verificação---isso-importa-" class="heading">Sétimo espinho: decodificação / verificação - isso importa? 😉 <a href="#s%c3%a9timo-espinho-decodifica%c3%a7%c3%a3o--verifica%c3%a7%c3%a3o---isso-importa-" aria-labelledby="sétimo-espinho-decodificação--verificação---isso-importa-">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h3>
+<p>Agora podemos nos sentir um pouco sobrecarregados pela multiplicidade de opções. Afinal, queremos apenas “decodificar” o token no lado da API e usar as informações nele contidas. Lembre-se, no entanto, que “decodificar” nem sempre significa o mesmo que “verificar” - supostamente óbvio, mas bibliotecas diferentes podem fornecer funções diferentes para decodificar e / ou verificar tokens. Um exemplo desse tipo de pergunta ou dúvida pode ser encontrado <a href="https://github.com/auth0/jwt-decode/issues/4">aqui</a>.</p>
+<p>Em resumo, se eu usar a função decode (), só posso decodificar o payload (ou o cabeçalho) de BASE64URL sem nenhuma verificação. A verificação pode ser uma função separada, embora também possa ser incorporada em um decode (). Às vezes, são os usuários que solicitam essa opção - no caso citado abaixo - alguém pede para sobrecarregar o método decode () para que ele também possa aceitar o próprio token (sem a chave):</p>
+<p>Eu vi um problema na estrutura para obter o payload  de um JWT. Para obter um payload de um JWT sem validação, não precisamos de uma chave / segredo. Portanto, no arquivo <a href="https://github.com/jwt-dotnet/jwt/blob/master/src/JWT/JwtDecoder.cs">jwt/src/JWT/JwtDecoder.cs</a>, perdemos uma sobrecarga para o método Decode que precisa apenas de um token.</p>
+<p>Se o programador, usando a biblioteca, agora usar a decodificação de chamada mais simples (token), a assinatura não será verificada.</p>
+<p>Além disso, <a href="https://github.com/jwt-dotnet/jwt/blob/master/src/JWT/JwtDecoder.cs">na discussão</a> citada acima, há uma pergunta sobre a possibilidade de verificar a assinatura no lado do cliente, que, como já sabemos no caso do HS256, pode ser complicada (o cliente deve ter uma chave secreta, que pode ser extraída por um atacante). Infelizmente, muitas vezes o uso do JWT se resume ao seguinte: vamos escolher os primeiros algoritmos que vemos e copiar os trechos de código dos tutoriais. Funciona? Sim, então qual é o problema?</p>
+
+<h3 id="oitavo-espinho-capturar-qualquer-token--assumir-o-acesso-à-api" class="heading">Oitavo espinho: capturar qualquer token = assumir o acesso à API? <a href="#oitavo-espinho-capturar-qualquer-token--assumir-o-acesso-%c3%a0-api" aria-labelledby="oitavo-espinho-capturar-qualquer-token--assumir-o-acesso-à-api">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h3>
+<p>Uma das vantagens frequentemente apontadas do JWT é a implementação da autenticação (ou autorização - depende do contexto em que o todo será usado) sem a necessidade de executar uma consulta no banco de dados. Além disso, podemos fazer isso em paralelo em vários servidores independentes (APIs). Afinal, apenas o conteúdo do token é suficiente para tomar uma decisão aqui. Ele também tem uma desvantagem - e se a chave de assinatura disponível em muitos servidores vazar? Obviamente, será possível gerar tokens assinados corretamente, aceitos por todas as máquinas que usam a chave apropriada para verificação. O que um invasor pode ganhar com isso? Por exemplo, acesso não autorizado a funções da API ou outras contas de usuário.</p>
+<p>Também temos um problema potencialmente diferente aqui - e se um token gerado puder ser usado em muitos contextos diferentes? Por exemplo, geramos um token válido com o conteúdo de {&ldquo;login&rdquo; = &ldquo;manager&rdquo;}. E em uma função da API, é possível editar alguns dados, mas, ao mesmo tempo, esquecemos que uma função completamente diferente, recebendo o mesmo token, oferece a possibilidade de acesso total!</p>
+<p>Nesse caso, é possível usar determinados parâmetros definidos pela própria especificação: <strong>iss</strong> (<em>issuer</em>) e <strong>aud</strong> (<em>audience</em>). Graças a eles, os tokens podem ser aceitos apenas por nossos destinatários específicos.</p>
+<p>Por exemplo:</p>
+<p>{<br>
+“iss ” = “my_api “,<br>
+“login ” = “manager “,<br>
+“aud ” = “store_api “<br>
+}</p>
+<p>Podemos apontar outro problema - algumas palavras-chave reservadas no JWT (Registered Claim Names) - por exemplo iss / aud / iat / jti - pode ser colocado ao lado de qualquer elemento definido pelo usuário do JWT - por exemplo faça login a partir do nosso exemplo. Isso está causando outra confusão, que vou apontar no próximo problema.</p>
+
+<h3 id="nono-espinho-replay-jwt" class="heading">Nono espinho: replay JWT <a href="#nono-espinho-replay-jwt" aria-labelledby="nono-espinho-replay-jwt">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h3>
+<p>E se um token específico deve ser usado apenas uma vez? Vamos imaginar um cenário em que um usuário grave um token gerado para executar o método DELETE em nossa API. Então, por exemplo depois de um ano - quando ele teoricamente não tem mais as permissões apropriadas - ele tenta usá-lo novamente (o chamado <em>replay attack</em>).</p>
+<p>A maneira de fazer isso é usar as seguintes <em>claims</em>: jti e exp. Jti (JWT ID) é um identificador de token, que deve ser exclusivo, e exp é uma definição da data de validade de um token. A combinação de ambos os campos nos dará uma validade adequadamente curta do token e sua singularidade.</p>
+<p>Vale ressaltar, no entanto, se temos uma implementação correta dessas metades. Agora observe o bug no qual o valor exp não foi levado em consideração (<a href="https://github.com/jwt-dotnet/jwt/issues/134)">https://github.com/jwt-dotnet/jwt/issues/134)</a>.</p>
+<blockquote>
+<p><em>JWT not throwing ExpiredTokenException in .NetCore</em></p>
+</blockquote>
+<p>Os desenvolvedores de bibliotecas usaram a declaração de <strong>expiração</strong> (que não está na especificação da JWT) para executar verificações de expiração; o bug foi corrigido após o relatório.</p>
+
+<h3 id="décimo-espinho-_timing-attacks_-na-assinatura" class="heading">Décimo espinho: <em>timing attacks</em> na assinatura <a href="#d%c3%a9cimo-espinho-_timing-attacks_-na-assinatura" aria-labelledby="décimo-espinho-_timing-attacks_-na-assinatura">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h3>
+<p>Se a assinatura do JWS for verificada <strong>byte por byte</strong> com a assinatura correta (gerada pela parte que aceita o JWS) e se a verificação <strong>terminar no primeiro byte inconsistente</strong>, podemos ser suscetíveis a <em>timing attacks</em>.</p>
+<p>Observe que, nesse caso, quanto mais bytes correspondentes tivermos, mais comparações serão necessárias e, portanto, maior o tempo necessário para a resposta.</p>
+<p>É possível observar os tempos de resposta gerando assinaturas sucessivas, começando no primeiro byte da assinatura, passando para o segundo, etc. A descrição exata desse ataque pode ser vista aqui: <a href="https://hackernoon.com/can-timing-attack-be-a-practical-security-threat-on-jwt-signature-ba3c8340dea9.9">https://hackernoon.com/can-timing-attack-be-a-practical-security-threat-on-jwt-signature-ba3c8340dea9.9</a>.</p>
+<p>Segundo o <a href="https://hackernoon.com/can-timing-attack-be-a-practical-security-threat-on-jwt-signature-ba3c8340dea9">relatório</a>, com uma grande quantidade de tráfego gerado (até 55 mil solicitações por segundo), a assinatura de qualquer mensagem pode ser obtida em 22 horas (condições laboratoriais). Com menos tráfego, é claro, precisaremos de mais tempo (vários dias), mas o efeito pode ser chocante (podemos gerar qualquer JWT e preparar uma assinatura que será verificada como correta).</p>
+<p>O ataque é realmente possível no cenário real? Como você pode imaginar, as mudanças no tempo de resposta são mínimas, mas você pode tentar medi-las. Nesse ponto, também vale lembrar um texto um pouco mais antigo sobre ataques de tempo: <a href="https://www.cs.rice.edu/~dwallach/pub/crosby-timing2009.pdf">https://www.cs.rice.edu/~dwallach/pub/crosby-timing2009.pdf</a>. As seguintes medidas foram alcançadas:</p>
+<blockquote>
+<p><em>Our work analyses the limits of attacks based on accurately measuring network response times and jitter over a local network and across the Internet. We present the design of filters to significantly reduce the effects of jitter, allowing an attacker to measure events with 15-100µs accuracy across the Internet and as good as 100ns over a local network.</em></p>
+</blockquote>
+<p>Por outro lado, um exemplo de declaração de um tipo específico de vulnerabilidade pode ser encontrado, por exemplo, <a href="https://github.com/jasongoodwin/authentikat-jwt/issues/12">aqui</a> ou <a href="https://github.com/emarref/jwt/pull/20">aqui</a>.</p>
+
+<h3 id="décimo-primeiro-espinho-grande-quantidade-de-bibliotecas-disponíveis" class="heading">Décimo-primeiro espinho: grande quantidade de bibliotecas disponíveis <a href="#d%c3%a9cimo-primeiro-espinho-grande-quantidade-de-bibliotecas-dispon%c3%adveis" aria-labelledby="décimo-primeiro-espinho-grande-quantidade-de-bibliotecas-disponíveis">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h3>
+<p>Como um dos primeiros problemas relacionados ao JWT, menciono várias opções disponíveis e vários algoritmos. Há também um grande número de implementações de JWT, muitas vezes incompletas, escritas, para dizer o mínimo, no joelho. Não é fácil de seguir e, às vezes, problemático em termos de padrão de segurança, requer o uso de algoritmos criptográficos complexos por pessoas que geralmente não possuem um conhecimento profundo de criptografia. Garbage in - garbage out: é difícil esperar bibliotecas super seguras aqui.</p>
+<p>Outros exemplos de bugs em bibliotecas:</p>
+<ul>
+<li><a href="https://auth0.com/docs/security/bulletins/cve-2019-13483">https://auth0.com/docs/security/bulletins/cve-2019-13483</a></li>
+<li><a href="https://www.cvedetails.com/cve/CVE-2017-12973/">https://www.cvedetails.com/cve/CVE-2017-12973/</a></li>
+<li><a href="https://www.cvedetails.com/cve/CVE-2017-10862/">https://www.cvedetails.com/cve/CVE-2017-10862/</a></li>
+<li><a href="https://pivotal.io/security/cve-2017-2773">https://pivotal.io/security/cve-2017-2773</a></li>
+<li><a href="https://github.com/auth0/node-jsonwebtoken/issues/212">https://github.com/auth0/node-jsonwebtoken/issues/212</a></li>
+<li><a href="https://github.com/auth0/node-jsonwebtoken/commit/%20adcfd6ae4088c838769d169f8cd9154265aa13e0">https://github.com/auth0/node-jsonwebtoken/commit/ adcfd6ae4088c838769d169f8cd9154265aa13e0</a></li>
+<li><a href="https://www.cvedetails.com/cve/CVE-2019-17195/">https://www.cvedetails.com/cve/CVE-2019-17195/</a></li>
+</ul>
+<p>Ao mesmo tempo, vale mencionar problemas de segurança relacionados às bibliotecas usadas em geral. Vale a pena verificar se eu uso uma biblioteca com vulnerabilidades públicas conhecidas. Ou talvez minhas bibliotecas estejam usando dependências vulneráveis? Será que não é necessário eu desenvolver um mecanismo de monitoramento da biblioteca usada caso alguém localize uma vulnerabilidade significativa no futuro?</p>
+
+<h2 id="alternativa-ao-jwt" class="heading">Alternativa ao JWT? <a href="#alternativa-ao-jwt" aria-labelledby="alternativa-ao-jwt">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h2>
+<p>Olhando para muitos dos problemas de segurança que apontei no JWT, pode-se perguntar se temos uma alternativa comprovada. No momento, a resposta é não. Uma das novas idéias é o <a href="https://paseto.io/">PASETO</a>:</p>
+<blockquote>
+<p><em>Paseto is everything you love about JOSE (JWT, JWE, JWS) without any of the many design deficits that plague the JOSE standards.</em></p>
+</blockquote>
+<p>Simplificando, o PASETO deve ser uma versão segura do JWT. Realmente cumprirá as promessas? No momento, é realmente difícil dizer - é um projeto muito jovem e ainda em fase de desenvolvimento. Mais informações podem ser encontradas <a href="https://paragonie.com/blog/2018/03/paseto-platformagnostic-security-tokens-is-secure-alternative-jose-standards-jwt-etc">aqui</a> e <a href="https://developer.okta.com/blog/2019/10/17/a-thorough-introduction-to-paseto">aqui</a>. As motivações por trás do deste projeto podemos ler <a href="https://paragonie.com/blog/2017/03/jwt-json-web-tokens-is-bad-standard-thateveryone-should-avoid">aqui</a>.</p>
+
+<h2 id="o-jwt-pode-ser-seguro" class="heading">O JWT pode ser seguro? <a href="#o-jwt-pode-ser-seguro" aria-labelledby="o-jwt-pode-ser-seguro">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h2>
+<p>As opiniões na comunidade de segurança são divididas. Algumas pessoas desencorajam categoricamente o uso do JWT, outras apontam para implementações mal preparadas, enquanto outras descrevem os mecanismos do JWT exatamente como são, deixando a decisão para o usuário. Além disso, o JWT é um mecanismo muito popular, para o qual não há alternativa popular e padronizada, que comprovou adicionalmente sua segurança.</p>
+<p>Os problemas de segurança mostrados antes podem ser colocados em três categorias:</p>
+<ol>
+<li>Problemas com a própria especificação JWT (por exemplo, nenhum algoritmo).</li>
+<li>Erros de implementação de biblioteca, incluindo erros de implementação de algoritmo criptográfico (é provavelmente o grupo mais numeroso).</li>
+<li>Uso incorreto da biblioteca.</li>
+</ol>
+<p>A maioria dos problemas comuns é apresentada abaixo.</p>
+<p>Vamos resumir tudo com conselhos práticos que podem aumentar a segurança de uso da JWT. Algumas recomendações podem conter abreviaturas de pensamento, explicadas anteriormente no texto e adicionalmente abordadas nos materiais de origem vinculados.</p>
+<p><img alt="enter image description here" src="https://research.securitum.com/wp-content/uploads/sites/2/2019/10/jwt_podsumowanie-ng-en-1.png"></p>
+
+<h3 id="o-que-devo-fazer" class="heading">O que devo fazer? <a href="#o-que-devo-fazer" aria-labelledby="o-que-devo-fazer">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h3>
+
+<h4 id="pra-começar" class="heading">Pra começar <a href="#pra-come%c3%a7ar" aria-labelledby="pra-começar">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h4>
+<ol>
+<li>Entenda o que você deseja usar: considere se você precisa do JWS ou JWE, escolha os algoritmos apropriados, entenda sua finalidade (pelo menos em um nível geral - por exemplo, HMAC, chave pública, chave privada). Descubra o que exatamente oferece a biblioteca JWT que você escolheu. Talvez exista um mecanismo mais simples e pronto que você possa usar?</li>
+</ol>
+
+<h4 id="chaves" class="heading">Chaves <a href="#chaves" aria-labelledby="chaves">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h4>
+<ol start="2">
+<li>
+<p>Use chaves simétricas / assimétricas adequadamente complexas.</p>
+</li>
+<li>
+<p>Tenha um cenário preparado em caso de comprometimento (divulgação) de uma das chaves.</p>
+</li>
+<li>
+<p>Mantenha as chaves em um local seguro (por exemplo, não as codifique permanentemente no código-fonte).</p>
+</li>
+<li>
+<p>Idealmente, não permita definir o algoritmo de assinatura arbitrário pela parte remetente (é melhor forçar um algoritmo (s) de assinatura específico (s) no lado do servidor).</p>
+</li>
+</ol>
+
+<h4 id="assinatura" class="heading">Assinatura <a href="#assinatura" aria-labelledby="assinatura">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h4>
+<ol start="6">
+<li>
+<p>Verifique se sua implementação não aceita o algoritmo de nenhuma assinatura.</p>
+</li>
+<li>
+<p>Verifique se sua implementação não aceita uma assinatura vazia (ou seja, a assinatura não está marcada).</p>
+</li>
+<li>
+<p>Se você usa o JWE, verifique se está usando algoritmos seguros e se está usando a implementação segura desses algoritmos.</p>
+</li>
+<li>
+<p>Distinga entre Verifique () e Decodifique (). Em outras palavras, verifique se você tem certeza de que está verificando a assinatura.</p>
+</li>
+</ol>
+
+<h4 id="regras-gerais" class="heading">Regras gerais <a href="#regras-gerais" aria-labelledby="regras-gerais">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h4>
+<ol start="10">
+<li>
+<p>Verifique se o token gerado em um local não pode ser usado em outro para obter acesso não autorizado.</p>
+</li>
+<li>
+<p>Verifique se o modo de depuração está desativado e se não pode ser ativado com um truque simples (por exemplo,? Debug = true).</p>
+</li>
+<li>
+<p>Evite enviar tokens em URLs (isso pode vazar dados confidenciais - por exemplo, esses tokens são gravados nos logs do servidor da web).</p>
+</li>
+</ol>
+
+<h4 id="payload" class="heading">Payload <a href="#payload" aria-labelledby="payload">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h4>
+<ol start="13">
+<li>
+<p>Verifique se você está colocando informações confidenciais no payload do JWS (não recomendado).</p>
+</li>
+<li>
+<p>Verifique se você está protegido contra um ataque de repetição (reenviando um token).</p>
+</li>
+<li>
+<p>Certifique-se de que os tokens tenham um período de validade suficientemente curto (por exemplo, usando a <em>claim</em> &ldquo;exp&rdquo;).</p>
+</li>
+<li>
+<p>Verifique se a “exp” está realmente marcada. Pense se você precisa invalidar um token específico (s) (o padrão não fornece ferramentas para isso, mas existem várias maneiras de implementar esse tipo de mecanismo).</p>
+</li>
+</ol>
+
+<h4 id="bibliotecas" class="heading">Bibliotecas <a href="#bibliotecas" aria-labelledby="bibliotecas">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h4>
+<ol start="17">
+<li>
+<p>Leia a documentação da biblioteca com atenção.</p>
+</li>
+<li>
+<p>Verifique as vulnerabilidades na biblioteca que você usa (por exemplo cvedetails.com ou no site do projeto).</p>
+</li>
+<li>
+<p>Verifique se seus projetos anteriores não usam uma biblioteca vulnerável; verifique se você está monitorando novos erros na biblioteca (eles podem aparecer, por exemplo, após um mês de implementação).</p>
+</li>
+<li>
+<p>Acompanhe novas vulnerabilidades em bibliotecas que suportam JWT. Talvez, no futuro, alguém encontre uma vulnerabilidade em outro projeto, que pode ser explorada da mesma forma na biblioteca que você está usando.</p>
+</li>
+</ol>
+
+<h2 id="referências" class="heading">Referências <a href="#refer%c3%aancias" aria-labelledby="referências">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h2>
+<ol>
+<li>
+<p>JSON Web Token Best Current Practices:
+<a href="https://tools.ietf.org/html/draft-ietf-oauth-jwt-bcp-04">https://tools.ietf.org/html/draft-ietf-oauth-jwt-bcp-04</a></p>
+</li>
+<li>
+<p>JWT Handbook:
+<a href="https://auth0.com/resources/ebooks/jwt-handbook">https://auth0.com/resources/ebooks/jwt-handbook</a></p>
+</li>
+<li>
+<p>Discussão sobre vulnerabildiade no JWT:
+<a href="https://lobste.rs/s/r4lv76/jwt_is_bad_standard_everyone_should_avoid">https://lobste.rs/s/r4lv76/jwt_is_bad_standard_everyone_should_avoid</a></p>
+</li>
+<li>
+<p>JWT Cheat Sheet for Java (OWASP).
+<a href="https://www.owasp.org/index.php/JSON_Web_Token_(JWT)_Cheat_Sheet_for_Java"></a><a href="https://cheatsheetseries.owasp.org/cheatsheets/JSON_Web_Token_Cheat_Sheet_for_Java.html">https://www.owasp.org/index.php/JSON_Web_Token_(JWT)_Cheat_Sheet_for_Java</a></p>
+</li>
+<li>
+<p>Algumas de idéias de uso mais seguro do JWT:
+<a href="https://dev.to/neilmadden/7-best-practices-for-json-web-tokens">https://dev.to/neilmadden/7-best-practices-for-json-web-tokens</a></p>
+</li>
+<li>
+<p>Alguns arguntos contra o uso JWT para sessões:
+<a href="http://cryto.net/~joepie91/blog/2016/06/13/stop-using-jwt-for-sessions/">http://cryto.net/~joepie91/blog/2016/06/13/stop-using-jwt-for-sessions/</a></p>
+</li>
+<li>
+<p>Comparação de JWTs com IDs de sessão e outros recursos de segurança relevantes:
+<a href="http://by.jtl.xyz/2016/06/the-unspoken-vulnerability-of-jwts.html">http://by.jtl.xyz/2016/06/the-unspoken-vulnerability-of-jwts.html</a></p>
+</li>
+</ol>
+
+
+
+<div class="row row-cols-2 mt-5 mb-3">
+    <div class="col">
+        <a class="next" href="/blog/ekoparty13/">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-arrow-left "></i> --><svg class="svg-inline--fa fas fa-arrow-left " fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+
+    
+&nbsp;Ekoparty Security Conference 13 (2017) - Talks
+                </a></div>
+    <div class="col text-end">
+        <a class="previous" href="/blog/ofimdostimesdeappsec/">
+                    O fim dos times de AppSec&nbsp;
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-arrow-right "></i> --><svg class="svg-inline--fa fas fa-arrow-right " fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>
+
+    
+
+                </a></div>
+</div>
+
+
+                </div>
+                <div class="col col-md-3 col-lg-2 d-none d-md-block pt-5">
+                    
+    
+
+
+<div class="toc toc-sidebar mb-5 my-md-0 mb-lg-5 p-3 text-body-secondary sticky-top">
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+<strong class="d-block h6 my-2 pb-2">On this page:</strong>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#sumário">Sumário</a></li>
+    <li><a href="#introdução-ao-jwt">Introdução ao JWT</a></li>
+    <li><a href="#outros-examples-de-jwt-e-seus-primeiros-problemas-de-segurança">Outros examples de JWT e seus primeiros problemas de segurança</a></li>
+    <li><a href="#espinhos-do-jwt-">Espinhos do JWT 🌹</a>
+      <ul>
+        <li><a href="#primeiro-espinho-é-complexo">Primeiro espinho: é complexo!</a></li>
+        <li><a href="#segundo-espinho-none">Segundo espinho: none!</a></li>
+        <li><a href="#terceiro-espinho-quebrando-a-chave-hmac">Terceiro espinho: quebrando a chave HMAC</a></li>
+        <li><a href="#quarto-espinho-muitos-cozinheiros-estragam-o-caldo-do-jwt">Quarto espinho: muitos cozinheiros estragam o caldo do JWT</a></li>
+        <li><a href="#quinto-espinho-fornecendo-sua-própria-chave">Quinto espinho: fornecendo sua própria chave</a></li>
+        <li><a href="#sexto-espinho-a-criptografia-jwt-funciona-mesmo">Sexto espinho: a criptografia JWT funciona mesmo?</a></li>
+        <li><a href="#sétimo-espinho-decodificação--verificação---isso-importa-">Sétimo espinho: decodificação / verificação - isso importa? 😉</a></li>
+        <li><a href="#oitavo-espinho-capturar-qualquer-token--assumir-o-acesso-à-api">Oitavo espinho: capturar qualquer token = assumir o acesso à API?</a></li>
+        <li><a href="#nono-espinho-replay-jwt">Nono espinho: replay JWT</a></li>
+        <li><a href="#décimo-espinho-_timing-attacks_-na-assinatura">Décimo espinho: <em>timing attacks</em> na assinatura</a></li>
+        <li><a href="#décimo-primeiro-espinho-grande-quantidade-de-bibliotecas-disponíveis">Décimo-primeiro espinho: grande quantidade de bibliotecas disponíveis</a></li>
+      </ul>
+    </li>
+    <li><a href="#alternativa-ao-jwt">Alternativa ao JWT?</a></li>
+    <li><a href="#o-jwt-pode-ser-seguro">O JWT pode ser seguro?</a>
+      <ul>
+        <li><a href="#o-que-devo-fazer">O que devo fazer?</a></li>
+      </ul>
+    </li>
+    <li><a href="#referências">Referências</a></li>
+  </ul>
+</nav>
+
+    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+<div class="container-fluid bg-primary bg-opacity-10">
+        <div class="container-xxl px-4 px-xxl-0">
+            <div class="row row-cols-2 py-3 align-items-center">
+                <div class="col col-6">
+                    <div class="row justify-content-end p-0">
+                        <div class="col-12 col-md-8 p-0">
+                            <div class="fs-3 fw-bold">Follow me</div>
+                            <p>I work on everything coding and tweet developer memes</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-6 text-sm-start">
+                    <a href="https://linkedin.com/"  aria-label="LinkedIn" class="text-decoration-none link-secondary d-inline p-2">
+                            
+                                
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fab fa-linkedin fa-2x"></i> --><svg class="svg-inline--fa fab fa-linkedin fa-2x" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+
+    &nbsp;
+
+                            
+                        </a>
+                    <a href="https://github.com/"  aria-label="GitHub" class="text-decoration-none link-secondary d-inline p-2">
+                            
+                                
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fab fa-github fa-2x"></i> --><svg class="svg-inline--fa fab fa-github fa-2x" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+    &nbsp;
+
+                            
+                        </a>
+                    <a href="https://medium.com/"  aria-label="Medium" class="text-decoration-none link-secondary d-inline p-2">
+                            
+                                
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fab fa-medium fa-2x"></i> --><svg class="svg-inline--fa fab fa-medium fa-2x" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M180.5,74.262C80.813,74.262,0,155.633,0,256S80.819,437.738,180.5,437.738,361,356.373,361,256,280.191,74.262,180.5,74.262Zm288.25,10.646c-49.845,0-90.245,76.619-90.245,171.095s40.406,171.1,90.251,171.1,90.251-76.619,90.251-171.1H559C559,161.5,518.6,84.908,468.752,84.908Zm139.506,17.821c-17.526,0-31.735,68.628-31.735,153.274s14.2,153.274,31.735,153.274S640,340.631,640,256C640,171.351,625.785,102.729,608.258,102.729Z"/></svg>
+
+    &nbsp;
+
+                            
+                        </a>
+                    </div>
+            </div>
+        </div>
+    </div>
+<footer class="container-fluid footer text-center p-3">
+    <div class="container-xxl text-center">
+        <small>
+            Copyright © 2024 Mark Dumay.
+            
+            
+                
+                Powered by 
+
+
+
+
+
+<a class="link-bg-footer" href="https://gethinode.com">Hinode</a>.
+            
+        </small>
+    </div>
+</footer>
+        </div>
+
+        <div id="toast-container" class="toast-container position-fixed bottom-0 end-0 p-3">
+
+
+
+
+
+
+
+<div id="toast-copied-code-message" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+        <strong class="me-auto">Hinode</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">Code copied to clipboard</div>
+</div>
+</div>
+
+<script src="/js/main.bundle.min.22175aa8b875099d815002cd29142710e8ab1407c73baa5687cc32e6a636e2d5.js" integrity="sha256-IhdaqLh1CZ2BUALNKRQnEOirFAfHO6pWh8wy5qY24tU=" crossorigin="anonymous" async></script>
+    
+
+    
+
+
+
+
+</body>
+</html>

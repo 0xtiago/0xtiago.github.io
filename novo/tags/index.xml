@@ -1,0 +1,685 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Hinode</title>
+    <link>https://example.com/tags/</link>
+    <description>Recent content in Tags on Hinode</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>Copyright © 2024 Mark Dumay.</copyright>
+    <lastBuildDate>Sun, 14 Jul 2024 18:04:46 -0300</lastBuildDate>
+    <atom:link href="https://example.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Blog</title>
+      <link>https://example.com/tags/blog/</link>
+      <pubDate>Fri, 12 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://example.com/tags/blog/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Apache</title>
+      <link>https://example.com/tags/apache/</link>
+      <pubDate>Mon, 27 Dec 2021 09:16:19 -0300</pubDate>
+      <guid>https://example.com/tags/apache/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Blackhat</title>
+      <link>https://example.com/tags/blackhat/</link>
+      <pubDate>Mon, 27 Dec 2021 09:16:19 -0300</pubDate>
+      <guid>https://example.com/tags/blackhat/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>CVE-2021-44228</title>
+      <link>https://example.com/tags/cve-2021-44228/</link>
+      <pubDate>Mon, 27 Dec 2021 09:16:19 -0300</pubDate>
+      <guid>https://example.com/tags/cve-2021-44228/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>CVE-2021-45046</title>
+      <link>https://example.com/tags/cve-2021-45046/</link>
+      <pubDate>Mon, 27 Dec 2021 09:16:19 -0300</pubDate>
+      <guid>https://example.com/tags/cve-2021-45046/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>CVE-2021-45105</title>
+      <link>https://example.com/tags/cve-2021-45105/</link>
+      <pubDate>Mon, 27 Dec 2021 09:16:19 -0300</pubDate>
+      <guid>https://example.com/tags/cve-2021-45105/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Jndi</title>
+      <link>https://example.com/tags/jndi/</link>
+      <pubDate>Mon, 27 Dec 2021 09:16:19 -0300</pubDate>
+      <guid>https://example.com/tags/jndi/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ldap</title>
+      <link>https://example.com/tags/ldap/</link>
+      <pubDate>Mon, 27 Dec 2021 09:16:19 -0300</pubDate>
+      <guid>https://example.com/tags/ldap/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Log4j2</title>
+      <link>https://example.com/tags/log4j2/</link>
+      <pubDate>Mon, 27 Dec 2021 09:16:19 -0300</pubDate>
+      <guid>https://example.com/tags/log4j2/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Openctibr</title>
+      <link>https://example.com/tags/openctibr/</link>
+      <pubDate>Mon, 27 Dec 2021 09:16:19 -0300</pubDate>
+      <guid>https://example.com/tags/openctibr/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Research</title>
+      <link>https://example.com/tags/research/</link>
+      <pubDate>Mon, 27 Dec 2021 09:16:19 -0300</pubDate>
+      <guid>https://example.com/tags/research/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Greenbone</title>
+      <link>https://example.com/tags/greenbone/</link>
+      <pubDate>Wed, 22 Dec 2021 11:00:09 -0300</pubDate>
+      <guid>https://example.com/tags/greenbone/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Linux</title>
+      <link>https://example.com/tags/linux/</link>
+      <pubDate>Wed, 22 Dec 2021 11:00:09 -0300</pubDate>
+      <guid>https://example.com/tags/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Nessus</title>
+      <link>https://example.com/tags/nessus/</link>
+      <pubDate>Wed, 22 Dec 2021 11:00:09 -0300</pubDate>
+      <guid>https://example.com/tags/nessus/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Openvas</title>
+      <link>https://example.com/tags/openvas/</link>
+      <pubDate>Wed, 22 Dec 2021 11:00:09 -0300</pubDate>
+      <guid>https://example.com/tags/openvas/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Scanner</title>
+      <link>https://example.com/tags/scanner/</link>
+      <pubDate>Wed, 22 Dec 2021 11:00:09 -0300</pubDate>
+      <guid>https://example.com/tags/scanner/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ubuntu</title>
+      <link>https://example.com/tags/ubuntu/</link>
+      <pubDate>Wed, 22 Dec 2021 11:00:09 -0300</pubDate>
+      <guid>https://example.com/tags/ubuntu/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vulnerability</title>
+      <link>https://example.com/tags/vulnerability/</link>
+      <pubDate>Wed, 22 Dec 2021 11:00:09 -0300</pubDate>
+      <guid>https://example.com/tags/vulnerability/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Application</title>
+      <link>https://example.com/tags/application/</link>
+      <pubDate>Fri, 13 Aug 2021 11:15:12 -0300</pubDate>
+      <guid>https://example.com/tags/application/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cafe Seguro</title>
+      <link>https://example.com/tags/cafe-seguro/</link>
+      <pubDate>Fri, 13 Aug 2021 11:15:12 -0300</pubDate>
+      <guid>https://example.com/tags/cafe-seguro/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cybersecurity</title>
+      <link>https://example.com/tags/cybersecurity/</link>
+      <pubDate>Fri, 13 Aug 2021 11:15:12 -0300</pubDate>
+      <guid>https://example.com/tags/cybersecurity/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Development</title>
+      <link>https://example.com/tags/development/</link>
+      <pubDate>Fri, 13 Aug 2021 11:15:12 -0300</pubDate>
+      <guid>https://example.com/tags/development/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Owasp</title>
+      <link>https://example.com/tags/owasp/</link>
+      <pubDate>Fri, 13 Aug 2021 11:15:12 -0300</pubDate>
+      <guid>https://example.com/tags/owasp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Podcast</title>
+      <link>https://example.com/tags/podcast/</link>
+      <pubDate>Fri, 13 Aug 2021 11:15:12 -0300</pubDate>
+      <guid>https://example.com/tags/podcast/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Security</title>
+      <link>https://example.com/tags/security/</link>
+      <pubDate>Fri, 13 Aug 2021 11:15:12 -0300</pubDate>
+      <guid>https://example.com/tags/security/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Wss</title>
+      <link>https://example.com/tags/wss/</link>
+      <pubDate>Fri, 13 Aug 2021 11:15:12 -0300</pubDate>
+      <guid>https://example.com/tags/wss/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ctf</title>
+      <link>https://example.com/tags/ctf/</link>
+      <pubDate>Sat, 19 Dec 2020 08:00:51 -0300</pubDate>
+      <guid>https://example.com/tags/ctf/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hacking</title>
+      <link>https://example.com/tags/hacking/</link>
+      <pubDate>Sat, 19 Dec 2020 08:00:51 -0300</pubDate>
+      <guid>https://example.com/tags/hacking/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vulnhub</title>
+      <link>https://example.com/tags/vulnhub/</link>
+      <pubDate>Sat, 19 Dec 2020 08:00:51 -0300</pubDate>
+      <guid>https://example.com/tags/vulnhub/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Walkthrough</title>
+      <link>https://example.com/tags/walkthrough/</link>
+      <pubDate>Sat, 19 Dec 2020 08:00:51 -0300</pubDate>
+      <guid>https://example.com/tags/walkthrough/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Writeup</title>
+      <link>https://example.com/tags/writeup/</link>
+      <pubDate>Sat, 19 Dec 2020 08:00:51 -0300</pubDate>
+      <guid>https://example.com/tags/writeup/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Breach and Attack Simulation</title>
+      <link>https://example.com/tags/breach-and-attack-simulation/</link>
+      <pubDate>Mon, 27 Jul 2020 21:00:00 -0300</pubDate>
+      <guid>https://example.com/tags/breach-and-attack-simulation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Guardicore</title>
+      <link>https://example.com/tags/guardicore/</link>
+      <pubDate>Mon, 27 Jul 2020 21:00:00 -0300</pubDate>
+      <guid>https://example.com/tags/guardicore/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Infection Monkey</title>
+      <link>https://example.com/tags/infection-monkey/</link>
+      <pubDate>Mon, 27 Jul 2020 21:00:00 -0300</pubDate>
+      <guid>https://example.com/tags/infection-monkey/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Red Team</title>
+      <link>https://example.com/tags/red-team/</link>
+      <pubDate>Mon, 27 Jul 2020 21:00:00 -0300</pubDate>
+      <guid>https://example.com/tags/red-team/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Resiliência</title>
+      <link>https://example.com/tags/resili%C3%AAncia/</link>
+      <pubDate>Mon, 27 Jul 2020 21:00:00 -0300</pubDate>
+      <guid>https://example.com/tags/resili%C3%AAncia/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Corrida</title>
+      <link>https://example.com/tags/corrida/</link>
+      <pubDate>Sun, 26 Jul 2020 13:30:00 -0300</pubDate>
+      <guid>https://example.com/tags/corrida/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Garmin</title>
+      <link>https://example.com/tags/garmin/</link>
+      <pubDate>Sun, 26 Jul 2020 13:30:00 -0300</pubDate>
+      <guid>https://example.com/tags/garmin/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Malware</title>
+      <link>https://example.com/tags/malware/</link>
+      <pubDate>Sun, 26 Jul 2020 13:30:00 -0300</pubDate>
+      <guid>https://example.com/tags/malware/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ransomware</title>
+      <link>https://example.com/tags/ransomware/</link>
+      <pubDate>Sun, 26 Jul 2020 13:30:00 -0300</pubDate>
+      <guid>https://example.com/tags/ransomware/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Running</title>
+      <link>https://example.com/tags/running/</link>
+      <pubDate>Sun, 26 Jul 2020 13:30:00 -0300</pubDate>
+      <guid>https://example.com/tags/running/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Strava</title>
+      <link>https://example.com/tags/strava/</link>
+      <pubDate>Sun, 26 Jul 2020 13:30:00 -0300</pubDate>
+      <guid>https://example.com/tags/strava/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Data Privacy</title>
+      <link>https://example.com/tags/data-privacy/</link>
+      <pubDate>Thu, 16 Jul 2020 08:15:12 -0300</pubDate>
+      <guid>https://example.com/tags/data-privacy/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Miro</title>
+      <link>https://example.com/tags/miro/</link>
+      <pubDate>Thu, 16 Jul 2020 08:15:12 -0300</pubDate>
+      <guid>https://example.com/tags/miro/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Bug Bounty</title>
+      <link>https://example.com/tags/bug-bounty/</link>
+      <pubDate>Sun, 12 Jul 2020 08:41:04 -0300</pubDate>
+      <guid>https://example.com/tags/bug-bounty/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Coleta De Informações</title>
+      <link>https://example.com/tags/coleta-de-informa%C3%A7%C3%B5es/</link>
+      <pubDate>Sun, 12 Jul 2020 08:41:04 -0300</pubDate>
+      <guid>https://example.com/tags/coleta-de-informa%C3%A7%C3%B5es/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cyber Kill Chain</title>
+      <link>https://example.com/tags/cyber-kill-chain/</link>
+      <pubDate>Sun, 12 Jul 2020 08:41:04 -0300</pubDate>
+      <guid>https://example.com/tags/cyber-kill-chain/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Information Gathering</title>
+      <link>https://example.com/tags/information-gathering/</link>
+      <pubDate>Sun, 12 Jul 2020 08:41:04 -0300</pubDate>
+      <guid>https://example.com/tags/information-gathering/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mitre Att&amp;ck</title>
+      <link>https://example.com/tags/mitre-attck/</link>
+      <pubDate>Sun, 12 Jul 2020 08:41:04 -0300</pubDate>
+      <guid>https://example.com/tags/mitre-attck/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Osint</title>
+      <link>https://example.com/tags/osint/</link>
+      <pubDate>Sun, 12 Jul 2020 08:41:04 -0300</pubDate>
+      <guid>https://example.com/tags/osint/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Recon-Ng</title>
+      <link>https://example.com/tags/recon-ng/</link>
+      <pubDate>Sun, 12 Jul 2020 08:41:04 -0300</pubDate>
+      <guid>https://example.com/tags/recon-ng/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Argentina</title>
+      <link>https://example.com/tags/argentina/</link>
+      <pubDate>Fri, 19 Jun 2020 22:41:04 -0300</pubDate>
+      <guid>https://example.com/tags/argentina/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Buenos Aires</title>
+      <link>https://example.com/tags/buenos-aires/</link>
+      <pubDate>Fri, 19 Jun 2020 22:41:04 -0300</pubDate>
+      <guid>https://example.com/tags/buenos-aires/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Conference</title>
+      <link>https://example.com/tags/conference/</link>
+      <pubDate>Fri, 19 Jun 2020 22:41:04 -0300</pubDate>
+      <guid>https://example.com/tags/conference/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ekoparty</title>
+      <link>https://example.com/tags/ekoparty/</link>
+      <pubDate>Fri, 19 Jun 2020 22:41:04 -0300</pubDate>
+      <guid>https://example.com/tags/ekoparty/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Criptography</title>
+      <link>https://example.com/tags/criptography/</link>
+      <pubDate>Fri, 12 Jun 2020 12:15:12 -0300</pubDate>
+      <guid>https://example.com/tags/criptography/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Jwt</title>
+      <link>https://example.com/tags/jwt/</link>
+      <pubDate>Fri, 12 Jun 2020 12:15:12 -0300</pubDate>
+      <guid>https://example.com/tags/jwt/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Lascon</title>
+      <link>https://example.com/tags/lascon/</link>
+      <pubDate>Fri, 05 Jun 2020 12:02:56 -0300</pubDate>
+      <guid>https://example.com/tags/lascon/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Security Champions</title>
+      <link>https://example.com/tags/security-champions/</link>
+      <pubDate>Fri, 05 Jun 2020 12:02:56 -0300</pubDate>
+      <guid>https://example.com/tags/security-champions/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ant&#43;</title>
+      <link>https://example.com/tags/ant&#43;/</link>
+      <pubDate>Tue, 02 Jun 2020 08:40:20 -0300</pubDate>
+      <guid>https://example.com/tags/ant&#43;/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Footpod</title>
+      <link>https://example.com/tags/footpod/</link>
+      <pubDate>Tue, 02 Jun 2020 08:40:20 -0300</pubDate>
+      <guid>https://example.com/tags/footpod/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Forerunner</title>
+      <link>https://example.com/tags/forerunner/</link>
+      <pubDate>Tue, 02 Jun 2020 08:40:20 -0300</pubDate>
+      <guid>https://example.com/tags/forerunner/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Quarentena</title>
+      <link>https://example.com/tags/quarentena/</link>
+      <pubDate>Tue, 02 Jun 2020 08:40:20 -0300</pubDate>
+      <guid>https://example.com/tags/quarentena/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Zwift</title>
+      <link>https://example.com/tags/zwift/</link>
+      <pubDate>Tue, 02 Jun 2020 08:40:20 -0300</pubDate>
+      <guid>https://example.com/tags/zwift/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Confinamento</title>
+      <link>https://example.com/tags/confinamento/</link>
+      <pubDate>Sat, 23 May 2020 19:50:51 -0300</pubDate>
+      <guid>https://example.com/tags/confinamento/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Coronavirus</title>
+      <link>https://example.com/tags/coronavirus/</link>
+      <pubDate>Sat, 23 May 2020 19:50:51 -0300</pubDate>
+      <guid>https://example.com/tags/coronavirus/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Life</title>
+      <link>https://example.com/tags/life/</link>
+      <pubDate>Sat, 23 May 2020 19:50:51 -0300</pubDate>
+      <guid>https://example.com/tags/life/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Quarantine</title>
+      <link>https://example.com/tags/quarantine/</link>
+      <pubDate>Sat, 23 May 2020 19:50:51 -0300</pubDate>
+      <guid>https://example.com/tags/quarantine/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vida</title>
+      <link>https://example.com/tags/vida/</link>
+      <pubDate>Sat, 23 May 2020 19:50:51 -0300</pubDate>
+      <guid>https://example.com/tags/vida/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hackthebox</title>
+      <link>https://example.com/tags/hackthebox/</link>
+      <pubDate>Thu, 14 May 2020 16:31:51 -0300</pubDate>
+      <guid>https://example.com/tags/hackthebox/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Data Analytics</title>
+      <link>https://example.com/tags/data-analytics/</link>
+      <pubDate>Fri, 17 Apr 2020 22:09:49 -0300</pubDate>
+      <guid>https://example.com/tags/data-analytics/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Marathon</title>
+      <link>https://example.com/tags/marathon/</link>
+      <pubDate>Fri, 17 Apr 2020 22:09:49 -0300</pubDate>
+      <guid>https://example.com/tags/marathon/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Maratona</title>
+      <link>https://example.com/tags/maratona/</link>
+      <pubDate>Fri, 17 Apr 2020 22:09:49 -0300</pubDate>
+      <guid>https://example.com/tags/maratona/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Matplotlib</title>
+      <link>https://example.com/tags/matplotlib/</link>
+      <pubDate>Fri, 17 Apr 2020 22:09:49 -0300</pubDate>
+      <guid>https://example.com/tags/matplotlib/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Pandas</title>
+      <link>https://example.com/tags/pandas/</link>
+      <pubDate>Fri, 17 Apr 2020 22:09:49 -0300</pubDate>
+      <guid>https://example.com/tags/pandas/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Porto Alegre</title>
+      <link>https://example.com/tags/porto-alegre/</link>
+      <pubDate>Fri, 17 Apr 2020 22:09:49 -0300</pubDate>
+      <guid>https://example.com/tags/porto-alegre/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Python</title>
+      <link>https://example.com/tags/python/</link>
+      <pubDate>Fri, 17 Apr 2020 22:09:49 -0300</pubDate>
+      <guid>https://example.com/tags/python/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Seaborn</title>
+      <link>https://example.com/tags/seaborn/</link>
+      <pubDate>Fri, 17 Apr 2020 22:09:49 -0300</pubDate>
+      <guid>https://example.com/tags/seaborn/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Faustão Invader</title>
+      <link>https://example.com/tags/faust%C3%A3o-invader/</link>
+      <pubDate>Thu, 09 Apr 2020 22:33:47 -0300</pubDate>
+      <guid>https://example.com/tags/faust%C3%A3o-invader/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Game</title>
+      <link>https://example.com/tags/game/</link>
+      <pubDate>Thu, 09 Apr 2020 22:33:47 -0300</pubDate>
+      <guid>https://example.com/tags/game/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Pygame</title>
+      <link>https://example.com/tags/pygame/</link>
+      <pubDate>Thu, 09 Apr 2020 22:33:47 -0300</pubDate>
+      <guid>https://example.com/tags/pygame/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Acm.org</title>
+      <link>https://example.com/tags/acm.org/</link>
+      <pubDate>Mon, 16 Mar 2020 21:35:28 -0300</pubDate>
+      <guid>https://example.com/tags/acm.org/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Books</title>
+      <link>https://example.com/tags/books/</link>
+      <pubDate>Mon, 16 Mar 2020 21:35:28 -0300</pubDate>
+      <guid>https://example.com/tags/books/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Oreilly</title>
+      <link>https://example.com/tags/oreilly/</link>
+      <pubDate>Mon, 16 Mar 2020 21:35:28 -0300</pubDate>
+      <guid>https://example.com/tags/oreilly/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Safari</title>
+      <link>https://example.com/tags/safari/</link>
+      <pubDate>Mon, 16 Mar 2020 21:35:28 -0300</pubDate>
+      <guid>https://example.com/tags/safari/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Study</title>
+      <link>https://example.com/tags/study/</link>
+      <pubDate>Mon, 16 Mar 2020 21:35:28 -0300</pubDate>
+      <guid>https://example.com/tags/study/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tip</title>
+      <link>https://example.com/tags/tip/</link>
+      <pubDate>Mon, 16 Mar 2020 21:35:28 -0300</pubDate>
+      <guid>https://example.com/tags/tip/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Lampiao</title>
+      <link>https://example.com/tags/lampiao/</link>
+      <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
+      <guid>https://example.com/tags/lampiao/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Jarbas</title>
+      <link>https://example.com/tags/jarbas/</link>
+      <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
+      <guid>https://example.com/tags/jarbas/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ccsp</title>
+      <link>https://example.com/tags/ccsp/</link>
+      <pubDate>Wed, 29 Mar 2017 22:00:04 -0300</pubDate>
+      <guid>https://example.com/tags/ccsp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cloud Computing</title>
+      <link>https://example.com/tags/cloud-computing/</link>
+      <pubDate>Wed, 29 Mar 2017 22:00:04 -0300</pubDate>
+      <guid>https://example.com/tags/cloud-computing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Isc2</title>
+      <link>https://example.com/tags/isc2/</link>
+      <pubDate>Wed, 29 Mar 2017 22:00:04 -0300</pubDate>
+      <guid>https://example.com/tags/isc2/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cissp</title>
+      <link>https://example.com/tags/cissp/</link>
+      <pubDate>Fri, 27 Feb 2015 20:00:01 -0300</pubDate>
+      <guid>https://example.com/tags/cissp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Issa</title>
+      <link>https://example.com/tags/issa/</link>
+      <pubDate>Fri, 27 Feb 2015 20:00:01 -0300</pubDate>
+      <guid>https://example.com/tags/issa/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Awareness</title>
+      <link>https://example.com/tags/awareness/</link>
+      <pubDate>Tue, 10 Feb 2015 00:00:00 +0000</pubDate>
+      <guid>https://example.com/tags/awareness/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Conscientização</title>
+      <link>https://example.com/tags/conscientiza%C3%A7%C3%A3o/</link>
+      <pubDate>Tue, 10 Feb 2015 00:00:00 +0000</pubDate>
+      <guid>https://example.com/tags/conscientiza%C3%A7%C3%A3o/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

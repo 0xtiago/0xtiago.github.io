@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Security on Hinode</title>
+    <link>https://example.com/tags/security/</link>
+    <description>Recent content in Security on Hinode</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>Copyright © 2024 Mark Dumay.</copyright>
+    <lastBuildDate>Fri, 13 Aug 2021 11:15:12 -0300</lastBuildDate>
+    <atom:link href="https://example.com/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Café Seguro 23 Café na conta de... Tiago Tavares</title>
+      <link>https://example.com/blog/participacao_podcast_cafeseguro/</link>
+      <pubDate>Fri, 13 Aug 2021 11:15:12 -0300</pubDate>
+      <guid>https://example.com/blog/participacao_podcast_cafeseguro/</guid>
+      <description>&lt;p&gt;Minha participação no podcast &lt;strong&gt;Café Seguro&lt;/strong&gt;, da WSS Security, e apresentado Daniel Dalalana, Pedro Kassick e Ben Hur Ott.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Breach and Attack Simulation com Infection Monkey 🐵</title>
+      <link>https://example.com/blog/infection_monkey/</link>
+      <pubDate>Mon, 27 Jul 2020 21:00:00 -0300</pubDate>
+      <guid>https://example.com/blog/infection_monkey/</guid>
+      <description>&lt;p&gt;Realize simulações de ataque em um clique!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Miro&#39;s free accounts (in)security</title>
+      <link>https://example.com/blog/miro_insecurity/</link>
+      <pubDate>Thu, 16 Jul 2020 08:15:12 -0300</pubDate>
+      <guid>https://example.com/blog/miro_insecurity/</guid>
+      <description>&lt;p&gt;&lt;em&gt;&lt;strong&gt;&amp;ldquo;This is not a bug, is a feature!&amp;rdquo;&lt;/strong&gt;&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Me apaixonei por uma plataforma de colaboração e tive meu coração despedaçado. 💔&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Recon-NG</title>
+      <link>https://example.com/blog/recon-ng/</link>
+      <pubDate>Sun, 12 Jul 2020 08:41:04 -0300</pubDate>
+      <guid>https://example.com/blog/recon-ng/</guid>
+      <description>&lt;p&gt;Como obter informações de organizações alvo, sua infraestrutura e seus colaboradores sem qualquer interação direta. &lt;em&gt;&lt;strong&gt;A Recon-NG quick-start!&lt;/strong&gt;&lt;/em&gt; 😉&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Ekoparty Security Conference 13 (2017) - Talks</title>
+      <link>https://example.com/blog/ekoparty13/</link>
+      <pubDate>Fri, 19 Jun 2020 22:41:04 -0300</pubDate>
+      <guid>https://example.com/blog/ekoparty13/</guid>
+      <description>&lt;p&gt;Desde 2017, estive presente todos os anos em Buenos Aires para participar do evento, que sempre me suepreende com o ótimo nível dos materiais apresentados pelos palestrantes.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>(In)segurança em tokens JWT</title>
+      <link>https://example.com/blog/jwt_insecurity/</link>
+      <pubDate>Fri, 12 Jun 2020 12:15:12 -0300</pubDate>
+      <guid>https://example.com/blog/jwt_insecurity/</guid>
+      <description>&lt;p&gt;Existem muitas bibliotecas disponíveis que suportam JWT, e o próprio padrão possui “rico suporte para mecanismos criptográficos”. Tudo isso significa que o JWT é realmente seguro? Vamos ver.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>O fim dos times de AppSec</title>
+      <link>https://example.com/blog/ofimdostimesdeappsec/</link>
+      <pubDate>Fri, 05 Jun 2020 12:02:56 -0300</pubDate>
+      <guid>https://example.com/blog/ofimdostimesdeappsec/</guid>
+      <description>&lt;p&gt;O paradoxo da segurança em aplicações.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Passed (ISC)2 CCSP - Certified Cloud Security Professional</title>
+      <link>https://example.com/blog/passed_ccsp/</link>
+      <pubDate>Wed, 29 Mar 2017 22:00:04 -0300</pubDate>
+      <guid>https://example.com/blog/passed_ccsp/</guid>
+      <description>&lt;p&gt;My study resouces to achieve CCSP certification.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Passed (ISC)2 CISSP - Certified Information Systems Security Professional</title>
+      <link>https://example.com/blog/passed_cissp/</link>
+      <pubDate>Fri, 27 Feb 2015 20:00:01 -0300</pubDate>
+      <guid>https://example.com/blog/passed_cissp/</guid>
+      <description>&lt;p&gt;My resources of study to achieve CISSP certification.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

