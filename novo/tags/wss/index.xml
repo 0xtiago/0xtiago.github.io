@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Wss on Hinode</title>
-    <link>https://example.com/tags/wss/</link>
+    <link>https://tiagotavares.io/novo/tags/wss/</link>
     <description>Recent content in Wss on Hinode</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Mark Dumay.</copyright>
     <lastBuildDate>Fri, 13 Aug 2021 11:15:12 -0300</lastBuildDate>
-    <atom:link href="https://example.com/tags/wss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://tiagotavares.io/novo/tags/wss/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Café Seguro 23 Café na conta de... Tiago Tavares</title>
-      <link>https://example.com/blog/participacao_podcast_cafeseguro/</link>
+      <link>https://tiagotavares.io/novo/blog/participacao_podcast_cafeseguro/</link>
       <pubDate>Fri, 13 Aug 2021 11:15:12 -0300</pubDate>
-      <guid>https://example.com/blog/participacao_podcast_cafeseguro/</guid>
+      <guid>https://tiagotavares.io/novo/blog/participacao_podcast_cafeseguro/</guid>
       <description>&lt;p&gt;Minha participação no podcast &lt;strong&gt;Café Seguro&lt;/strong&gt;, da WSS Security, e apresentado Daniel Dalalana, Pedro Kassick e Ben Hur Ott.&lt;/p&gt;</description>
     </item>
   </channel>

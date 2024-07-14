@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Conference on Hinode</title>
-    <link>https://example.com/tags/conference/</link>
+    <link>https://tiagotavares.io/novo/tags/conference/</link>
     <description>Recent content in Conference on Hinode</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Mark Dumay.</copyright>
     <lastBuildDate>Fri, 19 Jun 2020 22:41:04 -0300</lastBuildDate>
-    <atom:link href="https://example.com/tags/conference/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://tiagotavares.io/novo/tags/conference/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ekoparty Security Conference 13 (2017) - Talks</title>
-      <link>https://example.com/blog/ekoparty13/</link>
+      <link>https://tiagotavares.io/novo/blog/ekoparty13/</link>
       <pubDate>Fri, 19 Jun 2020 22:41:04 -0300</pubDate>
-      <guid>https://example.com/blog/ekoparty13/</guid>
+      <guid>https://tiagotavares.io/novo/blog/ekoparty13/</guid>
       <description>&lt;p&gt;Desde 2017, estive presente todos os anos em Buenos Aires para participar do evento, que sempre me suepreende com o ótimo nível dos materiais apresentados pelos palestrantes.&lt;/p&gt;</description>
     </item>
   </channel>

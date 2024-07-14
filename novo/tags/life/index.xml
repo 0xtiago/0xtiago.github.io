@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Life on Hinode</title>
-    <link>https://example.com/tags/life/</link>
+    <link>https://tiagotavares.io/novo/tags/life/</link>
     <description>Recent content in Life on Hinode</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Mark Dumay.</copyright>
     <lastBuildDate>Sat, 23 May 2020 19:50:51 -0300</lastBuildDate>
-    <atom:link href="https://example.com/tags/life/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://tiagotavares.io/novo/tags/life/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>A dor do confinamento</title>
-      <link>https://example.com/blog/a_dor_do_confinamento/</link>
+      <link>https://tiagotavares.io/novo/blog/a_dor_do_confinamento/</link>
       <pubDate>Sat, 23 May 2020 19:50:51 -0300</pubDate>
-      <guid>https://example.com/blog/a_dor_do_confinamento/</guid>
+      <guid>https://tiagotavares.io/novo/blog/a_dor_do_confinamento/</guid>
       <description>&lt;p&gt;..mas tudo isso vai passar.&lt;/p&gt;</description>
     </item>
   </channel>

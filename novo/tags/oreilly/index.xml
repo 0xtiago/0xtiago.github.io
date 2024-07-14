@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Oreilly on Hinode</title>
-    <link>https://example.com/tags/oreilly/</link>
+    <link>https://tiagotavares.io/novo/tags/oreilly/</link>
     <description>Recent content in Oreilly on Hinode</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Mark Dumay.</copyright>
     <lastBuildDate>Mon, 16 Mar 2020 21:35:28 -0300</lastBuildDate>
-    <atom:link href="https://example.com/tags/oreilly/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://tiagotavares.io/novo/tags/oreilly/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Association for Computing Machinery &#43; O&#39;Reilly Safari</title>
-      <link>https://example.com/blog/acm_oreillysafari/</link>
+      <link>https://tiagotavares.io/novo/blog/acm_oreillysafari/</link>
       <pubDate>Mon, 16 Mar 2020 21:35:28 -0300</pubDate>
-      <guid>https://example.com/blog/acm_oreillysafari/</guid>
+      <guid>https://tiagotavares.io/novo/blog/acm_oreillysafari/</guid>
       <description>&lt;p&gt;Obtendo acesso a um dos maiores acervos técnicos pagando bem pouco por isso!&lt;/p&gt;</description>
     </item>
   </channel>

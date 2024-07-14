@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Research on Hinode</title>
-    <link>https://example.com/tags/research/</link>
+    <link>https://tiagotavares.io/novo/tags/research/</link>
     <description>Recent content in Research on Hinode</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Mark Dumay.</copyright>
     <lastBuildDate>Mon, 27 Dec 2021 09:16:19 -0300</lastBuildDate>
-    <atom:link href="https://example.com/tags/research/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://tiagotavares.io/novo/tags/research/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Log4J2 JNDI/LDAP Lookups - Dos elos evitáveis ao apocalipse 🔥 | CVE-2021-44228</title>
-      <link>https://example.com/blog/log4j2_jndi_cve-2021-44228/</link>
+      <link>https://tiagotavares.io/novo/blog/log4j2_jndi_cve-2021-44228/</link>
       <pubDate>Mon, 27 Dec 2021 09:16:19 -0300</pubDate>
-      <guid>https://example.com/blog/log4j2_jndi_cve-2021-44228/</guid>
+      <guid>https://tiagotavares.io/novo/blog/log4j2_jndi_cve-2021-44228/</guid>
       <description>&lt;p&gt;🧵 Uma thread de quase 10 anos de acontecimentos que poderiam ter sido previstos e evitados.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Miro&#39;s free accounts (in)security</title>
-      <link>https://example.com/blog/miro_insecurity/</link>
+      <link>https://tiagotavares.io/novo/blog/miro_insecurity/</link>
       <pubDate>Thu, 16 Jul 2020 08:15:12 -0300</pubDate>
-      <guid>https://example.com/blog/miro_insecurity/</guid>
+      <guid>https://tiagotavares.io/novo/blog/miro_insecurity/</guid>
       <description>&lt;p&gt;&lt;em&gt;&lt;strong&gt;&amp;ldquo;This is not a bug, is a feature!&amp;rdquo;&lt;/strong&gt;&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Me apaixonei por uma plataforma de colaboração e tive meu coração despedaçado. 💔&lt;/p&gt;</description>
     </item>
     <item>
       <title>Fontes de amostra de malwares para pesquisadores</title>
-      <link>https://example.com/blog/freemalwaresamples/</link>
+      <link>https://tiagotavares.io/novo/blog/freemalwaresamples/</link>
       <pubDate>Fri, 26 Jun 2020 17:30:24 -0300</pubDate>
-      <guid>https://example.com/blog/freemalwaresamples/</guid>
+      <guid>https://tiagotavares.io/novo/blog/freemalwaresamples/</guid>
       <description></description>
     </item>
   </channel>

@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ubuntu on Hinode</title>
-    <link>https://example.com/tags/ubuntu/</link>
+    <link>https://tiagotavares.io/novo/tags/ubuntu/</link>
     <description>Recent content in Ubuntu on Hinode</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Mark Dumay.</copyright>
     <lastBuildDate>Wed, 22 Dec 2021 11:00:09 -0300</lastBuildDate>
-    <atom:link href="https://example.com/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://tiagotavares.io/novo/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Gestao de vulnerabilidades com Greenbone Openvas - Ubuntu 20.04 | Updated Dez 2021</title>
-      <link>https://example.com/blog/gestao-de-vulnerabilidades-com-greenbone-openvas_dez2021/</link>
+      <link>https://tiagotavares.io/novo/blog/gestao-de-vulnerabilidades-com-greenbone-openvas_dez2021/</link>
       <pubDate>Wed, 22 Dec 2021 11:00:09 -0300</pubDate>
-      <guid>https://example.com/blog/gestao-de-vulnerabilidades-com-greenbone-openvas_dez2021/</guid>
+      <guid>https://tiagotavares.io/novo/blog/gestao-de-vulnerabilidades-com-greenbone-openvas_dez2021/</guid>
       <description>&lt;p&gt;Um rápido &lt;em&gt;how-to&lt;/em&gt; de como instalar o Greenbone Openvas no Ubuntu 20.04, além de uma breve introdução a gestão de vulnerabilidades.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Gestão de vulnerabilidades com Greenbone Openvas - Ubuntu 20.04</title>
-      <link>https://example.com/blog/gestao-de-vulnerabilidades-com-greenbone-openvas/</link>
+      <link>https://tiagotavares.io/novo/blog/gestao-de-vulnerabilidades-com-greenbone-openvas/</link>
       <pubDate>Wed, 07 Jul 2021 10:20:09 -0300</pubDate>
-      <guid>https://example.com/blog/gestao-de-vulnerabilidades-com-greenbone-openvas/</guid>
+      <guid>https://tiagotavares.io/novo/blog/gestao-de-vulnerabilidades-com-greenbone-openvas/</guid>
       <description>&lt;p&gt;Um rápido &lt;em&gt;how-to&lt;/em&gt; de como instalar o Greenbone Openvas no Ubuntu 20.04, além de uma breve introdução a gestão de vulnerabilidades.&lt;/p&gt;</description>
     </item>
   </channel>

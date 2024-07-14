@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Isc2 on Hinode</title>
-    <link>https://example.com/tags/isc2/</link>
+    <link>https://tiagotavares.io/novo/tags/isc2/</link>
     <description>Recent content in Isc2 on Hinode</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Mark Dumay.</copyright>
     <lastBuildDate>Wed, 29 Mar 2017 22:00:04 -0300</lastBuildDate>
-    <atom:link href="https://example.com/tags/isc2/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://tiagotavares.io/novo/tags/isc2/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Passed (ISC)2 CCSP - Certified Cloud Security Professional</title>
-      <link>https://example.com/blog/passed_ccsp/</link>
+      <link>https://tiagotavares.io/novo/blog/passed_ccsp/</link>
       <pubDate>Wed, 29 Mar 2017 22:00:04 -0300</pubDate>
-      <guid>https://example.com/blog/passed_ccsp/</guid>
+      <guid>https://tiagotavares.io/novo/blog/passed_ccsp/</guid>
       <description>&lt;p&gt;My study resouces to achieve CCSP certification.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Passed (ISC)2 CISSP - Certified Information Systems Security Professional</title>
-      <link>https://example.com/blog/passed_cissp/</link>
+      <link>https://tiagotavares.io/novo/blog/passed_cissp/</link>
       <pubDate>Fri, 27 Feb 2015 20:00:01 -0300</pubDate>
-      <guid>https://example.com/blog/passed_cissp/</guid>
+      <guid>https://tiagotavares.io/novo/blog/passed_cissp/</guid>
       <description>&lt;p&gt;My resources of study to achieve CISSP certification.&lt;/p&gt;</description>
     </item>
   </channel>

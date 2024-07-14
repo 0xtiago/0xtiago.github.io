@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Walkthrough on Hinode</title>
-    <link>https://example.com/tags/walkthrough/</link>
+    <link>https://tiagotavares.io/novo/tags/walkthrough/</link>
     <description>Recent content in Walkthrough on Hinode</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Mark Dumay.</copyright>
     <lastBuildDate>Sat, 19 Dec 2020 08:00:51 -0300</lastBuildDate>
-    <atom:link href="https://example.com/tags/walkthrough/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://tiagotavares.io/novo/tags/walkthrough/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ChillHack: 1 - Vulnhub </title>
-      <link>https://example.com/blog/chillhack/</link>
+      <link>https://tiagotavares.io/novo/blog/chillhack/</link>
       <pubDate>Sat, 19 Dec 2020 08:00:51 -0300</pubDate>
-      <guid>https://example.com/blog/chillhack/</guid>
+      <guid>https://tiagotavares.io/novo/blog/chillhack/</guid>
       <description>&lt;p&gt;ChillHack: 1 - A Vulnhub vulnerable machine walkthrough.&lt;/p&gt;</description>
     </item>
   </channel>

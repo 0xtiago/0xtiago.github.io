@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Breach and Attack Simulation on Hinode</title>
-    <link>https://example.com/tags/breach-and-attack-simulation/</link>
+    <link>https://tiagotavares.io/novo/tags/breach-and-attack-simulation/</link>
     <description>Recent content in Breach and Attack Simulation on Hinode</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Mark Dumay.</copyright>
     <lastBuildDate>Mon, 27 Jul 2020 21:00:00 -0300</lastBuildDate>
-    <atom:link href="https://example.com/tags/breach-and-attack-simulation/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://tiagotavares.io/novo/tags/breach-and-attack-simulation/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Breach and Attack Simulation com Infection Monkey 🐵</title>
-      <link>https://example.com/blog/infection_monkey/</link>
+      <link>https://tiagotavares.io/novo/blog/infection_monkey/</link>
       <pubDate>Mon, 27 Jul 2020 21:00:00 -0300</pubDate>
-      <guid>https://example.com/blog/infection_monkey/</guid>
+      <guid>https://tiagotavares.io/novo/blog/infection_monkey/</guid>
       <description>&lt;p&gt;Realize simulações de ataque em um clique!&lt;/p&gt;</description>
     </item>
   </channel>

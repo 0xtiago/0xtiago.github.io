@@ -2,396 +2,396 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://example.com/tags/blog/</loc>
+    <loc>https://tiagotavares.io/novo/tags/blog/</loc>
     <lastmod>2024-07-14T17:40:18-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/blog/</loc>
+    <loc>https://tiagotavares.io/novo/blog/</loc>
     <lastmod>2024-07-14T18:04:46-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/</loc>
+    <loc>https://tiagotavares.io/novo/tags/</loc>
     <lastmod>2024-07-14T18:04:46-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/blog/use-sempre-o-retrovisor/</loc>
+    <loc>https://tiagotavares.io/novo/blog/use-sempre-o-retrovisor/</loc>
     <lastmod>2024-07-14T17:40:18-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/apache/</loc>
+    <loc>https://tiagotavares.io/novo/tags/apache/</loc>
     <lastmod>2021-12-27T09:16:19-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/blackhat/</loc>
+    <loc>https://tiagotavares.io/novo/tags/blackhat/</loc>
     <lastmod>2021-12-27T09:16:19-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/cve-2021-44228/</loc>
+    <loc>https://tiagotavares.io/novo/tags/cve-2021-44228/</loc>
     <lastmod>2021-12-27T09:16:19-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/cve-2021-45046/</loc>
+    <loc>https://tiagotavares.io/novo/tags/cve-2021-45046/</loc>
     <lastmod>2021-12-27T09:16:19-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/cve-2021-45105/</loc>
+    <loc>https://tiagotavares.io/novo/tags/cve-2021-45105/</loc>
     <lastmod>2021-12-27T09:16:19-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/jndi/</loc>
+    <loc>https://tiagotavares.io/novo/tags/jndi/</loc>
     <lastmod>2021-12-27T09:16:19-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/ldap/</loc>
+    <loc>https://tiagotavares.io/novo/tags/ldap/</loc>
     <lastmod>2021-12-27T09:16:19-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/log4j2/</loc>
+    <loc>https://tiagotavares.io/novo/tags/log4j2/</loc>
     <lastmod>2021-12-27T09:16:19-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/blog/log4j2_jndi_cve-2021-44228/</loc>
+    <loc>https://tiagotavares.io/novo/blog/log4j2_jndi_cve-2021-44228/</loc>
     <lastmod>2021-12-27T09:16:19-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/openctibr/</loc>
+    <loc>https://tiagotavares.io/novo/tags/openctibr/</loc>
     <lastmod>2021-12-27T09:16:19-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/research/</loc>
+    <loc>https://tiagotavares.io/novo/tags/research/</loc>
     <lastmod>2021-12-27T09:16:19-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/blog/gestao-de-vulnerabilidades-com-greenbone-openvas_dez2021/</loc>
+    <loc>https://tiagotavares.io/novo/blog/gestao-de-vulnerabilidades-com-greenbone-openvas_dez2021/</loc>
     <lastmod>2021-12-22T11:00:09-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/greenbone/</loc>
+    <loc>https://tiagotavares.io/novo/tags/greenbone/</loc>
     <lastmod>2021-12-22T11:00:09-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/linux/</loc>
+    <loc>https://tiagotavares.io/novo/tags/linux/</loc>
     <lastmod>2021-12-22T11:00:09-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/nessus/</loc>
+    <loc>https://tiagotavares.io/novo/tags/nessus/</loc>
     <lastmod>2021-12-22T11:00:09-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/openvas/</loc>
+    <loc>https://tiagotavares.io/novo/tags/openvas/</loc>
     <lastmod>2021-12-22T11:00:09-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/scanner/</loc>
+    <loc>https://tiagotavares.io/novo/tags/scanner/</loc>
     <lastmod>2021-12-22T11:00:09-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/ubuntu/</loc>
+    <loc>https://tiagotavares.io/novo/tags/ubuntu/</loc>
     <lastmod>2021-12-22T11:00:09-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/vulnerability/</loc>
+    <loc>https://tiagotavares.io/novo/tags/vulnerability/</loc>
     <lastmod>2021-12-22T11:00:09-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/application/</loc>
+    <loc>https://tiagotavares.io/novo/tags/application/</loc>
     <lastmod>2021-08-13T11:15:12-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/cafe-seguro/</loc>
+    <loc>https://tiagotavares.io/novo/tags/cafe-seguro/</loc>
     <lastmod>2021-08-13T11:15:12-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/blog/participacao_podcast_cafeseguro/</loc>
+    <loc>https://tiagotavares.io/novo/blog/participacao_podcast_cafeseguro/</loc>
     <lastmod>2021-08-13T11:15:12-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/cybersecurity/</loc>
+    <loc>https://tiagotavares.io/novo/tags/cybersecurity/</loc>
     <lastmod>2021-08-13T11:15:12-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/development/</loc>
+    <loc>https://tiagotavares.io/novo/tags/development/</loc>
     <lastmod>2021-08-13T11:15:12-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/owasp/</loc>
+    <loc>https://tiagotavares.io/novo/tags/owasp/</loc>
     <lastmod>2021-08-13T11:15:12-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/podcast/</loc>
+    <loc>https://tiagotavares.io/novo/tags/podcast/</loc>
     <lastmod>2021-08-13T11:15:12-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/security/</loc>
+    <loc>https://tiagotavares.io/novo/tags/security/</loc>
     <lastmod>2021-08-13T11:15:12-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/wss/</loc>
+    <loc>https://tiagotavares.io/novo/tags/wss/</loc>
     <lastmod>2021-08-13T11:15:12-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/blog/gestao-de-vulnerabilidades-com-greenbone-openvas/</loc>
+    <loc>https://tiagotavares.io/novo/blog/gestao-de-vulnerabilidades-com-greenbone-openvas/</loc>
     <lastmod>2021-07-07T10:20:09-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/blog/chillhack/</loc>
+    <loc>https://tiagotavares.io/novo/blog/chillhack/</loc>
     <lastmod>2020-12-19T08:00:51-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/ctf/</loc>
+    <loc>https://tiagotavares.io/novo/tags/ctf/</loc>
     <lastmod>2020-12-19T08:00:51-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/hacking/</loc>
+    <loc>https://tiagotavares.io/novo/tags/hacking/</loc>
     <lastmod>2020-12-19T08:00:51-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/vulnhub/</loc>
+    <loc>https://tiagotavares.io/novo/tags/vulnhub/</loc>
     <lastmod>2020-12-19T08:00:51-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/walkthrough/</loc>
+    <loc>https://tiagotavares.io/novo/tags/walkthrough/</loc>
     <lastmod>2020-12-19T08:00:51-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/writeup/</loc>
+    <loc>https://tiagotavares.io/novo/tags/writeup/</loc>
     <lastmod>2020-12-19T08:00:51-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/blog/devguru1_vulnhub/</loc>
+    <loc>https://tiagotavares.io/novo/blog/devguru1_vulnhub/</loc>
     <lastmod>2020-12-15T08:40:51-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/blog/funbox_vulnhub/</loc>
+    <loc>https://tiagotavares.io/novo/blog/funbox_vulnhub/</loc>
     <lastmod>2020-08-13T21:40:51-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/blog/photographer_vulnhub/</loc>
+    <loc>https://tiagotavares.io/novo/blog/photographer_vulnhub/</loc>
     <lastmod>2020-07-31T12:00:51-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/breach-and-attack-simulation/</loc>
+    <loc>https://tiagotavares.io/novo/tags/breach-and-attack-simulation/</loc>
     <lastmod>2020-07-27T21:00:00-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/blog/infection_monkey/</loc>
+    <loc>https://tiagotavares.io/novo/blog/infection_monkey/</loc>
     <lastmod>2020-07-27T21:00:00-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/guardicore/</loc>
+    <loc>https://tiagotavares.io/novo/tags/guardicore/</loc>
     <lastmod>2020-07-27T21:00:00-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/infection-monkey/</loc>
+    <loc>https://tiagotavares.io/novo/tags/infection-monkey/</loc>
     <lastmod>2020-07-27T21:00:00-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/red-team/</loc>
+    <loc>https://tiagotavares.io/novo/tags/red-team/</loc>
     <lastmod>2020-07-27T21:00:00-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/resili%C3%AAncia/</loc>
+    <loc>https://tiagotavares.io/novo/tags/resili%C3%AAncia/</loc>
     <lastmod>2020-07-27T21:00:00-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/blog/carregando_treinos_garmin_para_strava/</loc>
+    <loc>https://tiagotavares.io/novo/blog/carregando_treinos_garmin_para_strava/</loc>
     <lastmod>2020-07-26T13:30:00-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/corrida/</loc>
+    <loc>https://tiagotavares.io/novo/tags/corrida/</loc>
     <lastmod>2020-07-26T13:30:00-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/garmin/</loc>
+    <loc>https://tiagotavares.io/novo/tags/garmin/</loc>
     <lastmod>2020-07-26T13:30:00-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/malware/</loc>
+    <loc>https://tiagotavares.io/novo/tags/malware/</loc>
     <lastmod>2020-07-26T13:30:00-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/ransomware/</loc>
+    <loc>https://tiagotavares.io/novo/tags/ransomware/</loc>
     <lastmod>2020-07-26T13:30:00-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/running/</loc>
+    <loc>https://tiagotavares.io/novo/tags/running/</loc>
     <lastmod>2020-07-26T13:30:00-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/strava/</loc>
+    <loc>https://tiagotavares.io/novo/tags/strava/</loc>
     <lastmod>2020-07-26T13:30:00-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/data-privacy/</loc>
+    <loc>https://tiagotavares.io/novo/tags/data-privacy/</loc>
     <lastmod>2020-07-16T08:15:12-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/miro/</loc>
+    <loc>https://tiagotavares.io/novo/tags/miro/</loc>
     <lastmod>2020-07-16T08:15:12-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/blog/miro_insecurity/</loc>
+    <loc>https://tiagotavares.io/novo/blog/miro_insecurity/</loc>
     <lastmod>2020-07-16T08:15:12-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/bug-bounty/</loc>
+    <loc>https://tiagotavares.io/novo/tags/bug-bounty/</loc>
     <lastmod>2020-07-12T08:41:04-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/coleta-de-informa%C3%A7%C3%B5es/</loc>
+    <loc>https://tiagotavares.io/novo/tags/coleta-de-informa%C3%A7%C3%B5es/</loc>
     <lastmod>2020-07-12T08:41:04-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/cyber-kill-chain/</loc>
+    <loc>https://tiagotavares.io/novo/tags/cyber-kill-chain/</loc>
     <lastmod>2020-07-12T08:41:04-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/information-gathering/</loc>
+    <loc>https://tiagotavares.io/novo/tags/information-gathering/</loc>
     <lastmod>2020-07-12T08:41:04-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/mitre-attck/</loc>
+    <loc>https://tiagotavares.io/novo/tags/mitre-attck/</loc>
     <lastmod>2020-07-12T08:41:04-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/osint/</loc>
+    <loc>https://tiagotavares.io/novo/tags/osint/</loc>
     <lastmod>2020-07-12T08:41:04-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/recon-ng/</loc>
+    <loc>https://tiagotavares.io/novo/tags/recon-ng/</loc>
     <lastmod>2020-07-12T08:41:04-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/blog/recon-ng/</loc>
+    <loc>https://tiagotavares.io/novo/blog/recon-ng/</loc>
     <lastmod>2020-07-12T08:41:04-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/blog/freemalwaresamples/</loc>
+    <loc>https://tiagotavares.io/novo/blog/freemalwaresamples/</loc>
     <lastmod>2020-06-26T17:30:24-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/argentina/</loc>
+    <loc>https://tiagotavares.io/novo/tags/argentina/</loc>
     <lastmod>2020-06-19T22:41:04-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/buenos-aires/</loc>
+    <loc>https://tiagotavares.io/novo/tags/buenos-aires/</loc>
     <lastmod>2020-06-19T22:41:04-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/conference/</loc>
+    <loc>https://tiagotavares.io/novo/tags/conference/</loc>
     <lastmod>2020-06-19T22:41:04-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/ekoparty/</loc>
+    <loc>https://tiagotavares.io/novo/tags/ekoparty/</loc>
     <lastmod>2020-06-19T22:41:04-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/blog/ekoparty13/</loc>
+    <loc>https://tiagotavares.io/novo/blog/ekoparty13/</loc>
     <lastmod>2020-06-19T22:41:04-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/blog/jwt_insecurity/</loc>
+    <loc>https://tiagotavares.io/novo/blog/jwt_insecurity/</loc>
     <lastmod>2020-06-12T12:15:12-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/criptography/</loc>
+    <loc>https://tiagotavares.io/novo/tags/criptography/</loc>
     <lastmod>2020-06-12T12:15:12-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/jwt/</loc>
+    <loc>https://tiagotavares.io/novo/tags/jwt/</loc>
     <lastmod>2020-06-12T12:15:12-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/lascon/</loc>
+    <loc>https://tiagotavares.io/novo/tags/lascon/</loc>
     <lastmod>2020-06-05T12:02:56-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/blog/ofimdostimesdeappsec/</loc>
+    <loc>https://tiagotavares.io/novo/blog/ofimdostimesdeappsec/</loc>
     <lastmod>2020-06-05T12:02:56-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/security-champions/</loc>
+    <loc>https://tiagotavares.io/novo/tags/security-champions/</loc>
     <lastmod>2020-06-05T12:02:56-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/ant&#43;/</loc>
+    <loc>https://tiagotavares.io/novo/tags/ant&#43;/</loc>
     <lastmod>2020-06-02T08:40:20-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/blog/zwift_forerunner235/</loc>
+    <loc>https://tiagotavares.io/novo/blog/zwift_forerunner235/</loc>
     <lastmod>2020-06-02T08:40:20-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/footpod/</loc>
+    <loc>https://tiagotavares.io/novo/tags/footpod/</loc>
     <lastmod>2020-06-02T08:40:20-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/forerunner/</loc>
+    <loc>https://tiagotavares.io/novo/tags/forerunner/</loc>
     <lastmod>2020-06-02T08:40:20-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/quarentena/</loc>
+    <loc>https://tiagotavares.io/novo/tags/quarentena/</loc>
     <lastmod>2020-06-02T08:40:20-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/zwift/</loc>
+    <loc>https://tiagotavares.io/novo/tags/zwift/</loc>
     <lastmod>2020-06-02T08:40:20-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/blog/a_dor_do_confinamento/</loc>
+    <loc>https://tiagotavares.io/novo/blog/a_dor_do_confinamento/</loc>
     <lastmod>2020-05-23T19:50:51-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/confinamento/</loc>
+    <loc>https://tiagotavares.io/novo/tags/confinamento/</loc>
     <lastmod>2020-05-23T19:50:51-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/coronavirus/</loc>
+    <loc>https://tiagotavares.io/novo/tags/coronavirus/</loc>
     <lastmod>2020-05-23T19:50:51-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/life/</loc>
+    <loc>https://tiagotavares.io/novo/tags/life/</loc>
     <lastmod>2020-05-23T19:50:51-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/quarantine/</loc>
+    <loc>https://tiagotavares.io/novo/tags/quarantine/</loc>
     <lastmod>2020-05-23T19:50:51-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/vida/</loc>
+    <loc>https://tiagotavares.io/novo/tags/vida/</loc>
     <lastmod>2020-05-23T19:50:51-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/hackthebox/</loc>
+    <loc>https://tiagotavares.io/novo/tags/hackthebox/</loc>
     <lastmod>2020-05-14T16:31:51-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/blog/lame-htb/</loc>
+    <loc>https://tiagotavares.io/novo/blog/lame-htb/</loc>
     <lastmod>2020-05-14T16:31:51-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/blog/openadmin-htb/</loc>
+    <loc>https://tiagotavares.io/novo/blog/openadmin-htb/</loc>
     <lastmod>2020-04-23T16:31:51-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/blog/portoalegre2018analysis/</loc>
+    <loc>https://tiagotavares.io/novo/blog/portoalegre2018analysis/</loc>
     <lastmod>2020-04-17T22:09:49-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/data-analytics/</loc>
+    <loc>https://tiagotavares.io/novo/tags/data-analytics/</loc>
     <lastmod>2020-04-17T22:09:49-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/marathon/</loc>
+    <loc>https://tiagotavares.io/novo/tags/marathon/</loc>
     <lastmod>2020-04-17T22:09:49-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/maratona/</loc>
+    <loc>https://tiagotavares.io/novo/tags/maratona/</loc>
     <lastmod>2020-04-17T22:09:49-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/matplotlib/</loc>
+    <loc>https://tiagotavares.io/novo/tags/matplotlib/</loc>
     <lastmod>2020-04-17T22:09:49-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/pandas/</loc>
+    <loc>https://tiagotavares.io/novo/tags/pandas/</loc>
     <lastmod>2020-04-17T22:09:49-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/porto-alegre/</loc>
+    <loc>https://tiagotavares.io/novo/tags/porto-alegre/</loc>
     <lastmod>2020-04-17T22:09:49-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/python/</loc>
+    <loc>https://tiagotavares.io/novo/tags/python/</loc>
     <lastmod>2020-04-17T22:09:49-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/seaborn/</loc>
+    <loc>https://tiagotavares.io/novo/tags/seaborn/</loc>
     <lastmod>2020-04-17T22:09:49-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/blog/faustaoinvader/</loc>
+    <loc>https://tiagotavares.io/novo/blog/faustaoinvader/</loc>
     <lastmod>2020-04-09T22:33:47-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/faust%C3%A3o-invader/</loc>
+    <loc>https://tiagotavares.io/novo/tags/faust%C3%A3o-invader/</loc>
     <lastmod>2020-04-09T22:33:47-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/game/</loc>
+    <loc>https://tiagotavares.io/novo/tags/game/</loc>
     <lastmod>2020-04-09T22:33:47-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/pygame/</loc>
+    <loc>https://tiagotavares.io/novo/tags/pygame/</loc>
     <lastmod>2020-04-09T22:33:47-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/acm.org/</loc>
+    <loc>https://tiagotavares.io/novo/tags/acm.org/</loc>
     <lastmod>2020-03-16T21:35:28-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/blog/acm_oreillysafari/</loc>
+    <loc>https://tiagotavares.io/novo/blog/acm_oreillysafari/</loc>
     <lastmod>2020-03-16T21:35:28-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/books/</loc>
+    <loc>https://tiagotavares.io/novo/tags/books/</loc>
     <lastmod>2020-03-16T21:35:28-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/oreilly/</loc>
+    <loc>https://tiagotavares.io/novo/tags/oreilly/</loc>
     <lastmod>2020-03-16T21:35:28-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/safari/</loc>
+    <loc>https://tiagotavares.io/novo/tags/safari/</loc>
     <lastmod>2020-03-16T21:35:28-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/study/</loc>
+    <loc>https://tiagotavares.io/novo/tags/study/</loc>
     <lastmod>2020-03-16T21:35:28-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/tip/</loc>
+    <loc>https://tiagotavares.io/novo/tags/tip/</loc>
     <lastmod>2020-03-16T21:35:28-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/lampiao/</loc>
+    <loc>https://tiagotavares.io/novo/tags/lampiao/</loc>
     <lastmod>2018-07-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/blog/lampiao1/</loc>
+    <loc>https://tiagotavares.io/novo/blog/lampiao1/</loc>
     <lastmod>2018-07-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/blog/maratonadebuenosaires2018/</loc>
+    <loc>https://tiagotavares.io/novo/blog/maratonadebuenosaires2018/</loc>
     <lastmod>2018-07-24T14:40:20-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/jarbas/</loc>
+    <loc>https://tiagotavares.io/novo/tags/jarbas/</loc>
     <lastmod>2018-04-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/blog/jarbas1/</loc>
+    <loc>https://tiagotavares.io/novo/blog/jarbas1/</loc>
     <lastmod>2018-04-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/blog/mirai_hdb/</loc>
+    <loc>https://tiagotavares.io/novo/blog/mirai_hdb/</loc>
     <lastmod>2017-11-23T16:31:51-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/ccsp/</loc>
+    <loc>https://tiagotavares.io/novo/tags/ccsp/</loc>
     <lastmod>2017-03-29T22:00:04-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/cloud-computing/</loc>
+    <loc>https://tiagotavares.io/novo/tags/cloud-computing/</loc>
     <lastmod>2017-03-29T22:00:04-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/isc2/</loc>
+    <loc>https://tiagotavares.io/novo/tags/isc2/</loc>
     <lastmod>2017-03-29T22:00:04-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/blog/passed_ccsp/</loc>
+    <loc>https://tiagotavares.io/novo/blog/passed_ccsp/</loc>
     <lastmod>2017-03-29T22:00:04-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/cissp/</loc>
+    <loc>https://tiagotavares.io/novo/tags/cissp/</loc>
     <lastmod>2015-02-27T20:00:01-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/issa/</loc>
+    <loc>https://tiagotavares.io/novo/tags/issa/</loc>
     <lastmod>2015-02-27T20:00:01-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/blog/passed_cissp/</loc>
+    <loc>https://tiagotavares.io/novo/blog/passed_cissp/</loc>
     <lastmod>2015-02-27T20:00:01-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/awareness/</loc>
+    <loc>https://tiagotavares.io/novo/tags/awareness/</loc>
     <lastmod>2024-07-14T18:04:46-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/conscientiza%C3%A7%C3%A3o/</loc>
+    <loc>https://tiagotavares.io/novo/tags/conscientiza%C3%A7%C3%A3o/</loc>
     <lastmod>2024-07-14T18:04:46-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/blog/10nuncas_seguranca_usuarios/</loc>
+    <loc>https://tiagotavares.io/novo/blog/10nuncas_seguranca_usuarios/</loc>
     <lastmod>2024-07-14T18:04:46-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/</loc>
+    <loc>https://tiagotavares.io/novo/</loc>
     <lastmod>2024-07-14T16:37:46-03:00</lastmod>
   </url><url>
-    <loc>https://example.com/blog/curso_de_linux/</loc>
+    <loc>https://tiagotavares.io/novo/blog/curso_de_linux/</loc>
   </url>
 </urlset>

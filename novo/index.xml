@@ -2,234 +2,234 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hinode</title>
-    <link>https://example.com/</link>
+    <link>https://tiagotavares.io/novo/</link>
     <description>Recent content on Hinode</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Mark Dumay.</copyright>
-    <atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://tiagotavares.io/novo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Use sempre o retrovisor.</title>
-      <link>https://example.com/blog/use-sempre-o-retrovisor/</link>
+      <link>https://tiagotavares.io/novo/blog/use-sempre-o-retrovisor/</link>
       <pubDate>Fri, 12 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://example.com/blog/use-sempre-o-retrovisor/</guid>
+      <guid>https://tiagotavares.io/novo/blog/use-sempre-o-retrovisor/</guid>
       <description>Não sou uma pessoa &amp;ldquo;postativa&amp;rdquo;, e os mais próximos de mim sabem o quanto eu repudio o comportamento &amp;ldquo;biscoiteiro&amp;rdquo; caça likes.</description>
     </item>
     <item>
       <title>Log4J2 JNDI/LDAP Lookups - Dos elos evitáveis ao apocalipse 🔥 | CVE-2021-44228</title>
-      <link>https://example.com/blog/log4j2_jndi_cve-2021-44228/</link>
+      <link>https://tiagotavares.io/novo/blog/log4j2_jndi_cve-2021-44228/</link>
       <pubDate>Mon, 27 Dec 2021 09:16:19 -0300</pubDate>
-      <guid>https://example.com/blog/log4j2_jndi_cve-2021-44228/</guid>
+      <guid>https://tiagotavares.io/novo/blog/log4j2_jndi_cve-2021-44228/</guid>
       <description>&lt;p&gt;🧵 Uma thread de quase 10 anos de acontecimentos que poderiam ter sido previstos e evitados.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Gestao de vulnerabilidades com Greenbone Openvas - Ubuntu 20.04 | Updated Dez 2021</title>
-      <link>https://example.com/blog/gestao-de-vulnerabilidades-com-greenbone-openvas_dez2021/</link>
+      <link>https://tiagotavares.io/novo/blog/gestao-de-vulnerabilidades-com-greenbone-openvas_dez2021/</link>
       <pubDate>Wed, 22 Dec 2021 11:00:09 -0300</pubDate>
-      <guid>https://example.com/blog/gestao-de-vulnerabilidades-com-greenbone-openvas_dez2021/</guid>
+      <guid>https://tiagotavares.io/novo/blog/gestao-de-vulnerabilidades-com-greenbone-openvas_dez2021/</guid>
       <description>&lt;p&gt;Um rápido &lt;em&gt;how-to&lt;/em&gt; de como instalar o Greenbone Openvas no Ubuntu 20.04, além de uma breve introdução a gestão de vulnerabilidades.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Café Seguro 23 Café na conta de... Tiago Tavares</title>
-      <link>https://example.com/blog/participacao_podcast_cafeseguro/</link>
+      <link>https://tiagotavares.io/novo/blog/participacao_podcast_cafeseguro/</link>
       <pubDate>Fri, 13 Aug 2021 11:15:12 -0300</pubDate>
-      <guid>https://example.com/blog/participacao_podcast_cafeseguro/</guid>
+      <guid>https://tiagotavares.io/novo/blog/participacao_podcast_cafeseguro/</guid>
       <description>&lt;p&gt;Minha participação no podcast &lt;strong&gt;Café Seguro&lt;/strong&gt;, da WSS Security, e apresentado Daniel Dalalana, Pedro Kassick e Ben Hur Ott.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Gestão de vulnerabilidades com Greenbone Openvas - Ubuntu 20.04</title>
-      <link>https://example.com/blog/gestao-de-vulnerabilidades-com-greenbone-openvas/</link>
+      <link>https://tiagotavares.io/novo/blog/gestao-de-vulnerabilidades-com-greenbone-openvas/</link>
       <pubDate>Wed, 07 Jul 2021 10:20:09 -0300</pubDate>
-      <guid>https://example.com/blog/gestao-de-vulnerabilidades-com-greenbone-openvas/</guid>
+      <guid>https://tiagotavares.io/novo/blog/gestao-de-vulnerabilidades-com-greenbone-openvas/</guid>
       <description>&lt;p&gt;Um rápido &lt;em&gt;how-to&lt;/em&gt; de como instalar o Greenbone Openvas no Ubuntu 20.04, além de uma breve introdução a gestão de vulnerabilidades.&lt;/p&gt;</description>
     </item>
     <item>
       <title>ChillHack: 1 - Vulnhub </title>
-      <link>https://example.com/blog/chillhack/</link>
+      <link>https://tiagotavares.io/novo/blog/chillhack/</link>
       <pubDate>Sat, 19 Dec 2020 08:00:51 -0300</pubDate>
-      <guid>https://example.com/blog/chillhack/</guid>
+      <guid>https://tiagotavares.io/novo/blog/chillhack/</guid>
       <description>&lt;p&gt;ChillHack: 1 - A Vulnhub vulnerable machine walkthrough.&lt;/p&gt;</description>
     </item>
     <item>
       <title>DevGuru: 1 - Vulnhub </title>
-      <link>https://example.com/blog/devguru1_vulnhub/</link>
+      <link>https://tiagotavares.io/novo/blog/devguru1_vulnhub/</link>
       <pubDate>Tue, 15 Dec 2020 08:40:51 -0300</pubDate>
-      <guid>https://example.com/blog/devguru1_vulnhub/</guid>
+      <guid>https://tiagotavares.io/novo/blog/devguru1_vulnhub/</guid>
       <description>&lt;p&gt;DevGuru: 1 - A Vulnhub vulnerable machine walkthrough.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Funbox: 1 - Vulnhub </title>
-      <link>https://example.com/blog/funbox_vulnhub/</link>
+      <link>https://tiagotavares.io/novo/blog/funbox_vulnhub/</link>
       <pubDate>Thu, 13 Aug 2020 21:40:51 -0300</pubDate>
-      <guid>https://example.com/blog/funbox_vulnhub/</guid>
+      <guid>https://tiagotavares.io/novo/blog/funbox_vulnhub/</guid>
       <description>&lt;p&gt;Funbox: 1 - A Vulnhub vulnerable machine walkthrough.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Photographer: 1 - Vulnhub </title>
-      <link>https://example.com/blog/photographer_vulnhub/</link>
+      <link>https://tiagotavares.io/novo/blog/photographer_vulnhub/</link>
       <pubDate>Fri, 31 Jul 2020 12:00:51 -0300</pubDate>
-      <guid>https://example.com/blog/photographer_vulnhub/</guid>
+      <guid>https://tiagotavares.io/novo/blog/photographer_vulnhub/</guid>
       <description>&lt;p&gt;Photographer: 1 - A Vulnhub vulnerable machine walkthrough.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Breach and Attack Simulation com Infection Monkey 🐵</title>
-      <link>https://example.com/blog/infection_monkey/</link>
+      <link>https://tiagotavares.io/novo/blog/infection_monkey/</link>
       <pubDate>Mon, 27 Jul 2020 21:00:00 -0300</pubDate>
-      <guid>https://example.com/blog/infection_monkey/</guid>
+      <guid>https://tiagotavares.io/novo/blog/infection_monkey/</guid>
       <description>&lt;p&gt;Realize simulações de ataque em um clique!&lt;/p&gt;</description>
     </item>
     <item>
       <title>Como carregar atividades manualmente do relógio Garmin para o Strava</title>
-      <link>https://example.com/blog/carregando_treinos_garmin_para_strava/</link>
+      <link>https://tiagotavares.io/novo/blog/carregando_treinos_garmin_para_strava/</link>
       <pubDate>Sun, 26 Jul 2020 13:30:00 -0300</pubDate>
-      <guid>https://example.com/blog/carregando_treinos_garmin_para_strava/</guid>
+      <guid>https://tiagotavares.io/novo/blog/carregando_treinos_garmin_para_strava/</guid>
       <description>&lt;p&gt;&lt;em&gt;&lt;strong&gt;A ransomware story&lt;/strong&gt;&lt;/em&gt;. 😞&lt;/p&gt;&#xA;&lt;p&gt;Além do procedimento, uma explicação do incidente que pôde ter custado ao Garmin milhões de dólares!  💸💸💸&lt;/p&gt;</description>
     </item>
     <item>
       <title>Miro&#39;s free accounts (in)security</title>
-      <link>https://example.com/blog/miro_insecurity/</link>
+      <link>https://tiagotavares.io/novo/blog/miro_insecurity/</link>
       <pubDate>Thu, 16 Jul 2020 08:15:12 -0300</pubDate>
-      <guid>https://example.com/blog/miro_insecurity/</guid>
+      <guid>https://tiagotavares.io/novo/blog/miro_insecurity/</guid>
       <description>&lt;p&gt;&lt;em&gt;&lt;strong&gt;&amp;ldquo;This is not a bug, is a feature!&amp;rdquo;&lt;/strong&gt;&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Me apaixonei por uma plataforma de colaboração e tive meu coração despedaçado. 💔&lt;/p&gt;</description>
     </item>
     <item>
       <title>Recon-NG</title>
-      <link>https://example.com/blog/recon-ng/</link>
+      <link>https://tiagotavares.io/novo/blog/recon-ng/</link>
       <pubDate>Sun, 12 Jul 2020 08:41:04 -0300</pubDate>
-      <guid>https://example.com/blog/recon-ng/</guid>
+      <guid>https://tiagotavares.io/novo/blog/recon-ng/</guid>
       <description>&lt;p&gt;Como obter informações de organizações alvo, sua infraestrutura e seus colaboradores sem qualquer interação direta. &lt;em&gt;&lt;strong&gt;A Recon-NG quick-start!&lt;/strong&gt;&lt;/em&gt; 😉&lt;/p&gt;</description>
     </item>
     <item>
       <title>Fontes de amostra de malwares para pesquisadores</title>
-      <link>https://example.com/blog/freemalwaresamples/</link>
+      <link>https://tiagotavares.io/novo/blog/freemalwaresamples/</link>
       <pubDate>Fri, 26 Jun 2020 17:30:24 -0300</pubDate>
-      <guid>https://example.com/blog/freemalwaresamples/</guid>
+      <guid>https://tiagotavares.io/novo/blog/freemalwaresamples/</guid>
       <description></description>
     </item>
     <item>
       <title>Ekoparty Security Conference 13 (2017) - Talks</title>
-      <link>https://example.com/blog/ekoparty13/</link>
+      <link>https://tiagotavares.io/novo/blog/ekoparty13/</link>
       <pubDate>Fri, 19 Jun 2020 22:41:04 -0300</pubDate>
-      <guid>https://example.com/blog/ekoparty13/</guid>
+      <guid>https://tiagotavares.io/novo/blog/ekoparty13/</guid>
       <description>&lt;p&gt;Desde 2017, estive presente todos os anos em Buenos Aires para participar do evento, que sempre me suepreende com o ótimo nível dos materiais apresentados pelos palestrantes.&lt;/p&gt;</description>
     </item>
     <item>
       <title>(In)segurança em tokens JWT</title>
-      <link>https://example.com/blog/jwt_insecurity/</link>
+      <link>https://tiagotavares.io/novo/blog/jwt_insecurity/</link>
       <pubDate>Fri, 12 Jun 2020 12:15:12 -0300</pubDate>
-      <guid>https://example.com/blog/jwt_insecurity/</guid>
+      <guid>https://tiagotavares.io/novo/blog/jwt_insecurity/</guid>
       <description>&lt;p&gt;Existem muitas bibliotecas disponíveis que suportam JWT, e o próprio padrão possui “rico suporte para mecanismos criptográficos”. Tudo isso significa que o JWT é realmente seguro? Vamos ver.&lt;/p&gt;</description>
     </item>
     <item>
       <title>O fim dos times de AppSec</title>
-      <link>https://example.com/blog/ofimdostimesdeappsec/</link>
+      <link>https://tiagotavares.io/novo/blog/ofimdostimesdeappsec/</link>
       <pubDate>Fri, 05 Jun 2020 12:02:56 -0300</pubDate>
-      <guid>https://example.com/blog/ofimdostimesdeappsec/</guid>
+      <guid>https://tiagotavares.io/novo/blog/ofimdostimesdeappsec/</guid>
       <description>&lt;p&gt;O paradoxo da segurança em aplicações.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Como configurar o Zwift com Garmin Forerunner 235, Foopod e ANT&#43;</title>
-      <link>https://example.com/blog/zwift_forerunner235/</link>
+      <link>https://tiagotavares.io/novo/blog/zwift_forerunner235/</link>
       <pubDate>Tue, 02 Jun 2020 08:40:20 -0300</pubDate>
-      <guid>https://example.com/blog/zwift_forerunner235/</guid>
+      <guid>https://tiagotavares.io/novo/blog/zwift_forerunner235/</guid>
       <description></description>
     </item>
     <item>
       <title>A dor do confinamento</title>
-      <link>https://example.com/blog/a_dor_do_confinamento/</link>
+      <link>https://tiagotavares.io/novo/blog/a_dor_do_confinamento/</link>
       <pubDate>Sat, 23 May 2020 19:50:51 -0300</pubDate>
-      <guid>https://example.com/blog/a_dor_do_confinamento/</guid>
+      <guid>https://tiagotavares.io/novo/blog/a_dor_do_confinamento/</guid>
       <description>&lt;p&gt;..mas tudo isso vai passar.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Lame - Hack The Box (Retired)</title>
-      <link>https://example.com/blog/lame-htb/</link>
+      <link>https://tiagotavares.io/novo/blog/lame-htb/</link>
       <pubDate>Thu, 14 May 2020 16:31:51 -0300</pubDate>
-      <guid>https://example.com/blog/lame-htb/</guid>
+      <guid>https://tiagotavares.io/novo/blog/lame-htb/</guid>
       <description>&lt;p&gt;Lame - Hack The Box retired machine walkthrough.&lt;/p&gt;</description>
     </item>
     <item>
       <title>OpenAdmin - Hack The Box (Retired)</title>
-      <link>https://example.com/blog/openadmin-htb/</link>
+      <link>https://tiagotavares.io/novo/blog/openadmin-htb/</link>
       <pubDate>Thu, 23 Apr 2020 16:31:51 -0300</pubDate>
-      <guid>https://example.com/blog/openadmin-htb/</guid>
+      <guid>https://tiagotavares.io/novo/blog/openadmin-htb/</guid>
       <description>&lt;p&gt;OpenAdmin - Hack The Box retired machine walkthrough.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Análise dos dados da Maratona de Porto Alegre 2019</title>
-      <link>https://example.com/blog/portoalegre2018analysis/</link>
+      <link>https://tiagotavares.io/novo/blog/portoalegre2018analysis/</link>
       <pubDate>Fri, 17 Apr 2020 22:09:49 -0300</pubDate>
-      <guid>https://example.com/blog/portoalegre2018analysis/</guid>
+      <guid>https://tiagotavares.io/novo/blog/portoalegre2018analysis/</guid>
       <description>&lt;p&gt;Análise de dados dos participantes da Maratona de Porto Alegre 2019, usando Python, Pandas, Matplotlib e Seaborb.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Faustao Invader</title>
-      <link>https://example.com/blog/faustaoinvader/</link>
+      <link>https://tiagotavares.io/novo/blog/faustaoinvader/</link>
       <pubDate>Thu, 09 Apr 2020 22:33:47 -0300</pubDate>
-      <guid>https://example.com/blog/faustaoinvader/</guid>
+      <guid>https://tiagotavares.io/novo/blog/faustaoinvader/</guid>
       <description>&lt;p&gt;Faustão Invader - A shooter game created during the coronavirus quarantine. 😷&lt;/p&gt;</description>
     </item>
     <item>
       <title>Association for Computing Machinery &#43; O&#39;Reilly Safari</title>
-      <link>https://example.com/blog/acm_oreillysafari/</link>
+      <link>https://tiagotavares.io/novo/blog/acm_oreillysafari/</link>
       <pubDate>Mon, 16 Mar 2020 21:35:28 -0300</pubDate>
-      <guid>https://example.com/blog/acm_oreillysafari/</guid>
+      <guid>https://tiagotavares.io/novo/blog/acm_oreillysafari/</guid>
       <description>&lt;p&gt;Obtendo acesso a um dos maiores acervos técnicos pagando bem pouco por isso!&lt;/p&gt;</description>
     </item>
     <item>
       <title>Lampião 1</title>
-      <link>https://example.com/blog/lampiao1/</link>
+      <link>https://tiagotavares.io/novo/blog/lampiao1/</link>
       <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
-      <guid>https://example.com/blog/lampiao1/</guid>
+      <guid>https://tiagotavares.io/novo/blog/lampiao1/</guid>
       <description>&lt;p&gt;&lt;strong&gt;&amp;ldquo;Lampião 1&amp;rdquo;&lt;/strong&gt; - &amp;ldquo;It&amp;rsquo;s Easy, fi duma égua!&amp;rdquo;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>A minha estreia em maratonas 🏅</title>
-      <link>https://example.com/blog/maratonadebuenosaires2018/</link>
+      <link>https://tiagotavares.io/novo/blog/maratonadebuenosaires2018/</link>
       <pubDate>Tue, 24 Jul 2018 14:40:20 -0300</pubDate>
-      <guid>https://example.com/blog/maratonadebuenosaires2018/</guid>
+      <guid>https://tiagotavares.io/novo/blog/maratonadebuenosaires2018/</guid>
       <description>&lt;p&gt;Sofra e divirta-se comigo, além de d    icas de como não errar em sua estréia em maratonas! 👟&lt;/p&gt;</description>
     </item>
     <item>
       <title>Jarbas 1</title>
-      <link>https://example.com/blog/jarbas1/</link>
+      <link>https://tiagotavares.io/novo/blog/jarbas1/</link>
       <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
-      <guid>https://example.com/blog/jarbas1/</guid>
+      <guid>https://tiagotavares.io/novo/blog/jarbas1/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Jarbas 1&lt;/strong&gt; – A tribute to a nostalgic Brazilian search engine in the end of 90’s.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Mirai - Hack The Box (Retired)</title>
-      <link>https://example.com/blog/mirai_hdb/</link>
+      <link>https://tiagotavares.io/novo/blog/mirai_hdb/</link>
       <pubDate>Thu, 23 Nov 2017 16:31:51 -0300</pubDate>
-      <guid>https://example.com/blog/mirai_hdb/</guid>
+      <guid>https://tiagotavares.io/novo/blog/mirai_hdb/</guid>
       <description>&lt;p&gt;Mirai - Hack The Box retired machine walkthrough.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Passed (ISC)2 CCSP - Certified Cloud Security Professional</title>
-      <link>https://example.com/blog/passed_ccsp/</link>
+      <link>https://tiagotavares.io/novo/blog/passed_ccsp/</link>
       <pubDate>Wed, 29 Mar 2017 22:00:04 -0300</pubDate>
-      <guid>https://example.com/blog/passed_ccsp/</guid>
+      <guid>https://tiagotavares.io/novo/blog/passed_ccsp/</guid>
       <description>&lt;p&gt;My study resouces to achieve CCSP certification.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Passed (ISC)2 CISSP - Certified Information Systems Security Professional</title>
-      <link>https://example.com/blog/passed_cissp/</link>
+      <link>https://tiagotavares.io/novo/blog/passed_cissp/</link>
       <pubDate>Fri, 27 Feb 2015 20:00:01 -0300</pubDate>
-      <guid>https://example.com/blog/passed_cissp/</guid>
+      <guid>https://tiagotavares.io/novo/blog/passed_cissp/</guid>
       <description>&lt;p&gt;My resources of study to achieve CISSP certification.&lt;/p&gt;</description>
     </item>
     <item>
       <title>O uso seguro da internet e &#39;Os 10 nuncas&#39;</title>
-      <link>https://example.com/blog/10nuncas_seguranca_usuarios/</link>
+      <link>https://tiagotavares.io/novo/blog/10nuncas_seguranca_usuarios/</link>
       <pubDate>Tue, 10 Feb 2015 00:00:00 +0000</pubDate>
-      <guid>https://example.com/blog/10nuncas_seguranca_usuarios/</guid>
+      <guid>https://tiagotavares.io/novo/blog/10nuncas_seguranca_usuarios/</guid>
       <description></description>
     </item>
     <item>
       <title>Curso de Linux – Módulo 1 – Iniciante</title>
-      <link>https://example.com/blog/curso_de_linux/</link>
+      <link>https://tiagotavares.io/novo/blog/curso_de_linux/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.com/blog/curso_de_linux/</guid>
+      <guid>https://tiagotavares.io/novo/blog/curso_de_linux/</guid>
       <description></description>
     </item>
   </channel>

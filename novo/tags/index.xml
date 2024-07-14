@@ -2,683 +2,683 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Hinode</title>
-    <link>https://example.com/tags/</link>
+    <link>https://tiagotavares.io/novo/tags/</link>
     <description>Recent content in Tags on Hinode</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Mark Dumay.</copyright>
     <lastBuildDate>Sun, 14 Jul 2024 18:04:46 -0300</lastBuildDate>
-    <atom:link href="https://example.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://tiagotavares.io/novo/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Blog</title>
-      <link>https://example.com/tags/blog/</link>
+      <link>https://tiagotavares.io/novo/tags/blog/</link>
       <pubDate>Fri, 12 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://example.com/tags/blog/</guid>
+      <guid>https://tiagotavares.io/novo/tags/blog/</guid>
       <description></description>
     </item>
     <item>
       <title>Apache</title>
-      <link>https://example.com/tags/apache/</link>
+      <link>https://tiagotavares.io/novo/tags/apache/</link>
       <pubDate>Mon, 27 Dec 2021 09:16:19 -0300</pubDate>
-      <guid>https://example.com/tags/apache/</guid>
+      <guid>https://tiagotavares.io/novo/tags/apache/</guid>
       <description></description>
     </item>
     <item>
       <title>Blackhat</title>
-      <link>https://example.com/tags/blackhat/</link>
+      <link>https://tiagotavares.io/novo/tags/blackhat/</link>
       <pubDate>Mon, 27 Dec 2021 09:16:19 -0300</pubDate>
-      <guid>https://example.com/tags/blackhat/</guid>
+      <guid>https://tiagotavares.io/novo/tags/blackhat/</guid>
       <description></description>
     </item>
     <item>
       <title>CVE-2021-44228</title>
-      <link>https://example.com/tags/cve-2021-44228/</link>
+      <link>https://tiagotavares.io/novo/tags/cve-2021-44228/</link>
       <pubDate>Mon, 27 Dec 2021 09:16:19 -0300</pubDate>
-      <guid>https://example.com/tags/cve-2021-44228/</guid>
+      <guid>https://tiagotavares.io/novo/tags/cve-2021-44228/</guid>
       <description></description>
     </item>
     <item>
       <title>CVE-2021-45046</title>
-      <link>https://example.com/tags/cve-2021-45046/</link>
+      <link>https://tiagotavares.io/novo/tags/cve-2021-45046/</link>
       <pubDate>Mon, 27 Dec 2021 09:16:19 -0300</pubDate>
-      <guid>https://example.com/tags/cve-2021-45046/</guid>
+      <guid>https://tiagotavares.io/novo/tags/cve-2021-45046/</guid>
       <description></description>
     </item>
     <item>
       <title>CVE-2021-45105</title>
-      <link>https://example.com/tags/cve-2021-45105/</link>
+      <link>https://tiagotavares.io/novo/tags/cve-2021-45105/</link>
       <pubDate>Mon, 27 Dec 2021 09:16:19 -0300</pubDate>
-      <guid>https://example.com/tags/cve-2021-45105/</guid>
+      <guid>https://tiagotavares.io/novo/tags/cve-2021-45105/</guid>
       <description></description>
     </item>
     <item>
       <title>Jndi</title>
-      <link>https://example.com/tags/jndi/</link>
+      <link>https://tiagotavares.io/novo/tags/jndi/</link>
       <pubDate>Mon, 27 Dec 2021 09:16:19 -0300</pubDate>
-      <guid>https://example.com/tags/jndi/</guid>
+      <guid>https://tiagotavares.io/novo/tags/jndi/</guid>
       <description></description>
     </item>
     <item>
       <title>Ldap</title>
-      <link>https://example.com/tags/ldap/</link>
+      <link>https://tiagotavares.io/novo/tags/ldap/</link>
       <pubDate>Mon, 27 Dec 2021 09:16:19 -0300</pubDate>
-      <guid>https://example.com/tags/ldap/</guid>
+      <guid>https://tiagotavares.io/novo/tags/ldap/</guid>
       <description></description>
     </item>
     <item>
       <title>Log4j2</title>
-      <link>https://example.com/tags/log4j2/</link>
+      <link>https://tiagotavares.io/novo/tags/log4j2/</link>
       <pubDate>Mon, 27 Dec 2021 09:16:19 -0300</pubDate>
-      <guid>https://example.com/tags/log4j2/</guid>
+      <guid>https://tiagotavares.io/novo/tags/log4j2/</guid>
       <description></description>
     </item>
     <item>
       <title>Openctibr</title>
-      <link>https://example.com/tags/openctibr/</link>
+      <link>https://tiagotavares.io/novo/tags/openctibr/</link>
       <pubDate>Mon, 27 Dec 2021 09:16:19 -0300</pubDate>
-      <guid>https://example.com/tags/openctibr/</guid>
+      <guid>https://tiagotavares.io/novo/tags/openctibr/</guid>
       <description></description>
     </item>
     <item>
       <title>Research</title>
-      <link>https://example.com/tags/research/</link>
+      <link>https://tiagotavares.io/novo/tags/research/</link>
       <pubDate>Mon, 27 Dec 2021 09:16:19 -0300</pubDate>
-      <guid>https://example.com/tags/research/</guid>
+      <guid>https://tiagotavares.io/novo/tags/research/</guid>
       <description></description>
     </item>
     <item>
       <title>Greenbone</title>
-      <link>https://example.com/tags/greenbone/</link>
+      <link>https://tiagotavares.io/novo/tags/greenbone/</link>
       <pubDate>Wed, 22 Dec 2021 11:00:09 -0300</pubDate>
-      <guid>https://example.com/tags/greenbone/</guid>
+      <guid>https://tiagotavares.io/novo/tags/greenbone/</guid>
       <description></description>
     </item>
     <item>
       <title>Linux</title>
-      <link>https://example.com/tags/linux/</link>
+      <link>https://tiagotavares.io/novo/tags/linux/</link>
       <pubDate>Wed, 22 Dec 2021 11:00:09 -0300</pubDate>
-      <guid>https://example.com/tags/linux/</guid>
+      <guid>https://tiagotavares.io/novo/tags/linux/</guid>
       <description></description>
     </item>
     <item>
       <title>Nessus</title>
-      <link>https://example.com/tags/nessus/</link>
+      <link>https://tiagotavares.io/novo/tags/nessus/</link>
       <pubDate>Wed, 22 Dec 2021 11:00:09 -0300</pubDate>
-      <guid>https://example.com/tags/nessus/</guid>
+      <guid>https://tiagotavares.io/novo/tags/nessus/</guid>
       <description></description>
     </item>
     <item>
       <title>Openvas</title>
-      <link>https://example.com/tags/openvas/</link>
+      <link>https://tiagotavares.io/novo/tags/openvas/</link>
       <pubDate>Wed, 22 Dec 2021 11:00:09 -0300</pubDate>
-      <guid>https://example.com/tags/openvas/</guid>
+      <guid>https://tiagotavares.io/novo/tags/openvas/</guid>
       <description></description>
     </item>
     <item>
       <title>Scanner</title>
-      <link>https://example.com/tags/scanner/</link>
+      <link>https://tiagotavares.io/novo/tags/scanner/</link>
       <pubDate>Wed, 22 Dec 2021 11:00:09 -0300</pubDate>
-      <guid>https://example.com/tags/scanner/</guid>
+      <guid>https://tiagotavares.io/novo/tags/scanner/</guid>
       <description></description>
     </item>
     <item>
       <title>Ubuntu</title>
-      <link>https://example.com/tags/ubuntu/</link>
+      <link>https://tiagotavares.io/novo/tags/ubuntu/</link>
       <pubDate>Wed, 22 Dec 2021 11:00:09 -0300</pubDate>
-      <guid>https://example.com/tags/ubuntu/</guid>
+      <guid>https://tiagotavares.io/novo/tags/ubuntu/</guid>
       <description></description>
     </item>
     <item>
       <title>Vulnerability</title>
-      <link>https://example.com/tags/vulnerability/</link>
+      <link>https://tiagotavares.io/novo/tags/vulnerability/</link>
       <pubDate>Wed, 22 Dec 2021 11:00:09 -0300</pubDate>
-      <guid>https://example.com/tags/vulnerability/</guid>
+      <guid>https://tiagotavares.io/novo/tags/vulnerability/</guid>
       <description></description>
     </item>
     <item>
       <title>Application</title>
-      <link>https://example.com/tags/application/</link>
+      <link>https://tiagotavares.io/novo/tags/application/</link>
       <pubDate>Fri, 13 Aug 2021 11:15:12 -0300</pubDate>
-      <guid>https://example.com/tags/application/</guid>
+      <guid>https://tiagotavares.io/novo/tags/application/</guid>
       <description></description>
     </item>
     <item>
       <title>Cafe Seguro</title>
-      <link>https://example.com/tags/cafe-seguro/</link>
+      <link>https://tiagotavares.io/novo/tags/cafe-seguro/</link>
       <pubDate>Fri, 13 Aug 2021 11:15:12 -0300</pubDate>
-      <guid>https://example.com/tags/cafe-seguro/</guid>
+      <guid>https://tiagotavares.io/novo/tags/cafe-seguro/</guid>
       <description></description>
     </item>
     <item>
       <title>Cybersecurity</title>
-      <link>https://example.com/tags/cybersecurity/</link>
+      <link>https://tiagotavares.io/novo/tags/cybersecurity/</link>
       <pubDate>Fri, 13 Aug 2021 11:15:12 -0300</pubDate>
-      <guid>https://example.com/tags/cybersecurity/</guid>
+      <guid>https://tiagotavares.io/novo/tags/cybersecurity/</guid>
       <description></description>
     </item>
     <item>
       <title>Development</title>
-      <link>https://example.com/tags/development/</link>
+      <link>https://tiagotavares.io/novo/tags/development/</link>
       <pubDate>Fri, 13 Aug 2021 11:15:12 -0300</pubDate>
-      <guid>https://example.com/tags/development/</guid>
+      <guid>https://tiagotavares.io/novo/tags/development/</guid>
       <description></description>
     </item>
     <item>
       <title>Owasp</title>
-      <link>https://example.com/tags/owasp/</link>
+      <link>https://tiagotavares.io/novo/tags/owasp/</link>
       <pubDate>Fri, 13 Aug 2021 11:15:12 -0300</pubDate>
-      <guid>https://example.com/tags/owasp/</guid>
+      <guid>https://tiagotavares.io/novo/tags/owasp/</guid>
       <description></description>
     </item>
     <item>
       <title>Podcast</title>
-      <link>https://example.com/tags/podcast/</link>
+      <link>https://tiagotavares.io/novo/tags/podcast/</link>
       <pubDate>Fri, 13 Aug 2021 11:15:12 -0300</pubDate>
-      <guid>https://example.com/tags/podcast/</guid>
+      <guid>https://tiagotavares.io/novo/tags/podcast/</guid>
       <description></description>
     </item>
     <item>
       <title>Security</title>
-      <link>https://example.com/tags/security/</link>
+      <link>https://tiagotavares.io/novo/tags/security/</link>
       <pubDate>Fri, 13 Aug 2021 11:15:12 -0300</pubDate>
-      <guid>https://example.com/tags/security/</guid>
+      <guid>https://tiagotavares.io/novo/tags/security/</guid>
       <description></description>
     </item>
     <item>
       <title>Wss</title>
-      <link>https://example.com/tags/wss/</link>
+      <link>https://tiagotavares.io/novo/tags/wss/</link>
       <pubDate>Fri, 13 Aug 2021 11:15:12 -0300</pubDate>
-      <guid>https://example.com/tags/wss/</guid>
+      <guid>https://tiagotavares.io/novo/tags/wss/</guid>
       <description></description>
     </item>
     <item>
       <title>Ctf</title>
-      <link>https://example.com/tags/ctf/</link>
+      <link>https://tiagotavares.io/novo/tags/ctf/</link>
       <pubDate>Sat, 19 Dec 2020 08:00:51 -0300</pubDate>
-      <guid>https://example.com/tags/ctf/</guid>
+      <guid>https://tiagotavares.io/novo/tags/ctf/</guid>
       <description></description>
     </item>
     <item>
       <title>Hacking</title>
-      <link>https://example.com/tags/hacking/</link>
+      <link>https://tiagotavares.io/novo/tags/hacking/</link>
       <pubDate>Sat, 19 Dec 2020 08:00:51 -0300</pubDate>
-      <guid>https://example.com/tags/hacking/</guid>
+      <guid>https://tiagotavares.io/novo/tags/hacking/</guid>
       <description></description>
     </item>
     <item>
       <title>Vulnhub</title>
-      <link>https://example.com/tags/vulnhub/</link>
+      <link>https://tiagotavares.io/novo/tags/vulnhub/</link>
       <pubDate>Sat, 19 Dec 2020 08:00:51 -0300</pubDate>
-      <guid>https://example.com/tags/vulnhub/</guid>
+      <guid>https://tiagotavares.io/novo/tags/vulnhub/</guid>
       <description></description>
     </item>
     <item>
       <title>Walkthrough</title>
-      <link>https://example.com/tags/walkthrough/</link>
+      <link>https://tiagotavares.io/novo/tags/walkthrough/</link>
       <pubDate>Sat, 19 Dec 2020 08:00:51 -0300</pubDate>
-      <guid>https://example.com/tags/walkthrough/</guid>
+      <guid>https://tiagotavares.io/novo/tags/walkthrough/</guid>
       <description></description>
     </item>
     <item>
       <title>Writeup</title>
-      <link>https://example.com/tags/writeup/</link>
+      <link>https://tiagotavares.io/novo/tags/writeup/</link>
       <pubDate>Sat, 19 Dec 2020 08:00:51 -0300</pubDate>
-      <guid>https://example.com/tags/writeup/</guid>
+      <guid>https://tiagotavares.io/novo/tags/writeup/</guid>
       <description></description>
     </item>
     <item>
       <title>Breach and Attack Simulation</title>
-      <link>https://example.com/tags/breach-and-attack-simulation/</link>
+      <link>https://tiagotavares.io/novo/tags/breach-and-attack-simulation/</link>
       <pubDate>Mon, 27 Jul 2020 21:00:00 -0300</pubDate>
-      <guid>https://example.com/tags/breach-and-attack-simulation/</guid>
+      <guid>https://tiagotavares.io/novo/tags/breach-and-attack-simulation/</guid>
       <description></description>
     </item>
     <item>
       <title>Guardicore</title>
-      <link>https://example.com/tags/guardicore/</link>
+      <link>https://tiagotavares.io/novo/tags/guardicore/</link>
       <pubDate>Mon, 27 Jul 2020 21:00:00 -0300</pubDate>
-      <guid>https://example.com/tags/guardicore/</guid>
+      <guid>https://tiagotavares.io/novo/tags/guardicore/</guid>
       <description></description>
     </item>
     <item>
       <title>Infection Monkey</title>
-      <link>https://example.com/tags/infection-monkey/</link>
+      <link>https://tiagotavares.io/novo/tags/infection-monkey/</link>
       <pubDate>Mon, 27 Jul 2020 21:00:00 -0300</pubDate>
-      <guid>https://example.com/tags/infection-monkey/</guid>
+      <guid>https://tiagotavares.io/novo/tags/infection-monkey/</guid>
       <description></description>
     </item>
     <item>
       <title>Red Team</title>
-      <link>https://example.com/tags/red-team/</link>
+      <link>https://tiagotavares.io/novo/tags/red-team/</link>
       <pubDate>Mon, 27 Jul 2020 21:00:00 -0300</pubDate>
-      <guid>https://example.com/tags/red-team/</guid>
+      <guid>https://tiagotavares.io/novo/tags/red-team/</guid>
       <description></description>
     </item>
     <item>
       <title>Resiliência</title>
-      <link>https://example.com/tags/resili%C3%AAncia/</link>
+      <link>https://tiagotavares.io/novo/tags/resili%C3%AAncia/</link>
       <pubDate>Mon, 27 Jul 2020 21:00:00 -0300</pubDate>
-      <guid>https://example.com/tags/resili%C3%AAncia/</guid>
+      <guid>https://tiagotavares.io/novo/tags/resili%C3%AAncia/</guid>
       <description></description>
     </item>
     <item>
       <title>Corrida</title>
-      <link>https://example.com/tags/corrida/</link>
+      <link>https://tiagotavares.io/novo/tags/corrida/</link>
       <pubDate>Sun, 26 Jul 2020 13:30:00 -0300</pubDate>
-      <guid>https://example.com/tags/corrida/</guid>
+      <guid>https://tiagotavares.io/novo/tags/corrida/</guid>
       <description></description>
     </item>
     <item>
       <title>Garmin</title>
-      <link>https://example.com/tags/garmin/</link>
+      <link>https://tiagotavares.io/novo/tags/garmin/</link>
       <pubDate>Sun, 26 Jul 2020 13:30:00 -0300</pubDate>
-      <guid>https://example.com/tags/garmin/</guid>
+      <guid>https://tiagotavares.io/novo/tags/garmin/</guid>
       <description></description>
     </item>
     <item>
       <title>Malware</title>
-      <link>https://example.com/tags/malware/</link>
+      <link>https://tiagotavares.io/novo/tags/malware/</link>
       <pubDate>Sun, 26 Jul 2020 13:30:00 -0300</pubDate>
-      <guid>https://example.com/tags/malware/</guid>
+      <guid>https://tiagotavares.io/novo/tags/malware/</guid>
       <description></description>
     </item>
     <item>
       <title>Ransomware</title>
-      <link>https://example.com/tags/ransomware/</link>
+      <link>https://tiagotavares.io/novo/tags/ransomware/</link>
       <pubDate>Sun, 26 Jul 2020 13:30:00 -0300</pubDate>
-      <guid>https://example.com/tags/ransomware/</guid>
+      <guid>https://tiagotavares.io/novo/tags/ransomware/</guid>
       <description></description>
     </item>
     <item>
       <title>Running</title>
-      <link>https://example.com/tags/running/</link>
+      <link>https://tiagotavares.io/novo/tags/running/</link>
       <pubDate>Sun, 26 Jul 2020 13:30:00 -0300</pubDate>
-      <guid>https://example.com/tags/running/</guid>
+      <guid>https://tiagotavares.io/novo/tags/running/</guid>
       <description></description>
     </item>
     <item>
       <title>Strava</title>
-      <link>https://example.com/tags/strava/</link>
+      <link>https://tiagotavares.io/novo/tags/strava/</link>
       <pubDate>Sun, 26 Jul 2020 13:30:00 -0300</pubDate>
-      <guid>https://example.com/tags/strava/</guid>
+      <guid>https://tiagotavares.io/novo/tags/strava/</guid>
       <description></description>
     </item>
     <item>
       <title>Data Privacy</title>
-      <link>https://example.com/tags/data-privacy/</link>
+      <link>https://tiagotavares.io/novo/tags/data-privacy/</link>
       <pubDate>Thu, 16 Jul 2020 08:15:12 -0300</pubDate>
-      <guid>https://example.com/tags/data-privacy/</guid>
+      <guid>https://tiagotavares.io/novo/tags/data-privacy/</guid>
       <description></description>
     </item>
     <item>
       <title>Miro</title>
-      <link>https://example.com/tags/miro/</link>
+      <link>https://tiagotavares.io/novo/tags/miro/</link>
       <pubDate>Thu, 16 Jul 2020 08:15:12 -0300</pubDate>
-      <guid>https://example.com/tags/miro/</guid>
+      <guid>https://tiagotavares.io/novo/tags/miro/</guid>
       <description></description>
     </item>
     <item>
       <title>Bug Bounty</title>
-      <link>https://example.com/tags/bug-bounty/</link>
+      <link>https://tiagotavares.io/novo/tags/bug-bounty/</link>
       <pubDate>Sun, 12 Jul 2020 08:41:04 -0300</pubDate>
-      <guid>https://example.com/tags/bug-bounty/</guid>
+      <guid>https://tiagotavares.io/novo/tags/bug-bounty/</guid>
       <description></description>
     </item>
     <item>
       <title>Coleta De Informações</title>
-      <link>https://example.com/tags/coleta-de-informa%C3%A7%C3%B5es/</link>
+      <link>https://tiagotavares.io/novo/tags/coleta-de-informa%C3%A7%C3%B5es/</link>
       <pubDate>Sun, 12 Jul 2020 08:41:04 -0300</pubDate>
-      <guid>https://example.com/tags/coleta-de-informa%C3%A7%C3%B5es/</guid>
+      <guid>https://tiagotavares.io/novo/tags/coleta-de-informa%C3%A7%C3%B5es/</guid>
       <description></description>
     </item>
     <item>
       <title>Cyber Kill Chain</title>
-      <link>https://example.com/tags/cyber-kill-chain/</link>
+      <link>https://tiagotavares.io/novo/tags/cyber-kill-chain/</link>
       <pubDate>Sun, 12 Jul 2020 08:41:04 -0300</pubDate>
-      <guid>https://example.com/tags/cyber-kill-chain/</guid>
+      <guid>https://tiagotavares.io/novo/tags/cyber-kill-chain/</guid>
       <description></description>
     </item>
     <item>
       <title>Information Gathering</title>
-      <link>https://example.com/tags/information-gathering/</link>
+      <link>https://tiagotavares.io/novo/tags/information-gathering/</link>
       <pubDate>Sun, 12 Jul 2020 08:41:04 -0300</pubDate>
-      <guid>https://example.com/tags/information-gathering/</guid>
+      <guid>https://tiagotavares.io/novo/tags/information-gathering/</guid>
       <description></description>
     </item>
     <item>
       <title>Mitre Att&amp;ck</title>
-      <link>https://example.com/tags/mitre-attck/</link>
+      <link>https://tiagotavares.io/novo/tags/mitre-attck/</link>
       <pubDate>Sun, 12 Jul 2020 08:41:04 -0300</pubDate>
-      <guid>https://example.com/tags/mitre-attck/</guid>
+      <guid>https://tiagotavares.io/novo/tags/mitre-attck/</guid>
       <description></description>
     </item>
     <item>
       <title>Osint</title>
-      <link>https://example.com/tags/osint/</link>
+      <link>https://tiagotavares.io/novo/tags/osint/</link>
       <pubDate>Sun, 12 Jul 2020 08:41:04 -0300</pubDate>
-      <guid>https://example.com/tags/osint/</guid>
+      <guid>https://tiagotavares.io/novo/tags/osint/</guid>
       <description></description>
     </item>
     <item>
       <title>Recon-Ng</title>
-      <link>https://example.com/tags/recon-ng/</link>
+      <link>https://tiagotavares.io/novo/tags/recon-ng/</link>
       <pubDate>Sun, 12 Jul 2020 08:41:04 -0300</pubDate>
-      <guid>https://example.com/tags/recon-ng/</guid>
+      <guid>https://tiagotavares.io/novo/tags/recon-ng/</guid>
       <description></description>
     </item>
     <item>
       <title>Argentina</title>
-      <link>https://example.com/tags/argentina/</link>
+      <link>https://tiagotavares.io/novo/tags/argentina/</link>
       <pubDate>Fri, 19 Jun 2020 22:41:04 -0300</pubDate>
-      <guid>https://example.com/tags/argentina/</guid>
+      <guid>https://tiagotavares.io/novo/tags/argentina/</guid>
       <description></description>
     </item>
     <item>
       <title>Buenos Aires</title>
-      <link>https://example.com/tags/buenos-aires/</link>
+      <link>https://tiagotavares.io/novo/tags/buenos-aires/</link>
       <pubDate>Fri, 19 Jun 2020 22:41:04 -0300</pubDate>
-      <guid>https://example.com/tags/buenos-aires/</guid>
+      <guid>https://tiagotavares.io/novo/tags/buenos-aires/</guid>
       <description></description>
     </item>
     <item>
       <title>Conference</title>
-      <link>https://example.com/tags/conference/</link>
+      <link>https://tiagotavares.io/novo/tags/conference/</link>
       <pubDate>Fri, 19 Jun 2020 22:41:04 -0300</pubDate>
-      <guid>https://example.com/tags/conference/</guid>
+      <guid>https://tiagotavares.io/novo/tags/conference/</guid>
       <description></description>
     </item>
     <item>
       <title>Ekoparty</title>
-      <link>https://example.com/tags/ekoparty/</link>
+      <link>https://tiagotavares.io/novo/tags/ekoparty/</link>
       <pubDate>Fri, 19 Jun 2020 22:41:04 -0300</pubDate>
-      <guid>https://example.com/tags/ekoparty/</guid>
+      <guid>https://tiagotavares.io/novo/tags/ekoparty/</guid>
       <description></description>
     </item>
     <item>
       <title>Criptography</title>
-      <link>https://example.com/tags/criptography/</link>
+      <link>https://tiagotavares.io/novo/tags/criptography/</link>
       <pubDate>Fri, 12 Jun 2020 12:15:12 -0300</pubDate>
-      <guid>https://example.com/tags/criptography/</guid>
+      <guid>https://tiagotavares.io/novo/tags/criptography/</guid>
       <description></description>
     </item>
     <item>
       <title>Jwt</title>
-      <link>https://example.com/tags/jwt/</link>
+      <link>https://tiagotavares.io/novo/tags/jwt/</link>
       <pubDate>Fri, 12 Jun 2020 12:15:12 -0300</pubDate>
-      <guid>https://example.com/tags/jwt/</guid>
+      <guid>https://tiagotavares.io/novo/tags/jwt/</guid>
       <description></description>
     </item>
     <item>
       <title>Lascon</title>
-      <link>https://example.com/tags/lascon/</link>
+      <link>https://tiagotavares.io/novo/tags/lascon/</link>
       <pubDate>Fri, 05 Jun 2020 12:02:56 -0300</pubDate>
-      <guid>https://example.com/tags/lascon/</guid>
+      <guid>https://tiagotavares.io/novo/tags/lascon/</guid>
       <description></description>
     </item>
     <item>
       <title>Security Champions</title>
-      <link>https://example.com/tags/security-champions/</link>
+      <link>https://tiagotavares.io/novo/tags/security-champions/</link>
       <pubDate>Fri, 05 Jun 2020 12:02:56 -0300</pubDate>
-      <guid>https://example.com/tags/security-champions/</guid>
+      <guid>https://tiagotavares.io/novo/tags/security-champions/</guid>
       <description></description>
     </item>
     <item>
       <title>Ant&#43;</title>
-      <link>https://example.com/tags/ant&#43;/</link>
+      <link>https://tiagotavares.io/novo/tags/ant&#43;/</link>
       <pubDate>Tue, 02 Jun 2020 08:40:20 -0300</pubDate>
-      <guid>https://example.com/tags/ant&#43;/</guid>
+      <guid>https://tiagotavares.io/novo/tags/ant&#43;/</guid>
       <description></description>
     </item>
     <item>
       <title>Footpod</title>
-      <link>https://example.com/tags/footpod/</link>
+      <link>https://tiagotavares.io/novo/tags/footpod/</link>
       <pubDate>Tue, 02 Jun 2020 08:40:20 -0300</pubDate>
-      <guid>https://example.com/tags/footpod/</guid>
+      <guid>https://tiagotavares.io/novo/tags/footpod/</guid>
       <description></description>
     </item>
     <item>
       <title>Forerunner</title>
-      <link>https://example.com/tags/forerunner/</link>
+      <link>https://tiagotavares.io/novo/tags/forerunner/</link>
       <pubDate>Tue, 02 Jun 2020 08:40:20 -0300</pubDate>
-      <guid>https://example.com/tags/forerunner/</guid>
+      <guid>https://tiagotavares.io/novo/tags/forerunner/</guid>
       <description></description>
     </item>
     <item>
       <title>Quarentena</title>
-      <link>https://example.com/tags/quarentena/</link>
+      <link>https://tiagotavares.io/novo/tags/quarentena/</link>
       <pubDate>Tue, 02 Jun 2020 08:40:20 -0300</pubDate>
-      <guid>https://example.com/tags/quarentena/</guid>
+      <guid>https://tiagotavares.io/novo/tags/quarentena/</guid>
       <description></description>
     </item>
     <item>
       <title>Zwift</title>
-      <link>https://example.com/tags/zwift/</link>
+      <link>https://tiagotavares.io/novo/tags/zwift/</link>
       <pubDate>Tue, 02 Jun 2020 08:40:20 -0300</pubDate>
-      <guid>https://example.com/tags/zwift/</guid>
+      <guid>https://tiagotavares.io/novo/tags/zwift/</guid>
       <description></description>
     </item>
     <item>
       <title>Confinamento</title>
-      <link>https://example.com/tags/confinamento/</link>
+      <link>https://tiagotavares.io/novo/tags/confinamento/</link>
       <pubDate>Sat, 23 May 2020 19:50:51 -0300</pubDate>
-      <guid>https://example.com/tags/confinamento/</guid>
+      <guid>https://tiagotavares.io/novo/tags/confinamento/</guid>
       <description></description>
     </item>
     <item>
       <title>Coronavirus</title>
-      <link>https://example.com/tags/coronavirus/</link>
+      <link>https://tiagotavares.io/novo/tags/coronavirus/</link>
       <pubDate>Sat, 23 May 2020 19:50:51 -0300</pubDate>
-      <guid>https://example.com/tags/coronavirus/</guid>
+      <guid>https://tiagotavares.io/novo/tags/coronavirus/</guid>
       <description></description>
     </item>
     <item>
       <title>Life</title>
-      <link>https://example.com/tags/life/</link>
+      <link>https://tiagotavares.io/novo/tags/life/</link>
       <pubDate>Sat, 23 May 2020 19:50:51 -0300</pubDate>
-      <guid>https://example.com/tags/life/</guid>
+      <guid>https://tiagotavares.io/novo/tags/life/</guid>
       <description></description>
     </item>
     <item>
       <title>Quarantine</title>
-      <link>https://example.com/tags/quarantine/</link>
+      <link>https://tiagotavares.io/novo/tags/quarantine/</link>
       <pubDate>Sat, 23 May 2020 19:50:51 -0300</pubDate>
-      <guid>https://example.com/tags/quarantine/</guid>
+      <guid>https://tiagotavares.io/novo/tags/quarantine/</guid>
       <description></description>
     </item>
     <item>
       <title>Vida</title>
-      <link>https://example.com/tags/vida/</link>
+      <link>https://tiagotavares.io/novo/tags/vida/</link>
       <pubDate>Sat, 23 May 2020 19:50:51 -0300</pubDate>
-      <guid>https://example.com/tags/vida/</guid>
+      <guid>https://tiagotavares.io/novo/tags/vida/</guid>
       <description></description>
     </item>
     <item>
       <title>Hackthebox</title>
-      <link>https://example.com/tags/hackthebox/</link>
+      <link>https://tiagotavares.io/novo/tags/hackthebox/</link>
       <pubDate>Thu, 14 May 2020 16:31:51 -0300</pubDate>
-      <guid>https://example.com/tags/hackthebox/</guid>
+      <guid>https://tiagotavares.io/novo/tags/hackthebox/</guid>
       <description></description>
     </item>
     <item>
       <title>Data Analytics</title>
-      <link>https://example.com/tags/data-analytics/</link>
+      <link>https://tiagotavares.io/novo/tags/data-analytics/</link>
       <pubDate>Fri, 17 Apr 2020 22:09:49 -0300</pubDate>
-      <guid>https://example.com/tags/data-analytics/</guid>
+      <guid>https://tiagotavares.io/novo/tags/data-analytics/</guid>
       <description></description>
     </item>
     <item>
       <title>Marathon</title>
-      <link>https://example.com/tags/marathon/</link>
+      <link>https://tiagotavares.io/novo/tags/marathon/</link>
       <pubDate>Fri, 17 Apr 2020 22:09:49 -0300</pubDate>
-      <guid>https://example.com/tags/marathon/</guid>
+      <guid>https://tiagotavares.io/novo/tags/marathon/</guid>
       <description></description>
     </item>
     <item>
       <title>Maratona</title>
-      <link>https://example.com/tags/maratona/</link>
+      <link>https://tiagotavares.io/novo/tags/maratona/</link>
       <pubDate>Fri, 17 Apr 2020 22:09:49 -0300</pubDate>
-      <guid>https://example.com/tags/maratona/</guid>
+      <guid>https://tiagotavares.io/novo/tags/maratona/</guid>
       <description></description>
     </item>
     <item>
       <title>Matplotlib</title>
-      <link>https://example.com/tags/matplotlib/</link>
+      <link>https://tiagotavares.io/novo/tags/matplotlib/</link>
       <pubDate>Fri, 17 Apr 2020 22:09:49 -0300</pubDate>
-      <guid>https://example.com/tags/matplotlib/</guid>
+      <guid>https://tiagotavares.io/novo/tags/matplotlib/</guid>
       <description></description>
     </item>
     <item>
       <title>Pandas</title>
-      <link>https://example.com/tags/pandas/</link>
+      <link>https://tiagotavares.io/novo/tags/pandas/</link>
       <pubDate>Fri, 17 Apr 2020 22:09:49 -0300</pubDate>
-      <guid>https://example.com/tags/pandas/</guid>
+      <guid>https://tiagotavares.io/novo/tags/pandas/</guid>
       <description></description>
     </item>
     <item>
       <title>Porto Alegre</title>
-      <link>https://example.com/tags/porto-alegre/</link>
+      <link>https://tiagotavares.io/novo/tags/porto-alegre/</link>
       <pubDate>Fri, 17 Apr 2020 22:09:49 -0300</pubDate>
-      <guid>https://example.com/tags/porto-alegre/</guid>
+      <guid>https://tiagotavares.io/novo/tags/porto-alegre/</guid>
       <description></description>
     </item>
     <item>
       <title>Python</title>
-      <link>https://example.com/tags/python/</link>
+      <link>https://tiagotavares.io/novo/tags/python/</link>
       <pubDate>Fri, 17 Apr 2020 22:09:49 -0300</pubDate>
-      <guid>https://example.com/tags/python/</guid>
+      <guid>https://tiagotavares.io/novo/tags/python/</guid>
       <description></description>
     </item>
     <item>
       <title>Seaborn</title>
-      <link>https://example.com/tags/seaborn/</link>
+      <link>https://tiagotavares.io/novo/tags/seaborn/</link>
       <pubDate>Fri, 17 Apr 2020 22:09:49 -0300</pubDate>
-      <guid>https://example.com/tags/seaborn/</guid>
+      <guid>https://tiagotavares.io/novo/tags/seaborn/</guid>
       <description></description>
     </item>
     <item>
       <title>Faustão Invader</title>
-      <link>https://example.com/tags/faust%C3%A3o-invader/</link>
+      <link>https://tiagotavares.io/novo/tags/faust%C3%A3o-invader/</link>
       <pubDate>Thu, 09 Apr 2020 22:33:47 -0300</pubDate>
-      <guid>https://example.com/tags/faust%C3%A3o-invader/</guid>
+      <guid>https://tiagotavares.io/novo/tags/faust%C3%A3o-invader/</guid>
       <description></description>
     </item>
     <item>
       <title>Game</title>
-      <link>https://example.com/tags/game/</link>
+      <link>https://tiagotavares.io/novo/tags/game/</link>
       <pubDate>Thu, 09 Apr 2020 22:33:47 -0300</pubDate>
-      <guid>https://example.com/tags/game/</guid>
+      <guid>https://tiagotavares.io/novo/tags/game/</guid>
       <description></description>
     </item>
     <item>
       <title>Pygame</title>
-      <link>https://example.com/tags/pygame/</link>
+      <link>https://tiagotavares.io/novo/tags/pygame/</link>
       <pubDate>Thu, 09 Apr 2020 22:33:47 -0300</pubDate>
-      <guid>https://example.com/tags/pygame/</guid>
+      <guid>https://tiagotavares.io/novo/tags/pygame/</guid>
       <description></description>
     </item>
     <item>
       <title>Acm.org</title>
-      <link>https://example.com/tags/acm.org/</link>
+      <link>https://tiagotavares.io/novo/tags/acm.org/</link>
       <pubDate>Mon, 16 Mar 2020 21:35:28 -0300</pubDate>
-      <guid>https://example.com/tags/acm.org/</guid>
+      <guid>https://tiagotavares.io/novo/tags/acm.org/</guid>
       <description></description>
     </item>
     <item>
       <title>Books</title>
-      <link>https://example.com/tags/books/</link>
+      <link>https://tiagotavares.io/novo/tags/books/</link>
       <pubDate>Mon, 16 Mar 2020 21:35:28 -0300</pubDate>
-      <guid>https://example.com/tags/books/</guid>
+      <guid>https://tiagotavares.io/novo/tags/books/</guid>
       <description></description>
     </item>
     <item>
       <title>Oreilly</title>
-      <link>https://example.com/tags/oreilly/</link>
+      <link>https://tiagotavares.io/novo/tags/oreilly/</link>
       <pubDate>Mon, 16 Mar 2020 21:35:28 -0300</pubDate>
-      <guid>https://example.com/tags/oreilly/</guid>
+      <guid>https://tiagotavares.io/novo/tags/oreilly/</guid>
       <description></description>
     </item>
     <item>
       <title>Safari</title>
-      <link>https://example.com/tags/safari/</link>
+      <link>https://tiagotavares.io/novo/tags/safari/</link>
       <pubDate>Mon, 16 Mar 2020 21:35:28 -0300</pubDate>
-      <guid>https://example.com/tags/safari/</guid>
+      <guid>https://tiagotavares.io/novo/tags/safari/</guid>
       <description></description>
     </item>
     <item>
       <title>Study</title>
-      <link>https://example.com/tags/study/</link>
+      <link>https://tiagotavares.io/novo/tags/study/</link>
       <pubDate>Mon, 16 Mar 2020 21:35:28 -0300</pubDate>
-      <guid>https://example.com/tags/study/</guid>
+      <guid>https://tiagotavares.io/novo/tags/study/</guid>
       <description></description>
     </item>
     <item>
       <title>Tip</title>
-      <link>https://example.com/tags/tip/</link>
+      <link>https://tiagotavares.io/novo/tags/tip/</link>
       <pubDate>Mon, 16 Mar 2020 21:35:28 -0300</pubDate>
-      <guid>https://example.com/tags/tip/</guid>
+      <guid>https://tiagotavares.io/novo/tags/tip/</guid>
       <description></description>
     </item>
     <item>
       <title>Lampiao</title>
-      <link>https://example.com/tags/lampiao/</link>
+      <link>https://tiagotavares.io/novo/tags/lampiao/</link>
       <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
-      <guid>https://example.com/tags/lampiao/</guid>
+      <guid>https://tiagotavares.io/novo/tags/lampiao/</guid>
       <description></description>
     </item>
     <item>
       <title>Jarbas</title>
-      <link>https://example.com/tags/jarbas/</link>
+      <link>https://tiagotavares.io/novo/tags/jarbas/</link>
       <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
-      <guid>https://example.com/tags/jarbas/</guid>
+      <guid>https://tiagotavares.io/novo/tags/jarbas/</guid>
       <description></description>
     </item>
     <item>
       <title>Ccsp</title>
-      <link>https://example.com/tags/ccsp/</link>
+      <link>https://tiagotavares.io/novo/tags/ccsp/</link>
       <pubDate>Wed, 29 Mar 2017 22:00:04 -0300</pubDate>
-      <guid>https://example.com/tags/ccsp/</guid>
+      <guid>https://tiagotavares.io/novo/tags/ccsp/</guid>
       <description></description>
     </item>
     <item>
       <title>Cloud Computing</title>
-      <link>https://example.com/tags/cloud-computing/</link>
+      <link>https://tiagotavares.io/novo/tags/cloud-computing/</link>
       <pubDate>Wed, 29 Mar 2017 22:00:04 -0300</pubDate>
-      <guid>https://example.com/tags/cloud-computing/</guid>
+      <guid>https://tiagotavares.io/novo/tags/cloud-computing/</guid>
       <description></description>
     </item>
     <item>
       <title>Isc2</title>
-      <link>https://example.com/tags/isc2/</link>
+      <link>https://tiagotavares.io/novo/tags/isc2/</link>
       <pubDate>Wed, 29 Mar 2017 22:00:04 -0300</pubDate>
-      <guid>https://example.com/tags/isc2/</guid>
+      <guid>https://tiagotavares.io/novo/tags/isc2/</guid>
       <description></description>
     </item>
     <item>
       <title>Cissp</title>
-      <link>https://example.com/tags/cissp/</link>
+      <link>https://tiagotavares.io/novo/tags/cissp/</link>
       <pubDate>Fri, 27 Feb 2015 20:00:01 -0300</pubDate>
-      <guid>https://example.com/tags/cissp/</guid>
+      <guid>https://tiagotavares.io/novo/tags/cissp/</guid>
       <description></description>
     </item>
     <item>
       <title>Issa</title>
-      <link>https://example.com/tags/issa/</link>
+      <link>https://tiagotavares.io/novo/tags/issa/</link>
       <pubDate>Fri, 27 Feb 2015 20:00:01 -0300</pubDate>
-      <guid>https://example.com/tags/issa/</guid>
+      <guid>https://tiagotavares.io/novo/tags/issa/</guid>
       <description></description>
     </item>
     <item>
       <title>Awareness</title>
-      <link>https://example.com/tags/awareness/</link>
+      <link>https://tiagotavares.io/novo/tags/awareness/</link>
       <pubDate>Tue, 10 Feb 2015 00:00:00 +0000</pubDate>
-      <guid>https://example.com/tags/awareness/</guid>
+      <guid>https://tiagotavares.io/novo/tags/awareness/</guid>
       <description></description>
     </item>
     <item>
       <title>Conscientização</title>
-      <link>https://example.com/tags/conscientiza%C3%A7%C3%A3o/</link>
+      <link>https://tiagotavares.io/novo/tags/conscientiza%C3%A7%C3%A3o/</link>
       <pubDate>Tue, 10 Feb 2015 00:00:00 +0000</pubDate>
-      <guid>https://example.com/tags/conscientiza%C3%A7%C3%A3o/</guid>
+      <guid>https://tiagotavares.io/novo/tags/conscientiza%C3%A7%C3%A3o/</guid>
       <description></description>
     </item>
   </channel>
