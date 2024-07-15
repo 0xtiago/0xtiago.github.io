@@ -6,7 +6,7 @@
     <description>Recent content on Hinode</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <copyright>Copyright © 2024 Mark Dumay.</copyright>
+    <copyright>Copyright © 2024 Tiago Tavares.</copyright>
     <atom:link href="https://tiagotavares.io/novo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Use sempre o retrovisor.</title>
@@ -35,6 +35,20 @@
       <pubDate>Fri, 13 Aug 2021 11:15:12 -0300</pubDate>
       <guid>https://tiagotavares.io/novo/blog/participacao_podcast_cafeseguro/</guid>
       <description>&lt;p&gt;Minha participação no podcast &lt;strong&gt;Café Seguro&lt;/strong&gt;, da WSS Security, e apresentado Daniel Dalalana, Pedro Kassick e Ben Hur Ott.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Another project</title>
+      <link>https://tiagotavares.io/novo/projects/another-project/</link>
+      <pubDate>Thu, 15 Jul 2021 00:00:00 +0000</pubDate>
+      <guid>https://tiagotavares.io/novo/projects/another-project/</guid>
+      <description>Vivamus iaculis metus sed magna porta tincidunt. Aliquam molestie eget orci eu elementum. Integer pellentesque dolor sit amet suscipit maximus. Duis consequat, massa vitae volutpat rhoncus, erat augue venenatis velit, a auctor leo nulla nec turpis.</description>
+    </item>
+    <item>
+      <title>Sample project</title>
+      <link>https://tiagotavares.io/novo/projects/sample-project/</link>
+      <pubDate>Thu, 15 Jul 2021 00:00:00 +0000</pubDate>
+      <guid>https://tiagotavares.io/novo/projects/sample-project/</guid>
+      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</description>
     </item>
     <item>
       <title>Gestão de vulnerabilidades com Greenbone Openvas - Ubuntu 20.04</title>
@@ -209,7 +223,7 @@
       <link>https://tiagotavares.io/novo/blog/passed_ccsp/</link>
       <pubDate>Wed, 29 Mar 2017 22:00:04 -0300</pubDate>
       <guid>https://tiagotavares.io/novo/blog/passed_ccsp/</guid>
-      <description>&lt;p&gt;My study resouces to achieve CCSP certification.&lt;/p&gt;</description>
+      <description>Hello guys,&#xA;Monday, 27th March I passed CCSP exam here in São Paulo, the material I&amp;rsquo;ll list bellow had the enough content to pass.</description>
     </item>
     <item>
       <title>Passed (ISC)2 CISSP - Certified Information Systems Security Professional</title>

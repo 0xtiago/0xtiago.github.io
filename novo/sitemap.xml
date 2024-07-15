@@ -6,10 +6,10 @@
     <lastmod>2024-07-14T17:40:18-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/novo/blog/</loc>
-    <lastmod>2024-07-14T19:55:41-03:00</lastmod>
+    <lastmod>2024-07-14T21:43:19-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/novo/tags/</loc>
-    <lastmod>2024-07-14T19:55:41-03:00</lastmod>
+    <lastmod>2024-07-14T21:52:53-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/novo/blog/use-sempre-o-retrovisor/</loc>
     <lastmod>2024-07-14T17:40:18-03:00</lastmod>
@@ -93,10 +93,28 @@
     <lastmod>2024-07-14T19:55:41-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/novo/tags/security/</loc>
-    <lastmod>2024-07-14T19:55:41-03:00</lastmod>
+    <lastmod>2024-07-14T21:43:19-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/novo/tags/wss/</loc>
     <lastmod>2024-07-14T19:55:41-03:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/novo/projects/another-project/</loc>
+    <lastmod>2024-07-14T21:52:53-03:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/novo/tags/css/</loc>
+    <lastmod>2024-07-14T21:52:53-03:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/novo/tags/golang/</loc>
+    <lastmod>2024-07-14T21:52:53-03:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/novo/tags/html/</loc>
+    <lastmod>2024-07-14T21:52:53-03:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/novo/tags/javascript/</loc>
+    <lastmod>2024-07-14T21:52:53-03:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/novo/projects/sample-project/</loc>
+    <lastmod>2024-07-14T21:52:53-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/novo/blog/gestao-de-vulnerabilidades-com-greenbone-openvas/</loc>
     <lastmod>2024-07-14T19:55:41-03:00</lastmod>
@@ -360,25 +378,25 @@
     <lastmod>2024-07-14T19:55:41-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/novo/tags/ccsp/</loc>
-    <lastmod>2024-07-14T19:55:41-03:00</lastmod>
+    <lastmod>2024-07-14T21:43:19-03:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/novo/tags/certifications/</loc>
+    <lastmod>2024-07-14T21:43:19-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/novo/tags/cloud-computing/</loc>
-    <lastmod>2024-07-14T19:55:41-03:00</lastmod>
+    <lastmod>2024-07-14T21:43:19-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/novo/tags/isc2/</loc>
-    <lastmod>2024-07-14T19:55:41-03:00</lastmod>
+    <lastmod>2024-07-14T21:43:19-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/novo/blog/passed_ccsp/</loc>
-    <lastmod>2024-07-14T19:55:41-03:00</lastmod>
+    <lastmod>2024-07-14T21:43:19-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/novo/tags/cissp/</loc>
-    <lastmod>2024-07-14T19:55:41-03:00</lastmod>
-  </url><url>
-    <loc>https://tiagotavares.io/novo/tags/issa/</loc>
-    <lastmod>2024-07-14T19:55:41-03:00</lastmod>
+    <lastmod>2024-07-14T21:43:19-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/novo/blog/passed_cissp/</loc>
-    <lastmod>2024-07-14T19:55:41-03:00</lastmod>
+    <lastmod>2024-07-14T21:43:19-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/novo/tags/awareness/</loc>
     <lastmod>2024-07-14T18:04:46-03:00</lastmod>
@@ -394,5 +412,8 @@
   </url><url>
     <loc>https://tiagotavares.io/novo/blog/curso_de_linux/</loc>
     <lastmod>2024-07-14T19:55:41-03:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/novo/projects/</loc>
+    <lastmod>2024-07-14T21:52:53-03:00</lastmod>
   </url>
 </urlset>
