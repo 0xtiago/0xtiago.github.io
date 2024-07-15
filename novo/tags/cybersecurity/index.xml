@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Cybersecurity on Hinode</title>
+    <title>Cybersecurity on debugging the life</title>
     <link>https://tiagotavares.io/novo/tags/cybersecurity/</link>
-    <description>Recent content in Cybersecurity on Hinode</description>
+    <description>Recent content in Cybersecurity on debugging the life</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Tiago Tavares.</copyright>
-    <lastBuildDate>Sun, 14 Jul 2024 19:55:41 -0300</lastBuildDate>
+    <lastBuildDate>Mon, 15 Jul 2024 16:47:18 -0300</lastBuildDate>
     <atom:link href="https://tiagotavares.io/novo/tags/cybersecurity/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Café Seguro 23 Café na conta de... Tiago Tavares</title>
       <link>https://tiagotavares.io/novo/blog/participacao_podcast_cafeseguro/</link>
       <pubDate>Fri, 13 Aug 2021 11:15:12 -0300</pubDate>
       <guid>https://tiagotavares.io/novo/blog/participacao_podcast_cafeseguro/</guid>
-      <description>&lt;p&gt;Minha participação no podcast &lt;strong&gt;Café Seguro&lt;/strong&gt;, da WSS Security, e apresentado Daniel Dalalana, Pedro Kassick e Ben Hur Ott.&lt;/p&gt;</description>
+      <description></description>
     </item>
     <item>
       <title>Como carregar atividades manualmente do relógio Garmin para o Strava</title>
       <link>https://tiagotavares.io/novo/blog/carregando_treinos_garmin_para_strava/</link>
       <pubDate>Sun, 26 Jul 2020 13:30:00 -0300</pubDate>
       <guid>https://tiagotavares.io/novo/blog/carregando_treinos_garmin_para_strava/</guid>
-      <description>&lt;p&gt;&lt;em&gt;&lt;strong&gt;A ransomware story&lt;/strong&gt;&lt;/em&gt;. 😞&lt;/p&gt;&#xA;&lt;p&gt;Além do procedimento, uma explicação do incidente que pôde ter custado ao Garmin milhões de dólares!  💸💸💸&lt;/p&gt;</description>
+      <description></description>
     </item>
     <item>
       <title>(In)segurança em tokens JWT</title>
       <link>https://tiagotavares.io/novo/blog/jwt_insecurity/</link>
       <pubDate>Fri, 12 Jun 2020 12:15:12 -0300</pubDate>
       <guid>https://tiagotavares.io/novo/blog/jwt_insecurity/</guid>
-      <description>&lt;p&gt;Existem muitas bibliotecas disponíveis que suportam JWT, e o próprio padrão possui “rico suporte para mecanismos criptográficos”. Tudo isso significa que o JWT é realmente seguro? Vamos ver.&lt;/p&gt;</description>
+      <description></description>
     </item>
     <item>
       <title>O fim dos times de AppSec</title>
       <link>https://tiagotavares.io/novo/blog/ofimdostimesdeappsec/</link>
       <pubDate>Fri, 05 Jun 2020 12:02:56 -0300</pubDate>
       <guid>https://tiagotavares.io/novo/blog/ofimdostimesdeappsec/</guid>
-      <description>&lt;p&gt;O paradoxo da segurança em aplicações.&lt;/p&gt;</description>
+      <description>Hoje temos times de cybersegurança estão bem consolidados nas organizações, com pessoas dedicadas inclusive a análise de aplicações, mas a integração nunca é fluída, dificilmente o time responsável por arquitetura, análise e testes estão de fato próximos aos times de desenvolvimento.</description>
     </item>
   </channel>
 </rss>

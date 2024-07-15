@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Vulnerable Machines on Hinode</title>
+    <title>Vulnerable Machines on debugging the life</title>
     <link>https://tiagotavares.io/novo/tags/vulnerable-machines/</link>
-    <description>Recent content in Vulnerable Machines on Hinode</description>
+    <description>Recent content in Vulnerable Machines on debugging the life</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Tiago Tavares.</copyright>
-    <lastBuildDate>Sun, 14 Jul 2024 22:27:06 -0300</lastBuildDate>
+    <lastBuildDate>Mon, 15 Jul 2024 09:40:04 -0300</lastBuildDate>
     <atom:link href="https://tiagotavares.io/novo/tags/vulnerable-machines/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lampião 1</title>
+      <link>https://tiagotavares.io/novo/blog/lampiao1/</link>
+      <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
+      <guid>https://tiagotavares.io/novo/blog/lampiao1/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Jarbas 1</title>
       <link>https://tiagotavares.io/novo/blog/jarbas1/</link>

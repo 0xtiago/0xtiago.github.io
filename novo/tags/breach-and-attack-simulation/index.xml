@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Breach and Attack Simulation on Hinode</title>
+    <title>Breach and Attack Simulation on debugging the life</title>
     <link>https://tiagotavares.io/novo/tags/breach-and-attack-simulation/</link>
-    <description>Recent content in Breach and Attack Simulation on Hinode</description>
+    <description>Recent content in Breach and Attack Simulation on debugging the life</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Tiago Tavares.</copyright>
-    <lastBuildDate>Sun, 14 Jul 2024 19:55:41 -0300</lastBuildDate>
+    <lastBuildDate>Mon, 15 Jul 2024 15:33:37 -0300</lastBuildDate>
     <atom:link href="https://tiagotavares.io/novo/tags/breach-and-attack-simulation/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Breach and Attack Simulation com Infection Monkey 🐵</title>
       <link>https://tiagotavares.io/novo/blog/infection_monkey/</link>
       <pubDate>Mon, 27 Jul 2020 21:00:00 -0300</pubDate>
       <guid>https://tiagotavares.io/novo/blog/infection_monkey/</guid>
-      <description>&lt;p&gt;Realize simulações de ataque em um clique!&lt;/p&gt;</description>
+      <description></description>
     </item>
   </channel>
 </rss>

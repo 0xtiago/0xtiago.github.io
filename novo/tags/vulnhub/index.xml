@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Vulnhub on Hinode</title>
+    <title>Vulnhub on debugging the life</title>
     <link>https://tiagotavares.io/novo/tags/vulnhub/</link>
-    <description>Recent content in Vulnhub on Hinode</description>
+    <description>Recent content in Vulnhub on debugging the life</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Tiago Tavares.</copyright>
-    <lastBuildDate>Sun, 14 Jul 2024 22:27:06 -0300</lastBuildDate>
+    <lastBuildDate>Mon, 15 Jul 2024 16:36:14 -0300</lastBuildDate>
     <atom:link href="https://tiagotavares.io/novo/tags/vulnhub/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ChillHack: 1 - Vulnhub </title>
       <link>https://tiagotavares.io/novo/blog/chillhack/</link>
       <pubDate>Sat, 19 Dec 2020 08:00:51 -0300</pubDate>
       <guid>https://tiagotavares.io/novo/blog/chillhack/</guid>
-      <description>&lt;p&gt;ChillHack: 1 - A Vulnhub vulnerable machine walkthrough.&lt;/p&gt;</description>
+      <description></description>
     </item>
     <item>
       <title>DevGuru: 1 - Vulnhub </title>
       <link>https://tiagotavares.io/novo/blog/devguru1_vulnhub/</link>
       <pubDate>Tue, 15 Dec 2020 08:40:51 -0300</pubDate>
       <guid>https://tiagotavares.io/novo/blog/devguru1_vulnhub/</guid>
-      <description>&lt;p&gt;DevGuru: 1 - A Vulnhub vulnerable machine walkthrough.&lt;/p&gt;</description>
+      <description></description>
     </item>
     <item>
       <title>Funbox: 1 - Vulnhub </title>
       <link>https://tiagotavares.io/novo/blog/funbox_vulnhub/</link>
       <pubDate>Thu, 13 Aug 2020 21:40:51 -0300</pubDate>
       <guid>https://tiagotavares.io/novo/blog/funbox_vulnhub/</guid>
-      <description>&lt;p&gt;Funbox: 1 - A Vulnhub vulnerable machine walkthrough.&lt;/p&gt;</description>
+      <description></description>
     </item>
     <item>
       <title>Photographer: 1 - Vulnhub </title>
       <link>https://tiagotavares.io/novo/blog/photographer_vulnhub/</link>
       <pubDate>Fri, 31 Jul 2020 12:00:51 -0300</pubDate>
       <guid>https://tiagotavares.io/novo/blog/photographer_vulnhub/</guid>
-      <description>&lt;p&gt;Photographer: 1 - A Vulnhub vulnerable machine walkthrough.&lt;/p&gt;</description>
+      <description></description>
     </item>
     <item>
       <title>Lampião 1</title>
       <link>https://tiagotavares.io/novo/blog/lampiao1/</link>
       <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
       <guid>https://tiagotavares.io/novo/blog/lampiao1/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;&amp;ldquo;Lampião 1&amp;rdquo;&lt;/strong&gt; - &amp;ldquo;It&amp;rsquo;s Easy, fi duma égua!&amp;rdquo;.&lt;/p&gt;</description>
+      <description></description>
     </item>
     <item>
       <title>Jarbas 1</title>

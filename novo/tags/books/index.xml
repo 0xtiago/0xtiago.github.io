@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Books on Hinode</title>
+    <title>Books on debugging the life</title>
     <link>https://tiagotavares.io/novo/tags/books/</link>
-    <description>Recent content in Books on Hinode</description>
+    <description>Recent content in Books on debugging the life</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Tiago Tavares.</copyright>
-    <lastBuildDate>Sun, 14 Jul 2024 19:55:41 -0300</lastBuildDate>
+    <lastBuildDate>Mon, 15 Jul 2024 09:43:48 -0300</lastBuildDate>
     <atom:link href="https://tiagotavares.io/novo/tags/books/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Association for Computing Machinery &#43; O&#39;Reilly Safari</title>
       <link>https://tiagotavares.io/novo/blog/acm_oreillysafari/</link>
       <pubDate>Mon, 16 Mar 2020 21:35:28 -0300</pubDate>
       <guid>https://tiagotavares.io/novo/blog/acm_oreillysafari/</guid>
-      <description>&lt;p&gt;Obtendo acesso a um dos maiores acervos técnicos pagando bem pouco por isso!&lt;/p&gt;</description>
+      <description>📚 DICA IMPORTANTE PARA LEITORES E ESTUDANTES!!!&#xA;Para aqueles que gastam centenas de reais em livros técnicos todos os anos, sugiro fortemente que se associem ao &amp;ldquo;Association for Computing Machinery&amp;rdquo;.</description>
     </item>
   </channel>
 </rss>

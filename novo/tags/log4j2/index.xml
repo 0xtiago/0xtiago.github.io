@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Log4j2 on Hinode</title>
+    <title>Log4j2 on debugging the life</title>
     <link>https://tiagotavares.io/novo/tags/log4j2/</link>
-    <description>Recent content in Log4j2 on Hinode</description>
+    <description>Recent content in Log4j2 on debugging the life</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Tiago Tavares.</copyright>
-    <lastBuildDate>Sun, 14 Jul 2024 19:55:41 -0300</lastBuildDate>
+    <lastBuildDate>Mon, 15 Jul 2024 17:21:20 -0300</lastBuildDate>
     <atom:link href="https://tiagotavares.io/novo/tags/log4j2/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Log4J2 JNDI/LDAP Lookups - Dos elos evitáveis ao apocalipse 🔥 | CVE-2021-44228</title>
       <link>https://tiagotavares.io/novo/blog/log4j2_jndi_cve-2021-44228/</link>
       <pubDate>Mon, 27 Dec 2021 09:16:19 -0300</pubDate>
       <guid>https://tiagotavares.io/novo/blog/log4j2_jndi_cve-2021-44228/</guid>
-      <description>&lt;p&gt;🧵 Uma thread de quase 10 anos de acontecimentos que poderiam ter sido previstos e evitados.&lt;/p&gt;</description>
+      <description></description>
     </item>
   </channel>
 </rss>

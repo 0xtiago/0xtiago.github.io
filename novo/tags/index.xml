@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Hinode</title>
+    <title>Tags on debugging the life</title>
     <link>https://tiagotavares.io/novo/tags/</link>
-    <description>Recent content in Tags on Hinode</description>
+    <description>Recent content in Tags on debugging the life</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Tiago Tavares.</copyright>
-    <lastBuildDate>Sun, 14 Jul 2024 22:27:06 -0300</lastBuildDate>
+    <lastBuildDate>Mon, 15 Jul 2024 17:21:20 -0300</lastBuildDate>
     <atom:link href="https://tiagotavares.io/novo/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Blog</title>
@@ -395,6 +395,13 @@
       <description></description>
     </item>
     <item>
+      <title>Malware Research</title>
+      <link>https://tiagotavares.io/novo/tags/malware-research/</link>
+      <pubDate>Fri, 26 Jun 2020 17:30:24 -0300</pubDate>
+      <guid>https://tiagotavares.io/novo/tags/malware-research/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Argentina</title>
       <link>https://tiagotavares.io/novo/tags/argentina/</link>
       <pubDate>Fri, 19 Jun 2020 22:41:04 -0300</pubDate>
@@ -420,6 +427,13 @@
       <link>https://tiagotavares.io/novo/tags/ekoparty/</link>
       <pubDate>Fri, 19 Jun 2020 22:41:04 -0300</pubDate>
       <guid>https://tiagotavares.io/novo/tags/ekoparty/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Application Security</title>
+      <link>https://tiagotavares.io/novo/tags/application-security/</link>
+      <pubDate>Fri, 12 Jun 2020 12:15:12 -0300</pubDate>
+      <guid>https://tiagotavares.io/novo/tags/application-security/</guid>
       <description></description>
     </item>
     <item>
@@ -591,10 +605,10 @@
       <description></description>
     </item>
     <item>
-      <title>Game</title>
-      <link>https://tiagotavares.io/novo/tags/game/</link>
+      <title>Games</title>
+      <link>https://tiagotavares.io/novo/tags/games/</link>
       <pubDate>Thu, 09 Apr 2020 22:33:47 -0300</pubDate>
-      <guid>https://tiagotavares.io/novo/tags/game/</guid>
+      <guid>https://tiagotavares.io/novo/tags/games/</guid>
       <description></description>
     </item>
     <item>
@@ -654,17 +668,17 @@
       <description></description>
     </item>
     <item>
+      <title>Vulnerable Machines</title>
+      <link>https://tiagotavares.io/novo/tags/vulnerable-machines/</link>
+      <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
+      <guid>https://tiagotavares.io/novo/tags/vulnerable-machines/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Jarbas</title>
       <link>https://tiagotavares.io/novo/tags/jarbas/</link>
       <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
       <guid>https://tiagotavares.io/novo/tags/jarbas/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Vulnerable Machines</title>
-      <link>https://tiagotavares.io/novo/tags/vulnerable-machines/</link>
-      <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
-      <guid>https://tiagotavares.io/novo/tags/vulnerable-machines/</guid>
       <description></description>
     </item>
     <item>
