@@ -1,0 +1,947 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on debugging the life</title>
+    <link>https://tiagotavares.io/tags/</link>
+    <description>Recent content in Tags on debugging the life</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 27 Dec 2021 09:16:19 -0300</lastBuildDate><atom:link href="https://tiagotavares.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>apache</title>
+      <link>https://tiagotavares.io/tags/apache/</link>
+      <pubDate>Mon, 27 Dec 2021 09:16:19 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/apache/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>blackhat</title>
+      <link>https://tiagotavares.io/tags/blackhat/</link>
+      <pubDate>Mon, 27 Dec 2021 09:16:19 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/blackhat/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CVE-2021-44228</title>
+      <link>https://tiagotavares.io/tags/cve-2021-44228/</link>
+      <pubDate>Mon, 27 Dec 2021 09:16:19 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/cve-2021-44228/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CVE-2021-45046</title>
+      <link>https://tiagotavares.io/tags/cve-2021-45046/</link>
+      <pubDate>Mon, 27 Dec 2021 09:16:19 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/cve-2021-45046/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CVE-2021-45105</title>
+      <link>https://tiagotavares.io/tags/cve-2021-45105/</link>
+      <pubDate>Mon, 27 Dec 2021 09:16:19 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/cve-2021-45105/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jndi</title>
+      <link>https://tiagotavares.io/tags/jndi/</link>
+      <pubDate>Mon, 27 Dec 2021 09:16:19 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/jndi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ldap</title>
+      <link>https://tiagotavares.io/tags/ldap/</link>
+      <pubDate>Mon, 27 Dec 2021 09:16:19 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/ldap/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>log4j2</title>
+      <link>https://tiagotavares.io/tags/log4j2/</link>
+      <pubDate>Mon, 27 Dec 2021 09:16:19 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/log4j2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>openctibr</title>
+      <link>https://tiagotavares.io/tags/openctibr/</link>
+      <pubDate>Mon, 27 Dec 2021 09:16:19 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/openctibr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>research</title>
+      <link>https://tiagotavares.io/tags/research/</link>
+      <pubDate>Mon, 27 Dec 2021 09:16:19 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/research/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>greenbone</title>
+      <link>https://tiagotavares.io/tags/greenbone/</link>
+      <pubDate>Wed, 22 Dec 2021 11:00:09 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/greenbone/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://tiagotavares.io/tags/linux/</link>
+      <pubDate>Wed, 22 Dec 2021 11:00:09 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nessus</title>
+      <link>https://tiagotavares.io/tags/nessus/</link>
+      <pubDate>Wed, 22 Dec 2021 11:00:09 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/nessus/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>openvas</title>
+      <link>https://tiagotavares.io/tags/openvas/</link>
+      <pubDate>Wed, 22 Dec 2021 11:00:09 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/openvas/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>scanner</title>
+      <link>https://tiagotavares.io/tags/scanner/</link>
+      <pubDate>Wed, 22 Dec 2021 11:00:09 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/scanner/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ubuntu</title>
+      <link>https://tiagotavares.io/tags/ubuntu/</link>
+      <pubDate>Wed, 22 Dec 2021 11:00:09 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/ubuntu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vulnerability</title>
+      <link>https://tiagotavares.io/tags/vulnerability/</link>
+      <pubDate>Wed, 22 Dec 2021 11:00:09 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/vulnerability/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>application</title>
+      <link>https://tiagotavares.io/tags/application/</link>
+      <pubDate>Fri, 13 Aug 2021 11:15:12 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/application/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cafe seguro</title>
+      <link>https://tiagotavares.io/tags/cafe-seguro/</link>
+      <pubDate>Fri, 13 Aug 2021 11:15:12 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/cafe-seguro/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cybersecurity</title>
+      <link>https://tiagotavares.io/tags/cybersecurity/</link>
+      <pubDate>Fri, 13 Aug 2021 11:15:12 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/cybersecurity/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>development</title>
+      <link>https://tiagotavares.io/tags/development/</link>
+      <pubDate>Fri, 13 Aug 2021 11:15:12 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>owasp</title>
+      <link>https://tiagotavares.io/tags/owasp/</link>
+      <pubDate>Fri, 13 Aug 2021 11:15:12 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/owasp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>podcast</title>
+      <link>https://tiagotavares.io/tags/podcast/</link>
+      <pubDate>Fri, 13 Aug 2021 11:15:12 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/podcast/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>security</title>
+      <link>https://tiagotavares.io/tags/security/</link>
+      <pubDate>Fri, 13 Aug 2021 11:15:12 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>wss</title>
+      <link>https://tiagotavares.io/tags/wss/</link>
+      <pubDate>Fri, 13 Aug 2021 11:15:12 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/wss/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>force</title>
+      <link>https://tiagotavares.io/tags/force/</link>
+      <pubDate>Sat, 10 Jul 2021 14:05:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/force/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>inclusão</title>
+      <link>https://tiagotavares.io/tags/inclus%C3%A3o/</link>
+      <pubDate>Sat, 10 Jul 2021 14:05:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/inclus%C3%A3o/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>padawan</title>
+      <link>https://tiagotavares.io/tags/padawan/</link>
+      <pubDate>Sat, 10 Jul 2021 14:05:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/padawan/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>https://tiagotavares.io/tags/python/</link>
+      <pubDate>Sat, 10 Jul 2021 14:05:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>star wars</title>
+      <link>https://tiagotavares.io/tags/star-wars/</link>
+      <pubDate>Sat, 10 Jul 2021 14:05:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/star-wars/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tech</title>
+      <link>https://tiagotavares.io/tags/tech/</link>
+      <pubDate>Sat, 10 Jul 2021 14:05:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/tech/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ctf</title>
+      <link>https://tiagotavares.io/tags/ctf/</link>
+      <pubDate>Sat, 19 Dec 2020 08:00:51 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/ctf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hacking</title>
+      <link>https://tiagotavares.io/tags/hacking/</link>
+      <pubDate>Sat, 19 Dec 2020 08:00:51 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/hacking/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vulnhub</title>
+      <link>https://tiagotavares.io/tags/vulnhub/</link>
+      <pubDate>Sat, 19 Dec 2020 08:00:51 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/vulnhub/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>walkthrough</title>
+      <link>https://tiagotavares.io/tags/walkthrough/</link>
+      <pubDate>Sat, 19 Dec 2020 08:00:51 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/walkthrough/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>writeup</title>
+      <link>https://tiagotavares.io/tags/writeup/</link>
+      <pubDate>Sat, 19 Dec 2020 08:00:51 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/writeup/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>breach and attack simulation</title>
+      <link>https://tiagotavares.io/tags/breach-and-attack-simulation/</link>
+      <pubDate>Mon, 27 Jul 2020 21:00:00 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/breach-and-attack-simulation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>guardicore</title>
+      <link>https://tiagotavares.io/tags/guardicore/</link>
+      <pubDate>Mon, 27 Jul 2020 21:00:00 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/guardicore/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>infection monkey</title>
+      <link>https://tiagotavares.io/tags/infection-monkey/</link>
+      <pubDate>Mon, 27 Jul 2020 21:00:00 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/infection-monkey/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>red team</title>
+      <link>https://tiagotavares.io/tags/red-team/</link>
+      <pubDate>Mon, 27 Jul 2020 21:00:00 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/red-team/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>resiliência</title>
+      <link>https://tiagotavares.io/tags/resili%C3%AAncia/</link>
+      <pubDate>Mon, 27 Jul 2020 21:00:00 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/resili%C3%AAncia/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>corrida</title>
+      <link>https://tiagotavares.io/tags/corrida/</link>
+      <pubDate>Sun, 26 Jul 2020 13:30:00 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/corrida/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>garmin</title>
+      <link>https://tiagotavares.io/tags/garmin/</link>
+      <pubDate>Sun, 26 Jul 2020 13:30:00 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/garmin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>malware</title>
+      <link>https://tiagotavares.io/tags/malware/</link>
+      <pubDate>Sun, 26 Jul 2020 13:30:00 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/malware/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ransomware</title>
+      <link>https://tiagotavares.io/tags/ransomware/</link>
+      <pubDate>Sun, 26 Jul 2020 13:30:00 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/ransomware/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>running</title>
+      <link>https://tiagotavares.io/tags/running/</link>
+      <pubDate>Sun, 26 Jul 2020 13:30:00 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/running/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>strava</title>
+      <link>https://tiagotavares.io/tags/strava/</link>
+      <pubDate>Sun, 26 Jul 2020 13:30:00 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/strava/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>data privacy</title>
+      <link>https://tiagotavares.io/tags/data-privacy/</link>
+      <pubDate>Thu, 16 Jul 2020 08:15:12 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/data-privacy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>miro</title>
+      <link>https://tiagotavares.io/tags/miro/</link>
+      <pubDate>Thu, 16 Jul 2020 08:15:12 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/miro/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bug bounty</title>
+      <link>https://tiagotavares.io/tags/bug-bounty/</link>
+      <pubDate>Sun, 12 Jul 2020 08:41:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/bug-bounty/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>coleta de informações</title>
+      <link>https://tiagotavares.io/tags/coleta-de-informa%C3%A7%C3%B5es/</link>
+      <pubDate>Sun, 12 Jul 2020 08:41:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/coleta-de-informa%C3%A7%C3%B5es/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cyber kill chain</title>
+      <link>https://tiagotavares.io/tags/cyber-kill-chain/</link>
+      <pubDate>Sun, 12 Jul 2020 08:41:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/cyber-kill-chain/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>information gathering</title>
+      <link>https://tiagotavares.io/tags/information-gathering/</link>
+      <pubDate>Sun, 12 Jul 2020 08:41:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/information-gathering/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mitre att&amp;ck</title>
+      <link>https://tiagotavares.io/tags/mitre-attck/</link>
+      <pubDate>Sun, 12 Jul 2020 08:41:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/mitre-attck/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>osint</title>
+      <link>https://tiagotavares.io/tags/osint/</link>
+      <pubDate>Sun, 12 Jul 2020 08:41:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/osint/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>recon-ng</title>
+      <link>https://tiagotavares.io/tags/recon-ng/</link>
+      <pubDate>Sun, 12 Jul 2020 08:41:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/recon-ng/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Argentina</title>
+      <link>https://tiagotavares.io/tags/argentina/</link>
+      <pubDate>Fri, 19 Jun 2020 22:41:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/argentina/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Buenos Aires</title>
+      <link>https://tiagotavares.io/tags/buenos-aires/</link>
+      <pubDate>Fri, 19 Jun 2020 22:41:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/buenos-aires/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>conference</title>
+      <link>https://tiagotavares.io/tags/conference/</link>
+      <pubDate>Fri, 19 Jun 2020 22:41:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/conference/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ekoparty</title>
+      <link>https://tiagotavares.io/tags/ekoparty/</link>
+      <pubDate>Fri, 19 Jun 2020 22:41:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/ekoparty/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>criptography</title>
+      <link>https://tiagotavares.io/tags/criptography/</link>
+      <pubDate>Fri, 12 Jun 2020 12:15:12 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/criptography/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jwt</title>
+      <link>https://tiagotavares.io/tags/jwt/</link>
+      <pubDate>Fri, 12 Jun 2020 12:15:12 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/jwt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>lascon</title>
+      <link>https://tiagotavares.io/tags/lascon/</link>
+      <pubDate>Fri, 05 Jun 2020 12:02:56 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/lascon/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>security champions</title>
+      <link>https://tiagotavares.io/tags/security-champions/</link>
+      <pubDate>Fri, 05 Jun 2020 12:02:56 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/security-champions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ant&#43;</title>
+      <link>https://tiagotavares.io/tags/ant&#43;/</link>
+      <pubDate>Tue, 02 Jun 2020 08:40:20 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/ant&#43;/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>footpod</title>
+      <link>https://tiagotavares.io/tags/footpod/</link>
+      <pubDate>Tue, 02 Jun 2020 08:40:20 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/footpod/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>forerunner</title>
+      <link>https://tiagotavares.io/tags/forerunner/</link>
+      <pubDate>Tue, 02 Jun 2020 08:40:20 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/forerunner/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>quarentena</title>
+      <link>https://tiagotavares.io/tags/quarentena/</link>
+      <pubDate>Tue, 02 Jun 2020 08:40:20 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/quarentena/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>zwift</title>
+      <link>https://tiagotavares.io/tags/zwift/</link>
+      <pubDate>Tue, 02 Jun 2020 08:40:20 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/zwift/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>confinamento</title>
+      <link>https://tiagotavares.io/tags/confinamento/</link>
+      <pubDate>Sat, 23 May 2020 19:50:51 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/confinamento/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>coronavirus</title>
+      <link>https://tiagotavares.io/tags/coronavirus/</link>
+      <pubDate>Sat, 23 May 2020 19:50:51 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/coronavirus/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>life</title>
+      <link>https://tiagotavares.io/tags/life/</link>
+      <pubDate>Sat, 23 May 2020 19:50:51 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/life/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>quarantine</title>
+      <link>https://tiagotavares.io/tags/quarantine/</link>
+      <pubDate>Sat, 23 May 2020 19:50:51 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/quarantine/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vida</title>
+      <link>https://tiagotavares.io/tags/vida/</link>
+      <pubDate>Sat, 23 May 2020 19:50:51 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/vida/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hackthebox</title>
+      <link>https://tiagotavares.io/tags/hackthebox/</link>
+      <pubDate>Thu, 14 May 2020 16:31:51 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/hackthebox/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>data analytics</title>
+      <link>https://tiagotavares.io/tags/data-analytics/</link>
+      <pubDate>Fri, 17 Apr 2020 22:09:49 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/data-analytics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>marathon</title>
+      <link>https://tiagotavares.io/tags/marathon/</link>
+      <pubDate>Fri, 17 Apr 2020 22:09:49 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/marathon/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>maratona</title>
+      <link>https://tiagotavares.io/tags/maratona/</link>
+      <pubDate>Fri, 17 Apr 2020 22:09:49 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/maratona/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>matplotlib</title>
+      <link>https://tiagotavares.io/tags/matplotlib/</link>
+      <pubDate>Fri, 17 Apr 2020 22:09:49 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/matplotlib/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pandas</title>
+      <link>https://tiagotavares.io/tags/pandas/</link>
+      <pubDate>Fri, 17 Apr 2020 22:09:49 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/pandas/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Porto Alegre</title>
+      <link>https://tiagotavares.io/tags/porto-alegre/</link>
+      <pubDate>Fri, 17 Apr 2020 22:09:49 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/porto-alegre/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>seaborn</title>
+      <link>https://tiagotavares.io/tags/seaborn/</link>
+      <pubDate>Fri, 17 Apr 2020 22:09:49 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/seaborn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Faustão Invader</title>
+      <link>https://tiagotavares.io/tags/faust%C3%A3o-invader/</link>
+      <pubDate>Thu, 09 Apr 2020 22:33:47 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/faust%C3%A3o-invader/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Game</title>
+      <link>https://tiagotavares.io/tags/game/</link>
+      <pubDate>Thu, 09 Apr 2020 22:33:47 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/game/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pygame</title>
+      <link>https://tiagotavares.io/tags/pygame/</link>
+      <pubDate>Thu, 09 Apr 2020 22:33:47 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/pygame/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>acm.org</title>
+      <link>https://tiagotavares.io/tags/acm.org/</link>
+      <pubDate>Mon, 16 Mar 2020 21:35:28 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/acm.org/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>books</title>
+      <link>https://tiagotavares.io/tags/books/</link>
+      <pubDate>Mon, 16 Mar 2020 21:35:28 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/books/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>oreilly</title>
+      <link>https://tiagotavares.io/tags/oreilly/</link>
+      <pubDate>Mon, 16 Mar 2020 21:35:28 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/oreilly/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>safari</title>
+      <link>https://tiagotavares.io/tags/safari/</link>
+      <pubDate>Mon, 16 Mar 2020 21:35:28 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/safari/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>study</title>
+      <link>https://tiagotavares.io/tags/study/</link>
+      <pubDate>Mon, 16 Mar 2020 21:35:28 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/study/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tip</title>
+      <link>https://tiagotavares.io/tags/tip/</link>
+      <pubDate>Mon, 16 Mar 2020 21:35:28 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/tip/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>lampiao</title>
+      <link>https://tiagotavares.io/tags/lampiao/</link>
+      <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/lampiao/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jarbas</title>
+      <link>https://tiagotavares.io/tags/jarbas/</link>
+      <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/jarbas/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ccsp</title>
+      <link>https://tiagotavares.io/tags/ccsp/</link>
+      <pubDate>Wed, 29 Mar 2017 22:00:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/ccsp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cloud computing</title>
+      <link>https://tiagotavares.io/tags/cloud-computing/</link>
+      <pubDate>Wed, 29 Mar 2017 22:00:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/cloud-computing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>isc2</title>
+      <link>https://tiagotavares.io/tags/isc2/</link>
+      <pubDate>Wed, 29 Mar 2017 22:00:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/isc2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cissp</title>
+      <link>https://tiagotavares.io/tags/cissp/</link>
+      <pubDate>Fri, 27 Feb 2015 20:00:01 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/cissp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>issa</title>
+      <link>https://tiagotavares.io/tags/issa/</link>
+      <pubDate>Fri, 27 Feb 2015 20:00:01 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/issa/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>conscientização</title>
+      <link>https://tiagotavares.io/tags/conscientiza%C3%A7%C3%A3o/</link>
+      <pubDate>Tue, 10 Feb 2015 14:40:20 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/conscientiza%C3%A7%C3%A3o/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>security awareness</title>
+      <link>https://tiagotavares.io/tags/security-awareness/</link>
+      <pubDate>Tue, 10 Feb 2015 14:40:20 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/security-awareness/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>segurança da informação</title>
+      <link>https://tiagotavares.io/tags/seguran%C3%A7a-da-informa%C3%A7%C3%A3o/</link>
+      <pubDate>Tue, 10 Feb 2015 14:40:20 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/seguran%C3%A7a-da-informa%C3%A7%C3%A3o/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>user security</title>
+      <link>https://tiagotavares.io/tags/user-security/</link>
+      <pubDate>Tue, 10 Feb 2015 14:40:20 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/user-security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Curso</title>
+      <link>https://tiagotavares.io/tags/curso/</link>
+      <pubDate>Wed, 02 Jan 2013 14:08:21 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/curso/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Estudos</title>
+      <link>https://tiagotavares.io/tags/estudos/</link>
+      <pubDate>Wed, 02 Jan 2013 14:08:21 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/tags/estudos/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

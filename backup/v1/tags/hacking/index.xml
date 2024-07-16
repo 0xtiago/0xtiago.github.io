@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hacking on debugging the life</title>
+    <link>https://tiagotavares.io/tags/hacking/</link>
+    <description>Recent content in hacking on debugging the life</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 19 Dec 2020 08:00:51 -0300</lastBuildDate><atom:link href="https://tiagotavares.io/tags/hacking/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ChillHack: 1 - Vulnhub </title>
+      <link>https://tiagotavares.io/2020/12/chillhack-1-vulnhub/</link>
+      <pubDate>Sat, 19 Dec 2020 08:00:51 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/2020/12/chillhack-1-vulnhub/</guid>
+      <description>&lt;p&gt;ChillHack: 1 - A Vulnhub vulnerable machine walkthrough.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>DevGuru: 1 - Vulnhub </title>
+      <link>https://tiagotavares.io/2020/12/devguru-1-vulnhub/</link>
+      <pubDate>Tue, 15 Dec 2020 08:40:51 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/2020/12/devguru-1-vulnhub/</guid>
+      <description>&lt;p&gt;DevGuru: 1 - A Vulnhub vulnerable machine walkthrough.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Funbox: 1 - Vulnhub </title>
+      <link>https://tiagotavares.io/2020/08/funbox-1-vulnhub/</link>
+      <pubDate>Thu, 13 Aug 2020 21:40:51 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/2020/08/funbox-1-vulnhub/</guid>
+      <description>&lt;p&gt;Funbox: 1 - A Vulnhub vulnerable machine walkthrough.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Photographer: 1 - Vulnhub </title>
+      <link>https://tiagotavares.io/2020/07/photographer-1-vulnhub/</link>
+      <pubDate>Fri, 31 Jul 2020 12:00:51 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/2020/07/photographer-1-vulnhub/</guid>
+      <description>&lt;p&gt;Photographer: 1 - A Vulnhub vulnerable machine walkthrough.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Breach and Attack Simulation com Infection Monkey 🐵</title>
+      <link>https://tiagotavares.io/2020/07/breach-and-attack-simulation-com-infection-monkey/</link>
+      <pubDate>Mon, 27 Jul 2020 21:00:00 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/2020/07/breach-and-attack-simulation-com-infection-monkey/</guid>
+      <description>&lt;p&gt;Realize simulações de ataque em um clique!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Miro&#39;s free accounts (in)security</title>
+      <link>https://tiagotavares.io/2020/07/miros-free-accounts-insecurity/</link>
+      <pubDate>Thu, 16 Jul 2020 08:15:12 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/2020/07/miros-free-accounts-insecurity/</guid>
+      <description>&lt;p&gt;&lt;em&gt;&lt;strong&gt;&amp;ldquo;This is not a bug, is a feature!&amp;quot;&lt;/strong&gt;&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Me apaixonei por uma plataforma de colaboração e tive meu coração despedaçado. 💔&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Ekoparty Security Conference 13 (2017) - Talks</title>
+      <link>https://tiagotavares.io/2020/06/ekoparty-security-conference-13-2017-talks/</link>
+      <pubDate>Fri, 19 Jun 2020 22:41:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/2020/06/ekoparty-security-conference-13-2017-talks/</guid>
+      <description>&lt;p&gt;Desde 2017, estive presente todos os anos em Buenos Aires para participar do evento, que sempre me suepreende com o ótimo nível dos materiais apresentados pelos palestrantes.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Lame - Hack The Box (Retired)</title>
+      <link>https://tiagotavares.io/2020/05/lame-hack-the-box-retired/</link>
+      <pubDate>Thu, 14 May 2020 16:31:51 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/2020/05/lame-hack-the-box-retired/</guid>
+      <description>&lt;p&gt;Lame - Hack The Box retired machine walkthrough.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>OpenAdmin - Hack The Box (Retired)</title>
+      <link>https://tiagotavares.io/2020/04/openadmin-hack-the-box-retired/</link>
+      <pubDate>Thu, 23 Apr 2020 16:31:51 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/2020/04/openadmin-hack-the-box-retired/</guid>
+      <description>&lt;p&gt;OpenAdmin - Hack The Box retired machine walkthrough.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Lampião 1</title>
+      <link>https://tiagotavares.io/2018/07/lampi%C3%A3o-1/</link>
+      <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiagotavares.io/2018/07/lampi%C3%A3o-1/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;&amp;ldquo;Lampião 1&amp;rdquo;&lt;/strong&gt; - &amp;ldquo;It&amp;rsquo;s Easy, fi duma égua!&amp;rdquo;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Jarbas 1</title>
+      <link>https://tiagotavares.io/2018/04/jarbas-1/</link>
+      <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiagotavares.io/2018/04/jarbas-1/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Jarbas 1&lt;/strong&gt; – A tribute to a nostalgic Brazilian search engine in the end of 90’s.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Mirai - Hack The Box (Retired)</title>
+      <link>https://tiagotavares.io/2017/11/mirai-hack-the-box-retired/</link>
+      <pubDate>Thu, 23 Nov 2017 16:31:51 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/2017/11/mirai-hack-the-box-retired/</guid>
+      <description>&lt;p&gt;Mirai - Hack The Box retired machine walkthrough.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>O uso seguro da internet e &#39;Os 10 nuncas&#39;</title>
+      <link>https://tiagotavares.io/2015/02/o-uso-seguro-da-internet-e-os-10-nuncas/</link>
+      <pubDate>Tue, 10 Feb 2015 14:40:20 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/2015/02/o-uso-seguro-da-internet-e-os-10-nuncas/</guid>
+      <description>&lt;p&gt;Dicas para ter uma navegação segura na web, publicado também  no  &lt;em&gt;&lt;strong&gt;Portal Carreira &amp;amp; Sucesso da Catho&lt;/strong&gt;.&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

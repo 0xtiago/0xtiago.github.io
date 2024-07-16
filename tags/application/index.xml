@@ -1,38 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>application on debugging the life</title>
+    <title>Application on debugging the life</title>
     <link>https://tiagotavares.io/tags/application/</link>
-    <description>Recent content in application on debugging the life</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Fri, 13 Aug 2021 11:15:12 -0300</lastBuildDate><atom:link href="https://tiagotavares.io/tags/application/index.xml" rel="self" type="application/rss+xml" />
+    <description>Recent content in Application on debugging the life</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>Copyright © 2024 Tiago Tavares.</copyright>
+    <lastBuildDate>Mon, 15 Jul 2024 16:47:18 -0300</lastBuildDate>
+    <atom:link href="https://tiagotavares.io/tags/application/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Café Seguro 23 Café na conta de... Tiago Tavares</title>
-      <link>https://tiagotavares.io/2021/08/caf%C3%A9-seguro-23-caf%C3%A9-na-conta-de...-tiago-tavares/</link>
+      <link>https://tiagotavares.io/blog/participacao_podcast_cafeseguro/</link>
       <pubDate>Fri, 13 Aug 2021 11:15:12 -0300</pubDate>
-      
-      <guid>https://tiagotavares.io/2021/08/caf%C3%A9-seguro-23-caf%C3%A9-na-conta-de...-tiago-tavares/</guid>
-      <description>&lt;p&gt;Minha participação no podcast &lt;strong&gt;Café Seguro&lt;/strong&gt;, da WSS Security, e apresentado Daniel Dalalana, Pedro Kassick e Ben Hur Ott.&lt;/p&gt;</description>
+      <guid>https://tiagotavares.io/blog/participacao_podcast_cafeseguro/</guid>
+      <description></description>
     </item>
-    
-    <item>
-      <title>(In)segurança em tokens JWT</title>
-      <link>https://tiagotavares.io/2020/06/inseguran%C3%A7a-em-tokens-jwt/</link>
-      <pubDate>Fri, 12 Jun 2020 12:15:12 -0300</pubDate>
-      
-      <guid>https://tiagotavares.io/2020/06/inseguran%C3%A7a-em-tokens-jwt/</guid>
-      <description>&lt;p&gt;Existem muitas bibliotecas disponíveis que suportam JWT, e o próprio padrão possui “rico suporte para mecanismos criptográficos”. Tudo isso significa que o JWT é realmente seguro? Vamos ver.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>O fim dos times de AppSec</title>
-      <link>https://tiagotavares.io/2020/06/o-fim-dos-times-de-appsec/</link>
-      <pubDate>Fri, 05 Jun 2020 12:02:56 -0300</pubDate>
-      
-      <guid>https://tiagotavares.io/2020/06/o-fim-dos-times-de-appsec/</guid>
-      <description>&lt;p&gt;O paradoxo da segurança em aplicações.&lt;/p&gt;</description>
-    </item>
-    
   </channel>
 </rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>jarbas on debugging the life</title>
+    <link>https://tiagotavares.io/tags/jarbas/</link>
+    <description>Recent content in jarbas on debugging the life</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 02 Apr 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://tiagotavares.io/tags/jarbas/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Jarbas 1</title>
+      <link>https://tiagotavares.io/2018/04/jarbas-1/</link>
+      <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiagotavares.io/2018/04/jarbas-1/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Jarbas 1&lt;/strong&gt; – A tribute to a nostalgic Brazilian search engine in the end of 90’s.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.70.0 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="author" content="Tiago Tavares">
+<meta name="keywords" content="">
+<meta name="description" content="Norma de Gestão de Vulnerabilidades, Hardening e Patches de Segurança Sumário  1. Objetivo 2. Abrangência 3. Responsabilidades 4. Termos e Definições 5. Descrição 6. Referências 7. Histórico de Revisões  1. Objetivo Este documento estabelece diretrizes para correção de vulnerabilidades, de aplicações de hardenings e de patches de segurança, que devem ser instalados em todos os componentes de sistema, sejam estações de trabalho, servidores e/ou dispositivos de rede adotados pela ==EMPRESA==.">
+
+
+<meta property="og:description" content="Norma de Gestão de Vulnerabilidades, Hardening e Patches de Segurança Sumário  1. Objetivo 2. Abrangência 3. Responsabilidades 4. Termos e Definições 5. Descrição 6. Referências 7. Histórico de Revisões  1. Objetivo Este documento estabelece diretrizes para correção de vulnerabilidades, de aplicações de hardenings e de patches de segurança, que devem ser instalados em todos os componentes de sistema, sejam estações de trabalho, servidores e/ou dispositivos de rede adotados pela ==EMPRESA==.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="debugging the life">
+<meta name="twitter:title" content="debugging the life">
+<meta property="og:url" content="https://tiagotavares.io/draft/norma_vuln_patch_hardening/">
+<meta property="twitter:url" content="https://tiagotavares.io/draft/norma_vuln_patch_hardening/">
+<meta property="og:site_name" content="debugging the life">
+<meta property="og:description" content="Norma de Gestão de Vulnerabilidades, Hardening e Patches de Segurança Sumário  1. Objetivo 2. Abrangência 3. Responsabilidades 4. Termos e Definições 5. Descrição 6. Referências 7. Histórico de Revisões  1. Objetivo Este documento estabelece diretrizes para correção de vulnerabilidades, de aplicações de hardenings e de patches de segurança, que devem ser instalados em todos os componentes de sistema, sejam estações de trabalho, servidores e/ou dispositivos de rede adotados pela ==EMPRESA==.">
+<meta name="twitter:description" content="Norma de Gestão de Vulnerabilidades, Hardening e Patches de Segurança Sumário  1. Objetivo 2. Abrangência 3. Responsabilidades 4. Termos e Definições 5. Descrição 6. Referências 7. Histórico de Revisões  1. Objetivo Este documento estabelece diretrizes para correção de vulnerabilidades, de aplicações de hardenings e de patches de segurança, que devem ser instalados em todos os componentes de sistema, sejam estações de trabalho, servidores e/ou dispositivos de rede adotados pela ==EMPRESA==.">
+<meta property="og:locale" content="en-us">
+
+  
+  
+  
+  
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@tiagotavares_">
+
+
+  <meta name="twitter:creator" content="@tiagotavares_">
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=640">
+
+
+    <title>debugging the life</title>
+
+    <link rel="icon" href="images/favicon-32x32.png">
+    
+
+    
+
+    <link rel="canonical" href="https://tiagotavares.io/draft/norma_vuln_patch_hardening/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://tiagotavares.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-36987137-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="1">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://tiagotavares.io/">debugging the life</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://tiagotavares.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="1">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://tiagotavares.io/#about">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Tiago Tavares</h4>
+        
+          <h5 class="sidebar-profile-bio">Eternal student, cybersecurity pro, husband, runner.</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/tiagotvrs" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.linkedin.com/in/tiagotvrs/" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-linkedin"></i>
+      
+      <span class="sidebar-button-desc">LinkedIn</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.strava.com/athletes/tiagotavares" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-heartbeat"></i>
+      
+      <span class="sidebar-button-desc">Strava</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://twitter.com/tiagotavares_" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+      
+      <span class="sidebar-button-desc">Twitter</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="1"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="0001-01-01T00:00:00Z">
+        
+  January 1, 1
+
+      </time>
+    
+    
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <h1 id="norma-de-gestão-de-vulnerabilidades-hardening-e-patches-de-segurança">Norma de Gestão de Vulnerabilidades, Hardening e Patches de Segurança</h1>
+<h2 id="sumário">Sumário</h2>
+<ul>
+<li><a href="#objetivo">1. Objetivo</a></li>
+<li><a href="#abrangencia">2. Abrangência</a></li>
+<li><a href="#responsabilidades">3. Responsabilidades</a></li>
+<li><a href="#termos-e-definicoes">4. Termos e Definições</a></li>
+<li><a href="#descricao">5. Descrição</a></li>
+<li><a href="#referencias">6. Referências</a></li>
+<li><a href="#historico-de-revisoes">7. Histórico de Revisões</a></li>
+</ul>
+<!-- raw HTML omitted -->
+<h2 id="1-objetivo">1. Objetivo</h2>
+<p>Este documento estabelece diretrizes para correção de vulnerabilidades, de aplicações de hardenings e de patches de segurança, que devem ser instalados em todos os componentes de sistema, sejam estações de trabalho, servidores e/ou dispositivos de rede adotados pela <strong>==EMPRESA==</strong>.</p>
+<!-- raw HTML omitted -->
+<h2 id="2abrangência">2.Abrangência</h2>
+<p>Este documento deve ser utilizado por todas as áreas e Unidades de Negócio da ==EMPRESA==, envolvendo todas as bandeiras e parceiros que tenham alguma parceria com a companhia.</p>
+<p>A abrangência de atuação foi criado e orientado, nas melhores práticas de segurança da informação e padrões de mercado, estabelecendo diretrizes e recomendações para assegurar que os dados críticos possam ser acessados somente por uma equipe ou pessoa autorizada, com base na necessidade de conhecimento dos dados e de acordo com papeis e responsabilidades da função, onde cada indivíduo deve ser responsável pelas ações desempenhadas nos dados e sistemas críticos.</p>
+<!-- raw HTML omitted -->
+<h2 id="3-responsabilidades">3. Responsabilidades</h2>
+<table>
+<thead>
+<tr>
+<th>Responsável</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Segurança da Informação</td>
+<td>Criar padrões de segurança, baseado em normas e conceitos viáveis de mercado, prevendo cobrir todos os meios para possíveis falhas.</td>
+</tr>
+<tr>
+<td>Telecom</td>
+<td>Controlar o gerenciamento, implementação e manutenção de ativos de rede com foco em transmissão de dados e bloqueio de portas de rede considerada insegura.</td>
+</tr>
+<tr>
+<td>Banco de Dados</td>
+<td>Controlar o gerenciamento, implementação e manutenção dos ativos de rede, com foco em proteção e armazenamento de dados sensíveis e não sensíveis da organização.</td>
+</tr>
+<tr>
+<td>Servidores</td>
+<td>Controlar o gerenciamento, implementação e manutenção dos ativos de rede, com foco em sistemas Operacionais, hardwares e arquivos de rede.</td>
+</tr>
+<tr>
+<td>Sistemas / Desenvolvimento</td>
+<td>Controlar as versões de software, pacotes e novas Builders de desenvolvimento para sistemas internos e externos que estiverem sendo implementadas.</td>
+</tr>
+</tbody>
+</table>
+<!-- raw HTML omitted -->
+<h2 id="4-termos-e-definições">4. Termos e Definições</h2>
+<p><strong>Os seguintes termos abordados abaixo, fazem parte deste documento, de forma a descrever o que estes itens atendem.</strong></p>
+<p><strong>Baseline =</strong> Regras de aplicação para atender a uma linha de controle para sistemas e hardwares, seguindo boas práticas de mercado para instalações e configurações com base em segurança</p>
+<p><strong>Co-location =</strong> Termo usado para locação de locais em Data Centers, onde a empresa disponibiliza seus servidores nesta infra separada, com suporte via IaaS**.**</p>
+<p><strong>In Cloud ou em Nuvem =</strong> Serviço oferecido por empresas como AWS, AZURE, Google Cloud ou outras empresas do segmento, que cria servidores e/ou máquinas virtualizadas em algum lugar do Globo terreste, e os mantém em uma infraestrutura de fácil acesso ou manuseio, através de serviços disponibilizados via Internet para controle dessas ativos.</p>
+<p><strong>IaaS – Infraestructure as a service =</strong> Serviço oferecido por empresas de Data Center e/ou Cloud, onde o toda a infraestrutura de ambiente, é oferecida como serviço para atender demandas de manutenção para a infraestrutura de serviço contratada.</p>
+<p><strong>Hardening =</strong> Uma vertente de Baseline mas com foco em padrões de rigidez dos ativos listados de uma organização. Estes padrões de rigidez seguem as boas práticas de mercado que utilizam a algumas organizações como meios de propagação destes padrões.</p>
+<p><strong>NIST - Network Information Security &amp; Technology News =</strong> É uma organização, que cria padrões de segurança para diversas arquitetura de sistemas, hardwares e appliances, para desta forma manter um padrão Seguro para novas instalações e para restringir / mitigar, possiveis falhas em qualquer tipo de dispositivo, sendo ele software ou hardware.</p>
+<!-- raw HTML omitted -->
+<h2 id="5-descrição">5. Descrição</h2>
+<p>As regras a seguir são aplicáveis para todos os sistemas, hardwares, e/ou appliances, independentemente de como estes sejam adquiridos, desenvolvidos, hospedados ou em qualquer tipo de serviço em co-location ou ainda em nuvem (In Cloud).</p>
+<p><strong>Da responsabilidade de TI e Segurança da Informação</strong></p>
+<ul>
+<li>Monitorar constantemente á existência de vulnerabilidades e patches de segurança relacionados aos dispositivos e componentes do sistema;</li>
+<li>Publicação de ameaças, vulnerabilidades e patches devem ser realizados para que, as áreas responsáveis pela administração de todos os componentes do sistema da <strong>==EMPRESA==</strong>, devam proceder com as ações e medidas necessárias para a correção ou mitigação das mesmas;</li>
+<li>Aprovar a instalação dos patches de segurança dentro de sua alçada de decisão conforme processo de Gerenciamento de Mudanças definido pela <strong>EMPRESA</strong>;</li>
+<li>Controlar e atualizar a lista de patches de segurança aplicados em cada componente do Sistema – para ambiente em nuvem onde é apenas utilizado o ambiente, o mesmo deve ser previsto para que estes ajusted sejam realizados pela empresa contratada;</li>
+<li>Atualizar os documentos de baselines/hardening sempre que houver a necessidade de alteração de configuração em componentes do sistema para correção de vulnerabilidades.</li>
+<li>Executar a aplicação dos patches e correções de segurança em todos os componentes de sistemas;</li>
+<li>Documentar as exceções e/ou não instalação dos patches com as justificativas e soluções de contorno ou controles compensatórios implementados para mitigar o risco que o patch de segurança se propõe a corrigir.</li>
+</ul>
+<p><strong>Do monitoramento de vulnerabilidades</strong></p>
+<ul>
+<li>Monitorar constantemente a existência de ameaças e vulnerabilidades de segurança recém descobertas (do tipo zero Day) relacionadas aos componentes e ambientes.</li>
+<li>Deve ser utilizando dos próprios fabricantes, fornecedores e também fontes externas independentes, porém confiáveis, como listas de e-mail, grupos de segurança, serviços de alerta disponíveis na internet e entidades reconhecidas pelo setor;</li>
+<li>Publicar as ameaças e vulnerabilidades e quando aplicável os patches com correções para as áreas responsáveis pela administração de todos os componentes de sistema da <strong>==EMPRESA==</strong>, através de comunicados internos.</li>
+</ul>
+<p><strong>Da instalação de patches e correções de Segurança</strong></p>
+<ul>
+<li>Instalar os patch e outras correções de segurança &ldquo;críticas&rdquo; em até no máximo 30 dias após serem disponibilizados pelos fornecedores, desenvolvedores e/ou fabricantes de componentes de sistemas utilizados pela <strong>==EMPRESA==</strong>;</li>
+<li>Instalar os patch e outras correções de segurança classificadas como &ldquo;médias&rdquo; em até 60 dias após serem disponibilizados pelos fornecedores, desenvolvedores e/ou fabricantes de componentes de sistemas utilizados pela <strong>==EMPRESA==</strong>.</li>
+<li>Instalar os patch e outras correções de segurança classificadas como &ldquo;baixas&rdquo; em até 90 dias após serem disponibilizados pelos fornecedores, desenvolvedores e/ou fabricantes de componentes de sistemas utilizados pela <strong>==EMPRESA==</strong>.</li>
+</ul>
+<p><strong>Da classificação de Severidade</strong></p>
+<p>Devem ser consideradas, como crítica, patch e correções de segurança para vulnerabilidades classificadas como:</p>
+<ul>
+<li>Urgente</li>
+<li>Crítica</li>
+<li>Alta.</li>
+</ul>
+<p><strong>Dos componentes do Sistema Afetados</strong></p>
+<p>Componentes do Sistema utilizados pela <strong>EMPRESA</strong> que estão sob o escopo de Certificação do PCI – DSS que:</p>
+<ul>
+<li>
+<p>Necessitam de aplicação de patches e correções de segurança consideradas críticas, que afetam a Confidencialidade dos componentes do sistema.</p>
+</li>
+<li>
+<p>Devem ser corrigidos dentro do prazo estabelecido de 30 dias após notificação da área de TI e Segurança da Informação, sendo assim não possuem a opção da aceitação de risco.</p>
+</li>
+</ul>
+<p><strong>Do Baseline/Hardenings de sistemas, Appliances e S.O.</strong></p>
+<p>Como padrão de segurança, todos os ativos da <strong>==EMPRESA==</strong>, devem possuir padrões de baselines e hardenings devidamente aplicáveis, de forma a garantir que algumas funções não estejam habilitadas ou que devam passar por algum processo de verificação, para possibilitar uma melhor performance em relação a itens que gastem processamento desnecessário de maquinário ou que afete de alguma forma a segurança deste ativo ou de uma rede como um todo dentro da companhia.</p>
+<p>Levando em consideração todos os ativos de escopo do ambiente da  <strong>EMPRESA</strong> e do ambiente em Cloud os itens abaixo, devem possuir um padrão (baseline) e uma hardenização (enrijecimento) mesmo que mínimo, para garantir um padrão satisfatório no âmbito de segurança. Os seguintes ativos abaixo, devem ser levados em conta no momento de avaliação e criação. São estes:</p>
+<ul>
+<li>Sistema Operacionais Windows Desktops (Estações de trabalho);</li>
+<li>Sistema Operacionais Windows Server;</li>
+<li>Sistemas Operacionais Linux Server (CentOS, RED HAT, SUSE)</li>
+<li>Switches (Cisco, D-Link, HP, IBM, &hellip;, etc)</li>
+<li>Roteadores (TP-Link, D-Link, Cisco, Vivo, Dell, &hellip;, etc);</li>
+<li>Balanceadores de carga (F5, Big IP, KEMP, &hellip;, etc);</li>
+<li>Firewalls (Fortigate, Palo Alto, FireEye, Sonic Wall &hellip;, etc);</li>
+<li>Banco de Dados (SQL SERVER, ORACLE, MONGODB, &hellip;, etc);</li>
+<li>SIEM (Splunk, LOGRhythm, ArcSight, Elastic Search, &hellip;, etc);</li>
+<li>Antivirus (Symantec SEP, MacAffe, kaspersky, &hellip;, etc);</li>
+</ul>
+<!-- raw HTML omitted -->
+<h2 id="6-referências">6. Referências</h2>
+<p>Canal de Ética
+PSI – Politica de Segurança da Informação
+Politica_Tratamento_de_Logs
+27001 ABNT/ISO 27001 Sistemas de Gestão de Segurança da Informação.
+OWASP Top 10 (<a href="https://www.owasp.org/index.php/OWASP_Top_10">https://www.owasp.org/index.php/OWASP_Top_10</a>).
+PCI DSS V3.2.1 (<a href="https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf?agreement=true&amp;time=1534967992908">https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf?agreement=true&amp;time=1534967992908</a></p>
+<!-- raw HTML omitted -->
+<h2 id="7-histórico-de-revisões">7. Histórico de Revisões</h2>
+<table>
+<thead>
+<tr>
+<th>Data de criação / Revisão</th>
+<th>Versão</th>
+<th>Descrição da(s) Alteração(ões)</th>
+<th>Editor</th>
+<th>Aprovação da Revisão</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01/01/2020</td>
+<td>1.0</td>
+<td>Primeira Versão</td>
+<td>Tiago Tavares</td>
+<td>&ldquo;The Boss&rdquo;</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/draft/norma_gest%C3%A3o_incidentes/" data-tooltip="">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/draft/norma_vuln_patch_hardening/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/draft/norma_vuln_patch_hardening/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/draft/norma_vuln_patch_hardening/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2020 Tiago Tavares. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="1">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/draft/norma_gest%C3%A3o_incidentes/" data-tooltip="">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/draft/norma_vuln_patch_hardening/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/draft/norma_vuln_patch_hardening/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/draft/norma_vuln_patch_hardening/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="1">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftiagotavares.io%2Fdraft%2Fnorma_vuln_patch_hardening%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Ftiagotavares.io%2Fdraft%2Fnorma_vuln_patch_hardening%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Ftiagotavares.io%2Fdraft%2Fnorma_vuln_patch_hardening%2F">
+          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Tiago Tavares</h4>
+    
+      <div id="about-card-bio">Eternal student, cybersecurity pro, husband, runner.</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Cybersecurity Consultant
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Brazil
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    <div id="cover" style="background-image:url('https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589318923/last_jedi1_ybpjeb.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://tiagotavares.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/tiagotavares.io\/draft\/norma_vuln_patch_hardening\/';
+          
+            this.page.identifier = '\/draft\/norma_vuln_patch_hardening\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'tiagotavares-io';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+

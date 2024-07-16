@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ccsp on debugging the life</title>
+    <title>Ccsp on debugging the life</title>
     <link>https://tiagotavares.io/tags/ccsp/</link>
-    <description>Recent content in ccsp on debugging the life</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 29 Mar 2017 22:00:04 -0300</lastBuildDate><atom:link href="https://tiagotavares.io/tags/ccsp/index.xml" rel="self" type="application/rss+xml" />
+    <description>Recent content in Ccsp on debugging the life</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>Copyright © 2024 Tiago Tavares.</copyright>
+    <lastBuildDate>Sun, 14 Jul 2024 21:43:19 -0300</lastBuildDate>
+    <atom:link href="https://tiagotavares.io/tags/ccsp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Passed (ISC)2 CCSP - Certified Cloud Security Professional</title>
-      <link>https://tiagotavares.io/2017/03/passed-isc2-ccsp-certified-cloud-security-professional/</link>
+      <link>https://tiagotavares.io/blog/passed_ccsp/</link>
       <pubDate>Wed, 29 Mar 2017 22:00:04 -0300</pubDate>
-      
-      <guid>https://tiagotavares.io/2017/03/passed-isc2-ccsp-certified-cloud-security-professional/</guid>
-      <description>&lt;p&gt;My study resouces to achieve CCSP certification.&lt;/p&gt;</description>
+      <guid>https://tiagotavares.io/blog/passed_ccsp/</guid>
+      <description>Hello guys,&#xA;Monday, 27th March I passed CCSP exam here in São Paulo, the material I&amp;rsquo;ll list bellow had the enough content to pass.</description>
     </item>
-    
   </channel>
 </rss>

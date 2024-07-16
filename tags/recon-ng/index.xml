@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>recon-ng on debugging the life</title>
+    <title>Recon-Ng on debugging the life</title>
     <link>https://tiagotavares.io/tags/recon-ng/</link>
-    <description>Recent content in recon-ng on debugging the life</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 12 Jul 2020 08:41:04 -0300</lastBuildDate><atom:link href="https://tiagotavares.io/tags/recon-ng/index.xml" rel="self" type="application/rss+xml" />
+    <description>Recent content in Recon-Ng on debugging the life</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>Copyright © 2024 Tiago Tavares.</copyright>
+    <lastBuildDate>Mon, 15 Jul 2024 13:17:15 -0300</lastBuildDate>
+    <atom:link href="https://tiagotavares.io/tags/recon-ng/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Recon-NG</title>
-      <link>https://tiagotavares.io/2020/07/recon-ng/</link>
+      <link>https://tiagotavares.io/blog/recon-ng/</link>
       <pubDate>Sun, 12 Jul 2020 08:41:04 -0300</pubDate>
-      
-      <guid>https://tiagotavares.io/2020/07/recon-ng/</guid>
-      <description>&lt;p&gt;Como obter informações de organizações alvo, sua infraestrutura e seus colaboradores sem qualquer interação direta. &lt;em&gt;&lt;strong&gt;A Recon-NG quick-start!&lt;/strong&gt;&lt;/em&gt; 😉&lt;/p&gt;</description>
+      <guid>https://tiagotavares.io/blog/recon-ng/</guid>
+      <description></description>
     </item>
-    
   </channel>
 </rss>

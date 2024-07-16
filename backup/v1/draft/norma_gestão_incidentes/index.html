@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.70.0 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="author" content="Tiago Tavares">
+<meta name="keywords" content="">
+<meta name="description" content="Norma de Reposta a Incidentes de Segurança Sumário  1. Objetivo 2. Abrangência 3. Responsabilidades 4. Termos e Definições 5. Classificação  5.1 Classificação de Incidente de Segurança 5.2 Treinamento de Recursos 5.3 Processo para treinamento contra ameaças   6. Procedimento para resposta a incidentes de segurança  6.1 Escalonamento 6.2 Severidades  6.2.1 Severidades Médias e Baixas 6.2.2 Severidade Alta 6.2.3 Severidade Crítica 6.2.4 Problemas internos   6.">
+
+
+<meta property="og:description" content="Norma de Reposta a Incidentes de Segurança Sumário  1. Objetivo 2. Abrangência 3. Responsabilidades 4. Termos e Definições 5. Classificação  5.1 Classificação de Incidente de Segurança 5.2 Treinamento de Recursos 5.3 Processo para treinamento contra ameaças   6. Procedimento para resposta a incidentes de segurança  6.1 Escalonamento 6.2 Severidades  6.2.1 Severidades Médias e Baixas 6.2.2 Severidade Alta 6.2.3 Severidade Crítica 6.2.4 Problemas internos   6.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="debugging the life">
+<meta name="twitter:title" content="debugging the life">
+<meta property="og:url" content="https://tiagotavares.io/draft/norma_gest%C3%A3o_incidentes/">
+<meta property="twitter:url" content="https://tiagotavares.io/draft/norma_gest%C3%A3o_incidentes/">
+<meta property="og:site_name" content="debugging the life">
+<meta property="og:description" content="Norma de Reposta a Incidentes de Segurança Sumário  1. Objetivo 2. Abrangência 3. Responsabilidades 4. Termos e Definições 5. Classificação  5.1 Classificação de Incidente de Segurança 5.2 Treinamento de Recursos 5.3 Processo para treinamento contra ameaças   6. Procedimento para resposta a incidentes de segurança  6.1 Escalonamento 6.2 Severidades  6.2.1 Severidades Médias e Baixas 6.2.2 Severidade Alta 6.2.3 Severidade Crítica 6.2.4 Problemas internos   6.">
+<meta name="twitter:description" content="Norma de Reposta a Incidentes de Segurança Sumário  1. Objetivo 2. Abrangência 3. Responsabilidades 4. Termos e Definições 5. Classificação  5.1 Classificação de Incidente de Segurança 5.2 Treinamento de Recursos 5.3 Processo para treinamento contra ameaças   6. Procedimento para resposta a incidentes de segurança  6.1 Escalonamento 6.2 Severidades  6.2.1 Severidades Médias e Baixas 6.2.2 Severidade Alta 6.2.3 Severidade Crítica 6.2.4 Problemas internos   6.">
+<meta property="og:locale" content="en-us">
+
+  
+  
+  
+  
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@tiagotavares_">
+
+
+  <meta name="twitter:creator" content="@tiagotavares_">
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=640">
+
+
+    <title>debugging the life</title>
+
+    <link rel="icon" href="images/favicon-32x32.png">
+    
+
+    
+
+    <link rel="canonical" href="https://tiagotavares.io/draft/norma_gest%C3%A3o_incidentes/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://tiagotavares.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-36987137-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="1">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://tiagotavares.io/">debugging the life</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://tiagotavares.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="1">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://tiagotavares.io/#about">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Tiago Tavares</h4>
+        
+          <h5 class="sidebar-profile-bio">Eternal student, cybersecurity pro, husband, runner.</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/tiagotvrs" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.linkedin.com/in/tiagotvrs/" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-linkedin"></i>
+      
+      <span class="sidebar-button-desc">LinkedIn</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.strava.com/athletes/tiagotavares" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-heartbeat"></i>
+      
+      <span class="sidebar-button-desc">Strava</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://twitter.com/tiagotavares_" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+      
+      <span class="sidebar-button-desc">Twitter</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="1"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="0001-01-01T00:00:00Z">
+        
+  January 1, 1
+
+      </time>
+    
+    
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <h1 id="norma-de-reposta-a-incidentes-de-segurança">Norma de Reposta a Incidentes de Segurança</h1>
+<h2 id="sumário">Sumário</h2>
+<ul>
+<li><a href="#1-objetivo">1. Objetivo</a></li>
+<li><a href="#2-abrang%C3%AAncia">2. Abrangência</a></li>
+<li><a href="#3-responsabilidades">3. Responsabilidades</a></li>
+<li><a href="#4-termos-e-defini%C3%A7%C3%B5es">4. Termos e Definições</a></li>
+<li><a href="#5-classifica%C3%A7%C3%A3o">5. Classificação</a>
+<ul>
+<li><a href="#51-classifica%C3%A7%C3%A3o-de-incidente-de-seguran%C3%A7a">5.1 Classificação de Incidente de Segurança</a></li>
+<li><a href="#52-treinamento-de-recursos">5.2 Treinamento de Recursos</a></li>
+<li><a href="#53-processo-para-treinamento-contra-amea%C3%A7as">5.3 Processo para treinamento contra ameaças</a></li>
+</ul>
+</li>
+<li><a href="#6-procedimento-para-resposta-a-incidentes-de-seguran%C3%A7a">6. Procedimento para resposta a incidentes de segurança</a>
+<ul>
+<li><a href="#61-escalonamento">6.1 Escalonamento</a></li>
+<li><a href="#62-severidades">6.2 Severidades</a>
+<ul>
+<li><a href="#621-severidades-m%C3%A9dias-e-baixas">6.2.1 Severidades Médias e Baixas</a></li>
+<li><a href="#622-severidade-alta">6.2.2 Severidade Alta</a></li>
+<li><a href="#623-severidade-cr%C3%ADtica">6.2.3 Severidade Crítica</a></li>
+<li><a href="#624-problemas-internos">6.2.4 Problemas internos</a></li>
+</ul>
+</li>
+<li><a href="#63-comprometimento-de-comunica%C3%A7%C3%A3o">6.3 Comprometimento de comunicação</a></li>
+<li><a href="#64-tratamento-do-incidente">6.4 Tratamento do incidente</a>
+<ul>
+<li><a href="#641-reuni%C3%A3o-de-resposta--ao-incidente----agenda">6.4.1 Reunião de Resposta  ao Incidente -  Agenda</a></li>
+<li><a href="#642-membros-do-time-de-resposta-a-incidentes-csirt">6.4.2 Membros do time de Resposta a Incidentes (CSIRT)</a></li>
+<li><a href="#643-contatos-externos">6.4.3 Contatos Externos</a></li>
+</ul>
+</li>
+<li><a href="#65-apresenta%C3%A7%C3%A3o-e-acompanhamento-dos-riscos">6.5 Apresentação e acompanhamento dos riscos</a></li>
+<li><a href="#66-runbooks">6.6 <em>Runbooks</em></a>
+<ul>
+<li><a href="#661-e-mail-suspeito">6.6.1 E-mail suspeito</a></li>
+<li><a href="#662-v%C3%ADrus--anti-malware">6.6.2 Vírus / Anti-malware</a></li>
+<li><a href="#663-comportamento-an%C3%B4malo">6.6.3 Comportamento Anômalo</a></li>
+<li><a href="#664-vazamento-de-informa%C3%A7%C3%A3o">6.6.4 Vazamento de Informação</a></li>
+<li><a href="#665-vulnerabilidade">6.6.5 Vulnerabilidade</a></li>
+<li><a href="#666-hardening">6.6.6 Hardening</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#7-refer%C3%AAncias">7. Referências</a></li>
+</ul>
+<!-- raw HTML omitted -->
+<h2 id="1-objetivo">1. Objetivo</h2>
+<p>Estabelecer procedimentos para os incidentes de segurança da Informação, a fim de garantir a identificação, mitigação e tratamento em tempo hábil, para auxiliar no restabelecimento do ambiente tecnológico e garantir que não haja perda significativa para os negócios da <strong>EMPRESA</strong>.</p>
+<!-- raw HTML omitted -->
+<h2 id="2-abrangência">2. Abrangência</h2>
+<p>Este documento destina-se a todos os colaboradores da <strong>EMPRESA</strong> e suas respectivas áreas tecnológicas, que possuam sistema ou hardware, em ambiente com datacenter interno, <em>co-location</em> ou ainda em ambiente de nuvem.</p>
+<!-- raw HTML omitted -->
+<h2 id="3-responsabilidades">3. Responsabilidades</h2>
+<table>
+<thead>
+<tr>
+<th>Responsável</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Segurança da Informação</td>
+<td>- Garantir que o processo de resposta a seja seguido e devidamente catalogado;<!-- raw HTML omitted -->- Atribuir devidamente a classificação dos incidentes;<!-- raw HTML omitted -->- Garantir o devido direcionamento dos incidentes às áreas de atuação (Banco de Dados, Infraestrutura, Telecomunicações, Prestadores de Serviços).</td>
+</tr>
+<tr>
+<td>Tecnologia da Informação</td>
+<td>- Garantir que os incidentes apresentados sejam devidamente verificados;<!-- raw HTML omitted -->- Garantir que as equipes sejam devidamente treinadas para atender aos incidentes;<!-- raw HTML omitted -->- Gerar relatórios dos incidentes ocorridos; <!-- raw HTML omitted -->- Gerar documentação de lições aprendidas.</td>
+</tr>
+<tr>
+<td>Usuários</td>
+<td>- Abrir chamados mediante problemas e/ou incidentes identificados, em relação as plataformas utilizadas.</td>
+</tr>
+</tbody>
+</table>
+<!-- raw HTML omitted -->
+<h2 id="4-termos-e-definições">4. Termos e Definições</h2>
+<p>Este tópico trata alguns termos e definições utilizados no documento, mas não se restringindo apenas a estes itens:</p>
+<p><strong><em>Appliance</em></strong> <strong>–</strong> Dispositivo de rede que utiliza sistema de hardware e software em um único ativo, tornando tal item uma aplicação robusta, única e centralizada.</p>
+<p><strong>Dados de Cartão de Pagamento</strong>:</p>
+<ul>
+<li>Número do cartão ou PAN (Personal Account Number);</li>
+<li>Número do cartão truncado (seis primeiros e os quatro últimos dígitos do cartão);</li>
+<li>Nome do titular do cartão;</li>
+<li>Data de vencimento;</li>
+<li>Código de serviço;</li>
+<li>Dados em tarja magnética ou equivalente em chip;</li>
+<li>CAV2/ CVC2/ CVV2/ CID (código de validação do cartão);</li>
+<li>PINs (Personal Identification Number – senha única pessoal).</li>
+</ul>
+<p><strong>Firewall -</strong> Dispositivo de  tecnologia de rede e segurança, baseado em hardware, software ou appliance, que protege recursos de rede de acesso não autorizado. O firewall permite ou nega tráfego de computador entre redes com diferentes níveis de segurança, com base em um conjunto de regras e outros critérios.</p>
+<p><strong>IDS</strong> <strong>-</strong> <em>Intrusion Detection System</em> ou Sistema de Detecção de Intrusão: é uma ferramenta utilizada para monitorar o tráfego da rede, detectar e alertar sobre ataques e tentativas de acessos indevidos. Na maioria das vezes, não bloqueia uma ação, mas verifica se é ou não uma ameaça para um segmento de rede.</p>
+<p><strong>IPS -</strong> <em>Intrusion Prevention System</em> ou Sistema de Sistema de Prevenção de Intrusão: é uma ferramenta que que utiliza técnicas avançadas de alertas e respostas, voltadas exclusivamente a tornar rede de computadores mais segura, sem perder o grau de disponibilidade que uma rede deve ter.</p>
+<p><strong>PCI SSC -</strong> <em>Payment Card Industries Security Standard Council:</em> organização que rege a  Norma PCI DSS e ajuda nos padrões de proteção para dados de cartão, avaliando todas as camadas de negócios de uma empresa, provendo formas de garantir que o ambiente esteja em Compliance com boas práticas de mercado, no âmbito da segurança da Informação, garantindo padrões por eles estipulados.</p>
+<p><strong>SIEM -</strong> <em>Security Information and Event Management:</em> ferramenta Tecnológica que agrupa e faz correlacionamento de dados capturados, gerando informação, alertas e dashboards de ações que estão ocorrendo ou que já ocorreram em um ambiente de rede.</p>
+<!-- raw HTML omitted -->
+<h2 id="5-classificação">5. Classificação</h2>
+<p>Um incidente de segurança poder ser definido como qualquer evento, confirmado ou suspeito relacionado à segurança de redes de computadores ou sistemas de computadores. Em geral, qualquer situação em que uma informação esteja em risco,  poderá ser considerado um incidente de segurança.</p>
+<p>Os pontos apresentados abaixo, dizem respeito a possíveis incidentes que deverão ser tratados, tal como sua classificação de risco envolvida e formas que poderão ser utilizadas para mitigação destes incidentes. Desta forma, a <strong>EMPRESA</strong> deverá seguir os seguintes pontos:</p>
+<h3 id="51-classificação-de-incidente-de-segurança">5.1 Classificação de Incidente de Segurança</h3>
+<p>A classificação da informação para incidentes se baseia em:</p>
+<ul>
+<li>
+<p><strong>Incidente Interno:</strong> refere-se a qualquer tipo de incidente originado na rede da instituição, como o roubo de informações confidenciais e uso indevido dos recursos disponíveis;</p>
+</li>
+<li>
+<p><strong>Incidente Externo</strong>: originados fora da rede da instituição, ou seja, fora do domínio administrativo do Banco. Exemplo: varredura de vulnerabilidades em servidor corporativo ou ambiente de nuvem.</p>
+</li>
+</ul>
+<h3 id="52-treinamento-de-recursos">5.2 Treinamento de Recursos</h3>
+<p>Todo recurso que tenha acesso aos ambientes de produção, deverá passar por treinamento adequado sobre as tecnologias utilizadas no ambiente, bem como abrir e gerar tickets para atendimento em relação ao incidente identificado, a fim de criar histórico para gerenciamento e tempo para atendimento, ainda que apenas pontual e sem afetar ambiente.</p>
+<h3 id="53-processo-para-treinamento-contra-ameaças">5.3 Processo para treinamento contra ameaças</h3>
+<p>A resposta a incidentes de segurança é uma metodologia organizada para gerenciar as consequências de violação da Segurança da Informação. O objetivo do processo é minimizar o impacto do incidente e permitir a rápida restauração dos sistemas.</p>
+<p>Um bom plano de resposta a incidentes envolve a definição de uma política de segurança, que claramente define as etapas do processo que devem ser seguidas quando ocorre um incidente. O processo do incidente de resposta deverá ser a sinergia entre as diferentes equipes organizacionais. A implementação é da responsabilidade da Equipe de Resposta a Incidentes, ou <em>CSIRT (Computer Security Incident Response Team</em>), formada por analistas de segurança e representantes legais.</p>
+<p>O processo de resposta aos incidentes de segurança compreende:</p>
+<ul>
+<li>
+<p><strong>Detecção:</strong> os incidentes de Segurança da Informação são identificados, mitigados e tratados, a fim de auxiliar o reestabelecimento do ambiente afetado o mais breve possível, minimizando eventuais impactos;</p>
+</li>
+<li>
+<p><strong>Triagem e Análise:</strong> é necessário realizar a categorização e correlacionar os eventos existentes, bem como definir a severidade da análise;</p>
+</li>
+<li>
+<p><strong>Mitigação:</strong> o problema deverá ser isolado, as vulnerabilidades identificadas, apontadas e corrigidas, com reestabelecimento do ambiente afetado, ainda que no ambiente de contingência;</p>
+</li>
+<li>
+<p><strong>Investigação:</strong> serão coletadas e analisadas todas as informações/evidências por parte da triagem, através da captura de pacotes, registros em arquivos, logs (processo de registro de eventos relevantes num sistema computacional) e realização de entrevistas com as áreas afetadas, a fim de absorver a maior quantidade de informações. Deste modo, haverá auxílio na resolução do incidente informado e, eventualmente, será gerado insumo para pesquisas em base interna, com característica anterior ou semelhante ao incidente apresentado;</p>
+</li>
+<li>
+<p><strong>Resposta:</strong> é necessário emitir resposta técnica e/ou uma formal do incidente, a todos os envolvidos e apresentar a devida resolução;</p>
+</li>
+<li>
+<p><strong>Educação:</strong> serão geradas informações pertinentes aos incidentes ocorridos e deverá ser elaborada lista de lições aprendidas do respectivo processo (resumo do incidente e possíveis formas de correção identificadas), a fim de produzir documentação para pesquisa futura.</p>
+</li>
+</ul>
+<h2 id="6-procedimento-para-resposta-a-incidentes-de-segurança">6. Procedimento para resposta a incidentes de segurança</h2>
+<h3 id="61-escalonamento">6.1 Escalonamento</h3>
+<p>Para reportar sobre um incidente de segurança, deverão ser utilizar as seguintes opções, com descrição detalhada do evento:</p>
+<ul>
+<li>Enviar um e-mail para <a href="mailto:csirt@empresa.com.br"><em>csirt@empresa.com.br</em></a>;</li>
+<li>Acessar link no portal de abertura de incidentes;</li>
+<li>Enviar uma mensagem para o canal <em>#cybersecurity</em>, no slack corporativo.</li>
+</ul>
+<h3 id="62-severidades">6.2 Severidades</h3>
+<h4 id="621-severidades-médias-e-baixas">6.2.1 Severidades Médias e Baixas</h4>
+<p>Os eventos que se enquadram nestas severidades possuem as seguintes características:</p>
+<ul>
+<li>Suspeitos;</li>
+<li>Comportamentos incomuns;</li>
+<li>Não foram verificados e exigem investigação mais profunda;</li>
+<li>Não há qualquer indicador de comprometimento e que necessite atenção imediata;</li>
+<li>Exemplos: e-mails suspeitos, interrupções, atividades estranhas em uma estação de trabalho.</li>
+</ul>
+<h4 id="622-severidade-alta">6.2.2 Severidade Alta</h4>
+<p>Problemas de alta severidade estão relacionados  com ataque ainda não comprovado, com perspectiva de acontecimentos. Este cenário poderá incluir vulnerabilidades com perigo direto de exploração, ameaças com risco ou persistência nos sistemas internos (backdoors, malware), acesso malicioso a dados corporativos, senhas, dados de vulnerabilidade, informações de pagamento e outras ameaças.</p>
+<p>Os problemas de alta gravidade deverão incluir um e-mail para <em>csirt@empresa.com.br</em> com &ldquo;Urgente&rdquo; na linha de assunto, utilizar o <a href="https://empresa.atlassian.net/servicedesk/customer/portal/2">Portal de Abertura de Incidentes</a> ou enviar mensagem para <em>#security</em> com <em>&quot;@csirt incidente</em>&rdquo; na mensagem, para alertar o time de resposta a incidentes.</p>
+<h4 id="623-severidade-crítica">6.2.3 Severidade Crítica</h4>
+<p>Questões críticas relacionadas a riscos que foram ou estão sendo explorados e envolvem um ator malicioso. O fato de estar ocorrendo ou ocorrido a exploração é fundamental para essa categoria de gravidade. As questões críticas de gravidade deverão considerar o envio de mensagem para “<em>@csirt</em>” em <em>#cybersecurity</em> ou utilizar o <a href="https://empresa.atlassian.net/servicedesk/customer/portal/2">Portal de Abertura de Incidentes</a>, bem como mensagens para o Superintendente de TI e  Superintendente de Compliance.</p>
+<p>O escalonamento deverá continuar até o recebimento do reconhecimento. Será necessário envolver as áreas responsáveis por representar a imagem da Instituição perante órgãos externos ou regulatórios, tais como a área de Marketing ou Jurídico. Nestes casos, deverá haver  também alerta aos fornecedores que possuam capacidade para auxiliar nas investigações.</p>
+<h4 id="624-problemas-internos">6.2.4 Problemas internos</h4>
+<p>Quando o agente malicioso se tratar de colaborador interno, contratado, fornecedor ou parceiro, tal tratativa irá requerer tratamento confidencial. Para tanto, deverá ser realizado contato direto com as Superintendências de Tecnologia da Informação e Compliance.</p>
+<h3 id="63-comprometimento-de-comunicação">6.3 Comprometimento de comunicação</h3>
+<p>Caso ocorram riscos de comunicação de Tecnologia da Informação, a área responsável deverá anunciar uma solução paliativa e comunicará aos gerentes com instruções, através de mensagens instantâneas. Os membros do CSIRT estarão inseridos no canal #cybersecurity no Slack para manutenção da comunicação entre o time.</p>
+<h3 id="64-tratamento-do-incidente">6.4 Tratamento do incidente</h3>
+<p>Para questões críticas, a equipe de resposta a incidentes deverá seguir um processo de resposta interativa, projetada para investigar, conter a exploração, remediar a vulnerabilidade e documentar um <em>post-mortem</em> com as lições sobre o incidente. Para tanto, deverá haver o envolvimento de:</p>
+<ul>
+<li>
+<p>Superintendência de Tecnologia da Informação ou de Compliance determinarão se haverá o envolvimento de advogado nas questões de comunicação com CSIRT;</p>
+</li>
+<li>
+<p>Deverá haver a implementação de “sala de guerra”, designada para tratamento do incidente;</p>
+</li>
+<li>
+<p>Deverão ocorrer reuniões com intervalos regulares, até que o incidente seja resolvido.</p>
+</li>
+</ul>
+<h4 id="641-reunião-de-resposta-ao-incidente---agenda">6.4.1 Reunião de Resposta  ao Incidente -  Agenda</h4>
+<ul>
+<li>Atualizar a linha do tempo do incidente;</li>
+<li>Novos indicadores de comprometimento (IOCs);</li>
+<li>Investigar Q&amp;A (perguntas e respostas);</li>
+<li>Mitigações emergenciais;</li>
+<li>Mitigações definitivas;</li>
+<li>Análise de causa raiz;</li>
+<li>Outros.</li>
+</ul>
+<p>A linha do tempo deverá ser atualizada, com todos os dados temporais conhecidos. Todos os indicadores de comprometimento deverão ser atualizados e compartilhados entre os responsáveis que acompanharem o incidente. O grupo deverá adicionar informações (conhecidas e desconhecidas) ao “Perguntas e Respostas Investigativas” (<em>Q&amp;As</em>), bem como deverá haver a atualização de uma lista de mitigações táticas de emergência.</p>
+<p>Ainda, deverá ser atualizada uma lista de mitigação de longo prazo pós-violação. Deste modo, quando os itens relacionados à resposta forem cobertos, os membros técnicos do CSIRT poderão deixar a reunião. Os meta-tópicos (restante dos itens) relacionados ao incidente serão discutidos (comunicações, questões legais, postagens no site e mídias sociais) com a liderança.</p>
+<h4 id="642-membros-do-time-de-resposta-a-incidentes-csirt">6.4.2 Membros do time de Resposta a Incidentes (CSIRT)</h4>
+<table>
+<thead>
+<tr>
+<th>Nome</th>
+<th>Cargo</th>
+<th>Celular (Whatsapp)</th>
+<th>Slack</th>
+<th>E-mail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tiago Tavares</td>
+<td>Consultor de Segurança</td>
+<td>11 90000-1111</td>
+<td>UEM2XXXXX</td>
+<td><a href="mailto:tiago.tavares@empresa.com.br">tiago.tavares@empresa.com.br</a></td>
+</tr>
+<tr>
+<td>The Boss</td>
+<td>Superintendente de TI</td>
+<td>21 91111-0000</td>
+<td>UEM2XXXXX</td>
+<td><a href="mailto:boss@empresa.com.br">boss@empresa.com.br</a></td>
+</tr>
+<tr>
+<td>Fulana Silva</td>
+<td>Sup. de Compliance</td>
+<td>21 91111-0000</td>
+<td>UEM2XXXXX</td>
+<td><a href="mailto:fulano@empresa.com.br">fulano@empresa.com.br</a></td>
+</tr>
+<tr>
+<td>Fulano Oliveira</td>
+<td>Gerente de TI</td>
+<td>21 91111-0000</td>
+<td>UEM2XXXXX</td>
+<td><a href="mailto:fulano@empresa.com.br">fulano@empresa.com.br</a></td>
+</tr>
+<tr>
+<td>Fulana Rossi</td>
+<td>Consultora de TI (Telecom)</td>
+<td>21 91111-0000</td>
+<td>UEM2XXXXX</td>
+<td><a href="mailto:fulano@empresa.com.br">fulano@empresa.com.br</a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="643-contatos-externos">6.4.3 Contatos Externos</h4>
+<table>
+<thead>
+<tr>
+<th>Nome</th>
+<th>Cargo</th>
+<th>Celular (Whatsapp)</th>
+<th>Slack</th>
+<th>E-mail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td><a href="mailto:x@x.com">x@x.com</a></td>
+</tr>
+<tr>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td><a href="mailto:x@x.com">x@x.com</a></td>
+</tr>
+<tr>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td><a href="mailto:x@x.com">x@x.com</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="65-apresentação-e-acompanhamento-dos-riscos">6.5 Apresentação e acompanhamento dos riscos</h3>
+<p>Todos os incidentes que apresentarem severidade “Alta” deverão ser apresentados nas reuniões de riscos e/ou continuidade de negócios.</p>
+<h3 id="66-_runbooks_">6.6 <em>Runbooks</em></h3>
+<p>Procedimentos em formato de fluxograma envolvendo responsáveis e suas tarefas de acordo com os incidentes categorizados no Portal do Service Desk, conforme fluxogramas abaixo reproduzidos, para cada um dos tipos de incidentes (E-mail Suspeito, Vírus/<em>Malware</em>, Comportamento Anômalo, Vazamento de Informação, Vulnerabilidade, <em>Hardening</em>).</p>
+<blockquote>
+<p>💡 Todos os runbooks abaixo foram criados pelo <a href="https://app.diagrams.net/">Draw.io</a>, para editar os runbooks abaixo clique <a href="https://raw.githubusercontent.com/tiagotvrs/Politicas-Normas-e-Procedimentos/master/runbooks/Fluxos%20de%20Incidentes%20de%20SI_drawio_v2.xml">aqui</a> para baixar.</p>
+</blockquote>
+<h4 id="661-e-mail-suspeito">6.6.1 E-mail suspeito</h4>
+<p><img src="https://raw.githubusercontent.com/tiagotvrs/Politicas-Normas-e-Procedimentos/master/runbooks/Fluxos%20de%20Incidentes%20de%20SI-Email%20Suspeito_Phishing%20v1.svg" alt="enter image description here"></p>
+<h4 id="662-vírus--anti-malware">6.6.2 Vírus / Anti-malware</h4>
+<p><img src="https://raw.githubusercontent.com/tiagotvrs/Politicas-Normas-e-Procedimentos/master/runbooks/Fluxos%20de%20Incidentes%20de%20SI-Malware.svg" alt="enter image description here"></p>
+<h4 id="663-comportamento-anômalo">6.6.3 Comportamento Anômalo</h4>
+<p><img src="https://raw.githubusercontent.com/tiagotvrs/Politicas-Normas-e-Procedimentos/master/runbooks/Fluxos%20de%20Incidentes%20de%20SI-Comportamento%20anomalo.svg" alt="enter image description here"></p>
+<h4 id="664-vazamento-de-informação">6.6.4 Vazamento de Informação</h4>
+<p><img src="https://raw.githubusercontent.com/tiagotvrs/Politicas-Normas-e-Procedimentos/master/runbooks/Fluxos%20de%20Incidentes%20de%20SI-Vazamento%20de%20Informa%C3%A7%C3%A3ov2.svg" alt="enter image description here"></p>
+<h4 id="665-vulnerabilidade">6.6.5 Vulnerabilidade</h4>
+<p><img src="https://raw.githubusercontent.com/tiagotvrs/Politicas-Normas-e-Procedimentos/master/runbooks/Fluxos%20de%20Incidentes%20de%20SI-VMS.svg" alt="enter image description here"></p>
+<h4 id="666-hardening">6.6.6 Hardening</h4>
+<p><img src="https://raw.githubusercontent.com/tiagotvrs/Politicas-Normas-e-Procedimentos/master/runbooks/Fluxos%20de%20Incidentes%20de%20SI-Hardening.svg" alt="enter image description here"></p>
+<!-- raw HTML omitted -->
+<h2 id="7-referências">7. Referências</h2>
+<ul>
+<li>Código de Ética e Conduta;</li>
+<li>PSI – Política de Segurança da Informação;- Política Tratamento de Logs;</li>
+<li>27001 ABNT/ISO 27001 Sistemas de Gestão de Segurança da Informação;</li>
+<li>PCI DSS V 3.2.1
+<a href="https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf?agreement=true&amp;time=1534967992908"><em>https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf?agreement=true&amp;time=1534967992908</em></a></li>
+</ul>
+<!-- raw HTML omitted -->
+<h2 id="8-histórico-de-revisões">8. Histórico de Revisões</h2>
+<table>
+<thead>
+<tr>
+<th>Data de criação / Revisão</th>
+<th>Versão</th>
+<th>Descrição da(s) Alteração(ões)</th>
+<th>Editor</th>
+<th>Aprovação da Revisão</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01/01/2020</td>
+<td>1.0</td>
+<td>Primeira Versão</td>
+<td>Tiago Tavares</td>
+<td>&ldquo;The Boss&rdquo;</td>
+</tr>
+</tbody>
+</table>
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/draft/norma_gestao_de_mudancas/" data-tooltip="">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/draft/norma_vuln_patch_hardening/" data-tooltip="">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/draft/norma_gest%C3%A3o_incidentes/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/draft/norma_gest%C3%A3o_incidentes/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/draft/norma_gest%C3%A3o_incidentes/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2020 Tiago Tavares. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="1">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/draft/norma_gestao_de_mudancas/" data-tooltip="">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/draft/norma_vuln_patch_hardening/" data-tooltip="">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/draft/norma_gest%C3%A3o_incidentes/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/draft/norma_gest%C3%A3o_incidentes/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/draft/norma_gest%C3%A3o_incidentes/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="1">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftiagotavares.io%2Fdraft%2Fnorma_gest%25C3%25A3o_incidentes%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Ftiagotavares.io%2Fdraft%2Fnorma_gest%25C3%25A3o_incidentes%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Ftiagotavares.io%2Fdraft%2Fnorma_gest%25C3%25A3o_incidentes%2F">
+          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Tiago Tavares</h4>
+    
+      <div id="about-card-bio">Eternal student, cybersecurity pro, husband, runner.</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Cybersecurity Consultant
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Brazil
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    <div id="cover" style="background-image:url('https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589318923/last_jedi1_ybpjeb.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://tiagotavares.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/tiagotavares.io\/draft\/norma_gest%C3%A3o_incidentes\/';
+          
+            this.page.identifier = '\/draft\/norma_gest%C3%A3o_incidentes\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'tiagotavares-io';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+

@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.85.0 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="author" content="Tiago Tavares">
+<meta name="keywords" content="tech, cybersecurity, information security, running, hacking, programming, offensive security, red team">
+<meta name="description" content="">
+
+
+<meta property="og:description" content="">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gestao de vulnerabilidades com Greenbone Openvas">
+<meta name="twitter:title" content="Gestao de vulnerabilidades com Greenbone Openvas">
+<meta property="og:url" content="https://tiagotavares.io/2021/07/gestao-de-vulnerabilidades-com-greenbone-openvas/">
+<meta property="twitter:url" content="https://tiagotavares.io/2021/07/gestao-de-vulnerabilidades-com-greenbone-openvas/">
+<meta property="og:site_name" content="debugging the life">
+<meta property="og:description" content="">
+<meta name="twitter:description" content="">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2021-07-07T10:20:09">
+  
+  
+    <meta property="article:modified_time" content="2021-07-07T10:20:09">
+  
+  
+  
+    
+      <meta property="article:section" content="Vulnerability Management">
+    
+  
+  
+    
+      <meta property="article:tag" content="openvas">
+    
+      <meta property="article:tag" content="greenbone">
+    
+      <meta property="article:tag" content="vulnerability">
+    
+      <meta property="article:tag" content="scanner">
+    
+      <meta property="article:tag" content="nessus">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@0xtiago">
+
+
+  <meta name="twitter:creator" content="@0xtiago">
+
+
+
+
+
+
+  <meta property="og:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1625666005/blog/greenbone_logo_500x471_stedtv.png">
+  <meta property="twitter:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1625666005/blog/greenbone_logo_500x471_stedtv.png">
+
+
+  <meta property="og:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1625666640/blog/wp2732954-dark-gray-background-texture_bmsqig.jpg">
+  <meta property="twitter:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1625666640/blog/wp2732954-dark-gray-background-texture_bmsqig.jpg">
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=640">
+
+
+    <title>Gestao de vulnerabilidades com Greenbone Openvas</title>
+
+    <link rel="icon" href="images/favicon-32x32.png">
+    
+
+    
+
+    <link rel="canonical" href="https://tiagotavares.io/2021/07/gestao-de-vulnerabilidades-com-greenbone-openvas/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://tiagotavares.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-36987137-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://tiagotavares.io/">debugging the life</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://tiagotavares.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://tiagotavares.io/#about">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Tiago Tavares</h4>
+        
+          <h5 class="sidebar-profile-bio">Eternal student, cybersecurity pro, husband, runner.</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/0xtiago" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.linkedin.com/in/tiagotvrs/" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-linkedin"></i>
+      
+      <span class="sidebar-button-desc">LinkedIn</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.strava.com/athletes/tiagotavares" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-heartbeat"></i>
+      
+      <span class="sidebar-button-desc">Strava</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://twitter.com/0xtiago" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+      
+      <span class="sidebar-button-desc">Twitter</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-center
+              "
+       style="background-image:url('https://res.cloudinary.com/dtr6hzxnx/image/upload/v1625666640/blog/wp2732954-dark-gray-background-texture_bmsqig.jpg')"
+       data-behavior="4">
+    
+      <div class="post-header main-content-wrap text-center">
+  
+    <h1 class="post-title" itemprop="headline">
+      Gestao de vulnerabilidades com Greenbone Openvas
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2021-07-07T10:20:09-03:00">
+        
+  July 7, 2021
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://tiagotavares.io/categories/vulnerability-management">Vulnerability Management</a>
+    
+  
+
+  </div>
+
+</div>
+    
+  </div>
+
+
+      <div id="main" data-behavior="4"
+        class="hasCover
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <h1 id="sumário">Sumário</h1>
+<ul>
+<li><a href="#sum%C3%A1rio">Sumário</a></li>
+<li><a href="#introdu%C3%A7%C3%A3o">Introdução</a></li>
+<li><a href="#por-qu%C3%AA-gerir-vulnerabilidades-e-como-fazer-isso">Por quê gerir vulnerabilidades e como fazer isso</a></li>
+<li><a href="#um-pouco-de-hist%C3%B3ria">Um pouco de história</a></li>
+<li><a href="#instala%C3%A7%C3%A3o-e-configura%C3%A7%C3%A3o">Instalação e Configuração</a>
+<ul>
+<li><a href="#instala%C3%A7%C3%A3o-do-postgresql">Instalação do Postgresql</a></li>
+<li><a href="#instala%C3%A7%C3%A3o-do-openvas">Instalação do Openvas</a>
+<ul>
+<li><a href="#configura%C3%A7%C3%A3o-do-redis">Configuração do Redis</a></li>
+<li><a href="#configura%C3%A7%C3%A3o-do-postgressql">Configuração do Postgressql</a></li>
+</ul>
+</li>
+<li><a href="#atualiza%C3%A7%C3%A3o-dos-feeds-">Atualização dos feeds ☕</a></li>
+<li><a href="#configurando-cron-para-atualiza%C3%A7%C3%A3o-dos-feeds-diariamente">Configurando cron para atualização dos feeds diariamente</a></li>
+<li><a href="#atualizando-certificados">Atualizando certificados</a></li>
+<li><a href="#configurando-o-gsa-web-interface-para-acesso-externo">Configurando o GSA (Web Interface) para acesso externo</a></li>
+<li><a href="#reconstruindo-nvt-db">Reconstruindo NVT db</a></li>
+<li><a href="#deu-pau-olhe-os-logs">Deu pau? Olhe os logs!</a></li>
+</ul>
+</li>
+<li><a href="#-b%C3%B4nus---m%C3%A1quina-virtual">🎁 Bônus - Máquina Virtual</a></li>
+</ul>
+<h1 id="introdução">Introdução</h1>
+<p>Neste post vou passar alguns passos e possíveis armadilhas a serem evitadas para instalação do Openvas, que é um scanner de vulnerabilidades opensource que pode auxiliar seu time na detecção de riscos em seus ativos tecnológicos.</p>
+<p>Outra motivação é poder ajudar todas as comunidades que possuem o Português como língua mãe.  🇵🇹 🇧🇷 🇦🇴 🇹🇱 🇲🇿 🇨🇻 🇬🇶 🇬🇼 🇸🇹</p>
+<p>Os componentes a serem instalados serão:</p>
+<ul>
+<li><strong>Openvas 20.8</strong> - Scanner de Vulnerabilidades;</li>
+<li><strong>GVM (Greenbone Vulnerability Manager) 20.8</strong> - Responsável por gerenciar as tasks de scan;</li>
+<li><strong>GSA (Greenbone Security Assistant) 20.8</strong> - Responsável por prover a interface web para gestão do usuário;</li>
+<li>Outros componentes auxiliares e bibliotecas.</li>
+</ul>
+<h1 id="por-quê-gerir-vulnerabilidades-e-como-fazer-isso">Por quê gerir vulnerabilidades e como fazer isso</h1>
+<p>A gestão de vulnerabilidades, apesar de ser apenas uma parte dos seus processos de Gestão de Segurança da Informaçâo, ela é de extrema importância para ter visibilidades dos riscos em seu ambiente.</p>
+<p>Algumas boas referências da importância desses processos podem ser encontrados em:</p>
+<ul>
+<li><a href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf">https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf</a></li>
+<li><a href="https://www.cisecurity.org/controls/continuous-vulnerability-management/">https://www.cisecurity.org/controls/continuous-vulnerability-management/</a></li>
+<li><a href="https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf">https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf</a></li>
+</ul>
+<p>Suriro os seguintes passos para uma boa gestão de vulnerabilidades seja conduzida:</p>
+<ol>
+<li>Ter uma lista de todos os ativos de sua organização, assim como domínios e subdomínios, redes externas e internas;</li>
+<li>Saber quais são os seus ativos <strong>críticos</strong> para o funcionamento da organização;</li>
+<li>Manter a lista de ativos suas criticidades atualizadas;</li>
+<li>Organizar as agendas de scan destes ativos;</li>
+<li>Realizar análise e triagem dos relatórios destes scans, além de avaliar possíveis falsos positivos;</li>
+<li>Reportar vulnerabilidades, dando ênfase em vulnerabilidades altas e críticas, e riscos em ativos críticos;</li>
+<li>Realizar follow-ups periódicos com os times responsáveis pelas correções;</li>
+<li>Voltar ao item 3.</li>
+</ol>
+<h1 id="um-pouco-de-história">Um pouco de história</h1>
+<p>Em 2005, os desenvolvedores do scanner de vulnerabilidade Nessus decidiram descontinuar o trabalho  em modelo <code>opensource</code> e mudar para um modelo de negócios proprietário.</p>
+<p>Neste ponto, os desenvolvedores da Intevation e DN-Systems - as duas empresas que mais tarde fundariam a Greenbone Networks - já estavam contribuindo com desenvolvimentos para o Nessus, com foco em ferramentas de cliente. Os trabalhos foram apoiados principalmente pelo Escritório Federal Alemão de Segurança da Informação (BSI).</p>
+<h1 id="instalação-e-configuração">Instalação e Configuração</h1>
+<p>Tudo o que será feito abaixo será com base em um repositório pronto para o Ubuntu. Mas se você quiser pode baixar os fontes, compilar e configurar da forma que quiser, basta acessar o repositório da Greenbone no Github: <a href="https://github.com/greenbone/">https://github.com/greenbone/</a></p>
+<p>Vamos utilzar o repositório criado por <a href="https://launchpad.net/~mrazavi">Mohammad Razavi</a>.</p>
+<p><a href="https://launchpad.net/~mrazavi/+archive/ubuntu/gvm">https://launchpad.net/~mrazavi/+archive/ubuntu/gvm</a></p>
+<p>Iniciaremos configurando a hora local do sistema operacional. No meu caso, vou definir a hora aqui de São Paulo.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo timedatectl set-timezone America/Sao_Paulo
+</code></pre></div><p>Adicione o repositório necessário.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo add-apt-repository ppa:mrazavi/gvm
+</code></pre></div><p>Atualize a lista de repositórios do Ubuntu e atualize o sistema operacional.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt update <span style="color:#f92672">&amp;&amp;</span> sudo apt dist-upgrade
+</code></pre></div><h2 id="instalação-do-postgresql">Instalação do Postgresql</h2>
+<p>Instale o Postgresql.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install postgresql
+</code></pre></div><p>Habilite o serviço.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo systemctl enable postgresql
+</code></pre></div><p>Reinicie o serviço do Postgresql</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo systemctl restart postgresql
+</code></pre></div><h2 id="instalação-do-openvas">Instalação do Openvas</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install gvm
+</code></pre></div><h3 id="configuração-do-redis">Configuração do Redis</h3>
+<p>O Redis será utilizado para armazenar toda a documentação do Openvas, sem ele nenhum scan iniciará. Basta seguir com a configuração padrão.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1625664474/blog/image-20210705134226224_yt7guv.png" alt="image-20210705134226224"></p>
+<h3 id="configuração-do-postgressql">Configuração do Postgressql</h3>
+<p>Pode seguir com a configuração pelo módulo <code>gvmd-pg</code>.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1625664487/blog/image-20210705134542799_jk4cfu.png" alt="image-20210705134542799"></p>
+<p>Em nosso exemplo, utilizaremos um Postgresql local, portando vamos seguir com <code>locallhost</code>.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1625664500/blog/image-20210705134600081_oxbofx.png" alt="image-20210705134600081"></p>
+<p>Como vamos utilizar a autenticação <code>ident</code>do Posgresql, vamos deixar a senha em branco.
+<img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1625664511/blog/image-20210705134612366_tzarux.png" alt="image-20210705134612366"></p>
+<h2 id="atualização-dos-feeds-">Atualização dos feeds ☕</h2>
+<p>Siga a sequência abaixo para atualizar dos feed de vulnerabilidades.</p>
+<p>Busque um café porque essa parte irá demorar.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo -u gvm -g gvm greenbone-nvt-sync
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo -u gvm -g gvm greenbone-feed-sync --type GVMD_DATA
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo -u gvm -g gvm greenbone-feed-sync --type SCAP
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo -u gvm -g gvm greenbone-feed-sync --type CERT
+</code></pre></div><h2 id="configurando-cron-para-atualização-dos-feeds-diariamente">Configurando cron para atualização dos feeds diariamente</h2>
+<p>Precisaremos que todos os dias sejam atualizadas a lista de vulnerabilidades a partir dos feeds.</p>
+<p>Vamos criar um script de atualização do feed.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo vim /usr/local/bin/gvm-feedupdate.sh
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>
+greenbone-nvt-sync
+greenbone-feed-sync --type GVMD_DATA 
+greenbone-feed-sync --type SCAP 
+greenbone-feed-sync --type CERT
+
+
+<span style="color:#75715e">#/var/log/gvm/update_feed.log</span>
+</code></pre></div><p>Precisarmos dar permissão de execução e passar a propriedade do script para o usuário <code>gvm</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo chmod +x /usr/local/bin/gvm-feedupdate.sh ; sudo chown gvm.gvm /usr/local/bin/gvm-feedupdate.sh
+</code></pre></div><p>Agora, vamos adicionar o agendamento no crontab do usuario <code>gvm</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo -u gvm -g gvm crontab -e
+</code></pre></div><p>Adicione linha a seguir em nosso arquivo. Ele o sistema operacional agendará para que <strong>todos os dias</strong>, ao <strong>meio dia</strong>, seja <strong>executada</strong> a série de <strong>comandos</strong> para atualização dos feeds, e que grave em <code>update_feed.log</code> os logs do update.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#ae81ff">0</span> <span style="color:#ae81ff">12</span> <span style="color:#ae81ff">1</span> * * /usr/local/bin/gvm-feedupdate.sh &gt; /var/log/gvm/update_feed.log
+</code></pre></div><p>Ficará mais ou menos assim:</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1625664520/blog/image-20210706220308635_u8ehrr.png" alt="image-20210706220308635"></p>
+<h2 id="atualizando-certificados">Atualizando certificados</h2>
+<p>Esta tarefa pode ser necessária para corrigir problemas de comunicação entre o GVM e o Openvas Scanner, assim precisando reconfigu os certificados.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo -u gvm -g gvm gvm-manage-certs -f -a
+</code></pre></div><h2 id="configurando-o-gsa-web-interface-para-acesso-externo">Configurando o GSA (Web Interface) para acesso externo</h2>
+<p>A princípio, o módulo GSA (Greenbone Security Assistant), que é responsável pelo gerenciamento da interface web, não permitie acesso de fora do servidor do Openvas. Para permitir acessos externos a interface web é necessário alterar o parâmetro <code>GSAD_ADDRESS</code> de <code>127.0.0.1</code> para <code>0.0.0.0</code>.</p>
+<p>Você pode utilizar o <code>sed</code>&hellip;</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd /etc/default ;<span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>sudo sed -e <span style="color:#e6db74">&#39;s/127.0.0.1/0.0.0.0/g&#39;</span> gsad
+</code></pre></div><p>Ou simplesmente alterando o arquivo do serviço.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vim /etc/default/gsad
+</code></pre></div><p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1625664532/blog/image-20210705143846510_rd5lx9.png" alt="image-20210705143846510"></p>
+<p>Recarregue as novas configurações dos serviços.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"> sudo systemctl daemon-reload
+</code></pre></div><p>Reinicie todos os serviços instalados.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo systemctl restart ospd-openvas gsad gvmd
+</code></pre></div><p>Agora basta acessar a interface na porta <code>9392</code>.</p>
+<p><strong>Credenciais:</strong> admin/admin</p>
+<p>https://IP_DO_SERVIDOR:9392</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1625664546/blog/image-20210705143428431_zpybqa.png" alt="image-20210705143428431"></p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1625664556/blog/image-20210705191147439_cz3tk6.png" alt="image-20210705191147439"></p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1625666486/blog/Snipaste_2021-07-07_10-57-49_zk3uf6.png" alt=""></p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1625666487/blog/Snipaste_2021-07-07_10-55-40_hqydnb.png" alt=""></p>
+<h2 id="reconstruindo-nvt-db">Reconstruindo NVT db</h2>
+<p>Pode acontecer de no momento da atualização dos feeds por alguma instabilidade de rede ocorrer algum interrupção e por sua vez crashear o banco dos NVTs (Network Vulnerability Testes). Para resolver esse problema basta executar os comandos abaixo, e realizar os feeds.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">export <span style="color:#66d9ef">$(</span>sudo cat /etc/default/gvmd-pg<span style="color:#66d9ef">)</span>
+sudo -E -u gvm -g gvm gvmd --rebuild
+</code></pre></div><h2 id="deu-pau-olhe-os-logs">Deu pau? Olhe os logs!</h2>
+<p>Todos os logs estão em <code>/var/log/gvm</code>. Se em algum momento tiver algum problema com a aplicação, verique o que ocorre lendo os logs.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ls -lh
+total 1.1M
+-rw-r--r-- <span style="color:#ae81ff">1</span> gvm gvm  18K Jul  <span style="color:#ae81ff">7</span> 09:25 gsad.log
+-rw------- <span style="color:#ae81ff">1</span> gvm gvm 190K Jul  <span style="color:#ae81ff">7</span> 07:53 gvmd.log
+-rw-r--r-- <span style="color:#ae81ff">1</span> gvm gvm 873K Jul  <span style="color:#ae81ff">7</span> 09:40 openvas.log
+-rw-r--r-- <span style="color:#ae81ff">1</span> gvm gvm 9.4K Jul  <span style="color:#ae81ff">7</span> 07:53 ospd-openvas.log
+</code></pre></div><p>No momento da instalação, se suspeitar que há algo errado bom o Postrgresql, basta olhar seu log tabém para investigação em <code>/var/log/postgresql/postgresql*.log</code>.</p>
+<h1 id="-bônus---máquina-virtual">🎁 Bônus - Máquina Virtual</h1>
+<p>Caso tenha problemas na instalação ou queira realizar um <em>assessment</em> rápido basta baixar a máquina virtual (VMware) clicando <a href="https://bit.ly/2SRFVl5">aqui</a>.</p>
+<p>Lembre-se logar no Ubuntu e atualizar os feed, conforme mostro acima.</p>
+<p>👾</p>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/openvas/">openvas</a>
+
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/greenbone/">greenbone</a>
+
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/vulnerability/">vulnerability</a>
+
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/scanner/">scanner</a>
+
+  <a class="tag tag--primary tag--small" href="https://tiagotavares.io/tags/nessus/">nessus</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/12/chillhack-1-vulnhub/" data-tooltip="ChillHack: 1 - Vulnhub ">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2021/07/gestao-de-vulnerabilidades-com-greenbone-openvas/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2021/07/gestao-de-vulnerabilidades-com-greenbone-openvas/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2021/07/gestao-de-vulnerabilidades-com-greenbone-openvas/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2021 Tiago Tavares. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/2020/12/chillhack-1-vulnhub/" data-tooltip="ChillHack: 1 - Vulnhub ">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/2021/07/gestao-de-vulnerabilidades-com-greenbone-openvas/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/2021/07/gestao-de-vulnerabilidades-com-greenbone-openvas/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/2021/07/gestao-de-vulnerabilidades-com-greenbone-openvas/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftiagotavares.io%2F2021%2F07%2Fgestao-de-vulnerabilidades-com-greenbone-openvas%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Ftiagotavares.io%2F2021%2F07%2Fgestao-de-vulnerabilidades-com-greenbone-openvas%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Ftiagotavares.io%2F2021%2F07%2Fgestao-de-vulnerabilidades-com-greenbone-openvas%2F">
+          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Tiago Tavares</h4>
+    
+      <div id="about-card-bio">Eternal student, cybersecurity pro, husband, runner.</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Cybersecurity Consultant
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Brazil
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    <div id="cover" style="background-image:url('https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589318923/last_jedi1_ybpjeb.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://tiagotavares.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/tiagotavares.io\/2021\/07\/gestao-de-vulnerabilidades-com-greenbone-openvas\/';
+          
+            this.page.identifier = '\/2021\/07\/gestao-de-vulnerabilidades-com-greenbone-openvas\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'tiagotavares-io';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+

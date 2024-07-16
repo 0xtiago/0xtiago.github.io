@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>strava on debugging the life</title>
+    <title>Strava on debugging the life</title>
     <link>https://tiagotavares.io/tags/strava/</link>
-    <description>Recent content in strava on debugging the life</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 26 Jul 2020 13:30:00 -0300</lastBuildDate><atom:link href="https://tiagotavares.io/tags/strava/index.xml" rel="self" type="application/rss+xml" />
+    <description>Recent content in Strava on debugging the life</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>Copyright © 2024 Tiago Tavares.</copyright>
+    <lastBuildDate>Mon, 15 Jul 2024 13:44:16 -0300</lastBuildDate>
+    <atom:link href="https://tiagotavares.io/tags/strava/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Como carregar atividades manualmente do relógio Garmin para o Strava</title>
-      <link>https://tiagotavares.io/2020/07/como-carregar-atividades-manualmente-do-rel%C3%B3gio-garmin-para-o-strava/</link>
+      <link>https://tiagotavares.io/blog/carregando_treinos_garmin_para_strava/</link>
       <pubDate>Sun, 26 Jul 2020 13:30:00 -0300</pubDate>
-      
-      <guid>https://tiagotavares.io/2020/07/como-carregar-atividades-manualmente-do-rel%C3%B3gio-garmin-para-o-strava/</guid>
-      <description>&lt;p&gt;&lt;em&gt;&lt;strong&gt;A ransomware story&lt;/strong&gt;&lt;/em&gt;. 😞&lt;/p&gt;
-&lt;p&gt;Além do procedimento, uma explicação do incidente que pôde ter custado ao Garmin milhões de dólares!  💸💸💸&lt;/p&gt;</description>
+      <guid>https://tiagotavares.io/blog/carregando_treinos_garmin_para_strava/</guid>
+      <description></description>
     </item>
-    
   </channel>
 </rss>

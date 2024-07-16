@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>seaborn on debugging the life</title>
+    <title>Seaborn on debugging the life</title>
     <link>https://tiagotavares.io/tags/seaborn/</link>
-    <description>Recent content in seaborn on debugging the life</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Fri, 17 Apr 2020 22:09:49 -0300</lastBuildDate><atom:link href="https://tiagotavares.io/tags/seaborn/index.xml" rel="self" type="application/rss+xml" />
+    <description>Recent content in Seaborn on debugging the life</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>Copyright © 2024 Tiago Tavares.</copyright>
+    <lastBuildDate>Mon, 15 Jul 2024 10:36:39 -0300</lastBuildDate>
+    <atom:link href="https://tiagotavares.io/tags/seaborn/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Análise dos dados da Maratona de Porto Alegre 2019</title>
-      <link>https://tiagotavares.io/2020/04/an%C3%A1lise-dos-dados-da-maratona-de-porto-alegre-2019/</link>
+      <link>https://tiagotavares.io/blog/portoalegre2018analysis/</link>
       <pubDate>Fri, 17 Apr 2020 22:09:49 -0300</pubDate>
-      
-      <guid>https://tiagotavares.io/2020/04/an%C3%A1lise-dos-dados-da-maratona-de-porto-alegre-2019/</guid>
-      <description>&lt;p&gt;Análise de dados dos participantes da Maratona de Porto Alegre 2019, usando Python, Pandas, Matplotlib e Seaborb.&lt;/p&gt;</description>
+      <guid>https://tiagotavares.io/blog/portoalegre2018analysis/</guid>
+      <description></description>
     </item>
-    
   </channel>
 </rss>

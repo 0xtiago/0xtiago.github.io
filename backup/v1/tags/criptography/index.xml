@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>criptography on debugging the life</title>
+    <link>https://tiagotavares.io/tags/criptography/</link>
+    <description>Recent content in criptography on debugging the life</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 12 Jun 2020 12:15:12 -0300</lastBuildDate><atom:link href="https://tiagotavares.io/tags/criptography/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>(In)segurança em tokens JWT</title>
+      <link>https://tiagotavares.io/2020/06/inseguran%C3%A7a-em-tokens-jwt/</link>
+      <pubDate>Fri, 12 Jun 2020 12:15:12 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/2020/06/inseguran%C3%A7a-em-tokens-jwt/</guid>
+      <description>&lt;p&gt;Existem muitas bibliotecas disponíveis que suportam JWT, e o próprio padrão possui “rico suporte para mecanismos criptográficos”. Tudo isso significa que o JWT é realmente seguro? Vamos ver.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

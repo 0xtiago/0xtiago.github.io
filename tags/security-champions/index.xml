@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>security champions on debugging the life</title>
+    <title>Security Champions on debugging the life</title>
     <link>https://tiagotavares.io/tags/security-champions/</link>
-    <description>Recent content in security champions on debugging the life</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Fri, 05 Jun 2020 12:02:56 -0300</lastBuildDate><atom:link href="https://tiagotavares.io/tags/security-champions/index.xml" rel="self" type="application/rss+xml" />
+    <description>Recent content in Security Champions on debugging the life</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>Copyright © 2024 Tiago Tavares.</copyright>
+    <lastBuildDate>Mon, 15 Jul 2024 12:30:15 -0300</lastBuildDate>
+    <atom:link href="https://tiagotavares.io/tags/security-champions/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>O fim dos times de AppSec</title>
-      <link>https://tiagotavares.io/2020/06/o-fim-dos-times-de-appsec/</link>
+      <link>https://tiagotavares.io/blog/ofimdostimesdeappsec/</link>
       <pubDate>Fri, 05 Jun 2020 12:02:56 -0300</pubDate>
-      
-      <guid>https://tiagotavares.io/2020/06/o-fim-dos-times-de-appsec/</guid>
-      <description>&lt;p&gt;O paradoxo da segurança em aplicações.&lt;/p&gt;</description>
+      <guid>https://tiagotavares.io/blog/ofimdostimesdeappsec/</guid>
+      <description>Hoje temos times de cybersegurança estão bem consolidados nas organizações, com pessoas dedicadas inclusive a análise de aplicações, mas a integração nunca é fluída, dificilmente o time responsável por arquitetura, análise e testes estão de fato próximos aos times de desenvolvimento.</description>
     </item>
-    
   </channel>
 </rss>

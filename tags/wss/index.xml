@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>wss on debugging the life</title>
+    <title>Wss on debugging the life</title>
     <link>https://tiagotavares.io/tags/wss/</link>
-    <description>Recent content in wss on debugging the life</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Fri, 13 Aug 2021 11:15:12 -0300</lastBuildDate><atom:link href="https://tiagotavares.io/tags/wss/index.xml" rel="self" type="application/rss+xml" />
+    <description>Recent content in Wss on debugging the life</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>Copyright © 2024 Tiago Tavares.</copyright>
+    <lastBuildDate>Mon, 15 Jul 2024 16:47:18 -0300</lastBuildDate>
+    <atom:link href="https://tiagotavares.io/tags/wss/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Café Seguro 23 Café na conta de... Tiago Tavares</title>
-      <link>https://tiagotavares.io/2021/08/caf%C3%A9-seguro-23-caf%C3%A9-na-conta-de...-tiago-tavares/</link>
+      <link>https://tiagotavares.io/blog/participacao_podcast_cafeseguro/</link>
       <pubDate>Fri, 13 Aug 2021 11:15:12 -0300</pubDate>
-      
-      <guid>https://tiagotavares.io/2021/08/caf%C3%A9-seguro-23-caf%C3%A9-na-conta-de...-tiago-tavares/</guid>
-      <description>&lt;p&gt;Minha participação no podcast &lt;strong&gt;Café Seguro&lt;/strong&gt;, da WSS Security, e apresentado Daniel Dalalana, Pedro Kassick e Ben Hur Ott.&lt;/p&gt;</description>
+      <guid>https://tiagotavares.io/blog/participacao_podcast_cafeseguro/</guid>
+      <description></description>
     </item>
-    
   </channel>
 </rss>

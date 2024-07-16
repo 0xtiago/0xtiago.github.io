@@ -1,38 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>python on debugging the life</title>
+    <title>Python on debugging the life</title>
     <link>https://tiagotavares.io/tags/python/</link>
-    <description>Recent content in python on debugging the life</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sat, 10 Jul 2021 14:05:04 -0300</lastBuildDate><atom:link href="https://tiagotavares.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Python 4 Padawans</title>
-      <link>https://tiagotavares.io/page/python4padawans/</link>
-      <pubDate>Sat, 10 Jul 2021 14:05:04 -0300</pubDate>
-      
-      <guid>https://tiagotavares.io/page/python4padawans/</guid>
-      <description></description>
-    </item>
-    
+    <description>Recent content in Python on debugging the life</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>Copyright © 2024 Tiago Tavares.</copyright>
+    <lastBuildDate>Mon, 15 Jul 2024 10:36:39 -0300</lastBuildDate>
+    <atom:link href="https://tiagotavares.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Análise dos dados da Maratona de Porto Alegre 2019</title>
-      <link>https://tiagotavares.io/2020/04/an%C3%A1lise-dos-dados-da-maratona-de-porto-alegre-2019/</link>
+      <link>https://tiagotavares.io/blog/portoalegre2018analysis/</link>
       <pubDate>Fri, 17 Apr 2020 22:09:49 -0300</pubDate>
-      
-      <guid>https://tiagotavares.io/2020/04/an%C3%A1lise-dos-dados-da-maratona-de-porto-alegre-2019/</guid>
-      <description>&lt;p&gt;Análise de dados dos participantes da Maratona de Porto Alegre 2019, usando Python, Pandas, Matplotlib e Seaborb.&lt;/p&gt;</description>
+      <guid>https://tiagotavares.io/blog/portoalegre2018analysis/</guid>
+      <description></description>
     </item>
-    
     <item>
       <title>Faustao Invader</title>
-      <link>https://tiagotavares.io/2020/04/faustao-invader/</link>
+      <link>https://tiagotavares.io/blog/faustaoinvader/</link>
       <pubDate>Thu, 09 Apr 2020 22:33:47 -0300</pubDate>
-      
-      <guid>https://tiagotavares.io/2020/04/faustao-invader/</guid>
-      <description>&lt;p&gt;Faustão Invader - A shooter game created during the coronavirus quarantine. 😷&lt;/p&gt;</description>
+      <guid>https://tiagotavares.io/blog/faustaoinvader/</guid>
+      <description>Da série “😷 Durante a quarentena“.&#xA;Por semana gasto cerca de 12 horas em transporte público para ir e voltar do trabalho.</description>
     </item>
-    
   </channel>
 </rss>

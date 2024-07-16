@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>pygame on debugging the life</title>
+    <title>Pygame on debugging the life</title>
     <link>https://tiagotavares.io/tags/pygame/</link>
-    <description>Recent content in pygame on debugging the life</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 09 Apr 2020 22:33:47 -0300</lastBuildDate><atom:link href="https://tiagotavares.io/tags/pygame/index.xml" rel="self" type="application/rss+xml" />
+    <description>Recent content in Pygame on debugging the life</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>Copyright © 2024 Tiago Tavares.</copyright>
+    <lastBuildDate>Mon, 15 Jul 2024 10:36:39 -0300</lastBuildDate>
+    <atom:link href="https://tiagotavares.io/tags/pygame/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Faustao Invader</title>
-      <link>https://tiagotavares.io/2020/04/faustao-invader/</link>
+      <link>https://tiagotavares.io/blog/faustaoinvader/</link>
       <pubDate>Thu, 09 Apr 2020 22:33:47 -0300</pubDate>
-      
-      <guid>https://tiagotavares.io/2020/04/faustao-invader/</guid>
-      <description>&lt;p&gt;Faustão Invader - A shooter game created during the coronavirus quarantine. 😷&lt;/p&gt;</description>
+      <guid>https://tiagotavares.io/blog/faustaoinvader/</guid>
+      <description>Da série “😷 Durante a quarentena“.&#xA;Por semana gasto cerca de 12 horas em transporte público para ir e voltar do trabalho.</description>
     </item>
-    
   </channel>
 </rss>

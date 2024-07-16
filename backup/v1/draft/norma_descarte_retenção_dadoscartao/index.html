@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.70.0 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="author" content="Tiago Tavares">
+<meta name="keywords" content="">
+<meta name="description" content="Norma de Descarte e Retenção de Dados de Cartão Sumário  1. Objetivo 2.Abrangência 3. Responsabilidades 4. Disposições Gerais 5. Termos e Definições 6. Diretrizes  6.1 Retenção de dados de cartão 6.2 Visualização 6.3 Deleção ou expurgo 6.4 Gerenciamento de Chaves Criptográficas 6.5 Transmissão 6.6 Tratamento de incidentes com dado de cartão 6.7 Escopo PCI 6.8 Avaliação interna PCI-DSS   7. Penalidades 8. Referências 9. Histórico de Revisões  1.">
+
+
+<meta property="og:description" content="Norma de Descarte e Retenção de Dados de Cartão Sumário  1. Objetivo 2.Abrangência 3. Responsabilidades 4. Disposições Gerais 5. Termos e Definições 6. Diretrizes  6.1 Retenção de dados de cartão 6.2 Visualização 6.3 Deleção ou expurgo 6.4 Gerenciamento de Chaves Criptográficas 6.5 Transmissão 6.6 Tratamento de incidentes com dado de cartão 6.7 Escopo PCI 6.8 Avaliação interna PCI-DSS   7. Penalidades 8. Referências 9. Histórico de Revisões  1.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="debugging the life">
+<meta name="twitter:title" content="debugging the life">
+<meta property="og:url" content="https://tiagotavares.io/draft/norma_descarte_reten%C3%A7%C3%A3o_dadoscartao/">
+<meta property="twitter:url" content="https://tiagotavares.io/draft/norma_descarte_reten%C3%A7%C3%A3o_dadoscartao/">
+<meta property="og:site_name" content="debugging the life">
+<meta property="og:description" content="Norma de Descarte e Retenção de Dados de Cartão Sumário  1. Objetivo 2.Abrangência 3. Responsabilidades 4. Disposições Gerais 5. Termos e Definições 6. Diretrizes  6.1 Retenção de dados de cartão 6.2 Visualização 6.3 Deleção ou expurgo 6.4 Gerenciamento de Chaves Criptográficas 6.5 Transmissão 6.6 Tratamento de incidentes com dado de cartão 6.7 Escopo PCI 6.8 Avaliação interna PCI-DSS   7. Penalidades 8. Referências 9. Histórico de Revisões  1.">
+<meta name="twitter:description" content="Norma de Descarte e Retenção de Dados de Cartão Sumário  1. Objetivo 2.Abrangência 3. Responsabilidades 4. Disposições Gerais 5. Termos e Definições 6. Diretrizes  6.1 Retenção de dados de cartão 6.2 Visualização 6.3 Deleção ou expurgo 6.4 Gerenciamento de Chaves Criptográficas 6.5 Transmissão 6.6 Tratamento de incidentes com dado de cartão 6.7 Escopo PCI 6.8 Avaliação interna PCI-DSS   7. Penalidades 8. Referências 9. Histórico de Revisões  1.">
+<meta property="og:locale" content="en-us">
+
+  
+  
+  
+  
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@tiagotavares_">
+
+
+  <meta name="twitter:creator" content="@tiagotavares_">
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=640">
+
+
+    <title>debugging the life</title>
+
+    <link rel="icon" href="images/favicon-32x32.png">
+    
+
+    
+
+    <link rel="canonical" href="https://tiagotavares.io/draft/norma_descarte_reten%C3%A7%C3%A3o_dadoscartao/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://tiagotavares.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-36987137-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="1">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://tiagotavares.io/">debugging the life</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://tiagotavares.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="1">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://tiagotavares.io/#about">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Tiago Tavares</h4>
+        
+          <h5 class="sidebar-profile-bio">Eternal student, cybersecurity pro, husband, runner.</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/tiagotvrs" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.linkedin.com/in/tiagotvrs/" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-linkedin"></i>
+      
+      <span class="sidebar-button-desc">LinkedIn</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.strava.com/athletes/tiagotavares" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-heartbeat"></i>
+      
+      <span class="sidebar-button-desc">Strava</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://twitter.com/tiagotavares_" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+      
+      <span class="sidebar-button-desc">Twitter</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tiagotavares.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="1"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="0001-01-01T00:00:00Z">
+        
+  January 1, 1
+
+      </time>
+    
+    
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <h1 id="norma-de-descarte-e-retenção-de-dados-de-cartão">Norma de Descarte e Retenção de Dados de Cartão</h1>
+<h2 id="sumário">Sumário</h2>
+<ul>
+<li><a href="#1-objetivo">1. Objetivo</a></li>
+<li><a href="#2abrang%C3%AAncia">2.Abrangência</a></li>
+<li><a href="#3-responsabilidades">3. Responsabilidades</a></li>
+<li><a href="#4-disposi%C3%A7%C3%B5es-gerais">4. Disposições Gerais</a></li>
+<li><a href="#5-termos-e-defini%C3%A7%C3%B5es">5. Termos e Definições</a></li>
+<li><a href="#6-diretrizes">6. Diretrizes</a>
+<ul>
+<li><a href="#61-reten%C3%A7%C3%A3o-de-dados-de-cart%C3%A3o">6.1 Retenção de dados de cartão</a></li>
+<li><a href="#62-visualiza%C3%A7%C3%A3o">6.2 Visualização</a></li>
+<li><a href="#63-dele%C3%A7%C3%A3o-ou-expurgo">6.3 Deleção ou expurgo</a></li>
+<li><a href="#64-gerenciamento-de-chaves-criptogr%C3%A1ficas">6.4 Gerenciamento de Chaves Criptográficas</a></li>
+<li><a href="#65-transmiss%C3%A3o">6.5 Transmissão</a></li>
+<li><a href="#66-tratamento-de-incidentes-com-dado-de-cart%C3%A3o">6.6 Tratamento de incidentes com dado de cartão</a></li>
+<li><a href="#67-escopo-pci">6.7 Escopo PCI</a></li>
+<li><a href="#68-avalia%C3%A7%C3%A3o-interna-pci-dss">6.8 Avaliação interna PCI-DSS</a></li>
+</ul>
+</li>
+<li><a href="#7-penalidades">7. Penalidades</a></li>
+<li><a href="#8-refer%C3%AAncias">8. Referências</a></li>
+<li><a href="#9-hist%C3%B3rico-de-revis%C3%B5es">9. Histórico de Revisões</a></li>
+</ul>
+<!-- raw HTML omitted -->
+<h2 id="1-objetivo">1. Objetivo</h2>
+<p>Definir diretrizes que regulamentem a retenção, a visualização e deleção do dado de cartão.</p>
+<!-- raw HTML omitted -->
+<h2 id="2abrangência">2.Abrangência</h2>
+<p>Todos os usuários (dirigentes, colaboradores efetivos ou temporários, estagiários ou terceiros) com acesso a informações, ferramentas, serviços e processos corporativos de propriedade ou administradas pela <strong>EMPRESA</strong>.  Este procedimento aplica-se às áreas, colaboradores, terceiros e fornecedores da <strong>EMPRESA</strong> que têm atuação direta ou administração sobre os componentes da empresa que são suscetíveis a sofrer alterações.</p>
+<h2 id="3-responsabilidades">3. Responsabilidades</h2>
+<table>
+<thead>
+<tr>
+<th>Responsável</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Segurança da Informação</td>
+<td>- Manter a política em conformidade com os padrões de proteção de dados de cartão mais atualizados.<!-- raw HTML omitted -->- Manter um inventário de dados de cartão. <!-- raw HTML omitted -->- Realizar as avaliações internas com as áreas responsáveis. <!-- raw HTML omitted -->- Responsável pela custódia dos termos assinados pelos responsáveis pela custódia das chaves criptográfica.</td>
+</tr>
+<tr>
+<td>Áreas usuárias dos dados de cartão</td>
+<td>- Identificar a necessidade do armazenamento do dado de cartão. <!-- raw HTML omitted -->- Justificar formalmente a necessidade de armazenamento do dado de cartão. <!-- raw HTML omitted -->- Identificar quais os dados de cartão devem ser armazenados. <!-- raw HTML omitted -->- Formalizar um processo periódico de expurgo dos dados de cartão. <!-- raw HTML omitted -->- Manter a área de Segurança da Informação informada sobre quaisquer alterações nas tecnologias de sua responsabilidade.  <!-- raw HTML omitted -->- Realizar as coletas das assinaturas do termo de responsabilidade pela custódia das chaves criptográfica.</td>
+</tr>
+<tr>
+<td>Custodiante de chave criptográfica</td>
+<td>- Manter o sigilo e a integridade da chave que está sob sua custódia. <!-- raw HTML omitted -->- Informar a área de Segurança da Informação quaisquer ameaças identificadas que possam comprometer a integridade e confidencialidade da chave criptográfica. <!-- raw HTML omitted -->- Assinar o termo de responsabilidade de salvaguarda da chave criptográfica.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-disposições-gerais">4. Disposições Gerais</h2>
+<p>Todo normativo sem tarja (obsoleto/em revisão) é considerado vigente desde que disponível na ferramenta de gestão de normativos. Os colaboradores envolvidos no processo em questão estão cientes de que as diretrizes definidas neste documento poderão ser auditadas e deve auxiliar o Auditor na obtenção de dados que subsidiem seu trabalho com informações suficientes, fidedignas, relevantes e úteis, como base sólida para emissão de seu relatório final.  Portanto, recomenda-se não salvar cópias dos normativos na área de trabalho/diretórios da rede ou imprimi-los. O colaborador deve sempre acessar a ferramenta de gestão de normativos. Este normativo encontra-se no padrão de formatação definida pela ABNT NBR 14724:2011, portanto, o redator deve garantir que a formatação e estrutura do documento siga os padrões já definidos.</p>
+<!-- raw HTML omitted -->
+<h2 id="5-termos-e-definições">5. Termos e Definições</h2>
+<p><strong>Bloco de PIN:</strong> Bloco de dados usado para encapsular o PIN durante o processamento. O formato do bloco de PIN define o conteúdo do bloco e como ele será processado para recuperar o PIN. O bloco de PIN é composto pelo PIN, pela extensão PIN e pode conter um subconjunto do PAN.</p>
+<p><strong>Código ou Valor de Verificação do Cartão</strong>: Também conhecido como código ou valor de validação do cartão ou código de segurança do cartão. Elemento de dados na tarja magnética do cartão que usa um processo criptográfico seguro para proteger a integridade dos dados da tarja e revela qualquer alteração ou adulteração. Referido como CAV, CVC, CVV ou CSC, dependendo da marca do cartão de pagamento. Para cartões de pagamento Discover, JCB, MasterCard e Visa, o segundo tipo de valor de verificação ou código é o valor de três dígitos à direita impresso na área do painel de assinatura, na parte de trás do cartão. Para os cartões de pagamento American Express, o código é um número de quatro dígitos em baixo relevo impresso acima do PAN, na parte frontal dos cartões de pagamento. O código é exclusivamente associado a cada peça de plástico individual e liga o PAN ao plástico.</p>
+<p><strong>Criptografia Robusta:</strong> Criptografia baseada em algoritmos testados e aceitos pelo setor, junto com comprimentos de chave fortes (mínimo de 112 bits de força efetiva da chave) e práticas de gestão de chave adequadas. A criptografia é um método para proteger os dados e inclui tanto criptografia (que é reversível) quanto codificação hash (que não é reversível, ou seja, é de “mão única”). No momento da publicação, exemplos de padrões e algoritmos testados e aceitos pelo setor para força mínima de criptografia incluem AES (128 bits e superior), TDES (chaves de comprimento triplo mínimas), RSA (2048 bits e superior), ECC (160 bits e superior) e ElGamal (2048 bits e superior).</p>
+<p><strong>Criptoperíodo:</strong> O intervalo de tempo durante uma chave de criptografia específica que pode ser usado para seu propósito definido baseado em, por exemplo, um período definido e/ou na quantidade de texto cifrado que foi produzida e de acordo com as melhores práticas e diretrizes da indústria.</p>
+<p><strong>Dados Confidenciais de Autenticação:</strong> Informações relacionadas à segurança (incluindo, entre outros, a validação dos códigos/valores do cartão, dados totais da tarja magnética, (da tarja magnética ou equivalente em um chip) PINs e blocos de PIN) usados para autenticar os portadores do cartão e/ou autorizar transações do cartão de pagamento.</p>
+<p><strong>Dados de Cartão:</strong> No mínimo, os dados do proprietário do cartão consistem no PAN completo. Os dados do portador do cartão também podem aparecer na forma do PAN completo mais qualquer um dos seguintes: nome do portador do cartão, data de expiração e/ou código de serviço.</p>
+<p><strong>Logs de Auditoria:</strong> Também chamado de “trilha de auditoria”. Registro cronológico das atividades do sistema. Fornece uma trilha independentemente verificável o suficiente para permitir a reconstrução, a revisão e o exame de sequência de ambientes e atividades que têm relação ou que levam à operação, procedimento ou evento em uma transação da origem aos resultados.</p>
+<p><strong>PIN:</strong> Acrônimo de número de identificação pessoal (personal identification number, no inglês). Senha numérica secreta conhecida somente pelo usuário e pelo sistema para autenticação. O usuário só recebe acesso se o PIN fornecido for igual ao PIN do sistema. Os PINs típicos são usados em caixas eletrônicos para saques de dinheiro. Outro tipo de PIN é aquele usado em cartões com chip EMV, nos quais o PIN substitui a assinatura do portador do cartão.</p>
+<p><strong>PAN:</strong> Acrônimo de &ldquo;número da conta principal&rdquo; também chamado de “número da conta” (“primary account number” e “account number&rdquo;, no inglês). Número exclusivo do cartão de pagamento (normalmente de crédito ou débito) que identifica o emissor e, mais particularmente, a conta do portador de cartão.</p>
+<p><strong>Trilhas Magnéticas do Cartão:</strong> Também conhecido como &ldquo;dados da tarja magnética&rdquo; ou &ldquo;dados da faixa magnética&rdquo;. Dado criptografado da tarja magnética ou no chip usado para autorização e/ou autenticação durante transações de pagamento. Pode ser a imagem da tarja magnética em um chip ou os dados na trilha 1 e/ou trilha 2 da tarja magnética</p>
+<h2 id="6-diretrizes">6. Diretrizes</h2>
+<h3 id="61-retenção-de-dados-de-cartão">6.1 Retenção de dados de cartão</h3>
+<p>Os dados de cartão não devem ser armazenados, a menos que haja uma justificativa comercial, regulatória ou legal, partindo sempre da premissa de que se deve apenas armazená-lo se isto for necessário. Quando armazenado, o dado de cartão deverá ser pelo menor tempo possível.</p>
+<p>Para armazenar o dado de cartão as seguintes diretrizes devem ser respeitadas: a) Não devem ser armazenados os dados confidenciais de autenticação após a autorização, mesmo criptografado. b) Não deve ser armazenado o conteúdo completo de quaisquer trilhas magnéticas do cartão ou trilhas equivalentes no chip. c) Não deve ser armazenado o código ou o valor de verificação do cartão, utilizado pelas transações com cartão não presente. d) Não deve ser armazenado o PIN ou o Bloco de PIN.  e) O PAN deve ser mantido sempre ilegível quando armazenado em sistemas de arquivos, mídias, mídias de backup e em logs de auditoria, podendo, no máximo, ser truncado disponibilizando apenas os 6 primeiros e os 4 últimos números do PAN.</p>
+<p>A <strong>EMPRESA</strong>, em atendimento aos normativos (ver as legislações citadas no item “Referências”), deve manter uma retenção histórica de 1 ano, constituindo 3 meses de retenção para consulta imediata e 9 meses de consulta off-line, sendo permitido o seu descarte permanente apenas após este período.</p>
+<p>Toda a tecnologia que necessitar armazenar dados de cartão deve possuir um inventário formal (ver anexo a esta política) contendo, pelo menos, as seguintes informações:</p>
+<ul>
+<li>Identificação do Sistema</li>
+<li>Quais dados do cartão são armazenados</li>
+<li>Tempo de retenção</li>
+<li>Controles de segurança implementados para o armazenamento</li>
+<li>Descrição do processo de descarte dos dados</li>
+<li>Método de armazenamento</li>
+<li>Local de armazenamento</li>
+<li>Localização dos servidores</li>
+<li>Hosts ou serviços envolvidos</li>
+</ul>
+<h3 id="62-visualização">6.2 Visualização</h3>
+<p>A visualização completa do PAN é permitida apenas para pessoas que possuam justificativa legítima comercial e de negócio para tal acesso. Estas pessoas devem estar em cumprimento com as seguintes diretrizes:</p>
+<ul>
+<li>Assinar um acordo de confidencialidade (NDA) com a <strong>EMPRESA</strong>;</li>
+<li>Trabalhar em um ambiente de trabalho que possua (i) controle de acesso físico por biometria ou token físico e (ii) monitoramento por circuito fechado de TV.</li>
+<li>O ambiente de trabalho deverá ser totalmente segregado dos demais funcionários que não tem necessidade de negócio para a visualização do dado de cartão em aberto, i.e., pessoas externas à área não devem conseguir enxergar os monitores onde os dados de cartão são apresentados.</li>
+</ul>
+<p>Os demais funcionários que não necessitem de acesso completo do PAN, podem visualizá-lo apenas se mascarado, mostrando, no máximo, os 6 primeiros dígitos e os últimos 4 do PAN.</p>
+<h3 id="63-deleção-ou-expurgo">6.3 Deleção ou expurgo</h3>
+<p>Sempre que houver retenção de dados de cartão, deve ser definido um processo para seu expurgo, garantindo que os dados sejam armazenados apenas pelo tempo determinado e necessário aos requisitos de negócio, regulatório e legal.</p>
+<p>Devem ser realizados, pelo menos trimestralmente, processos que realizem a varredura de dados de cartão que estejam armazenados por um período superior ao definido para a sua tecnologia. Estes dados devem ser deletados de forma segura.</p>
+<h3 id="64-gerenciamento-de-chaves-criptográficas">6.4 Gerenciamento de Chaves Criptográficas</h3>
+<p>As chaves criptográficas utilizadas para criptografar o dado de cartão em banco de dados ou em tecnologias que armazenem dados de cartão, devem seguir as seguintes diretrizes:</p>
+<p>a) O acesso à chave deve ser restrito ao menor número possível de custodiantes necessários;</p>
+<p>b) A chave criptográfica deve ser protegida, pelo menos, utilizando uma chave criptográfica que seja tão robusta quanto à criptografia da própria chave;</p>
+<p>c) A chave criptográfica deve ser armazenada no menor número de locais possível, preferencialmente no cofre de senhas da <strong>EMPRESA</strong>;</p>
+<p>d) Devem ser desenvolvidos procedimentos ou instruções que contenham: i. Geração da chave com criptografia forte ii. Distribuição segura da chave iii. Armazenamento seguro da chave iv. Definição de um criptoperíodo v. Procedimentos para substituição da chave sempre que sua integridade ou confidencialidade for comprometida vi. Se operações manuais para a inserção das chaves for utilizado, o seu gerenciamento deve ser realizado através de dupla custódia vii. Processos para prevenção de substituição não autorizada da chave.</p>
+<p>e) Todos os custodiantes de chaves criptográficas devem assinar um termo que garanta o seu entendimento perante suas responsabilidades como custodiantes das chaves.</p>
+<h3 id="65-transmissão">6.5 Transmissão</h3>
+<p>O dado de cartão não pode ser transmitido em claro em redes públicas, como a Internet. Quando necessário sua transmissão por estes meios, o dado deve ser protegido pelo uso de criptografia robusta, como o TLS na versão 1.2 ou superior e IPSec. Na mesma forma não é permitido o envio do dado de cartão através de tecnologias de mensagem eletrônica sem a utilização de criptografia. Nestes casos, devem ser seguidas as diretrizes das políticas vigentes para o envio de informação classificada como confidencial.</p>
+<h3 id="66-tratamento-de-incidentes-com-dado-de-cartão">6.6 Tratamento de incidentes com dado de cartão</h3>
+<p>Os incidentes que envolvem dados de cartão devem ser tratados de acordo com o Manual de Gestão de Incidentes de Segurança da Informação. Os incidentes devem ser tratados com alta criticidade e sigilo, sendo de imediato reporte para o Comitê de Governança.</p>
+<h3 id="67-escopo-pci">6.7 Escopo PCI</h3>
+<p>A <strong>EMPRESA</strong> classifica o escopo do PCI-DSS em dois tipos: Escopo PCI-DSS e Escopo Estendido.</p>
+<p>O Escopo PCI-DSS consiste em todos os sistemas, aplicações, servidores, banco de dados e processos que armazenam, processam ou transmitem dados de cartão e inclui pessoas que tenham acesso aos dados de cartão em claro. O ambiente de rede da <strong>EMPRESA</strong>, o qual estão inseridos as tecnologias escopo PCI-DSS, é conhecido como Ambiente de Cartão e este não deve ter quaisquer conexões com os ambientes fora deste escopo. O Escopo PCI-DSS deve manter aplicado todos os controles e requisitos da norma PCI-DSS em sua última versão mais recente publicada.</p>
+<h3 id="68-avaliação-interna-pci-dss">6.8 Avaliação interna PCI-DSS</h3>
+<p>A empresa realiza avaliações internas trimestrais abrangendo pelo menos os seguintes itens:</p>
+<p>a) Avaliar a revisão das regras de firewall;</p>
+<p>b) Avaliar as configurações de hardening aplicadas aos componentes do sistema escopo incluídos recentemente durante avaliação interna;</p>
+<p>c) Avaliar se as GMUDs executadas no escopo e dentro da avaliação interna estão em conformidade com os requisitos do PCI-DSS;</p>
+<p>d) Avaliar se os componentes de sistema escopo recentes (durante da avaliação interna) estão enviando logs para o SIEM, e se estes logs estão de acordo com os requisitos do PCI-DSS;</p>
+<p>e) Avaliar se estão sendo monitoradas e alertadas as falhas dos seguintes sistemas: i. Firewalls; ii. IDS/IPS; iii. FIM (File Integrity Monitor); iv. AV (Antivirus); v. Controle de acesso físico; vi. Controle de acesso lógico; vii. SIEM;</p>
+<p>f) Controle de segmentação. Tais itens podem sofrer alterações, baseado pela necessidade.</p>
+<p>Além disso, durante a auditoria deve ser resguardado as evidências em local seguro e com os devidos controles de acessos aplicados, mantendo guardado por 3 anos. Resultados devem ser apresentado no Comitê de Governança.</p>
+<h2 id="7-penalidades">7. Penalidades</h2>
+<p>O descumprimento das regras e diretrizes impostas neste documento poderá ser considerado falta grave, passível de aplicação de sanções disciplinares baseadas na <em>Política de</em> <em>Canal de Ética</em> a serem avaliadas pelo Diretor Executivo da área e/ou pelo Comitê de Ética</p>
+<!-- raw HTML omitted -->
+<h2 id="8-referências">8. Referências</h2>
+<p>PSI – Politica de Segurança da Informação</p>
+<p>27001 ABNT/ISO 27001 Sistemas de Gestão de Segurança da Informação.</p>
+<p>PCI-DSS 3.2.1</p>
+<!-- raw HTML omitted -->
+<h2 id="9-histórico-de-revisões">9. Histórico de Revisões</h2>
+<table>
+<thead>
+<tr>
+<th>Data de criação / Revisão</th>
+<th>Versão</th>
+<th>Descrição da(s) Alteração(ões)</th>
+<th>Editor</th>
+<th>Aprovação da Revisão</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01/01/2020</td>
+<td>1.0</td>
+<td>Primeira Versão</td>
+<td>Tiago Tavares</td>
+<td>&ldquo;The Boss&rdquo;</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/draft/norma_aquis_software_dev_seguro/" data-tooltip="">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/draft/norma_gestao_de_mudancas/" data-tooltip="">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/draft/norma_descarte_reten%C3%A7%C3%A3o_dadoscartao/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/draft/norma_descarte_reten%C3%A7%C3%A3o_dadoscartao/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/draft/norma_descarte_reten%C3%A7%C3%A3o_dadoscartao/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2020 Tiago Tavares. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="1">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/draft/norma_aquis_software_dev_seguro/" data-tooltip="">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://tiagotavares.io/draft/norma_gestao_de_mudancas/" data-tooltip="">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tiagotavares.io/draft/norma_descarte_reten%C3%A7%C3%A3o_dadoscartao/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tiagotavares.io/draft/norma_descarte_reten%C3%A7%C3%A3o_dadoscartao/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://tiagotavares.io/draft/norma_descarte_reten%C3%A7%C3%A3o_dadoscartao/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="1">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftiagotavares.io%2Fdraft%2Fnorma_descarte_reten%25C3%25A7%25C3%25A3o_dadoscartao%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Ftiagotavares.io%2Fdraft%2Fnorma_descarte_reten%25C3%25A7%25C3%25A3o_dadoscartao%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Ftiagotavares.io%2Fdraft%2Fnorma_descarte_reten%25C3%25A7%25C3%25A3o_dadoscartao%2F">
+          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Tiago Tavares</h4>
+    
+      <div id="about-card-bio">Eternal student, cybersecurity pro, husband, runner.</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Cybersecurity Consultant
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Brazil
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    <div id="cover" style="background-image:url('https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589318923/last_jedi1_ybpjeb.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://tiagotavares.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/tiagotavares.io\/draft\/norma_descarte_reten%C3%A7%C3%A3o_dadoscartao\/';
+          
+            this.page.identifier = '\/draft\/norma_descarte_reten%C3%A7%C3%A3o_dadoscartao\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'tiagotavares-io';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+

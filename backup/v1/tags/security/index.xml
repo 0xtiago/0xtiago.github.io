@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>security on debugging the life</title>
+    <link>https://tiagotavares.io/tags/security/</link>
+    <description>Recent content in security on debugging the life</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 13 Aug 2021 11:15:12 -0300</lastBuildDate><atom:link href="https://tiagotavares.io/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Café Seguro 23 Café na conta de... Tiago Tavares</title>
+      <link>https://tiagotavares.io/2021/08/caf%C3%A9-seguro-23-caf%C3%A9-na-conta-de...-tiago-tavares/</link>
+      <pubDate>Fri, 13 Aug 2021 11:15:12 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/2021/08/caf%C3%A9-seguro-23-caf%C3%A9-na-conta-de...-tiago-tavares/</guid>
+      <description>&lt;p&gt;Minha participação no podcast &lt;strong&gt;Café Seguro&lt;/strong&gt;, da WSS Security, e apresentado Daniel Dalalana, Pedro Kassick e Ben Hur Ott.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Breach and Attack Simulation com Infection Monkey 🐵</title>
+      <link>https://tiagotavares.io/2020/07/breach-and-attack-simulation-com-infection-monkey/</link>
+      <pubDate>Mon, 27 Jul 2020 21:00:00 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/2020/07/breach-and-attack-simulation-com-infection-monkey/</guid>
+      <description>&lt;p&gt;Realize simulações de ataque em um clique!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Miro&#39;s free accounts (in)security</title>
+      <link>https://tiagotavares.io/2020/07/miros-free-accounts-insecurity/</link>
+      <pubDate>Thu, 16 Jul 2020 08:15:12 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/2020/07/miros-free-accounts-insecurity/</guid>
+      <description>&lt;p&gt;&lt;em&gt;&lt;strong&gt;&amp;ldquo;This is not a bug, is a feature!&amp;quot;&lt;/strong&gt;&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Me apaixonei por uma plataforma de colaboração e tive meu coração despedaçado. 💔&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Recon-NG</title>
+      <link>https://tiagotavares.io/2020/07/recon-ng/</link>
+      <pubDate>Sun, 12 Jul 2020 08:41:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/2020/07/recon-ng/</guid>
+      <description>&lt;p&gt;Como obter informações de organizações alvo, sua infraestrutura e seus colaboradores sem qualquer interação direta. &lt;em&gt;&lt;strong&gt;A Recon-NG quick-start!&lt;/strong&gt;&lt;/em&gt; 😉&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Ekoparty Security Conference 13 (2017) - Talks</title>
+      <link>https://tiagotavares.io/2020/06/ekoparty-security-conference-13-2017-talks/</link>
+      <pubDate>Fri, 19 Jun 2020 22:41:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/2020/06/ekoparty-security-conference-13-2017-talks/</guid>
+      <description>&lt;p&gt;Desde 2017, estive presente todos os anos em Buenos Aires para participar do evento, que sempre me suepreende com o ótimo nível dos materiais apresentados pelos palestrantes.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>(In)segurança em tokens JWT</title>
+      <link>https://tiagotavares.io/2020/06/inseguran%C3%A7a-em-tokens-jwt/</link>
+      <pubDate>Fri, 12 Jun 2020 12:15:12 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/2020/06/inseguran%C3%A7a-em-tokens-jwt/</guid>
+      <description>&lt;p&gt;Existem muitas bibliotecas disponíveis que suportam JWT, e o próprio padrão possui “rico suporte para mecanismos criptográficos”. Tudo isso significa que o JWT é realmente seguro? Vamos ver.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>O fim dos times de AppSec</title>
+      <link>https://tiagotavares.io/2020/06/o-fim-dos-times-de-appsec/</link>
+      <pubDate>Fri, 05 Jun 2020 12:02:56 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/2020/06/o-fim-dos-times-de-appsec/</guid>
+      <description>&lt;p&gt;O paradoxo da segurança em aplicações.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Passed (ISC)2 CCSP - Certified Cloud Security Professional</title>
+      <link>https://tiagotavares.io/2017/03/passed-isc2-ccsp-certified-cloud-security-professional/</link>
+      <pubDate>Wed, 29 Mar 2017 22:00:04 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/2017/03/passed-isc2-ccsp-certified-cloud-security-professional/</guid>
+      <description>&lt;p&gt;My study resouces to achieve CCSP certification.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Passed (ISC)2 CISSP - Certified Information Systems Security Professional</title>
+      <link>https://tiagotavares.io/2015/02/passed-isc2-cissp-certified-information-systems-security-professional/</link>
+      <pubDate>Fri, 27 Feb 2015 20:00:01 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/2015/02/passed-isc2-cissp-certified-information-systems-security-professional/</guid>
+      <description>&lt;p&gt;My resources of study to achieve CISSP certification.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>O uso seguro da internet e &#39;Os 10 nuncas&#39;</title>
+      <link>https://tiagotavares.io/2015/02/o-uso-seguro-da-internet-e-os-10-nuncas/</link>
+      <pubDate>Tue, 10 Feb 2015 14:40:20 -0300</pubDate>
+      
+      <guid>https://tiagotavares.io/2015/02/o-uso-seguro-da-internet-e-os-10-nuncas/</guid>
+      <description>&lt;p&gt;Dicas para ter uma navegação segura na web, publicado também  no  &lt;em&gt;&lt;strong&gt;Portal Carreira &amp;amp; Sucesso da Catho&lt;/strong&gt;.&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

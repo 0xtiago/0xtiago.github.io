@@ -1,400 +1,513 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+    <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.128.2">
+    <meta name="theme" content="Hinode 0.14.0">
     
-    <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.85.0 with theme Tranquilpeak 0.4.8-BETA">
-<meta name="author" content="Tiago Tavares">
-<meta name="keywords" content=", cybersecurity, information security, running, hacking, programming, offensive security, red team">
-<meta name="description" content="Tiago Tavares&#39; Site.">
 
 
-<meta property="og:description" content="Tiago Tavares&#39; Site.">
+
+
+
+    
+    
+<link rel="stylesheet" href="/css/main.min.efe232a6d505bfd4eebc021116f402279b8f9434777650f9bc099c4caff52542.css" integrity="sha256-7+IyptUFv9TuvAIRFvQCJ5uPlDR3dlD5vAmcTK/1JUI=" crossorigin="anonymous">
+    
+        
+    
+    
+         
+        <link rel="preload" href="/fonts/inter-v12-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+
+
+
+
+
+  <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <title>debugging the life - Information Gathering</title>
+    <meta name="description" content="Technical content, most about information security, offensive security and application security.">
+
+<link rel="canonical" href="https://tiagotavares.io/tags/information-gathering/">
+
+<meta property="og:locale" content="en_US">
 <meta property="og:type" content="website">
-<meta property="og:title" content="information gathering">
-<meta name="twitter:title" content="information gathering">
+<meta property="og:title" content="Information Gathering">
+<meta property="og:description" content="Technical content, most about information security, offensive security and application security.">
 <meta property="og:url" content="https://tiagotavares.io/tags/information-gathering/">
-<meta property="twitter:url" content="https://tiagotavares.io/tags/information-gathering/">
 <meta property="og:site_name" content="debugging the life">
-<meta property="og:description" content="Tiago Tavares&#39; Site.">
-<meta name="twitter:description" content="Tiago Tavares&#39; Site.">
-<meta property="og:locale" content="en-us">
-
-
-<meta name="twitter:card" content="summary">
-
-  <meta name="twitter:site" content="@0xtiago">
-
-
-  <meta name="twitter:creator" content="@0xtiago">
+<meta property="og:updated_time" content="2024-07-15T13:17:15-03:00">
+    <meta property="og:image" content="https://tiagotavares.io/logo.png">
+<meta property="og:image:alt" content="Information Gathering">
 
 
 
+<meta name="twitter:card" content="summary_large_image">
 
 
+<meta name="twitter:title" content="Information Gathering">
+<meta name="twitter:description" content="Technical content, most about information security, offensive security and application security.">
+<meta name="twitter:image" content="https://tiagotavares.io/logo.png">
+<meta name="twitter:image:alt" content="Information Gathering">
 
+<link rel="alternate" type="application/rss&#43;xml" href="https://tiagotavares.io/tags/information-gathering/index.xml">
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+        "@id": "https://tiagotavares.io/#/schema/organization/1",
+      "name": "Tiago Tavares",
+      "url": "https://tiagotavares.io/",
+      "sameAs": [
+        , "https://github.com/0xtiago"
+        ],
+      "image": {
+          "@type": "ImageObject",
+          "@id": "https://tiagotavares.io/#/schema/image/1",
+          "url": "https://tiagotavares.io/\u003cnil\u003e",
+          "width": null ,
+          "height": null ,
+          "caption": "Tiago Tavares"
+        }
+      },
+    {
+      "@type": "WebSite",
+      "@id": "https://tiagotavares.io/#/schema/website/1",
+      "url": "https://tiagotavares.io/",
+      "name": "debugging the life",
+      "description": "Technical content, most about information security, offensive security and application security.",
+      "publisher": {
+          "@id": "https://tiagotavares.io/#/schema/organization/1"
+        }
+      },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://tiagotavares.io/tags/information-gathering/",
+      "url": "https://tiagotavares.io/tags/information-gathering/",
+      "name": "Information Gathering",
+      "description": "",
+      "isPartOf": {
+        "@id": "https://tiagotavares.io/#/schema/website/1"
+      },
+      "about": {
+          "@id": "https://tiagotavares.io/#/schema/organization/1"
+        },
+      "datePublished": "2020-07-12T08:41:04CET",
+      "dateModified": "2024-07-15T13:17:15CET",
+      "breadcrumb": {
+        "@id": "https://tiagotavares.io/tags/information-gathering/#/schema/breadcrumb/1"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://tiagotavares.io/tags/information-gathering/#/schema/image/2"
+      },
+      "inLanguage": "en-US",
+      "potentialAction": [{
+        "@type": "ReadAction", "target": ["https://tiagotavares.io/tags/information-gathering/"]
+      }]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://tiagotavares.io/tags/information-gathering/#/schema/breadcrumb/1",
+      "name": "Breadcrumbs",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position":  1 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://tiagotavares.io/",
+          "url": "https://tiagotavares.io/",
+          "name": "Home"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  2 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://tiagotavares.io/tags/",
+          "url": "https://tiagotavares.io/tags/",
+          "name": "Tags"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  3 ,
+        "item": {
+          "@id": "https://tiagotavares.io/tags/information-gathering/"
+          }
+        }]
+    },
 
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ImageObject",
+          "@id": "https://tiagotavares.io/tags/information-gathering/#/schema/image/2",
+          "url": "https://tiagotavares.io/logo.png",
+          "contentUrl": "https://tiagotavares.io/logo.png",
+          "caption": "Information Gathering"
+        }
+      ]
+    }
 
-
-  <meta property="og:image" content="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=640">
-  <meta property="twitter:image" content="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=640">
-
-
-    <title>information gathering</title>
-
-    <link rel="icon" href="images/favicon-32x32.png">
-    
-      <link rel="alternate" type="application/rss+xml" title="RSS" href="https://tiagotavares.io/tags/information-gathering/index.xml">
-    
-
-    
-
-    <link rel="canonical" href="https://tiagotavares.io/tags/information-gathering/">
-
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
-    
-    
-    <link rel="stylesheet" href="https://tiagotavares.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
-    
-    
-
-    
-      
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-36987137-3', 'auto');
-	
-	ga('send', 'pageview');
+  ]
 }
 </script>
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon_hu29d17b5413868ec40c659bb26691088e_2409_16x16_resize_catmullrom_3.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon_hu29d17b5413868ec40c659bb26691088e_2409_32x32_resize_catmullrom_3.png">
+        <link rel="icon" type="image/png" sizes="48x48" href="/img/favicon_hu29d17b5413868ec40c659bb26691088e_2409_48x48_resize_catmullrom_3.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon_hu29d17b5413868ec40c659bb26691088e_2409_180x0_resize_catmullrom_3.png">
     
-    
-  </head>
 
-  <body>
-    <div id="blog">
-      <header id="header" data-behavior="1">
-  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
-  <div class="header-title">
-    <a class="header-title-link" href="https://tiagotavares.io/">debugging the life</a>
-  </div>
-  
-    
-      <a class="header-right-picture "
-         href="https://tiagotavares.io/#about">
-    
-    
-    
-      
-        <img class="header-picture" src="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=90" alt="Author&#39;s picture" />
-      
-    
-    </a>
-  
-</header>
+</head>
 
-      <nav id="sidebar" data-behavior="1">
-  <div class="sidebar-container">
-    
-      <div class="sidebar-profile">
-        <a href="https://tiagotavares.io/#about">
-          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=110" alt="Author&#39;s picture" />
-        </a>
-        <h4 class="sidebar-profile-name">Tiago Tavares</h4>
+    <body>
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-383626879"></script><script src="/js/critical.bundle.min.a73ed0b9da936bca55cd96a54840ab270bde232f86b9b2f7ca2026635b177982.js" integrity="sha256-pz7QudqTa8pVzZalSECrJwveIy&#43;GubL3yiAmY1sXeYI=" crossorigin="anonymous"></script>
+    <div class="d-flex flex-column min-vh-100">
+            <div class="d-flex flex-column ">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container-fluid fixed-top p-0">
+
+
+
+
+
+
+<nav class="navbar p-4 bg-body navbar-fixed-top navbar-expand-md"
         
-          <h5 class="sidebar-profile-bio">Eternal student, cybersecurity pro, husband, runner.</h5>
         
-      </div>
-    
-    <ul class="sidebar-buttons">
-      
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="https://tiagotavares.io/">
-    
-      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
-      
-      <span class="sidebar-button-desc">Home</span>
-    </a>
-  </li>
-
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="https://tiagotavares.io/categories">
-    
-      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
-      
-      <span class="sidebar-button-desc">Categories</span>
-    </a>
-  </li>
-
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="https://tiagotavares.io/tags">
-    
-      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
-      
-      <span class="sidebar-button-desc">Tags</span>
-    </a>
-  </li>
-
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="https://tiagotavares.io/archives">
-    
-      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
-      
-      <span class="sidebar-button-desc">Archives</span>
-    </a>
-  </li>
-
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="https://tiagotavares.io/#about">
-    
-      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
-      
-      <span class="sidebar-button-desc">About</span>
-    </a>
-  </li>
+        >
+        <div class="container-xxl p-0">
+            <div class="d-flex navbar-container justify-content-center">
+                
+                <div class="d-flex align-items-center">
+                        <button class="navbar-toggler collapsed p-0 mx-auto invisible fw-30" type="button">
 
 
-    </ul>
-    <ul class="sidebar-buttons">
-      
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="https://github.com/0xtiago" target="_blank" rel="noopener">
-    
-      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
-      
-      <span class="sidebar-button-desc">GitHub</span>
-    </a>
-  </li>
-
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="https://www.linkedin.com/in/tiagotvrs/" target="_blank" rel="noopener">
-    
-      <i class="sidebar-button-icon fa fa-lg fa-linkedin"></i>
-      
-      <span class="sidebar-button-desc">LinkedIn</span>
-    </a>
-  </li>
-
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="https://www.strava.com/athletes/tiagotavares" target="_blank" rel="noopener">
-    
-      <i class="sidebar-button-icon fa fa-lg fa-heartbeat"></i>
-      
-      <span class="sidebar-button-desc">Strava</span>
-    </a>
-  </li>
-
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="https://twitter.com/0xtiago" target="_blank" rel="noopener">
-    
-      <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
-      
-      <span class="sidebar-button-desc">Twitter</span>
-    </a>
-  </li>
 
 
-    </ul>
-    <ul class="sidebar-buttons">
-      
-  <li class="sidebar-button">
+
+
+
+
+
     
-      <a class="sidebar-button-link " href="https://tiagotavares.io/index.xml">
+
+    <!-- <i class="fas fa-ellipsis fa-fw"></i> --><svg class="svg-inline--fa fas fa-ellipsis fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/></svg>
+
     
-      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
-      
-      <span class="sidebar-button-desc">RSS</span>
-    </a>
-  </li>
-
-
-    </ul>
-  </div>
-</nav>
-
-      
+</button></div>
         
-
-      
-      <div id="main" data-behavior="1"
-        class="
-               hasCoverMetaIn
-               ">
+                
+                <div class="mx-auto">
+                    <a class="navbar-brand" href="/" aria-label="Home">
+                            <img src="/img/tt-logo-icon.svg" alt="debugging the life logo" height="30"></a>
+                </div>
         
-          <section class="postShorten-group main-content-wrap">
-            
-            
-              
-  
+                
+                <div class="d-flex align-items-center">
+                    <button class="navbar-toggler main-nav-toggler collapsed p-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-0-collapse"
+                        aria-controls="navbar-0" aria-expanded="false" aria-label="Toggle main navigation">
+                        <span class="toggler-icon top-bar emphasis"></span>
+                        <span class="toggler-icon middle-bar emphasis"></span>
+                        <span class="toggler-icon bottom-bar emphasis"></span>
+                    </button>
+                </div>
+            </div>
     
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://tiagotavares.io/2020/07/recon-ng/">
-          Recon-NG
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2020-07-12T08:41:04-03:00">
-        
-  July 12, 2020
-
-      </time>
-    
-    
-  
-  
-    <span>in</span>
-    
-      <a class="category-link" href="https://tiagotavares.io/categories/osint">👀OSINT</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        <p>Como obter informações de organizações alvo, sua infraestrutura e seus colaboradores sem qualquer interação direta. <em><strong>A Recon-NG quick-start!</strong></em> 😉</p>
-      
-      <p>
-        <a href="https://tiagotavares.io/2020/07/recon-ng/" class="postShorten-excerpt_link link">Continue reading</a>
-        
-      </p>
-    </div>
-  </div>
-  
-    <a href="https://tiagotavares.io/2020/07/recon-ng/">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1594604315/blog/joseph-rosales-m0yRv0GxkV8-unsplash_dpfmmd.jpg"/>
-      </div>
-    </a>
-  
-</article>
-
-            
-            
-
-          </section>
-        
-        <footer id="footer" class="main-content-wrap">
-  <span class="copyrights">
-    &copy; 2022 Tiago Tavares. All Rights Reserved
-  </span>
-</footer>
-
-      </div>
-    </div>
-    
-    <div id="about">
-  <div id="about-card">
-    <div id="about-btn-close">
-      <i class="fa fa-remove"></i>
-    </div>
-    
-      <img id="about-card-picture" src="https://www.gravatar.com/avatar/e68e9fb3fa89ea576f47c7ef05d17448?s=110" alt="Author&#39;s picture" />
-    
-    <h4 id="about-card-name">Tiago Tavares</h4>
-    
-      <div id="about-card-bio">Eternal student, cybersecurity pro, husband, runner.</div>
-    
-    
-      <div id="about-card-job">
-        <i class="fa fa-briefcase"></i>
-        <br/>
-        Cybersecurity Consultant
-      </div>
-    
-    
-      <div id="about-card-location">
-        <i class="fa fa-map-marker"></i>
-        <br/>
-        Brazil
-      </div>
-    
-  </div>
+            <div class="navbar-collapse collapse" id="navbar-0-collapse">
+                <div class="d-flex flex-fill ms-md-3">
+    <form class="search flex-fill position-relative me-auto">
+        <input class="search-input form-control is-search" type="search" placeholder="Search this site" aria-label="Search this site" autocomplete="off">
+        <div class="search-suggestions shadow bg-body rounded d-none" data-no-results="No results for"></div>
+    </form>
 </div>
 
-    
-
-    
-  
-    <div id="cover" style="background-image:url('https://res.cloudinary.com/dtr6hzxnx/image/upload/v1589318923/last_jedi1_ybpjeb.jpg');"></div>
-  
+                <ul class="navbar-nav ms-auto">
+                            <li class="nav-item ">
 
 
-    
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
-
-
-<script src="https://tiagotavares.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
-
-
-<script lang="javascript">
-window.onload = updateMinWidth;
-window.onresize = updateMinWidth;
-document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
-function updateMinWidth() {
-  var sidebar = document.getElementById("sidebar");
-  var main = document.getElementById("main");
-  main.style.minWidth = "";
-  var w1 = getComputedStyle(main).getPropertyValue("min-width");
-  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
-  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
-  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
-}
-</script>
-
-<script>
-$(document).ready(function() {
-  hljs.configure({ classPrefix: '', useBR: false });
-  $('pre.code-highlight > code, pre > code').each(function(i, block) {
-    if (!$(this).hasClass('codeblock')) {
-      $(this).addClass('codeblock');
-    }
-    hljs.highlightBlock(block);
-  });
-});
-</script>
 
 
 
 
 
     
-  </body>
+        <a class="nav-link" 
+            
+            data-nav="main" data-nav-main="about" 
+            href="/about/" ><span >About</span>&nbsp;</a>
+    
+</li>
+                            <li class="nav-item ">
+
+
+
+
+
+
+
+
+    
+        <a class="nav-link" 
+            
+            data-nav="main" data-nav-main="blog" 
+            href="/blog/" ><span >Blog</span>&nbsp;</a>
+    
+</li>
+                            <li class="nav-item ">
+
+
+
+
+
+
+
+
+    
+        <a class="nav-link active" 
+            
+            data-nav="main" data-nav-main="tags" 
+            href="/tags/" ><span  class="active">Tags</span>&nbsp;</a>
+    
+</li><div class="d-flex mode-switch align-items-center" id="navbar-mode">
+        <input type="checkbox" class="checkbox navbar-mode-selector" id="navbar-mode-checkbox" />
+        <label class="label" for="navbar-mode-checkbox">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-sun fa-fw"></i> --><svg class="svg-inline--fa fas fa-sun fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512"><path d="M361.5 1.2c5 2.1 8.6 6.6 9.6 11.9L391 121l107.9 19.8c5.3 1 9.8 4.6 11.9 9.6s1.5 10.7-1.6 15.2L446.9 256l62.3 90.3c3.1 4.5 3.7 10.2 1.6 15.2s-6.6 8.6-11.9 9.6L391 391 371.1 498.9c-1 5.3-4.6 9.8-9.6 11.9s-10.7 1.5-15.2-1.6L256 446.9l-90.3 62.3c-4.5 3.1-10.2 3.7-15.2 1.6s-8.6-6.6-9.6-11.9L121 391 13.1 371.1c-5.3-1-9.8-4.6-11.9-9.6s-1.5-10.7 1.6-15.2L65.1 256 2.8 165.7c-3.1-4.5-3.7-10.2-1.6-15.2s6.6-8.6 11.9-9.6L121 121 140.9 13.1c1-5.3 4.6-9.8 9.6-11.9s10.7-1.5 15.2 1.6L256 65.1 346.3 2.8c4.5-3.1 10.2-3.7 15.2-1.6zM160 256a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zm224 0a128 128 0 1 0 -256 0 128 128 0 1 0 256 0z"/></svg>
+
+    
+
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-moon fa-fw"></i> --><svg class="svg-inline--fa fas fa-moon fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 384 512"><path d="M223.5 32C100 32 0 132.3 0 256S100 480 223.5 480c60.6 0 115.5-24.2 155.8-63.4c5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6c-96.9 0-175.5-78.8-175.5-176c0-65.8 36-123.1 89.3-153.3c6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"/></svg>
+
+    
+
+            <div class="ball"></div>
+        </label>
+    </div></ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="main-content">
+                    </div>
+                
+            </div>
+
+            
+                <div class="container-xxl flex-fill p-4 px-xxl-0">
+        <div class="row row-cols-1 row-cols-sm-3">
+            <div class="col col-md-2 d-none d-md-block"></div>
+            <div class="col col-sm-12 col-md-8">
+                        <div>
+
+
+
+
+
+
+
+
+
+
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                
+                    <li class="breadcrumb-item"><a href="/tags/">Tags</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Information Gathering</li>
+        </ol>
+    </nav>
+</div>
+                    <p class="display-4 mt-5">Information Gathering</p>
+
+                
+                    
+                    
+                    
+                        
+                        
+                        <div class="row mt-2">
+                            <div class="d-none d-sm-block col-sm-3 mt-auto text-right">
+                                <time class="post-date" datetime="2020-07-12T08:41:04-03:00">
+                                    Jul 12, 2020
+                                </time>
+                            </div>
+                            <div class="col">
+                                
+                                    <p class="text-body-secondary mt-5">2020</p>
+                                    
+                                
+                                <a href="/blog/recon-ng/">Recon-NG</a>
+                            </div>
+                        </div>
+                    
+                
+            </div>
+            <div class="col col-md-2 d-none d-md-block"></div>
+        </div>
+    </div>
+
+
+
+<div class="container-fluid bg-primary bg-opacity-10">
+        <div class="container-xxl px-4 px-xxl-0">
+            <div class="row row-cols-2 py-3 align-items-center">
+                <div class="col col-6">
+                    <div class="row justify-content-end p-0">
+                        <div class="col-12 col-md-8 p-0">
+                            <div class="fs-3 fw-bold">👾</div>
+                            <p>Eternal student.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-6 text-sm-start">
+                    <a href="https://linkedin.com/in/tiagotavi"  aria-label="LinkedIn" class="text-decoration-none link-secondary d-inline p-2">
+                            
+                                
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fab fa-linkedin fa-2x"></i> --><svg class="svg-inline--fa fab fa-linkedin fa-2x" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+
+    &nbsp;
+
+                            
+                        </a>
+                    <a href="https://github.com/0xtiago"  aria-label="GitHub" class="text-decoration-none link-secondary d-inline p-2">
+                            
+                                
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fab fa-github fa-2x"></i> --><svg class="svg-inline--fa fab fa-github fa-2x" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+    &nbsp;
+
+                            
+                        </a>
+                    <a href="https://x.com/tiagotavi"  aria-label="X" class="text-decoration-none link-secondary d-inline p-2">
+                            
+                                
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fab fa-x-twitter fa-2x"></i> --><svg class="svg-inline--fa fab fa-x-twitter fa-2x" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+
+    &nbsp;
+
+                            
+                        </a>
+                    </div>
+            </div>
+        </div>
+    </div>
+<footer class="container-fluid footer text-center p-3">
+    <div class="container-xxl text-center">
+        <small>
+            Copyright © 2024 Tiago Tavares.
+            
+            
+        </small>
+    </div>
+</footer>
+        </div>
+
+        <div id="toast-container" class="toast-container position-fixed bottom-0 end-0 p-3">
+
+
+
+
+
+
+
+<div id="toast-copied-code-message" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+        <strong class="me-auto">debugging the life</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">Code copied to clipboard</div>
+</div>
+</div>
+
+<script src="/js/main.bundle.min.c6089b984ef35ae8e9bccfc100c85f00bea06b9a6527ae4d5a59e9170e15a11f.js" integrity="sha256-xgibmE7zWujpvM/BAMhfAL6ga5plJ65NWlnpFw4VoR8=" crossorigin="anonymous" async></script>
+    
+
+    
+
+
+
+
+</body>
 </html>
-
