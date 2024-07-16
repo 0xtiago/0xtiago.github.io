@@ -7,13 +7,34 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Tiago Tavares.</copyright>
-    <lastBuildDate>Mon, 15 Jul 2024 21:35:30 -0300</lastBuildDate>
+    <lastBuildDate>Tue, 16 Jul 2024 10:22:40 -0300</lastBuildDate>
     <atom:link href="https://tiagotavares.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Blog</title>
-      <link>https://tiagotavares.io/tags/blog/</link>
+      <title>Carreira</title>
+      <link>https://tiagotavares.io/tags/carreira/</link>
       <pubDate>Fri, 12 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://tiagotavares.io/tags/blog/</guid>
+      <guid>https://tiagotavares.io/tags/carreira/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Comunidade</title>
+      <link>https://tiagotavares.io/tags/comunidade/</link>
+      <pubDate>Fri, 12 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://tiagotavares.io/tags/comunidade/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hacking</title>
+      <link>https://tiagotavares.io/tags/hacking/</link>
+      <pubDate>Fri, 12 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://tiagotavares.io/tags/hacking/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vulnhub</title>
+      <link>https://tiagotavares.io/tags/vulnhub/</link>
+      <pubDate>Fri, 12 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://tiagotavares.io/tags/vulnhub/</guid>
       <description></description>
     </item>
     <item>
@@ -224,20 +245,6 @@
       <link>https://tiagotavares.io/tags/ctf/</link>
       <pubDate>Sat, 19 Dec 2020 08:00:51 -0300</pubDate>
       <guid>https://tiagotavares.io/tags/ctf/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Hacking</title>
-      <link>https://tiagotavares.io/tags/hacking/</link>
-      <pubDate>Sat, 19 Dec 2020 08:00:51 -0300</pubDate>
-      <guid>https://tiagotavares.io/tags/hacking/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Vulnhub</title>
-      <link>https://tiagotavares.io/tags/vulnhub/</link>
-      <pubDate>Sat, 19 Dec 2020 08:00:51 -0300</pubDate>
-      <guid>https://tiagotavares.io/tags/vulnhub/</guid>
       <description></description>
     </item>
     <item>
