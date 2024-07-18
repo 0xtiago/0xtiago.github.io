@@ -2,44 +2,47 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://tiagotavares.io/blog/vou-vestejar-vulnerable-machine/</loc>
-    <lastmod>2024-07-18T18:07:23-03:00</lastmod>
+    <loc>https://tiagotavares.io/drafts/vou-vestejar-vulnerable-machine/</loc>
+    <lastmod>2024-07-18T18:10:47-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/tags/beth-carvalho/</loc>
-    <lastmod>2024-07-18T18:07:23-03:00</lastmod>
+    <lastmod>2024-07-18T18:10:47-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/blog/</loc>
-    <lastmod>2024-07-18T18:07:23-03:00</lastmod>
+    <lastmod>2024-07-18T09:08:27-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/tags/carreira/</loc>
-    <lastmod>2024-07-18T18:07:23-03:00</lastmod>
+    <lastmod>2024-07-18T18:10:47-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/tags/comunidade/</loc>
-    <lastmod>2024-07-18T18:07:23-03:00</lastmod>
+    <lastmod>2024-07-18T18:10:47-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/tags/ctf/</loc>
-    <lastmod>2024-07-18T18:07:23-03:00</lastmod>
+    <lastmod>2024-07-18T18:10:47-03:00</lastmod>
   </url><url>
-    <loc>https://tiagotavares.io/blog/draft/</loc>
-    <lastmod>2024-07-18T18:07:23-03:00</lastmod>
+    <loc>https://tiagotavares.io/drafts/draft/</loc>
+    <lastmod>2024-07-18T18:10:47-03:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/drafts/</loc>
+    <lastmod>2024-07-18T18:10:47-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/tags/hacking/</loc>
-    <lastmod>2024-07-18T18:07:23-03:00</lastmod>
+    <lastmod>2024-07-18T18:10:47-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/blog/keep-moving-fi-duma-egua/</loc>
     <lastmod>2024-07-16T10:22:40-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/tags/</loc>
-    <lastmod>2024-07-18T18:07:23-03:00</lastmod>
+    <lastmod>2024-07-18T18:10:47-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/tags/vou-vestejar/</loc>
-    <lastmod>2024-07-18T18:07:23-03:00</lastmod>
+    <lastmod>2024-07-18T18:10:47-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/tags/vulnerable-machines/</loc>
-    <lastmod>2024-07-18T18:07:23-03:00</lastmod>
+    <lastmod>2024-07-18T18:10:47-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/tags/vulnhub/</loc>
-    <lastmod>2024-07-18T18:07:23-03:00</lastmod>
+    <lastmod>2024-07-18T18:10:47-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/tags/apache/</loc>
     <lastmod>2024-07-15T17:21:20-03:00</lastmod>
