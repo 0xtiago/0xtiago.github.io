@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Tiago Tavares.</copyright>
-    <lastBuildDate>Thu, 18 Jul 2024 09:08:27 -0300</lastBuildDate>
+    <lastBuildDate>Thu, 18 Jul 2024 18:07:23 -0300</lastBuildDate>
     <atom:link href="https://tiagotavares.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Beth Carvalho</title>
+      <link>https://tiagotavares.io/tags/beth-carvalho/</link>
+      <pubDate>Fri, 12 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://tiagotavares.io/tags/beth-carvalho/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Carreira</title>
       <link>https://tiagotavares.io/tags/carreira/</link>
@@ -24,10 +31,31 @@
       <description></description>
     </item>
     <item>
+      <title>Ctf</title>
+      <link>https://tiagotavares.io/tags/ctf/</link>
+      <pubDate>Fri, 12 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://tiagotavares.io/tags/ctf/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Hacking</title>
       <link>https://tiagotavares.io/tags/hacking/</link>
       <pubDate>Fri, 12 Jul 2024 00:00:00 +0000</pubDate>
       <guid>https://tiagotavares.io/tags/hacking/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vou Vestejar</title>
+      <link>https://tiagotavares.io/tags/vou-vestejar/</link>
+      <pubDate>Fri, 12 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://tiagotavares.io/tags/vou-vestejar/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vulnerable Machines</title>
+      <link>https://tiagotavares.io/tags/vulnerable-machines/</link>
+      <pubDate>Fri, 12 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://tiagotavares.io/tags/vulnerable-machines/</guid>
       <description></description>
     </item>
     <item>
@@ -238,13 +266,6 @@
       <link>https://tiagotavares.io/tags/javascript/</link>
       <pubDate>Thu, 15 Jul 2021 00:00:00 +0000</pubDate>
       <guid>https://tiagotavares.io/tags/javascript/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Ctf</title>
-      <link>https://tiagotavares.io/tags/ctf/</link>
-      <pubDate>Sat, 19 Dec 2020 08:00:51 -0300</pubDate>
-      <guid>https://tiagotavares.io/tags/ctf/</guid>
       <description></description>
     </item>
     <item>
@@ -672,13 +693,6 @@
       <link>https://tiagotavares.io/tags/lampiao/</link>
       <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
       <guid>https://tiagotavares.io/tags/lampiao/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Vulnerable Machines</title>
-      <link>https://tiagotavares.io/tags/vulnerable-machines/</link>
-      <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
-      <guid>https://tiagotavares.io/tags/vulnerable-machines/</guid>
       <description></description>
     </item>
     <item>
