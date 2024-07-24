@@ -1,0 +1,2479 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+    <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.128.2">
+    <meta name="theme" content="Hinode 0.14.0">
+    
+
+
+
+
+
+    
+    
+<link rel="stylesheet" href="/css/main.min.efe232a6d505bfd4eebc021116f402279b8f9434777650f9bc099c4caff52542.css" integrity="sha256-7+IyptUFv9TuvAIRFvQCJ5uPlDR3dlD5vAmcTK/1JUI=" crossorigin="anonymous">
+    
+        
+    
+    
+         
+        <link rel="preload" href="/fonts/inter-v12-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+
+
+
+
+
+    
+  <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <title>debugging the life - Open Source SAST com Horusec</title>
+    <meta name="description" content="Mais um manual e casos de uso atualizados dessa ótima solução de scans de vulnerabilidades em código fonte.">
+
+<link rel="canonical" href="https://tiagotavares.io/blog/opensource_sast_com_horusec/">
+
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Open Source SAST com Horusec">
+<meta property="og:description" content="Mais um manual e casos de uso atualizados dessa ótima solução de scans de vulnerabilidades em código fonte.">
+<meta property="og:url" content="https://tiagotavares.io/blog/opensource_sast_com_horusec/">
+<meta property="og:site_name" content="debugging the life">
+<meta property="article:published_time" content="2024-07-24T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-07-24T20:42:48-03:00">
+    <meta property="og:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fill,h_640,w_1280/v1721860503/blog/Horusec_Manual_-_tiagotavares.io_kkpxlz.jpg">
+<meta property="og:image:alt" content="Open Source SAST com Horusec">
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+
+
+<meta name="twitter:title" content="Open Source SAST com Horusec">
+<meta name="twitter:description" content="Mais um manual e casos de uso atualizados dessa ótima solução de scans de vulnerabilidades em código fonte.">
+<meta name="twitter:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fill,h_640,w_1280/v1721860503/blog/Horusec_Manual_-_tiagotavares.io_kkpxlz.jpg">
+<meta name="twitter:image:alt" content="Open Source SAST com Horusec">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+        "@id": "https://tiagotavares.io/#/schema/organization/1",
+      "name": "Tiago Tavares",
+      "url": "https://tiagotavares.io/",
+      "sameAs": [
+        , "https://github.com/0xtiago"
+        ],
+      "image": {
+          "@type": "ImageObject",
+          "@id": "https://tiagotavares.io/#/schema/image/1",
+          "url": "https://tiagotavares.io/\u003cnil\u003e",
+          "width": null ,
+          "height": null ,
+          "caption": "Tiago Tavares"
+        }
+      },
+    {
+      "@type": "WebSite",
+      "@id": "https://tiagotavares.io/#/schema/website/1",
+      "url": "https://tiagotavares.io/",
+      "name": "debugging the life",
+      "description": "Technical content, most about information security, offensive security and application security.",
+      "publisher": {
+          "@id": "https://tiagotavares.io/#/schema/organization/1"
+        }
+      },
+    {
+      "@type": "WebPage",
+      "@id": "https://tiagotavares.io/blog/opensource_sast_com_horusec/",
+      "url": "https://tiagotavares.io/blog/opensource_sast_com_horusec/",
+      "name": "Open Source SAST com Horusec",
+      "description": "Mais um manual e casos de uso atualizados dessa ótima solução de scans de vulnerabilidades em código fonte.",
+      "isPartOf": {
+        "@id": "https://tiagotavares.io/#/schema/website/1"
+      },
+      "about": {
+          "@id": "https://tiagotavares.io/#/schema/organization/1"
+        },
+      "datePublished": "2024-07-24T00:00:00CET",
+      "dateModified": "2024-07-24T20:42:48CET",
+      "breadcrumb": {
+        "@id": "https://tiagotavares.io/blog/opensource_sast_com_horusec/#/schema/breadcrumb/1"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://tiagotavares.io/blog/opensource_sast_com_horusec/#/schema/image/2"
+      },
+      "inLanguage": "en-US",
+      "potentialAction": [{
+        "@type": "ReadAction", "target": ["https://tiagotavares.io/blog/opensource_sast_com_horusec/"]
+      }]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://tiagotavares.io/blog/opensource_sast_com_horusec/#/schema/breadcrumb/1",
+      "name": "Breadcrumbs",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position":  1 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://tiagotavares.io/",
+          "url": "https://tiagotavares.io/",
+          "name": "Home"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  2 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://tiagotavares.io/blog/",
+          "url": "https://tiagotavares.io/blog/",
+          "name": "Blog"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  3 ,
+        "item": {
+          "@id": "https://tiagotavares.io/blog/opensource_sast_com_horusec/"
+          }
+        }]
+    },
+
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "@id": "https://tiagotavares.io/#/schema/article/1",
+          "headline": "Open Source SAST com Horusec",
+          "description": "Mais um manual e casos de uso atualizados dessa ótima solução de scans de vulnerabilidades em código fonte.",
+          "isPartOf": {
+            "@id": "https://tiagotavares.io/blog/opensource_sast_com_horusec/"
+          },
+          "mainEntityOfPage": {
+            "@id": "https://tiagotavares.io/blog/opensource_sast_com_horusec/"
+          },
+          "datePublished": "2024-07-24T00:00:00CET",
+          "dateModified": "2024-07-24T20:42:48CET",
+          "author": {
+            "@id": "https://tiagotavares.io/#/schema/person/2"
+          },
+          "publisher": {
+              "@id": "https://tiagotavares.io/#/schema/organization/1"
+            },
+          "image": {
+            "@id": "https://tiagotavares.io/blog/opensource_sast_com_horusec/#/schema/image/2"
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://tiagotavares.io/#/schema/person/2",
+          "name":  null ,
+          "sameAs": [
+            ]
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ImageObject",
+          "@id": "https://tiagotavares.io/blog/opensource_sast_com_horusec/#/schema/image/2",
+          "url": "https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fill,h_640,w_1280/v1721860503/blog/Horusec_Manual_-_tiagotavares.io_kkpxlz.jpg",
+          "contentUrl": "https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fill,h_640,w_1280/v1721860503/blog/Horusec_Manual_-_tiagotavares.io_kkpxlz.jpg",
+          "caption": "Open Source SAST com Horusec"
+        }
+      ]
+    }
+
+  ]
+}
+</script>
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon_hu29d17b5413868ec40c659bb26691088e_2409_16x16_resize_catmullrom_3.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon_hu29d17b5413868ec40c659bb26691088e_2409_32x32_resize_catmullrom_3.png">
+        <link rel="icon" type="image/png" sizes="48x48" href="/img/favicon_hu29d17b5413868ec40c659bb26691088e_2409_48x48_resize_catmullrom_3.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon_hu29d17b5413868ec40c659bb26691088e_2409_180x0_resize_catmullrom_3.png">
+    
+
+</head>
+
+    <body>
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-HCTHDQERH9"></script><script src="/js/critical.bundle.min.a73ed0b9da936bca55cd96a54840ab270bde232f86b9b2f7ca2026635b177982.js" integrity="sha256-pz7QudqTa8pVzZalSECrJwveIy&#43;GubL3yiAmY1sXeYI=" crossorigin="anonymous"></script>
+    <div class="d-flex flex-column min-vh-100">
+            <div class="d-flex flex-column ">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container-fluid fixed-top p-0">
+
+
+
+
+
+
+<nav class="navbar p-4 bg-body navbar-fixed-top navbar-expand-md"
+        
+        
+        >
+        <div class="container-xxl p-0">
+            <div class="d-flex navbar-container justify-content-center">
+                
+                <div class="d-flex align-items-center">
+                        <button class="navbar-toggler collapsed p-0 mx-auto invisible fw-30" type="button">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-ellipsis fa-fw"></i> --><svg class="svg-inline--fa fas fa-ellipsis fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/></svg>
+
+    
+</button></div>
+        
+                
+                <div class="mx-auto">
+                    <a class="navbar-brand" href="/" aria-label="Home">
+                            <img src="/img/tt-logo-icon.svg" alt="debugging the life logo" height="30" width="30"></a>
+                </div>
+        
+                
+                <div class="d-flex align-items-center">
+                    <button class="navbar-toggler main-nav-toggler collapsed p-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-0-collapse"
+                        aria-controls="navbar-0" aria-expanded="false" aria-label="Toggle main navigation">
+                        <span class="toggler-icon top-bar emphasis"></span>
+                        <span class="toggler-icon middle-bar emphasis"></span>
+                        <span class="toggler-icon bottom-bar emphasis"></span>
+                    </button>
+                </div>
+            </div>
+    
+            <div class="navbar-collapse collapse" id="navbar-0-collapse">
+                <div class="d-flex flex-fill ms-md-3">
+    <form class="search flex-fill position-relative me-auto">
+        <input class="search-input form-control is-search" type="search" placeholder="Search this site" aria-label="Search this site" autocomplete="off">
+        <div class="search-suggestions shadow bg-body rounded d-none" data-no-results="No results for"></div>
+    </form>
+</div>
+
+                <ul class="navbar-nav ms-auto">
+                            <li class="nav-item ">
+
+
+
+
+
+
+
+
+    
+        <a class="nav-link" 
+            
+            data-nav="main" data-nav-main="about" 
+            href="/about/" ><span >About</span>&nbsp;</a>
+    
+</li>
+                            <li class="nav-item ">
+
+
+
+
+
+
+
+
+    
+        <a class="nav-link active" 
+            
+            data-nav="main" data-nav-main="blog" 
+            href="/blog/" ><span  class="active">Blog</span>&nbsp;</a>
+    
+</li>
+                            <li class="nav-item ">
+
+
+
+
+
+
+
+
+    
+        <a class="nav-link" 
+            
+            data-nav="main" data-nav-main="tags" 
+            href="/tags/" ><span >Tags</span>&nbsp;</a>
+    
+</li><div class="d-flex mode-switch align-items-center" id="navbar-mode">
+        <input type="checkbox" class="checkbox navbar-mode-selector" id="navbar-mode-checkbox" />
+        <label class="label" for="navbar-mode-checkbox">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-sun fa-fw"></i> --><svg class="svg-inline--fa fas fa-sun fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512"><path d="M361.5 1.2c5 2.1 8.6 6.6 9.6 11.9L391 121l107.9 19.8c5.3 1 9.8 4.6 11.9 9.6s1.5 10.7-1.6 15.2L446.9 256l62.3 90.3c3.1 4.5 3.7 10.2 1.6 15.2s-6.6 8.6-11.9 9.6L391 391 371.1 498.9c-1 5.3-4.6 9.8-9.6 11.9s-10.7 1.5-15.2-1.6L256 446.9l-90.3 62.3c-4.5 3.1-10.2 3.7-15.2 1.6s-8.6-6.6-9.6-11.9L121 391 13.1 371.1c-5.3-1-9.8-4.6-11.9-9.6s-1.5-10.7 1.6-15.2L65.1 256 2.8 165.7c-3.1-4.5-3.7-10.2-1.6-15.2s6.6-8.6 11.9-9.6L121 121 140.9 13.1c1-5.3 4.6-9.8 9.6-11.9s10.7-1.5 15.2 1.6L256 65.1 346.3 2.8c4.5-3.1 10.2-3.7 15.2-1.6zM160 256a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zm224 0a128 128 0 1 0 -256 0 128 128 0 1 0 256 0z"/></svg>
+
+    
+
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-moon fa-fw"></i> --><svg class="svg-inline--fa fas fa-moon fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 384 512"><path d="M223.5 32C100 32 0 132.3 0 256S100 480 223.5 480c60.6 0 115.5-24.2 155.8-63.4c5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6c-96.9 0-175.5-78.8-175.5-176c0-65.8 36-123.1 89.3-153.3c6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"/></svg>
+
+    
+
+            <div class="ball"></div>
+        </label>
+    </div></ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="main-content">
+                    </div>
+                
+            </div>
+
+            
+                
+    
+
+    
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvass-sidebar" aria-inledby="offcanvas-label">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvas-label">Blog</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                
+
+            </div>
+        </div>
+    
+
+    <div class="container-xxl flex-fill p-4 px-xxl-0">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+                <div class="col col-lg-2 d-none d-lg-block sidebar-overflow sticky-top pt-5">
+                    
+
+                </div>
+                <div class="col-12 col-md-9 col-lg-8 mb-5 p-4">
+                    
+
+
+
+
+
+
+
+
+
+
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                
+                    <li class="breadcrumb-item"><a href="/blog/">Blogs</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Open Source SAST com Horusec</li>
+        </ol>
+    </nav>
+<p class="display-4 mt-5">Open Source SAST com Horusec</p>
+
+    <small class="text-body-secondary text-uppercase">
+        Posted on July 24, 2024
+            
+        
+        &bull;
+        10&nbsp;min read &bull;
+        1,936&nbsp;words
+    </small>
+<div class="mt-3">
+        <div class="d-none-dark">
+            <div class="hstack gap-1">
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Open Source"
+        href="/tags/open-source/" class="btn btn-light btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Open Source</div>
+        </div></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Sast"
+        href="/tags/sast/" class="btn btn-light btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Sast</div>
+        </div></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Horusec"
+        href="/tags/horusec/" class="btn btn-light btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Horusec</div>
+        </div></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Application Security"
+        href="/tags/application-security/" class="btn btn-light btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Application Security</div>
+        </div></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Appsec"
+        href="/tags/appsec/" class="btn btn-light btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Appsec</div>
+        </div></a>&nbsp;
+
+                </div>
+        </div>
+        
+        <div class="d-none-light">
+            <div class="hstack gap-1">
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Open Source"
+        href="/tags/open-source/" class="btn btn-outline-primary btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Open Source</div>
+        </div></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Sast"
+        href="/tags/sast/" class="btn btn-outline-primary btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Sast</div>
+        </div></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Horusec"
+        href="/tags/horusec/" class="btn btn-outline-primary btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Horusec</div>
+        </div></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Application Security"
+        href="/tags/application-security/" class="btn btn-outline-primary btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Application Security</div>
+        </div></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Appsec"
+        href="/tags/appsec/" class="btn btn-outline-primary btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Appsec</div>
+        </div></a>&nbsp;
+
+                </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+<div class="py-3 text-body-secondary hstack gap-1">
+            Share via 
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Share via LinkedIn"
+        href="https://www.linkedin.com/sharing/share-offsite/?url=https://tiagotavares.io/blog/opensource_sast_com_horusec/" class="btn btn-primary  position-relative  btn-social p-0"
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto"></div><div class="align-self-center">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fab fa-linkedin fa-fw"></i> --><svg class="svg-inline--fa fab fa-linkedin fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+
+    
+</div>
+        </div></a>
+
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Share via Twitter"
+        href="https://twitter.com/home?status=https://tiagotavares.io/blog/opensource_sast_com_horusec/" class="btn btn-primary  position-relative  btn-social p-0"
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto"></div><div class="align-self-center">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fab fa-x-twitter fa-fw"></i> --><svg class="svg-inline--fa fab fa-x-twitter fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+
+    
+</div>
+        </div></a>
+
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Share via Facebook"
+        href="https://www.facebook.com/sharer.php?u=https://tiagotavares.io/blog/opensource_sast_com_horusec/" class="btn btn-primary  position-relative  btn-social p-0"
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto"></div><div class="align-self-center">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fab fa-facebook fa-fw"></i> --><svg class="svg-inline--fa fab fa-facebook fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512"><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z"/></svg>
+
+    
+</div>
+        </div></a>
+
+
+
+
+
+
+
+
+
+
+
+    <a aria-label="Share via WhatsApp"
+        href="whatsapp://send?text=Open&#43;Source&#43;SAST&#43;com&#43;Horusec%20https://tiagotavares.io/blog/opensource_sast_com_horusec/" class="btn btn-primary  position-relative  btn-social p-0"
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto"></div><div class="align-self-center">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fab fa-whatsapp fa-fw"></i> --><svg class="svg-inline--fa fab fa-whatsapp fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+
+    
+</div>
+        </div></a>
+
+
+
+
+
+
+
+
+<div id="toast-message-email-4" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+        <strong class="me-auto">debugging the life</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">Link copied to clipboard</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Share via email"
+        href="#!" data-toast-target="toast-message-email-4" data-clipboard="https://tiagotavares.io/blog/opensource_sast_com_horusec/" class="btn btn-primary  position-relative  btn-social p-0"
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto"></div><div class="align-self-center">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link fa-fw"></i> --><svg class="svg-inline--fa fas fa-link fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    
+</div>
+        </div></a>
+
+                
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Share via system"
+        href="#!" id="btn-webshare" class="btn btn-primary  position-relative  btn-social p-0"
+         data-sharing-description="%!s(<nil>)" data-sharing-title="%!s(<nil>)" data-sharing-url="%!s(<nil>)"role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto"></div><div class="align-self-center">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-share-nodes fa-fw"></i> --><svg class="svg-inline--fa fas fa-share-nodes fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><path d="M352 224c53 0 96-43 96-96s-43-96-96-96s-96 43-96 96c0 4 .2 8 .7 11.9l-94.1 47C145.4 170.2 121.9 160 96 160c-53 0-96 43-96 96s43 96 96 96c25.9 0 49.4-10.2 66.6-26.9l94.1 47c-.5 3.9-.7 7.8-.7 11.9c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-25.9 0-49.4 10.2-66.6 26.9l-94.1-47c.5-3.9 .7-7.8 .7-11.9s-.2-8-.7-11.9l94.1-47C302.6 213.8 326.1 224 352 224z"/></svg>
+
+    
+</div>
+        </div></a>
+</div>
+<p class="lead mb-5 mt-3">Mais um manual e casos de uso atualizados dessa ótima solução de scans de vulnerabilidades em código fonte.</p>
+<div class="d-md-none pb-5">
+
+
+
+
+
+
+<div class="d-grid gap-2 mx-auto">
+        
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="On this page"
+        href="#toc-collapse" class="btn btn-outline-secondary  position-relative  toc-button"
+         data-bs-toggle="collapse" aria-expanded="false" aria-controls="toc-collapse"role="button"
+        >
+        <div class="d-flex justify-content-between">
+            <div class="my-auto">On this page</div><div class="align-self-center ps-1">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-sort "></i> --><svg class="svg-inline--fa fas fa-sort " fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 320 512"><path d="M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8H32c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8H288c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z"/></svg>
+
+    
+</div>
+        </div></a>
+</div>
+
+    <div class="collapse border bg-body-tertiary rounded p-1 navbar-nav-scroll" id="toc-collapse">
+        <div class="toc toc-panel text-body p-2">
+            <small><nav id="TableOfContents">
+  <ul>
+    <li><a href="#horusec-vscode-ide-plugin">Horusec VsCode IDE Plugin</a></li>
+    <li><a href="#instalação-dos-binários-windows-linux-e-mac">Instalação dos binários (Windows, Linux e Mac)</a>
+      <ul>
+        <li><a href="#windows">Windows</a></li>
+        <li><a href="#linux-e-mac">Linux e Mac</a></li>
+      </ul>
+    </li>
+    <li><a href="#horusec-cli-sem-docker-binário">Horusec CLI sem Docker (Binário)</a></li>
+    <li><a href="#horusec-cli-com-docker-binário">Horusec CLI com Docker (Binário)</a></li>
+    <li><a href="#horusec-docker">Horusec Docker</a></li>
+    <li><a href="#reports-customizados">Reports customizados</a></li>
+    <li><a href="#horusec-em-pipeline-github-actions">Horusec em pipeline Github Actions</a></li>
+  </ul>
+</nav></small>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="img-wrap mb-5"><img class="img-fluid rounded"
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fill,h_1200,w_2800/v1721860503/blog/Horusec_Manual_-_tiagotavares.io_kkpxlz.jpg"
+            
+            fetchpriority="high"
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fill,h_247,w_576/v1721860503/blog/Horusec_Manual_-_tiagotavares.io_kkpxlz.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fill,h_329,w_768/v1721860503/blog/Horusec_Manual_-_tiagotavares.io_kkpxlz.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fill,h_425,w_992/v1721860503/blog/Horusec_Manual_-_tiagotavares.io_kkpxlz.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fill,h_514,w_1200/v1721860503/blog/Horusec_Manual_-_tiagotavares.io_kkpxlz.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fill,h_600,w_1400/v1721860503/blog/Horusec_Manual_-_tiagotavares.io_kkpxlz.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fill,h_1200,w_2800/v1721860503/blog/Horusec_Manual_-_tiagotavares.io_kkpxlz.png 2800w" sizes="100vw"
+            height="1200"
+            width="2800"
+            alt="Open Source SAST com Horusec">
+</div>
+<h1 id="introdução" class="heading">Introdução <a href="#introdu%c3%a7%c3%a3o" aria-labelledby="introdução">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h1>
+<p><a href="https://horusec.io/">Horusec</a> é uma ferramenta de Análise Estática de Segurança de Aplicações (SAST) que auxilia no processo de desenvolvimento seguro de software. Projeto todo conduzido e mantido pelo pessoal da <a href="https://www.zup.com.br/">ZupIT</a>.</p>
+<p>Desenvolvido com o objetivo de identificar vulnerabilidades em código-fonte de forma automatizada, o Horusec se destaca por sua eficiência e integração com diversas tecnologias.</p>
+<p>Além disso, a documentação oficial do Horusec é abrangente e detalhada, fornecendo guias passo a passo para instalação, configuração e uso da ferramenta. Há também tutoriais e exemplos práticos que ajudam os usuários a entender melhor como tirar proveito das funcionalidades oferecidas.</p>
+<p><a href="https://docs.horusec.io/docs/pt-br/overview/">Visão Geral | Horusec</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1515,w_2800/v1721861024/blog/5114fca0-962e-41c8-a661-ed8d2e618167.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_312,w_576/v1721861024/blog/5114fca0-962e-41c8-a661-ed8d2e618167.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_416,w_768/v1721861024/blog/5114fca0-962e-41c8-a661-ed8d2e618167.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_537,w_992/v1721861024/blog/5114fca0-962e-41c8-a661-ed8d2e618167.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_649,w_1200/v1721861024/blog/5114fca0-962e-41c8-a661-ed8d2e618167.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_758,w_1400/v1721861024/blog/5114fca0-962e-41c8-a661-ed8d2e618167.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1515,w_2800/v1721861024/blog/5114fca0-962e-41c8-a661-ed8d2e618167.png 2800w" sizes="100vw"
+            height="1515"
+            width="2800"
+            alt="Arquitetura completa do Horusec.">
+</div><figcaption class="figure-caption">Arquitetura completa do Horusec.</figcaption>
+    </figure>
+
+<h1 id="principais-funcionalidades" class="heading">Principais Funcionalidades <a href="#principais-funcionalidades" aria-labelledby="principais-funcionalidades">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h1>
+<ul>
+<li><strong>Análise de Código</strong>: O <a href="https://horusec.io/site/">Horusec</a> realiza uma análise detalhada do código-fonte, identificando possíveis vulnerabilidades que podem comprometer a segurança da aplicação.</li>
+<li><strong>Integração Contínua</strong>: A ferramenta pode ser facilmente integrada em pipelines de integração contínua (CI/CD), permitindo que as análises de segurança sejam executadas automaticamente a cada nova atualização de código.</li>
+<li><strong>Relatórios Detalhados</strong>: Após a análise, o Horusec gera relatórios detalhados com todas as vulnerabilidades encontradas, nos formatos Sarif, Json, Texto ou para integração com Sonarqube, categorizando-as por nível de severidade e sugerindo possíveis correções.</li>
+<li><strong>Suporte a Múltiplas Linguagens</strong>: A ferramenta suporta uma ampla variedade de linguagens de programação e frameworks, tornando-a versátil para diferentes tipos de projetos.</li>
+<li>Plataforma Web: As <a href="https://docs.horusec.io/docs/pt-br/web/overview/"><strong>aplicações web do Horusec</strong></a> são uma extensão das funcionalidades da CLI para gerenciar as vulnerabilidades encontradas e, assim, realizar a classificação delas.</li>
+</ul>
+
+<h1 id="benefícios-do-uso-do-horusec" class="heading">Benefícios do Uso do Horusec <a href="#benef%c3%adcios-do-uso-do-horusec" aria-labelledby="benefícios-do-uso-do-horusec">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h1>
+<p>Horusec tem sido amplamente adotado por equipes de desenvolvimento que buscam incorporar práticas de segurança em seu fluxo de trabalho. Aqui estão alguns exemplos de como a ferramenta pode ser utilizada:</p>
+<ul>
+<li><strong>Durante o Desenvolvimento</strong>: Desenvolvedores podem executar análises de segurança a qualquer momento do ciclo de desenvolvimento, identificando vulnerabilidades antes de enviar o código para o repositório compartilhado.</li>
+<li><strong>Em Pipelines de CI/CD</strong>: Integrar Horusec em pipelines de CI/CD garante que cada nova versão do software seja analisada quanto a vulnerabilidades, evitando que código inseguro chegue à produção.</li>
+<li><strong>Auditorias de Segurança</strong>: Equipes de segurança podem usar Horusec para realizar auditorias periódicas no código-fonte, identificando e corrigindo vulnerabilidades que possam ter sido introduzidas ao longo do tempo.</li>
+</ul>
+
+<h1 id="casos-de-uso" class="heading">Casos de uso <a href="#casos-de-uso" aria-labelledby="casos-de-uso">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h1>
+<p>Abordaremos alguns casos de uso mais comuns, lembrando que o objetivo destes tutoriais é para o uso local de desenvolvedores e em pipelines simples em Github Actions. Cenários mais complexos serão trazido mais adiante.</p>
+<p>Nos laboratórios abaixo, utilizaremos os seguintes recursos:</p>
+<ul>
+<li>Sistemas operacionais Windows, Linux e MacOS;</li>
+<li>Docker Desktop para uso de containers;</li>
+<li>Microsoft VsCode para visualização de códigos fontes;</li>
+<li>Pyhton 3 para scripts auxiliares;</li>
+<li>Código fonte de alguma aplicações para análise. Utilizaremos as seguintes:
+<ul>
+<li><a href="https://github.com/erev0s/VAmPI">VamPI (Python)</a> | <a href="https://erev0s.com/"><strong>erev0s</strong></a></li>
+<li><a href="https://github.com/Aif4thah/VulnerableLightApp">VulnerableLightApp (.NET)</a> | <a href="https://taisen.fr/"><strong>Michaël Vacarella</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<h2 id="horusec-vscode-ide-plugin" class="heading">Horusec VsCode IDE Plugin <a href="#horusec-vscode-ide-plugin" aria-labelledby="horusec-vscode-ide-plugin">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h2>
+<p>O plugin do Horusec pode ser encontrado na loja de extensões do VsCode. Apesar de há muito sem atualizações, tudo ainda funciona muito bem.</p>
+<p>Procure pelo Horusec no Marketplace de plugins do VsCode.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1641,w_2800/v1721861216/blog/9a7873ab-581b-4c58-9462-5b09b64e6d57.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_338,w_576/v1721861216/blog/9a7873ab-581b-4c58-9462-5b09b64e6d57.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_450,w_768/v1721861216/blog/9a7873ab-581b-4c58-9462-5b09b64e6d57.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_581,w_992/v1721861216/blog/9a7873ab-581b-4c58-9462-5b09b64e6d57.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_703,w_1200/v1721861216/blog/9a7873ab-581b-4c58-9462-5b09b64e6d57.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_820,w_1400/v1721861216/blog/9a7873ab-581b-4c58-9462-5b09b64e6d57.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1641,w_2800/v1721861216/blog/9a7873ab-581b-4c58-9462-5b09b64e6d57.png 2800w" sizes="100vw"
+            height="1641"
+            width="2800"
+            alt="Horusec IDE Plugin">
+</div><figcaption class="figure-caption">Horusec IDE Plugin</figcaption>
+    </figure>
+<p>Uma vez instalado, abra a pasta do seu projeto e execute o scan.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_3433,w_2800/v1721861320/blog/8b4988cc-e5df-431a-867d-deb052be7eac.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_706,w_576/v1721861320/blog/8b4988cc-e5df-431a-867d-deb052be7eac.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_942,w_768/v1721861320/blog/8b4988cc-e5df-431a-867d-deb052be7eac.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1216,w_992/v1721861320/blog/8b4988cc-e5df-431a-867d-deb052be7eac.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1471,w_1200/v1721861320/blog/8b4988cc-e5df-431a-867d-deb052be7eac.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1716,w_1400/v1721861320/blog/8b4988cc-e5df-431a-867d-deb052be7eac.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_3433,w_2800/v1721861320/blog/8b4988cc-e5df-431a-867d-deb052be7eac.png 2800w" sizes="100vw"
+            height="3433"
+            width="2800"
+            >
+</div>
+<p>Análise no projeto em Python VamPI.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1641,w_2800/v1721861501/blog/531bcbc5-33cb-4ea4-b98b-7e544f1aa831.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_338,w_576/v1721861501/blog/531bcbc5-33cb-4ea4-b98b-7e544f1aa831.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_450,w_768/v1721861501/blog/531bcbc5-33cb-4ea4-b98b-7e544f1aa831.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_581,w_992/v1721861501/blog/531bcbc5-33cb-4ea4-b98b-7e544f1aa831.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_703,w_1200/v1721861501/blog/531bcbc5-33cb-4ea4-b98b-7e544f1aa831.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_820,w_1400/v1721861501/blog/531bcbc5-33cb-4ea4-b98b-7e544f1aa831.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1641,w_2800/v1721861501/blog/531bcbc5-33cb-4ea4-b98b-7e544f1aa831.png 2800w" sizes="100vw"
+            height="1641"
+            width="2800"
+            >
+</div></p>
+<p>Análise no projeto em .NET VulnerableLightApp.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1643,w_2800/v1721861452/blog/b5e67ec5-4968-4707-b459-870c237cb79e.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_338,w_576/v1721861452/blog/b5e67ec5-4968-4707-b459-870c237cb79e.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_451,w_768/v1721861452/blog/b5e67ec5-4968-4707-b459-870c237cb79e.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_582,w_992/v1721861452/blog/b5e67ec5-4968-4707-b459-870c237cb79e.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_704,w_1200/v1721861452/blog/b5e67ec5-4968-4707-b459-870c237cb79e.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_821,w_1400/v1721861452/blog/b5e67ec5-4968-4707-b459-870c237cb79e.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1643,w_2800/v1721861452/blog/b5e67ec5-4968-4707-b459-870c237cb79e.png 2800w" sizes="100vw"
+            height="1643"
+            width="2800"
+            >
+</div></p>
+
+<h2 id="instalação-dos-binários-windows-linux-e-mac" class="heading">Instalação dos binários (Windows, Linux e Mac) <a href="#instala%c3%a7%c3%a3o-dos-bin%c3%a1rios-windows-linux-e-mac" aria-labelledby="instalação-dos-binários-windows-linux-e-mac">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+    
+
+<div class="d-flex alert alert-warning " role="alert">
+        <div class="pt-1 pe-2">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-triangle-exclamation fa-2x fa-fw"></i> --><svg class="svg-inline--fa fas fa-triangle-exclamation fa-2x fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512"><path d="M256 32c14.2 0 27.3 7.5 34.5 19.8l216 368c7.3 12.4 7.3 27.7 .2 40.1S486.3 480 472 480H40c-14.3 0-27.6-7.7-34.7-20.1s-7-27.8 .2-40.1l216-368C228.7 39.5 241.8 32 256 32zm0 128c-13.3 0-24 10.7-24 24V296c0 13.3 10.7 24 24 24s24-10.7 24-24V184c0-13.3-10.7-24-24-24zm32 224a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/></svg>
+
+    &nbsp;
+</div>
+        <div class="flex-grow-1 my-auto">
+            Para o uso com Docker, para as versões mais atuais do Docker Desktop é necessária a utilização da versão <a href="https://github.com/ZupIT/horusec/releases/tag/v2.9.0-beta.3">2.9.0-beta.3</a>.
+        </div>
+    </div>
+
+<h3 id="windows" class="heading">Windows <a href="#windows" aria-labelledby="windows">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h3>
+<p>Realize o download do binário do acessando o <a href="https://github.com/ZupIT/horusec/releases/tag/v2.8.0">repositório no Github</a> ou baixe via linha de comando.</p>
+<p>Nos exemplos abaixo o teste é realizado em ambiente Windows, o que não muda nada para as demais arquiteturas.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="c">#x64</span>
+</span></span><span class="line"><span class="cl"><span class="nb">curl </span><span class="s2">&#34;https://github.com/ZupIT/horusec/releases/download/v2.9.0-beta.3/horusec_windows_amd64.exe&#34;</span> <span class="n">-o</span> <span class="s2">&#34;./horusec.exe&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">#arm64</span>
+</span></span><span class="line"><span class="cl"><span class="nb">curl </span><span class="s2">&#34;https://github.com/ZupIT/horusec/releases/download/v2.9.0-beta.3/horusec_windows_arm64.exe&#34;</span> <span class="n">-o</span> <span class="s2">&#34;./horusec.exe&#34;</span></span></span></code></pre></div></div>
+<h3 id="linux-e-mac" class="heading">Linux e Mac <a href="#linux-e-mac" aria-labelledby="linux-e-mac">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h3>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#Linux x64</span>
+</span></span><span class="line"><span class="cl">wget https://github.com/ZupIT/horusec/releases/download/v2.9.0-beta.3/horusec_mac_amd64 -O horusec <span class="p">;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>chmod +x horusec
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#Mac M1/M2</span>
+</span></span><span class="line"><span class="cl">wget https://github.com/ZupIT/horusec/releases/download/v2.9.0-beta.3/horusec_mac_arm64 -O -O horusec <span class="p">;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>chmod +x horusec</span></span></code></pre></div></div><p>Se preferir, mova os arquivos em seguida para a pasta de binários:</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo mv horusec /usr/local/bin/</span></span></code></pre></div></div>
+<h2 id="horusec-cli-sem-docker-binário" class="heading">Horusec CLI sem Docker (Binário) <a href="#horusec-cli-sem-docker-bin%c3%a1rio" aria-labelledby="horusec-cli-sem-docker-binário">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h2>
+<p>O Horusec foi muitas possibilidades de configuração, caso queira gerar um arquivo com todas as possibilidades de condifuração, execute com a opção <code>generate</code>.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="p">.\</span><span class="n">horusec</span><span class="p">.</span><span class="py">exe</span> <span class="n">generate</span></span></span></code></pre></div></div><p>O arquivo <code>horusec-config.json</code> será gerado, como o abaixo.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1750,w_2800/v1721861901/blog/7ff1e039-b3da-4d4f-a96f-6518b180e1a1.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_360,w_576/v1721861901/blog/7ff1e039-b3da-4d4f-a96f-6518b180e1a1.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_480,w_768/v1721861901/blog/7ff1e039-b3da-4d4f-a96f-6518b180e1a1.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_620,w_992/v1721861901/blog/7ff1e039-b3da-4d4f-a96f-6518b180e1a1.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_750,w_1200/v1721861901/blog/7ff1e039-b3da-4d4f-a96f-6518b180e1a1.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_875,w_1400/v1721861901/blog/7ff1e039-b3da-4d4f-a96f-6518b180e1a1.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1750,w_2800/v1721861901/blog/7ff1e039-b3da-4d4f-a96f-6518b180e1a1.png 2800w" sizes="100vw"
+            height="1750"
+            width="2800"
+            alt="horusec-config.json">
+</div><figcaption class="figure-caption">horusec-config.json</figcaption>
+    </figure>
+
+<h2 id="horusec-cli-com-docker-binário" class="heading">Horusec CLI com Docker (Binário) <a href="#horusec-cli-com-docker-bin%c3%a1rio" aria-labelledby="horusec-cli-com-docker-binário">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h2>
+<p>Nada muda muito do exemplo acima (sem Docker), com excessão da permanência padrão da opção de uso de todos os recursos dependentes do Docker.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">horusec start -G -o<span class="o">=</span><span class="s2">&#34;sarif&#34;</span> -O<span class="o">=</span><span class="s2">&#34;horusec_report.sarif&#34;</span> -p<span class="o">=</span><span class="s2">&#34;vulnerable_apps/VulnerableLightApp&#34;</span></span></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1546,w_2800/v1721593055/blog/horusec_csharp_uoosdh.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_318,w_576/v1721593055/blog/horusec_csharp_uoosdh.gif 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_424,w_768/v1721593055/blog/horusec_csharp_uoosdh.gif 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_548,w_992/v1721593055/blog/horusec_csharp_uoosdh.gif 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_663,w_1200/v1721593055/blog/horusec_csharp_uoosdh.gif 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_773,w_1400/v1721593055/blog/horusec_csharp_uoosdh.gif 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1546,w_2800/v1721593055/blog/horusec_csharp_uoosdh.gif 2800w" sizes="100vw"
+            height="1546"
+            width="2800"
+            >
+</div>
+<p>Comparação entre o uso sem e com o Docker.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1546,w_2800/v1721593055/blog/horusec_csharp_uoosdh.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_318,w_576/v1721593055/blog/horusec_csharp_uoosdh.gif 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_424,w_768/v1721593055/blog/horusec_csharp_uoosdh.gif 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_548,w_992/v1721593055/blog/horusec_csharp_uoosdh.gif 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_663,w_1200/v1721593055/blog/horusec_csharp_uoosdh.gif 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_773,w_1400/v1721593055/blog/horusec_csharp_uoosdh.gif 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1546,w_2800/v1721593055/blog/horusec_csharp_uoosdh.gif 2800w" sizes="100vw"
+            height="1546"
+            width="2800"
+            >
+</div>
+<p>Utilizando as outras engines solicitadas via Docker, foram encontradas 13 vulnerabilidades, enquanto com as engines padrões apenas 3. As engines default do Horusec são as seguintes:</p>
+<ul>
+<li>horusec-csharp</li>
+<li>horusec-kotlin</li>
+<li>horusec-java</li>
+<li>horusec-kubernetes</li>
+<li>horusec-leaks</li>
+<li>horusec-javascript</li>
+<li>horusec-dart</li>
+<li>horusec-nginx</li>
+</ul>
+<p>Na página de documentação deles é possível visualizar a <a href="https://docs.horusec.io/docs/pt-br/cli/analysis-tools/overview/#linguagens-de-programa%C3%A7%C3%A3o-e-ferramentas-dispon%C3%ADveis">lista das ferramentas auxiliares</a>, linguagens cobertas e suas versões.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1781,w_2800/v1721858288/blog/a8c15aa3-71ba-4d2c-adac-a5d8057040cc.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_366,w_576/v1721858288/blog/a8c15aa3-71ba-4d2c-adac-a5d8057040cc.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_489,w_768/v1721858288/blog/a8c15aa3-71ba-4d2c-adac-a5d8057040cc.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_631,w_992/v1721858288/blog/a8c15aa3-71ba-4d2c-adac-a5d8057040cc.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_763,w_1200/v1721858288/blog/a8c15aa3-71ba-4d2c-adac-a5d8057040cc.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_891,w_1400/v1721858288/blog/a8c15aa3-71ba-4d2c-adac-a5d8057040cc.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1781,w_2800/v1721858288/blog/a8c15aa3-71ba-4d2c-adac-a5d8057040cc.png 2800w" sizes="100vw"
+            height="1781"
+            width="2800"
+            >
+</div>
+
+<h2 id="horusec-docker" class="heading">Horusec Docker <a href="#horusec-docker" aria-labelledby="horusec-docker">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h2>
+<p>Para começar, entre no diretório do projeto a ser analisado e execute o seguinte comando:</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run --rm -v /var/run/docker.sock:/var/run/docker.sock <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        -v <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>:/src/horusec <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        horuszup/horusec-cli:v2.9.0-beta.3 horusec start -p /src/horusec -P <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span></span></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1546,w_2800/v1721595621/blog/horusec_Docker_1_cwjwvt.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_318,w_576/v1721595621/blog/horusec_Docker_1_cwjwvt.gif 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_424,w_768/v1721595621/blog/horusec_Docker_1_cwjwvt.gif 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_548,w_992/v1721595621/blog/horusec_Docker_1_cwjwvt.gif 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_663,w_1200/v1721595621/blog/horusec_Docker_1_cwjwvt.gif 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_773,w_1400/v1721595621/blog/horusec_Docker_1_cwjwvt.gif 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1546,w_2800/v1721595621/blog/horusec_Docker_1_cwjwvt.gif 2800w" sizes="100vw"
+            height="1546"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+<p>Você pode encorpar seu script com diversas variáveis, isso será muito útil para a as integrações nas pipelines. Copie e cole o script abaixo em seu terminal caso esteja em ambiente Linux ou Mac:</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#CRIA PASTA DE RELATÓRIO</span>
+</span></span><span class="line"><span class="cl">mkdir reports<span class="p">;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">#CONFIGURAÇÃO DE PARÂMETROS DO HORUSEC</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#image=&#34;0xtiago/horusec-cli&#34;; \</span>
+</span></span><span class="line"><span class="cl"><span class="nv">image</span><span class="o">=</span><span class="s2">&#34;horuszup/horusec-cli:v2.9.0-beta.3&#34;</span><span class="p">;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span><span class="nv">severity_exception</span><span class="o">=</span><span class="s2">&#34;LOW,UNKNOWN,INFO&#34;</span><span class="p">;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span><span class="nv">report_type</span><span class="o">=</span><span class="s2">&#34;json&#34;</span><span class="p">;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span><span class="nv">report_directory</span><span class="o">=</span><span class="s2">&#34;reports&#34;</span> <span class="p">;</span><span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span><span class="nv">report_file</span><span class="o">=</span><span class="s2">&#34;horusec_report.json&#34;</span> <span class="p">;</span><span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span><span class="nv">ignore</span><span class="o">=</span><span class="s2">&#34;**/tmp/**,
+</span></span></span><span class="line"><span class="cl"><span class="s2">	      **/.vscode/**,\
+</span></span></span><span class="line"><span class="cl"><span class="s2">				**/.venv/**, \
+</span></span></span><span class="line"><span class="cl"><span class="s2">				**/.env/**, \
+</span></span></span><span class="line"><span class="cl"><span class="s2">				**/tests/**, \
+</span></span></span><span class="line"><span class="cl"><span class="s2">				**/test/**, \
+</span></span></span><span class="line"><span class="cl"><span class="s2">				**/test/, \
+</span></span></span><span class="line"><span class="cl"><span class="s2">				**/*.Tests/**, \
+</span></span></span><span class="line"><span class="cl"><span class="s2">				**/*.Test/**, \
+</span></span></span><span class="line"><span class="cl"><span class="s2">				**/test_*, \
+</span></span></span><span class="line"><span class="cl"><span class="s2">				**/appsettings.*.json, \
+</span></span></span><span class="line"><span class="cl"><span class="s2">				**/bin/Debug/*/appsettings.*.json, \
+</span></span></span><span class="line"><span class="cl"><span class="s2">				**/*.yml, \
+</span></span></span><span class="line"><span class="cl"><span class="s2">				**/bin/Debug/*/appsettings.json, \
+</span></span></span><span class="line"><span class="cl"><span class="s2">				**/*.sarif&#34;</span> <span class="p">;</span><span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># EXECUTA CONTAINER DO HORUSEC REMOVENDO-O AO FIM DA EXECUÇÃO</span>
+</span></span><span class="line"><span class="cl">docker pull <span class="nv">$image</span> <span class="p">;</span><span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>docker run --rm <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>	-v /var/run/docker.sock:/var/run/docker.sock <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>	-v <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>:/src/horusec <span class="nv">$image</span> horusec start <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>	-p /src/horusec -P <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>	-o<span class="o">=</span><span class="s2">&#34;</span><span class="nv">$report_type</span><span class="s2">&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>	-O<span class="o">=</span><span class="s2">&#34;/src/horusec/</span><span class="nv">$report_directory</span><span class="s2">/</span><span class="nv">$report_file</span><span class="s2">&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>	-s<span class="o">=</span><span class="nv">$severity_exception</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>	--ignore<span class="o">=</span><span class="nv">$ignore</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>	--information-severity<span class="o">=</span>true</span></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1546,w_2800/v1721647303/blog/horusec_docker_script_knrstd.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_318,w_576/v1721647303/blog/horusec_docker_script_knrstd.gif 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_424,w_768/v1721647303/blog/horusec_docker_script_knrstd.gif 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_548,w_992/v1721647303/blog/horusec_docker_script_knrstd.gif 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_663,w_1200/v1721647303/blog/horusec_docker_script_knrstd.gif 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_773,w_1400/v1721647303/blog/horusec_docker_script_knrstd.gif 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1546,w_2800/v1721647303/blog/horusec_docker_script_knrstd.gif 2800w" sizes="100vw"
+            height="1546"
+            width="2800"
+            >
+</div>
+<p>Em Mac ou Linux, pode executar diretamente o seguinte script em seu terminal:</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bash &lt;<span class="o">(</span>curl -s https://raw.githubusercontent.com/0xtiago/opensource-devsecops/main/tools/horusec/horusec_linux.sh<span class="o">)</span></span></span></code></pre></div></div><p>Se estiver em ambiente Windows, basta copiar e copiar o seguinte script no powershell:</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="c"># CONFIGURAÇÃO DE PARÂMETROS DO HORUSEC</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$image</span> <span class="p">=</span> <span class="s2">&#34;horuszup/horusec-cli:v2.9.0-beta.3&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$severity_exception</span> <span class="p">=</span> <span class="s2">&#34;LOW,UNKNOWN,INFO&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$report_type</span> <span class="p">=</span> <span class="s2">&#34;json&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$report_directory</span> <span class="p">=</span> <span class="s2">&#34;reports&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$report_path</span> <span class="p">=</span> <span class="s2">&#34;reports/horusec_report.json&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$ignore</span> <span class="p">=</span> <span class="vm">@</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;**/tmp/**&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;**/.vscode/**&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;**/.venv/**&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;**/.env/**&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;**/tests/**&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;**/test/**&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;**/test/&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;**/*.Tests/**&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;**/*.Test/**&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;**/test_*&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;**/appsettings.*.json&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;**/bin/Debug/*/appsettings.*.json&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;**/*.yml&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;**/bin/Debug/*/appsettings.json&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;**/*.sarif&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span> <span class="n">-join</span> <span class="s1">&#39;,&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># CRIA PASTA DE RELATÓRIO</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="o">-Not</span> <span class="p">(</span><span class="nb">Test-Path</span> <span class="n">-Path</span> <span class="n">reports</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">New-Item</span> <span class="n">-ItemType</span> <span class="n">Directory</span> <span class="n">-Path</span> <span class="nv">$report_directory</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># EXECUTA CONTAINER DO HORUSEC REMOVENDO-O AO FIM DA EXECUÇÃO</span>
+</span></span><span class="line"><span class="cl"><span class="n">docker</span> <span class="n">pull</span> <span class="nv">$image</span>
+</span></span><span class="line"><span class="cl"><span class="n">docker</span> <span class="n">run</span> <span class="p">-</span><span class="n">-rm</span> <span class="p">`</span>
+</span></span><span class="line"><span class="cl">    <span class="n">-v</span> <span class="p">/</span><span class="n">var</span><span class="p">/</span><span class="n">run</span><span class="p">/</span><span class="n">docker</span><span class="p">.</span><span class="n">sock</span><span class="err">:</span><span class="p">/</span><span class="n">var</span><span class="p">/</span><span class="n">run</span><span class="p">/</span><span class="n">docker</span><span class="p">.</span><span class="py">sock</span> <span class="p">`</span>
+</span></span><span class="line"><span class="cl">    <span class="n">-v</span> <span class="p">${</span><span class="n">PWD</span><span class="p">}</span><span class="err">:</span><span class="p">/</span><span class="n">src</span><span class="p">/</span><span class="n">horusec</span> <span class="nv">$image</span> <span class="n">horusec</span> <span class="nb">start </span><span class="p">`</span>
+</span></span><span class="line"><span class="cl">    <span class="n">-p</span> <span class="p">/</span><span class="n">src</span><span class="p">/</span><span class="n">horusec</span> <span class="n">-P</span> <span class="p">${</span><span class="n">PWD</span><span class="p">}</span> <span class="p">`</span>
+</span></span><span class="line"><span class="cl">    <span class="n">-o</span><span class="p">=</span><span class="s2">&#34;</span><span class="nv">$report_type</span><span class="s2">&#34;</span> <span class="p">`</span>
+</span></span><span class="line"><span class="cl">    <span class="n">-O</span><span class="p">=</span><span class="s2">&#34;</span><span class="nv">$report_directory</span><span class="s2">/</span><span class="nv">$report_path</span><span class="s2">&#34;</span> <span class="p">`</span>
+</span></span><span class="line"><span class="cl">    <span class="n">-s</span><span class="p">=</span><span class="s2">&#34;</span><span class="nv">$severity_exception</span><span class="s2">&#34;</span> <span class="p">`</span>
+</span></span><span class="line"><span class="cl">    <span class="p">-</span><span class="n">-ignore</span><span class="p">=</span><span class="s2">&#34;</span><span class="nv">$ignore</span><span class="s2">&#34;</span> <span class="p">`</span>
+</span></span><span class="line"><span class="cl">    <span class="p">-</span><span class="n">-information-severity</span><span class="p">=</span><span class="vm">$true</span></span></span></code></pre></div></div><p>Ou,  pode executar diretamente o seguinte script em seu terminal algumas das alternativas abaixo:</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">Invoke-WebRequest</span> <span class="n">-Uri</span> <span class="s2">&#34;https://raw.githubusercontent.com/0xtiago/opensource-devsecops/main/tools/horusec/horusec_docker_windows.ps1&#34;</span> <span class="n">-OutFile</span> <span class="s2">&#34;horusec_docker_windows.ps1&#34;</span><span class="p">;</span> <span class="p">.\</span><span class="n">horusec_docker_windows</span><span class="p">.</span><span class="n">ps1</span><span class="p">;</span> <span class="nb">Remove-Item</span> <span class="s2">&#34;horusec_docker_windows.ps1&#34;</span></span></span></code></pre></div></div><p>Ou&hellip;</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">iex </span><span class="p">((</span><span class="nb">New-Object</span> <span class="n">System</span><span class="p">.</span><span class="py">Net</span><span class="p">.</span><span class="n">WebClient</span><span class="p">).</span><span class="py">DownloadString</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/0xtiago/opensource-devsecops/main/tools/horusec/horusec_docker_windows.ps1&#39;</span><span class="p">))</span></span></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1521,w_2800/v1721680129/blog/horusec_powershell_3_mtcsmj.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_313,w_576/v1721680129/blog/horusec_powershell_3_mtcsmj.gif 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_417,w_768/v1721680129/blog/horusec_powershell_3_mtcsmj.gif 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_539,w_992/v1721680129/blog/horusec_powershell_3_mtcsmj.gif 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_652,w_1200/v1721680129/blog/horusec_powershell_3_mtcsmj.gif 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_760,w_1400/v1721680129/blog/horusec_powershell_3_mtcsmj.gif 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1521,w_2800/v1721680129/blog/horusec_powershell_3_mtcsmj.gif 2800w" sizes="100vw"
+            height="1521"
+            width="2800"
+            >
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    
+
+<div class="d-flex alert alert-warning " role="alert">
+        <div class="pt-1 pe-2">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-triangle-exclamation fa-2x fa-fw"></i> --><svg class="svg-inline--fa fas fa-triangle-exclamation fa-2x fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512"><path d="M256 32c14.2 0 27.3 7.5 34.5 19.8l216 368c7.3 12.4 7.3 27.7 .2 40.1S486.3 480 472 480H40c-14.3 0-27.6-7.7-34.7-20.1s-7-27.8 .2-40.1l216-368C228.7 39.5 241.8 32 256 32zm0 128c-13.3 0-24 10.7-24 24V296c0 13.3 10.7 24 24 24s24-10.7 24-24V184c0-13.3-10.7-24-24-24zm32 224a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/></svg>
+
+    &nbsp;
+</div>
+        <div class="flex-grow-1 my-auto">
+            O Docker Hub atualmente possui políticas de limitação downloads (pulls) de imagens de container. Caso implemente integrações nas pipelines, é possível que você seja afetado devido às regras. Talvez seja necessária a assinatura do DockerHub ou criação dos próprios containers, uso de registries internos (Ex. AWS) e customização do script do Horusec para integrar estas novas imagens.
+        </div>
+    </div>
+<p>Valores do DockerHub no mês de 07/2024.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1641,w_2800/v1721863692/blog/0783dc8d-b710-4031-b3aa-3843e617d520.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_338,w_576/v1721863692/blog/0783dc8d-b710-4031-b3aa-3843e617d520.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_450,w_768/v1721863692/blog/0783dc8d-b710-4031-b3aa-3843e617d520.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_581,w_992/v1721863692/blog/0783dc8d-b710-4031-b3aa-3843e617d520.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_703,w_1200/v1721863692/blog/0783dc8d-b710-4031-b3aa-3843e617d520.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_820,w_1400/v1721863692/blog/0783dc8d-b710-4031-b3aa-3843e617d520.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1641,w_2800/v1721863692/blog/0783dc8d-b710-4031-b3aa-3843e617d520.png 2800w" sizes="100vw"
+            height="1641"
+            width="2800"
+            >
+</div>
+<p><a href="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1721863692/blog/0783dc8d-b710-4031-b3aa-3843e617d520.png">https://res.cloudinary.com/dtr6hzxnx/image/upload/v1721863692/blog/0783dc8d-b710-4031-b3aa-3843e617d520.png</a></p>
+
+<h2 id="reports-customizados" class="heading">Reports customizados <a href="#reports-customizados" aria-labelledby="reports-customizados">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h2>
+<p>O Horusec por CLI possui tipos de relatório voltados para visualização em cli (text) ou para que sejam importados para outra soluções (json, sarif, sonarqube), porém não há opções visuais para para uso na <strong>pipeline como artefato</strong> ou <strong>localmente</strong> como nos exemplos anteriores. Para ajudar nesta necessidade, podemos adotar o uso de scrips customizados para tratar estas informações e converter para um markdown.</p>
+<p>Dada a seguinte estrutura do json vigente na versão <code>v2.9.0-beta.3</code>, utilizaremos o Python 3 e a biblioteca <a href="https://pypi.org/project/grip/"><code>grip</code></a> para ajudar na visualização do Markdown.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;version&#34;</span><span class="p">:</span> <span class="s2">&#34;v2.9.0-beta.3&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;id&#34;</span><span class="p">:</span> <span class="s2">&#34;af2cf885-da12-4eaf-b277-bacb4b514efa&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;repositoryID&#34;</span><span class="p">:</span> <span class="s2">&#34;00000000-0000-0000-0000-000000000000&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;repositoryName&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;workspaceID&#34;</span><span class="p">:</span> <span class="s2">&#34;00000000-0000-0000-0000-000000000000&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;workspaceName&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;status&#34;</span><span class="p">:</span> <span class="s2">&#34;success&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;errors&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;createdAt&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-07-22T19:07:43.491963638Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;finishedAt&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-07-22T19:07:50.525841211Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;analysisVulnerabilities&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;vulnerabilityID&#34;</span><span class="p">:</span> <span class="s2">&#34;00000000-0000-0000-0000-000000000000&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;analysisID&#34;</span><span class="p">:</span> <span class="s2">&#34;af2cf885-da12-4eaf-b277-bacb4b514efa&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;createdAt&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-07-22T19:07:50.525846794Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;vulnerabilities&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;vulnerabilityID&#34;</span><span class="p">:</span> <span class="s2">&#34;0e9ac1d1-d971-40b6-93ab-f049ac5c5c7d&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;line&#34;</span><span class="p">:</span> <span class="s2">&#34;12&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;column&#34;</span><span class="p">:</span> <span class="s2">&#34;21&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;confidence&#34;</span><span class="p">:</span> <span class="s2">&#34;MEDIUM&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;file&#34;</span><span class="p">:</span> <span class="s2">&#34;config.py&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;code&#34;</span><span class="p">:</span> <span class="s2">&#34;vuln_app.app.config[&#39;SECRET_KEY&#39;] = &#39;random&#39;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;details&#34;</span><span class="p">:</span> <span class="s2">&#34;DESCRIÇÃO DA VULNERABILIDADE&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;securityTool&#34;</span><span class="p">:</span> <span class="s2">&#34;HorusecEngine&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;language&#34;</span><span class="p">:</span> <span class="s2">&#34;Leaks&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;severity&#34;</span><span class="p">:</span> <span class="s2">&#34;CRITICAL&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;Vulnerability&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;commitAuthor&#34;</span><span class="p">:</span> <span class="s2">&#34;-&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;commitEmail&#34;</span><span class="p">:</span> <span class="s2">&#34;-&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;commitHash&#34;</span><span class="p">:</span> <span class="s2">&#34;-&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;commitMessage&#34;</span><span class="p">:</span> <span class="s2">&#34;-&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;commitDate&#34;</span><span class="p">:</span> <span class="s2">&#34;-&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;rule_id&#34;</span><span class="p">:</span> <span class="s2">&#34;HS-LEAKS-25&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;vulnHash&#34;</span><span class="p">:</span> <span class="s2">&#34;9e117a0e8c29e2cfa26ebae8f4c2e40c97dbc0d408d0bc2b77809a127c4f7380&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;deprecatedHashes&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;6ed75629a18be6d8b4b1303a4c6d3bc7adec12975e75351573d476206d6ccecb&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;15b8662ec5d7866e1a8e32608dbfdd34c9d2f8d3f200a4572879fdb71b0f8679&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;securityToolVersion&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;securityToolInfoUri&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;vulnerabilityID&#34;</span><span class="p">:</span> <span class="s2">&#34;00000000-0000-0000-0000-000000000000&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;analysisID&#34;</span><span class="p">:</span> <span class="s2">&#34;af2cf885-da12-4eaf-b277-bacb4b514efa&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;createdAt&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-07-22T19:07:50.525851877Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;vulnerabilities&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;vulnerabilityID&#34;</span><span class="p">:</span> <span class="s2">&#34;29dca9c1-2af3-4909-8e6f-51bddfce806d&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;line&#34;</span><span class="p">:</span> <span class="s2">&#34;48&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;column&#34;</span><span class="p">:</span> <span class="s2">&#34;70&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;confidence&#34;</span><span class="p">:</span> <span class="s2">&#34;MEDIUM&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;file&#34;</span><span class="p">:</span> <span class="s2">&#34;models/user_model.py&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;code&#34;</span><span class="p">:</span> <span class="s2">&#34;payload = jwt.decode(auth_token, vuln_app.app.config.get(&#39;SECRET_KEY&#39;), algorithms=[\&#34;HS256\&#34;])&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;details&#34;</span><span class="p">:</span> <span class="s2">&#34;DESCRIÇÃO DA VULNERABILIDADE&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;securityTool&#34;</span><span class="p">:</span> <span class="s2">&#34;HorusecEngine&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;language&#34;</span><span class="p">:</span> <span class="s2">&#34;Leaks&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;severity&#34;</span><span class="p">:</span> <span class="s2">&#34;CRITICAL&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;Vulnerability&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;commitAuthor&#34;</span><span class="p">:</span> <span class="s2">&#34;-&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;commitEmail&#34;</span><span class="p">:</span> <span class="s2">&#34;-&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;commitHash&#34;</span><span class="p">:</span> <span class="s2">&#34;-&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;commitMessage&#34;</span><span class="p">:</span> <span class="s2">&#34;-&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;commitDate&#34;</span><span class="p">:</span> <span class="s2">&#34;-&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;rule_id&#34;</span><span class="p">:</span> <span class="s2">&#34;HS-LEAKS-25&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;vulnHash&#34;</span><span class="p">:</span> <span class="s2">&#34;8f2fccfa6177367da180c79a2c6c9f030a338a8c464e08bda9483bca266b9276&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;deprecatedHashes&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;ebc728f3e0cd90b6495ffc5b0adaa1d3f669b33a8d9e10f02830ff15f61918c2&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;6073e224d1a70921ed541833dfc3a51a1123ba3e7df368054c8f027f23614eae&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;securityToolVersion&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;securityToolInfoUri&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div><p>Considerando que o horusec_report.json está no mesmo diretório de execução, você pode baixar o script <code>horusec_json2md.py</code> e executar passando os argumentos da seguinte forma:</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#Baixe o script</span>
+</span></span><span class="line"><span class="cl">wget https://raw.githubusercontent.com/0xtiago/opensource-devsecops/main/tools/horusec/horusec_json2md/horusec_json2md.py <span class="p">;</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">pip install colorama
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#Execute passando os argumentos com o local do json e o destino do markdown</span>
+</span></span><span class="line"><span class="cl">./horusec_json2md.py horusec_report.json horusec_report.md</span></span></code></pre></div></div><p>Opcionalmente, instale o colorama (<code>pip install colorama</code>) para exibir cores do output quando houver ou não vulnerabilidades.</p>
+<p>Após a execução, você pode utilizar a biblioteca grip ou qualquer outra aplicação para visualizar o markdown, como o Typora ou o VsCode.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#Instale o grip</span>
+</span></span><span class="line"><span class="cl">pip install grip
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Abra o markdown</span>
+</span></span><span class="line"><span class="cl">grip horusec_report.md
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ou caso o seu ambiente nao encontro o grip apos a instação\</span>
+</span></span><span class="line"><span class="cl">python -m grip horusec_report.md</span></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_572,w_2800/v1721863843/blog/d82c8192-b31c-41e3-ba6c-a200cf168e7f.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_118,w_576/v1721863843/blog/d82c8192-b31c-41e3-ba6c-a200cf168e7f.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_157,w_768/v1721863843/blog/d82c8192-b31c-41e3-ba6c-a200cf168e7f.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_203,w_992/v1721863843/blog/d82c8192-b31c-41e3-ba6c-a200cf168e7f.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_245,w_1200/v1721863843/blog/d82c8192-b31c-41e3-ba6c-a200cf168e7f.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_286,w_1400/v1721863843/blog/d82c8192-b31c-41e3-ba6c-a200cf168e7f.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_572,w_2800/v1721863843/blog/d82c8192-b31c-41e3-ba6c-a200cf168e7f.png 2800w" sizes="100vw"
+            height="572"
+            width="2800"
+            >
+</div>
+<p>Acesse a URL gerada pelo grip através do Flask:</p>
+<p>http://localhost:6419/</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_2108,w_2800/v1721863875/blog/5c4bd0d1-6de1-448e-83f1-3c205dcff462.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_434,w_576/v1721863875/blog/5c4bd0d1-6de1-448e-83f1-3c205dcff462.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_578,w_768/v1721863875/blog/5c4bd0d1-6de1-448e-83f1-3c205dcff462.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_747,w_992/v1721863875/blog/5c4bd0d1-6de1-448e-83f1-3c205dcff462.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_904,w_1200/v1721863875/blog/5c4bd0d1-6de1-448e-83f1-3c205dcff462.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1054,w_1400/v1721863875/blog/5c4bd0d1-6de1-448e-83f1-3c205dcff462.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_2108,w_2800/v1721863875/blog/5c4bd0d1-6de1-448e-83f1-3c205dcff462.png 2800w" sizes="100vw"
+            height="2108"
+            width="2800"
+            >
+</div>
+<p>Visualizando no VsCode:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1454,w_2800/v1721863926/blog/e57eacd8-3047-4643-9eac-b7c0b976d5ca.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_299,w_576/v1721863926/blog/e57eacd8-3047-4643-9eac-b7c0b976d5ca.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_399,w_768/v1721863926/blog/e57eacd8-3047-4643-9eac-b7c0b976d5ca.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_515,w_992/v1721863926/blog/e57eacd8-3047-4643-9eac-b7c0b976d5ca.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_623,w_1200/v1721863926/blog/e57eacd8-3047-4643-9eac-b7c0b976d5ca.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_727,w_1400/v1721863926/blog/e57eacd8-3047-4643-9eac-b7c0b976d5ca.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1454,w_2800/v1721863926/blog/e57eacd8-3047-4643-9eac-b7c0b976d5ca.png 2800w" sizes="100vw"
+            height="1454"
+            width="2800"
+            >
+</div>
+<p>Você pode visualizar um exemplo do markdown clicando <a href="https://github.com/0xtiago/opensource-devsecops/blob/main/tools/horusec/horusec_json2md/horusec_report.md">aqui</a>.</p>
+<p>Para facilitar com <em>one-liners</em>, abaixo exemplos em Linux/Mac e Windows que utilizaremos mais tarde na documentação do report na pipeline, usando a mesma premissa que o arquivo json está no mesmo diretório de execução e o arquivo markdown será gerado no mesmo local:</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#Linux ou Mac</span>
+</span></span><span class="line"><span class="cl">wget -qO-  https://raw.githubusercontent.com/0xtiago/opensource-devsecops/main/tools/horusec/horusec_json2md/horusec_json2md.py <span class="p">|</span> python3 - horusec_report.json horusec_report.md</span></span></code></pre></div></div><div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="c">#Windows</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Invoke-WebRequest</span> <span class="n">-Uri</span> <span class="s2">&#34;https://raw.githubusercontent.com/0xtiago/opensource-devsecops/main/tools/horusec/horusec_json2md/horusec_json2md.py&#34;</span> <span class="n">-OutFile</span> <span class="s2">&#34;horusec_json2md.py&#34;</span> <span class="p">;</span>  <span class="n">python</span> <span class="n">horusec_json2md</span><span class="p">.</span><span class="py">py</span> <span class="n">horusec_report</span><span class="p">.</span><span class="py">json</span> <span class="n">horusec_report</span><span class="p">.</span><span class="n">md</span></span></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1575,w_2800/v1721696056/blog/horusec_json2md.py_-_windows_p9ek9q.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_324,w_576/v1721696056/blog/horusec_json2md.py_-_windows_p9ek9q.gif 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_432,w_768/v1721696056/blog/horusec_json2md.py_-_windows_p9ek9q.gif 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_558,w_992/v1721696056/blog/horusec_json2md.py_-_windows_p9ek9q.gif 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_675,w_1200/v1721696056/blog/horusec_json2md.py_-_windows_p9ek9q.gif 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_788,w_1400/v1721696056/blog/horusec_json2md.py_-_windows_p9ek9q.gif 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1575,w_2800/v1721696056/blog/horusec_json2md.py_-_windows_p9ek9q.gif 2800w" sizes="100vw"
+            height="1575"
+            width="2800"
+            >
+</div>
+
+<h2 id="horusec-em-pipeline-github-actions" class="heading">Horusec em pipeline Github Actions <a href="#horusec-em-pipeline-github-actions" aria-labelledby="horusec-em-pipeline-github-actions">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h2>
+<p>Assim como qualquer outra solução por linha de comando, podemos utilizar o Horusec nas pipelines de desenvolvimento.</p>
+<p>No marketplace do Github há <a href="https://github.com/marketplace/actions/horusec">uma solução pronta</a>, mas como quero customizar um pouco o processo, você pode utilizar como exemplo o script abaixo, onde o scan é realizado, é gerado um relatório em markdown do arquivo json, o artefato é disponibilizado como artefato e é adicionado ao sumário para analise imediata do desenvolvedor.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Run Horusec (SAST), Generate Script and Save Artifact</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">main</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">main</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">run-scripts</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Checkout repository</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">SAST - Horusec Run 🐞</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">          curl -sL https://raw.githubusercontent.com/0xtiago/opensource-devsecops/main/tools/horusec/horusec_docker_linux.sh| bash</span><span class="w">          
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">SAST - Horusec Report Generation 📊</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">          cd reports
+</span></span></span><span class="line"><span class="cl"><span class="sd">          curl -sL https://raw.githubusercontent.com/0xtiago/opensource-devsecops/main/tools/horusec/horusec_json2md/horusec_json2md.py  -o horusec_json2md.py 
+</span></span></span><span class="line"><span class="cl"><span class="sd">          python3 horusec_json2md.py horusec_report.json horusec_report.md</span><span class="w">          
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">SAST - Horusec Upload Report Artifact 💾</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/upload-artifact@v3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">SAST - Horusec Scan</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">reports/horusec_report.md</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">SAST - Horusec Results In Summary 💁🏽</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">cat reports/horusec_report.md &gt;&gt; $GITHUB_STEP_SUMMARY</span></span></span></code></pre></div></div><p>Adicione o arquivo em <code>.github/workflows/nome_do_workflow.yml</code> na raiz do seu projeto mantido no Github. Aqui chamo meu arquivo de <code>sast-horusec.yml</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1030,w_2800/v1721859851/blog/207670fa-399e-4e1a-b301-50cabb3a29ee.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_212,w_576/v1721859851/blog/207670fa-399e-4e1a-b301-50cabb3a29ee.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_283,w_768/v1721859851/blog/207670fa-399e-4e1a-b301-50cabb3a29ee.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_365,w_992/v1721859851/blog/207670fa-399e-4e1a-b301-50cabb3a29ee.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_441,w_1200/v1721859851/blog/207670fa-399e-4e1a-b301-50cabb3a29ee.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_515,w_1400/v1721859851/blog/207670fa-399e-4e1a-b301-50cabb3a29ee.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1030,w_2800/v1721859851/blog/207670fa-399e-4e1a-b301-50cabb3a29ee.png 2800w" sizes="100vw"
+            height="1030"
+            width="2800"
+            >
+</div>
+<p>Abaixo um resumo do processo na pipeline.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1327,w_2800/v1721859702/blog/horusec_github_actions_tiagotavares_awpiub.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_273,w_576/v1721859702/blog/horusec_github_actions_tiagotavares_awpiub.gif 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_364,w_768/v1721859702/blog/horusec_github_actions_tiagotavares_awpiub.gif 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_470,w_992/v1721859702/blog/horusec_github_actions_tiagotavares_awpiub.gif 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_569,w_1200/v1721859702/blog/horusec_github_actions_tiagotavares_awpiub.gif 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_664,w_1400/v1721859702/blog/horusec_github_actions_tiagotavares_awpiub.gif 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1327,w_2800/v1721859702/blog/horusec_github_actions_tiagotavares_awpiub.gif 2800w" sizes="100vw"
+            height="1327"
+            width="2800"
+            >
+</div>
+
+<h1 id="enfimo-mesmo-blá-blá-blá-do-cara-de-segurança-" class="heading">Enfim….o mesmo blá blá blá do cara de segurança…. 🥱 <a href="#enfimo-mesmo-bl%c3%a1-bl%c3%a1-bl%c3%a1-do-cara-de-seguran%c3%a7a-" aria-labelledby="enfimo-mesmo-blá-blá-blá-do-cara-de-segurança-">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h1>
+<p>A implementação de testes de segurança estática (SAST) é essencial para qualquer desenvolvedor comprometido com a criação de software seguro e confiável. Esses testes permitem a identificação precoce de vulnerabilidades no código-fonte, antes mesmo da execução do programa, garantindo a mitigação de riscos e a conformidade com normas de segurança. Além disso, ao integrar SAST no ciclo de desenvolvimento, os desenvolvedores podem melhorar continuamente suas práticas de codificação, reduzindo custos e evitando potenciais falhas de segurança que poderiam comprometer a integridade dos sistemas. Portanto, a adoção de SAST é um passo crucial para garantir a segurança e a robustez das aplicações modernas.</p>
+<p>Outros artigos serão publicado por este que vos fala, complementando todo o ciclo de testes de segurança no deploy de uma aplicação.</p>
+<p>Até mais.</p>
+<p>👾</p>
+
+<h1 id="referências" class="heading">Referências <a href="#refer%c3%aancias" aria-labelledby="referências">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h1>
+<ul>
+<li><a href="https://www.zup.com.br/">https://www.zup.com.br/</a></li>
+<li><a href="https://horusec.io/site/">https://horusec.io/site/</a></li>
+<li><a href="https://github.com/ZupIT/horusec">https://github.com/ZupIT/horusec</a></li>
+<li><a href="https://github.com/Aif4thah/VulnerableLightApp">https://github.com/Aif4thah/VulnerableLightApp</a></li>
+<li><a href="https://github.com/erev0s/VAmPI">https://github.com/erev0s/VAmPI</a></li>
+<li><a href="https://www.docker.com/pricing/">https://www.docker.com/pricing/</a></li>
+<li><a href="https://github.com/marketplace/actions/horusec">https://github.com/marketplace/actions/horusec</a></li>
+</ul>
+
+
+
+<div class="row row-cols-2 mt-5 mb-3">
+    <div class="col">
+        </div>
+    <div class="col text-end">
+        <a class="previous" href="/blog/keep-moving-fi-duma-egua/">
+                    Keep moving, fi duma égua!🙏&nbsp;
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-arrow-right "></i> --><svg class="svg-inline--fa fas fa-arrow-right " fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>
+
+    
+
+                </a></div>
+</div>
+
+
+                </div>
+                <div class="col col-md-3 col-lg-2 d-none d-md-block pt-5">
+                    
+    
+
+
+<div class="toc toc-sidebar mb-5 my-md-0 mb-lg-5 p-3 text-body-secondary sticky-top">
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+<strong class="d-block h6 my-2 pb-2">On this page:</strong>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#horusec-vscode-ide-plugin">Horusec VsCode IDE Plugin</a></li>
+    <li><a href="#instalação-dos-binários-windows-linux-e-mac">Instalação dos binários (Windows, Linux e Mac)</a>
+      <ul>
+        <li><a href="#windows">Windows</a></li>
+        <li><a href="#linux-e-mac">Linux e Mac</a></li>
+      </ul>
+    </li>
+    <li><a href="#horusec-cli-sem-docker-binário">Horusec CLI sem Docker (Binário)</a></li>
+    <li><a href="#horusec-cli-com-docker-binário">Horusec CLI com Docker (Binário)</a></li>
+    <li><a href="#horusec-docker">Horusec Docker</a></li>
+    <li><a href="#reports-customizados">Reports customizados</a></li>
+    <li><a href="#horusec-em-pipeline-github-actions">Horusec em pipeline Github Actions</a></li>
+  </ul>
+</nav>
+
+    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+<div class="container-fluid bg-primary bg-opacity-10">
+        <div class="container-xxl px-4 px-xxl-0">
+            <div class="row row-cols-2 py-3 align-items-center">
+                <div class="col col-6">
+                    <div class="row justify-content-end p-0">
+                        <div class="col-12 col-md-8 p-0">
+                            <div class="fs-3 fw-bold">👾</div>
+                            <p>Eternal student.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-6 text-sm-start">
+                    <a href="https://linkedin.com/in/tiagotavi"  aria-label="LinkedIn" class="text-decoration-none link-secondary d-inline p-2">
+                            
+                                
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fab fa-linkedin fa-2x"></i> --><svg class="svg-inline--fa fab fa-linkedin fa-2x" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+
+    &nbsp;
+
+                            
+                        </a>
+                    <a href="https://github.com/0xtiago"  aria-label="GitHub" class="text-decoration-none link-secondary d-inline p-2">
+                            
+                                
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fab fa-github fa-2x"></i> --><svg class="svg-inline--fa fab fa-github fa-2x" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+    &nbsp;
+
+                            
+                        </a>
+                    <a href="https://x.com/tiagotavi"  aria-label="X" class="text-decoration-none link-secondary d-inline p-2">
+                            
+                                
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fab fa-x-twitter fa-2x"></i> --><svg class="svg-inline--fa fab fa-x-twitter fa-2x" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+
+    &nbsp;
+
+                            
+                        </a>
+                    </div>
+            </div>
+        </div>
+    </div>
+<footer class="container-fluid footer text-center p-3">
+    <div class="container-xxl text-center">
+        <small>
+            Copyright © 2024 Tiago Tavares.
+            
+            
+        </small>
+    </div>
+</footer>
+        </div>
+
+        <div id="toast-container" class="toast-container position-fixed bottom-0 end-0 p-3">
+
+
+
+
+
+
+
+<div id="toast-copied-code-message" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+        <strong class="me-auto">debugging the life</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">Code copied to clipboard</div>
+</div>
+</div>
+
+<script src="/js/main.bundle.min.6c9679d30f3e4a8d922ac60f282466e6503aa73e0376fede67e2a4e01fbe2ddb.js" integrity="sha256-bJZ50w8&#43;So2SKsYPKCRm5lA6pz4Ddv7eZ&#43;Kk4B&#43;&#43;Lds=" crossorigin="anonymous" async></script>
+    
+
+    
+
+
+
+
+</body>
+</html>

@@ -2,47 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://tiagotavares.io/drafts/vou-vestejar-vulnerable-machine/</loc>
-    <lastmod>2024-07-18T18:10:47-03:00</lastmod>
+    <loc>https://tiagotavares.io/tags/application-security/</loc>
+    <lastmod>2024-07-24T20:42:48-03:00</lastmod>
   </url><url>
-    <loc>https://tiagotavares.io/tags/beth-carvalho/</loc>
-    <lastmod>2024-07-18T18:10:47-03:00</lastmod>
+    <loc>https://tiagotavares.io/tags/appsec/</loc>
+    <lastmod>2024-07-24T20:42:48-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/blog/</loc>
-    <lastmod>2024-07-18T09:08:27-03:00</lastmod>
+    <lastmod>2024-07-24T20:42:48-03:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/tags/horusec/</loc>
+    <lastmod>2024-07-24T20:42:48-03:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/tags/open-source/</loc>
+    <lastmod>2024-07-24T20:42:48-03:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/blog/opensource_sast_com_horusec/</loc>
+    <lastmod>2024-07-24T20:42:48-03:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/tags/sast/</loc>
+    <lastmod>2024-07-24T20:42:48-03:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/tags/</loc>
+    <lastmod>2024-07-24T20:42:48-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/tags/carreira/</loc>
-    <lastmod>2024-07-18T18:10:47-03:00</lastmod>
+    <lastmod>2024-07-16T10:22:40-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/tags/comunidade/</loc>
-    <lastmod>2024-07-18T18:10:47-03:00</lastmod>
-  </url><url>
-    <loc>https://tiagotavares.io/tags/ctf/</loc>
-    <lastmod>2024-07-18T18:10:47-03:00</lastmod>
-  </url><url>
-    <loc>https://tiagotavares.io/drafts/draft/</loc>
-    <lastmod>2024-07-18T18:10:47-03:00</lastmod>
-  </url><url>
-    <loc>https://tiagotavares.io/drafts/</loc>
-    <lastmod>2024-07-18T18:10:47-03:00</lastmod>
+    <lastmod>2024-07-16T10:22:40-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/tags/hacking/</loc>
-    <lastmod>2024-07-18T18:10:47-03:00</lastmod>
+    <lastmod>2024-07-18T09:08:27-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/blog/keep-moving-fi-duma-egua/</loc>
     <lastmod>2024-07-16T10:22:40-03:00</lastmod>
   </url><url>
-    <loc>https://tiagotavares.io/tags/</loc>
-    <lastmod>2024-07-18T18:10:47-03:00</lastmod>
-  </url><url>
-    <loc>https://tiagotavares.io/tags/vou-vestejar/</loc>
-    <lastmod>2024-07-18T18:10:47-03:00</lastmod>
-  </url><url>
-    <loc>https://tiagotavares.io/tags/vulnerable-machines/</loc>
-    <lastmod>2024-07-18T18:10:47-03:00</lastmod>
-  </url><url>
     <loc>https://tiagotavares.io/tags/vulnhub/</loc>
-    <lastmod>2024-07-18T18:10:47-03:00</lastmod>
+    <lastmod>2024-07-18T09:08:27-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/tags/apache/</loc>
     <lastmod>2024-07-15T17:21:20-03:00</lastmod>
@@ -151,6 +148,9 @@
   </url><url>
     <loc>https://tiagotavares.io/blog/chillhack/</loc>
     <lastmod>2024-07-15T21:35:30-03:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/tags/ctf/</loc>
+    <lastmod>2024-07-18T09:08:27-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/tags/walkthrough/</loc>
     <lastmod>2024-07-15T21:35:30-03:00</lastmod>
@@ -261,9 +261,6 @@
     <lastmod>2024-07-15T12:50:10-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/blog/jwt_insecurity/</loc>
-    <lastmod>2024-07-15T12:46:21-03:00</lastmod>
-  </url><url>
-    <loc>https://tiagotavares.io/tags/application-security/</loc>
     <lastmod>2024-07-15T12:46:21-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/tags/criptography/</loc>
@@ -390,6 +387,9 @@
     <lastmod>2024-07-18T09:08:27-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/blog/lampiao1/</loc>
+    <lastmod>2024-07-18T09:08:27-03:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/tags/vulnerable-machines/</loc>
     <lastmod>2024-07-18T09:08:27-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/blog/maratonadebuenosaires2018/</loc>

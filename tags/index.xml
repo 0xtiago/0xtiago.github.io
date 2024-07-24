@@ -7,13 +7,41 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Tiago Tavares.</copyright>
-    <lastBuildDate>Thu, 18 Jul 2024 18:10:47 -0300</lastBuildDate>
+    <lastBuildDate>Wed, 24 Jul 2024 20:42:48 -0300</lastBuildDate>
     <atom:link href="https://tiagotavares.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Beth Carvalho</title>
-      <link>https://tiagotavares.io/tags/beth-carvalho/</link>
-      <pubDate>Fri, 12 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://tiagotavares.io/tags/beth-carvalho/</guid>
+      <title>Application Security</title>
+      <link>https://tiagotavares.io/tags/application-security/</link>
+      <pubDate>Wed, 24 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://tiagotavares.io/tags/application-security/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Appsec</title>
+      <link>https://tiagotavares.io/tags/appsec/</link>
+      <pubDate>Wed, 24 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://tiagotavares.io/tags/appsec/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Horusec</title>
+      <link>https://tiagotavares.io/tags/horusec/</link>
+      <pubDate>Wed, 24 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://tiagotavares.io/tags/horusec/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Open Source</title>
+      <link>https://tiagotavares.io/tags/open-source/</link>
+      <pubDate>Wed, 24 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://tiagotavares.io/tags/open-source/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sast</title>
+      <link>https://tiagotavares.io/tags/sast/</link>
+      <pubDate>Wed, 24 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://tiagotavares.io/tags/sast/</guid>
       <description></description>
     </item>
     <item>
@@ -31,31 +59,10 @@
       <description></description>
     </item>
     <item>
-      <title>Ctf</title>
-      <link>https://tiagotavares.io/tags/ctf/</link>
-      <pubDate>Fri, 12 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://tiagotavares.io/tags/ctf/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Hacking</title>
       <link>https://tiagotavares.io/tags/hacking/</link>
       <pubDate>Fri, 12 Jul 2024 00:00:00 +0000</pubDate>
       <guid>https://tiagotavares.io/tags/hacking/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Vou Vestejar</title>
-      <link>https://tiagotavares.io/tags/vou-vestejar/</link>
-      <pubDate>Fri, 12 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://tiagotavares.io/tags/vou-vestejar/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Vulnerable Machines</title>
-      <link>https://tiagotavares.io/tags/vulnerable-machines/</link>
-      <pubDate>Fri, 12 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://tiagotavares.io/tags/vulnerable-machines/</guid>
       <description></description>
     </item>
     <item>
@@ -269,6 +276,13 @@
       <description></description>
     </item>
     <item>
+      <title>Ctf</title>
+      <link>https://tiagotavares.io/tags/ctf/</link>
+      <pubDate>Sat, 19 Dec 2020 08:00:51 -0300</pubDate>
+      <guid>https://tiagotavares.io/tags/ctf/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Walkthrough</title>
       <link>https://tiagotavares.io/tags/walkthrough/</link>
       <pubDate>Sat, 19 Dec 2020 08:00:51 -0300</pubDate>
@@ -455,13 +469,6 @@
       <link>https://tiagotavares.io/tags/ekoparty/</link>
       <pubDate>Fri, 19 Jun 2020 22:41:04 -0300</pubDate>
       <guid>https://tiagotavares.io/tags/ekoparty/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Application Security</title>
-      <link>https://tiagotavares.io/tags/application-security/</link>
-      <pubDate>Fri, 12 Jun 2020 12:15:12 -0300</pubDate>
-      <guid>https://tiagotavares.io/tags/application-security/</guid>
       <description></description>
     </item>
     <item>
@@ -693,6 +700,13 @@
       <link>https://tiagotavares.io/tags/lampiao/</link>
       <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
       <guid>https://tiagotavares.io/tags/lampiao/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vulnerable Machines</title>
+      <link>https://tiagotavares.io/tags/vulnerable-machines/</link>
+      <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
+      <guid>https://tiagotavares.io/tags/vulnerable-machines/</guid>
       <description></description>
     </item>
     <item>
