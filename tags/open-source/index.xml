@@ -7,14 +7,14 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Tiago Tavares.</copyright>
-    <lastBuildDate>Wed, 24 Jul 2024 20:42:48 -0300</lastBuildDate>
+    <lastBuildDate>Thu, 25 Jul 2024 13:21:47 -0300</lastBuildDate>
     <atom:link href="https://tiagotavares.io/tags/open-source/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Open Source SAST com Horusec</title>
       <link>https://tiagotavares.io/blog/opensource_sast_com_horusec/</link>
       <pubDate>Wed, 24 Jul 2024 00:00:00 +0000</pubDate>
       <guid>https://tiagotavares.io/blog/opensource_sast_com_horusec/</guid>
-      <description>Introdução &amp;nbsp; Horusec é uma ferramenta de Análise Estática de Segurança de Aplicações (SAST) que auxilia no processo de desenvolvimento seguro de software.</description>
+      <description>Sumário &amp;nbsp; Sumário Introdução Principais Funcionalidades Benefícios do Uso do Horusec Casos de uso Horusec VsCode IDE Plugin Instalação dos binários (Windows, Linux e Mac) Windows Linux e Mac Horusec CLI sem Docker (Binário) Horusec CLI com Docker (Binário) Horusec Docker Reports customizados Horusec em pipeline Github Actions Enfim….</description>
     </item>
   </channel>
 </rss>
