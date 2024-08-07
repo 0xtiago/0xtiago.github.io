@@ -385,29 +385,30 @@
 
             
                 
-    
 
-    
-        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvass-sidebar" aria-inledby="offcanvas-label">
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvas-label">Blog</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-                
 
-            </div>
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvass-sidebar" aria-inledby="offcanvas-label">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvas-label">Blog</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label=""></button>
+    </div>
+    <div class="offcanvas-body">
+        
+
+    </div>
+</div>
+
+
+<div class="container-xxl flex-fill p-4 px-xxl-0">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+        <div
+            class="col col-lg-2 d-none d-lg-block sidebar-overflow sticky-top pt-5">
+            
+
         </div>
-    
-
-    <div class="container-xxl flex-fill p-4 px-xxl-0">
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
-                <div class="col col-lg-2 d-none d-lg-block sidebar-overflow sticky-top pt-5">
-                    
-
-                </div>
-                <div class="col-12 col-md-9 col-lg-8 mb-5 p-4">
-                    
+        <div class="col-12 col-md-9 col-lg-8 mb-5 p-4">
+            
 
 
 
@@ -2361,9 +2362,10 @@
 </div>
 
 
-                </div>
-                <div class="col col-md-3 col-lg-2 d-none d-md-block pt-5">
-                    
+        </div>
+        <div
+            class="col col-md-3 col-lg-2 d-none d-md-block pt-5">
+            
     
 
 
@@ -2400,9 +2402,31 @@
 
     </div>
 
-                </div>
-            </div>
         </div>
+    </div>
+    <div>
+        <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "tiagotavares-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+</div>
 
 
 
