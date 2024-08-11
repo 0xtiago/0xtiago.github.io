@@ -1256,12 +1256,13 @@
     
     };
     (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
+        
+        
+        
+        
         var d = document, s = d.createElement('script'); s.async = true;
         s.src = '//' + "tiagotavares-io" + '.disqus.com/embed.js';
+        console.log(s.src);
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
@@ -1377,7 +1378,7 @@
 </div>
 </div>
 
-<script src="/js/main.bundle.min.e0b8e58012d0fea7e8a5ce198e8f5adb8d699c6300369a4a463e1d796728d168.js" integrity="sha256-4LjlgBLQ/qfopc4Zjo9a241pnGMANppKRj4deWco0Wg=" crossorigin="anonymous" async></script>
+<script src="/js/main.bundle.min.123522c571faf3688d9629c4ce20fcf7b7713fb6ce55332797014792c48eb6c8.js" integrity="sha256-EjUixXH682iNlinEziD897dxP7bOVTMnlwFHksSOtsg=" crossorigin="anonymous" async></script>
     
 
     

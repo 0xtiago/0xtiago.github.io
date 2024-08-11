@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Tiago Tavares.</copyright>
-    <lastBuildDate>Thu, 18 Jul 2024 09:08:27 -0300</lastBuildDate>
+    <lastBuildDate>Sun, 11 Aug 2024 16:59:41 -0300</lastBuildDate>
     <atom:link href="https://tiagotavares.io/tags/hacking/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HackerWhale</title>
+      <link>https://tiagotavares.io/blog/hackerwhale_container/</link>
+      <pubDate>Sun, 11 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://tiagotavares.io/blog/hackerwhale_container/</guid>
+      <description>HackerWhale Motivação Características Lista de Ferramentas Instalação e execução Contrução do container no modo &amp;ldquo;Baleião&amp;rdquo; pronto para uso Construção do container utilizando a função de expansão Execução e acesso ao container Casos de uso Proxy externo ZAProxy BurpSuite Conexões Reversas Kubernetes Minikube Kubernetes Discovery &amp;amp; Scan HackerWhale &amp;nbsp; Este projeto é o resultado da necessidade encontrada durante um trabalho onde haviam poucos recursos disponíveis, e uma imagem de container personalizada foi a solução criada.</description>
+    </item>
     <item>
       <title>Keep moving, fi duma égua!🙏</title>
       <link>https://tiagotavares.io/blog/keep-moving-fi-duma-egua/</link>

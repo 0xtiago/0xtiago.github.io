@@ -1,0 +1,3057 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+    <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.128.2">
+    <meta name="theme" content="Hinode 0.14.0">
+    
+
+
+
+
+
+    
+    
+<link rel="stylesheet" href="/css/main.min.efe232a6d505bfd4eebc021116f402279b8f9434777650f9bc099c4caff52542.css" integrity="sha256-7+IyptUFv9TuvAIRFvQCJ5uPlDR3dlD5vAmcTK/1JUI=" crossorigin="anonymous">
+    
+        
+    
+    
+
+
+
+    
+    
+<link rel="stylesheet" href="/css/simple-datatables.min.62fbf0bfbe2417baf16056fa47525ab6864a76c023796a882b1531800aed022d.css" integrity="sha256-Yvvwv74kF7rxYFb6R1JatoZKdsAjeWqIKxUxgArtAi0=" crossorigin="anonymous">
+         
+        <link rel="preload" href="/fonts/inter-v12-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+
+
+
+
+
+    
+  <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <title>debugging the life - HackerWhale</title>
+    <meta name="description" content="Uma imagem Docker para propostas ofensivas com funções de expansão. Compatível com ambientes Kubernetes.">
+
+<link rel="canonical" href="https://tiagotavares.io/blog/hackerwhale_container/">
+
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HackerWhale">
+<meta property="og:description" content="Uma imagem Docker para propostas ofensivas com funções de expansão. Compatível com ambientes Kubernetes.">
+<meta property="og:url" content="https://tiagotavares.io/blog/hackerwhale_container/">
+<meta property="og:site_name" content="debugging the life">
+<meta property="article:published_time" content="2024-08-11T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-08-11T16:59:41-03:00">
+    <meta property="og:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fill,h_640,w_1280/v1723166559/blog/HackerWhale_-_tiagotavares.io_xrvsrq.jpg">
+<meta property="og:image:alt" content="HackerWhale">
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+
+
+<meta name="twitter:title" content="HackerWhale">
+<meta name="twitter:description" content="Uma imagem Docker para propostas ofensivas com funções de expansão. Compatível com ambientes Kubernetes.">
+<meta name="twitter:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fill,h_640,w_1280/v1723166559/blog/HackerWhale_-_tiagotavares.io_xrvsrq.jpg">
+<meta name="twitter:image:alt" content="HackerWhale">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+        "@id": "https://tiagotavares.io/#/schema/organization/1",
+      "name": "Tiago Tavares",
+      "url": "https://tiagotavares.io/",
+      "sameAs": [
+        "https://x.com/tiagotavi/"
+        , "https://www.linkedin.com/in/tiagotavi/"
+        , "https://github.com/0xtiago/"
+        ],
+      "image": {
+          "@type": "ImageObject",
+          "@id": "https://tiagotavares.io/#/schema/image/1",
+          "url": "https://tiagotavares.io/\u003cnil\u003e",
+          "width": null ,
+          "height": null ,
+          "caption": "Tiago Tavares"
+        }
+      },
+    {
+      "@type": "WebSite",
+      "@id": "https://tiagotavares.io/#/schema/website/1",
+      "url": "https://tiagotavares.io/",
+      "name": "debugging the life",
+      "description": "Technical content, most about information security, offensive security and application security.",
+      "publisher": {
+          "@id": "https://tiagotavares.io/#/schema/organization/1"
+        }
+      },
+    {
+      "@type": "WebPage",
+      "@id": "https://tiagotavares.io/blog/hackerwhale_container/",
+      "url": "https://tiagotavares.io/blog/hackerwhale_container/",
+      "name": "HackerWhale",
+      "description": "Uma imagem Docker para propostas ofensivas com funções de expansão. Compatível com ambientes Kubernetes.",
+      "isPartOf": {
+        "@id": "https://tiagotavares.io/#/schema/website/1"
+      },
+      "about": {
+          "@id": "https://tiagotavares.io/#/schema/organization/1"
+        },
+      "datePublished": "2024-08-11T00:00:00CET",
+      "dateModified": "2024-08-11T16:59:41CET",
+      "breadcrumb": {
+        "@id": "https://tiagotavares.io/blog/hackerwhale_container/#/schema/breadcrumb/1"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://tiagotavares.io/blog/hackerwhale_container/#/schema/image/2"
+      },
+      "inLanguage": "en-US",
+      "potentialAction": [{
+        "@type": "ReadAction", "target": ["https://tiagotavares.io/blog/hackerwhale_container/"]
+      }]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://tiagotavares.io/blog/hackerwhale_container/#/schema/breadcrumb/1",
+      "name": "Breadcrumbs",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position":  1 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://tiagotavares.io/",
+          "url": "https://tiagotavares.io/",
+          "name": "Home"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  2 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://tiagotavares.io/blog/",
+          "url": "https://tiagotavares.io/blog/",
+          "name": "Blog"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  3 ,
+        "item": {
+          "@id": "https://tiagotavares.io/blog/hackerwhale_container/"
+          }
+        }]
+    },
+
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "@id": "https://tiagotavares.io/#/schema/article/1",
+          "headline": "HackerWhale",
+          "description": "Uma imagem Docker para propostas ofensivas com funções de expansão. Compatível com ambientes Kubernetes.",
+          "isPartOf": {
+            "@id": "https://tiagotavares.io/blog/hackerwhale_container/"
+          },
+          "mainEntityOfPage": {
+            "@id": "https://tiagotavares.io/blog/hackerwhale_container/"
+          },
+          "datePublished": "2024-08-11T00:00:00CET",
+          "dateModified": "2024-08-11T16:59:41CET",
+          "author": {
+            "@id": "https://tiagotavares.io/#/schema/person/2"
+          },
+          "publisher": {
+              "@id": "https://tiagotavares.io/#/schema/organization/1"
+            },
+          "image": {
+            "@id": "https://tiagotavares.io/blog/hackerwhale_container/#/schema/image/2"
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://tiagotavares.io/#/schema/person/2",
+          "name":  null ,
+          "sameAs": [
+            ]
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ImageObject",
+          "@id": "https://tiagotavares.io/blog/hackerwhale_container/#/schema/image/2",
+          "url": "https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fill,h_640,w_1280/v1723166559/blog/HackerWhale_-_tiagotavares.io_xrvsrq.jpg",
+          "contentUrl": "https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fill,h_640,w_1280/v1723166559/blog/HackerWhale_-_tiagotavares.io_xrvsrq.jpg",
+          "caption": "HackerWhale"
+        }
+      ]
+    }
+
+  ]
+}
+</script>
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon_hu29d17b5413868ec40c659bb26691088e_2409_16x16_resize_catmullrom_3.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon_hu29d17b5413868ec40c659bb26691088e_2409_32x32_resize_catmullrom_3.png">
+        <link rel="icon" type="image/png" sizes="48x48" href="/img/favicon_hu29d17b5413868ec40c659bb26691088e_2409_48x48_resize_catmullrom_3.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon_hu29d17b5413868ec40c659bb26691088e_2409_180x0_resize_catmullrom_3.png">
+    
+
+</head>
+
+    <body>
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-HCTHDQERH9"></script><script src="/js/critical.bundle.min.a73ed0b9da936bca55cd96a54840ab270bde232f86b9b2f7ca2026635b177982.js" integrity="sha256-pz7QudqTa8pVzZalSECrJwveIy&#43;GubL3yiAmY1sXeYI=" crossorigin="anonymous"></script>
+    <div class="d-flex flex-column min-vh-100">
+            <div class="d-flex flex-column ">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container-fluid fixed-top p-0">
+
+
+
+
+
+
+<nav class="navbar p-4 bg-body navbar-fixed-top navbar-expand-md"
+        
+        
+        >
+        <div class="container-xxl p-0">
+            <div class="d-flex navbar-container justify-content-center">
+                
+                <div class="d-flex align-items-center">
+                        <button class="navbar-toggler collapsed p-0 mx-auto invisible fw-30" type="button">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-ellipsis fa-fw"></i> --><svg class="svg-inline--fa fas fa-ellipsis fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/></svg>
+
+    
+</button></div>
+        
+                
+                <div class="mx-auto">
+                    <a class="navbar-brand" href="/" aria-label="Home">
+                            <img src="/img/tt-logo-icon.svg" alt="debugging the life logo" height="30" width="30"></a>
+                </div>
+        
+                
+                <div class="d-flex align-items-center">
+                    <button class="navbar-toggler main-nav-toggler collapsed p-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-0-collapse"
+                        aria-controls="navbar-0" aria-expanded="false" aria-label="Toggle main navigation">
+                        <span class="toggler-icon top-bar emphasis"></span>
+                        <span class="toggler-icon middle-bar emphasis"></span>
+                        <span class="toggler-icon bottom-bar emphasis"></span>
+                    </button>
+                </div>
+            </div>
+    
+            <div class="navbar-collapse collapse" id="navbar-0-collapse">
+                <div class="d-flex flex-fill ms-md-3">
+    <form class="search flex-fill position-relative me-auto">
+        <input class="search-input form-control is-search" type="search" placeholder="Search this site" aria-label="Search this site" autocomplete="off">
+        <div class="search-suggestions shadow bg-body rounded d-none" data-no-results="No results for"></div>
+    </form>
+</div>
+
+                <ul class="navbar-nav ms-auto">
+                            <li class="nav-item ">
+
+
+
+
+
+
+
+
+    
+        <a class="nav-link" 
+            
+            data-nav="main" data-nav-main="about" 
+            href="/about/" ><span >About</span>&nbsp;</a>
+    
+</li>
+                            <li class="nav-item ">
+
+
+
+
+
+
+
+
+    
+        <a class="nav-link active" 
+            
+            data-nav="main" data-nav-main="blog" 
+            href="/blog/" ><span  class="active">Blog</span>&nbsp;</a>
+    
+</li>
+                            <li class="nav-item ">
+
+
+
+
+
+
+
+
+    
+        <a class="nav-link" 
+            
+            data-nav="main" data-nav-main="tags" 
+            href="/tags/" ><span >Tags</span>&nbsp;</a>
+    
+</li><div class="d-flex mode-switch align-items-center" id="navbar-mode">
+        <input type="checkbox" class="checkbox navbar-mode-selector" id="navbar-mode-checkbox" />
+        <label class="label" for="navbar-mode-checkbox">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-sun fa-fw"></i> --><svg class="svg-inline--fa fas fa-sun fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512"><path d="M361.5 1.2c5 2.1 8.6 6.6 9.6 11.9L391 121l107.9 19.8c5.3 1 9.8 4.6 11.9 9.6s1.5 10.7-1.6 15.2L446.9 256l62.3 90.3c3.1 4.5 3.7 10.2 1.6 15.2s-6.6 8.6-11.9 9.6L391 391 371.1 498.9c-1 5.3-4.6 9.8-9.6 11.9s-10.7 1.5-15.2-1.6L256 446.9l-90.3 62.3c-4.5 3.1-10.2 3.7-15.2 1.6s-8.6-6.6-9.6-11.9L121 391 13.1 371.1c-5.3-1-9.8-4.6-11.9-9.6s-1.5-10.7 1.6-15.2L65.1 256 2.8 165.7c-3.1-4.5-3.7-10.2-1.6-15.2s6.6-8.6 11.9-9.6L121 121 140.9 13.1c1-5.3 4.6-9.8 9.6-11.9s10.7-1.5 15.2 1.6L256 65.1 346.3 2.8c4.5-3.1 10.2-3.7 15.2-1.6zM160 256a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zm224 0a128 128 0 1 0 -256 0 128 128 0 1 0 256 0z"/></svg>
+
+    
+
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-moon fa-fw"></i> --><svg class="svg-inline--fa fas fa-moon fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 384 512"><path d="M223.5 32C100 32 0 132.3 0 256S100 480 223.5 480c60.6 0 115.5-24.2 155.8-63.4c5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6c-96.9 0-175.5-78.8-175.5-176c0-65.8 36-123.1 89.3-153.3c6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"/></svg>
+
+    
+
+            <div class="ball"></div>
+        </label>
+    </div></ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="main-content">
+                    </div>
+                
+            </div>
+
+            
+                
+
+
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvass-sidebar" aria-inledby="offcanvas-label">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvas-label">Blog</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label=""></button>
+    </div>
+    <div class="offcanvas-body">
+        
+
+    </div>
+</div>
+
+
+<div class="container-xxl flex-fill p-4 px-xxl-0">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+        <div
+            class="col col-lg-2 d-none d-lg-block sidebar-overflow sticky-top pt-5">
+            
+
+        </div>
+        <div class="col-12 col-md-9 col-lg-8 mb-5 p-4">
+            
+
+
+
+
+
+
+
+
+
+
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                
+                    <li class="breadcrumb-item"><a href="/blog/">Blogs</a></li>
+                <li class="breadcrumb-item active" aria-current="page">HackerWhale</li>
+        </ol>
+    </nav>
+<p class="display-4 mt-5">HackerWhale</p>
+
+    <small class="text-body-secondary text-uppercase">
+        Posted on August 11, 2024
+            
+        
+        &bull;
+        11&nbsp;min read &bull;
+        2,343&nbsp;words
+    </small>
+<div class="mt-3">
+        <div class="d-none-dark">
+            <div class="hstack gap-1">
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Hacking"
+        href="/tags/hacking/" class="btn btn-light btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Hacking</div>
+        </div></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Docker"
+        href="/tags/docker/" class="btn btn-light btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Docker</div>
+        </div></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Container"
+        href="/tags/container/" class="btn btn-light btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Container</div>
+        </div></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Kubernetes"
+        href="/tags/kubernetes/" class="btn btn-light btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Kubernetes</div>
+        </div></a>&nbsp;
+
+                </div>
+        </div>
+        
+        <div class="d-none-light">
+            <div class="hstack gap-1">
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Hacking"
+        href="/tags/hacking/" class="btn btn-outline-primary btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Hacking</div>
+        </div></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Docker"
+        href="/tags/docker/" class="btn btn-outline-primary btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Docker</div>
+        </div></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Container"
+        href="/tags/container/" class="btn btn-outline-primary btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Container</div>
+        </div></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Kubernetes"
+        href="/tags/kubernetes/" class="btn btn-outline-primary btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Kubernetes</div>
+        </div></a>&nbsp;
+
+                </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+<div class="py-3 text-body-secondary hstack gap-1">
+            Share via 
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Share via LinkedIn"
+        href="https://www.linkedin.com/sharing/share-offsite/?url=https://tiagotavares.io/blog/hackerwhale_container/" class="btn btn-primary  position-relative  btn-social p-0"
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto"></div><div class="align-self-center">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fab fa-linkedin fa-fw"></i> --><svg class="svg-inline--fa fab fa-linkedin fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+
+    
+</div>
+        </div></a>
+
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Share via Twitter"
+        href="https://twitter.com/home?status=https://tiagotavares.io/blog/hackerwhale_container/" class="btn btn-primary  position-relative  btn-social p-0"
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto"></div><div class="align-self-center">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fab fa-x-twitter fa-fw"></i> --><svg class="svg-inline--fa fab fa-x-twitter fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+
+    
+</div>
+        </div></a>
+
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Share via Facebook"
+        href="https://www.facebook.com/sharer.php?u=https://tiagotavares.io/blog/hackerwhale_container/" class="btn btn-primary  position-relative  btn-social p-0"
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto"></div><div class="align-self-center">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fab fa-facebook fa-fw"></i> --><svg class="svg-inline--fa fab fa-facebook fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512"><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z"/></svg>
+
+    
+</div>
+        </div></a>
+
+
+
+
+
+
+
+
+
+
+
+    <a aria-label="Share via WhatsApp"
+        href="whatsapp://send?text=HackerWhale%20https://tiagotavares.io/blog/hackerwhale_container/" class="btn btn-primary  position-relative  btn-social p-0"
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto"></div><div class="align-self-center">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fab fa-whatsapp fa-fw"></i> --><svg class="svg-inline--fa fab fa-whatsapp fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+
+    
+</div>
+        </div></a>
+
+
+
+
+
+
+
+
+<div id="toast-message-email-4" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+        <strong class="me-auto">debugging the life</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">Link copied to clipboard</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Share via email"
+        href="#!" data-toast-target="toast-message-email-4" data-clipboard="https://tiagotavares.io/blog/hackerwhale_container/" class="btn btn-primary  position-relative  btn-social p-0"
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto"></div><div class="align-self-center">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link fa-fw"></i> --><svg class="svg-inline--fa fas fa-link fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    
+</div>
+        </div></a>
+
+                
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Share via system"
+        href="#!" id="btn-webshare" class="btn btn-primary  position-relative  btn-social p-0"
+         data-sharing-description="%!s(<nil>)" data-sharing-title="%!s(<nil>)" data-sharing-url="%!s(<nil>)"role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto"></div><div class="align-self-center">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-share-nodes fa-fw"></i> --><svg class="svg-inline--fa fas fa-share-nodes fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><path d="M352 224c53 0 96-43 96-96s-43-96-96-96s-96 43-96 96c0 4 .2 8 .7 11.9l-94.1 47C145.4 170.2 121.9 160 96 160c-53 0-96 43-96 96s43 96 96 96c25.9 0 49.4-10.2 66.6-26.9l94.1 47c-.5 3.9-.7 7.8-.7 11.9c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-25.9 0-49.4 10.2-66.6 26.9l-94.1-47c.5-3.9 .7-7.8 .7-11.9s-.2-8-.7-11.9l94.1-47C302.6 213.8 326.1 224 352 224z"/></svg>
+
+    
+</div>
+        </div></a>
+</div>
+<p class="lead mb-5 mt-3">Uma imagem Docker para propostas ofensivas com funções de expansão. Compatível com ambientes Kubernetes.</p>
+<div class="d-md-none pb-5">
+
+
+
+
+
+
+<div class="d-grid gap-2 mx-auto">
+        
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="On this page"
+        href="#toc-collapse" class="btn btn-outline-secondary  position-relative  toc-button"
+         data-bs-toggle="collapse" aria-expanded="false" aria-controls="toc-collapse"role="button"
+        >
+        <div class="d-flex justify-content-between">
+            <div class="my-auto">On this page</div><div class="align-self-center ps-1">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-sort "></i> --><svg class="svg-inline--fa fas fa-sort " fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 320 512"><path d="M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8H32c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8H288c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z"/></svg>
+
+    
+</div>
+        </div></a>
+</div>
+
+    <div class="collapse border bg-body-tertiary rounded p-1 navbar-nav-scroll" id="toc-collapse">
+        <div class="toc toc-panel text-body p-2">
+            <small><nav id="TableOfContents">
+  <ul>
+    <li><a href="#hackerwhale">HackerWhale</a></li>
+    <li><a href="#motivação">Motivação</a></li>
+    <li><a href="#características">Características</a>
+      <ul>
+        <li><a href="#lista-de-ferramentas">Lista de Ferramentas</a></li>
+      </ul>
+    </li>
+    <li><a href="#instalação-e-execução">Instalação e execução</a>
+      <ul>
+        <li><a href="#contrução-do-container-no-modo-baleião-pronto-para-uso">Contrução do container no modo &ldquo;Baleião&rdquo; pronto para uso</a></li>
+        <li><a href="#construção-do-container-utilizando-a-função-de-expansão">Construção do container utilizando a função de expansão</a></li>
+        <li><a href="#execução-e-acesso-ao-container">Execução e acesso ao container</a></li>
+      </ul>
+    </li>
+    <li><a href="#casos-de-uso">Casos de uso</a>
+      <ul>
+        <li><a href="#proxy-externo">Proxy externo</a></li>
+        <li><a href="#conexões-reversas">Conexões Reversas</a></li>
+        <li><a href="#kubernetes">Kubernetes</a></li>
+        <li><a href="#discovery--scan">Discovery &amp; Scan</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></small>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="img-wrap mb-5"><img class="img-fluid rounded"
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fill,h_1200,w_2800/v1723166559/blog/HackerWhale_-_tiagotavares.io_xrvsrq.jpg"
+            
+            fetchpriority="high"
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fill,h_247,w_576/v1723166559/blog/HackerWhale_-_tiagotavares.io_xrvsrq.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fill,h_329,w_768/v1723166559/blog/HackerWhale_-_tiagotavares.io_xrvsrq.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fill,h_425,w_992/v1723166559/blog/HackerWhale_-_tiagotavares.io_xrvsrq.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fill,h_514,w_1200/v1723166559/blog/HackerWhale_-_tiagotavares.io_xrvsrq.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fill,h_600,w_1400/v1723166559/blog/HackerWhale_-_tiagotavares.io_xrvsrq.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fill,h_1200,w_2800/v1723166559/blog/HackerWhale_-_tiagotavares.io_xrvsrq.png 2800w" sizes="100vw"
+            height="1200"
+            width="2800"
+            alt="HackerWhale">
+</div><ul>
+<li><a href="/blog/hackerwhale_container/#hackerwhale">HackerWhale</a></li>
+<li><a href="/blog/hackerwhale_container/#motivação">Motivação</a></li>
+<li><a href="/blog/hackerwhale_container/#características">Características</a>
+<ul>
+<li><a href="/blog/hackerwhale_container/#lista-de-ferramentas">Lista de Ferramentas</a></li>
+</ul>
+</li>
+<li><a href="/blog/hackerwhale_container/#instalação-e-execução">Instalação e execução</a>
+<ul>
+<li><a href="/blog/hackerwhale_container/#contrução-do-container-no-modo-baleião-pronto-para-uso">Contrução do container no modo &ldquo;Baleião&rdquo; pronto para uso</a></li>
+<li><a href="/blog/hackerwhale_container/#construção-do-container-utilizando-a-função-de-expansão">Construção do container utilizando a função de expansão</a></li>
+<li><a href="/blog/hackerwhale_container/#execução-e-acesso-ao-container">Execução e acesso ao container</a></li>
+</ul>
+</li>
+<li><a href="/blog/hackerwhale_container/#casos-de-uso">Casos de uso</a>
+<ul>
+<li><a href="/blog/hackerwhale_container/#proxy-externo">Proxy externo</a>
+<ul>
+<li><a href="/blog/hackerwhale_container/#zaproxy">ZAProxy</a></li>
+<li><a href="/blog/hackerwhale_container/#burpsuite">BurpSuite</a></li>
+</ul>
+</li>
+<li><a href="/blog/hackerwhale_container/#conexões-reversas">Conexões Reversas</a></li>
+<li><a href="/blog/hackerwhale_container/#kubernetes">Kubernetes</a>
+<ul>
+<li><a href="/blog/hackerwhale_container/#minikube">Minikube</a></li>
+<li><a href="/blog/hackerwhale_container/#kubernetes-1">Kubernetes</a></li>
+</ul>
+</li>
+<li><a href="/blog/hackerwhale_container/#discovery--scan">Discovery &amp; Scan</a></li>
+</ul>
+</li>
+</ul>
+
+<h2 id="hackerwhale" class="heading">HackerWhale <a href="#hackerwhale" aria-labelledby="hackerwhale">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h2>
+<p>Este projeto é o resultado da necessidade encontrada durante um trabalho onde haviam poucos recursos disponíveis, e uma imagem de container personalizada foi a solução criada.</p>
+<p>Assim foi criado o &ldquo;<a href="https://github.com/0xtiago/HackerWhale">HackerWhale</a>&rdquo;, que em poucos minutos te disponibilizará tudo o que é necessário para realizar testes em sua rede, seja em redes corporativas ou ambiente Kubernetes.</p>
+<p><strong>Docker</strong></p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker pull 0xtiago/hackerwhale:latest</span></span></code></pre></div></div><p><strong>Kubernetes</strong></p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl apply -f hackerwhale-k8s.yaml</span></span></code></pre></div></div><p>Para casos de uso e detalhes, basta seguir neste humilde artigo. :)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_2597,w_2800/v1723385643/blog/tools_map_uwy6op.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_534,w_576/v1723385643/blog/tools_map_uwy6op.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_712,w_768/v1723385643/blog/tools_map_uwy6op.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_920,w_992/v1723385643/blog/tools_map_uwy6op.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1113,w_1200/v1723385643/blog/tools_map_uwy6op.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1298,w_1400/v1723385643/blog/tools_map_uwy6op.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_2597,w_2800/v1723385643/blog/tools_map_uwy6op.png 2800w" sizes="100vw"
+            height="2597"
+            width="2800"
+            alt="Ferramentas prontas para expansão disponível em https://github.com/0xtiago/HackerWhale.">
+</div><figcaption class="figure-caption">Ferramentas prontas para expansão disponível em https://github.com/0xtiago/HackerWhale.</figcaption>
+    </figure>
+
+<h2 id="motivação" class="heading">Motivação <a href="#motiva%c3%a7%c3%a3o" aria-labelledby="motivação">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h2>
+<p>Recentemente, me deparei com uma situação onde precisei realizar uma avaliação rápida em um ambiente, mas naquele extao momento eu ainda não possuía direitos administrativos, e muito menos ferramentas de virtualização (VBox/VMWare) no laptop fornecido. No entanto, estava disponível o Docker Desktop. Então, decidi gastar um tempo construindo meu próprio container com minhas ferramentas favoritas.</p>
+<p>Haviam outras opções disponíveis, mas elas não eram viáveis naquele momento devido aos seguintes motivos:</p>
+<ol>
+<li><a href="https://www.kali.org/docs/containers/official-kalilinux-docker-images/">Container Docker do Kali Linux</a>: O proxy de rede bloqueou o repositório do Kali (A atualização por <code>apt update &amp;&amp; apt -y install kali-linux-headless</code> não era possível);</li>
+<li><a href="https://github.com/madhuakula/hacker-container">Hacker Container</a>: É uma opção interessante, mas tudo está centralizado no Dockerfile, algo que, na minha humilde opinião, torna a manutenção deste projeto mais confuso e difícil de manter.</li>
+</ol>
+<p>Então, aqui trago duas opções após essa jornada de testes:</p>
+<ol>
+<li>Uma versão completa e expandida disponível em <a href="https://hub.docker.com/r/0xtiago/hackerwhale">Docker Hub</a>.</li>
+<li>Possibilidade de criar sua própria imagem personalizada.</li>
+</ol>
+
+<h2 id="características" class="heading">Características <a href="#caracter%c3%adsticas" aria-labelledby="características">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h2>
+<p>A maior preocupação durante a construção da imagem base era manter a mesma experiência de trabalho em um host Ubuntu Linux que geralmente trabalho, incluido Zsh com Oh-My-Zsh, Oh-My-Tmux, e manutenção do histórico de comandos em <code>$(PWD)</code>.</p>
+<p>Abaixo um resumo das características deste projeto:</p>
+<ul>
+<li>Imagem disponível no registry <a href="https://hub.docker.com/r/0xtiago/hackerwhale">Dockerhub</a> para facilitar o seu uso.</li>
+<li>Imagem em multiplataforma e script de expansão preparados para construção em amd64 e arm64.</li>
+<li>Customização de armazenamento de histórico para uso contínuo em <code>/workdir/.zsh_history_docker</code>, podendo ser mapeado e mantido no host, podemos ser reutilizado em outras imagens criadas.</li>
+<li>Shell com boa experiência para o usuário com ZSH (Ohmyzsh) e TMUX (Ohmytmux).</li>
+<li>Dockerfile pronto para expansão através de argumentos de uso de scripts em bash local ou a partir de uma URL.</li>
+<li>Dezenas de ferramentas disponíveis.</li>
+</ul>
+
+<h3 id="lista-de-ferramentas" class="heading">Lista de Ferramentas <a href="#lista-de-ferramentas" aria-labelledby="lista-de-ferramentas">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h3>
+<p>Abaixo a lista de ferramentas disponível até o momento da última atualização deste post. O código sempre será mantido e atualizado em <a href="https://github.com/0xtiago/HackerWhale">https://github.com/0xtiago/HackerWhale</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     
+     
+     
+
+
+
+ 
+
+
+
+    
+        <div class="table-responsive">
+        <table class="table data-table" data-table-sortable=true data-table-paging=true data-table-searchable=true>
+<thead>
+<tr>
+<th>#</th>
+<th>Tool</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.</td>
+<td>Altdns</td>
+</tr>
+<tr>
+<td>2.</td>
+<td>Alterx</td>
+</tr>
+<tr>
+<td>3.</td>
+<td>Amass</td>
+</tr>
+<tr>
+<td>4.</td>
+<td>Anew</td>
+</tr>
+<tr>
+<td>5.</td>
+<td>Antiburl</td>
+</tr>
+<tr>
+<td>6.</td>
+<td>Arjun</td>
+</tr>
+<tr>
+<td>7.</td>
+<td>arp_scan</td>
+</tr>
+<tr>
+<td>8.</td>
+<td>Assetfinder</td>
+</tr>
+<tr>
+<td>9.</td>
+<td>Burl</td>
+</tr>
+<tr>
+<td>10.</td>
+<td>Brutespray</td>
+</tr>
+<tr>
+<td>11.</td>
+<td>ChaosClient</td>
+</tr>
+<tr>
+<td>12.</td>
+<td>Collector</td>
+</tr>
+<tr>
+<td>13.</td>
+<td>DalFox</td>
+</tr>
+<tr>
+<td>14.</td>
+<td>Dirsearch</td>
+</tr>
+<tr>
+<td>15.</td>
+<td>Dnsx</td>
+</tr>
+<tr>
+<td>16.</td>
+<td>DNSValidator</td>
+</tr>
+<tr>
+<td>17.</td>
+<td>ffuf</td>
+</tr>
+<tr>
+<td>18.</td>
+<td>Findomains</td>
+</tr>
+<tr>
+<td>19.</td>
+<td>Gau</td>
+</tr>
+<tr>
+<td>20.</td>
+<td>Gauplus</td>
+</tr>
+<tr>
+<td>21.</td>
+<td>Gf</td>
+</tr>
+<tr>
+<td>22.</td>
+<td>GithubSearch</td>
+</tr>
+<tr>
+<td>23.</td>
+<td>GitDorker</td>
+</tr>
+<tr>
+<td>24.</td>
+<td>GitDumper</td>
+</tr>
+<tr>
+<td>25.</td>
+<td>GoogleChrome</td>
+</tr>
+<tr>
+<td>26.</td>
+<td>GoSpider</td>
+</tr>
+<tr>
+<td>27.</td>
+<td>Gowitness</td>
+</tr>
+<tr>
+<td>28.</td>
+<td>Hakrawler</td>
+</tr>
+<tr>
+<td>29.</td>
+<td>Hakrevdns</td>
+</tr>
+<tr>
+<td>30.</td>
+<td>Haktrails</td>
+</tr>
+<tr>
+<td>31.</td>
+<td>Httprobe</td>
+</tr>
+<tr>
+<td>32.</td>
+<td>Httpx</td>
+</tr>
+<tr>
+<td>33.</td>
+<td>JohnTheRipper</td>
+</tr>
+<tr>
+<td>34.</td>
+<td>JSScanner</td>
+</tr>
+<tr>
+<td>35.</td>
+<td>K9s</td>
+</tr>
+<tr>
+<td>36.</td>
+<td>Kiterunner</td>
+</tr>
+<tr>
+<td>37.</td>
+<td>Kubectl</td>
+</tr>
+<tr>
+<td>38.</td>
+<td>LinkFinder</td>
+</tr>
+<tr>
+<td>39.</td>
+<td>Mapcidr</td>
+</tr>
+<tr>
+<td>40.</td>
+<td>Massdns</td>
+</tr>
+<tr>
+<td>41.</td>
+<td>Masscan</td>
+</tr>
+<tr>
+<td>42.</td>
+<td>MegaPy</td>
+</tr>
+<tr>
+<td>43.</td>
+<td>Metabigor</td>
+</tr>
+<tr>
+<td>44.</td>
+<td>Naabu</td>
+</tr>
+<tr>
+<td>45.</td>
+<td>Netcat</td>
+</tr>
+<tr>
+<td>46.</td>
+<td>Nmap</td>
+</tr>
+<tr>
+<td>47.</td>
+<td>Notify</td>
+</tr>
+<tr>
+<td>48.</td>
+<td>Nrich</td>
+</tr>
+<tr>
+<td>49.</td>
+<td>Nuclei</td>
+</tr>
+<tr>
+<td>50.</td>
+<td>ParamSpider</td>
+</tr>
+<tr>
+<td>51.</td>
+<td>Qsreplace</td>
+</tr>
+<tr>
+<td>52.</td>
+<td>ShufleDNS</td>
+</tr>
+<tr>
+<td>53.</td>
+<td>Sqlmap</td>
+</tr>
+<tr>
+<td>54.</td>
+<td>Sub404</td>
+</tr>
+<tr>
+<td>55.</td>
+<td>Subfinder</td>
+</tr>
+<tr>
+<td>56.</td>
+<td>Subjs</td>
+</tr>
+<tr>
+<td>57.</td>
+<td>sslscan</td>
+</tr>
+<tr>
+<td>58.</td>
+<td>Stress_ng</td>
+</tr>
+<tr>
+<td>59.</td>
+<td>Telegram_Send</td>
+</tr>
+<tr>
+<td>60.</td>
+<td>TurboSearch</td>
+</tr>
+<tr>
+<td>61.</td>
+<td>Unfurl</td>
+</tr>
+<tr>
+<td>62.</td>
+<td>Uro</td>
+</tr>
+<tr>
+<td>63.</td>
+<td>Waybackurls</td>
+</tr>
+<tr>
+<td>64.</td>
+<td>wafw00f</td>
+</tr>
+<tr>
+<td>65.</td>
+<td>WPScan</td>
+</tr>
+</tbody>
+</table>
+
+        </div>
+    
+
+
+<h2 id="instalação-e-execução" class="heading">Instalação e execução <a href="#instala%c3%a7%c3%a3o-e-execu%c3%a7%c3%a3o" aria-labelledby="instalação-e-execução">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h2>
+
+<h3 id="contrução-do-container-no-modo-baleião-pronto-para-uso" class="heading">Contrução do container no modo &ldquo;Baleião&rdquo; pronto para uso <a href="#contru%c3%a7%c3%a3o-do-container-no-modo-balei%c3%a3o-pronto-para-uso" aria-labelledby="contrução-do-container-no-modo-baleião-pronto-para-uso">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h3>
+<p>Este modo carinhosamente chamado de <em><strong>Baleião</strong></em>, se trata do container em seu formato completo, com todas as ferramentas. Você pode contruí-lo acessando o repositório no <a href="https://github.com/0xtiago/HackerWhale/">Github</a> ou realizar o pull desta imagem completa diretamente do <a href="https://hub.docker.com/r/0xtiago/hackerwhale/tags">DockerHub</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_2108,w_2800/v1723243717/blog/957a25a0-4a26-461c-8e8f-b2a2c46a5f34.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_434,w_576/v1723243717/blog/957a25a0-4a26-461c-8e8f-b2a2c46a5f34.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_578,w_768/v1723243717/blog/957a25a0-4a26-461c-8e8f-b2a2c46a5f34.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_747,w_992/v1723243717/blog/957a25a0-4a26-461c-8e8f-b2a2c46a5f34.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_904,w_1200/v1723243717/blog/957a25a0-4a26-461c-8e8f-b2a2c46a5f34.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1054,w_1400/v1723243717/blog/957a25a0-4a26-461c-8e8f-b2a2c46a5f34.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_2108,w_2800/v1723243717/blog/957a25a0-4a26-461c-8e8f-b2a2c46a5f34.png 2800w" sizes="100vw"
+            height="2108"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+<p>Faça o pull da imagem do repositório do Github.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker pull 0xtiago/hackerwhale:latest</span></span></code></pre></div></div><p>Execute o container.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run -d -v <span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>:/workdir --name hackerwhale hackerwhale</span></span></code></pre></div></div><p>Acesse o terminal do container.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker <span class="nb">exec</span> -it hackerwhale /bin/zsh </span></span></code></pre></div></div>
+<h3 id="construção-do-container-utilizando-a-função-de-expansão" class="heading">Construção do container utilizando a função de expansão <a href="#constru%c3%a7%c3%a3o-do-container-utilizando-a-fun%c3%a7%c3%a3o-de-expans%c3%a3o" aria-labelledby="construção-do-container-utilizando-a-função-de-expansão">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h3>
+<p>Como citado no inicío, uma da maiores motivações para construir esta imagem era a possibilidade torná-la expansível, entregando uma imagem base para uma boa experiência de uso. Para realizar a construção no formato expansível basta seguir os passos seguintes.</p>
+<p>Clone o repositório, acesse-o.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone https://github.com/0xtiago/HackerWhale <span class="o">&amp;&amp;</span> <span class="nb">cd</span> HackerWhale </span></span></code></pre></div></div><p>Com o uso de argumentos você poderá expandir o container com as aplicações que desejar escrevendo o seu próprio shell script de expansão. Você pode usar este <a href="https://github.com/0xtiago/HackerWhale/blob/main/scripts/expansion_script.sh">aqui</a> como base, se quiser.</p>
+<p>Esta imagem está configurada para receber dois argumentos a partir da opção <code>--build-arg</code>,  <code>EXPANSION_SCRIPT_LOCAL</code> e <code>EXPANSION_SCRIPT_URL</code>, onde você pode passar um script local ou um script disponível em uma URL, respectivamente.</p>
+<p>Exemplo utilizando script local:</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker build --build-arg <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span><span class="nv">EXPANSION_SCRIPT_LOCAL</span><span class="o">=</span>scripts/expansion_script.sh -t hackerwhale .</span></span></code></pre></div></div><p>Exemplo utilizando script remoto:</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker build --build-arg <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span><span class="nv">EXPANSION_SCRIPT_URL</span><span class="o">=</span><span class="s2">&#34;https://raw.githubusercontent.com/0xtiago/HackerWhale/main/scripts/expansion_script.sh&#34;</span> -t hackerwhale .</span></span></code></pre></div></div>
+<h3 id="execução-e-acesso-ao-container" class="heading">Execução e acesso ao container <a href="#execu%c3%a7%c3%a3o-e-acesso-ao-container" aria-labelledby="execução-e-acesso-ao-container">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h3>
+<p>Nos exemplos há algumas opções de uso que serão aprofundadas mais adiante. No comando <code>docker run</code> iremos utilizar algumas opções de destaque:</p>
+<ul>
+<li><code>-v ${PWD}:/workdir</code>: Mapeamento do diretório local de execução do host com o diretório <code>/workdir</code> do container. Essa é uma opções que particularmente gosto para fins de organização.</li>
+<li><code>--net=host</code>: Configuração do container na mesma rede do host, assim seus serviços podem se comunicar entre si. Um exemplo de necessidade desta opção é a comunicação entre o container e a porta de um proxy no host, como ZAProxy ou BurpSuite.</li>
+<li><code>-p {Porta do Container}:{Porta do Host}</code>:  Opção muito utilizada para expor portas de serviços do container para acesso pelo host. Mais adiante demonstramos seu uso para o recebimento de conexões reversas. <strong>Obs.:</strong> Não deve ser usada em conjunto com <code>--host</code>.</li>
+</ul>
+<p>No exemplo abaixo, configuramos para que sua pasta local seja mapeada no em <code>/workdir</code> no container para facilitar a organização durante os trabalhos. No comando também foi adicionada a opção <code>--net=host</code>  para extender a possibilidade de interagir com algum proxy do host, como ZAProxy, Burp Suite, Caido, etc.</p>
+<p>Execução do container sem configurações de redes ou portas. Opcionalmente, mantendo o seu nome como <code>hackerwhale</code>.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run -d -v <span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>:/workdir --name hackerwhale hackerwhale</span></span></code></pre></div></div><p>Execução do container na mesma rede do host.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run -d --net<span class="o">=</span>host -v <span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>:/workdir --name hackerwhale hackerwhale</span></span></code></pre></div></div><p>Execução do container expondo portas de serviço (Ex.: <code>netcat</code>).</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run -d -v <span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>:/workdir -p 4444:4444 --name hackerwhale hackerwhale</span></span></code></pre></div></div><p>Uma vez executado o container em qualquer das opções, acesso o container pelo <em>entrypoint</em> <code>/bin/zsh</code> para acessar a shell e iniciar o seu uso.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker <span class="nb">exec</span> -it hackerwhale /bin/zsh </span></span></code></pre></div></div>
+<h2 id="casos-de-uso" class="heading">Casos de uso <a href="#casos-de-uso" aria-labelledby="casos-de-uso">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h2>
+
+<h3 id="proxy-externo" class="heading">Proxy externo <a href="#proxy-externo" aria-labelledby="proxy-externo">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h3>
+<p>Para utilizar proxies externos e poder interceptar comunicação HTTPS, é necessário instalar seus certificados. As configurações de certificado dos proxies são todas realizadas a partir da shell do container.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker <span class="nb">exec</span> -it hackerwhale /bin/zsh </span></span></code></pre></div></div>
+<h4 id="zaproxy" class="heading">ZAProxy <a href="#zaproxy" aria-labelledby="zaproxy">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h4>
+<p>Após executar o ZAProxy, baixe o certificado acessando o endereço padrão http://localhost:8080.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_2382,w_2800/v1723242491/blog/zap_home_cert_derdut.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_490,w_576/v1723242491/blog/zap_home_cert_derdut.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_653,w_768/v1723242491/blog/zap_home_cert_derdut.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_844,w_992/v1723242491/blog/zap_home_cert_derdut.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1021,w_1200/v1723242491/blog/zap_home_cert_derdut.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1191,w_1400/v1723242491/blog/zap_home_cert_derdut.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_2382,w_2800/v1723242491/blog/zap_home_cert_derdut.png 2800w" sizes="100vw"
+            height="2382"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+<p>Ou baixe o certificado pela próprio GUI:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1454,w_2800/v1723242665/blog/guicert_zap_qtycm5.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_299,w_576/v1723242665/blog/guicert_zap_qtycm5.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_399,w_768/v1723242665/blog/guicert_zap_qtycm5.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_515,w_992/v1723242665/blog/guicert_zap_qtycm5.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_623,w_1200/v1723242665/blog/guicert_zap_qtycm5.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_727,w_1400/v1723242665/blog/guicert_zap_qtycm5.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1454,w_2800/v1723242665/blog/guicert_zap_qtycm5.png 2800w" sizes="100vw"
+            height="1454"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+<p>Após o download, pela shell do container, é necessário converter o certificado em DER ou PEM para Base64.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl x509 -inform PEM -in ZAPCACert.cer -out ZAPCACert.crt</span></span></code></pre></div></div><p>Depois é só importar o certificado convertido. Para facilitar este passo, foi criado <a href="https://raw.githubusercontent.com/0xtiago/HackerWhale/main/scripts/check_and_copy_cert.sh">shell script</a>. Os mesmos passos serão necessários para os outros proxies.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sh -c <span class="s2">&#34;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/0xtiago/HackerWhale/main/scripts/check_and_copy_cert.sh<span class="k">)</span><span class="s2">&#34;</span> - ZAPCACert.crt</span></span></code></pre></div></div><p>Após a importação basta configurar as variavéis de ambiente <code>http_proxy</code> e <code>https_proxy</code> do container para acessar a portar do proxy do host. No exemplo abaixo a porta é a 8080.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Caso queira usar o Burp, basta exportar internamente as portas de proxy</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">http_proxy</span><span class="o">=</span><span class="s2">&#34;http://host.docker.internal:8080&#34;</span> <span class="p">;</span><span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span><span class="nb">export</span> <span class="nv">https_proxy</span><span class="o">=</span><span class="s2">&#34;http://host.docker.internal:8080&#34;</span></span></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_2087,w_2800/v1723242824/blog/Untitled_nabypw.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_429,w_576/v1723242824/blog/Untitled_nabypw.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_572,w_768/v1723242824/blog/Untitled_nabypw.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_739,w_992/v1723242824/blog/Untitled_nabypw.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_895,w_1200/v1723242824/blog/Untitled_nabypw.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1044,w_1400/v1723242824/blog/Untitled_nabypw.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_2087,w_2800/v1723242824/blog/Untitled_nabypw.png 2800w" sizes="100vw"
+            height="2087"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1454,w_2800/v1723242918/blog/zap_proxyfromcontainer_gingrc.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_299,w_576/v1723242918/blog/zap_proxyfromcontainer_gingrc.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_399,w_768/v1723242918/blog/zap_proxyfromcontainer_gingrc.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_515,w_992/v1723242918/blog/zap_proxyfromcontainer_gingrc.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_623,w_1200/v1723242918/blog/zap_proxyfromcontainer_gingrc.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_727,w_1400/v1723242918/blog/zap_proxyfromcontainer_gingrc.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1454,w_2800/v1723242918/blog/zap_proxyfromcontainer_gingrc.png 2800w" sizes="100vw"
+            height="1454"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+<p>Para desfazer a configuração  do proxy, basta remover as variáveis de ambiente.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#Para desconfigurar</span>
+</span></span><span class="line"><span class="cl"><span class="nb">unset</span> http_proxy <span class="o">&amp;&amp;</span> <span class="nb">unset</span> https_proxy</span></span></code></pre></div></div>
+<h4 id="burpsuite" class="heading">BurpSuite <a href="#burpsuite" aria-labelledby="burpsuite">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h4>
+<p>Após executar o BurpSuite, baixe o certificado acessando o endereço padrão http://localhost:8080.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_2381,w_2800/v1723243032/blog/b6e3e8f1-3466-4cc9-97b7-8b9abde90730.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_490,w_576/v1723243032/blog/b6e3e8f1-3466-4cc9-97b7-8b9abde90730.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_653,w_768/v1723243032/blog/b6e3e8f1-3466-4cc9-97b7-8b9abde90730.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_844,w_992/v1723243032/blog/b6e3e8f1-3466-4cc9-97b7-8b9abde90730.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1021,w_1200/v1723243032/blog/b6e3e8f1-3466-4cc9-97b7-8b9abde90730.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1191,w_1400/v1723243032/blog/b6e3e8f1-3466-4cc9-97b7-8b9abde90730.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_2381,w_2800/v1723243032/blog/b6e3e8f1-3466-4cc9-97b7-8b9abde90730.png 2800w" sizes="100vw"
+            height="2381"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+<p>Ou baixe pelo pela interface da ferramenta seguinte os seguintes passos:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1455,w_2800/v1723243060/blog/4d45e9d7-7155-4448-8cbd-87bc25467f15.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_299,w_576/v1723243060/blog/4d45e9d7-7155-4448-8cbd-87bc25467f15.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_399,w_768/v1723243060/blog/4d45e9d7-7155-4448-8cbd-87bc25467f15.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_515,w_992/v1723243060/blog/4d45e9d7-7155-4448-8cbd-87bc25467f15.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_623,w_1200/v1723243060/blog/4d45e9d7-7155-4448-8cbd-87bc25467f15.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_727,w_1400/v1723243060/blog/4d45e9d7-7155-4448-8cbd-87bc25467f15.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1455,w_2800/v1723243060/blog/4d45e9d7-7155-4448-8cbd-87bc25467f15.png 2800w" sizes="100vw"
+            height="1455"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+<p>Pela shell do container, converta o certificado do formato DER para Base64.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl x509 -inform DER -in burp_cert.der -out burp_cert.crt</span></span></code></pre></div></div><p>Realize a importação do certificado:</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sh -c <span class="s2">&#34;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/0xtiago/HackerWhale/main/scripts/check_and_copy_cert.sh<span class="k">)</span><span class="s2">&#34;</span> - burp_cert.crt</span></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_378,w_2800/v1723243133/blog/7d1c7d22-61ba-4687-9ae0-191c73dacc56.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_78,w_576/v1723243133/blog/7d1c7d22-61ba-4687-9ae0-191c73dacc56.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_104,w_768/v1723243133/blog/7d1c7d22-61ba-4687-9ae0-191c73dacc56.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_134,w_992/v1723243133/blog/7d1c7d22-61ba-4687-9ae0-191c73dacc56.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_162,w_1200/v1723243133/blog/7d1c7d22-61ba-4687-9ae0-191c73dacc56.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_189,w_1400/v1723243133/blog/7d1c7d22-61ba-4687-9ae0-191c73dacc56.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_378,w_2800/v1723243133/blog/7d1c7d22-61ba-4687-9ae0-191c73dacc56.png 2800w" sizes="100vw"
+            height="378"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+<p>Configure as variáveis de ambiente para direcionar o tráfego para o Burp:</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">http_proxy</span><span class="o">=</span><span class="s2">&#34;http://host.docker.internal:8080&#34;</span> <span class="p">;</span><span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span><span class="nb">export</span> <span class="nv">https_proxy</span><span class="o">=</span><span class="s2">&#34;http://host.docker.internal:8080&#34;</span></span></span></code></pre></div></div><p>E agora é só testar.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_2113,w_2800/v1723243174/blog/bc5fc4c9-1495-42bb-ac65-c4e4ab90f04c.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_435,w_576/v1723243174/blog/bc5fc4c9-1495-42bb-ac65-c4e4ab90f04c.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_579,w_768/v1723243174/blog/bc5fc4c9-1495-42bb-ac65-c4e4ab90f04c.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_748,w_992/v1723243174/blog/bc5fc4c9-1495-42bb-ac65-c4e4ab90f04c.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_905,w_1200/v1723243174/blog/bc5fc4c9-1495-42bb-ac65-c4e4ab90f04c.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1056,w_1400/v1723243174/blog/bc5fc4c9-1495-42bb-ac65-c4e4ab90f04c.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_2113,w_2800/v1723243174/blog/bc5fc4c9-1495-42bb-ac65-c4e4ab90f04c.png 2800w" sizes="100vw"
+            height="2113"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1455,w_2800/v1723243203/blog/53bb33b5-8f6f-450c-89f3-f03deeee9743.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_299,w_576/v1723243203/blog/53bb33b5-8f6f-450c-89f3-f03deeee9743.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_399,w_768/v1723243203/blog/53bb33b5-8f6f-450c-89f3-f03deeee9743.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_515,w_992/v1723243203/blog/53bb33b5-8f6f-450c-89f3-f03deeee9743.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_623,w_1200/v1723243203/blog/53bb33b5-8f6f-450c-89f3-f03deeee9743.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_727,w_1400/v1723243203/blog/53bb33b5-8f6f-450c-89f3-f03deeee9743.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1455,w_2800/v1723243203/blog/53bb33b5-8f6f-450c-89f3-f03deeee9743.png 2800w" sizes="100vw"
+            height="1455"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+<p>Para desfazer a configuração  do proxy, basta remover as variáveis de ambiente.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#Para desconfigurar</span>
+</span></span><span class="line"><span class="cl"><span class="nb">unset</span> http_proxy <span class="o">&amp;&amp;</span> <span class="nb">unset</span> https_proxy</span></span></code></pre></div></div>
+<h3 id="conexões-reversas" class="heading">Conexões Reversas <a href="#conex%c3%b5es-reversas" aria-labelledby="conexões-reversas">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h3>
+<p>Se quiser abrir uma porta para receber conexões reversas, no exemplo é demonstrado o mapeamento da porta 4444 no host e direcionando para mesma porta no container:</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run -d -v <span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>:/workdir -p 4444:4444 --name hackerwhale hackerwhale</span></span></code></pre></div></div><p>Acesse o container e execute  o <code>netcat</code>  para receber as conexões:</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker <span class="nb">exec</span> -it hackerwhale /bin/zsh </span></span></code></pre></div></div><div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nc -nlvp <span class="m">4444</span></span></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1116,w_2800/v1723251710/blog/477dd0e9-4f72-4c5f-87b1-36524bdd97ae.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_230,w_576/v1723251710/blog/477dd0e9-4f72-4c5f-87b1-36524bdd97ae.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_306,w_768/v1723251710/blog/477dd0e9-4f72-4c5f-87b1-36524bdd97ae.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_395,w_992/v1723251710/blog/477dd0e9-4f72-4c5f-87b1-36524bdd97ae.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_478,w_1200/v1723251710/blog/477dd0e9-4f72-4c5f-87b1-36524bdd97ae.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_558,w_1400/v1723251710/blog/477dd0e9-4f72-4c5f-87b1-36524bdd97ae.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1116,w_2800/v1723251710/blog/477dd0e9-4f72-4c5f-87b1-36524bdd97ae.png 2800w" sizes="100vw"
+            height="1116"
+            width="2800"
+            alt="Recebendo conexão reversa na porta 4444.">
+</div><figcaption class="figure-caption">Recebendo conexão reversa na porta 4444.</figcaption>
+    </figure>
+<p>Recebendo conexão de um outro pod em ambiente Kubernetes.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1598,w_2800/v1723385416/blog/f705b0eb-519f-491f-997d-499ef6976000.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_329,w_576/v1723385416/blog/f705b0eb-519f-491f-997d-499ef6976000.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_438,w_768/v1723385416/blog/f705b0eb-519f-491f-997d-499ef6976000.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_566,w_992/v1723385416/blog/f705b0eb-519f-491f-997d-499ef6976000.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_685,w_1200/v1723385416/blog/f705b0eb-519f-491f-997d-499ef6976000.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_799,w_1400/v1723385416/blog/f705b0eb-519f-491f-997d-499ef6976000.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1598,w_2800/v1723385416/blog/f705b0eb-519f-491f-997d-499ef6976000.png 2800w" sizes="100vw"
+            height="1598"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+
+<h3 id="kubernetes" class="heading">Kubernetes <a href="#kubernetes" aria-labelledby="kubernetes">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h3>
+<p>Uma vez que temos um container com estas capacidades, podemos utilizá-lo dentro de um cluster de Kubernetes como um pod. Estão disponíveis dois YAMLs para este laboratório, um para <strong>Minikube</strong> e outro para <strong>Kubernetes</strong>, além de outros YAMLs prontos para outros serviços que utilizaremos no laboratório. As imagens que utilizaremos serão as seguintes:</p>
+<ul>
+<li>0xtiago/hackerwhale</li>
+<li>postgres:latest</li>
+<li>nginx:latest</li>
+<li>rabbitmq:latest</li>
+</ul>
+<p>Todos os arquivos necessários para os laboratórios abaixo estão dentro da pasta k8s no <a href="https://github.com/0xtiago/HackerWhale/tree/main/k8s">repositório</a> deste projeto.</p>
+
+<h4 id="minikube" class="heading">Minikube <a href="#minikube" aria-labelledby="minikube">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h4>
+<p>Para um laboratório mais simples como o nosso, como prova de conceito, podemos utilizar o <a href="https://github.com/kubernetes/minikube">Minikube</a> para simular um cluster de Kubernetes. Neste laboratório precisaremos customizar algumas coisas para evitar conflitos com caminhos absolutos dentro do pod do HackerWhale. Mas tenha fé que tudo vai dar certo! :-)</p>
+<p>Instale o Minikube e o inicie.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">minikube start</span></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_972,w_2800/v1723386538/blog/5cf3c87a-8e71-477f-a09c-4f975db6d6db.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_200,w_576/v1723386538/blog/5cf3c87a-8e71-477f-a09c-4f975db6d6db.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_266,w_768/v1723386538/blog/5cf3c87a-8e71-477f-a09c-4f975db6d6db.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_344,w_992/v1723386538/blog/5cf3c87a-8e71-477f-a09c-4f975db6d6db.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_416,w_1200/v1723386538/blog/5cf3c87a-8e71-477f-a09c-4f975db6d6db.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_486,w_1400/v1723386538/blog/5cf3c87a-8e71-477f-a09c-4f975db6d6db.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_972,w_2800/v1723386538/blog/5cf3c87a-8e71-477f-a09c-4f975db6d6db.png 2800w" sizes="100vw"
+            height="972"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+<p>Utilizando o nosso <a href="https://github.com/0xtiago/HackerWhale/tree/main/k8s">repositório</a> base de scripts, aplique os yamls prontos para os nossos tres serviços alvos.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl apply -f postgresql.yaml
+</span></span><span class="line"><span class="cl">kubectl apply -f nginx.yaml
+</span></span><span class="line"><span class="cl">kubectl apply -f rabbitmq.yaml</span></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1317,w_2800/v1723386603/blog/3ef05f48-a509-42eb-bdf5-77afbe233ce4.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_271,w_576/v1723386603/blog/3ef05f48-a509-42eb-bdf5-77afbe233ce4.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_361,w_768/v1723386603/blog/3ef05f48-a509-42eb-bdf5-77afbe233ce4.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_467,w_992/v1723386603/blog/3ef05f48-a509-42eb-bdf5-77afbe233ce4.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_565,w_1200/v1723386603/blog/3ef05f48-a509-42eb-bdf5-77afbe233ce4.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_659,w_1400/v1723386603/blog/3ef05f48-a509-42eb-bdf5-77afbe233ce4.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1317,w_2800/v1723386603/blog/3ef05f48-a509-42eb-bdf5-77afbe233ce4.png 2800w" sizes="100vw"
+            height="1317"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+<p>Verifique se os pods estão em execução.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl get deployments
+</span></span><span class="line"><span class="cl">kubectl get services
+</span></span><span class="line"><span class="cl">kubectl get pods</span></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1082,w_2800/v1723386647/blog/8953f2d9-278e-4b2b-934e-90a326db0553.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_223,w_576/v1723386647/blog/8953f2d9-278e-4b2b-934e-90a326db0553.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_297,w_768/v1723386647/blog/8953f2d9-278e-4b2b-934e-90a326db0553.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_383,w_992/v1723386647/blog/8953f2d9-278e-4b2b-934e-90a326db0553.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_464,w_1200/v1723386647/blog/8953f2d9-278e-4b2b-934e-90a326db0553.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_541,w_1400/v1723386647/blog/8953f2d9-278e-4b2b-934e-90a326db0553.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1082,w_2800/v1723386647/blog/8953f2d9-278e-4b2b-934e-90a326db0553.png 2800w" sizes="100vw"
+            height="1082"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+<p>Agora será necessário realizar algumas customizações no kubeconfig. Obtenha o endereço do Minikube para que possamos gerar um arquivo kubeconfig especifico para o Pod no minikube para evitar conflitos dos endereçamentos.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">minikube ip
+</span></span><span class="line"><span class="cl">192.168.49.2</span></span></code></pre></div></div><p>Edite o arquivo <code>minikube-kubeconfig</code> com o endereço obtido em seu ambiente. No ambiente testado ficou assim:</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Config</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">clusters</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">cluster</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">certificate-authority</span><span class="p">:</span><span class="w"> </span><span class="l">/etc/kubernetes/certs/ca.crt</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">server</span><span class="p">:</span><span class="w"> </span><span class="l">https://192.168.49.2:8443</span><span class="w"> </span><span class="c"># IP do Minikube ($ minikube ip)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">minikube</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">contexts</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">context</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">cluster</span><span class="p">:</span><span class="w"> </span><span class="l">minikube</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l">minikube</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">minikube</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">current-context</span><span class="p">:</span><span class="w"> </span><span class="l">minikube</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">users</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">minikube</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">user</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">client-certificate</span><span class="p">:</span><span class="w"> </span><span class="l">/etc/kubernetes/certs/client.crt</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">client-key</span><span class="p">:</span><span class="w"> </span><span class="l">/etc/kubernetes/certs/client.key</span></span></span></code></pre></div></div><p>Agora, vamos criar o Secret para o nosso kubeconfig personalizado e para os certificados :</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ kubectl create secret generic minikube-kubeconfig-secret --from-file<span class="o">=</span><span class="nv">config</span><span class="o">=</span>./minikube-kubeconfig
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ kubectl create secret generic minikube-certificates <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --from-file<span class="o">=</span>client.crt<span class="o">=</span><span class="nv">$HOME</span>/.minikube/profiles/minikube/client.crt <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --from-file<span class="o">=</span>client.key<span class="o">=</span><span class="nv">$HOME</span>/.minikube/profiles/minikube/client.key <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --from-file<span class="o">=</span>ca.crt<span class="o">=</span><span class="nv">$HOME</span>/.minikube/ca.crt</span></span></code></pre></div></div><p>Agora podemos aplicar nosso hackerwhale-minikube.yaml para gerar o nosso pod.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl apply -f hackerwhale-minikube.yaml </span></span></code></pre></div></div><p>Liste novamente os pods para verificiar se todos estão disponíveis:</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl get pods</span></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_620,w_2800/v1723386883/blog/0470c716-bac1-4acd-8a18-f939982af8f6.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_128,w_576/v1723386883/blog/0470c716-bac1-4acd-8a18-f939982af8f6.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_170,w_768/v1723386883/blog/0470c716-bac1-4acd-8a18-f939982af8f6.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_220,w_992/v1723386883/blog/0470c716-bac1-4acd-8a18-f939982af8f6.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_266,w_1200/v1723386883/blog/0470c716-bac1-4acd-8a18-f939982af8f6.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_310,w_1400/v1723386883/blog/0470c716-bac1-4acd-8a18-f939982af8f6.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_620,w_2800/v1723386883/blog/0470c716-bac1-4acd-8a18-f939982af8f6.png 2800w" sizes="100vw"
+            height="620"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+<p>Comos todos disponíveis em nosso Minikube, podemos acessar o pod e verificar se podemos utilizar o kubectl internamente. Isso nos permitirá mais facilmente enumerar o ambiente interno e poder realizar qualquer <em>assessment</em> necessário.</p>
+<p>Agora já podemos acessar o nosso pod com os secrets importados durante sua criação.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl <span class="nb">exec</span> -it hackerwhale -- /bin/zsh</span></span></code></pre></div></div><p>E a partir do pod, podemos listar os demais. \o/</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl get pods</span></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1012,w_2800/v1723387064/blog/c8647f1d-40a1-45bd-88b1-8380895e2191.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_208,w_576/v1723387064/blog/c8647f1d-40a1-45bd-88b1-8380895e2191.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_278,w_768/v1723387064/blog/c8647f1d-40a1-45bd-88b1-8380895e2191.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_359,w_992/v1723387064/blog/c8647f1d-40a1-45bd-88b1-8380895e2191.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_434,w_1200/v1723387064/blog/c8647f1d-40a1-45bd-88b1-8380895e2191.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_506,w_1400/v1723387064/blog/c8647f1d-40a1-45bd-88b1-8380895e2191.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1012,w_2800/v1723387064/blog/c8647f1d-40a1-45bd-88b1-8380895e2191.png 2800w" sizes="100vw"
+            height="1012"
+            width="2800"
+            >
+</div>
+
+<h4 id="kubernetes-1" class="heading">Kubernetes <a href="#kubernetes-1" aria-labelledby="kubernetes-1">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h4>
+<p>Para este laboratório, foi criado um cluster de Kubernetes no <a href="https://www.vultr.com/kubernetes/">Vultr</a>.</p>
+<p>Baixe as configurações do seu cluster e adicione à variável de ambiente <code>$KUBECONFIG</code> . O nome do meu arquivo exportado foi <code>vke-58626b70-6270-4106-b1a1-a1e7754f6131.yaml</code>.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">KUBECONFIG</span><span class="o">=</span><span class="nv">$KUBECONFIG</span>:~/.kube/config:~/.kube/vke-58626b70-6270-4106-b1a1-a1e7754f6131.yaml</span></span></code></pre></div></div><p>Uma vez com as configurações importadas, podemos visualizar todos os contextos disponíveis:</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl config get-contexts</span></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_248,w_2800/v1723402378/blog/25ec4fc0-28ab-4eb4-b7fa-6ea9cfea0d6c.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_51,w_576/v1723402378/blog/25ec4fc0-28ab-4eb4-b7fa-6ea9cfea0d6c.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_68,w_768/v1723402378/blog/25ec4fc0-28ab-4eb4-b7fa-6ea9cfea0d6c.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_88,w_992/v1723402378/blog/25ec4fc0-28ab-4eb4-b7fa-6ea9cfea0d6c.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_106,w_1200/v1723402378/blog/25ec4fc0-28ab-4eb4-b7fa-6ea9cfea0d6c.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_124,w_1400/v1723402378/blog/25ec4fc0-28ab-4eb4-b7fa-6ea9cfea0d6c.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_248,w_2800/v1723402378/blog/25ec4fc0-28ab-4eb4-b7fa-6ea9cfea0d6c.png 2800w" sizes="100vw"
+            height="248"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+<p>Saia do contexto do Minikube e inicie os trabalhos em nosso novo cluster criado.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl config use-context vke-58626b70-6270-4106-b1a1-a1e7754f6131</span></span></code></pre></div></div><p>Confirme a mudança e listando o contexto e os seus nodes.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ kubectl config current-context
+</span></span><span class="line"><span class="cl">$ kubectl get nodes</span></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_685,w_2800/v1723402471/blog/542875cc-3336-4db7-959a-9c508982e98a.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_141,w_576/v1723402471/blog/542875cc-3336-4db7-959a-9c508982e98a.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_188,w_768/v1723402471/blog/542875cc-3336-4db7-959a-9c508982e98a.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_243,w_992/v1723402471/blog/542875cc-3336-4db7-959a-9c508982e98a.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_293,w_1200/v1723402471/blog/542875cc-3336-4db7-959a-9c508982e98a.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_342,w_1400/v1723402471/blog/542875cc-3336-4db7-959a-9c508982e98a.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_685,w_2800/v1723402471/blog/542875cc-3336-4db7-959a-9c508982e98a.png 2800w" sizes="100vw"
+            height="685"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+<p>Agora podemos subir os mesmos pods gerados em nosso lab no Minikube.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl apply -f postgresql.yaml<span class="p">;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>kubectl apply -f nginx.yaml<span class="p">;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>kubectl apply -f rabbitmq.yaml</span></span></code></pre></div></div><p>Verifique se os pods estão disponíveis.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl get pods</span></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_514,w_2800/v1723402602/blog/2383bce2-23db-49aa-beca-c52e452a8e83.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_106,w_576/v1723402602/blog/2383bce2-23db-49aa-beca-c52e452a8e83.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_141,w_768/v1723402602/blog/2383bce2-23db-49aa-beca-c52e452a8e83.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_182,w_992/v1723402602/blog/2383bce2-23db-49aa-beca-c52e452a8e83.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_220,w_1200/v1723402602/blog/2383bce2-23db-49aa-beca-c52e452a8e83.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_257,w_1400/v1723402602/blog/2383bce2-23db-49aa-beca-c52e452a8e83.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_514,w_2800/v1723402602/blog/2383bce2-23db-49aa-beca-c52e452a8e83.png 2800w" sizes="100vw"
+            height="514"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+<p>Com o ambiente preparado para atender o <a href="https://github.com/0xtiago/HackerWhale/blob/main/k8s/hackerwhale-k8s.yaml">YAML disponível para ambientes em K8s</a>, podemos gerar o secret para ser importado para o nosso pod e poder interagir com o cluster de dentro do pod.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl create secret generic k8s-kubeconfig-secret --from-file<span class="o">=</span><span class="nv">config</span><span class="o">=</span>/Users/tiago/.kube/vke-58626b70-6270-4106-b1a1-a1e7754f6131.yaml</span></span></code></pre></div></div><p>Agora é só subir o pod.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl apply -f hackerwhale-k8s.yaml</span></span></code></pre></div></div><p>Para acompanhar o pull da imagem e sua configuração durante ou após sua aplicação, pode executar o seguinte comando.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl describe pod hackerwhale-k8s</span></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1427,w_2800/v1723402890/blog/c32daa02-8210-4502-8370-76c999e6b322.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_293,w_576/v1723402890/blog/c32daa02-8210-4502-8370-76c999e6b322.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_391,w_768/v1723402890/blog/c32daa02-8210-4502-8370-76c999e6b322.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_505,w_992/v1723402890/blog/c32daa02-8210-4502-8370-76c999e6b322.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_611,w_1200/v1723402890/blog/c32daa02-8210-4502-8370-76c999e6b322.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_713,w_1400/v1723402890/blog/c32daa02-8210-4502-8370-76c999e6b322.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1427,w_2800/v1723402890/blog/c32daa02-8210-4502-8370-76c999e6b322.png 2800w" sizes="100vw"
+            height="1427"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+<p>Uma vez com status de <code>RUNNING</code>, podemos entrar no terminal do nosso container.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl <span class="nb">exec</span> -it hackerwhale-k8s -- /bin/zsh</span></span></code></pre></div></div><p>Agora é só testar e verificar se os certificados foram importados para interagir com o cluster.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ kubectl get pods
+</span></span><span class="line"><span class="cl">$ kubectl get pods -o wide -n default</span></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_710,w_2800/v1723403011/blog/66f5c8d8-3107-4d62-90b3-3fcee2bb25a4.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_146,w_576/v1723403011/blog/66f5c8d8-3107-4d62-90b3-3fcee2bb25a4.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_195,w_768/v1723403011/blog/66f5c8d8-3107-4d62-90b3-3fcee2bb25a4.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_251,w_992/v1723403011/blog/66f5c8d8-3107-4d62-90b3-3fcee2bb25a4.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_304,w_1200/v1723403011/blog/66f5c8d8-3107-4d62-90b3-3fcee2bb25a4.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_355,w_1400/v1723403011/blog/66f5c8d8-3107-4d62-90b3-3fcee2bb25a4.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_710,w_2800/v1723403011/blog/66f5c8d8-3107-4d62-90b3-3fcee2bb25a4.png 2800w" sizes="100vw"
+            height="710"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+<p>O mesmo pode ser feito com o K9s, disponível na imagem.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1641,w_2800/v1723403082/blog/085e35a0-8a86-4219-a71d-bd4db8c15448.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_338,w_576/v1723403082/blog/085e35a0-8a86-4219-a71d-bd4db8c15448.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_450,w_768/v1723403082/blog/085e35a0-8a86-4219-a71d-bd4db8c15448.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_581,w_992/v1723403082/blog/085e35a0-8a86-4219-a71d-bd4db8c15448.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_703,w_1200/v1723403082/blog/085e35a0-8a86-4219-a71d-bd4db8c15448.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_820,w_1400/v1723403082/blog/085e35a0-8a86-4219-a71d-bd4db8c15448.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1641,w_2800/v1723403082/blog/085e35a0-8a86-4219-a71d-bd4db8c15448.png 2800w" sizes="100vw"
+            height="1641"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+<p>Uma vez com estes casos de uso demonstrados, podemos seguir com os labs de Discovery &amp; Scan.</p>
+
+<h3 id="discovery--scan" class="heading">Discovery &amp; Scan <a href="#discovery--scan" aria-labelledby="discovery--scan">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h3>
+<p>Utlizando como base o ambiente em Kubernetes, podemos combinar o uso de kubectl e k9s com as ferramentas tradicionais de testes para um <em>assessment</em> interno.</p>
+<p>O jeito mais fácil dentro do K8s é obter o endereçamento dos pods, para isso vamos verificar em qual namespace estamos. Se retornar vazio, significa que estamos no “default”.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl config view --minify --output <span class="s1">&#39;jsonpath={..namespace}&#39;</span></span></span></code></pre></div></div><p>Para confirmar, podemos listar todos os namespaces.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ kubectl get namespaces
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">NAME              STATUS   AGE
+</span></span><span class="line"><span class="cl">default           Active   37m
+</span></span><span class="line"><span class="cl">kube-node-lease   Active   37m
+</span></span><span class="line"><span class="cl">kube-public       Active   37m
+</span></span><span class="line"><span class="cl">kube-system       Active   37m</span></span></code></pre></div></div><p>Agora é só obter os IPs dos pods, assim também saberá em qual range eles estão.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ kubectl get pods -o wide -n default
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ou </span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ kubectl get pods -o wide</span></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_314,w_2800/v1723387486/blog/e910f7b3-6f6a-45cc-ac97-3721040fe2a8.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_65,w_576/v1723387486/blog/e910f7b3-6f6a-45cc-ac97-3721040fe2a8.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_86,w_768/v1723387486/blog/e910f7b3-6f6a-45cc-ac97-3721040fe2a8.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_111,w_992/v1723387486/blog/e910f7b3-6f6a-45cc-ac97-3721040fe2a8.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_134,w_1200/v1723387486/blog/e910f7b3-6f6a-45cc-ac97-3721040fe2a8.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_157,w_1400/v1723387486/blog/e910f7b3-6f6a-45cc-ac97-3721040fe2a8.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_314,w_2800/v1723387486/blog/e910f7b3-6f6a-45cc-ac97-3721040fe2a8.png 2800w" sizes="100vw"
+            height="314"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+<p>O K9s também está disponível na imagem, podendo obter as mesmas informações de forma mais “amigável”.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1599,w_2800/v1723387540/blog/7a8e846b-646c-41d6-9244-e60d51a4f29e.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_329,w_576/v1723387540/blog/7a8e846b-646c-41d6-9244-e60d51a4f29e.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_439,w_768/v1723387540/blog/7a8e846b-646c-41d6-9244-e60d51a4f29e.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_566,w_992/v1723387540/blog/7a8e846b-646c-41d6-9244-e60d51a4f29e.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_685,w_1200/v1723387540/blog/7a8e846b-646c-41d6-9244-e60d51a4f29e.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_799,w_1400/v1723387540/blog/7a8e846b-646c-41d6-9244-e60d51a4f29e.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1599,w_2800/v1723387540/blog/7a8e846b-646c-41d6-9244-e60d51a4f29e.png 2800w" sizes="100vw"
+            height="1599"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+<p>Se você é <em>roots</em>, pode utilizar métodos mais tradicionais para a enumeração de ips em redel local, consultando a tabela arp ou fazendo “ping sweep”.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">arp-scan --interface<span class="o">=</span>eth0 --localnet</span></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_741,w_2800/v1723387605/blog/289abe8f-b346-4dc9-85fa-8dccb09dcaa6.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_152,w_576/v1723387605/blog/289abe8f-b346-4dc9-85fa-8dccb09dcaa6.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_203,w_768/v1723387605/blog/289abe8f-b346-4dc9-85fa-8dccb09dcaa6.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_262,w_992/v1723387605/blog/289abe8f-b346-4dc9-85fa-8dccb09dcaa6.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_317,w_1200/v1723387605/blog/289abe8f-b346-4dc9-85fa-8dccb09dcaa6.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_370,w_1400/v1723387605/blog/289abe8f-b346-4dc9-85fa-8dccb09dcaa6.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_741,w_2800/v1723387605/blog/289abe8f-b346-4dc9-85fa-8dccb09dcaa6.png 2800w" sizes="100vw"
+            height="741"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+<p>Com isso, pode iniciar os testes, como exemplo, realizando um <code>nmap</code> nos pods do Nginx, Postgres e RabbitMQ.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nmap -p- -Pn 10.244.0.4-6</span></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1896,w_2800/v1723387694/blog/a757d03c-2d53-4432-92dc-2ed6ec425a5c.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_390,w_576/v1723387694/blog/a757d03c-2d53-4432-92dc-2ed6ec425a5c.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_520,w_768/v1723387694/blog/a757d03c-2d53-4432-92dc-2ed6ec425a5c.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_672,w_992/v1723387694/blog/a757d03c-2d53-4432-92dc-2ed6ec425a5c.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_812,w_1200/v1723387694/blog/a757d03c-2d53-4432-92dc-2ed6ec425a5c.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_948,w_1400/v1723387694/blog/a757d03c-2d53-4432-92dc-2ed6ec425a5c.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1896,w_2800/v1723387694/blog/a757d03c-2d53-4432-92dc-2ed6ec425a5c.png 2800w" sizes="100vw"
+            height="1896"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+<p>Para facilitar um pouco mais, sabendo que estamos no namespace “default”, copie e cole o código abaixo para guardar todos os IPs dos pods com exceção de nosso container em um arquivo, e reutilizá-lo para outras tarefas.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">CURRENT_POD_NAME</span><span class="o">=</span><span class="k">$(</span>hostname<span class="k">)</span><span class="p">;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>kubectl get pods -o wide -n default<span class="p">|</span> grep -v <span class="nv">$CURRENT_POD_NAME</span> <span class="p">|</span> awk <span class="s1">&#39;{print $6}&#39;</span> &gt; pod_ips.txt</span></span></code></pre></div></div><p>Passando o arquivo para o <code>nmap</code>.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nmap -iL pod_ips.txt</span></span></code></pre></div></div><p>Ou fazendo um rápido teste com <code>nuclei</code> para encontrar <em>misconfigurations</em>:</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat pod_ips.txt <span class="p">|</span>  nuclei --silent</span></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1345,w_2800/v1723387829/blog/0faa0d07-4ec7-4010-95fd-95362cd8f1e9.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_277,w_576/v1723387829/blog/0faa0d07-4ec7-4010-95fd-95362cd8f1e9.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_369,w_768/v1723387829/blog/0faa0d07-4ec7-4010-95fd-95362cd8f1e9.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_477,w_992/v1723387829/blog/0faa0d07-4ec7-4010-95fd-95362cd8f1e9.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_577,w_1200/v1723387829/blog/0faa0d07-4ec7-4010-95fd-95362cd8f1e9.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_673,w_1400/v1723387829/blog/0faa0d07-4ec7-4010-95fd-95362cd8f1e9.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1345,w_2800/v1723387829/blog/0faa0d07-4ec7-4010-95fd-95362cd8f1e9.png 2800w" sizes="100vw"
+            height="1345"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+<p>👾</p>
+
+
+
+<div class="row row-cols-2 mt-5 mb-3">
+    <div class="col">
+        </div>
+    <div class="col text-end">
+        <a class="previous" href="/blog/opensource_sast_com_horusec/">
+                    Open Source SAST com Horusec&nbsp;
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-arrow-right "></i> --><svg class="svg-inline--fa fas fa-arrow-right " fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>
+
+    
+
+                </a></div>
+</div>
+
+
+        </div>
+        <div
+            class="col col-md-3 col-lg-2 d-none d-md-block pt-5">
+            
+    
+
+
+<div class="toc toc-sidebar mb-5 my-md-0 mb-lg-5 p-3 text-body-secondary sticky-top">
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+<strong class="d-block h6 my-2 pb-2">On this page:</strong>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#hackerwhale">HackerWhale</a></li>
+    <li><a href="#motivação">Motivação</a></li>
+    <li><a href="#características">Características</a>
+      <ul>
+        <li><a href="#lista-de-ferramentas">Lista de Ferramentas</a></li>
+      </ul>
+    </li>
+    <li><a href="#instalação-e-execução">Instalação e execução</a>
+      <ul>
+        <li><a href="#contrução-do-container-no-modo-baleião-pronto-para-uso">Contrução do container no modo &ldquo;Baleião&rdquo; pronto para uso</a></li>
+        <li><a href="#construção-do-container-utilizando-a-função-de-expansão">Construção do container utilizando a função de expansão</a></li>
+        <li><a href="#execução-e-acesso-ao-container">Execução e acesso ao container</a></li>
+      </ul>
+    </li>
+    <li><a href="#casos-de-uso">Casos de uso</a>
+      <ul>
+        <li><a href="#proxy-externo">Proxy externo</a></li>
+        <li><a href="#conexões-reversas">Conexões Reversas</a></li>
+        <li><a href="#kubernetes">Kubernetes</a></li>
+        <li><a href="#discovery--scan">Discovery &amp; Scan</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+    </div>
+
+        </div>
+    </div>
+    <div>
+        <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        
+        
+        
+        
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "tiagotavares-io" + '.disqus.com/embed.js';
+        console.log(s.src);
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+</div>
+
+
+
+<div class="container-fluid bg-primary bg-opacity-10">
+        <div class="container-xxl px-4 px-xxl-0">
+            <div class="row row-cols-2 py-3 align-items-center">
+                <div class="col col-6">
+                    <div class="row justify-content-end p-0">
+                        <div class="col-12 col-md-8 p-0">
+                            <div class="fs-3 fw-bold">👾</div>
+                            <p>Eternal student.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-6 text-sm-start">
+                    <a href="https://linkedin.com/in/tiagotavi"  aria-label="LinkedIn" class="text-decoration-none link-secondary d-inline p-2">
+                            
+                                
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fab fa-linkedin fa-2x"></i> --><svg class="svg-inline--fa fab fa-linkedin fa-2x" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+
+    &nbsp;
+
+                            
+                        </a>
+                    <a href="https://github.com/0xtiago"  aria-label="GitHub" class="text-decoration-none link-secondary d-inline p-2">
+                            
+                                
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fab fa-github fa-2x"></i> --><svg class="svg-inline--fa fab fa-github fa-2x" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+    &nbsp;
+
+                            
+                        </a>
+                    <a href="https://x.com/tiagotavi"  aria-label="X" class="text-decoration-none link-secondary d-inline p-2">
+                            
+                                
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fab fa-x-twitter fa-2x"></i> --><svg class="svg-inline--fa fab fa-x-twitter fa-2x" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+
+    &nbsp;
+
+                            
+                        </a>
+                    </div>
+            </div>
+        </div>
+    </div>
+<footer class="container-fluid footer text-center p-3">
+    <div class="container-xxl text-center">
+        <small>
+            Copyright © 2024 Tiago Tavares.
+            
+            
+        </small>
+    </div>
+</footer>
+        </div>
+
+        <div id="toast-container" class="toast-container position-fixed bottom-0 end-0 p-3">
+
+
+
+
+
+
+
+<div id="toast-copied-code-message" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+        <strong class="me-auto">debugging the life</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">Code copied to clipboard</div>
+</div>
+</div>
+
+<script src="/js/main.bundle.min.123522c571faf3688d9629c4ce20fcf7b7713fb6ce55332797014792c48eb6c8.js" integrity="sha256-EjUixXH682iNlinEziD897dxP7bOVTMnlwFHksSOtsg=" crossorigin="anonymous" async></script>
+    
+
+    
+
+
+
+
+
+<script src="/js/simple-datatables.bundle.min.4582f4c5bd1e08f6d1bfb68b0ce40311301e3dd1e7b76495c4a09c0efd3d49e2.js" integrity="sha256-RYL0xb0eCPbRv7aLDOQDETAePdHnt2SVxKCcDv09SeI=" crossorigin="anonymous" async></script>
+    </body>
+</html>

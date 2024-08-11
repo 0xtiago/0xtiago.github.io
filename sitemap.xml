@@ -2,13 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://tiagotavares.io/blog/</loc>
+    <lastmod>2024-08-11T16:59:41-03:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/tags/container/</loc>
+    <lastmod>2024-08-11T16:59:41-03:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/tags/docker/</loc>
+    <lastmod>2024-08-11T16:59:41-03:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/blog/hackerwhale_container/</loc>
+    <lastmod>2024-08-11T16:59:41-03:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/tags/hacking/</loc>
+    <lastmod>2024-08-11T16:59:41-03:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/tags/kubernetes/</loc>
+    <lastmod>2024-08-11T16:59:41-03:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/tags/</loc>
+    <lastmod>2024-08-11T16:59:41-03:00</lastmod>
+  </url><url>
     <loc>https://tiagotavares.io/tags/application-security/</loc>
     <lastmod>2024-07-25T13:21:47-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/tags/appsec/</loc>
-    <lastmod>2024-07-25T13:21:47-03:00</lastmod>
-  </url><url>
-    <loc>https://tiagotavares.io/blog/</loc>
     <lastmod>2024-07-25T13:21:47-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/tags/horusec/</loc>
@@ -23,17 +41,11 @@
     <loc>https://tiagotavares.io/tags/sast/</loc>
     <lastmod>2024-07-25T13:21:47-03:00</lastmod>
   </url><url>
-    <loc>https://tiagotavares.io/tags/</loc>
-    <lastmod>2024-07-25T13:21:47-03:00</lastmod>
-  </url><url>
     <loc>https://tiagotavares.io/tags/carreira/</loc>
     <lastmod>2024-07-16T10:22:40-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/tags/comunidade/</loc>
     <lastmod>2024-07-16T10:22:40-03:00</lastmod>
-  </url><url>
-    <loc>https://tiagotavares.io/tags/hacking/</loc>
-    <lastmod>2024-07-18T09:08:27-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/blog/keep-moving-fi-duma-egua/</loc>
     <lastmod>2024-07-16T10:22:40-03:00</lastmod>
