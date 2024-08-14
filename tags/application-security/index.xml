@@ -7,12 +7,19 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Tiago Tavares.</copyright>
-    <lastBuildDate>Thu, 25 Jul 2024 13:21:47 -0300</lastBuildDate>
+    <lastBuildDate>Wed, 14 Aug 2024 14:23:07 -0300</lastBuildDate>
     <atom:link href="https://tiagotavares.io/tags/application-security/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Github Commiters Spy - Dimensionando de licenças de SAST, SCA e IaC.</title>
+      <link>https://tiagotavares.io/blog/github_commiters_spy/</link>
+      <pubDate>Wed, 14 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://tiagotavares.io/blog/github_commiters_spy/</guid>
+      <description>Introdução &amp;nbsp; O &amp;ldquo;Github Committers Spy&amp;rdquo; (GHCS) é uma ferramenta desenvolvida em Python 3 que te auxiliará a identificar a quantidade de desenvolvedores individuais em sua organização no Github, atendendo aos modelos atuais de licenciamento das principais fabricantes destas soluções.</description>
+    </item>
     <item>
       <title>Open Source SAST com Horusec</title>
       <link>https://tiagotavares.io/blog/opensource_sast_com_horusec/</link>
-      <pubDate>Wed, 24 Jul 2024 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 14 Jul 2024 00:00:00 +0000</pubDate>
       <guid>https://tiagotavares.io/blog/opensource_sast_com_horusec/</guid>
       <description>Sumário &amp;nbsp; Sumário Introdução Principais Funcionalidades Benefícios do Uso do Horusec Casos de uso Horusec VsCode IDE Plugin Instalação dos binários (Windows, Linux e Mac) Windows Linux e Mac Horusec CLI sem Docker (Binário) Horusec CLI com Docker (Binário) Horusec Docker Reports customizados Horusec em pipeline Github Actions Enfim….</description>
     </item>

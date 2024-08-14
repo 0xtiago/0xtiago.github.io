@@ -7,8 +7,22 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Tiago Tavares.</copyright>
-    <lastBuildDate>Wed, 14 Aug 2024 14:07:08 -0300</lastBuildDate>
+    <lastBuildDate>Wed, 14 Aug 2024 14:23:07 -0300</lastBuildDate>
     <atom:link href="https://tiagotavares.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Application Security</title>
+      <link>https://tiagotavares.io/tags/application-security/</link>
+      <pubDate>Wed, 14 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://tiagotavares.io/tags/application-security/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>AppSec</title>
+      <link>https://tiagotavares.io/tags/appsec/</link>
+      <pubDate>Wed, 14 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://tiagotavares.io/tags/appsec/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Checkmarx</title>
       <link>https://tiagotavares.io/tags/checkmarx/</link>
@@ -17,7 +31,7 @@
       <description></description>
     </item>
     <item>
-      <title>Devsecops</title>
+      <title>DevSecOps</title>
       <link>https://tiagotavares.io/tags/devsecops/</link>
       <pubDate>Wed, 14 Aug 2024 00:00:00 +0000</pubDate>
       <guid>https://tiagotavares.io/tags/devsecops/</guid>
@@ -94,30 +108,16 @@
       <description></description>
     </item>
     <item>
-      <title>Application Security</title>
-      <link>https://tiagotavares.io/tags/application-security/</link>
-      <pubDate>Wed, 24 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://tiagotavares.io/tags/application-security/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Appsec</title>
-      <link>https://tiagotavares.io/tags/appsec/</link>
-      <pubDate>Wed, 24 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://tiagotavares.io/tags/appsec/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Horusec</title>
       <link>https://tiagotavares.io/tags/horusec/</link>
-      <pubDate>Wed, 24 Jul 2024 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 14 Jul 2024 00:00:00 +0000</pubDate>
       <guid>https://tiagotavares.io/tags/horusec/</guid>
       <description></description>
     </item>
     <item>
       <title>Open Source</title>
       <link>https://tiagotavares.io/tags/open-source/</link>
-      <pubDate>Wed, 24 Jul 2024 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 14 Jul 2024 00:00:00 +0000</pubDate>
       <guid>https://tiagotavares.io/tags/open-source/</guid>
       <description></description>
     </item>

@@ -2,38 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://tiagotavares.io/tags/application-security/</loc>
+    <lastmod>2024-08-14T14:23:07-03:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/tags/appsec/</loc>
+    <lastmod>2024-08-14T14:23:07-03:00</lastmod>
+  </url><url>
     <loc>https://tiagotavares.io/blog/</loc>
-    <lastmod>2024-08-14T14:07:08-03:00</lastmod>
+    <lastmod>2024-08-14T14:23:07-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/tags/checkmarx/</loc>
-    <lastmod>2024-08-14T14:07:08-03:00</lastmod>
+    <lastmod>2024-08-14T14:23:07-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/tags/devsecops/</loc>
-    <lastmod>2024-08-14T14:07:08-03:00</lastmod>
+    <lastmod>2024-08-14T14:23:07-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/tags/github/</loc>
-    <lastmod>2024-08-14T14:07:08-03:00</lastmod>
+    <lastmod>2024-08-14T14:23:07-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/blog/github_commiters_spy/</loc>
-    <lastmod>2024-08-14T14:07:08-03:00</lastmod>
+    <lastmod>2024-08-14T14:23:07-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/tags/iac/</loc>
-    <lastmod>2024-08-14T14:07:08-03:00</lastmod>
+    <lastmod>2024-08-14T14:23:07-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/tags/sast/</loc>
-    <lastmod>2024-08-14T14:07:08-03:00</lastmod>
+    <lastmod>2024-08-14T14:23:07-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/tags/sca/</loc>
-    <lastmod>2024-08-14T14:07:08-03:00</lastmod>
+    <lastmod>2024-08-14T14:23:07-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/tags/snyk/</loc>
-    <lastmod>2024-08-14T14:07:08-03:00</lastmod>
+    <lastmod>2024-08-14T14:23:07-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/tags/</loc>
-    <lastmod>2024-08-14T14:07:08-03:00</lastmod>
+    <lastmod>2024-08-14T14:23:07-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/tags/veracode/</loc>
-    <lastmod>2024-08-14T14:07:08-03:00</lastmod>
+    <lastmod>2024-08-14T14:23:07-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/tags/container/</loc>
     <lastmod>2024-08-14T14:07:08-03:00</lastmod>
@@ -50,20 +56,14 @@
     <loc>https://tiagotavares.io/tags/kubernetes/</loc>
     <lastmod>2024-08-14T14:07:08-03:00</lastmod>
   </url><url>
-    <loc>https://tiagotavares.io/tags/application-security/</loc>
-    <lastmod>2024-07-25T13:21:47-03:00</lastmod>
-  </url><url>
-    <loc>https://tiagotavares.io/tags/appsec/</loc>
-    <lastmod>2024-07-25T13:21:47-03:00</lastmod>
-  </url><url>
     <loc>https://tiagotavares.io/tags/horusec/</loc>
-    <lastmod>2024-07-25T13:21:47-03:00</lastmod>
+    <lastmod>2024-08-14T14:23:07-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/tags/open-source/</loc>
-    <lastmod>2024-07-25T13:21:47-03:00</lastmod>
+    <lastmod>2024-08-14T14:23:07-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/blog/opensource_sast_com_horusec/</loc>
-    <lastmod>2024-07-25T13:21:47-03:00</lastmod>
+    <lastmod>2024-08-14T14:23:07-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/tags/carreira/</loc>
     <lastmod>2024-07-16T10:22:40-03:00</lastmod>
