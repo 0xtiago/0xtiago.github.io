@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Checkmarx on debugging the life</title>
+    <link>https://tiagotavares.io/tags/checkmarx/</link>
+    <description>Recent content in Checkmarx on debugging the life</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>Copyright © 2024 Tiago Tavares.</copyright>
+    <lastBuildDate>Wed, 14 Aug 2024 14:07:08 -0300</lastBuildDate>
+    <atom:link href="https://tiagotavares.io/tags/checkmarx/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Github Commiters Spy - Dimensionando de licenças de SAST, SCA e IaC.</title>
+      <link>https://tiagotavares.io/blog/github_commiters_spy/</link>
+      <pubDate>Wed, 14 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://tiagotavares.io/blog/github_commiters_spy/</guid>
+      <description>Introdução &amp;nbsp; O &amp;ldquo;Github Committers Spy&amp;rdquo; (GHCS) é uma ferramenta desenvolvida em Python 3 que te auxiliará a identificar a quantidade de desenvolvedores individuais em sua organização no Github, atendendo aos modelos atuais de licenciamento das principais fabricantes destas soluções.</description>
+    </item>
+  </channel>
+</rss>
