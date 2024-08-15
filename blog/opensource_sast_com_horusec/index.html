@@ -44,7 +44,7 @@
 <meta property="og:url" content="https://tiagotavares.io/blog/opensource_sast_com_horusec/">
 <meta property="og:site_name" content="debugging the life">
 <meta property="article:published_time" content="2024-07-14T00:00:00+00:00">
-    <meta property="article:modified_time" content="2024-08-14T14:23:07-03:00">
+    <meta property="article:modified_time" content="2024-08-15T11:40:22-03:00">
     <meta property="og:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fill,h_640,w_1280/v1721860503/blog/Horusec_Manual_-_tiagotavares.io_kkpxlz.jpg">
 <meta property="og:image:alt" content="Open Source SAST com Horusec">
 
@@ -105,7 +105,7 @@
           "@id": "https://tiagotavares.io/#/schema/organization/1"
         },
       "datePublished": "2024-07-14T00:00:00CET",
-      "dateModified": "2024-08-14T14:23:07CET",
+      "dateModified": "2024-08-15T11:40:22CET",
       "breadcrumb": {
         "@id": "https://tiagotavares.io/blog/opensource_sast_com_horusec/#/schema/breadcrumb/1"
       },
@@ -163,7 +163,7 @@
             "@id": "https://tiagotavares.io/blog/opensource_sast_com_horusec/"
           },
           "datePublished": "2024-07-14T00:00:00CET",
-          "dateModified": "2024-08-14T14:23:07CET",
+          "dateModified": "2024-08-15T11:40:22CET",
           "author": {
             "@id": "https://tiagotavares.io/#/schema/person/2"
           },
@@ -432,11 +432,11 @@
 
     <small class="text-body-secondary text-uppercase">
         Posted on July 14, 2024
-            &nbsp;(Last modified on August 14, 2024)
+            &nbsp;(Last modified on August 15, 2024)
         
         &bull;
         10&nbsp;min read &bull;
-        1,995&nbsp;words
+        1,992&nbsp;words
     </small>
 <div class="mt-3">
         <div class="d-none-dark">
@@ -969,18 +969,22 @@
         <div class="toc toc-panel text-body p-2">
             <small><nav id="TableOfContents">
   <ul>
-    <li><a href="#horusec-vscode-ide-plugin">Horusec VsCode IDE Plugin</a></li>
-    <li><a href="#instalação-dos-binários-windows-linux-e-mac">Instalação dos binários (Windows, Linux e Mac)</a>
+    <li><a href="#introdução">Introdução</a></li>
+    <li><a href="#principais-funcionalidades">Principais Funcionalidades</a></li>
+    <li><a href="#benefícios-do-uso-do-horusec">Benefícios do Uso do Horusec</a></li>
+    <li><a href="#casos-de-uso">Casos de uso</a>
       <ul>
-        <li><a href="#windows">Windows</a></li>
-        <li><a href="#linux-e-mac">Linux e Mac</a></li>
+        <li><a href="#horusec-vscode-ide-plugin">Horusec VsCode IDE Plugin</a></li>
+        <li><a href="#instalação-dos-binários-windows-linux-e-mac">Instalação dos binários (Windows, Linux e Mac)</a></li>
+        <li><a href="#horusec-cli-sem-docker-binário">Horusec CLI sem Docker (Binário)</a></li>
+        <li><a href="#horusec-cli-com-docker-binário">Horusec CLI com Docker (Binário)</a></li>
+        <li><a href="#horusec-docker">Horusec Docker</a></li>
+        <li><a href="#reports-customizados">Reports customizados</a></li>
+        <li><a href="#horusec-em-pipeline-github-actions">Horusec em pipeline Github Actions</a></li>
       </ul>
     </li>
-    <li><a href="#horusec-cli-sem-docker-binário">Horusec CLI sem Docker (Binário)</a></li>
-    <li><a href="#horusec-cli-com-docker-binário">Horusec CLI com Docker (Binário)</a></li>
-    <li><a href="#horusec-docker">Horusec Docker</a></li>
-    <li><a href="#reports-customizados">Reports customizados</a></li>
-    <li><a href="#horusec-em-pipeline-github-actions">Horusec em pipeline Github Actions</a></li>
+    <li><a href="#enfimo-mesmo-blá-blá-blá-do-cara-de-segurança-">Enfim….o mesmo blá blá blá do cara de segurança…. 🥱</a></li>
+    <li><a href="#referências">Referências</a></li>
   </ul>
 </nav></small>
         </div>
@@ -1013,25 +1017,7 @@
             height="1200"
             width="2800"
             alt="Open Source SAST com Horusec">
-</div>
-<h1 id="sumário" class="heading">Sumário <a href="#sum%c3%a1rio" aria-labelledby="sumário">
-
-
-
-
-
-
-
-
-
-    
-
-    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
-
-    &nbsp;
-</a></h1>
-<ul>
-<li><a href="/blog/opensource_sast_com_horusec/#sumário">Sumário</a></li>
+</div><ul>
 <li><a href="/blog/opensource_sast_com_horusec/#introdução">Introdução</a></li>
 <li><a href="/blog/opensource_sast_com_horusec/#principais-funcionalidades">Principais Funcionalidades</a></li>
 <li><a href="/blog/opensource_sast_com_horusec/#benefícios-do-uso-do-horusec">Benefícios do Uso do Horusec</a></li>
@@ -1055,7 +1041,7 @@
 <li><a href="/blog/opensource_sast_com_horusec/#referências">Referências</a></li>
 </ul>
 
-<h1 id="introdução" class="heading">Introdução <a href="#introdu%c3%a7%c3%a3o" aria-labelledby="introdução">
+<h2 id="introdução" class="heading">Introdução <a href="#introdu%c3%a7%c3%a3o" aria-labelledby="introdução">
 
 
 
@@ -1070,7 +1056,7 @@
     <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
 
     &nbsp;
-</a></h1>
+</a></h2>
 <p><a href="https://horusec.io/">Horusec</a> é uma ferramenta de Análise Estática de Segurança de Aplicações (SAST) que auxilia no processo de desenvolvimento seguro de software. Projeto todo conduzido e mantido pelo pessoal da <a href="https://www.zup.com.br/">ZupIT</a>.</p>
 <p>Desenvolvido com o objetivo de identificar vulnerabilidades em código-fonte de forma automatizada, o Horusec se destaca por sua eficiência e integração com diversas tecnologias.</p>
 <p>Além disso, a documentação oficial do Horusec é abrangente e detalhada, fornecendo guias passo a passo para instalação, configuração e uso da ferramenta. Há também tutoriais e exemplos práticos que ajudam os usuários a entender melhor como tirar proveito das funcionalidades oferecidas.</p>
@@ -1114,85 +1100,7 @@
 </div><figcaption class="figure-caption">Arquitetura completa do Horusec.</figcaption>
     </figure>
 
-<h1 id="principais-funcionalidades" class="heading">Principais Funcionalidades <a href="#principais-funcionalidades" aria-labelledby="principais-funcionalidades">
-
-
-
-
-
-
-
-
-
-    
-
-    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
-
-    &nbsp;
-</a></h1>
-<ul>
-<li><strong>Análise de Código</strong>: O <a href="https://horusec.io/site/">Horusec</a> realiza uma análise detalhada do código-fonte, identificando possíveis vulnerabilidades que podem comprometer a segurança da aplicação.</li>
-<li><strong>Integração Contínua</strong>: A ferramenta pode ser facilmente integrada em pipelines de integração contínua (CI/CD), permitindo que as análises de segurança sejam executadas automaticamente a cada nova atualização de código.</li>
-<li><strong>Relatórios Detalhados</strong>: Após a análise, o Horusec gera relatórios detalhados com todas as vulnerabilidades encontradas, nos formatos Sarif, Json, Texto ou para integração com Sonarqube, categorizando-as por nível de severidade e sugerindo possíveis correções.</li>
-<li><strong>Suporte a Múltiplas Linguagens</strong>: A ferramenta suporta uma ampla variedade de linguagens de programação e frameworks, tornando-a versátil para diferentes tipos de projetos.</li>
-<li>Plataforma Web: As <a href="https://docs.horusec.io/docs/pt-br/web/overview/"><strong>aplicações web do Horusec</strong></a> são uma extensão das funcionalidades da CLI para gerenciar as vulnerabilidades encontradas e, assim, realizar a classificação delas.</li>
-</ul>
-
-<h1 id="benefícios-do-uso-do-horusec" class="heading">Benefícios do Uso do Horusec <a href="#benef%c3%adcios-do-uso-do-horusec" aria-labelledby="benefícios-do-uso-do-horusec">
-
-
-
-
-
-
-
-
-
-    
-
-    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
-
-    &nbsp;
-</a></h1>
-<p>Horusec tem sido amplamente adotado por equipes de desenvolvimento que buscam incorporar práticas de segurança em seu fluxo de trabalho. Aqui estão alguns exemplos de como a ferramenta pode ser utilizada:</p>
-<ul>
-<li><strong>Durante o Desenvolvimento</strong>: Desenvolvedores podem executar análises de segurança a qualquer momento do ciclo de desenvolvimento, identificando vulnerabilidades antes de enviar o código para o repositório compartilhado.</li>
-<li><strong>Em Pipelines de CI/CD</strong>: Integrar Horusec em pipelines de CI/CD garante que cada nova versão do software seja analisada quanto a vulnerabilidades, evitando que código inseguro chegue à produção.</li>
-<li><strong>Auditorias de Segurança</strong>: Equipes de segurança podem usar Horusec para realizar auditorias periódicas no código-fonte, identificando e corrigindo vulnerabilidades que possam ter sido introduzidas ao longo do tempo.</li>
-</ul>
-
-<h1 id="casos-de-uso" class="heading">Casos de uso <a href="#casos-de-uso" aria-labelledby="casos-de-uso">
-
-
-
-
-
-
-
-
-
-    
-
-    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
-
-    &nbsp;
-</a></h1>
-<p>Abordaremos alguns casos de uso mais comuns, lembrando que o objetivo destes tutoriais é para o uso local de desenvolvedores e em pipelines simples em Github Actions. Cenários mais complexos serão trazido mais adiante.</p>
-<p>Nos laboratórios abaixo, utilizaremos os seguintes recursos:</p>
-<ul>
-<li>Sistemas operacionais Windows, Linux e MacOS;</li>
-<li>Docker Desktop para uso de containers;</li>
-<li>Microsoft VsCode para visualização de códigos fontes;</li>
-<li>Pyhton 3 para scripts auxiliares;</li>
-<li>Código fonte de alguma aplicações para análise. Utilizaremos as seguintes:
-<ul>
-<li><a href="https://github.com/erev0s/VAmPI">VamPI (Python)</a> | <a href="https://erev0s.com/"><strong>erev0s</strong></a></li>
-<li><a href="https://github.com/Aif4thah/VulnerableLightApp">VulnerableLightApp (.NET)</a> | <a href="https://taisen.fr/"><strong>Michaël Vacarella</strong></a></li>
-</ul>
-</li>
-</ul>
-
-<h2 id="horusec-vscode-ide-plugin" class="heading">Horusec VsCode IDE Plugin <a href="#horusec-vscode-ide-plugin" aria-labelledby="horusec-vscode-ide-plugin">
+<h2 id="principais-funcionalidades" class="heading">Principais Funcionalidades <a href="#principais-funcionalidades" aria-labelledby="principais-funcionalidades">
 
 
 
@@ -1208,6 +1116,84 @@
 
     &nbsp;
 </a></h2>
+<ul>
+<li><strong>Análise de Código</strong>: O <a href="https://horusec.io/site/">Horusec</a> realiza uma análise detalhada do código-fonte, identificando possíveis vulnerabilidades que podem comprometer a segurança da aplicação.</li>
+<li><strong>Integração Contínua</strong>: A ferramenta pode ser facilmente integrada em pipelines de integração contínua (CI/CD), permitindo que as análises de segurança sejam executadas automaticamente a cada nova atualização de código.</li>
+<li><strong>Relatórios Detalhados</strong>: Após a análise, o Horusec gera relatórios detalhados com todas as vulnerabilidades encontradas, nos formatos Sarif, Json, Texto ou para integração com Sonarqube, categorizando-as por nível de severidade e sugerindo possíveis correções.</li>
+<li><strong>Suporte a Múltiplas Linguagens</strong>: A ferramenta suporta uma ampla variedade de linguagens de programação e frameworks, tornando-a versátil para diferentes tipos de projetos.</li>
+<li>Plataforma Web: As <a href="https://docs.horusec.io/docs/pt-br/web/overview/"><strong>aplicações web do Horusec</strong></a> são uma extensão das funcionalidades da CLI para gerenciar as vulnerabilidades encontradas e, assim, realizar a classificação delas.</li>
+</ul>
+
+<h2 id="benefícios-do-uso-do-horusec" class="heading">Benefícios do Uso do Horusec <a href="#benef%c3%adcios-do-uso-do-horusec" aria-labelledby="benefícios-do-uso-do-horusec">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h2>
+<p>Horusec tem sido amplamente adotado por equipes de desenvolvimento que buscam incorporar práticas de segurança em seu fluxo de trabalho. Aqui estão alguns exemplos de como a ferramenta pode ser utilizada:</p>
+<ul>
+<li><strong>Durante o Desenvolvimento</strong>: Desenvolvedores podem executar análises de segurança a qualquer momento do ciclo de desenvolvimento, identificando vulnerabilidades antes de enviar o código para o repositório compartilhado.</li>
+<li><strong>Em Pipelines de CI/CD</strong>: Integrar Horusec em pipelines de CI/CD garante que cada nova versão do software seja analisada quanto a vulnerabilidades, evitando que código inseguro chegue à produção.</li>
+<li><strong>Auditorias de Segurança</strong>: Equipes de segurança podem usar Horusec para realizar auditorias periódicas no código-fonte, identificando e corrigindo vulnerabilidades que possam ter sido introduzidas ao longo do tempo.</li>
+</ul>
+
+<h2 id="casos-de-uso" class="heading">Casos de uso <a href="#casos-de-uso" aria-labelledby="casos-de-uso">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h2>
+<p>Abordaremos alguns casos de uso mais comuns, lembrando que o objetivo destes tutoriais é para o uso local de desenvolvedores e em pipelines simples em Github Actions. Cenários mais complexos serão trazido mais adiante.</p>
+<p>Nos laboratórios abaixo, utilizaremos os seguintes recursos:</p>
+<ul>
+<li>Sistemas operacionais Windows, Linux e MacOS;</li>
+<li>Docker Desktop para uso de containers;</li>
+<li>Microsoft VsCode para visualização de códigos fontes;</li>
+<li>Pyhton 3 para scripts auxiliares;</li>
+<li>Código fonte de alguma aplicações para análise. Utilizaremos as seguintes:
+<ul>
+<li><a href="https://github.com/erev0s/VAmPI">VamPI (Python)</a> | <a href="https://erev0s.com/"><strong>erev0s</strong></a></li>
+<li><a href="https://github.com/Aif4thah/VulnerableLightApp">VulnerableLightApp (.NET)</a> | <a href="https://taisen.fr/"><strong>Michaël Vacarella</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<h3 id="horusec-vscode-ide-plugin" class="heading">Horusec VsCode IDE Plugin <a href="#horusec-vscode-ide-plugin" aria-labelledby="horusec-vscode-ide-plugin">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h3>
 <p>O plugin do Horusec pode ser encontrado na loja de extensões do VsCode. Apesar de há muito sem atualizações, tudo ainda funciona muito bem.</p>
 <p>Procure pelo Horusec no Marketplace de plugins do VsCode.</p>
 
@@ -1360,7 +1346,7 @@
             >
 </div></p>
 
-<h2 id="instalação-dos-binários-windows-linux-e-mac" class="heading">Instalação dos binários (Windows, Linux e Mac) <a href="#instala%c3%a7%c3%a3o-dos-bin%c3%a1rios-windows-linux-e-mac" aria-labelledby="instalação-dos-binários-windows-linux-e-mac">
+<h3 id="instalação-dos-binários-windows-linux-e-mac" class="heading">Instalação dos binários (Windows, Linux e Mac) <a href="#instala%c3%a7%c3%a3o-dos-bin%c3%a1rios-windows-linux-e-mac" aria-labelledby="instalação-dos-binários-windows-linux-e-mac">
 
 
 
@@ -1375,7 +1361,7 @@
     <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
 
     &nbsp;
-</a></h2>
+</a></h3>
 
 
 
@@ -1411,7 +1397,7 @@
         </div>
     </div>
 
-<h3 id="windows" class="heading">Windows <a href="#windows" aria-labelledby="windows">
+<h4 id="windows" class="heading">Windows <a href="#windows" aria-labelledby="windows">
 
 
 
@@ -1426,7 +1412,7 @@
     <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
 
     &nbsp;
-</a></h3>
+</a></h4>
 <p>Realize o download do binário do acessando o <a href="https://github.com/ZupIT/horusec/releases/tag/v2.8.0">repositório no Github</a> ou baixe via linha de comando.</p>
 <p>Nos exemplos abaixo o teste é realizado em ambiente Windows, o que não muda nada para as demais arquiteturas.</p>
 <div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="c">#x64</span>
@@ -1435,7 +1421,31 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c">#arm64</span>
 </span></span><span class="line"><span class="cl"><span class="nb">curl </span><span class="s2">&#34;https://github.com/ZupIT/horusec/releases/download/v2.9.0-beta.3/horusec_windows_arm64.exe&#34;</span> <span class="n">-o</span> <span class="s2">&#34;./horusec.exe&#34;</span></span></span></code></pre></div></div>
-<h3 id="linux-e-mac" class="heading">Linux e Mac <a href="#linux-e-mac" aria-labelledby="linux-e-mac">
+<h4 id="linux-e-mac" class="heading">Linux e Mac <a href="#linux-e-mac" aria-labelledby="linux-e-mac">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h4>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#Linux x64</span>
+</span></span><span class="line"><span class="cl">wget https://github.com/ZupIT/horusec/releases/download/v2.9.0-beta.3/horusec_mac_amd64 -O horusec <span class="p">;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>chmod +x horusec
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#Mac M1/M2</span>
+</span></span><span class="line"><span class="cl">wget https://github.com/ZupIT/horusec/releases/download/v2.9.0-beta.3/horusec_mac_arm64 -O -O horusec <span class="p">;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>chmod +x horusec</span></span></code></pre></div></div><p>Se preferir, mova os arquivos em seguida para a pasta de binários:</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo mv horusec /usr/local/bin/</span></span></code></pre></div></div>
+<h3 id="horusec-cli-sem-docker-binário" class="heading">Horusec CLI sem Docker (Binário) <a href="#horusec-cli-sem-docker-bin%c3%a1rio" aria-labelledby="horusec-cli-sem-docker-binário">
 
 
 
@@ -1451,30 +1461,6 @@
 
     &nbsp;
 </a></h3>
-<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#Linux x64</span>
-</span></span><span class="line"><span class="cl">wget https://github.com/ZupIT/horusec/releases/download/v2.9.0-beta.3/horusec_mac_amd64 -O horusec <span class="p">;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>chmod +x horusec
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">#Mac M1/M2</span>
-</span></span><span class="line"><span class="cl">wget https://github.com/ZupIT/horusec/releases/download/v2.9.0-beta.3/horusec_mac_arm64 -O -O horusec <span class="p">;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>chmod +x horusec</span></span></code></pre></div></div><p>Se preferir, mova os arquivos em seguida para a pasta de binários:</p>
-<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo mv horusec /usr/local/bin/</span></span></code></pre></div></div>
-<h2 id="horusec-cli-sem-docker-binário" class="heading">Horusec CLI sem Docker (Binário) <a href="#horusec-cli-sem-docker-bin%c3%a1rio" aria-labelledby="horusec-cli-sem-docker-binário">
-
-
-
-
-
-
-
-
-
-    
-
-    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
-
-    &nbsp;
-</a></h2>
 <p>O Horusec foi muitas possibilidades de configuração, caso queira gerar um arquivo com todas as possibilidades de condifuração, execute com a opção <code>generate</code>.</p>
 <div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="p">.\</span><span class="n">horusec</span><span class="p">.</span><span class="py">exe</span> <span class="n">generate</span></span></span></code></pre></div></div><p>O arquivo <code>horusec-config.json</code> será gerado, como o abaixo.</p>
 
@@ -1516,7 +1502,7 @@
 </div><figcaption class="figure-caption">horusec-config.json</figcaption>
     </figure>
 
-<h2 id="horusec-cli-com-docker-binário" class="heading">Horusec CLI com Docker (Binário) <a href="#horusec-cli-com-docker-bin%c3%a1rio" aria-labelledby="horusec-cli-com-docker-binário">
+<h3 id="horusec-cli-com-docker-binário" class="heading">Horusec CLI com Docker (Binário) <a href="#horusec-cli-com-docker-bin%c3%a1rio" aria-labelledby="horusec-cli-com-docker-binário">
 
 
 
@@ -1531,7 +1517,7 @@
     <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
 
     &nbsp;
-</a></h2>
+</a></h3>
 <p>Nada muda muito do exemplo acima (sem Docker), com excessão da permanência padrão da opção de uso de todos os recursos dependentes do Docker.</p>
 <div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">horusec start -G -o<span class="o">=</span><span class="s2">&#34;sarif&#34;</span> -O<span class="o">=</span><span class="s2">&#34;horusec_report.sarif&#34;</span> -p<span class="o">=</span><span class="s2">&#34;vulnerable_apps/VulnerableLightApp&#34;</span></span></span></code></pre></div></div>
 
@@ -1655,7 +1641,7 @@
             >
 </div>
 
-<h2 id="horusec-docker" class="heading">Horusec Docker <a href="#horusec-docker" aria-labelledby="horusec-docker">
+<h3 id="horusec-docker" class="heading">Horusec Docker <a href="#horusec-docker" aria-labelledby="horusec-docker">
 
 
 
@@ -1670,7 +1656,7 @@
     <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
 
     &nbsp;
-</a></h2>
+</a></h3>
 <p>Para começar, entre no diretório do projeto a ser analisado e execute o seguinte comando:</p>
 <div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run --rm -v /var/run/docker.sock:/var/run/docker.sock <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>        -v <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>:/src/horusec <span class="se">\
@@ -1938,7 +1924,7 @@
 </div>
 <p><a href="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1721863692/blog/0783dc8d-b710-4031-b3aa-3843e617d520.png">https://res.cloudinary.com/dtr6hzxnx/image/upload/v1721863692/blog/0783dc8d-b710-4031-b3aa-3843e617d520.png</a></p>
 
-<h2 id="reports-customizados" class="heading">Reports customizados <a href="#reports-customizados" aria-labelledby="reports-customizados">
+<h3 id="reports-customizados" class="heading">Reports customizados <a href="#reports-customizados" aria-labelledby="reports-customizados">
 
 
 
@@ -1953,7 +1939,7 @@
     <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
 
     &nbsp;
-</a></h2>
+</a></h3>
 <p>O Horusec por CLI possui tipos de relatório voltados para visualização em cli (text) ou para que sejam importados para outra soluções (json, sarif, sonarqube), porém não há opções visuais para para uso na <strong>pipeline como artefato</strong> ou <strong>localmente</strong> como nos exemplos anteriores. Para ajudar nesta necessidade, podemos adotar o uso de scrips customizados para tratar estas informações e converter para um markdown.</p>
 <p>Dada a seguinte estrutura do json vigente na versão <code>v2.9.0-beta.3</code>, utilizaremos o Python 3 e a biblioteca <a href="https://pypi.org/project/grip/"><code>grip</code></a> para ajudar na visualização do Markdown.</p>
 <div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -2200,7 +2186,7 @@
             >
 </div>
 
-<h2 id="horusec-em-pipeline-github-actions" class="heading">Horusec em pipeline Github Actions <a href="#horusec-em-pipeline-github-actions" aria-labelledby="horusec-em-pipeline-github-actions">
+<h3 id="horusec-em-pipeline-github-actions" class="heading">Horusec em pipeline Github Actions <a href="#horusec-em-pipeline-github-actions" aria-labelledby="horusec-em-pipeline-github-actions">
 
 
 
@@ -2215,7 +2201,7 @@
     <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
 
     &nbsp;
-</a></h2>
+</a></h3>
 <p>Assim como qualquer outra solução por linha de comando, podemos utilizar o Horusec nas pipelines de desenvolvimento.</p>
 <p>No marketplace do Github há <a href="https://github.com/marketplace/actions/horusec">uma solução pronta</a>, mas como quero customizar um pouco o processo, você pode utilizar como exemplo o script abaixo, onde o scan é realizado, é gerado um relatório em markdown do arquivo json, o artefato é disponibilizado como artefato e é adicionado ao sumário para analise imediata do desenvolvedor.</p>
 <div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Run Horusec (SAST), Generate Script and Save Artifact</span><span class="w">
@@ -2328,7 +2314,7 @@
             >
 </div>
 
-<h1 id="enfimo-mesmo-blá-blá-blá-do-cara-de-segurança-" class="heading">Enfim….o mesmo blá blá blá do cara de segurança…. 🥱 <a href="#enfimo-mesmo-bl%c3%a1-bl%c3%a1-bl%c3%a1-do-cara-de-seguran%c3%a7a-" aria-labelledby="enfimo-mesmo-blá-blá-blá-do-cara-de-segurança-">
+<h2 id="enfimo-mesmo-blá-blá-blá-do-cara-de-segurança-" class="heading">Enfim….o mesmo blá blá blá do cara de segurança…. 🥱 <a href="#enfimo-mesmo-bl%c3%a1-bl%c3%a1-bl%c3%a1-do-cara-de-seguran%c3%a7a-" aria-labelledby="enfimo-mesmo-blá-blá-blá-do-cara-de-segurança-">
 
 
 
@@ -2343,13 +2329,13 @@
     <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
 
     &nbsp;
-</a></h1>
+</a></h2>
 <p>A implementação de testes de segurança estática (SAST) é essencial para qualquer desenvolvedor comprometido com a criação de software seguro e confiável. Esses testes permitem a identificação precoce de vulnerabilidades no código-fonte, antes mesmo da execução do programa, garantindo a mitigação de riscos e a conformidade com normas de segurança. Além disso, ao integrar SAST no ciclo de desenvolvimento, os desenvolvedores podem melhorar continuamente suas práticas de codificação, reduzindo custos e evitando potenciais falhas de segurança que poderiam comprometer a integridade dos sistemas. Portanto, a adoção de SAST é um passo crucial para garantir a segurança e a robustez das aplicações modernas.</p>
 <p>Outros artigos serão publicado por este que vos fala, complementando todo o ciclo de testes de segurança no deploy de uma aplicação.</p>
 <p>Até mais.</p>
 <p>👾</p>
 
-<h1 id="referências" class="heading">Referências <a href="#refer%c3%aancias" aria-labelledby="referências">
+<h2 id="referências" class="heading">Referências <a href="#refer%c3%aancias" aria-labelledby="referências">
 
 
 
@@ -2364,7 +2350,7 @@
     <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
 
     &nbsp;
-</a></h1>
+</a></h2>
 <ul>
 <li><a href="https://www.zup.com.br/">https://www.zup.com.br/</a></li>
 <li><a href="https://horusec.io/site/">https://horusec.io/site/</a></li>
@@ -2441,18 +2427,22 @@
 <strong class="d-block h6 my-2 pb-2">On this page:</strong>
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#horusec-vscode-ide-plugin">Horusec VsCode IDE Plugin</a></li>
-    <li><a href="#instalação-dos-binários-windows-linux-e-mac">Instalação dos binários (Windows, Linux e Mac)</a>
+    <li><a href="#introdução">Introdução</a></li>
+    <li><a href="#principais-funcionalidades">Principais Funcionalidades</a></li>
+    <li><a href="#benefícios-do-uso-do-horusec">Benefícios do Uso do Horusec</a></li>
+    <li><a href="#casos-de-uso">Casos de uso</a>
       <ul>
-        <li><a href="#windows">Windows</a></li>
-        <li><a href="#linux-e-mac">Linux e Mac</a></li>
+        <li><a href="#horusec-vscode-ide-plugin">Horusec VsCode IDE Plugin</a></li>
+        <li><a href="#instalação-dos-binários-windows-linux-e-mac">Instalação dos binários (Windows, Linux e Mac)</a></li>
+        <li><a href="#horusec-cli-sem-docker-binário">Horusec CLI sem Docker (Binário)</a></li>
+        <li><a href="#horusec-cli-com-docker-binário">Horusec CLI com Docker (Binário)</a></li>
+        <li><a href="#horusec-docker">Horusec Docker</a></li>
+        <li><a href="#reports-customizados">Reports customizados</a></li>
+        <li><a href="#horusec-em-pipeline-github-actions">Horusec em pipeline Github Actions</a></li>
       </ul>
     </li>
-    <li><a href="#horusec-cli-sem-docker-binário">Horusec CLI sem Docker (Binário)</a></li>
-    <li><a href="#horusec-cli-com-docker-binário">Horusec CLI com Docker (Binário)</a></li>
-    <li><a href="#horusec-docker">Horusec Docker</a></li>
-    <li><a href="#reports-customizados">Reports customizados</a></li>
-    <li><a href="#horusec-em-pipeline-github-actions">Horusec em pipeline Github Actions</a></li>
+    <li><a href="#enfimo-mesmo-blá-blá-blá-do-cara-de-segurança-">Enfim….o mesmo blá blá blá do cara de segurança…. 🥱</a></li>
+    <li><a href="#referências">Referências</a></li>
   </ul>
 </nav>
 
@@ -2591,7 +2581,7 @@
 </div>
 </div>
 
-<script src="/js/main.bundle.min.5d05efb2bfb03e39acd63dc776a2a17f9da44a02d23b22a63a0dd8a66e6a6cc3.js" integrity="sha256-XQXvsr&#43;wPjms1j3HdqKhf52kSgLSOyKmOg3Ypm5qbMM=" crossorigin="anonymous" async></script>
+<script src="/js/main.bundle.min.8dc6800be7415086af7131eadc3b0e45adfb62ae98905681bde4245c89b11149.js" integrity="sha256-jcaAC&#43;dBUIavcTHq3DsORa37Yq6YkFaBveQkXImxEUk=" crossorigin="anonymous" async></script>
     
 
     

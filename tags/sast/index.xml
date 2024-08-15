@@ -7,7 +7,7 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Tiago Tavares.</copyright>
-    <lastBuildDate>Wed, 14 Aug 2024 14:31:18 -0300</lastBuildDate>
+    <lastBuildDate>Thu, 15 Aug 2024 11:40:22 -0300</lastBuildDate>
     <atom:link href="https://tiagotavares.io/tags/sast/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Github Commiters Spy - Dimensionando licenças de SAST, SCA e IaC.</title>
@@ -21,7 +21,7 @@
       <link>https://tiagotavares.io/blog/opensource_sast_com_horusec/</link>
       <pubDate>Sun, 14 Jul 2024 00:00:00 +0000</pubDate>
       <guid>https://tiagotavares.io/blog/opensource_sast_com_horusec/</guid>
-      <description>Sumário &amp;nbsp; Sumário Introdução Principais Funcionalidades Benefícios do Uso do Horusec Casos de uso Horusec VsCode IDE Plugin Instalação dos binários (Windows, Linux e Mac) Windows Linux e Mac Horusec CLI sem Docker (Binário) Horusec CLI com Docker (Binário) Horusec Docker Reports customizados Horusec em pipeline Github Actions Enfim….</description>
+      <description>Introdução Principais Funcionalidades Benefícios do Uso do Horusec Casos de uso Horusec VsCode IDE Plugin Instalação dos binários (Windows, Linux e Mac) Windows Linux e Mac Horusec CLI sem Docker (Binário) Horusec CLI com Docker (Binário) Horusec Docker Reports customizados Horusec em pipeline Github Actions Enfim….</description>
     </item>
   </channel>
 </rss>
