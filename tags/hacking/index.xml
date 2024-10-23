@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Tiago Tavares.</copyright>
-    <lastBuildDate>Wed, 14 Aug 2024 14:07:08 -0300</lastBuildDate>
+    <lastBuildDate>Wed, 23 Oct 2024 13:47:04 -0300</lastBuildDate>
     <atom:link href="https://tiagotavares.io/tags/hacking/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hackeando aplicativos e suas APIs em versões modernas do Android com Burp Suite e Zed Attack Proxy</title>
+      <link>https://tiagotavares.io/blog/hackeando_aplicativos_android_modernos_e_apis_burpsuite_zaproxy/</link>
+      <pubDate>Wed, 23 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://tiagotavares.io/blog/hackeando_aplicativos_android_modernos_e_apis_burpsuite_zaproxy/</guid>
+      <description>Introdução &amp;nbsp; A internet é um lugar sensacional para encontrar dicas e tutoriais sobre qualquer coisa, como hackear aplicativos, APIs, etc.</description>
+    </item>
     <item>
       <title>HackerWhale - Offensive Docker Image</title>
       <link>https://tiagotavares.io/blog/hackerwhale_container/</link>

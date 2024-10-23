@@ -7,7 +7,7 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Tiago Tavares.</copyright>
-    <lastBuildDate>Wed, 23 Oct 2024 10:42:53 -0300</lastBuildDate>
+    <lastBuildDate>Wed, 23 Oct 2024 13:47:04 -0300</lastBuildDate>
     <atom:link href="https://tiagotavares.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Android</title>
@@ -28,6 +28,13 @@
       <link>https://tiagotavares.io/tags/burpsuite/</link>
       <pubDate>Wed, 23 Oct 2024 00:00:00 +0000</pubDate>
       <guid>https://tiagotavares.io/tags/burpsuite/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hacking</title>
+      <link>https://tiagotavares.io/tags/hacking/</link>
+      <pubDate>Wed, 23 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://tiagotavares.io/tags/hacking/</guid>
       <description></description>
     </item>
     <item>
@@ -147,13 +154,6 @@
       <link>https://tiagotavares.io/tags/docker/</link>
       <pubDate>Sun, 11 Aug 2024 00:00:00 +0000</pubDate>
       <guid>https://tiagotavares.io/tags/docker/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Hacking</title>
-      <link>https://tiagotavares.io/tags/hacking/</link>
-      <pubDate>Sun, 11 Aug 2024 00:00:00 +0000</pubDate>
-      <guid>https://tiagotavares.io/tags/hacking/</guid>
       <description></description>
     </item>
     <item>
