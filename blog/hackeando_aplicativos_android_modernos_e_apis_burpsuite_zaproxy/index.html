@@ -1,0 +1,3050 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+    <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.128.2">
+    <meta name="theme" content="Hinode 0.14.0">
+    
+
+
+
+
+
+    
+    
+<link rel="stylesheet" href="/css/main.min.efe232a6d505bfd4eebc021116f402279b8f9434777650f9bc099c4caff52542.css" integrity="sha256-7+IyptUFv9TuvAIRFvQCJ5uPlDR3dlD5vAmcTK/1JUI=" crossorigin="anonymous">
+    
+        
+    
+    
+         
+        <link rel="preload" href="/fonts/inter-v12-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+
+
+
+
+    
+
+
+    
+  <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <title>debugging the life - Hackeando aplicativos e suas APIs em versões modernas do Android com Burp Suite e Zed Attack Proxy</title>
+    <meta name="description" content="Tutorial básico que como dar os primeiros passos para engenharia reversa de aplicativos em versões modernas do Android, utilizando o Google Android St...">
+
+<link rel="canonical" href="https://tiagotavares.io/blog/hackeando_aplicativos_android_modernos_e_apis_burpsuite_zaproxy/">
+
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hackeando aplicativos e suas APIs em versões modernas do Android com Burp Suite e Zed Attack Proxy">
+<meta property="og:description" content="Tutorial básico que como dar os primeiros passos para engenharia reversa de aplicativos em versões modernas do Android, utilizando o Google Android St...">
+<meta property="og:url" content="https://tiagotavares.io/blog/hackeando_aplicativos_android_modernos_e_apis_burpsuite_zaproxy/">
+<meta property="og:site_name" content="debugging the life">
+<meta property="article:published_time" content="2024-10-23T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-10-23T10:42:53-03:00">
+    <meta property="og:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fill,h_640,w_1280/v1729387433/blog/Modern_Android_-_tiagotavares.io_c1sg4c.jpg">
+<meta property="og:image:alt" content="Hackeando aplicativos e suas APIs em versões modernas do Android com Burp Suite e Zed Attack Proxy">
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+
+
+<meta name="twitter:title" content="Hackeando aplicativos e suas APIs em versões modernas do Android com Burp Suite e Zed Attack Proxy">
+<meta name="twitter:description" content="Tutorial básico que como dar os primeiros passos para engenharia reversa de aplicativos em versões modernas do Android, utilizando o Google Android St...">
+<meta name="twitter:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fill,h_640,w_1280/v1729387433/blog/Modern_Android_-_tiagotavares.io_c1sg4c.jpg">
+<meta name="twitter:image:alt" content="Hackeando aplicativos e suas APIs em versões modernas do Android com Burp Suite e Zed Attack Proxy">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+        "@id": "https://tiagotavares.io/#/schema/organization/1",
+      "name": "Tiago Tavares",
+      "url": "https://tiagotavares.io/",
+      "sameAs": [
+        "https://x.com/tiagotavi/"
+        , "https://www.linkedin.com/in/tiagotavi/"
+        , "https://github.com/0xtiago/"
+        ],
+      "image": {
+          "@type": "ImageObject",
+          "@id": "https://tiagotavares.io/#/schema/image/1",
+          "url": "https://tiagotavares.io/\u003cnil\u003e",
+          "width": null ,
+          "height": null ,
+          "caption": "Tiago Tavares"
+        }
+      },
+    {
+      "@type": "WebSite",
+      "@id": "https://tiagotavares.io/#/schema/website/1",
+      "url": "https://tiagotavares.io/",
+      "name": "debugging the life",
+      "description": "Technical content, most about information security, offensive security and application security.",
+      "publisher": {
+          "@id": "https://tiagotavares.io/#/schema/organization/1"
+        }
+      },
+    {
+      "@type": "WebPage",
+      "@id": "https://tiagotavares.io/blog/hackeando_aplicativos_android_modernos_e_apis_burpsuite_zaproxy/",
+      "url": "https://tiagotavares.io/blog/hackeando_aplicativos_android_modernos_e_apis_burpsuite_zaproxy/",
+      "name": "Hackeando aplicativos e suas APIs em versões modernas do Android com Burp Suite e Zed Attack Proxy",
+      "description": "Tutorial básico que como dar os primeiros passos para engenharia reversa de aplicativos em versões modernas do Android, utilizando o Google Android Studio.",
+      "isPartOf": {
+        "@id": "https://tiagotavares.io/#/schema/website/1"
+      },
+      "about": {
+          "@id": "https://tiagotavares.io/#/schema/organization/1"
+        },
+      "datePublished": "2024-10-23T00:00:00CET",
+      "dateModified": "2024-10-23T10:42:53CET",
+      "breadcrumb": {
+        "@id": "https://tiagotavares.io/blog/hackeando_aplicativos_android_modernos_e_apis_burpsuite_zaproxy/#/schema/breadcrumb/1"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://tiagotavares.io/blog/hackeando_aplicativos_android_modernos_e_apis_burpsuite_zaproxy/#/schema/image/2"
+      },
+      "inLanguage": "en-US",
+      "potentialAction": [{
+        "@type": "ReadAction", "target": ["https://tiagotavares.io/blog/hackeando_aplicativos_android_modernos_e_apis_burpsuite_zaproxy/"]
+      }]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://tiagotavares.io/blog/hackeando_aplicativos_android_modernos_e_apis_burpsuite_zaproxy/#/schema/breadcrumb/1",
+      "name": "Breadcrumbs",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position":  1 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://tiagotavares.io/",
+          "url": "https://tiagotavares.io/",
+          "name": "Home"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  2 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://tiagotavares.io/blog/",
+          "url": "https://tiagotavares.io/blog/",
+          "name": "Blog"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  3 ,
+        "item": {
+          "@id": "https://tiagotavares.io/blog/hackeando_aplicativos_android_modernos_e_apis_burpsuite_zaproxy/"
+          }
+        }]
+    },
+
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "@id": "https://tiagotavares.io/#/schema/article/1",
+          "headline": "Hackeando aplicativos e suas APIs em versões modernas do Android com Burp Suite e Zed Attack Proxy",
+          "description": "Tutorial básico que como dar os primeiros passos para engenharia reversa de aplicativos em versões modernas do Android, utilizando o Google Android Studio.",
+          "isPartOf": {
+            "@id": "https://tiagotavares.io/blog/hackeando_aplicativos_android_modernos_e_apis_burpsuite_zaproxy/"
+          },
+          "mainEntityOfPage": {
+            "@id": "https://tiagotavares.io/blog/hackeando_aplicativos_android_modernos_e_apis_burpsuite_zaproxy/"
+          },
+          "datePublished": "2024-10-23T00:00:00CET",
+          "dateModified": "2024-10-23T10:42:53CET",
+          "author": {
+            "@id": "https://tiagotavares.io/#/schema/person/2"
+          },
+          "publisher": {
+              "@id": "https://tiagotavares.io/#/schema/organization/1"
+            },
+          "image": {
+            "@id": "https://tiagotavares.io/blog/hackeando_aplicativos_android_modernos_e_apis_burpsuite_zaproxy/#/schema/image/2"
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://tiagotavares.io/#/schema/person/2",
+          "name":  null ,
+          "sameAs": [
+            ]
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ImageObject",
+          "@id": "https://tiagotavares.io/blog/hackeando_aplicativos_android_modernos_e_apis_burpsuite_zaproxy/#/schema/image/2",
+          "url": "https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fill,h_640,w_1280/v1729387433/blog/Modern_Android_-_tiagotavares.io_c1sg4c.jpg",
+          "contentUrl": "https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fill,h_640,w_1280/v1729387433/blog/Modern_Android_-_tiagotavares.io_c1sg4c.jpg",
+          "caption": "Hackeando aplicativos e suas APIs em versões modernas do Android com Burp Suite e Zed Attack Proxy"
+        }
+      ]
+    }
+
+  ]
+}
+</script>
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon_hu29d17b5413868ec40c659bb26691088e_2409_16x16_resize_catmullrom_3.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon_hu29d17b5413868ec40c659bb26691088e_2409_32x32_resize_catmullrom_3.png">
+        <link rel="icon" type="image/png" sizes="48x48" href="/img/favicon_hu29d17b5413868ec40c659bb26691088e_2409_48x48_resize_catmullrom_3.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon_hu29d17b5413868ec40c659bb26691088e_2409_180x0_resize_catmullrom_3.png">
+    
+
+</head>
+
+    <body>
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-HCTHDQERH9"></script><script src="/js/critical.bundle.min.a73ed0b9da936bca55cd96a54840ab270bde232f86b9b2f7ca2026635b177982.js" integrity="sha256-pz7QudqTa8pVzZalSECrJwveIy&#43;GubL3yiAmY1sXeYI=" crossorigin="anonymous"></script>
+    <div class="d-flex flex-column min-vh-100">
+            <div class="d-flex flex-column ">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container-fluid fixed-top p-0">
+
+
+
+
+
+
+<nav class="navbar p-4 bg-body navbar-fixed-top navbar-expand-md"
+        
+        
+        >
+        <div class="container-xxl p-0">
+            <div class="d-flex navbar-container justify-content-center">
+                
+                <div class="d-flex align-items-center">
+                        <button class="navbar-toggler collapsed p-0 mx-auto invisible fw-30" type="button">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-ellipsis fa-fw"></i> --><svg class="svg-inline--fa fas fa-ellipsis fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/></svg>
+
+    
+</button></div>
+        
+                
+                <div class="mx-auto">
+                    <a class="navbar-brand" href="/" aria-label="Home">
+                            <img src="/img/tt-logo-icon.svg" alt="debugging the life logo" height="30" width="30"></a>
+                </div>
+        
+                
+                <div class="d-flex align-items-center">
+                    <button class="navbar-toggler main-nav-toggler collapsed p-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-0-collapse"
+                        aria-controls="navbar-0" aria-expanded="false" aria-label="Toggle main navigation">
+                        <span class="toggler-icon top-bar emphasis"></span>
+                        <span class="toggler-icon middle-bar emphasis"></span>
+                        <span class="toggler-icon bottom-bar emphasis"></span>
+                    </button>
+                </div>
+            </div>
+    
+            <div class="navbar-collapse collapse" id="navbar-0-collapse">
+                <div class="d-flex flex-fill ms-md-3">
+    <form class="search flex-fill position-relative me-auto">
+        <input class="search-input form-control is-search" type="search" placeholder="Search this site" aria-label="Search this site" autocomplete="off">
+        <div class="search-suggestions shadow bg-body rounded d-none" data-no-results="No results for"></div>
+    </form>
+</div>
+
+                <ul class="navbar-nav ms-auto">
+                            <li class="nav-item ">
+
+
+
+
+
+
+
+
+    
+        <a class="nav-link" 
+            
+            data-nav="main" data-nav-main="about" 
+            href="/about/" ><span >About</span>&nbsp;</a>
+    
+</li>
+                            <li class="nav-item ">
+
+
+
+
+
+
+
+
+    
+        <a class="nav-link active" 
+            
+            data-nav="main" data-nav-main="blog" 
+            href="/blog/" ><span  class="active">Blog</span>&nbsp;</a>
+    
+</li>
+                            <li class="nav-item ">
+
+
+
+
+
+
+
+
+    
+        <a class="nav-link" 
+            
+            data-nav="main" data-nav-main="tags" 
+            href="/tags/" ><span >Tags</span>&nbsp;</a>
+    
+</li><div class="d-flex mode-switch align-items-center" id="navbar-mode">
+        <input type="checkbox" class="checkbox navbar-mode-selector" id="navbar-mode-checkbox" />
+        <label class="label" for="navbar-mode-checkbox">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-sun fa-fw"></i> --><svg class="svg-inline--fa fas fa-sun fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512"><path d="M361.5 1.2c5 2.1 8.6 6.6 9.6 11.9L391 121l107.9 19.8c5.3 1 9.8 4.6 11.9 9.6s1.5 10.7-1.6 15.2L446.9 256l62.3 90.3c3.1 4.5 3.7 10.2 1.6 15.2s-6.6 8.6-11.9 9.6L391 391 371.1 498.9c-1 5.3-4.6 9.8-9.6 11.9s-10.7 1.5-15.2-1.6L256 446.9l-90.3 62.3c-4.5 3.1-10.2 3.7-15.2 1.6s-8.6-6.6-9.6-11.9L121 391 13.1 371.1c-5.3-1-9.8-4.6-11.9-9.6s-1.5-10.7 1.6-15.2L65.1 256 2.8 165.7c-3.1-4.5-3.7-10.2-1.6-15.2s6.6-8.6 11.9-9.6L121 121 140.9 13.1c1-5.3 4.6-9.8 9.6-11.9s10.7-1.5 15.2 1.6L256 65.1 346.3 2.8c4.5-3.1 10.2-3.7 15.2-1.6zM160 256a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zm224 0a128 128 0 1 0 -256 0 128 128 0 1 0 256 0z"/></svg>
+
+    
+
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-moon fa-fw"></i> --><svg class="svg-inline--fa fas fa-moon fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 384 512"><path d="M223.5 32C100 32 0 132.3 0 256S100 480 223.5 480c60.6 0 115.5-24.2 155.8-63.4c5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6c-96.9 0-175.5-78.8-175.5-176c0-65.8 36-123.1 89.3-153.3c6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"/></svg>
+
+    
+
+            <div class="ball"></div>
+        </label>
+    </div></ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="main-content">
+                    </div>
+                
+            </div>
+
+            
+                
+
+
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvass-sidebar" aria-inledby="offcanvas-label">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvas-label">Blog</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label=""></button>
+    </div>
+    <div class="offcanvas-body">
+        
+
+    </div>
+</div>
+
+
+<div class="container-xxl flex-fill p-4 px-xxl-0">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+        <div
+            class="col col-lg-2 d-none d-lg-block sidebar-overflow sticky-top pt-5">
+            
+
+        </div>
+        <div class="col-12 col-md-9 col-lg-8 mb-5 p-4">
+            
+
+
+
+
+
+
+
+
+
+
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                
+                    <li class="breadcrumb-item"><a href="/blog/">Blogs</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Hackeando aplicativos e suas APIs em versões modernas do Android com Burp Suite e Zed Attack Proxy</li>
+        </ol>
+    </nav>
+<p class="display-4 mt-5">Hackeando aplicativos e suas APIs em versões modernas do Android com Burp Suite e Zed Attack Proxy</p>
+
+    <small class="text-body-secondary text-uppercase">
+        Posted on October 23, 2024
+            
+        
+        &bull;
+        16&nbsp;min read &bull;
+        3,372&nbsp;words
+    </small>
+<div class="mt-3">
+        <div class="d-none-dark">
+            <div class="hstack gap-1">
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Mobile Hacking"
+        href="/tags/mobile-hacking/" class="btn btn-light btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Mobile Hacking</div>
+        </div></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Android"
+        href="/tags/android/" class="btn btn-light btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Android</div>
+        </div></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="BurpSuite"
+        href="/tags/burpsuite/" class="btn btn-light btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">BurpSuite</div>
+        </div></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Zed Attack Proxy"
+        href="/tags/zed-attack-proxy/" class="btn btn-light btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Zed Attack Proxy</div>
+        </div></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="API"
+        href="/tags/api/" class="btn btn-light btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">API</div>
+        </div></a>&nbsp;
+
+                </div>
+        </div>
+        
+        <div class="d-none-light">
+            <div class="hstack gap-1">
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Mobile Hacking"
+        href="/tags/mobile-hacking/" class="btn btn-outline-primary btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Mobile Hacking</div>
+        </div></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Android"
+        href="/tags/android/" class="btn btn-outline-primary btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Android</div>
+        </div></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="BurpSuite"
+        href="/tags/burpsuite/" class="btn btn-outline-primary btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">BurpSuite</div>
+        </div></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Zed Attack Proxy"
+        href="/tags/zed-attack-proxy/" class="btn btn-outline-primary btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">Zed Attack Proxy</div>
+        </div></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="API"
+        href="/tags/api/" class="btn btn-outline-primary btn-sm position-relative  "
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto">API</div>
+        </div></a>&nbsp;
+
+                </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+<div class="py-3 text-body-secondary hstack gap-1">
+            Share via 
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Share via LinkedIn"
+        href="https://www.linkedin.com/sharing/share-offsite/?url=https://tiagotavares.io/blog/hackeando_aplicativos_android_modernos_e_apis_burpsuite_zaproxy/" class="btn btn-primary  position-relative  btn-social p-0"
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto"></div><div class="align-self-center">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fab fa-linkedin fa-fw"></i> --><svg class="svg-inline--fa fab fa-linkedin fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+
+    
+</div>
+        </div></a>
+
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Share via Twitter"
+        href="https://twitter.com/home?status=https://tiagotavares.io/blog/hackeando_aplicativos_android_modernos_e_apis_burpsuite_zaproxy/" class="btn btn-primary  position-relative  btn-social p-0"
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto"></div><div class="align-self-center">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fab fa-x-twitter fa-fw"></i> --><svg class="svg-inline--fa fab fa-x-twitter fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+
+    
+</div>
+        </div></a>
+
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Share via Facebook"
+        href="https://www.facebook.com/sharer.php?u=https://tiagotavares.io/blog/hackeando_aplicativos_android_modernos_e_apis_burpsuite_zaproxy/" class="btn btn-primary  position-relative  btn-social p-0"
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto"></div><div class="align-self-center">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fab fa-facebook fa-fw"></i> --><svg class="svg-inline--fa fab fa-facebook fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512"><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z"/></svg>
+
+    
+</div>
+        </div></a>
+
+
+
+
+
+
+
+
+
+
+
+    <a aria-label="Share via WhatsApp"
+        href="whatsapp://send?text=Hackeando&#43;aplicativos&#43;e&#43;suas&#43;APIs&#43;em&#43;vers%C3%B5es&#43;modernas&#43;do&#43;Android&#43;com&#43;Burp&#43;Suite&#43;e&#43;Zed&#43;Attack&#43;Proxy%20https://tiagotavares.io/blog/hackeando_aplicativos_android_modernos_e_apis_burpsuite_zaproxy/" class="btn btn-primary  position-relative  btn-social p-0"
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto"></div><div class="align-self-center">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fab fa-whatsapp fa-fw"></i> --><svg class="svg-inline--fa fab fa-whatsapp fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+
+    
+</div>
+        </div></a>
+
+
+
+
+
+
+
+
+<div id="toast-message-email-4" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+        <strong class="me-auto">debugging the life</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">Link copied to clipboard</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Share via email"
+        href="#!" data-toast-target="toast-message-email-4" data-clipboard="https://tiagotavares.io/blog/hackeando_aplicativos_android_modernos_e_apis_burpsuite_zaproxy/" class="btn btn-primary  position-relative  btn-social p-0"
+        role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto"></div><div class="align-self-center">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link fa-fw"></i> --><svg class="svg-inline--fa fas fa-link fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    
+</div>
+        </div></a>
+
+                
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Share via system"
+        href="#!" id="btn-webshare" class="btn btn-primary  position-relative  btn-social p-0"
+         data-sharing-description="%!s(<nil>)" data-sharing-title="%!s(<nil>)" data-sharing-url="%!s(<nil>)"role="button"
+        >
+        <div class="d-flex justify-content-center">
+            <div class="my-auto"></div><div class="align-self-center">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-share-nodes fa-fw"></i> --><svg class="svg-inline--fa fas fa-share-nodes fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><path d="M352 224c53 0 96-43 96-96s-43-96-96-96s-96 43-96 96c0 4 .2 8 .7 11.9l-94.1 47C145.4 170.2 121.9 160 96 160c-53 0-96 43-96 96s43 96 96 96c25.9 0 49.4-10.2 66.6-26.9l94.1 47c-.5 3.9-.7 7.8-.7 11.9c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-25.9 0-49.4 10.2-66.6 26.9l-94.1-47c.5-3.9 .7-7.8 .7-11.9s-.2-8-.7-11.9l94.1-47C302.6 213.8 326.1 224 352 224z"/></svg>
+
+    
+</div>
+        </div></a>
+</div>
+<p class="lead mb-5 mt-3">Tutorial básico que como dar os primeiros passos para engenharia reversa de aplicativos em versões modernas do Android, utilizando o Google Android Studio.</p>
+<div class="d-md-none pb-5">
+
+
+
+
+
+
+<div class="d-grid gap-2 mx-auto">
+        
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="On this page"
+        href="#toc-collapse" class="btn btn-outline-secondary  position-relative  toc-button"
+         data-bs-toggle="collapse" aria-expanded="false" aria-controls="toc-collapse"role="button"
+        >
+        <div class="d-flex justify-content-between">
+            <div class="my-auto">On this page</div><div class="align-self-center ps-1">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-sort "></i> --><svg class="svg-inline--fa fas fa-sort " fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 320 512"><path d="M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8H32c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8H288c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z"/></svg>
+
+    
+</div>
+        </div></a>
+</div>
+
+    <div class="collapse border bg-body-tertiary rounded p-1 navbar-nav-scroll" id="toc-collapse">
+        <div class="toc toc-panel text-body p-2">
+            <small><nav id="TableOfContents">
+  <ul>
+    <li><a href="#introdução">Introdução</a></li>
+    <li><a href="#problema">Problema</a></li>
+    <li><a href="#configurando-o-ambiente">Configurando o ambiente</a>
+      <ul>
+        <li><a href="#instalando-android-studio-e-ferramentas">Instalando Android Studio e ferramentas</a></li>
+        <li><a href="#configurando-android-studio-virtual-device-manager">Configurando Android Studio Virtual Device Manager</a></li>
+        <li><a href="#instalando-ferramentas-do-android-sdk">Instalando ferramentas do Android SDK</a></li>
+        <li><a href="#iniciando-dispositivo-android-pela-primeira-vez">Iniciando dispositivo Android pela primeira vez</a></li>
+        <li><a href="#instalando-rootavd-e-rootando-dispositivo">Instalando rootAVD e &ldquo;rootando&rdquo; dispositivo</a></li>
+      </ul>
+    </li>
+    <li><a href="#configurando-proxies-para-interceptar-requisições">Configurando proxies para interceptar requisições</a>
+      <ul>
+        <li><a href="#conscrypttrustusercerts">ConscryptTrustUserCerts</a></li>
+        <li><a href="#burp-suite">Burp Suite</a></li>
+        <li><a href="#zed-attack-proxy-zaproxy">Zed Attack Proxy (ZAProxy)</a></li>
+      </ul>
+    </li>
+    <li><a href="#e-acaboumais-ou-menos">E acabou&hellip;mais ou menos.</a></li>
+  </ul>
+</nav></small>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="img-wrap mb-5"><img class="img-fluid rounded"
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fill,h_1200,w_2800/v1729387433/blog/Modern_Android_-_tiagotavares.io_c1sg4c.jpg"
+            
+            fetchpriority="high"
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fill,h_247,w_576/v1729387433/blog/Modern_Android_-_tiagotavares.io_c1sg4c.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fill,h_329,w_768/v1729387433/blog/Modern_Android_-_tiagotavares.io_c1sg4c.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fill,h_425,w_992/v1729387433/blog/Modern_Android_-_tiagotavares.io_c1sg4c.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fill,h_514,w_1200/v1729387433/blog/Modern_Android_-_tiagotavares.io_c1sg4c.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fill,h_600,w_1400/v1729387433/blog/Modern_Android_-_tiagotavares.io_c1sg4c.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fill,h_1200,w_2800/v1729387433/blog/Modern_Android_-_tiagotavares.io_c1sg4c.png 2800w" sizes="100vw"
+            height="1200"
+            width="2800"
+            alt="Hackeando aplicativos e suas APIs em versões modernas do Android com Burp Suite e Zed Attack Proxy">
+</div>
+<h2 id="introdução" class="heading">Introdução <a href="#introdu%c3%a7%c3%a3o" aria-labelledby="introdução">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h2>
+<p>A internet é um lugar sensacional para encontrar dicas e tutoriais sobre qualquer coisa, como hackear aplicativos, APIs, etc.  Mas infelizmente, muito do material que aparece nas buscas… está defasado.</p>
+<p>Quando você começa a explorar sobre hacking de APIs utilizados em aplicativos, logo encontra diversas dicas como fazer no Android, geralmente usando um emulador. Até aí, beleza.</p>
+<p>Só que a coisa desanda rápido quando você percebe que existem <a href="https://en.wikipedia.org/wiki/Android_version_history">zilhões de versões do Android</a> e uma infinidade de dispositivos rodando cada uma delas. A maioria dos tutoriais só funciona em versões super antigas do Android, o que não bate com os apps modernos que precisamos testar e já não estão mais disponíveis em versões mais antigas do Android.</p>
+<p>A intenção aqui é mostrar como contornar as barreiras de segurança das versões mais recentes, como o Android 14 e 15, e fazer tudo rodar no BurpSuite ou o ZAProxy direitinho.</p>
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+
+    
+
+<div class="d-flex alert alert-info " role="alert">
+        <div class="pt-1 pe-2">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fa fa-lightbulb fa-2x fa-fw"></i> --><svg class="svg-inline--fa fa fa-lightbulb fa-2x fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 384 512"><path d="M297.2 248.9C311.6 228.3 320 203.2 320 176c0-70.7-57.3-128-128-128S64 105.3 64 176c0 27.2 8.4 52.3 22.8 72.9c3.7 5.3 8.1 11.3 12.8 17.7l0 0c12.9 17.7 28.3 38.9 39.8 59.8c10.4 19 15.7 38.8 18.3 57.5H109c-2.2-12-5.9-23.7-11.8-34.5c-9.9-18-22.2-34.9-34.5-51.8l0 0 0 0c-5.2-7.1-10.4-14.2-15.4-21.4C27.6 247.9 16 213.3 16 176C16 78.8 94.8 0 192 0s176 78.8 176 176c0 37.3-11.6 71.9-31.4 100.3c-5 7.2-10.2 14.3-15.4 21.4l0 0 0 0c-12.3 16.8-24.6 33.7-34.5 51.8c-5.9 10.8-9.6 22.5-11.8 34.5H226.4c2.6-18.7 7.9-38.6 18.3-57.5c11.5-20.9 26.9-42.1 39.8-59.8l0 0 0 0 0 0c4.7-6.4 9-12.4 12.7-17.7zM192 128c-26.5 0-48 21.5-48 48c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-44.2 35.8-80 80-80c8.8 0 16 7.2 16 16s-7.2 16-16 16zm0 384c-44.2 0-80-35.8-80-80V416H272v16c0 44.2-35.8 80-80 80z"/></svg>
+
+    &nbsp;
+</div>
+        <div class="flex-grow-1 my-auto">
+            Este é tutorial básico que como dar os primeiros passos para engenharia reversa de aplicativos no Android, diversos temas de contorno de controles de segurança de aplicativos mais robustos não serão abordados neste post.
+        </div>
+    </div>
+
+<h2 id="problema" class="heading">Problema <a href="#problema" aria-labelledby="problema">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h2>
+<p>Desde que o Android 7.0 (Nougat) chegou em 2016, ele parou de aceitar certificados de Autoridade de Certificação (CA) instalados pelo usuário. Isso foi feito para aumentar a segurança e impedir que CAs instaladas manualmente bagunçassem a proteção dos apps que usam conexões seguras.</p>
+<p>O lado ruim? Isso complicou a instalação do certificado de CA raiz autoassinado do Burp Suite e do ZAProxy, que é o que permite interceptar e fazer proxy do tráfego dos aplicativos.</p>
+<p>É por isso que tantos vídeos e artigos mostram seus criadores usando celulares Android mais antigos. Costumam dizer que é porque “essas versões são mais estáveis”, mas talvez seja a dificuldade em injetar o certificado direto no armazenamento de sistema, em <code>/system/etc/security/cacerts</code>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure class="col-8 mx-auto">
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fill,h_2800,w_2800/v1729436710/blog/7a55a74d-bea2-4db2-bc7c-b6284ccddd5f.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fill,h_576,w_576/v1729436710/blog/7a55a74d-bea2-4db2-bc7c-b6284ccddd5f.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fill,h_768,w_768/v1729436710/blog/7a55a74d-bea2-4db2-bc7c-b6284ccddd5f.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fill,h_992,w_992/v1729436710/blog/7a55a74d-bea2-4db2-bc7c-b6284ccddd5f.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fill,h_1200,w_1200/v1729436710/blog/7a55a74d-bea2-4db2-bc7c-b6284ccddd5f.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fill,h_1400,w_1400/v1729436710/blog/7a55a74d-bea2-4db2-bc7c-b6284ccddd5f.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fill,h_2800,w_2800/v1729436710/blog/7a55a74d-bea2-4db2-bc7c-b6284ccddd5f.png 2800w" sizes="100vw"
+            height="2800"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+<p>E aí, tudo mudou…pra pior.</p>
+<p>A partir do Android 10, o Google deu mais uma complicada na brincadeira. Eles introduziram uma separação ainda mais rígida no armazenamento de certificados. Usando o novo formato de contêiner <a href="https://source.android.com/docs/core/ota/apex?hl=pt-br">Android Pony EXpress (APEX)</a>, eles basicamente jogaram a confiança dos certificados lá dentro, o que significa que não dá mais pra injetar direto no sistema de arquivos. Adeus, métodos fáceis de inserir certificado no armazenamento do sistema.</p>
+<p>Pra facilitar sua vida, o que vem abaixo é uma série de passos que contornar o problema.</p>
+
+<h2 id="configurando-o-ambiente" class="heading">Configurando o ambiente <a href="#configurando-o-ambiente" aria-labelledby="configurando-o-ambiente">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h2>
+<p>Para poder testar APIs de aplicativos em versões modernas do Android, será necessário instalar um punhado de coisas. Todo o laboratório criado nos passos abaixo foi feito em plataforma MacOS em processador M1.</p>
+
+<h3 id="instalando-android-studio-e-ferramentas" class="heading">Instalando Android Studio e ferramentas <a href="#instalando-android-studio-e-ferramentas" aria-labelledby="instalando-android-studio-e-ferramentas">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h3>
+<p>Em muitos materiais, irão recomendar usar o <a href="https://www.genymotion.com/product-desktop/">Genymotion</a> porque ele é super fácil de usar, mas acho melhor evitar. O emulador é bom, sim, mas se você quiser rodar versões modernas do Android (como bug bounty ou testes de segurança), vai ter que pagar a licença comercial — e essa brincadeira custa mais de US$ 400 por ano.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1479,w_2800/v1729548820/blog/5ba182c8-67e8-457b-a4ba-42c1cfa931c6.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_304,w_576/v1729548820/blog/5ba182c8-67e8-457b-a4ba-42c1cfa931c6.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_406,w_768/v1729548820/blog/5ba182c8-67e8-457b-a4ba-42c1cfa931c6.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_524,w_992/v1729548820/blog/5ba182c8-67e8-457b-a4ba-42c1cfa931c6.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_634,w_1200/v1729548820/blog/5ba182c8-67e8-457b-a4ba-42c1cfa931c6.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_739,w_1400/v1729548820/blog/5ba182c8-67e8-457b-a4ba-42c1cfa931c6.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1479,w_2800/v1729548820/blog/5ba182c8-67e8-457b-a4ba-42c1cfa931c6.png 2800w" sizes="100vw"
+            height="1479"
+            width="2800"
+            alt="Tabela de preços do Genymotion.">
+</div><figcaption class="figure-caption">Tabela de preços do Genymotion.</figcaption>
+    </figure>
+<p>Mas calma, você não precisa gastar essa grana. O Google já oferece o Android Studio de graça para desenvolvedores, e ele serve muito bem pra isso. Na real, você vai acabar instalando o Android Studio pra pegar as ferramentas de linha de comando e os emuladores, mas não precisa nem abrir ou criar projetos no programa. O que você quer mesmo é o Virtual Device Manager, que vamos falar daqui a pouco.</p>
+
+
+
+
+
+
+
+
+
+
+
+    
+
+<div class="d-flex alert alert-warning " role="alert">
+        <div class="pt-1 pe-2">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-triangle-exclamation fa-2x fa-fw"></i> --><svg class="svg-inline--fa fas fa-triangle-exclamation fa-2x fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512"><path d="M256 32c14.2 0 27.3 7.5 34.5 19.8l216 368c7.3 12.4 7.3 27.7 .2 40.1S486.3 480 472 480H40c-14.3 0-27.6-7.7-34.7-20.1s-7-27.8 .2-40.1l216-368C228.7 39.5 241.8 32 256 32zm0 128c-13.3 0-24 10.7-24 24V296c0 13.3 10.7 24 24 24s24-10.7 24-24V184c0-13.3-10.7-24-24-24zm32 224a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/></svg>
+
+    &nbsp;
+</div>
+        <div class="flex-grow-1 my-auto">
+            Se você estiver usando Apple Silicon (MacOS em M1/M2/M3), NÃO use o Brew para instalar o Android Studio. A <em><a href="https://formulae.brew.sh/cask/android-studio">cask</a></em> foi projetada para instalar a versão Intel do produto. Você quer usar a versão ARM, que lhe dá emulação nativa com qemu, que é muito mais rápido. Basta ir para a página de download do Android Studio e selecionar “Mac com chip Apple” quando solicitado.
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure class="col-10 mx-auto">
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1915,w_2800/v1729549191/blog/fa50ee86-8e18-4c02-950d-acede51e8da8.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_394,w_576/v1729549191/blog/fa50ee86-8e18-4c02-950d-acede51e8da8.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_525,w_768/v1729549191/blog/fa50ee86-8e18-4c02-950d-acede51e8da8.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_678,w_992/v1729549191/blog/fa50ee86-8e18-4c02-950d-acede51e8da8.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_821,w_1200/v1729549191/blog/fa50ee86-8e18-4c02-950d-acede51e8da8.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_957,w_1400/v1729549191/blog/fa50ee86-8e18-4c02-950d-acede51e8da8.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1915,w_2800/v1729549191/blog/fa50ee86-8e18-4c02-950d-acede51e8da8.png 2800w" sizes="100vw"
+            height="1915"
+            width="2800"
+            alt="Instalando Android Studio no MacOS.">
+</div><figcaption class="figure-caption">Instalando Android Studio no MacOS.</figcaption>
+    </figure>
+<p><img></p>
+
+<h3 id="configurando-android-studio-virtual-device-manager" class="heading">Configurando Android Studio Virtual Device Manager <a href="#configurando-android-studio-virtual-device-manager" aria-labelledby="configurando-android-studio-virtual-device-manager">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h3>
+<p>Já com o Android Studio instalado, execute-o. Na tela inicial dará ênfase para a criação de um projeto, isso não é necessário.</p>
+<p>Clique em &ldquo;More Actions&rdquo; e selecione &ldquo;Virtual Device Manager&rdquo;.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_2275,w_2800/v1729352765/blog/1b70bb3c-1ae6-4d56-a876-a68b2390ba9a.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_468,w_576/v1729352765/blog/1b70bb3c-1ae6-4d56-a876-a68b2390ba9a.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_624,w_768/v1729352765/blog/1b70bb3c-1ae6-4d56-a876-a68b2390ba9a.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_806,w_992/v1729352765/blog/1b70bb3c-1ae6-4d56-a876-a68b2390ba9a.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_975,w_1200/v1729352765/blog/1b70bb3c-1ae6-4d56-a876-a68b2390ba9a.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1138,w_1400/v1729352765/blog/1b70bb3c-1ae6-4d56-a876-a68b2390ba9a.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_2275,w_2800/v1729352765/blog/1b70bb3c-1ae6-4d56-a876-a68b2390ba9a.png 2800w" sizes="100vw"
+            height="2275"
+            width="2800"
+            alt="Android Studio Virtual Device Manager">
+</div><figcaption class="figure-caption">Android Studio Virtual Device Manager</figcaption>
+    </figure>
+<p>Agora você pode gerenciar os emuladores que você gostaria de provisionar. Geralmente já vem um emulador já pré configurado, mas vamos criar um novo.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1983,w_2800/v1729352868/blog/51fceb6c-bb16-46e8-af41-bb3305221c6d.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_408,w_576/v1729352868/blog/51fceb6c-bb16-46e8-af41-bb3305221c6d.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_544,w_768/v1729352868/blog/51fceb6c-bb16-46e8-af41-bb3305221c6d.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_703,w_992/v1729352868/blog/51fceb6c-bb16-46e8-af41-bb3305221c6d.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_850,w_1200/v1729352868/blog/51fceb6c-bb16-46e8-af41-bb3305221c6d.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_991,w_1400/v1729352868/blog/51fceb6c-bb16-46e8-af41-bb3305221c6d.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1983,w_2800/v1729352868/blog/51fceb6c-bb16-46e8-af41-bb3305221c6d.png 2800w" sizes="100vw"
+            height="1983"
+            width="2800"
+            alt="Selecionando hardware.">
+</div><figcaption class="figure-caption">Selecionando hardware.</figcaption>
+    </figure>
+<p>Neste laboratório estou utilizando o &ldquo;Pixel 8&rdquo;. Ele já vem com o Google Play pré-instalado e uma versão mais moderna do Android, versão 15 (até o momento desta publicação).</p>
+<p>Pressione &ldquo;Next&rdquo; e selecione a imagem de sistema. Por padrão vserá API 35 (Android 15), e selecionará o chipset do seu dispositivo. Nas imagens abaixo verá  chipset <code>arm64-v8a</code>, que nada mais é do que meu MacBook Pro M1, que utiliza Apple Silicon.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1983,w_2800/v1729352924/blog/9b41a458-667c-4369-a2dd-d964ea536a25.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_408,w_576/v1729352924/blog/9b41a458-667c-4369-a2dd-d964ea536a25.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_544,w_768/v1729352924/blog/9b41a458-667c-4369-a2dd-d964ea536a25.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_703,w_992/v1729352924/blog/9b41a458-667c-4369-a2dd-d964ea536a25.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_850,w_1200/v1729352924/blog/9b41a458-667c-4369-a2dd-d964ea536a25.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_991,w_1400/v1729352924/blog/9b41a458-667c-4369-a2dd-d964ea536a25.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1983,w_2800/v1729352924/blog/9b41a458-667c-4369-a2dd-d964ea536a25.png 2800w" sizes="100vw"
+            height="1983"
+            width="2800"
+            alt="API 35 - arm64-v8a">
+</div><figcaption class="figure-caption">API 35 - arm64-v8a</figcaption>
+    </figure>
+<p>Pressione &ldquo;Next&rdquo; novamente e nomeie o seu Android Virtual Device (AVD).</p>
+<p>Agora só precisamos ajustar as configurações do emulador para que sempre inicie em <em>cold boot</em>, sempre limpando a memória RAM a cada restart.</p>
+<p>Vá em &ldquo;Show Advanced Settings&rdquo;, vá até a seção &ldquo;Emulated Performance&rdquo; e habilite a opção &ldquo;Cold Boot&rdquo; em &ldquo;Boot Option&rdquo;.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1983,w_2800/v1729353000/blog/ddde2d63-0449-4515-82e4-89ab45834b32.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_408,w_576/v1729353000/blog/ddde2d63-0449-4515-82e4-89ab45834b32.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_544,w_768/v1729353000/blog/ddde2d63-0449-4515-82e4-89ab45834b32.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_703,w_992/v1729353000/blog/ddde2d63-0449-4515-82e4-89ab45834b32.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_850,w_1200/v1729353000/blog/ddde2d63-0449-4515-82e4-89ab45834b32.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_991,w_1400/v1729353000/blog/ddde2d63-0449-4515-82e4-89ab45834b32.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1983,w_2800/v1729353000/blog/ddde2d63-0449-4515-82e4-89ab45834b32.png 2800w" sizes="100vw"
+            height="1983"
+            width="2800"
+            alt=" ">
+</div><figcaption class="figure-caption"> </figcaption>
+    </figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1983,w_2800/v1729353064/blog/c10069f8-0944-4e59-ac01-012eda8445ed.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_408,w_576/v1729353064/blog/c10069f8-0944-4e59-ac01-012eda8445ed.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_544,w_768/v1729353064/blog/c10069f8-0944-4e59-ac01-012eda8445ed.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_703,w_992/v1729353064/blog/c10069f8-0944-4e59-ac01-012eda8445ed.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_850,w_1200/v1729353064/blog/c10069f8-0944-4e59-ac01-012eda8445ed.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_991,w_1400/v1729353064/blog/c10069f8-0944-4e59-ac01-012eda8445ed.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1983,w_2800/v1729353064/blog/c10069f8-0944-4e59-ac01-012eda8445ed.png 2800w" sizes="100vw"
+            height="1983"
+            width="2800"
+            alt="Selecionando opção &#39;cold boot&#39;">
+</div><figcaption class="figure-caption">Selecionando opção 'cold boot'</figcaption>
+    </figure>
+<p>Agora clique em &ldquo;Finish&rdquo; e você terá sua imagem pronta para uso.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_2275,w_2800/v1729353124/blog/9bade68b-b3b2-4045-96d1-9b18f92f541b.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_468,w_576/v1729353124/blog/9bade68b-b3b2-4045-96d1-9b18f92f541b.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_624,w_768/v1729353124/blog/9bade68b-b3b2-4045-96d1-9b18f92f541b.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_806,w_992/v1729353124/blog/9bade68b-b3b2-4045-96d1-9b18f92f541b.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_975,w_1200/v1729353124/blog/9bade68b-b3b2-4045-96d1-9b18f92f541b.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1138,w_1400/v1729353124/blog/9bade68b-b3b2-4045-96d1-9b18f92f541b.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_2275,w_2800/v1729353124/blog/9bade68b-b3b2-4045-96d1-9b18f92f541b.png 2800w" sizes="100vw"
+            height="2275"
+            width="2800"
+            alt="Dispositivo virtual criado.">
+</div><figcaption class="figure-caption">Dispositivo virtual criado.</figcaption>
+    </figure>
+<p>Opcionalmente, você pode fechar todas as janelas do Android Studio. Daqui para frente tudo será feito por linha de comando.</p>
+
+<h3 id="instalando-ferramentas-do-android-sdk" class="heading">Instalando ferramentas do Android SDK <a href="#instalando-ferramentas-do-android-sdk" aria-labelledby="instalando-ferramentas-do-android-sdk">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h3>
+<p>Por padrão, durante a instalação do Android Studio, ele instalará o Android SDK, que inclui suas ferramentas de plataforma e os emuladores. No entanto, essas ferramentas não são diretamente expostas a você até que você configure seus caminhos de binários corretamente.</p>
+<p>Como isso será diferente entre Windows, Linux e Mac, não fornecerei instruções detalhadas. Apenas certifique-se de adicionar os diretórios Android/sdk/platform-tools e Android/sdk/emulator ao seu caminho.</p>
+<p>Como exemplo, você pode adicionar a seguinte linha ao seu arquivo <code>.zshrc</code> (no meu caso, Mac) ou executar diretamente no seu terminal apenas quando for utilizar o emulator.</p>
+
+
+
+
+
+
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="command-line-prompt"><span data-prompt="$"></span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$PATH</span><span class="s2">:/Users/</span><span class="nv">$USER</span><span class="s2">/Library/Android/sdk/platform-tools:/Users/</span><span class="nv">$USER</span><span class="s2">/Library/Android/sdk/emulator&#34;</span></span></span></code></pre></div></div>
+
+<p>Caso tenha escolhido escrever no arquivo <code>.zshrc</code>, não esqueça de recarregar o perfil com o comando <code>source ˜/.zshrc</code>.</p>
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+
+    
+
+<div class="d-flex alert alert-info " role="alert">
+        <div class="pt-1 pe-2">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fa fa-lightbulb fa-2x fa-fw"></i> --><svg class="svg-inline--fa fa fa-lightbulb fa-2x fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 384 512"><path d="M297.2 248.9C311.6 228.3 320 203.2 320 176c0-70.7-57.3-128-128-128S64 105.3 64 176c0 27.2 8.4 52.3 22.8 72.9c3.7 5.3 8.1 11.3 12.8 17.7l0 0c12.9 17.7 28.3 38.9 39.8 59.8c10.4 19 15.7 38.8 18.3 57.5H109c-2.2-12-5.9-23.7-11.8-34.5c-9.9-18-22.2-34.9-34.5-51.8l0 0 0 0c-5.2-7.1-10.4-14.2-15.4-21.4C27.6 247.9 16 213.3 16 176C16 78.8 94.8 0 192 0s176 78.8 176 176c0 37.3-11.6 71.9-31.4 100.3c-5 7.2-10.2 14.3-15.4 21.4l0 0 0 0c-12.3 16.8-24.6 33.7-34.5 51.8c-5.9 10.8-9.6 22.5-11.8 34.5H226.4c2.6-18.7 7.9-38.6 18.3-57.5c11.5-20.9 26.9-42.1 39.8-59.8l0 0 0 0 0 0c4.7-6.4 9-12.4 12.7-17.7zM192 128c-26.5 0-48 21.5-48 48c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-44.2 35.8-80 80-80c8.8 0 16 7.2 16 16s-7.2 16-16 16zm0 384c-44.2 0-80-35.8-80-80V416H272v16c0 44.2-35.8 80-80 80z"/></svg>
+
+    &nbsp;
+</div>
+        <div class="flex-grow-1 my-auto">
+            Sua experiência pode variar um pouco da minha, apenas garanta que possa digitar os comandos <em><code>adb --help</code></em> e <em><code>emulator --help</code></em> sem erros.
+        </div>
+    </div>
+
+<h3 id="iniciando-dispositivo-android-pela-primeira-vez" class="heading">Iniciando dispositivo Android pela primeira vez <a href="#iniciando-dispositivo-android-pela-primeira-vez" aria-labelledby="iniciando-dispositivo-android-pela-primeira-vez">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h3>
+<p>Com o emulador do Android instalado, podemos iniciá-lo. Primeiro, com o comando <code>emulator</code> vamos verificar se nosso dispositivo aparece na lista.</p>
+
+
+
+
+
+
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="command-line-prompt"><span data-prompt="$"></span></span><span class="line"><span class="cl">emulator -list-avds</span></span></code></pre></div></div>
+
+<p>Você poderá observar o dispositivo criado.</p>
+<p>Agora podemos iniciar nosso device passando o nome listado após o último comando.</p>
+
+
+
+
+
+
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="command-line-prompt"><span data-prompt="$"></span></span><span class="line"><span class="cl">emulator -avd  <span class="s2">&#34;Pixel_8&#34;</span></span></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1615,w_2800/v1729353871/blog/04f96490-2aea-43dd-9311-971962d299c3.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_332,w_576/v1729353871/blog/04f96490-2aea-43dd-9311-971962d299c3.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_443,w_768/v1729353871/blog/04f96490-2aea-43dd-9311-971962d299c3.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_572,w_992/v1729353871/blog/04f96490-2aea-43dd-9311-971962d299c3.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_692,w_1200/v1729353871/blog/04f96490-2aea-43dd-9311-971962d299c3.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_808,w_1400/v1729353871/blog/04f96490-2aea-43dd-9311-971962d299c3.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1615,w_2800/v1729353871/blog/04f96490-2aea-43dd-9311-971962d299c3.png 2800w" sizes="100vw"
+            height="1615"
+            width="2800"
+            alt="Iniciando dispositivo com emulator.">
+</div><figcaption class="figure-caption">Iniciando dispositivo com emulator.</figcaption>
+    </figure>
+<p>A partir deste momento, com o dispositivo já em execução, podemos utilizar o Android Debug Bridge (ADB) para obter acesso ao sistema operacional do dispositivo. Abra uma nova console e digite:</p>
+
+
+
+
+
+
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="command-line-prompt"><span data-prompt="$"></span></span><span class="line"><span class="cl">adb shell</span></span></code></pre></div></div>
+
+<p>Há diversos  tutoriais na internet que te guiará para digitar <code>su</code> e obter acesso de <em><strong>root</strong></em> e obter acesso total ao sistema operacional, mas você não pode fazer isso em versões modernas do Android. Essa permissão será negada.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1985,w_2800/v1729353977/blog/ba82f5a3-c961-48e2-a0c7-0d64204dcd3a.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_408,w_576/v1729353977/blog/ba82f5a3-c961-48e2-a0c7-0d64204dcd3a.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_545,w_768/v1729353977/blog/ba82f5a3-c961-48e2-a0c7-0d64204dcd3a.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_703,w_992/v1729353977/blog/ba82f5a3-c961-48e2-a0c7-0d64204dcd3a.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_851,w_1200/v1729353977/blog/ba82f5a3-c961-48e2-a0c7-0d64204dcd3a.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_993,w_1400/v1729353977/blog/ba82f5a3-c961-48e2-a0c7-0d64204dcd3a.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1985,w_2800/v1729353977/blog/ba82f5a3-c961-48e2-a0c7-0d64204dcd3a.png 2800w" sizes="100vw"
+            height="1985"
+            width="2800"
+            alt="&#39;root&#39; ainda não habilitado.">
+</div><figcaption class="figure-caption">'root' ainda não habilitado.</figcaption>
+    </figure>
+<p>Mas precisaremos do <em><strong>root</strong></em> para realizar nossas atividades de análise de aplicativos. Vamos trabalhar mais um pouco.</p>
+
+<h3 id="instalando-rootavd-e-rootando-dispositivo" class="heading">Instalando rootAVD e &ldquo;rootando&rdquo; dispositivo <a href="#instalando-rootavd-e-rootando-dispositivo" aria-labelledby="instalando-rootavd-e-rootando-dispositivo">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h3>
+<p>Como o Android não vem com acesso root de fábrica, a gente vai precisar dar uma “mexida” no dispositivo. Esse processo é conhecido como “rootear”, e antigamente envolvia umas gambiarras bem complicadas pra fazer.</p>
+<p>Mas, hoje em dia, tá bem mais tranquilo, graças ao <a href="https://github.com/topjohnwu/Magisk">Magisk</a> e a um script maneiro chamado <a href="https://gitlab.com/newbit/rootAVD">rootAVD</a>.</p>
+<p>O Magisk é tipo a “máscara mágica” que cria um ambiente com acesso root no Android, além de oferecer módulos que permitem reconfigurar e modificar o sistema do jeito que você quiser. Já o rootAVD aproveita o Magisk pra fazer root num AVD (Android Virtual Device) baseado em <a href="https://www.qemu.org/">QEMU</a> em execução e te dar o acesso que você precisa.</p>
+<p>Você pode baixar ou clonar o <a href="https://gitlab.com/newbit/rootAVD">rootAVD</a> direto do GitLab usando o Git:</p>
+
+
+
+
+
+
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="command-line-prompt"><span data-prompt="$"></span></span><span class="line"><span class="cl">git clone https://gitlab.com/newbit/rootAVD.git</span></span></code></pre></div></div>
+
+<p>Uma vez baixado, entre no diretório <code>rootAVD</code> e você encontrará dois arquivos importantes, o <code>rootAVD.sh</code> (Linux e Mac) e <code>rootAVD.bat</code> (Windows). Execute de acordo com o sistema operacional do seu host. Novamente, no meu caso, está sendo executado em MacOS.</p>
+
+
+
+
+
+
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="command-line-prompt"><span data-prompt="[tiago@localhost] $"></span><span data-prompt="[tiago@localhost] $"></span></span><span class="line"><span class="cl"><span class="nb">cd</span> rootAVD
+</span></span><span class="line"><span class="cl">./rootAVD.sh</span></span></code></pre></div></div>
+
+<p>Por padrão, o script irá exibir exemplos de comandos específicos para o seu sistema (processador, versão de emulador, etc).</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1641,w_2800/v1729354161/blog/5a0c6e5a-9ca2-47b7-a5f5-04f17da5c791.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_338,w_576/v1729354161/blog/5a0c6e5a-9ca2-47b7-a5f5-04f17da5c791.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_450,w_768/v1729354161/blog/5a0c6e5a-9ca2-47b7-a5f5-04f17da5c791.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_581,w_992/v1729354161/blog/5a0c6e5a-9ca2-47b7-a5f5-04f17da5c791.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_703,w_1200/v1729354161/blog/5a0c6e5a-9ca2-47b7-a5f5-04f17da5c791.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_820,w_1400/v1729354161/blog/5a0c6e5a-9ca2-47b7-a5f5-04f17da5c791.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1641,w_2800/v1729354161/blog/5a0c6e5a-9ca2-47b7-a5f5-04f17da5c791.png 2800w" sizes="100vw"
+            height="1641"
+            width="2800"
+            alt="&#39;rootando&#39; com rootAVD.">
+</div><figcaption class="figure-caption">'rootando' com rootAVD.</figcaption>
+    </figure>
+<p>No meu caso, copiei o primeiro exemplo e reexecutei o script passando o exemplo como argumento.</p>
+
+
+
+
+
+
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="command-line-prompt"><span data-prompt="$"></span></span><span class="line"><span class="cl">./rootAVD.sh system-images/android-35/google_apis_playstore/arm64-v8a/ramdisk.img</span></span></code></pre></div></div>
+
+<p>E será exibido uma saída igual abaixo, onde o processo de root foi executado com sucesso.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[!] and we are NOT in an emulator shell
+</span></span><span class="line"><span class="cl">[*] Set Directorys
+</span></span><span class="line"><span class="cl">[-] source.properties file exist
+</span></span><span class="line"><span class="cl">[*] AVD system-image Pkg.Revision=8
+</span></span><span class="line"><span class="cl">[-] Test if ADB SHELL is working
+</span></span><span class="line"><span class="cl">[*] ADB connection possible
+</span></span><span class="line"><span class="cl">[-] In any AVD via ADB, you can execute code without root in /data/data/com.android.shell
+</span></span><span class="line"><span class="cl">[*] Cleaning up the ADB working space
+</span></span><span class="line"><span class="cl">[*] Creating the ADB working space
+</span></span><span class="line"><span class="cl">[-] Magisk installer Zip exists already
+</span></span><span class="line"><span class="cl">[*] Push Magisk.zip into /data/data/com.android.shell/Magisk
+</span></span><span class="line"><span class="cl">[-] ./Magisk.zip: 1 file pushed, 0 skipped. 191.9 MB/s (12526383 bytes in 0.062s)
+</span></span><span class="line"><span class="cl">[*] create Backup File of ramdisk.img
+</span></span><span class="line"><span class="cl">[*] Push ramdisk.img into /data/data/com.android.shell/Magisk/ramdisk.img
+</span></span><span class="line"><span class="cl">[-] /Users/tiago/Library/Android/sdk/system-images/android-35/google_apis_playstore/arm64-v8a/ramdisk.img: 1 file pushed, 0 skipped. 508.7 MB/s (1802082 bytes in 0.003s)
+</span></span><span class="line"><span class="cl">[*] Push rootAVD.sh into /data/data/com.android.shell/Magisk
+</span></span><span class="line"><span class="cl">[-] rootAVD.sh: 1 file pushed, 0 skipped. 172.8 MB/s (83326 bytes in 0.000s)
+</span></span><span class="line"><span class="cl">[-] run the actually Boot/Ramdisk/Kernel Image Patch Script
+</span></span><span class="line"><span class="cl">[*] from Magisk by topjohnwu and modded by NewBit XDA
+</span></span><span class="line"><span class="cl">[!] We are in a ranchu emulator shell
+</span></span><span class="line"><span class="cl">[-] Api Level Arch Detect
+</span></span><span class="line"><span class="cl">[-] Device Platform is arm64 only
+</span></span><span class="line"><span class="cl">[-] Device SDK API: 35
+</span></span><span class="line"><span class="cl">[-] First API Level: 35
+</span></span><span class="line"><span class="cl">[-] The AVD runs on Android 15
+</span></span><span class="line"><span class="cl">[-] Switch to the location of the script file
+</span></span><span class="line"><span class="cl">[*] Looking for an unzip binary
+</span></span><span class="line"><span class="cl">[-] unzip binary found
+</span></span><span class="line"><span class="cl">[*] Extracting busybox and Magisk.zip via unzip ...
+</span></span><span class="line"><span class="cl">[*] Finding a working Busybox Version
+</span></span><span class="line"><span class="cl">[*] Testing Busybox /data/data/com.android.shell/Magisk/lib/arm64-v8a/libbusybox.so
+</span></span><span class="line"><span class="cl">[!] Found a working Busybox Version
+</span></span><span class="line"><span class="cl">[!] BusyBox v1.36.1-Magisk (2023-09-02 05:30:11 PDT) multi-call binary.
+</span></span><span class="line"><span class="cl">[*] Move busybox from lib to workdir
+</span></span><span class="line"><span class="cl">[-] Checking AVDs Internet connection...
+</span></span><span class="line"><span class="cl">[!] AVD is online
+</span></span><span class="line"><span class="cl">[!] Checking available Magisk Versions
+</span></span><span class="line"><span class="cl">[?] Choose a Magisk Version to install and make it local
+</span></span><span class="line"><span class="cl">[s] (s)how all available Magisk Versions
+</span></span><span class="line"><span class="cl">[1] local stable &#39;26.4&#39; (ENTER)
+</span></span><span class="line"><span class="cl">[2] stable 27.0
+</span></span><span class="line"><span class="cl">[3] canary 070719db(28001)
+</span></span><span class="line"><span class="cl">[-] You choose Magisk local stable Version &#39;26.4&#39;
+</span></span><span class="line"><span class="cl">[*] Re-Run rootAVD in Magisk Busybox STANDALONE (D)ASH
+</span></span><span class="line"><span class="cl">[-] We are now in Magisk Busybox STANDALONE (D)ASH
+</span></span><span class="line"><span class="cl">[*] rootAVD with Magisk &#39;26.4&#39; Installer
+</span></span><span class="line"><span class="cl">[-] Get Flags
+</span></span><span class="line"><span class="cl">[*] System-as-root, keep dm/avb-verity
+</span></span><span class="line"><span class="cl">[-] Encrypted data, keep forceencrypt
+</span></span><span class="line"><span class="cl">[*] RECOVERYMODE=false
+</span></span><span class="line"><span class="cl">[-] KEEPVERITY=true
+</span></span><span class="line"><span class="cl">[*] KEEPFORCEENCRYPT=true
+</span></span><span class="line"><span class="cl">[-] copy all arm64-v8a files from /data/data/com.android.shell/Magisk/lib/arm64-v8a to /data/data/com.android.shell/Magisk
+</span></span><span class="line"><span class="cl">[-] copy &#39;stub.apk&#39; from /data/data/com.android.shell/Magisk/assets to /data/data/com.android.shell/Magisk
+</span></span><span class="line"><span class="cl">[*] Detecting ramdisk.img compression
+</span></span><span class="line"><span class="cl">[!] Ramdisk.img uses lz4_legacy compression
+</span></span><span class="line"><span class="cl">[-] taken from shakalaca&#39;s MagiskOnEmulator/process.sh
+</span></span><span class="line"><span class="cl">[*] executing ramdisk splitting / extraction / repacking
+</span></span><span class="line"><span class="cl">[-] API level greater then 30
+</span></span><span class="line"><span class="cl">[*] Check if we need to repack ramdisk before patching ..
+</span></span><span class="line"><span class="cl">[-] Multiple cpio archives detected
+</span></span><span class="line"><span class="cl">[*] Unpacking ramdisk ..
+</span></span><span class="line"><span class="cl">[*] Searching for the real End of the 1st Archive
+</span></span><span class="line"><span class="cl">[-] Dumping from 0 to 1706139 ..
+</span></span><span class="line"><span class="cl">Detected format: [lz4_legacy]
+</span></span><span class="line"><span class="cl">[-] Dumping from 1706139 to 1802063 ..
+</span></span><span class="line"><span class="cl">Detected format: [lz4_legacy]
+</span></span><span class="line"><span class="cl">[*] Repacking ramdisk ..
+</span></span><span class="line"><span class="cl">[!] allowing MANAGE_EXTERNAL_STORAGE permissions to...
+</span></span><span class="line"><span class="cl">[-] Checking ramdisk STATUS=0
+</span></span><span class="line"><span class="cl">[-] Stock boot image detected
+</span></span><span class="line"><span class="cl">[*] Verifying Boot Image by its Kernel Release number:
+</span></span><span class="line"><span class="cl">[-] This AVD = 6.6.30-android15-7-gbb616d66d8a9-ab11968886-4k
+</span></span><span class="line"><span class="cl">[-]  Ramdisk = 6.6.30-android15-7-gbb616d66d8a9-ab11968886-4k
+</span></span><span class="line"><span class="cl">[!] Ramdisk is probably from this AVD
+</span></span><span class="line"><span class="cl">[-] Patching ramdisk
+</span></span><span class="line"><span class="cl">[*] Pre-init storage partition: vdd1
+</span></span><span class="line"><span class="cl">[!] stub.apk is present, compress and add it to ramdisk
+</span></span><span class="line"><span class="cl">[*] adding overlay.d/sbin folders to ramdisk
+</span></span><span class="line"><span class="cl">Loading cpio: [ramdisk.cpio]
+</span></span><span class="line"><span class="cl">Create directory [overlay.d] (0750)
+</span></span><span class="line"><span class="cl">Create directory [overlay.d/sbin] (0750)
+</span></span><span class="line"><span class="cl">Dumping cpio: [ramdisk.cpio]
+</span></span><span class="line"><span class="cl">[!] patching the ramdisk with Magisk Init
+</span></span><span class="line"><span class="cl">Loading cpio: [ramdisk.cpio]
+</span></span><span class="line"><span class="cl">Add file [init] (100750)
+</span></span><span class="line"><span class="cl">Add file [overlay.d/sbin/magisk64.xz] (100644)
+</span></span><span class="line"><span class="cl">Add file [overlay.d/sbin/stub.xz] (100644)
+</span></span><span class="line"><span class="cl">Patch with flag KEEPVERITY=[true] KEEPFORCEENCRYPT=[true]
+</span></span><span class="line"><span class="cl">Loading cpio: [ramdisk.cpio.orig]
+</span></span><span class="line"><span class="cl">Backup [init] -&gt; [.backup/init]
+</span></span><span class="line"><span class="cl">Record new entry: [overlay.d] -&gt; [.backup/.rmlist]
+</span></span><span class="line"><span class="cl">Record new entry: [overlay.d/sbin] -&gt; [.backup/.rmlist]
+</span></span><span class="line"><span class="cl">Record new entry: [overlay.d/sbin/magisk64.xz] -&gt; [.backup/.rmlist]
+</span></span><span class="line"><span class="cl">Record new entry: [overlay.d/sbin/stub.xz] -&gt; [.backup/.rmlist]
+</span></span><span class="line"><span class="cl">Create directory [.backup] (0000)
+</span></span><span class="line"><span class="cl">Add file [.backup/.magisk] (100000)
+</span></span><span class="line"><span class="cl">Dumping cpio: [ramdisk.cpio]
+</span></span><span class="line"><span class="cl">[*] repacking back to ramdisk.img format
+</span></span><span class="line"><span class="cl">[!] Rename Magisk.zip to Magisk.apk
+</span></span><span class="line"><span class="cl">[*] Pull ramdiskpatched4AVD.img into ramdisk.img
+</span></span><span class="line"><span class="cl">[-] /data/data/com.android.shell/Magisk/ramdiskpatched4AVD.img: 1 file pulled, 0 skipped. 144.7 MB/s (2304277 bytes in 0.015s)
+</span></span><span class="line"><span class="cl">[*] Pull Magisk.apk into
+</span></span><span class="line"><span class="cl">[-] /data/data/com.android.shell/Magisk/Magisk.apk: 1 file pulled, 0 skipped. 192.8 MB/s (12526383 bytes in 0.062s)
+</span></span><span class="line"><span class="cl">[-] Clean up the ADB working space
+</span></span><span class="line"><span class="cl">[-] Install all APKs placed in the Apps folder
+</span></span><span class="line"><span class="cl">[*] Trying to install Apps/Magisk.apk
+</span></span><span class="line"><span class="cl">[*] Performing Streamed Install
+</span></span><span class="line"><span class="cl">[*] Success
+</span></span><span class="line"><span class="cl">[-] Shut-Down &amp; Reboot (Cold Boot Now) the AVD and see if it worked
+</span></span><span class="line"><span class="cl">[-] Root and Su with Magisk for Android Studio AVDs
+</span></span><span class="line"><span class="cl">[-] Trying to shut down the AVD
+</span></span><span class="line"><span class="cl">[!] If the AVD doesn&#39;t shut down, try it manually!
+</span></span><span class="line"><span class="cl">[-] Modded by NewBit XDA - Jan. 2021
+</span></span><span class="line"><span class="cl">[!] Huge Credits and big Thanks to topjohnwu, shakalaca, vvb2060 and HuskyDG</span></span></code></pre></div></div><p>Reinicie o emulador, acesso novamente o SO com o adb e digite novamente o <code>su</code>. Na tela do emulador aparecerá uma janela solicitado autorização para garantir acesso total como root, basta clicar em <strong>GRANT</strong>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1847,w_2800/v1729354433/blog/7ed3a4fc-dd5d-4dfa-a4d9-3b808b33d256.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_380,w_576/v1729354433/blog/7ed3a4fc-dd5d-4dfa-a4d9-3b808b33d256.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_507,w_768/v1729354433/blog/7ed3a4fc-dd5d-4dfa-a4d9-3b808b33d256.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_654,w_992/v1729354433/blog/7ed3a4fc-dd5d-4dfa-a4d9-3b808b33d256.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_792,w_1200/v1729354433/blog/7ed3a4fc-dd5d-4dfa-a4d9-3b808b33d256.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_924,w_1400/v1729354433/blog/7ed3a4fc-dd5d-4dfa-a4d9-3b808b33d256.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1847,w_2800/v1729354433/blog/7ed3a4fc-dd5d-4dfa-a4d9-3b808b33d256.png 2800w" sizes="100vw"
+            height="1847"
+            width="2800"
+            alt="Granting root access.">
+</div><figcaption class="figure-caption">Granting root access.</figcaption>
+    </figure>
+<p>Uma vez habilitado, basta digitar novamente no terminal no shell do Android o comando <code>su</code>, e você terá acesso root ao dispositivo.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_2055,w_2800/v1729354793/blog/19a027ed-7714-4a42-9b3d-01c57e76968f.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_423,w_576/v1729354793/blog/19a027ed-7714-4a42-9b3d-01c57e76968f.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_564,w_768/v1729354793/blog/19a027ed-7714-4a42-9b3d-01c57e76968f.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_728,w_992/v1729354793/blog/19a027ed-7714-4a42-9b3d-01c57e76968f.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_881,w_1200/v1729354793/blog/19a027ed-7714-4a42-9b3d-01c57e76968f.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1028,w_1400/v1729354793/blog/19a027ed-7714-4a42-9b3d-01c57e76968f.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_2055,w_2800/v1729354793/blog/19a027ed-7714-4a42-9b3d-01c57e76968f.png 2800w" sizes="100vw"
+            height="2055"
+            width="2800"
+            alt="&#39;root&#39; habilitado!">
+</div><figcaption class="figure-caption">'root' habilitado!</figcaption>
+    </figure>
+<p>Agora sim, com acesso total, você poderá relizar todas as tarefas de análise de aplicativos e seguir qualquer tutorial na Internet. Abaixo iremos explorar apenas como configurar os proxies BurpSuite e Zed Attack Proxy (ZAProxy) para interceptar requisições de aplicativos.</p>
+
+<h2 id="configurando-proxies-para-interceptar-requisições" class="heading">Configurando proxies para interceptar requisições <a href="#configurando-proxies-para-interceptar-requisi%c3%a7%c3%b5es" aria-labelledby="configurando-proxies-para-interceptar-requisições">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h2>
+<p>Agora, precisamos fazer o Android confiar no certificado CA do Burp e do ZAProxy. Mas não podemos gravar no contêiner apex.</p>
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+
+    
+
+<div class="d-flex alert alert-info " role="alert">
+        <div class="pt-1 pe-2">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fa fa-lightbulb fa-2x fa-fw"></i> --><svg class="svg-inline--fa fa fa-lightbulb fa-2x fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 384 512"><path d="M297.2 248.9C311.6 228.3 320 203.2 320 176c0-70.7-57.3-128-128-128S64 105.3 64 176c0 27.2 8.4 52.3 22.8 72.9c3.7 5.3 8.1 11.3 12.8 17.7l0 0c12.9 17.7 28.3 38.9 39.8 59.8c10.4 19 15.7 38.8 18.3 57.5H109c-2.2-12-5.9-23.7-11.8-34.5c-9.9-18-22.2-34.9-34.5-51.8l0 0 0 0c-5.2-7.1-10.4-14.2-15.4-21.4C27.6 247.9 16 213.3 16 176C16 78.8 94.8 0 192 0s176 78.8 176 176c0 37.3-11.6 71.9-31.4 100.3c-5 7.2-10.2 14.3-15.4 21.4l0 0 0 0c-12.3 16.8-24.6 33.7-34.5 51.8c-5.9 10.8-9.6 22.5-11.8 34.5H226.4c2.6-18.7 7.9-38.6 18.3-57.5c11.5-20.9 26.9-42.1 39.8-59.8l0 0 0 0 0 0c4.7-6.4 9-12.4 12.7-17.7zM192 128c-26.5 0-48 21.5-48 48c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-44.2 35.8-80 80-80c8.8 0 16 7.2 16 16s-7.2 16-16 16zm0 384c-44.2 0-80-35.8-80-80V416H272v16c0 44.2-35.8 80-80 80z"/></svg>
+
+    &nbsp;
+</div>
+        <div class="flex-grow-1 my-auto">
+            Mais abaixo no início das seções do BurpSuite e ZAProxy será mostrado o que acontece quando tentamos gravar diretamente.
+        </div>
+    </div>
+<p>O que fazemos?</p>
+<p>É aqui que o Magisk é útil. Como podemos carregar módulos personalizados na estrutura, podemos aproveitar um módulo especial que o pessoal da <a href="https://www.nccgroup.com/">NCC Group</a> construiu chamado <a href="https://github.com/nccgroup/ConscryptTrustUserCerts/">ConscryptTrustUserCerts</a>. Este módulo é executado como um serviço para copiar certificados de usuário confiável e colocá-los em todos os lugares que o Android precisa deles para confiança em nível de sistema&hellip; incluindo o contêiner seguro APEX.</p>
+
+
+
+
+
+
+
+
+
+
+
+    
+
+<div class="d-flex alert alert-warning " role="alert">
+        <div class="pt-1 pe-2">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-triangle-exclamation fa-2x fa-fw"></i> --><svg class="svg-inline--fa fas fa-triangle-exclamation fa-2x fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512"><path d="M256 32c14.2 0 27.3 7.5 34.5 19.8l216 368c7.3 12.4 7.3 27.7 .2 40.1S486.3 480 472 480H40c-14.3 0-27.6-7.7-34.7-20.1s-7-27.8 .2-40.1l216-368C228.7 39.5 241.8 32 256 32zm0 128c-13.3 0-24 10.7-24 24V296c0 13.3 10.7 24 24 24s24-10.7 24-24V184c0-13.3-10.7-24-24-24zm32 224a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/></svg>
+
+    &nbsp;
+</div>
+        <div class="flex-grow-1 my-auto">
+            Nos exemplos de intercepção que mostrarei abaixo, os aplicativos claramente não possuem proteções de <a href="https://owasp.org/www-community/controls/Certificate_and_Public_Key_Pinning">Certificate Pinning</a>, <a href="https://mas.owasp.org/MASTG/tests/android/MASVS-RESILIENCE/MASTG-TEST-0045/">detecção de dispositivos desbloqueados com acesso root</a> ou de <a href="https://mas.owasp.org/MASTG/tools/android/MASTG-TOOL-0021/">ferramentas que auxiliam na instrumentação</a>, como o Magisk. Estes assuntos serão abordados com mais detalhes em outro post. 😉
+        </div>
+    </div>
+
+<h3 id="conscrypttrustusercerts" class="heading">ConscryptTrustUserCerts <a href="#conscrypttrustusercerts" aria-labelledby="conscrypttrustusercerts">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h3>
+<p>Baixe o arquivo zip do módulo <code>ConscryptTrustUserCerts</code> na guia Releases no Github:</p>
+
+
+
+
+
+
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="command-line-prompt"><span data-prompt="$"></span></span><span class="line"><span class="cl">curl -s -L https://github.com/nccgroup/ConscryptTrustUserCerts/releases/download/v0.1/ConscryptTrustUserCerts.zip -o ConscryptTrustUserCerts.zip</span></span></code></pre></div></div>
+
+<p>Envie via ADB o módulo para o diretório de Downloads do nosso dispositivo virtual.</p>
+
+
+
+
+
+
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="command-line-prompt"><span data-prompt="$"></span></span><span class="line"><span class="cl">adb push ConscryptTrustUserCerts.zip /sdcard/Download</span></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_344,w_2800/v1729597844/blog/fb3b1cce-7733-4b46-990c-d1759106c350.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_71,w_576/v1729597844/blog/fb3b1cce-7733-4b46-990c-d1759106c350.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_94,w_768/v1729597844/blog/fb3b1cce-7733-4b46-990c-d1759106c350.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_122,w_992/v1729597844/blog/fb3b1cce-7733-4b46-990c-d1759106c350.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_147,w_1200/v1729597844/blog/fb3b1cce-7733-4b46-990c-d1759106c350.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_172,w_1400/v1729597844/blog/fb3b1cce-7733-4b46-990c-d1759106c350.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_344,w_2800/v1729597844/blog/fb3b1cce-7733-4b46-990c-d1759106c350.png 2800w" sizes="100vw"
+            height="344"
+            width="2800"
+            alt="Enviado módulo ConscryptTrustUserCerts.zip para o dispositivo Android.">
+</div><figcaption class="figure-caption">Enviado módulo ConscryptTrustUserCerts.zip para o dispositivo Android.</figcaption>
+    </figure>
+<p>O próximo passo será o que fará com que o certificado CA do Burp e ZAProxy instalados no armazenamento Trusted User, seja movidos para o armazenamento System. É aqui que o módulo Magisk do NCC Group entrará em ação. Para acessar a estrutura Magisk, precisamos simplesmente clicar em seu ícone disponível entre os aplicativos.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="col-6 mx-auto"><img class="img-fluid rounded"
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_5928,w_2800/v1729598178/blog/f4ce1c10-f406-4663-bb81-f46e0bf7e862.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1220,w_576/v1729598178/blog/f4ce1c10-f406-4663-bb81-f46e0bf7e862.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1626,w_768/v1729598178/blog/f4ce1c10-f406-4663-bb81-f46e0bf7e862.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_2100,w_992/v1729598178/blog/f4ce1c10-f406-4663-bb81-f46e0bf7e862.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_2541,w_1200/v1729598178/blog/f4ce1c10-f406-4663-bb81-f46e0bf7e862.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_2964,w_1400/v1729598178/blog/f4ce1c10-f406-4663-bb81-f46e0bf7e862.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_5928,w_2800/v1729598178/blog/f4ce1c10-f406-4663-bb81-f46e0bf7e862.png 2800w" sizes="100vw"
+            height="5928"
+            width="2800"
+            >
+</div>
+<ul>
+<li>Clique na aba “Modules”.</li>
+<li>Clique em “Install from storage”.</li>
+<li>Selecione o módulo que você carregou para o sdcard. Quando solicitado a confirmar a instalação, clique em OK.</li>
+<li>Assim que a instalação for concluída, você será solicitado a reiniciar. Clique em Restart.</li>
+<li>Abaixo um exemplo de todo o passo a passo descrito acima.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure class="col-6 mx-auto">
+
+<div class=""><img class="img-fluid rounded"
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_4994,w_2800/f_webp,fl_awebp,fl_animated,c_fit,h_774,w_1400/v1729363601/blog/2024-10-19_15-43-54_1_bskvim.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1027,w_576/f_webp,fl_awebp,fl_animated,c_fit,h_774,w_1400/v1729363601/blog/2024-10-19_15-43-54_1_bskvim.gif 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1370,w_768/f_webp,fl_awebp,fl_animated,c_fit,h_774,w_1400/v1729363601/blog/2024-10-19_15-43-54_1_bskvim.gif 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1769,w_992/f_webp,fl_awebp,fl_animated,c_fit,h_774,w_1400/v1729363601/blog/2024-10-19_15-43-54_1_bskvim.gif 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_2140,w_1200/f_webp,fl_awebp,fl_animated,c_fit,h_774,w_1400/v1729363601/blog/2024-10-19_15-43-54_1_bskvim.gif 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_2497,w_1400/f_webp,fl_awebp,fl_animated,c_fit,h_774,w_1400/v1729363601/blog/2024-10-19_15-43-54_1_bskvim.gif 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_4994,w_2800/f_webp,fl_awebp,fl_animated,c_fit,h_774,w_1400/v1729363601/blog/2024-10-19_15-43-54_1_bskvim.gif 2800w" sizes="100vw"
+            height="4994"
+            width="2800"
+            alt="Instalando o módulo para Magysk &#39;ConscryptTrustUserCerts&#39;">
+</div><figcaption class="figure-caption">Instalando o módulo para Magysk 'ConscryptTrustUserCerts'</figcaption>
+    </figure>
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+
+    
+
+<div class="d-flex alert alert-info " role="alert">
+        <div class="pt-1 pe-2">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fa fa-lightbulb fa-2x fa-fw"></i> --><svg class="svg-inline--fa fa fa-lightbulb fa-2x fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 384 512"><path d="M297.2 248.9C311.6 228.3 320 203.2 320 176c0-70.7-57.3-128-128-128S64 105.3 64 176c0 27.2 8.4 52.3 22.8 72.9c3.7 5.3 8.1 11.3 12.8 17.7l0 0c12.9 17.7 28.3 38.9 39.8 59.8c10.4 19 15.7 38.8 18.3 57.5H109c-2.2-12-5.9-23.7-11.8-34.5c-9.9-18-22.2-34.9-34.5-51.8l0 0 0 0c-5.2-7.1-10.4-14.2-15.4-21.4C27.6 247.9 16 213.3 16 176C16 78.8 94.8 0 192 0s176 78.8 176 176c0 37.3-11.6 71.9-31.4 100.3c-5 7.2-10.2 14.3-15.4 21.4l0 0 0 0c-12.3 16.8-24.6 33.7-34.5 51.8c-5.9 10.8-9.6 22.5-11.8 34.5H226.4c2.6-18.7 7.9-38.6 18.3-57.5c11.5-20.9 26.9-42.1 39.8-59.8l0 0 0 0 0 0c4.7-6.4 9-12.4 12.7-17.7zM192 128c-26.5 0-48 21.5-48 48c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-44.2 35.8-80 80-80c8.8 0 16 7.2 16 16s-7.2 16-16 16zm0 384c-44.2 0-80-35.8-80-80V416H272v16c0 44.2-35.8 80-80 80z"/></svg>
+
+    &nbsp;
+</div>
+        <div class="flex-grow-1 my-auto">
+            Ao iniciar o Magisk e o botão da opção Modules estiver desabilitada, significa que a versão do Magisk é incompatível com a versão do Android, e provavelmente aparecerá a informação na tela principal na seção Magisk &ldquo;Installed: N/A&rdquo;. Para resolver isso, na tela principal do Magisk, nas seção &ldquo;Magisk&rdquo;, clique em &ldquo;Update&rdquo; ou &ldquo;Install&rdquo;, depois selecione a opção &ldquo;Direct Install&rdquo; para baixar a última versão oficial do repositório e clique em &ldquo;Let&rsquo;s Go&rdquo;.
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure class="col-6 mx-auto">
+
+<div class=""><img class="img-fluid rounded"
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_5928,w_2800/v1729598989/blog/96bdcce1-e641-4cd4-be8c-34d46104b033.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1220,w_576/v1729598989/blog/96bdcce1-e641-4cd4-be8c-34d46104b033.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1626,w_768/v1729598989/blog/96bdcce1-e641-4cd4-be8c-34d46104b033.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_2100,w_992/v1729598989/blog/96bdcce1-e641-4cd4-be8c-34d46104b033.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_2541,w_1200/v1729598989/blog/96bdcce1-e641-4cd4-be8c-34d46104b033.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_2964,w_1400/v1729598989/blog/96bdcce1-e641-4cd4-be8c-34d46104b033.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_5928,w_2800/v1729598989/blog/96bdcce1-e641-4cd4-be8c-34d46104b033.png 2800w" sizes="100vw"
+            height="5928"
+            width="2800"
+            alt="Atualizando ou instalando nova versão do Magisk, caso seja necessário.">
+</div><figcaption class="figure-caption">Atualizando ou instalando nova versão do Magisk, caso seja necessário.</figcaption>
+    </figure>
+<p>A partir de agora, todo novo certificado que instalarmos em contexto de &ldquo;User&rdquo;, após o reboot do dispositivo eles serão copiados para o contexto &ldquo;System&rdquo;.</p>
+
+<h3 id="burp-suite" class="heading">Burp Suite <a href="#burp-suite" aria-labelledby="burp-suite">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h3>
+<p>O <a href="https://portswigger.net/burp"><strong>Burp Suite</strong></a> é uma ferramenta de teste de segurança web desenvolvida pela PortSwigger. Ela oferece uma série de funcionalidades, como interceptação de tráfego HTTP/S, análise de vulnerabilidades e automação de testes. Ela possui versões Community (Free), Professional e Enterprise.</p>
+<p>Com o Burp Suite instalado, execute-o e já deixe o proxy configurado para receber requisições por todas as interfaces. Por padrão o BurpSuite já vem com a porta <code>8080</code> para receber as requisições.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1607,w_2800/v1729361788/blog/aa71b611-5b69-4c41-a6c1-6f0d953f8290.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_330,w_576/v1729361788/blog/aa71b611-5b69-4c41-a6c1-6f0d953f8290.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_441,w_768/v1729361788/blog/aa71b611-5b69-4c41-a6c1-6f0d953f8290.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_569,w_992/v1729361788/blog/aa71b611-5b69-4c41-a6c1-6f0d953f8290.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_689,w_1200/v1729361788/blog/aa71b611-5b69-4c41-a6c1-6f0d953f8290.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_803,w_1400/v1729361788/blog/aa71b611-5b69-4c41-a6c1-6f0d953f8290.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1607,w_2800/v1729361788/blog/aa71b611-5b69-4c41-a6c1-6f0d953f8290.png 2800w" sizes="100vw"
+            height="1607"
+            width="2800"
+            alt="Configurando interface do Burp para rebeber conexões de todas as interfaces.">
+</div><figcaption class="figure-caption">Configurando interface do Burp para rebeber conexões de todas as interfaces.</figcaption>
+    </figure>
+<p>Baixe o certificado do BurpSuite para adicionamos ao dispositivo e viabilizar a interceptação de tráfego TLS.</p>
+
+
+
+
+
+
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="command-line-prompt"><span data-prompt="$"></span></span><span class="line"><span class="cl">curl -s -L http://localhost:8080/cert -o burp_cert.der</span></span></code></pre></div></div>
+
+<p>Agora, para fins de demonstração, copie a série de comandos abaixo, cole e execute no terminal do seu host:</p>
+<ol>
+<li>Converte o certificado no formato <code>DER</code> para o formato <code>PEM</code>;</li>
+<li>Obtem a primeira linha do certificado <code>PEM</code> (9a5ba575) e grava na variável <code>hash</code>;</li>
+<li>Nomeia o arquivo burp_cert.pem para <code>{hash}.0</code>, que ficará <code>9a5ba575.0</code>;</li>
+<li>Lista e confirma a criação do arquivo.</li>
+</ol>
+
+
+
+
+
+
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="command-line-prompt"><span data-prompt="$"></span><span data-prompt=">"></span><span data-prompt=">"></span><span data-prompt=">"></span></span><span class="line"><span class="cl">openssl x509 -inform der -in burp_cert.der -out burp_cert.pem <span class="p">;</span><span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span><span class="nv">hash</span><span class="o">=</span><span class="k">$(</span>openssl x509 -inform PEM -subject_hash_old -in burp_cert.pem <span class="p">|</span>head -1<span class="k">)</span> <span class="p">;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>cp burp_cert.pem <span class="si">${</span><span class="nv">hash</span><span class="si">}</span>.0 <span class="p">;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>ls -lh <span class="si">${</span><span class="nv">hash</span><span class="si">}</span>.0</span></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_389,w_2800/v1729362279/blog/f0fe4358-ac24-4d74-9d33-8a052d2baa57.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_80,w_576/v1729362279/blog/f0fe4358-ac24-4d74-9d33-8a052d2baa57.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_107,w_768/v1729362279/blog/f0fe4358-ac24-4d74-9d33-8a052d2baa57.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_138,w_992/v1729362279/blog/f0fe4358-ac24-4d74-9d33-8a052d2baa57.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_167,w_1200/v1729362279/blog/f0fe4358-ac24-4d74-9d33-8a052d2baa57.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_194,w_1400/v1729362279/blog/f0fe4358-ac24-4d74-9d33-8a052d2baa57.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_389,w_2800/v1729362279/blog/f0fe4358-ac24-4d74-9d33-8a052d2baa57.png 2800w" sizes="100vw"
+            height="389"
+            width="2800"
+            alt="Preparando certificado.">
+</div><figcaption class="figure-caption">Preparando certificado.</figcaption>
+    </figure>
+<p>Agora vem o problema, quando tentamos gravar o certificado diretamente dentro do diretório <code>/system/etc/security/cacerts/</code> do Android, somos bloqueados!</p>
+
+
+
+
+
+
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="command-line-prompt"><span data-prompt="$"></span><span data-prompt=">"></span><span data-prompt=">"></span></span><span class="line"><span class="cl">adb root<span class="p">;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>adb remount <span class="p">;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>adb push <span class="si">${</span><span class="nv">hash</span><span class="si">}</span>.0 /system/etc/security/cacerts/</span></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_326,w_2800/v1729362326/blog/ed993d68-6bd5-4f32-a435-620dba1a5b39.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_67,w_576/v1729362326/blog/ed993d68-6bd5-4f32-a435-620dba1a5b39.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_89,w_768/v1729362326/blog/ed993d68-6bd5-4f32-a435-620dba1a5b39.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_116,w_992/v1729362326/blog/ed993d68-6bd5-4f32-a435-620dba1a5b39.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_140,w_1200/v1729362326/blog/ed993d68-6bd5-4f32-a435-620dba1a5b39.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_163,w_1400/v1729362326/blog/ed993d68-6bd5-4f32-a435-620dba1a5b39.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_326,w_2800/v1729362326/blog/ed993d68-6bd5-4f32-a435-620dba1a5b39.png 2800w" sizes="100vw"
+            height="326"
+            width="2800"
+            alt="Não é mais possível gravar diretamente o certificado.">
+</div><figcaption class="figure-caption">Não é mais possível gravar diretamente o certificado.</figcaption>
+    </figure>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1729362483/blog/tenor_tmann9.gif"></p>
+<p>Agora que o ConscryptTrustUserCerts entrará em ação.</p>
+<p>A partir do comando abaixo, copie o arquivo <code>burp_cert.pem</code> gerado acima para o diretório <code>/sdcard/Download</code>.</p>
+
+
+
+
+
+
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="command-line-prompt"><span data-prompt="$"></span></span><span class="line"><span class="cl">adb push burp_cert.pem /sdcard/Download</span></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_312,w_2800/v1729362705/blog/bcebbac7-6d43-4c10-8ebe-b0c69178cbe3.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_64,w_576/v1729362705/blog/bcebbac7-6d43-4c10-8ebe-b0c69178cbe3.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_85,w_768/v1729362705/blog/bcebbac7-6d43-4c10-8ebe-b0c69178cbe3.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_110,w_992/v1729362705/blog/bcebbac7-6d43-4c10-8ebe-b0c69178cbe3.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_134,w_1200/v1729362705/blog/bcebbac7-6d43-4c10-8ebe-b0c69178cbe3.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_156,w_1400/v1729362705/blog/bcebbac7-6d43-4c10-8ebe-b0c69178cbe3.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_312,w_2800/v1729362705/blog/bcebbac7-6d43-4c10-8ebe-b0c69178cbe3.png 2800w" sizes="100vw"
+            height="312"
+            width="2800"
+            alt="Enviando certificado para o dispositivo.">
+</div><figcaption class="figure-caption">Enviando certificado para o dispositivo.</figcaption>
+    </figure>
+<p>Agora, instale o certificado no contexto de usuários, em Settings-&gt; Security &amp; privacy -&gt; More security &amp; privacy -&gt; Encryption &amp; credentials -&gt; Install a certificate -&gt; CA Certificate, selecione a pasta de Downloads e selecione o certificado e instale.</p>
+
+
+  
+  
+  
+  
+  
+  <div class="youtube-embedded ">
+    <iframe src="https://www.youtube-nocookie.com/embed/gNkafPoPC3A?origin=https%3a%2f%2ftiagotavares.io%2f"
+      allowfullscreen title="YouTube Video">
+    </iframe>
+  </div>
+
+<p><img></p>
+<p>Reinicie o Android, volte para Configurações e encontre a seção Trusted Credentials. Agora você pode ver o certificado Burp CA do Portswigger nos armazenamentos do Usuário e do Sistema.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure class="col-6 mx-auto">
+
+<div class=""><img class="img-fluid rounded"
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_5581,w_2800/v1729363998/blog/d194e86d-b15d-4d59-bd66-1da9cc5ee720.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1148,w_576/v1729363998/blog/d194e86d-b15d-4d59-bd66-1da9cc5ee720.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1531,w_768/v1729363998/blog/d194e86d-b15d-4d59-bd66-1da9cc5ee720.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1977,w_992/v1729363998/blog/d194e86d-b15d-4d59-bd66-1da9cc5ee720.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_2392,w_1200/v1729363998/blog/d194e86d-b15d-4d59-bd66-1da9cc5ee720.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_2791,w_1400/v1729363998/blog/d194e86d-b15d-4d59-bd66-1da9cc5ee720.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_5581,w_2800/v1729363998/blog/d194e86d-b15d-4d59-bd66-1da9cc5ee720.png 2800w" sizes="100vw"
+            height="5581"
+            width="2800"
+            alt="Configurando proxy na interface do Android.">
+</div><figcaption class="figure-caption">Configurando proxy na interface do Android.</figcaption>
+    </figure>
+<p><img></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1641,w_2800/v1729364135/blog/d7482b2f-3f53-4558-a9aa-65df0febf723.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_338,w_576/v1729364135/blog/d7482b2f-3f53-4558-a9aa-65df0febf723.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_450,w_768/v1729364135/blog/d7482b2f-3f53-4558-a9aa-65df0febf723.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_581,w_992/v1729364135/blog/d7482b2f-3f53-4558-a9aa-65df0febf723.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_703,w_1200/v1729364135/blog/d7482b2f-3f53-4558-a9aa-65df0febf723.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_820,w_1400/v1729364135/blog/d7482b2f-3f53-4558-a9aa-65df0febf723.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1641,w_2800/v1729364135/blog/d7482b2f-3f53-4558-a9aa-65df0febf723.png 2800w" sizes="100vw"
+            height="1641"
+            width="2800"
+            alt="Capturando requisições com criptografia TLS a partir do Google Chrome">
+</div><figcaption class="figure-caption">Capturando requisições com criptografia TLS a partir do Google Chrome</figcaption>
+    </figure>
+<p>Capturando tráfego de um app de academia ae&hellip;</p>
+<p><img alt="Cap" src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1729386616/blog/bioritmo_n9hqhu.gif"></p>
+
+<h3 id="zed-attack-proxy-zaproxy" class="heading">Zed Attack Proxy (ZAProxy) <a href="#zed-attack-proxy-zaproxy" aria-labelledby="zed-attack-proxy-zaproxy">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h3>
+<p><a href="https://www.zaproxy.org/">ZAP (Zed Attack Proxy)</a> evoluiu muito desde seus primeiros dias na OWASP. Agora, sob uma nova parceria com a <strong>Checkmarx</strong>, o ZAP poderá ficar ainda mais poderoso. Acredito que essa união trará melhorias no motor de análise de segurança, pois já está fazendo parte da plataforma Checkmarx One.</p>
+<p>Continuando, abra o ZAProxy e vá em Settings -&gt; Network -&gt; Local Servers/Proxies e configure o Main Proxy com endereço <code>0.0.0.0</code>, que habilitará o proxy a receber requisicões de todas as interfaces, e a porta <code>8081</code>, para não gerar conflito com o Burp Suite.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure class="mx-auto">
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1760,w_2800/v1729688212/blog/ebd7955f-9f08-4fdb-9cfb-9728bf01001a.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_362,w_576/v1729688212/blog/ebd7955f-9f08-4fdb-9cfb-9728bf01001a.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_483,w_768/v1729688212/blog/ebd7955f-9f08-4fdb-9cfb-9728bf01001a.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_624,w_992/v1729688212/blog/ebd7955f-9f08-4fdb-9cfb-9728bf01001a.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_754,w_1200/v1729688212/blog/ebd7955f-9f08-4fdb-9cfb-9728bf01001a.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_880,w_1400/v1729688212/blog/ebd7955f-9f08-4fdb-9cfb-9728bf01001a.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1760,w_2800/v1729688212/blog/ebd7955f-9f08-4fdb-9cfb-9728bf01001a.png 2800w" sizes="100vw"
+            height="1760"
+            width="2800"
+            alt="Confguração do proxy no ZAProxy.">
+</div><figcaption class="figure-caption">Confguração do proxy no ZAProxy.</figcaption>
+    </figure>
+<p>Acesso o endereço <code>http://localhost/8081</code> e baixe o certificado do ZAProxy.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure class="mx-auto">
+
+<div class=""><img class="img-fluid "
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1977,w_2800/v1729686553/blog/799f584e-0234-4ed2-9258-f15b49ae03f7.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_407,w_576/v1729686553/blog/799f584e-0234-4ed2-9258-f15b49ae03f7.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_542,w_768/v1729686553/blog/799f584e-0234-4ed2-9258-f15b49ae03f7.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_700,w_992/v1729686553/blog/799f584e-0234-4ed2-9258-f15b49ae03f7.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_847,w_1200/v1729686553/blog/799f584e-0234-4ed2-9258-f15b49ae03f7.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_988,w_1400/v1729686553/blog/799f584e-0234-4ed2-9258-f15b49ae03f7.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1977,w_2800/v1729686553/blog/799f584e-0234-4ed2-9258-f15b49ae03f7.png 2800w" sizes="100vw"
+            height="1977"
+            width="2800"
+            alt="Baixando certificado do ZAProxy.">
+</div><figcaption class="figure-caption">Baixando certificado do ZAProxy.</figcaption>
+    </figure>
+<p>Se observar o arquivo baixado, verá que ele já está no formato <code>PEM</code>. Assim não precisamos realizar conversões.</p>
+<p><img src="https://res.cloudinary.com/dtr6hzxnx/image/upload/v1729686689/blog/d8fa5f30-5d14-4151-b915-2d7c3656d8fd.png"></p>
+<p>Envie o certificado para o diretório Downloads do Android.</p>
+
+
+
+
+
+
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="command-line-prompt"><span data-prompt="$"></span></span><span class="line"><span class="cl">adb push ZAPCACert.cer /sdcard/Download</span></span></code></pre></div></div>
+
+<p>Agora, instale o certificado em Settings-&gt; Security &amp; privacy -&gt; More security &amp; privacy -&gt; Encryption &amp; credentials -&gt; Install a certificate -&gt; CA Certificate, selecione a pasta de Downloads e selecione o certificado do ZAProxy e instale.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="col-6 mx-auto"><img class="img-fluid rounded"
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_5929,w_2800/v1729686889/blog/fe10c8f7-401b-4089-8912-58b65e4e48a8.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1220,w_576/v1729686889/blog/fe10c8f7-401b-4089-8912-58b65e4e48a8.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1626,w_768/v1729686889/blog/fe10c8f7-401b-4089-8912-58b65e4e48a8.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_2101,w_992/v1729686889/blog/fe10c8f7-401b-4089-8912-58b65e4e48a8.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_2541,w_1200/v1729686889/blog/fe10c8f7-401b-4089-8912-58b65e4e48a8.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_2965,w_1400/v1729686889/blog/fe10c8f7-401b-4089-8912-58b65e4e48a8.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_5929,w_2800/v1729686889/blog/fe10c8f7-401b-4089-8912-58b65e4e48a8.png 2800w" sizes="100vw"
+            height="5929"
+            width="2800"
+            >
+</div>
+<p><img></p>
+<p>Ao fim das configurações, verá que os certificados do Burp Suite e do ZAProxy estarão disponíveis no contexto de usuário, agora basta reiniciar o Android para que os certificados sejam enviados para o contexto de sistema pelo <strong>ConscryptTrustUserCerts</strong>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="col-6 mx-auto"><img class="img-fluid rounded"
+            src="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_5929,w_2800/v1729687043/blog/8d655267-7f70-4dea-9b97-3672dd53b1ee.jpg"
+            
+            
+            srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1220,w_576/v1729687043/blog/8d655267-7f70-4dea-9b97-3672dd53b1ee.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1626,w_768/v1729687043/blog/8d655267-7f70-4dea-9b97-3672dd53b1ee.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_2101,w_992/v1729687043/blog/8d655267-7f70-4dea-9b97-3672dd53b1ee.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_2541,w_1200/v1729687043/blog/8d655267-7f70-4dea-9b97-3672dd53b1ee.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_2965,w_1400/v1729687043/blog/8d655267-7f70-4dea-9b97-3672dd53b1ee.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_5929,w_2800/v1729687043/blog/8d655267-7f70-4dea-9b97-3672dd53b1ee.png 2800w" sizes="100vw"
+            height="5929"
+            width="2800"
+            >
+</div>
+<p><img></p>
+<p>Abaixo um resuminho dos passos mencionados acima, interceptando um aplicativo de uma empresa de ônibus rodoviários.</p>
+
+
+  
+  
+  
+  
+  
+  <div class="youtube-embedded ">
+    <iframe src="https://www.youtube-nocookie.com/embed/eHV1rGnEWkk?origin=https%3a%2f%2ftiagotavares.io%2f"
+      allowfullscreen title="YouTube Video">
+    </iframe>
+  </div>
+
+
+<h2 id="e-acaboumais-ou-menos" class="heading">E acabou&hellip;mais ou menos. <a href="#e-acaboumais-ou-menos" aria-labelledby="e-acaboumais-ou-menos">
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-link anchor"></i> --><svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+
+    &nbsp;
+</a></h2>
+<p>Tenho certeza de que esse artigo vai ficar ultrapassado em alguns anos, quando o Google adicionar mais barreiras de segurança para dificultar que os proxies interceptem o tráfego de apps móveis no Android. Mas, por enquanto, tudo funciona perfeitamente até o Android 15.</p>
+<p>Espero que este material ajude se você está quebrando a cabeça para fazer a intercepção com proxies funcionar com versões mais recentes do Android e emuladores como o Pixel 8.</p>
+<p>A partir daqui, a diferença entre hackear um app web que se conecta a uma API e hackear um app móvel que faz o mesmo é mínima. A única diferença que você pode encontrar está nos dados do payload ou até em endpoints completamente diferentes entre as versões.</p>
+<p>E essa é a parte divertida! Dá uma olhada aí. Pode ser que você se surpreenda.</p>
+<p>👾</p>
+
+
+
+<div class="row row-cols-2 mt-5 mb-3">
+    <div class="col">
+        </div>
+    <div class="col text-end">
+        <a class="previous" href="/blog/vulnerability_management_jira_context_offsec_appsec/">
+                    Processo de Gestão de Vulnerabilidades e Automação para OffSec e AppSec Utilizando Atlassian Jira: Proposta e Tutorial&nbsp;
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fas fa-arrow-right "></i> --><svg class="svg-inline--fa fas fa-arrow-right " fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>
+
+    
+
+                </a></div>
+</div>
+
+
+        </div>
+        <div
+            class="col col-md-3 col-lg-2 d-none d-md-block pt-5">
+            
+    
+
+
+<div class="toc toc-sidebar mb-5 my-md-0 mb-lg-5 p-3 text-body-secondary sticky-top">
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+<strong class="d-block h6 my-2 pb-2">On this page:</strong>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introdução">Introdução</a></li>
+    <li><a href="#problema">Problema</a></li>
+    <li><a href="#configurando-o-ambiente">Configurando o ambiente</a>
+      <ul>
+        <li><a href="#instalando-android-studio-e-ferramentas">Instalando Android Studio e ferramentas</a></li>
+        <li><a href="#configurando-android-studio-virtual-device-manager">Configurando Android Studio Virtual Device Manager</a></li>
+        <li><a href="#instalando-ferramentas-do-android-sdk">Instalando ferramentas do Android SDK</a></li>
+        <li><a href="#iniciando-dispositivo-android-pela-primeira-vez">Iniciando dispositivo Android pela primeira vez</a></li>
+        <li><a href="#instalando-rootavd-e-rootando-dispositivo">Instalando rootAVD e &ldquo;rootando&rdquo; dispositivo</a></li>
+      </ul>
+    </li>
+    <li><a href="#configurando-proxies-para-interceptar-requisições">Configurando proxies para interceptar requisições</a>
+      <ul>
+        <li><a href="#conscrypttrustusercerts">ConscryptTrustUserCerts</a></li>
+        <li><a href="#burp-suite">Burp Suite</a></li>
+        <li><a href="#zed-attack-proxy-zaproxy">Zed Attack Proxy (ZAProxy)</a></li>
+      </ul>
+    </li>
+    <li><a href="#e-acaboumais-ou-menos">E acabou&hellip;mais ou menos.</a></li>
+  </ul>
+</nav>
+
+    </div>
+
+        </div>
+    </div>
+    <div>
+        <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        
+        
+        
+        
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "tiagotavares-io" + '.disqus.com/embed.js';
+        console.log(s.src);
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+</div>
+
+
+
+<div class="container-fluid bg-primary bg-opacity-10">
+        <div class="container-xxl px-4 px-xxl-0">
+            <div class="row row-cols-2 py-3 align-items-center">
+                <div class="col col-6">
+                    <div class="row justify-content-end p-0">
+                        <div class="col-12 col-md-8 p-0">
+                            <div class="fs-3 fw-bold">👾</div>
+                            <p>Eternal student.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-6 text-sm-start">
+                    <a href="https://linkedin.com/in/tiagotavi"  aria-label="LinkedIn" class="text-decoration-none link-secondary d-inline p-2">
+                            
+                                
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fab fa-linkedin fa-2x"></i> --><svg class="svg-inline--fa fab fa-linkedin fa-2x" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+
+    &nbsp;
+
+                            
+                        </a>
+                    <a href="https://github.com/0xtiago"  aria-label="GitHub" class="text-decoration-none link-secondary d-inline p-2">
+                            
+                                
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fab fa-github fa-2x"></i> --><svg class="svg-inline--fa fab fa-github fa-2x" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+    &nbsp;
+
+                            
+                        </a>
+                    <a href="https://x.com/tiagotavi"  aria-label="X" class="text-decoration-none link-secondary d-inline p-2">
+                            
+                                
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- <i class="fab fa-x-twitter fa-2x"></i> --><svg class="svg-inline--fa fab fa-x-twitter fa-2x" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+
+    &nbsp;
+
+                            
+                        </a>
+                    </div>
+            </div>
+        </div>
+    </div>
+<footer class="container-fluid footer text-center p-3">
+    <div class="container-xxl text-center">
+        <small>
+            Copyright © 2024 Tiago Tavares.
+            
+            
+        </small>
+    </div>
+</footer>
+        </div>
+
+        <div id="toast-container" class="toast-container position-fixed bottom-0 end-0 p-3">
+
+
+
+
+
+
+
+<div id="toast-copied-code-message" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+        <strong class="me-auto">debugging the life</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">Code copied to clipboard</div>
+</div>
+</div>
+
+<script src="/js/main.bundle.min.b643afd37945c7f9803e662c71d02c550d10fde6b231024253e8ecc03babddd2.js" integrity="sha256-tkOv03lFx/mAPmYscdAsVQ0Q/eayMQJCU&#43;jswDur3dI=" crossorigin="anonymous" async></script>
+    
+
+    
+
+
+
+
+</body>
+</html>

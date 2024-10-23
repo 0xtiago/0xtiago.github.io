@@ -9,6 +9,13 @@
     <copyright>Copyright © 2024 Tiago Tavares.</copyright>
     <atom:link href="https://tiagotavares.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Hackeando aplicativos e suas APIs em versões modernas do Android com Burp Suite e Zed Attack Proxy</title>
+      <link>https://tiagotavares.io/blog/hackeando_aplicativos_android_modernos_e_apis_burpsuite_zaproxy/</link>
+      <pubDate>Wed, 23 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://tiagotavares.io/blog/hackeando_aplicativos_android_modernos_e_apis_burpsuite_zaproxy/</guid>
+      <description>Introdução &amp;nbsp; A internet é um lugar sensacional para encontrar dicas e tutoriais sobre qualquer coisa, como hackear aplicativos, APIs, etc.</description>
+    </item>
+    <item>
       <title>Processo de Gestão de Vulnerabilidades e Automação para OffSec e AppSec Utilizando Atlassian Jira: Proposta e Tutorial</title>
       <link>https://tiagotavares.io/blog/vulnerability_management_jira_context_offsec_appsec/</link>
       <pubDate>Wed, 09 Oct 2024 00:00:00 +0000</pubDate>
@@ -244,7 +251,7 @@
       <link>https://tiagotavares.io/blog/mirai_htb/</link>
       <pubDate>Thu, 23 Nov 2017 16:31:51 -0300</pubDate>
       <guid>https://tiagotavares.io/blog/mirai_htb/</guid>
-      <description>🔎 Enumeration &amp;nbsp; nmap -sV 10.10.10.48&#xD;Found an application running on port 80, we can identify an entry service to RaspberryPi.</description>
+      <description>🔎 Enumeration &amp;nbsp; nmap -sV 10.10.10.48 Found an application running on port 80, we can identify an entry service to RaspberryPi.</description>
     </item>
     <item>
       <title>Passed (ISC)2 CCSP - Certified Cloud Security Professional</title>

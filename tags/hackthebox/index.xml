@@ -28,7 +28,7 @@
       <link>https://tiagotavares.io/blog/mirai_htb/</link>
       <pubDate>Thu, 23 Nov 2017 16:31:51 -0300</pubDate>
       <guid>https://tiagotavares.io/blog/mirai_htb/</guid>
-      <description>🔎 Enumeration &amp;nbsp; nmap -sV 10.10.10.48&#xD;Found an application running on port 80, we can identify an entry service to RaspberryPi.</description>
+      <description>🔎 Enumeration &amp;nbsp; nmap -sV 10.10.10.48 Found an application running on port 80, we can identify an entry service to RaspberryPi.</description>
     </item>
   </channel>
 </rss>
