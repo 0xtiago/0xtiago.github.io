@@ -2,13 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://tiagotavares.io/tags/.net/</loc>
+    <lastmod>2024-11-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/tags/application-security/</loc>
+    <lastmod>2024-11-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/tags/asp.net/</loc>
+    <lastmod>2024-11-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/blog/</loc>
+    <lastmod>2024-11-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/tags/case-.net/</loc>
+    <lastmod>2024-11-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/tags/certification-review/</loc>
+    <lastmod>2024-11-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/tags/ec-council/</loc>
+    <lastmod>2024-11-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/blog/ec-council_case_net_certification_review/</loc>
+    <lastmod>2024-11-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/tags/microsoft/</loc>
+    <lastmod>2024-11-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tiagotavares.io/tags/</loc>
+    <lastmod>2024-11-06T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://tiagotavares.io/tags/android/</loc>
     <lastmod>2024-10-23T13:47:04-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/tags/api/</loc>
-    <lastmod>2024-10-23T13:47:04-03:00</lastmod>
-  </url><url>
-    <loc>https://tiagotavares.io/blog/</loc>
     <lastmod>2024-10-23T13:47:04-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/tags/burpsuite/</loc>
@@ -23,14 +50,8 @@
     <loc>https://tiagotavares.io/tags/mobile-hacking/</loc>
     <lastmod>2024-10-23T13:47:04-03:00</lastmod>
   </url><url>
-    <loc>https://tiagotavares.io/tags/</loc>
-    <lastmod>2024-10-23T13:47:04-03:00</lastmod>
-  </url><url>
     <loc>https://tiagotavares.io/tags/zed-attack-proxy/</loc>
     <lastmod>2024-10-23T13:47:04-03:00</lastmod>
-  </url><url>
-    <loc>https://tiagotavares.io/tags/application-security/</loc>
-    <lastmod>2024-10-09T22:19:05-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/tags/jira/</loc>
     <lastmod>2024-10-09T22:19:05-03:00</lastmod>
@@ -474,9 +495,6 @@
     <lastmod>2024-07-14T22:27:06-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/tags/ccsp/</loc>
-    <lastmod>2024-07-14T21:43:19-03:00</lastmod>
-  </url><url>
-    <loc>https://tiagotavares.io/tags/certifications/</loc>
     <lastmod>2024-07-14T21:43:19-03:00</lastmod>
   </url><url>
     <loc>https://tiagotavares.io/tags/cloud-computing/</loc>

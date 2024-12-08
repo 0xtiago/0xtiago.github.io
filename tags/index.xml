@@ -7,8 +7,57 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Tiago Tavares.</copyright>
-    <lastBuildDate>Wed, 23 Oct 2024 13:47:04 -0300</lastBuildDate>
+    <lastBuildDate>Wed, 06 Nov 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://tiagotavares.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>.NET</title>
+      <link>https://tiagotavares.io/tags/.net/</link>
+      <pubDate>Wed, 06 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://tiagotavares.io/tags/.net/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Application Security</title>
+      <link>https://tiagotavares.io/tags/application-security/</link>
+      <pubDate>Wed, 06 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://tiagotavares.io/tags/application-security/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>ASP.NET</title>
+      <link>https://tiagotavares.io/tags/asp.net/</link>
+      <pubDate>Wed, 06 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://tiagotavares.io/tags/asp.net/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>CASE .NET</title>
+      <link>https://tiagotavares.io/tags/case-.net/</link>
+      <pubDate>Wed, 06 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://tiagotavares.io/tags/case-.net/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Certification Review</title>
+      <link>https://tiagotavares.io/tags/certification-review/</link>
+      <pubDate>Wed, 06 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://tiagotavares.io/tags/certification-review/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>EC-Council</title>
+      <link>https://tiagotavares.io/tags/ec-council/</link>
+      <pubDate>Wed, 06 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://tiagotavares.io/tags/ec-council/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Microsoft</title>
+      <link>https://tiagotavares.io/tags/microsoft/</link>
+      <pubDate>Wed, 06 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://tiagotavares.io/tags/microsoft/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Android</title>
       <link>https://tiagotavares.io/tags/android/</link>
@@ -49,13 +98,6 @@
       <link>https://tiagotavares.io/tags/zed-attack-proxy/</link>
       <pubDate>Wed, 23 Oct 2024 00:00:00 +0000</pubDate>
       <guid>https://tiagotavares.io/tags/zed-attack-proxy/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Application Security</title>
-      <link>https://tiagotavares.io/tags/application-security/</link>
-      <pubDate>Wed, 09 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>https://tiagotavares.io/tags/application-security/</guid>
       <description></description>
     </item>
     <item>
@@ -850,17 +892,10 @@
       <description></description>
     </item>
     <item>
-      <title>Ccsp</title>
+      <title>CCSP</title>
       <link>https://tiagotavares.io/tags/ccsp/</link>
       <pubDate>Wed, 29 Mar 2017 22:00:04 -0300</pubDate>
       <guid>https://tiagotavares.io/tags/ccsp/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Certifications</title>
-      <link>https://tiagotavares.io/tags/certifications/</link>
-      <pubDate>Wed, 29 Mar 2017 22:00:04 -0300</pubDate>
-      <guid>https://tiagotavares.io/tags/certifications/</guid>
       <description></description>
     </item>
     <item>
@@ -871,14 +906,14 @@
       <description></description>
     </item>
     <item>
-      <title>Isc2</title>
+      <title>ISC2</title>
       <link>https://tiagotavares.io/tags/isc2/</link>
       <pubDate>Wed, 29 Mar 2017 22:00:04 -0300</pubDate>
       <guid>https://tiagotavares.io/tags/isc2/</guid>
       <description></description>
     </item>
     <item>
-      <title>Cissp</title>
+      <title>CISSP</title>
       <link>https://tiagotavares.io/tags/cissp/</link>
       <pubDate>Fri, 27 Feb 2015 20:00:01 -0300</pubDate>
       <guid>https://tiagotavares.io/tags/cissp/</guid>

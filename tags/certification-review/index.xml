@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Certification Review on debugging the life</title>
+    <link>https://tiagotavares.io/tags/certification-review/</link>
+    <description>Recent content in Certification Review on debugging the life</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>Copyright © 2024 Tiago Tavares.</copyright>
+    <lastBuildDate>Wed, 06 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://tiagotavares.io/tags/certification-review/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>EC-Council CASE .NET - Certified Application Security Engineer</title>
+      <link>https://tiagotavares.io/blog/ec-council_case_net_certification_review/</link>
+      <pubDate>Wed, 06 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://tiagotavares.io/blog/ec-council_case_net_certification_review/</guid>
+      <description>Contexto de carreira &amp;nbsp; Aqui é mais um relato de momento de carreira e por que decidi me aventurar nesta certificação, mesmo não sendo muito fã das certificações da EC-Council (isso é um papo pra outro momento).</description>
+    </item>
+    <item>
+      <title>Passed (ISC)2 CCSP - Certified Cloud Security Professional</title>
+      <link>https://tiagotavares.io/blog/passed_ccsp/</link>
+      <pubDate>Wed, 29 Mar 2017 22:00:04 -0300</pubDate>
+      <guid>https://tiagotavares.io/blog/passed_ccsp/</guid>
+      <description>Hello guys,&#xA;Monday, 27th March I passed CCSP exam here in São Paulo, the material I&amp;rsquo;ll list bellow had the enough content to pass.</description>
+    </item>
+    <item>
+      <title>Passed (ISC)2 CISSP - Certified Information Systems Security Professional</title>
+      <link>https://tiagotavares.io/blog/passed_cissp/</link>
+      <pubDate>Fri, 27 Feb 2015 20:00:01 -0300</pubDate>
+      <guid>https://tiagotavares.io/blog/passed_cissp/</guid>
+      <description>&lt;p&gt;My resources of study to achieve CISSP certification.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
