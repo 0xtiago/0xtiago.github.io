@@ -7,7 +7,7 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Tiago Tavares.</copyright>
-    <lastBuildDate>Sun, 08 Dec 2024 20:58:25 -0300</lastBuildDate>
+    <lastBuildDate>Sat, 14 Dec 2024 20:25:44 -0300</lastBuildDate>
     <atom:link href="https://tiagotavares.io/tags/application-security/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>EC-Council CASE .NET - Certified Application Security Engineer - Review</title>
@@ -21,7 +21,7 @@
       <link>https://tiagotavares.io/blog/vulnerability_management_jira_context_offsec_appsec/</link>
       <pubDate>Wed, 09 Oct 2024 00:00:00 +0000</pubDate>
       <guid>https://tiagotavares.io/blog/vulnerability_management_jira_context_offsec_appsec/</guid>
-      <description>Sumário &amp;nbsp; Sumário Introdução Cenário Versões do Ambiente 🌟 Criação inicial do ambiente Criando projetos Novos issue types: Vulnerability e Vulnerability Fix Review Atribuindo issue types aos projetos (issue type schemes) Novos status Issue Linking customizado 🔀 Configurando workflows Vulnerability Vulnerability Fix Review Atribuindo fluxos a projetos e respectivos issue types (Workflow schemes) Vulnerability Vulnerability Fix Review Adicionando novos status às colunas dos boards dos projetos Projetos Scrum Projetos Kanban 📥 Criando campos custumizados Vulnerability Detection Origin Vulnerability Due Date Ajustando contextos - Vulnerability (Detection Origin|Due Date) Ajustando contextos - Sprint e Story Points Adicionando os campos à tela de Vulnerability Adaptando o Priority para atender severidades 🤖 Automatizando e comunicando processos Determinando SLA de correção de acordo com a política de Gestão de Vulnerabilidades Abertura de tarefa automática de validação de correção Replicação de comentários Triagem automática de vulnerabilidades após avaliação de correção 🚧 Controles de segurança Criação de grupo de gerenciadores de vulnerabilidades Controle de movimentação de status Controle preventivo de edição indevida de campos Instalação do Plugin-in Script Runner Escrevendo script para ScriptRunner Behavior Controle de edição de IssueType Controle na visualização Controle detectivo de movimentação da issue 😅 Considerações finais 📚 Referências Introdução &amp;nbsp; Parece chato, eu sei, mas a gestão eficiente de vulnerabilidades é fundamental para a manutenção da segurança em qualquer organização, especialmente em times de Cybersegurança que lidam com múltiplos processos e ferramentas.</description>
+      <description>Histórico de Mudanças &amp;nbsp; Data Mudança 09/10/24 Primeira versão. 14/12/24 Novo capítulo sobre implementação de Confidencialidade nas vulnerabilidades para audiências específicas.</description>
     </item>
     <item>
       <title>Github Commiters Spy - Dimensionando licenças de SAST, SCA e IaC.</title>
