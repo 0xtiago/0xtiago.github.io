@@ -4,23 +4,26 @@
     <title>Projects on debugging the life</title>
     <link>https://tiagotavares.io/projects/</link>
     <description>Recent content in Projects on debugging the life</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>Copyright © 2024 Tiago Tavares.</copyright>
-    <atom:link href="https://tiagotavares.io/projects/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2024 Tiago Tavares.</copyright><atom:link href="https://tiagotavares.io/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Another project</title>
       <link>https://tiagotavares.io/projects/another-project/</link>
       <pubDate>Thu, 15 Jul 2021 00:00:00 +0000</pubDate>
+      
       <guid>https://tiagotavares.io/projects/another-project/</guid>
-      <description>Vivamus iaculis metus sed magna porta tincidunt. Aliquam molestie eget orci eu elementum. Integer pellentesque dolor sit amet suscipit maximus. Duis consequat, massa vitae volutpat rhoncus, erat augue venenatis velit, a auctor leo nulla nec turpis.</description>
+      <description>Another project.</description>
     </item>
+    
     <item>
       <title>Sample project</title>
       <link>https://tiagotavares.io/projects/sample-project/</link>
       <pubDate>Thu, 15 Jul 2021 00:00:00 +0000</pubDate>
+      
       <guid>https://tiagotavares.io/projects/sample-project/</guid>
-      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</description>
+      <description>A sample project.</description>
     </item>
+    
   </channel>
 </rss>

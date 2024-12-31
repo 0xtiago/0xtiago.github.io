@@ -4,17 +4,18 @@
     <title>CISSP on debugging the life</title>
     <link>https://tiagotavares.io/tags/cissp/</link>
     <description>Recent content in CISSP on debugging the life</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Tiago Tavares.</copyright>
-    <lastBuildDate>Sun, 08 Dec 2024 16:08:58 -0300</lastBuildDate>
-    <atom:link href="https://tiagotavares.io/tags/cissp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 27 Feb 2015 20:00:01 -0300</lastBuildDate><atom:link href="https://tiagotavares.io/tags/cissp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Passed (ISC)2 CISSP - Certified Information Systems Security Professional</title>
       <link>https://tiagotavares.io/blog/passed_cissp/</link>
       <pubDate>Fri, 27 Feb 2015 20:00:01 -0300</pubDate>
+      
       <guid>https://tiagotavares.io/blog/passed_cissp/</guid>
-      <description>&lt;p&gt;My resources of study to achieve CISSP certification.&lt;/p&gt;</description>
+      <description>My resources of study to achieve CISSP certification.</description>
     </item>
+    
   </channel>
 </rss>

@@ -4,24 +4,27 @@
     <title>Buenos Aires on debugging the life</title>
     <link>https://tiagotavares.io/tags/buenos-aires/</link>
     <description>Recent content in Buenos Aires on debugging the life</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Tiago Tavares.</copyright>
-    <lastBuildDate>Mon, 15 Jul 2024 12:50:10 -0300</lastBuildDate>
-    <atom:link href="https://tiagotavares.io/tags/buenos-aires/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 19 Jun 2020 22:41:04 -0300</lastBuildDate><atom:link href="https://tiagotavares.io/tags/buenos-aires/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ekoparty Security Conference 13 (2017) - Talks</title>
       <link>https://tiagotavares.io/blog/ekoparty13/</link>
       <pubDate>Fri, 19 Jun 2020 22:41:04 -0300</pubDate>
+      
       <guid>https://tiagotavares.io/blog/ekoparty13/</guid>
-      <description></description>
+      <description>Desde 2017, estive presente todos os anos em Buenos Aires para participar do evento, que sempre me suepreende com o ótimo nível dos materiais apresentados pelos palestrantes.</description>
     </item>
+    
     <item>
       <title>A minha estreia em maratonas 🏅</title>
       <link>https://tiagotavares.io/blog/maratonadebuenosaires2018/</link>
       <pubDate>Tue, 24 Jul 2018 14:40:20 -0300</pubDate>
+      
       <guid>https://tiagotavares.io/blog/maratonadebuenosaires2018/</guid>
-      <description></description>
+      <description>Sofra e divirta-se comigo, além de d    icas de como não errar em sua estréia em maratonas! 👟</description>
     </item>
+    
   </channel>
 </rss>

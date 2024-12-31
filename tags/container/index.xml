@@ -4,17 +4,18 @@
     <title>Container on debugging the life</title>
     <link>https://tiagotavares.io/tags/container/</link>
     <description>Recent content in Container on debugging the life</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Tiago Tavares.</copyright>
-    <lastBuildDate>Wed, 14 Aug 2024 14:07:08 -0300</lastBuildDate>
-    <atom:link href="https://tiagotavares.io/tags/container/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 11 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://tiagotavares.io/tags/container/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>HackerWhale - Offensive Docker Image</title>
       <link>https://tiagotavares.io/blog/hackerwhale_container/</link>
       <pubDate>Sun, 11 Aug 2024 00:00:00 +0000</pubDate>
+      
       <guid>https://tiagotavares.io/blog/hackerwhale_container/</guid>
-      <description>HackerWhale Motivação Características Lista de Ferramentas Instalação e execução Contrução do container no modo &amp;ldquo;Baleião&amp;rdquo; pronto para uso Construção do container utilizando a função de expansão Execução e acesso ao container Casos de uso Proxy externo ZAProxy BurpSuite Conexões Reversas Kubernetes Minikube Kubernetes Discovery &amp;amp; Scan HackerWhale &amp;nbsp; Este projeto é o resultado da necessidade encontrada durante um trabalho onde haviam poucos recursos disponíveis, e uma imagem de container personalizada foi a solução criada.</description>
+      <description>Uma imagem Docker para propostas ofensivas com funções de expansão. Compatível com ambientes Kubernetes.</description>
     </item>
+    
   </channel>
 </rss>

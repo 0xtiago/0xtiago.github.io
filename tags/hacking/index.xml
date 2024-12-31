@@ -4,115 +4,144 @@
     <title>Hacking on debugging the life</title>
     <link>https://tiagotavares.io/tags/hacking/</link>
     <description>Recent content in Hacking on debugging the life</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Tiago Tavares.</copyright>
-    <lastBuildDate>Wed, 23 Oct 2024 13:47:04 -0300</lastBuildDate>
-    <atom:link href="https://tiagotavares.io/tags/hacking/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 23 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://tiagotavares.io/tags/hacking/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hackeando aplicativos e suas APIs em versões modernas do Android com Burp Suite e Zed Attack Proxy</title>
       <link>https://tiagotavares.io/blog/hackeando_aplicativos_android_modernos_e_apis_burpsuite_zaproxy/</link>
       <pubDate>Wed, 23 Oct 2024 00:00:00 +0000</pubDate>
+      
       <guid>https://tiagotavares.io/blog/hackeando_aplicativos_android_modernos_e_apis_burpsuite_zaproxy/</guid>
-      <description>Introdução &amp;nbsp; A internet é um lugar sensacional para encontrar dicas e tutoriais sobre qualquer coisa, como hackear aplicativos, APIs, etc.</description>
+      <description>Tutorial básico para os primeiros passos de execução de engenharia reversa de aplicativos em versões modernas do Android, utilizando o Google Android Studio.</description>
     </item>
+    
     <item>
       <title>HackerWhale - Offensive Docker Image</title>
       <link>https://tiagotavares.io/blog/hackerwhale_container/</link>
       <pubDate>Sun, 11 Aug 2024 00:00:00 +0000</pubDate>
+      
       <guid>https://tiagotavares.io/blog/hackerwhale_container/</guid>
-      <description>HackerWhale Motivação Características Lista de Ferramentas Instalação e execução Contrução do container no modo &amp;ldquo;Baleião&amp;rdquo; pronto para uso Construção do container utilizando a função de expansão Execução e acesso ao container Casos de uso Proxy externo ZAProxy BurpSuite Conexões Reversas Kubernetes Minikube Kubernetes Discovery &amp;amp; Scan HackerWhale &amp;nbsp; Este projeto é o resultado da necessidade encontrada durante um trabalho onde haviam poucos recursos disponíveis, e uma imagem de container personalizada foi a solução criada.</description>
+      <description>Uma imagem Docker para propostas ofensivas com funções de expansão. Compatível com ambientes Kubernetes.</description>
     </item>
+    
     <item>
       <title>Keep moving, fi duma égua!🙏</title>
       <link>https://tiagotavares.io/blog/keep-moving-fi-duma-egua/</link>
       <pubDate>Fri, 12 Jul 2024 00:00:00 +0000</pubDate>
+      
       <guid>https://tiagotavares.io/blog/keep-moving-fi-duma-egua/</guid>
-      <description>Não sou uma pessoa &amp;ldquo;postativa&amp;rdquo;, e os mais próximos de mim sabem o quanto eu repudio o comportamento &amp;ldquo;biscoiteiro&amp;rdquo; caça likes.</description>
+      <description>Há muito não sentia algo, orgulho de algum legado deixado.</description>
     </item>
+    
     <item>
       <title>ChillHack: 1 - Vulnhub </title>
       <link>https://tiagotavares.io/blog/chillhack/</link>
       <pubDate>Sat, 19 Dec 2020 08:00:51 -0300</pubDate>
+      
       <guid>https://tiagotavares.io/blog/chillhack/</guid>
-      <description></description>
+      <description>ChillHack: 1 - A Vulnhub vulnerable machine walkthrough.</description>
     </item>
+    
     <item>
       <title>DevGuru: 1 - Vulnhub </title>
       <link>https://tiagotavares.io/blog/devguru1_vulnhub/</link>
       <pubDate>Tue, 15 Dec 2020 08:40:51 -0300</pubDate>
+      
       <guid>https://tiagotavares.io/blog/devguru1_vulnhub/</guid>
-      <description></description>
+      <description>DevGuru: 1 - A Vulnhub vulnerable machine walkthrough.</description>
     </item>
+    
     <item>
       <title>Funbox: 1 - Vulnhub </title>
       <link>https://tiagotavares.io/blog/funbox_vulnhub/</link>
       <pubDate>Thu, 13 Aug 2020 21:40:51 -0300</pubDate>
+      
       <guid>https://tiagotavares.io/blog/funbox_vulnhub/</guid>
-      <description></description>
+      <description>Funbox: 1 - A Vulnhub vulnerable machine walkthrough.</description>
     </item>
+    
     <item>
       <title>Photographer: 1 - Vulnhub </title>
       <link>https://tiagotavares.io/blog/photographer_vulnhub/</link>
       <pubDate>Fri, 31 Jul 2020 12:00:51 -0300</pubDate>
+      
       <guid>https://tiagotavares.io/blog/photographer_vulnhub/</guid>
-      <description></description>
+      <description>Photographer: 1 - A Vulnhub vulnerable machine walkthrough.</description>
     </item>
+    
     <item>
       <title>Breach and Attack Simulation com Infection Monkey 🐵</title>
       <link>https://tiagotavares.io/blog/infection_monkey/</link>
       <pubDate>Mon, 27 Jul 2020 21:00:00 -0300</pubDate>
+      
       <guid>https://tiagotavares.io/blog/infection_monkey/</guid>
-      <description></description>
+      <description>Realize simulações de ataque em um clique! </description>
     </item>
+    
     <item>
       <title>Miro&#39;s free accounts (in)security</title>
       <link>https://tiagotavares.io/blog/miro_insecurity/</link>
       <pubDate>Thu, 16 Jul 2020 08:15:12 -0300</pubDate>
+      
       <guid>https://tiagotavares.io/blog/miro_insecurity/</guid>
-      <description></description>
+      <description>This is not a bug, is a feature!. Me apaixonei por uma plataforma de colaboração e tive meu coração despedaçado. 💔</description>
     </item>
+    
     <item>
       <title>Ekoparty Security Conference 13 (2017) - Talks</title>
       <link>https://tiagotavares.io/blog/ekoparty13/</link>
       <pubDate>Fri, 19 Jun 2020 22:41:04 -0300</pubDate>
+      
       <guid>https://tiagotavares.io/blog/ekoparty13/</guid>
-      <description></description>
+      <description>Desde 2017, estive presente todos os anos em Buenos Aires para participar do evento, que sempre me suepreende com o ótimo nível dos materiais apresentados pelos palestrantes.</description>
     </item>
+    
     <item>
       <title>Lame - Hack The Box (Retired)</title>
       <link>https://tiagotavares.io/blog/lame-htb/</link>
       <pubDate>Thu, 14 May 2020 16:31:51 -0300</pubDate>
+      
       <guid>https://tiagotavares.io/blog/lame-htb/</guid>
-      <description></description>
+      <description>Lame - Hack The Box retired machine walkthrough.</description>
     </item>
+    
     <item>
       <title>OpenAdmin - Hack The Box (Retired)</title>
       <link>https://tiagotavares.io/blog/openadmin-htb/</link>
       <pubDate>Thu, 23 Apr 2020 16:31:51 -0300</pubDate>
+      
       <guid>https://tiagotavares.io/blog/openadmin-htb/</guid>
-      <description></description>
+      <description>OpenAdmin - Hack The Box retired machine walkthrough.</description>
     </item>
+    
     <item>
       <title>Lampião 1</title>
       <link>https://tiagotavares.io/blog/lampiao1/</link>
       <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
+      
       <guid>https://tiagotavares.io/blog/lampiao1/</guid>
-      <description></description>
+      <description>Lampião 1 - &#39;It&#39;s Easy, fi duma égua!&#39;</description>
     </item>
+    
     <item>
       <title>Jarbas 1</title>
       <link>https://tiagotavares.io/blog/jarbas1/</link>
       <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
+      
       <guid>https://tiagotavares.io/blog/jarbas1/</guid>
-      <description></description>
+      <description>Jarbas 1 – A tribute to a nostalgic Brazilian search engine in the end of 90’s.</description>
     </item>
+    
     <item>
       <title>Mirai - Hack The Box (Retired)</title>
       <link>https://tiagotavares.io/blog/mirai_htb/</link>
       <pubDate>Thu, 23 Nov 2017 16:31:51 -0300</pubDate>
+      
       <guid>https://tiagotavares.io/blog/mirai_htb/</guid>
-      <description>🔎 Enumeration &amp;nbsp; nmap -sV 10.10.10.48 Found an application running on port 80, we can identify an entry service to RaspberryPi.</description>
+      <description>Mirai - Hack The Box retired machine walkthrough.</description>
     </item>
+    
   </channel>
 </rss>

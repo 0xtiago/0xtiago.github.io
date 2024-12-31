@@ -4,52 +4,63 @@
     <title>Application Security on debugging the life</title>
     <link>https://tiagotavares.io/tags/application-security/</link>
     <description>Recent content in Application Security on debugging the life</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Tiago Tavares.</copyright>
-    <lastBuildDate>Sun, 15 Dec 2024 08:30:48 -0300</lastBuildDate>
-    <atom:link href="https://tiagotavares.io/tags/application-security/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 08 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://tiagotavares.io/tags/application-security/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>EC-Council CASE .NET - Certified Application Security Engineer - Review</title>
       <link>https://tiagotavares.io/blog/ec-council_case_net_certification_review/</link>
       <pubDate>Fri, 08 Nov 2024 00:00:00 +0000</pubDate>
+      
       <guid>https://tiagotavares.io/blog/ec-council_case_net_certification_review/</guid>
-      <description>🇬🇧 🇺🇸 If you need a bootleg version in English, click here to read it through Google Translator. Contexto de carreira &amp;nbsp; Aqui é mais um relato de momento de carreira e por que decidi me aventurar nesta certificação, mesmo hoje não sendo muito fã das certificações da EC-Council (isso é um papo pra outro momento).</description>
+      <description>Certificação interessante, mas perigosa para desenvolvedores versados apenas nas últimas versões da tecnologia Microsoft .NET ou inexperientes como eu. Este é um post review do curso e seu conteúdo, com direcionamentos para não cair do penhasco no momento da prova.</description>
     </item>
+    
     <item>
       <title>Processo de Gestão de Vulnerabilidades e Automação para OffSec e AppSec Utilizando Atlassian Jira: Proposta e Tutorial</title>
       <link>https://tiagotavares.io/blog/vulnerability_management_jira_context_offsec_appsec/</link>
       <pubDate>Wed, 09 Oct 2024 00:00:00 +0000</pubDate>
+      
       <guid>https://tiagotavares.io/blog/vulnerability_management_jira_context_offsec_appsec/</guid>
-      <description>Histórico de Mudanças &amp;nbsp; Data Mudança 09/10/24 Primeira versão. 14/12/24 Novo capítulo sobre implementação de Confidencialidade nas vulnerabilidades para audiências específicas.</description>
+      <description>Proposta e tutorial de estruturação e customização do Jira para atender as necessidades de um cenário corporativo com times de AppSec e OffSec.</description>
     </item>
+    
     <item>
       <title>Github Commiters Spy - Dimensionando licenças de SAST, SCA e IaC.</title>
       <link>https://tiagotavares.io/blog/github_commiters_spy/</link>
       <pubDate>Wed, 14 Aug 2024 00:00:00 +0000</pubDate>
+      
       <guid>https://tiagotavares.io/blog/github_commiters_spy/</guid>
-      <description>Introdução &amp;nbsp; O &amp;ldquo;Github Committers Spy&amp;rdquo; (GHCS) é uma ferramenta desenvolvida em Python 3 que te auxiliará a identificar a quantidade de desenvolvedores individuais em sua organização no Github, atendendo aos modelos atuais de licenciamento das principais fabricantes destas soluções.</description>
+      <description>Se você usa Github e precisa de ajuda no dimensionamento de licenças de soluções de análise estática, o GHCS pode oferecer um bom auxílio. 😉</description>
     </item>
+    
     <item>
       <title>Open Source SAST com Horusec</title>
       <link>https://tiagotavares.io/blog/opensource_sast_com_horusec/</link>
       <pubDate>Sun, 14 Jul 2024 00:00:00 +0000</pubDate>
+      
       <guid>https://tiagotavares.io/blog/opensource_sast_com_horusec/</guid>
-      <description>Introdução Principais Funcionalidades Benefícios do Uso do Horusec Casos de uso Horusec VsCode IDE Plugin Instalação dos binários (Windows, Linux e Mac) Windows Linux e Mac Horusec CLI sem Docker (Binário) Horusec CLI com Docker (Binário) Horusec Docker Reports customizados Horusec em pipeline Github Actions Enfim….</description>
+      <description>Mais um manual e casos de uso atualizados dessa ótima solução de scans de vulnerabilidades em código fonte.</description>
     </item>
+    
     <item>
       <title>(In)segurança em tokens JWT</title>
       <link>https://tiagotavares.io/blog/jwt_insecurity/</link>
       <pubDate>Fri, 12 Jun 2020 12:15:12 -0300</pubDate>
+      
       <guid>https://tiagotavares.io/blog/jwt_insecurity/</guid>
-      <description></description>
+      <description>Existem muitas bibliotecas disponíveis que suportam JWT, e o próprio padrão possui &#39;rico suporte para mecanismos criptográficos&#39;. Tudo isso significa que o JWT é realmente seguro? Vamos ver.</description>
     </item>
+    
     <item>
       <title>O fim dos times de AppSec</title>
       <link>https://tiagotavares.io/blog/ofimdostimesdeappsec/</link>
       <pubDate>Fri, 05 Jun 2020 12:02:56 -0300</pubDate>
+      
       <guid>https://tiagotavares.io/blog/ofimdostimesdeappsec/</guid>
-      <description>Hoje temos times de cybersegurança estão bem consolidados nas organizações, com pessoas dedicadas inclusive a análise de aplicações, mas a integração nunca é fluída, dificilmente o time responsável por arquitetura, análise e testes estão de fato próximos aos times de desenvolvimento.</description>
+      <description>O paradoxo da segurança em aplicações.</description>
     </item>
+    
   </channel>
 </rss>

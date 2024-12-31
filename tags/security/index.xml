@@ -4,66 +4,81 @@
     <title>Security on debugging the life</title>
     <link>https://tiagotavares.io/tags/security/</link>
     <description>Recent content in Security on debugging the life</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Tiago Tavares.</copyright>
-    <lastBuildDate>Sun, 08 Dec 2024 16:08:58 -0300</lastBuildDate>
-    <atom:link href="https://tiagotavares.io/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 13 Aug 2021 11:15:12 -0300</lastBuildDate><atom:link href="https://tiagotavares.io/tags/security/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Café Seguro 23 Café na conta de... Tiago Tavares</title>
       <link>https://tiagotavares.io/blog/participacao_podcast_cafeseguro/</link>
       <pubDate>Fri, 13 Aug 2021 11:15:12 -0300</pubDate>
+      
       <guid>https://tiagotavares.io/blog/participacao_podcast_cafeseguro/</guid>
-      <description></description>
+      <description>Minha participação no podcast Café Seguro, da WSS Security, e apresentado Daniel Dalalana, Pedro Kassick e Ben Hur Ott.</description>
     </item>
+    
     <item>
       <title>Breach and Attack Simulation com Infection Monkey 🐵</title>
       <link>https://tiagotavares.io/blog/infection_monkey/</link>
       <pubDate>Mon, 27 Jul 2020 21:00:00 -0300</pubDate>
+      
       <guid>https://tiagotavares.io/blog/infection_monkey/</guid>
-      <description></description>
+      <description>Realize simulações de ataque em um clique! </description>
     </item>
+    
     <item>
       <title>Miro&#39;s free accounts (in)security</title>
       <link>https://tiagotavares.io/blog/miro_insecurity/</link>
       <pubDate>Thu, 16 Jul 2020 08:15:12 -0300</pubDate>
+      
       <guid>https://tiagotavares.io/blog/miro_insecurity/</guid>
-      <description></description>
+      <description>This is not a bug, is a feature!. Me apaixonei por uma plataforma de colaboração e tive meu coração despedaçado. 💔</description>
     </item>
+    
     <item>
       <title>Recon-NG</title>
       <link>https://tiagotavares.io/blog/recon-ng/</link>
       <pubDate>Sun, 12 Jul 2020 08:41:04 -0300</pubDate>
+      
       <guid>https://tiagotavares.io/blog/recon-ng/</guid>
-      <description></description>
+      <description>Como obter informações de organizações alvo, sua infraestrutura e seus colaboradores sem qualquer interação direta. A Recon-NG quick-start! 😉</description>
     </item>
+    
     <item>
       <title>Ekoparty Security Conference 13 (2017) - Talks</title>
       <link>https://tiagotavares.io/blog/ekoparty13/</link>
       <pubDate>Fri, 19 Jun 2020 22:41:04 -0300</pubDate>
+      
       <guid>https://tiagotavares.io/blog/ekoparty13/</guid>
-      <description></description>
+      <description>Desde 2017, estive presente todos os anos em Buenos Aires para participar do evento, que sempre me suepreende com o ótimo nível dos materiais apresentados pelos palestrantes.</description>
     </item>
+    
     <item>
       <title>(In)segurança em tokens JWT</title>
       <link>https://tiagotavares.io/blog/jwt_insecurity/</link>
       <pubDate>Fri, 12 Jun 2020 12:15:12 -0300</pubDate>
+      
       <guid>https://tiagotavares.io/blog/jwt_insecurity/</guid>
-      <description></description>
+      <description>Existem muitas bibliotecas disponíveis que suportam JWT, e o próprio padrão possui &#39;rico suporte para mecanismos criptográficos&#39;. Tudo isso significa que o JWT é realmente seguro? Vamos ver.</description>
     </item>
+    
     <item>
       <title>O fim dos times de AppSec</title>
       <link>https://tiagotavares.io/blog/ofimdostimesdeappsec/</link>
       <pubDate>Fri, 05 Jun 2020 12:02:56 -0300</pubDate>
+      
       <guid>https://tiagotavares.io/blog/ofimdostimesdeappsec/</guid>
-      <description>Hoje temos times de cybersegurança estão bem consolidados nas organizações, com pessoas dedicadas inclusive a análise de aplicações, mas a integração nunca é fluída, dificilmente o time responsável por arquitetura, análise e testes estão de fato próximos aos times de desenvolvimento.</description>
+      <description>O paradoxo da segurança em aplicações.</description>
     </item>
+    
     <item>
       <title>Passed (ISC)2 CCSP - Certified Cloud Security Professional</title>
       <link>https://tiagotavares.io/blog/passed_ccsp/</link>
       <pubDate>Wed, 29 Mar 2017 22:00:04 -0300</pubDate>
+      
       <guid>https://tiagotavares.io/blog/passed_ccsp/</guid>
-      <description>Hello guys,&#xA;Monday, 27th March I passed CCSP exam here in São Paulo, the material I&amp;rsquo;ll list bellow had the enough content to pass.</description>
+      <description>My study resouces to achieve CCSP certification.</description>
     </item>
+    
   </channel>
 </rss>

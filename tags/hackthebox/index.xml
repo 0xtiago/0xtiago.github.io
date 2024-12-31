@@ -4,31 +4,36 @@
     <title>Hackthebox on debugging the life</title>
     <link>https://tiagotavares.io/tags/hackthebox/</link>
     <description>Recent content in Hackthebox on debugging the life</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Tiago Tavares.</copyright>
-    <lastBuildDate>Mon, 15 Jul 2024 10:56:14 -0300</lastBuildDate>
-    <atom:link href="https://tiagotavares.io/tags/hackthebox/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 14 May 2020 16:31:51 -0300</lastBuildDate><atom:link href="https://tiagotavares.io/tags/hackthebox/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Lame - Hack The Box (Retired)</title>
       <link>https://tiagotavares.io/blog/lame-htb/</link>
       <pubDate>Thu, 14 May 2020 16:31:51 -0300</pubDate>
+      
       <guid>https://tiagotavares.io/blog/lame-htb/</guid>
-      <description></description>
+      <description>Lame - Hack The Box retired machine walkthrough.</description>
     </item>
+    
     <item>
       <title>OpenAdmin - Hack The Box (Retired)</title>
       <link>https://tiagotavares.io/blog/openadmin-htb/</link>
       <pubDate>Thu, 23 Apr 2020 16:31:51 -0300</pubDate>
+      
       <guid>https://tiagotavares.io/blog/openadmin-htb/</guid>
-      <description></description>
+      <description>OpenAdmin - Hack The Box retired machine walkthrough.</description>
     </item>
+    
     <item>
       <title>Mirai - Hack The Box (Retired)</title>
       <link>https://tiagotavares.io/blog/mirai_htb/</link>
       <pubDate>Thu, 23 Nov 2017 16:31:51 -0300</pubDate>
+      
       <guid>https://tiagotavares.io/blog/mirai_htb/</guid>
-      <description>🔎 Enumeration &amp;nbsp; nmap -sV 10.10.10.48 Found an application running on port 80, we can identify an entry service to RaspberryPi.</description>
+      <description>Mirai - Hack The Box retired machine walkthrough.</description>
     </item>
+    
   </channel>
 </rss>

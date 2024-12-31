@@ -1,19 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-
-	<browserconfig>
-		<msapplication>
-			<tile>
-				 
-					 
-					 
-					 
-					
-					<square70x70logo src="/img/favicon_hu29d17b5413868ec40c659bb26691088e_2409_70x70_resize_catmullrom_3.png" />
-					<square150x150logo src="/img/favicon_hu29d17b5413868ec40c659bb26691088e_2409_150x150_resize_catmullrom_3.png" />
-					<wide310x150logo src="/img/favicon_hu29d17b5413868ec40c659bb26691088e_2409_310x150_fill_catmullrom_smart1_3.png" />
-					<square310x310logo src="/img/favicon_hu29d17b5413868ec40c659bb26691088e_2409_310x310_resize_catmullrom_3.png" />
-				
-				<TileColor>#000000</TileColor>
-			</tile>
-		</msapplication>
-	</browserconfig>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hackeando aplicativos e suas APIs em versões modernas do Android com Burp Suite e Zed Attack Proxy on debugging the life</title>
+    <link>https://tiagotavares.io/blog/hackeando_aplicativos_android_modernos_e_apis_burpsuite_zaproxy/</link>
+    <description>Recent content in Hackeando aplicativos e suas APIs em versões modernas do Android com Burp Suite e Zed Attack Proxy on debugging the life</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Copyright © 2024 Tiago Tavares.</copyright>
+    <lastBuildDate>Wed, 23 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://tiagotavares.io/blog/hackeando_aplicativos_android_modernos_e_apis_burpsuite_zaproxy/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

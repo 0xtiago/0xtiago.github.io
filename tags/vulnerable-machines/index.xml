@@ -4,24 +4,27 @@
     <title>Vulnerable Machines on debugging the life</title>
     <link>https://tiagotavares.io/tags/vulnerable-machines/</link>
     <description>Recent content in Vulnerable Machines on debugging the life</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Tiago Tavares.</copyright>
-    <lastBuildDate>Thu, 18 Jul 2024 09:08:27 -0300</lastBuildDate>
-    <atom:link href="https://tiagotavares.io/tags/vulnerable-machines/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 28 Jul 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://tiagotavares.io/tags/vulnerable-machines/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Lampião 1</title>
       <link>https://tiagotavares.io/blog/lampiao1/</link>
       <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
+      
       <guid>https://tiagotavares.io/blog/lampiao1/</guid>
-      <description></description>
+      <description>Lampião 1 - &#39;It&#39;s Easy, fi duma égua!&#39;</description>
     </item>
+    
     <item>
       <title>Jarbas 1</title>
       <link>https://tiagotavares.io/blog/jarbas1/</link>
       <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
+      
       <guid>https://tiagotavares.io/blog/jarbas1/</guid>
-      <description></description>
+      <description>Jarbas 1 – A tribute to a nostalgic Brazilian search engine in the end of 90’s.</description>
     </item>
+    
   </channel>
 </rss>

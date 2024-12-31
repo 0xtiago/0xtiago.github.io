@@ -4,24 +4,27 @@
     <title>Red Team on debugging the life</title>
     <link>https://tiagotavares.io/tags/red-team/</link>
     <description>Recent content in Red Team on debugging the life</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Tiago Tavares.</copyright>
-    <lastBuildDate>Mon, 15 Jul 2024 15:33:37 -0300</lastBuildDate>
-    <atom:link href="https://tiagotavares.io/tags/red-team/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 27 Jul 2020 21:00:00 -0300</lastBuildDate><atom:link href="https://tiagotavares.io/tags/red-team/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Breach and Attack Simulation com Infection Monkey 🐵</title>
       <link>https://tiagotavares.io/blog/infection_monkey/</link>
       <pubDate>Mon, 27 Jul 2020 21:00:00 -0300</pubDate>
+      
       <guid>https://tiagotavares.io/blog/infection_monkey/</guid>
-      <description></description>
+      <description>Realize simulações de ataque em um clique! </description>
     </item>
+    
     <item>
       <title>Recon-NG</title>
       <link>https://tiagotavares.io/blog/recon-ng/</link>
       <pubDate>Sun, 12 Jul 2020 08:41:04 -0300</pubDate>
+      
       <guid>https://tiagotavares.io/blog/recon-ng/</guid>
-      <description></description>
+      <description>Como obter informações de organizações alvo, sua infraestrutura e seus colaboradores sem qualquer interação direta. A Recon-NG quick-start! 😉</description>
     </item>
+    
   </channel>
 </rss>

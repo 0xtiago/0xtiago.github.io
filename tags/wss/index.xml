@@ -4,17 +4,18 @@
     <title>Wss on debugging the life</title>
     <link>https://tiagotavares.io/tags/wss/</link>
     <description>Recent content in Wss on debugging the life</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Tiago Tavares.</copyright>
-    <lastBuildDate>Mon, 15 Jul 2024 16:47:18 -0300</lastBuildDate>
-    <atom:link href="https://tiagotavares.io/tags/wss/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 13 Aug 2021 11:15:12 -0300</lastBuildDate><atom:link href="https://tiagotavares.io/tags/wss/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Café Seguro 23 Café na conta de... Tiago Tavares</title>
       <link>https://tiagotavares.io/blog/participacao_podcast_cafeseguro/</link>
       <pubDate>Fri, 13 Aug 2021 11:15:12 -0300</pubDate>
+      
       <guid>https://tiagotavares.io/blog/participacao_podcast_cafeseguro/</guid>
-      <description></description>
+      <description>Minha participação no podcast Café Seguro, da WSS Security, e apresentado Daniel Dalalana, Pedro Kassick e Ben Hur Ott.</description>
     </item>
+    
   </channel>
 </rss>

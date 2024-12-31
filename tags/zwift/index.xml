@@ -4,17 +4,362 @@
     <title>Zwift on debugging the life</title>
     <link>https://tiagotavares.io/tags/zwift/</link>
     <description>Recent content in Zwift on debugging the life</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Tiago Tavares.</copyright>
-    <lastBuildDate>Mon, 15 Jul 2024 12:27:31 -0300</lastBuildDate>
-    <atom:link href="https://tiagotavares.io/tags/zwift/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 02 Jun 2020 08:40:20 -0300</lastBuildDate><atom:link href="https://tiagotavares.io/tags/zwift/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Como configurar o Zwift com Garmin Forerunner 235, Foopod e ANT&#43;</title>
       <link>https://tiagotavares.io/blog/zwift_forerunner235/</link>
       <pubDate>Tue, 02 Jun 2020 08:40:20 -0300</pubDate>
+      
       <guid>https://tiagotavares.io/blog/zwift_forerunner235/</guid>
-      <description></description>
+      <description>&lt;h2 id=&#34;introdução&#34; class=&#34;heading&#34;&gt;Introdução &lt;a href=&#34;#introdu%c3%a7%c3%a3o&#34; aria-labelledby=&#34;introdução&#34;&gt;
+
+
+
+
+
+
+
+
+
+    
+
+    &lt;!-- &lt;i class=&#34;fas fa-link anchor&#34;&gt;&lt;/i&gt; --&gt;&lt;svg class=&#34;svg-inline--fa fas fa-link anchor&#34; fill=&#34;currentColor&#34; aria-hidden=&#34;true&#34; role=&#34;img&#34; viewBox=&#34;0 0 640 512&#34;&gt;&lt;path d=&#34;M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z&#34;/&gt;&lt;/svg&gt;
+
+    &amp;nbsp;
+&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Neste período de quarentena tem se intensificado a utilização de dispositivos para mensurar o volume de exercícios realizados indoor. Para quem tem esteira em casa houve um boom de relógios com bons potenciômetros ou footpods, que são pequenos dispositivos amarrados ao seu tênis que são capazes de medir a distancia dos seus passos, consequentemente a distância percorrida, com baixa margem de erro.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;div class=&#34;&#34;&gt;&lt;img class=&#34;img-fluid &#34;
+            src=&#34;https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1575,w_2800/v1591108827/blog/zwift-run-01_ug23g5.jpg&#34;
+            
+            
+            srcset=&#34;https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_324,w_576/v1591108827/blog/zwift-run-01_ug23g5.jpg 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_432,w_768/v1591108827/blog/zwift-run-01_ug23g5.jpg 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_558,w_992/v1591108827/blog/zwift-run-01_ug23g5.jpg 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_675,w_1200/v1591108827/blog/zwift-run-01_ug23g5.jpg 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_788,w_1400/v1591108827/blog/zwift-run-01_ug23g5.jpg 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1575,w_2800/v1591108827/blog/zwift-run-01_ug23g5.jpg 2800w&#34; sizes=&#34;100vw&#34;
+            height=&#34;1575&#34;
+            width=&#34;2800&#34;
+            &gt;
+&lt;/div&gt;
+&lt;p&gt;Além disso, houve uma procura muito grande de sistemas que pudessem ajudar no entretenimento durante uma corrida ou ciclismo indoor, onde o &lt;a href=&#34;https://zwift.com/&#34;&gt;Zwift&lt;/a&gt; entra em cena.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;div class=&#34;&#34;&gt;&lt;img class=&#34;img-fluid &#34;
+            src=&#34;https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1869,w_2800/v1591104030/blog/Zwift_Cycling-Setup-TV_199916372_272178211-920x614_s2pjgw.jpg&#34;
+            
+            
+            srcset=&#34;https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_384,w_576/v1591104030/blog/Zwift_Cycling-Setup-TV_199916372_272178211-920x614_s2pjgw.jpg 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_513,w_768/v1591104030/blog/Zwift_Cycling-Setup-TV_199916372_272178211-920x614_s2pjgw.jpg 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_662,w_992/v1591104030/blog/Zwift_Cycling-Setup-TV_199916372_272178211-920x614_s2pjgw.jpg 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_801,w_1200/v1591104030/blog/Zwift_Cycling-Setup-TV_199916372_272178211-920x614_s2pjgw.jpg 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_934,w_1400/v1591104030/blog/Zwift_Cycling-Setup-TV_199916372_272178211-920x614_s2pjgw.jpg 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1869,w_2800/v1591104030/blog/Zwift_Cycling-Setup-TV_199916372_272178211-920x614_s2pjgw.jpg 2800w&#34; sizes=&#34;100vw&#34;
+            height=&#34;1869&#34;
+            width=&#34;2800&#34;
+            &gt;
+&lt;/div&gt;
+&lt;p&gt;O Zwift é um simulador de corrida ou ciclismo que pode ser instalado em seu computador, iPad, iPhone ou Apple TV, permitindo que você corra ou pedale com outros atletas em um ambiente virtual, ajudando assim a aliviar parte do tédio dos exercícios em ambiente fechado.&lt;/p&gt;
+&lt;p&gt;No meu caso, com exceção da esteira que tive que adquirir pra permanecer treinando razoavelmente, eu já possuía todos os ítens necessários. Hoje possuo o Garmin Forerunner 235, e como eu treinava bastante em esteira, eu tenho fixação por exatidão e registro dos meus treinos, assim decidi também há pelo menos 3 anos comprar um footpod da Garmin para controlar os treinos em esteira.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;div class=&#34;&#34;&gt;&lt;img class=&#34;img-fluid &#34;
+            src=&#34;https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1575,w_2800/v1591104567/blog/jungle-race_nlsbqe.jpg&#34;
+            
+            
+            srcset=&#34;https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_324,w_576/v1591104567/blog/jungle-race_nlsbqe.jpg 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_432,w_768/v1591104567/blog/jungle-race_nlsbqe.jpg 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_558,w_992/v1591104567/blog/jungle-race_nlsbqe.jpg 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_675,w_1200/v1591104567/blog/jungle-race_nlsbqe.jpg 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_788,w_1400/v1591104567/blog/jungle-race_nlsbqe.jpg 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1575,w_2800/v1591104567/blog/jungle-race_nlsbqe.jpg 2800w&#34; sizes=&#34;100vw&#34;
+            height=&#34;1575&#34;
+            width=&#34;2800&#34;
+            &gt;
+&lt;/div&gt;
+&lt;p&gt;Meu primeiro relógio de corrida foi um Garmin Forerunner 610, como ele não possuía comunicação Bluetooth, ele se comunicava com o computador através de uma dispositivo Ant+, que além de ser usado para sincronismo de dados de corridas gravadas, ele também e capaz de captar em tempo real o que o relógio está registrando.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;div class=&#34;&#34;&gt;&lt;img class=&#34;img-fluid &#34;
+            src=&#34;https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_2100,w_2800/v1591105644/blog/IMG_1767_dhw7qp.jpg&#34;
+            
+            
+            srcset=&#34;https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_432,w_576/v1591105644/blog/IMG_1767_dhw7qp.jpg 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_576,w_768/v1591105644/blog/IMG_1767_dhw7qp.jpg 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_744,w_992/v1591105644/blog/IMG_1767_dhw7qp.jpg 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_900,w_1200/v1591105644/blog/IMG_1767_dhw7qp.jpg 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1050,w_1400/v1591105644/blog/IMG_1767_dhw7qp.jpg 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_2100,w_2800/v1591105644/blog/IMG_1767_dhw7qp.jpg 2800w&#34; sizes=&#34;100vw&#34;
+            height=&#34;2100&#34;
+            width=&#34;2800&#34;
+            &gt;
+&lt;/div&gt;
+
+&lt;h2 id=&#34;setup&#34; class=&#34;heading&#34;&gt;Setup &lt;a href=&#34;#setup&#34; aria-labelledby=&#34;setup&#34;&gt;
+
+
+
+
+
+
+
+
+
+    
+
+    &lt;!-- &lt;i class=&#34;fas fa-link anchor&#34;&gt;&lt;/i&gt; --&gt;&lt;svg class=&#34;svg-inline--fa fas fa-link anchor&#34; fill=&#34;currentColor&#34; aria-hidden=&#34;true&#34; role=&#34;img&#34; viewBox=&#34;0 0 640 512&#34;&gt;&lt;path d=&#34;M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z&#34;/&gt;&lt;/svg&gt;
+
+    &amp;nbsp;
+&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Aqui vou direto ao assunto baseado em no setup que possuo, caso tenham dúvidas, podem deixar nos comentários que irei responder brevemente.&lt;/p&gt;
+
+&lt;h3 id=&#34;entenda-a-comunicação&#34; class=&#34;heading&#34;&gt;Entenda a comunicação &lt;a href=&#34;#entenda-a-comunica%c3%a7%c3%a3o&#34; aria-labelledby=&#34;entenda-a-comunicação&#34;&gt;
+
+
+
+
+
+
+
+
+
+    
+
+    &lt;!-- &lt;i class=&#34;fas fa-link anchor&#34;&gt;&lt;/i&gt; --&gt;&lt;svg class=&#34;svg-inline--fa fas fa-link anchor&#34; fill=&#34;currentColor&#34; aria-hidden=&#34;true&#34; role=&#34;img&#34; viewBox=&#34;0 0 640 512&#34;&gt;&lt;path d=&#34;M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z&#34;/&gt;&lt;/svg&gt;
+
+    &amp;nbsp;
+&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Abaixo coloquei mostro de forma sequencial como funciona a comunicação entre os dispositivos.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;div class=&#34;&#34;&gt;&lt;img class=&#34;img-fluid &#34;
+            src=&#34;https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_2622,w_2800/v1591107865/blog/Zwift_forerunner235_aropc0.jpg&#34;
+            
+            
+            srcset=&#34;https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_539,w_576/v1591107865/blog/Zwift_forerunner235_aropc0.png 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_719,w_768/v1591107865/blog/Zwift_forerunner235_aropc0.png 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_929,w_992/v1591107865/blog/Zwift_forerunner235_aropc0.png 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1124,w_1200/v1591107865/blog/Zwift_forerunner235_aropc0.png 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1311,w_1400/v1591107865/blog/Zwift_forerunner235_aropc0.png 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_2622,w_2800/v1591107865/blog/Zwift_forerunner235_aropc0.png 2800w&#34; sizes=&#34;100vw&#34;
+            height=&#34;2622&#34;
+            width=&#34;2800&#34;
+            &gt;
+&lt;/div&gt;
+&lt;ol&gt;
+&lt;li&gt;Relógio GPS Forerunner 235, que captará as comunicações do footpod.&lt;/li&gt;
+&lt;li&gt;Footpod envia as informações dos passos para o relógio.&lt;/li&gt;
+&lt;li&gt;ANT+ receberá em tempo real as informações enviadas pelo relógio.&lt;/li&gt;
+&lt;li&gt;O Zwift já configurado recebe as informações e envia para o simulador.&lt;/li&gt;
+&lt;li&gt;Smart TV recebendo os dados do computador. Momento de diversão! 😎&lt;/li&gt;
+&lt;/ol&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure &gt;
+
+&lt;div class=&#34;&#34;&gt;&lt;img class=&#34;img-fluid &#34;
+            src=&#34;https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fit,h_1533,w_2800/v1591108683/blog/Watopia_kifeqm.jpg&#34;
+            
+            
+            srcset=&#34;https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_315,w_576/v1591108683/blog/Watopia_kifeqm.jpg 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_420,w_768/v1591108683/blog/Watopia_kifeqm.jpg 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_543,w_992/v1591108683/blog/Watopia_kifeqm.jpg 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_657,w_1200/v1591108683/blog/Watopia_kifeqm.jpg 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_766,w_1400/v1591108683/blog/Watopia_kifeqm.jpg 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/f_auto,c_fit,h_1533,w_2800/v1591108683/blog/Watopia_kifeqm.jpg 2800w&#34; sizes=&#34;100vw&#34;
+            height=&#34;1533&#34;
+            width=&#34;2800&#34;
+            alt=&#34;Utilizando a versão free do Zwift, em circuiti curto&#34;&gt;
+&lt;/div&gt;&lt;figcaption class=&#34;figure-caption&#34;&gt;Utilizando a versão free do Zwift, em circuiti curto&lt;/figcaption&gt;
+    &lt;/figure&gt;
+
+&lt;h3 id=&#34;passo-a-passo&#34; class=&#34;heading&#34;&gt;Passo a passo &lt;a href=&#34;#passo-a-passo&#34; aria-labelledby=&#34;passo-a-passo&#34;&gt;
+
+
+
+
+
+
+
+
+
+    
+
+    &lt;!-- &lt;i class=&#34;fas fa-link anchor&#34;&gt;&lt;/i&gt; --&gt;&lt;svg class=&#34;svg-inline--fa fas fa-link anchor&#34; fill=&#34;currentColor&#34; aria-hidden=&#34;true&#34; role=&#34;img&#34; viewBox=&#34;0 0 640 512&#34;&gt;&lt;path d=&#34;M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z&#34;/&gt;&lt;/svg&gt;
+
+    &amp;nbsp;
+&lt;/a&gt;&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Criar conta em &lt;a href=&#34;https://zwift.com/&#34;&gt;Zwift.com&lt;/a&gt;. Você pode usar de forma gratuíta, porém com diversas limitações, como percursos, eventos e etc.&lt;/li&gt;
+&lt;li&gt;Realizar o download para o seus computador.&lt;/li&gt;
+&lt;li&gt;Plugar o dispositivo Ant+ em seu computador.&lt;/li&gt;
+&lt;li&gt;Parar o Ant+ com seu Forerunner. Mais detalhes &lt;a href=&#34;https://www8.garmin.com/manuals/webhelp/forerunner230/EN-US/GUID-AE5D9A3D-4AC1-4968-829B-549DAF0ED564.html&#34;&gt;aqui&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Configurar seu dispositivo Ant+ no Zwift. Mais detalhes &lt;a href=&#34;https://www.youtube.com/watch?v=yb7gidaq-xU&#34;&gt;aqui&lt;/a&gt; e &lt;a href=&#34;https://support.zwift.com/en_us/issues-with-zwift-finding-your-usb-ant-dongle-BkxCqa2GB&#34;&gt;aqui&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Sincronizar seu footpod com seu Forerunner, Mais detalhes &lt;a href=&#34;https://www.youtube.com/watch?v=JgDmmY2iHIQ&#34;&gt;aqui&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Executar o simulador Zwift e pé na esteira! 🏃🏿‍♂️&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;referências&#34; class=&#34;heading&#34;&gt;Referências &lt;a href=&#34;#refer%c3%aancias&#34; aria-labelledby=&#34;referências&#34;&gt;
+
+
+
+
+
+
+
+
+
+    
+
+    &lt;!-- &lt;i class=&#34;fas fa-link anchor&#34;&gt;&lt;/i&gt; --&gt;&lt;svg class=&#34;svg-inline--fa fas fa-link anchor&#34; fill=&#34;currentColor&#34; aria-hidden=&#34;true&#34; role=&#34;img&#34; viewBox=&#34;0 0 640 512&#34;&gt;&lt;path d=&#34;M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z&#34;/&gt;&lt;/svg&gt;
+
+    &amp;nbsp;
+&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Zwift Running Setup: Best Footpods
+&lt;a href=&#34;https://www.youtube.com/watch?v=cSRiinN7sSg&#34;&gt;https://www.youtube.com/watch?v=cSRiinN7sSg&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Zwift Running - Testing ANT+ Garmin Footpod
+&lt;a href=&#34;https://www.youtube.com/watch?v=cCFxqJ_iejM&#34;&gt;https://www.youtube.com/watch?v=cCFxqJ_iejM&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Connecting Your ANT+ Dongle to Zwift — Official Instructions | Zwift
+&lt;a href=&#34;https://www.youtube.com/watch?v=yb7gidaq-xU&#34;&gt;https://www.youtube.com/watch?v=yb7gidaq-xU&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Zwift | Ultimate Footpod Battle | Stryd, Garmin, Milestone, Polar, Tickr
+&lt;a href=&#34;https://www.youtube.com/watch?v=MT07ncU9GJA&#34;&gt;https://www.youtube.com/watch?v=MT07ncU9GJA&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;How To Use Zwift Running | A Beginners Guide
+&lt;a href=&#34;https://www.youtube.com/watch?v=G6Ukvo64kn4&#34;&gt;https://www.youtube.com/watch?v=G6Ukvo64kn4&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;RECOMMENDED ANT+ STICKS (DONGLES) FOR ZWIFT
+&lt;a href=&#34;https://zwiftinsider.com/ant-dongles-for-zwift/&#34;&gt;https://zwiftinsider.com/ant-dongles-for-zwift/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Issues with Zwift Finding Your USB ANT+ Dongle
+&lt;a href=&#34;https://support.zwift.com/en_us/issues-with-zwift-finding-your-usb-ant-dongle-BkxCqa2GB&#34;&gt;https://support.zwift.com/en_us/issues-with-zwift-finding-your-usb-ant-dongle-BkxCqa2GB&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Pairing ANT‍+ Sensors
+&lt;a href=&#34;https://www8.garmin.com/manuals/webhelp/forerunner230/EN-US/GUID-AE5D9A3D-4AC1-4968-829B-549DAF0ED564.html&#34;&gt;https://www8.garmin.com/manuals/webhelp/forerunner230/EN-US/GUID-AE5D9A3D-4AC1-4968-829B-549DAF0ED564.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Garmin Foot Pod Setup
+&lt;a href=&#34;https://www.youtube.com/watch?v=JgDmmY2iHIQ&#34;&gt;https://www.youtube.com/watch?v=JgDmmY2iHIQ&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Foot Pod
+&lt;a href=&#34;https://www8.garmin.com/manuals/webhelp/forerunner235/EN-US/GUID-5B7E3136-E4DC-47ED-89EB-60794DCF1408.html&#34;&gt;https://www8.garmin.com/manuals/webhelp/forerunner235/EN-US/GUID-5B7E3136-E4DC-47ED-89EB-60794DCF1408.html&lt;/a&gt;&lt;/p&gt;</description>
     </item>
+    
   </channel>
 </rss>

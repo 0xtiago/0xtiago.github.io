@@ -4,17 +4,18 @@
     <title>Writeup on debugging the life</title>
     <link>https://tiagotavares.io/tags/writeup/</link>
     <description>Recent content in Writeup on debugging the life</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Tiago Tavares.</copyright>
-    <lastBuildDate>Mon, 15 Jul 2024 21:35:30 -0300</lastBuildDate>
-    <atom:link href="https://tiagotavares.io/tags/writeup/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 19 Dec 2020 08:00:51 -0300</lastBuildDate><atom:link href="https://tiagotavares.io/tags/writeup/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ChillHack: 1 - Vulnhub </title>
       <link>https://tiagotavares.io/blog/chillhack/</link>
       <pubDate>Sat, 19 Dec 2020 08:00:51 -0300</pubDate>
+      
       <guid>https://tiagotavares.io/blog/chillhack/</guid>
-      <description></description>
+      <description>ChillHack: 1 - A Vulnhub vulnerable machine walkthrough.</description>
     </item>
+    
   </channel>
 </rss>

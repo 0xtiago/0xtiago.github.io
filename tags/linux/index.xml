@@ -4,31 +4,36 @@
     <title>Linux on debugging the life</title>
     <link>https://tiagotavares.io/tags/linux/</link>
     <description>Recent content in Linux on debugging the life</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Tiago Tavares.</copyright>
-    <lastBuildDate>Wed, 02 Oct 2024 16:27:26 -0300</lastBuildDate>
-    <atom:link href="https://tiagotavares.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 22 Dec 2021 11:00:09 -0300</lastBuildDate><atom:link href="https://tiagotavares.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Gestão de vulnerabilidades com Greenbone Openvas - Ubuntu 20.04 | Updated Dez 2021</title>
       <link>https://tiagotavares.io/blog/gestao-de-vulnerabilidades-com-greenbone-openvas_dez2021/</link>
       <pubDate>Wed, 22 Dec 2021 11:00:09 -0300</pubDate>
+      
       <guid>https://tiagotavares.io/blog/gestao-de-vulnerabilidades-com-greenbone-openvas_dez2021/</guid>
-      <description></description>
+      <description>Um rápido how-to de como instalar o Greenbone Openvas no Ubuntu 20.04, além de uma breve introdução a gestão de vulnerabilidades. </description>
     </item>
+    
     <item>
       <title>Gestão de vulnerabilidades com Greenbone Openvas - Ubuntu 20.04</title>
       <link>https://tiagotavares.io/blog/gestao-de-vulnerabilidades-com-greenbone-openvas/</link>
       <pubDate>Wed, 07 Jul 2021 10:20:09 -0300</pubDate>
+      
       <guid>https://tiagotavares.io/blog/gestao-de-vulnerabilidades-com-greenbone-openvas/</guid>
-      <description></description>
+      <description>Um rápido how-to de como instalar o Greenbone Openvas no Ubuntu 20.04, além de uma breve introdução a gestão de vulnerabilidades.  </description>
     </item>
+    
     <item>
       <title>Curso de Linux – Módulo 1 – Iniciante</title>
       <link>https://tiagotavares.io/blog/curso_de_linux/</link>
       <pubDate>Fri, 01 Feb 2013 00:00:00 +0000</pubDate>
+      
       <guid>https://tiagotavares.io/blog/curso_de_linux/</guid>
-      <description></description>
+      <description>Apresentações do curso básico de Linux ministrado em 2011.</description>
     </item>
+    
   </channel>
 </rss>

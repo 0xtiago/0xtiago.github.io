@@ -4,17 +4,18 @@
     <title>Criptography on debugging the life</title>
     <link>https://tiagotavares.io/tags/criptography/</link>
     <description>Recent content in Criptography on debugging the life</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Tiago Tavares.</copyright>
-    <lastBuildDate>Mon, 15 Jul 2024 12:46:21 -0300</lastBuildDate>
-    <atom:link href="https://tiagotavares.io/tags/criptography/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 12 Jun 2020 12:15:12 -0300</lastBuildDate><atom:link href="https://tiagotavares.io/tags/criptography/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>(In)segurança em tokens JWT</title>
       <link>https://tiagotavares.io/blog/jwt_insecurity/</link>
       <pubDate>Fri, 12 Jun 2020 12:15:12 -0300</pubDate>
+      
       <guid>https://tiagotavares.io/blog/jwt_insecurity/</guid>
-      <description></description>
+      <description>Existem muitas bibliotecas disponíveis que suportam JWT, e o próprio padrão possui &#39;rico suporte para mecanismos criptográficos&#39;. Tudo isso significa que o JWT é realmente seguro? Vamos ver.</description>
     </item>
+    
   </channel>
 </rss>

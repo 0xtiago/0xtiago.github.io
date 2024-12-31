@@ -4,24 +4,27 @@
     <title>ISC2 on debugging the life</title>
     <link>https://tiagotavares.io/tags/isc2/</link>
     <description>Recent content in ISC2 on debugging the life</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Tiago Tavares.</copyright>
-    <lastBuildDate>Sun, 08 Dec 2024 16:08:58 -0300</lastBuildDate>
-    <atom:link href="https://tiagotavares.io/tags/isc2/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 29 Mar 2017 22:00:04 -0300</lastBuildDate><atom:link href="https://tiagotavares.io/tags/isc2/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Passed (ISC)2 CCSP - Certified Cloud Security Professional</title>
       <link>https://tiagotavares.io/blog/passed_ccsp/</link>
       <pubDate>Wed, 29 Mar 2017 22:00:04 -0300</pubDate>
+      
       <guid>https://tiagotavares.io/blog/passed_ccsp/</guid>
-      <description>Hello guys,&#xA;Monday, 27th March I passed CCSP exam here in São Paulo, the material I&amp;rsquo;ll list bellow had the enough content to pass.</description>
+      <description>My study resouces to achieve CCSP certification.</description>
     </item>
+    
     <item>
       <title>Passed (ISC)2 CISSP - Certified Information Systems Security Professional</title>
       <link>https://tiagotavares.io/blog/passed_cissp/</link>
       <pubDate>Fri, 27 Feb 2015 20:00:01 -0300</pubDate>
+      
       <guid>https://tiagotavares.io/blog/passed_cissp/</guid>
-      <description>&lt;p&gt;My resources of study to achieve CISSP certification.&lt;/p&gt;</description>
+      <description>My resources of study to achieve CISSP certification.</description>
     </item>
+    
   </channel>
 </rss>

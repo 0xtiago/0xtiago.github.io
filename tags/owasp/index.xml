@@ -4,31 +4,36 @@
     <title>Owasp on debugging the life</title>
     <link>https://tiagotavares.io/tags/owasp/</link>
     <description>Recent content in Owasp on debugging the life</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Tiago Tavares.</copyright>
-    <lastBuildDate>Mon, 15 Jul 2024 16:47:18 -0300</lastBuildDate>
-    <atom:link href="https://tiagotavares.io/tags/owasp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 13 Aug 2021 11:15:12 -0300</lastBuildDate><atom:link href="https://tiagotavares.io/tags/owasp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Café Seguro 23 Café na conta de... Tiago Tavares</title>
       <link>https://tiagotavares.io/blog/participacao_podcast_cafeseguro/</link>
       <pubDate>Fri, 13 Aug 2021 11:15:12 -0300</pubDate>
+      
       <guid>https://tiagotavares.io/blog/participacao_podcast_cafeseguro/</guid>
-      <description></description>
+      <description>Minha participação no podcast Café Seguro, da WSS Security, e apresentado Daniel Dalalana, Pedro Kassick e Ben Hur Ott.</description>
     </item>
+    
     <item>
       <title>(In)segurança em tokens JWT</title>
       <link>https://tiagotavares.io/blog/jwt_insecurity/</link>
       <pubDate>Fri, 12 Jun 2020 12:15:12 -0300</pubDate>
+      
       <guid>https://tiagotavares.io/blog/jwt_insecurity/</guid>
-      <description></description>
+      <description>Existem muitas bibliotecas disponíveis que suportam JWT, e o próprio padrão possui &#39;rico suporte para mecanismos criptográficos&#39;. Tudo isso significa que o JWT é realmente seguro? Vamos ver.</description>
     </item>
+    
     <item>
       <title>O fim dos times de AppSec</title>
       <link>https://tiagotavares.io/blog/ofimdostimesdeappsec/</link>
       <pubDate>Fri, 05 Jun 2020 12:02:56 -0300</pubDate>
+      
       <guid>https://tiagotavares.io/blog/ofimdostimesdeappsec/</guid>
-      <description>Hoje temos times de cybersegurança estão bem consolidados nas organizações, com pessoas dedicadas inclusive a análise de aplicações, mas a integração nunca é fluída, dificilmente o time responsável por arquitetura, análise e testes estão de fato próximos aos times de desenvolvimento.</description>
+      <description>O paradoxo da segurança em aplicações.</description>
     </item>
+    
   </channel>
 </rss>

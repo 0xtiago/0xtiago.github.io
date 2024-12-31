@@ -4,17 +4,18 @@
     <title>Jarbas on debugging the life</title>
     <link>https://tiagotavares.io/tags/jarbas/</link>
     <description>Recent content in Jarbas on debugging the life</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Tiago Tavares.</copyright>
-    <lastBuildDate>Sun, 14 Jul 2024 22:27:06 -0300</lastBuildDate>
-    <atom:link href="https://tiagotavares.io/tags/jarbas/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 02 Apr 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://tiagotavares.io/tags/jarbas/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Jarbas 1</title>
       <link>https://tiagotavares.io/blog/jarbas1/</link>
       <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
+      
       <guid>https://tiagotavares.io/blog/jarbas1/</guid>
-      <description></description>
+      <description>Jarbas 1 – A tribute to a nostalgic Brazilian search engine in the end of 90’s.</description>
     </item>
+    
   </channel>
 </rss>

@@ -4,17 +4,18 @@
     <title>Lascon on debugging the life</title>
     <link>https://tiagotavares.io/tags/lascon/</link>
     <description>Recent content in Lascon on debugging the life</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Tiago Tavares.</copyright>
-    <lastBuildDate>Mon, 15 Jul 2024 12:30:15 -0300</lastBuildDate>
-    <atom:link href="https://tiagotavares.io/tags/lascon/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 05 Jun 2020 12:02:56 -0300</lastBuildDate><atom:link href="https://tiagotavares.io/tags/lascon/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>O fim dos times de AppSec</title>
       <link>https://tiagotavares.io/blog/ofimdostimesdeappsec/</link>
       <pubDate>Fri, 05 Jun 2020 12:02:56 -0300</pubDate>
+      
       <guid>https://tiagotavares.io/blog/ofimdostimesdeappsec/</guid>
-      <description>Hoje temos times de cybersegurança estão bem consolidados nas organizações, com pessoas dedicadas inclusive a análise de aplicações, mas a integração nunca é fluída, dificilmente o time responsável por arquitetura, análise e testes estão de fato próximos aos times de desenvolvimento.</description>
+      <description>O paradoxo da segurança em aplicações.</description>
     </item>
+    
   </channel>
 </rss>

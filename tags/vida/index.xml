@@ -4,17 +4,27 @@
     <title>Vida on debugging the life</title>
     <link>https://tiagotavares.io/tags/vida/</link>
     <description>Recent content in Vida on debugging the life</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Tiago Tavares.</copyright>
-    <lastBuildDate>Mon, 15 Jul 2024 11:00:48 -0300</lastBuildDate>
-    <atom:link href="https://tiagotavares.io/tags/vida/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 31 Dec 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://tiagotavares.io/tags/vida/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2024</title>
+      <link>https://tiagotavares.io/blog/2024/</link>
+      <pubDate>Tue, 31 Dec 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiagotavares.io/blog/2024/</guid>
+      <description>Ano legal e desafiador, mas não quero falar sobre cybersecurity.</description>
+    </item>
+    
     <item>
       <title>A dor do confinamento</title>
       <link>https://tiagotavares.io/blog/a_dor_do_confinamento/</link>
       <pubDate>Sat, 23 May 2020 19:50:51 -0300</pubDate>
+      
       <guid>https://tiagotavares.io/blog/a_dor_do_confinamento/</guid>
-      <description></description>
+      <description>..mas tudo isso vai passar.</description>
     </item>
+    
   </channel>
 </rss>

@@ -4,17 +4,18 @@
     <title>Games on debugging the life</title>
     <link>https://tiagotavares.io/tags/games/</link>
     <description>Recent content in Games on debugging the life</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Tiago Tavares.</copyright>
-    <lastBuildDate>Mon, 15 Jul 2024 10:36:39 -0300</lastBuildDate>
-    <atom:link href="https://tiagotavares.io/tags/games/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Apr 2020 22:33:47 -0300</lastBuildDate><atom:link href="https://tiagotavares.io/tags/games/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Faustao Invader</title>
       <link>https://tiagotavares.io/blog/faustaoinvader/</link>
       <pubDate>Thu, 09 Apr 2020 22:33:47 -0300</pubDate>
+      
       <guid>https://tiagotavares.io/blog/faustaoinvader/</guid>
-      <description>Da série “😷 Durante a quarentena“.&#xA;Por semana gasto cerca de 12 horas em transporte público para ir e voltar do trabalho.</description>
+      <description>Faustão Invader - A shooter game created during the coronavirus quarantine. 😷</description>
     </item>
+    
   </channel>
 </rss>

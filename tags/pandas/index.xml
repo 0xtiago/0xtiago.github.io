@@ -4,17 +4,18 @@
     <title>Pandas on debugging the life</title>
     <link>https://tiagotavares.io/tags/pandas/</link>
     <description>Recent content in Pandas on debugging the life</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Tiago Tavares.</copyright>
-    <lastBuildDate>Mon, 15 Jul 2024 10:36:39 -0300</lastBuildDate>
-    <atom:link href="https://tiagotavares.io/tags/pandas/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 17 Apr 2020 22:09:49 -0300</lastBuildDate><atom:link href="https://tiagotavares.io/tags/pandas/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Análise dos dados da Maratona de Porto Alegre 2019</title>
       <link>https://tiagotavares.io/blog/portoalegre2018analysis/</link>
       <pubDate>Fri, 17 Apr 2020 22:09:49 -0300</pubDate>
+      
       <guid>https://tiagotavares.io/blog/portoalegre2018analysis/</guid>
-      <description></description>
+      <description>Análise de dados dos participantes da Maratona de Porto Alegre 2019, usando Python, Pandas, Matplotlib e Seaborb. </description>
     </item>
+    
   </channel>
 </rss>

@@ -4,17 +4,18 @@
     <title>ASP.NET on debugging the life</title>
     <link>https://tiagotavares.io/tags/asp.net/</link>
     <description>Recent content in ASP.NET on debugging the life</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2024 Tiago Tavares.</copyright>
-    <lastBuildDate>Sun, 15 Dec 2024 08:30:48 -0300</lastBuildDate>
-    <atom:link href="https://tiagotavares.io/tags/asp.net/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 08 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://tiagotavares.io/tags/asp.net/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>EC-Council CASE .NET - Certified Application Security Engineer - Review</title>
       <link>https://tiagotavares.io/blog/ec-council_case_net_certification_review/</link>
       <pubDate>Fri, 08 Nov 2024 00:00:00 +0000</pubDate>
+      
       <guid>https://tiagotavares.io/blog/ec-council_case_net_certification_review/</guid>
-      <description>🇬🇧 🇺🇸 If you need a bootleg version in English, click here to read it through Google Translator. Contexto de carreira &amp;nbsp; Aqui é mais um relato de momento de carreira e por que decidi me aventurar nesta certificação, mesmo hoje não sendo muito fã das certificações da EC-Council (isso é um papo pra outro momento).</description>
+      <description>Certificação interessante, mas perigosa para desenvolvedores versados apenas nas últimas versões da tecnologia Microsoft .NET ou inexperientes como eu. Este é um post review do curso e seu conteúdo, com direcionamentos para não cair do penhasco no momento da prova.</description>
     </item>
+    
   </channel>
 </rss>
