@@ -1,0 +1,497 @@
+<!doctype html><html lang=en class=no-js>
+<head>
+<script src=/js/critical.bundle.25e465d95df88cc3e1eeed34003ded1e83a243e90d722e8cad076d8ff05a3727.js integrity="sha256-JeRl2V34jMPh7u00AD3tHoOiQ+kNci6MrQdtj/BaNyc=" crossorigin=anonymous></script><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=generator content="Hugo 0.164.0">
+<meta name=theme content="Hinode 3.24.0">
+<link rel=stylesheet href="/css/main.min.34f0d48c55e390b608647a94377477fa787a0f36a58b0f7ceceac62db9dd408b.css" integrity="sha256-NPDUjFXjkLYIZHqUN3R3+nh6Dzaliw987OrGLbndQIs=" crossorigin=anonymous>
+<link rel=preload href=/fonts/inter-v12-latin-regular.woff2 as=font type=font/woff2 crossorigin>
+<meta name=robots content="index, follow">
+<meta name=googlebot content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name=bingbot content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<title>O ano é 2026, e ainda ... - debugging the life </title>
+<meta name=description content="Se temos medo de atualizar nossos sistemas, precisamos entender por que temos medo de atualizá-los.">
+<link rel=canonical href=https://tiagotavares.io/blog/patchphobia-em-2026/>
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="O ano é 2026, e ainda ...">
+<meta property="og:description" content="Se temos medo de atualizar nossos sistemas, precisamos entender por que temos medo de atualizá-los.">
+<meta property="og:url" content="https://tiagotavares.io/blog/patchphobia-em-2026/">
+<meta property="og:site_name" content="debugging the life">
+<meta property="article:published_time" content="2026-09-07T11:22:09-03:00">
+<meta property="article:modified_time" content="2026-09-06T21:44:09-03:00">
+<meta property="og:image" content="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fill,h_640,w_1280/v1788790289/blog/Patchphobia-_tiagotavares.io_ilqtr5.png">
+<meta property="og:image:alt" content="O ano é 2026, e ainda ...">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:title content="O ano é 2026, e ainda ...">
+<meta name=twitter:description content="Se temos medo de atualizar nossos sistemas, precisamos entender por que temos medo de atualizá-los.">
+<meta name=twitter:image content="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fill,h_640,w_1280/v1788790289/blog/Patchphobia-_tiagotavares.io_ilqtr5.png">
+<meta name=twitter:image:alt content="O ano é 2026, e ainda ...">
+<script type=application/ld+json>{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://tiagotavares.io/#/schema/organization/1","name":"Tiago Tavares","url":"https://tiagotavares.io/","sameAs":["https://x.com/tiagotavi/","https://www.linkedin.com/in/tiagotavi/","https://github.com/0xtiago/"],"logo":{"@type":"ImageObject","@id":"https://tiagotavares.io/#/schema/image/1","url":"https://tiagotavares.io/img/logo500x500-tt.png","width":500,"height":500,"caption":"Tiago Tavares"},"image":{"@id":"https://tiagotavares.io/#/schema/image/1"}},{"@type":"WebSite","@id":"https://tiagotavares.io/#/schema/website/1","url":"https://tiagotavares.io/","name":"debugging the life","description":"Technical content, most about information security, offensive security and application security.","publisher":{"@id":"https://tiagotavares.io/#/schema/organization/1"}},{"@type":"WebPage","@id":"https://tiagotavares.io/blog/patchphobia-em-2026/","url":"https://tiagotavares.io/blog/patchphobia-em-2026/","name":"O ano é 2026, e ainda ...","description":"Se temos medo de atualizar nossos sistemas, precisamos entender por que temos medo de atualizá-los.","isPartOf":{"@id":"https://tiagotavares.io/#/schema/website/1"},"about":{"@id":"https://tiagotavares.io/#/schema/organization/1"},"datePublished":"2026-09-07T11:22:09CET","dateModified":"2026-09-06T21:44:09CET","breadcrumb":{"@id":"https://tiagotavares.io/blog/patchphobia-em-2026/#/schema/breadcrumb/1"},"primaryImageOfPage":{"@id":"https://tiagotavares.io/blog/patchphobia-em-2026/#/schema/image/2"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://tiagotavares.io/blog/patchphobia-em-2026/"]}]},{"@type":"BreadcrumbList","@id":"https://tiagotavares.io/blog/patchphobia-em-2026/#/schema/breadcrumb/1","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WebPage","@id":"https://tiagotavares.io/","url":"https://tiagotavares.io/","name":"Home"}},{"@type":"ListItem","position":2,"item":{"@type":"WebPage","@id":"https://tiagotavares.io/blog/","url":"https://tiagotavares.io/blog/","name":"Blogs"}},{"@type":"ListItem","position":3,"item":{"@type":"WebPage","@id":"https://tiagotavares.io/blog/patchphobia-em-2026/","url":"https://tiagotavares.io/blog/patchphobia-em-2026/","name":"O ano é 2026, e ainda ..."}}]},{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"https://tiagotavares.io/#/schema/article/1","headline":"O ano é 2026, e ainda ...","description":"Se temos medo de atualizar nossos sistemas, precisamos entender por que temos medo de atualizá-los.","isPartOf":{"@id":"https://tiagotavares.io/blog/patchphobia-em-2026/"},"mainEntityOfPage":{"@id":"https://tiagotavares.io/blog/patchphobia-em-2026/"},"datePublished":"2026-09-07T11:22:09CET","dateModified":"2026-09-06T21:44:09CET","author":{"@id":"https://tiagotavares.io/#/schema/person/2"},"publisher":{"@id":"https://tiagotavares.io/#/schema/organization/1"},"image":{"@id":"https://tiagotavares.io/blog/patchphobia-em-2026/#/schema/image/2"}}]},{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://tiagotavares.io/#/schema/person/2","name":"Tiago Tavares","sameAs":["https://x.com/tiagotavi/","https://www.linkedin.com/in/tiagotavi/","https://github.com/0xtiago/"]}]},{"@context":"https://schema.org","@graph":[{"@type":"ImageObject","@id":"https://tiagotavares.io/blog/patchphobia-em-2026/#/schema/image/2","url":"https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fill,h_640,w_1280/v1788790289/blog/Patchphobia-_tiagotavares.io_ilqtr5.png","contentUrl":"https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fill,h_640,w_1280/v1788790289/blog/Patchphobia-_tiagotavares.io_ilqtr5.png","caption":"O ano é 2026, e ainda ..."}]}]}</script>
+<link rel=icon type=image/png sizes=16x16 href=/img/favicon_hu_1439d38440a5839e.png>
+<link rel=icon type=image/png sizes=32x32 href=/img/favicon_hu_2677d7aa6d6e5a6c.png>
+<link rel=icon type=image/png sizes=48x48 href=/img/favicon_hu_24de4ef6669294b7.png>
+<link rel=apple-touch-icon sizes=180x180 href=/img/favicon_hu_b562fdb53b6b071b.png>
+</head><body class=navbar-fixed>
+<div class="container-fluid fixed-top p-0">
+<nav class="navbar px-4 py-4 navbar-fs-6 navbar-md-fs
+bg-body navbar-fixed-top navbar-expand-md">
+<div class="container-xxl p-0">
+<div class="d-flex navbar-container">
+<div class="d-flex align-items-center">
+<button class="navbar-toggler collapsed p-0 mx-auto invisible fw-30" type=button>
+<svg class="svg-inline--fa fas fa-ellipsis fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512" overflow="visible"><use href="#fas-ellipsis"/></svg></button></div>
+<div class="w-100 d-flex align-items-center w-md-auto">
+<a class="navbar-brand mx-auto" href=/ aria-label=Home>
+<svg class="m-auto" width="30" height="30" xmlns:xlink="http://www.w3.org/1999/xlink" zoomAndPan="magnify" viewBox="0 0 375 374.999991" version="1.0"><defs><g/></defs><g fill="#745bf5" fill-opacity="1"><g transform="translate(7.055573, 336.386155)"><g><path d="M177.953125-245.140625 169.5-194.078125H123.21875l-19.796875 118.75c-1.59375 9.367187-.507812999999999 15.699219 3.265625 19 3.78125 3.292969 9.078125 4.9375 15.890625 4.9375 3.1875.0 6.425781-.289062999999999 9.71875-.875C135.597656-52.847656 138.101562-53.300781 139.8125-53.625l2.546875 50.59375C138.535156-1.863281 133.429688-.5625 127.046875.875c-6.386719 1.4375-13.996094 2.265625-22.828125 2.484375-25 .945313-43.996094-4.453125-56.984375-16.203125C34.253906-24.601562 29.894531-42.453125 34.15625-66.390625l21.0625-127.6875H21.703125l8.625-51.0625H63.6875L73.421875-303.875H141.40625l-9.734375 58.734375zm0 0"/></g></g></g><g fill="#745bf5" fill-opacity="1"><g transform="translate(193.341776, 336.386155)"><g><path d="M177.953125-245.140625 169.5-194.078125H123.21875l-19.796875 118.75c-1.59375 9.367187-.507812999999999 15.699219 3.265625 19 3.78125 3.292969 9.078125 4.9375 15.890625 4.9375 3.1875.0 6.425781-.289062999999999 9.71875-.875C135.597656-52.847656 138.101562-53.300781 139.8125-53.625l2.546875 50.59375C138.535156-1.863281 133.429688-.5625 127.046875.875c-6.386719 1.4375-13.996094 2.265625-22.828125 2.484375-25 .945313-43.996094-4.453125-56.984375-16.203125C34.253906-24.601562 29.894531-42.453125 34.15625-66.390625l21.0625-127.6875H21.703125l8.625-51.0625H63.6875L73.421875-303.875H141.40625l-9.734375 58.734375zm0 0"/></g></g></g></svg></a>
+</div>
+<div class="d-flex align-items-center">
+<button class="navbar-toggler main-nav-toggler collapsed p-0" type=button data-bs-toggle=collapse data-bs-target=#navbar-0-collapse aria-controls=navbar-0 aria-expanded=false aria-label="Toggle main navigation">
+<span class="toggler-icon top-bar emphasis"></span>
+<span class="toggler-icon middle-bar emphasis"></span>
+<span class="toggler-icon bottom-bar emphasis"></span>
+</button>
+</div>
+</div>
+<div class="navbar-collapse collapse" id=navbar-0-collapse>
+<div class="d-flex flex-fill ms-md-3 mt-4 mt-md-0 me-md-3">
+<form class="search flex-fill position-relative me-auto">
+<input class="search-input form-control is-search" type=search placeholder="Search this site" aria-label="Search this site" autocomplete=off name=search-input>
+<div class="search-suggestions shadow bg-body rounded d-none" data-no-results="No results for"></div>
+</form>
+</div>
+<ul class="navbar-nav navbar-nav-scroll ms-auto">
+<li class=nav-item>
+<a class=nav-link data-nav=main data-nav-main=about href=/about/><span class=d-md-none>About</span>
+<span class="d-none d-md-block">About</span>
+</a>
+</li>
+<li class=nav-item>
+<a class="nav-link active" data-nav=main data-nav-main=blog href=/blog/><span class="active d-md-none">Blog</span>
+<span class="active d-none d-md-block">Blog</span>
+</a>
+</li>
+<li class=nav-item>
+<a class=nav-link data-nav=main data-nav-main=tags href=/tags/><span class=d-md-none>Tags</span>
+<span class="d-none d-md-block">Tags</span>
+</a>
+</li>
+<li class="nav-link navbar-fs-6 navbar-md-fs d-flex mode-switch align-items-center" id=navbar-mode>
+<input type=checkbox class="checkbox navbar-mode-selector" id=navbar-mode-checkbox aria-label="Toggle theme">
+<label class=label for=navbar-mode-checkbox>
+<svg class="svg-inline--fa fas fa-sun fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 576 512" overflow="visible"><use href="#fas-sun"/></svg>
+<svg class="svg-inline--fa fas fa-moon fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512" overflow="visible"><use href="#fas-moon"/></svg>
+<div class=ball></div>
+</label>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+</div>
+<main id=container class=main>
+<div class="container-xxl flex-fill py-4 px-4 px-xxl-0">
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+<div class="col col-lg-2 d-none d-lg-block sidebar-overflow sticky-top p-0">
+</div>
+<div class="col-12 col-md-9 col-lg-8 mb-5">
+<header>
+<nav aria-label=breadcrumb class=d-sm-none>
+<ol class=breadcrumb>
+<li class=breadcrumb-item>
+<a href=/blog/>
+<svg class="svg-inline--fa fas fa-angle-left" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 256 512" overflow="visible"><use href="#fas-angle-left"/></svg>&nbsp;&nbsp;Blogs
+</a>
+</li></ol>
+</nav>
+<nav aria-label=breadcrumb class="d-none d-sm-block">
+<ol class=breadcrumb>
+<li class=breadcrumb-item><a href=/>Home</a></li>
+<li class=breadcrumb-item><a href=/blog/>Blogs</a></li><li class="breadcrumb-item active" aria-current=page>
+O ano é 2026, e ainda ...
+</li>
+</ol>
+</nav>
+<h1 id=o-ano-é-2026-e-ainda- class="display-4 pt-1">O ano é 2026, e ainda ...</h1>
+<small class="text-body-secondary text-uppercase">
+Posted on September 7, 2026
+&bull;
+11&nbsp;min read
+&bull;
+2,199&nbsp;words
+</small>
+<div class=mt-3>
+<div class=d-none-dark>
+<div class="hstack gap-1">
+<a href=/tags/vulnerability-management/ class="btn btn-light btn-sm position-relative" role=button>
+<span class="d-flex justify-content-start">
+<span class=my-auto>Vulnerability Management</span>
+</span></a>&nbsp;
+<a href=/tags/security-operations/ class="btn btn-light btn-sm position-relative" role=button>
+<span class="d-flex justify-content-start">
+<span class=my-auto>Security Operations</span>
+</span></a>&nbsp;
+<a href=/tags/patch-management/ class="btn btn-light btn-sm position-relative" role=button>
+<span class="d-flex justify-content-start">
+<span class=my-auto>Patch Management</span>
+</span></a>&nbsp;
+<a href=/tags/system-update/ class="btn btn-light btn-sm position-relative" role=button>
+<span class="d-flex justify-content-start">
+<span class=my-auto>System Update</span>
+</span></a>&nbsp;
+</div>
+</div>
+<div class=d-none-light>
+<div class="hstack gap-1">
+<a href=/tags/vulnerability-management/ class="btn btn-outline-primary btn-sm position-relative" role=button>
+<span class="d-flex justify-content-start">
+<span class=my-auto>Vulnerability Management</span>
+</span></a>&nbsp;
+<a href=/tags/security-operations/ class="btn btn-outline-primary btn-sm position-relative" role=button>
+<span class="d-flex justify-content-start">
+<span class=my-auto>Security Operations</span>
+</span></a>&nbsp;
+<a href=/tags/patch-management/ class="btn btn-outline-primary btn-sm position-relative" role=button>
+<span class="d-flex justify-content-start">
+<span class=my-auto>Patch Management</span>
+</span></a>&nbsp;
+<a href=/tags/system-update/ class="btn btn-outline-primary btn-sm position-relative" role=button>
+<span class="d-flex justify-content-start">
+<span class=my-auto>System Update</span>
+</span></a>&nbsp;
+</div>
+</div>
+</div>
+<div class="py-3 d-flex align-items-center">
+<span class="hstack gap-2 text-body-secondary">
+<a aria-label="Share via LinkedIn" href="https://www.linkedin.com/sharing/share-offsite/?url=https://tiagotavares.io/blog/patchphobia-em-2026/" class="btn btn-primary position-relative btn-social p-0" role=button>
+<span class="d-flex justify-content-start">
+<span class=my-auto></span>
+<span class=align-self-center>
+<svg class="svg-inline--fa fab fa-linkedin fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512" overflow="visible"><use href="#fab-linkedin"/></svg>
+</span>
+</span></a>
+<a aria-label="Share via Twitter" href="https://twitter.com/home?status=https://tiagotavares.io/blog/patchphobia-em-2026/" class="btn btn-primary position-relative btn-social p-0" role=button>
+<span class="d-flex justify-content-start">
+<span class=my-auto></span>
+<span class=align-self-center>
+<svg class="svg-inline--fa fab fa-x-twitter fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512" overflow="visible"><use href="#fab-x-twitter"/></svg>
+</span>
+</span></a>
+<a aria-label="Share via Facebook" href="https://www.facebook.com/sharer.php?u=https://tiagotavares.io/blog/patchphobia-em-2026/" class="btn btn-primary position-relative btn-social p-0" role=button>
+<span class="d-flex justify-content-start">
+<span class=my-auto></span>
+<span class=align-self-center>
+<svg class="svg-inline--fa fab fa-facebook fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512" overflow="visible"><use href="#fab-facebook"/></svg>
+</span>
+</span></a>
+<a aria-label="Share via WhatsApp" href="whatsapp://send?text=O+ano+%C3%A9+2026%2C+e+ainda+...%20https://tiagotavares.io/blog/patchphobia-em-2026/" class="btn btn-primary position-relative btn-social p-0" role=button>
+<span class="d-flex justify-content-start">
+<span class=my-auto></span>
+<span class=align-self-center>
+<svg class="svg-inline--fa fab fa-whatsapp fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512" overflow="visible"><use href="#fab-whatsapp"/></svg>
+</span>
+</span></a>
+<div id=toast-message-email-4 class=toast role=alert aria-live=assertive aria-atomic=true>
+<div class=toast-header>
+<strong class=me-auto>debugging the life</strong>
+<button type=button class=btn-close data-bs-dismiss=toast aria-label=Close></button>
+</div>
+<div class=toast-body>Link copied to clipboard</div>
+</div>
+<a aria-label="Share via email" data-toast-target=toast-message-email-4 data-clipboard=https://tiagotavares.io/blog/patchphobia-em-2026/ class="btn btn-primary position-relative btn-social p-0" role=button>
+<span class="d-flex justify-content-start">
+<span class=my-auto></span>
+<span class=align-self-center>
+<svg class="svg-inline--fa fas fa-link fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 576 512" overflow="visible"><use href="#fas-link"/></svg>
+</span>
+</span></a>
+<a aria-label="Share via system" class="btn btn-primary position-relative btn-social p-0" data-sharing-description="Se temos medo de atualizar nossos sistemas, precisamos entender por que temos medo de atualizá-los." data-sharing-title="O ano é 2026, e ainda ..." data-sharing-url=https://tiagotavares.io/blog/patchphobia-em-2026/ role=button>
+<span class="d-flex justify-content-start">
+<span class=my-auto></span>
+<span class=align-self-center>
+<svg class="svg-inline--fa fas fa-share-nodes fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512" overflow="visible"><use href="#fas-share-nodes"/></svg>
+</span>
+</span></a>
+</span></div>
+<div class="lead text-muted py-4">Se temos medo de atualizar nossos sistemas, precisamos entender por que temos medo de atualizá-los.</div>
+</header>
+<div class="d-md-none pb-5">
+<div class="d-grid gap-2 mx-auto">
+<a href=#toc-collapse class="btn btn-outline-secondary position-relative toc-button" data-bs-toggle=collapse aria-expanded=false aria-controls=toc-collapse role=button>
+<span class="d-flex justify-content-between">
+<span class=my-auto>On this page</span>
+<span class="align-self-center ps-1">
+<svg class="svg-inline--fa fas fa-sort" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 384 512" overflow="visible"><use href="#fas-sort"/></svg>
+</span>
+</span></a>
+</div>
+<div class="collapse border bg-body-tertiary rounded p-1 navbar-nav-scroll" id=toc-collapse>
+<small>
+<div class="toc toc-panel text-body p-2">
+<a class="toc-item toc-level-1" href=/blog/patchphobia-em-2026/#atualizar-nem-sempre-é-simples>Atualizar nem sempre é simples</a>
+<a class="toc-item toc-level-1" href=/blog/patchphobia-em-2026/#patch-não-deveria-ser-uma-atividade-de-segurança>Patch não deveria ser uma atividade de Segurança</a>
+<a class="toc-item toc-level-1" href=/blog/patchphobia-em-2026/#ownership-também-significa-responsabilidade>Ownership também significa responsabilidade</a>
+<a class="toc-item toc-level-1" href=/blog/patchphobia-em-2026/#e-isso-não-é-um-problema-apenas-de-infraestrutura>E isso não é um problema apenas de infraestrutura</a>
+<a class="toc-item toc-level-1" href=/blog/patchphobia-em-2026/#mas-atualizar-pode-quebrar>&ldquo;Mas atualizar pode quebrar&rdquo;</a>
+<a class="toc-item toc-level-1" href=/blog/patchphobia-em-2026/#o-risco-de-fazer-alguma-coisa-é-visível-o-de-não-fazer-nada-nem-sempre-é>O risco de fazer alguma coisa é visível. O de não fazer nada nem sempre é.</a>
+<a class="toc-item toc-level-1" href=/blog/patchphobia-em-2026/#talvez-a-palavra-seja-justamente-prudência>Talvez a palavra seja justamente prudência</a>
+<a class="toc-item toc-level-1" href=/blog/patchphobia-em-2026/#nem-tudo-deveria-precisar-virar-um-controle>Nem tudo deveria precisar virar um controle</a>
+<a class="toc-item toc-level-1" href=/blog/patchphobia-em-2026/#uma-reflexão>Uma reflexão</a>
+<a class="toc-item toc-level-1" href=/blog/patchphobia-em-2026/#referências>Referências 📚</a>
+<a class="toc-item toc-level-2" href=/blog/patchphobia-em-2026/#outras-publicações-deste-blog>Outras publicações deste blog</a>
+</div>
+</small>
+</div>
+</div>
+<div class="img-wrap mb-5"><img class="img-fluid rounded" src=https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fill,h_1200,w_2800/v1788790289/blog/Patchphobia-_tiagotavares.io_ilqtr5.png fetchpriority=high srcset="https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fill,h_247,w_576/v1788790289/blog/Patchphobia-_tiagotavares.io_ilqtr5.webp 576w, https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fill,h_329,w_768/v1788790289/blog/Patchphobia-_tiagotavares.io_ilqtr5.webp 768w, https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fill,h_425,w_992/v1788790289/blog/Patchphobia-_tiagotavares.io_ilqtr5.webp 992w, https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fill,h_514,w_1200/v1788790289/blog/Patchphobia-_tiagotavares.io_ilqtr5.webp 1200w, https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fill,h_600,w_1400/v1788790289/blog/Patchphobia-_tiagotavares.io_ilqtr5.webp 1400w, https://res.cloudinary.com/dtr6hzxnx/image/upload/c_fill,h_1200,w_2800/v1788790289/blog/Patchphobia-_tiagotavares.io_ilqtr5.webp 2800w" sizes=100vw height=1200 width=2800 alt="O ano é 2026, e ainda ..."></div><ul>
+<li>
+<a href=#atualizar-nem-sempre-%c3%a9-simples>Atualizar nem sempre é simples</a>
+</li>
+<li>
+<a href=#patch-n%c3%a3o-deveria-ser-uma-atividade-de-seguran%c3%a7a>Patch não deveria ser uma atividade de Segurança</a>
+</li>
+<li>
+<a href=#ownership-tamb%c3%a9m-significa-responsabilidade>Ownership também significa responsabilidade</a>
+</li>
+<li>
+<a href=#e-isso-n%c3%a3o-%c3%a9-um-problema-apenas-de-infraestrutura>E isso não é um problema apenas de infraestrutura</a>
+</li>
+<li>
+<a href=#mas-atualizar-pode-quebrar>“Mas atualizar pode quebrar”</a>
+</li>
+<li>
+<a href=#o-risco-de-fazer-alguma-coisa-%c3%a9-vis%c3%advel-o-de-n%c3%a3o-fazer-nada-nem-sempre-%c3%a9>O risco de fazer alguma coisa é visível. O de não fazer nada nem sempre é.</a>
+</li>
+<li>
+<a href=#talvez-a-palavra-seja-justamente-prud%c3%aancia>Talvez a palavra seja justamente prudência</a>
+</li>
+<li>
+<a href=#nem-tudo-deveria-precisar-virar-um-controle>Nem tudo deveria precisar virar um controle</a>
+</li>
+<li>
+<a href=#uma-reflex%c3%a3o>Uma reflexão</a>
+</li>
+<li>
+<a href=#refer%c3%aancias->Referências 📚</a>
+<ul>
+<li>
+<a href=#outras-publica%c3%a7%c3%b5es-deste-blog>Outras publicações deste blog</a>
+</li>
+</ul>
+</li>
+</ul>
+<p>Há alguns anos escrevi aqui no blog sobre
+<a href=/blog/gestao-de-vulnerabilidades-com-greenbone-openvas_dez2021/>Gestão de Vulnerabilidades</a>
+e, mais recentemente, voltei ao assunto quando falei sobre a estruturação de processos de
+<a href=/blog/vulnerability_management_jira_context_offsec_appsec/>Gestão de Vulnerabilidades, OffSec e AppSec</a>
+. Normalmente, quando falamos sobre Gestão de Vulnerabilidades, acabamos discutindo scanners, processos, indicadores, SLAs, ferramentas e formas de priorização. Porém, ultimamente tenho refletido sobre uma questão um pouco mais básica: <strong>por que ainda precisamos convencer profissionais de tecnologia de que a tecnologia pela qual são responsáveis precisa ser mantida atualizada?</strong></p>
+<p>Parece uma pergunta simples, talvez até óbvia, mas quem trabalha com Gestão de Vulnerabilidades provavelmente já viveu alguma versão da mesma história. Uma vulnerabilidade é identificada, Segurança reporta, o prazo começa a correr, acompanhamos, cobramos, criamos reuniões, o prazo vence, solicitamos um plano de ação, escalamos o problema e, alguns meses depois, a vulnerabilidade continua lá. É claro que esse não é o comportamento de todos os times ou profissionais, mas acontece com frequência suficiente para provocar uma reflexão: <strong>em que momento manter um sistema atualizado deixou de fazer parte da responsabilidade de quem mantém aquele sistema?</strong></p>
+<h2 id=atualizar-nem-sempre-é-simples class=heading>Atualizar nem sempre é simples<a href=#atualizar-nem-sempre-%c3%a9-simples aria-labelledby=atualizar-nem-sempre-é-simples>
+<svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 576 512" overflow="visible"><use href="#fas-link"/></svg>&nbsp;
+</a>
+</h2>
+<p>Antes que alguém queira me xingar, obviamente sei que aplicar patches não significa simplesmente clicar em &ldquo;Update&rdquo;. Existem sistemas legados, aplicações que não suportam determinadas versões, dependências, requisitos de disponibilidade, janelas de mudança, fabricantes que tornam nossa vida bastante difícil e até aplicações que ninguém quer tocar porque a última pessoa que realmente entendia como aquilo funcionava saiu da empresa há alguns anos. Também existem situações em que aplicar determinada atualização imediatamente realmente não é possível. Tudo isso faz parte da vida real de quem trabalha com Tecnologia, e seria ingenuidade ignorar essas dificuldades.</p>
+<p>O problema, na minha opinião, não é existir uma exceção. <strong>O problema é quando a exceção vira o processo.</strong> Quando deixamos de perguntar por que não conseguimos atualizar determinado sistema e passamos a considerar normal manter tecnologias desatualizadas indefinidamente, talvez estejamos criando um problema muito maior do que a vulnerabilidade que apareceu no scanner.</p>
+<h2 id=patch-não-deveria-ser-uma-atividade-de-segurança class=heading>Patch não deveria ser uma atividade de Segurança<a href=#patch-n%c3%a3o-deveria-ser-uma-atividade-de-seguran%c3%a7a aria-labelledby=patch-não-deveria-ser-uma-atividade-de-segurança>
+<svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 576 512" overflow="visible"><use href="#fas-link"/></svg>&nbsp;
+</a>
+</h2>
+<p>Talvez esse seja um dos pontos que mais me incomodam nessa discussão. Quando Segurança identifica uma vulnerabilidade em um servidor e informa isso ao responsável, não foi Segurança que criou a necessidade de manutenção daquele servidor. A necessidade já estava lá. Da mesma forma, quando uma ferramenta de SCA identifica uma biblioteca vulnerável dentro de uma aplicação, não foi a ferramenta que criou o problema; ela apenas mostrou uma condição que já existia.</p>
+<p>O <strong>NIST SP 800-40 Rev. 4 - Guide to Enterprise Patch Management Planning</strong> utiliza uma definição da qual gosto bastante ao tratar Enterprise Patch Management como <strong>manutenção preventiva da tecnologia</strong>. Acho interessante parar um pouco nessa definição. Ninguém considera estranho fazer manutenção preventiva em equipamentos, monitorar capacidade de armazenamento, renovar certificados antes do vencimento ou substituir hardware antes que ele chegue ao fim de sua vida útil. Então por que esperamos uma vulnerabilidade aparecer para descobrir que um sistema operacional, framework ou biblioteca não é atualizado há anos?</p>
+<p>Talvez tenhamos transformado algo que deveria fazer parte da manutenção normal da tecnologia em uma atividade reativa iniciada pelo time de Segurança. Segurança encontra, reporta e começa um fluxo de acompanhamento. Com o tempo, cria-se a percepção de que aquela atividade pertence a Segurança, quando na verdade a vulnerabilidade é apenas uma consequência visível de uma necessidade de manutenção que já existia.</p>
+<h2 id=ownership-também-significa-responsabilidade class=heading>Ownership também significa responsabilidade<a href=#ownership-tamb%c3%a9m-significa-responsabilidade aria-labelledby=ownership-também-significa-responsabilidade>
+<svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 576 512" overflow="visible"><use href="#fas-link"/></svg>&nbsp;
+</a>
+</h2>
+<p>Falamos bastante sobre ownership em Tecnologia. Falamos de <em>&ldquo;you build it, you run it&rdquo;</em>, DevOps, SRE, Product Teams, squads, autonomia e descentralização. Tudo isso trouxe avanços enormes para a forma como construímos e operamos tecnologia, mas autonomia também deveria vir acompanhada de responsabilidade.</p>
+<p>Se sou responsável por um produto, aplicação, servidor, banco de dados, cluster ou qualquer outro componente tecnológico, deveria conhecer minimamente sua condição. Qual versão estamos utilizando? Ela ainda possui suporte? Quando termina esse suporte? Existem atualizações disponíveis? Temos componentes EOL? Nossas dependências continuam sendo mantidas? Quando foi a última atualização? Existe um processo recorrente de manutenção ou estamos esperando Segurança abrir uma vulnerabilidade?</p>
+<p>Se a resposta for a última opção, talvez nosso problema seja um pouco maior do que aquela CVE.</p>
+<p>Frameworks de governança como o <strong>COBIT</strong>, da ISACA, ajudam a colocar governança e gestão da informação e tecnologia dentro de uma responsabilidade organizacional maior. Da mesma forma, o <strong>ITIL</strong> possui práticas relacionadas a Change Enablement, Deployment Management, IT Asset Management, Information Security Management e Continual Improvement. São referências diferentes, com objetivos diferentes, mas que ajudam a lembrar algo bastante simples: manter, modificar, conhecer e melhorar a tecnologia são atividades normais da própria gestão de tecnologia. Elas não deveriam começar somente quando Segurança abre um ticket.</p>
+<h2 id=e-isso-não-é-um-problema-apenas-de-infraestrutura class=heading>E isso não é um problema apenas de infraestrutura<a href=#e-isso-n%c3%a3o-%c3%a9-um-problema-apenas-de-infraestrutura aria-labelledby=e-isso-não-é-um-problema-apenas-de-infraestrutura>
+<svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 576 512" overflow="visible"><use href="#fas-link"/></svg>&nbsp;
+</a>
+</h2>
+<p>Talvez durante muitos anos tenhamos associado patch management principalmente a servidores: Windows Update, <code>apt update</code>, <code>yum update</code>, firmware, banco de dados, appliances e coisas do tipo. Porém, aplicações modernas são enormes quebra-cabeças construídos utilizando código escrito por outras pessoas. Utilizamos frameworks, libraries, packages, containers, runtimes, SDKs, dependências diretas, dependências transitivas e algumas dependências que, depois de alguns anos, ninguém sabe exatamente por que ainda estão lá. 😅</p>
+<p>A própria <strong>OWASP</strong>, ao tratar de <em>Vulnerable and Outdated Components</em>, chama atenção para situações nas quais organizações não conhecem as versões dos componentes utilizados, mantêm software vulnerável, sem suporte ou desatualizado, ou não atualizam plataformas, frameworks e dependências de maneira adequada. Na documentação sobre <strong>Component Analysis</strong>, existe ainda outro ponto interessante: manter componentes continuamente atualizados pode diminuir o esforço necessário quando surge uma vulnerabilidade que exige correção urgente.</p>
+<p>Isso deveria fazer parte da engenharia do produto. Existe uma diferença importante entre pensar <em>&ldquo;Segurança encontrou uma CVE, então precisamos atualizar a biblioteca&rdquo;</em> e pensar <em>&ldquo;somos responsáveis por esse produto, portanto manter suas dependências saudáveis faz parte do nosso trabalho&rdquo;</em>. A ação pode eventualmente ser a mesma, mas a cultura por trás dela é completamente diferente.</p>
+<h2 id=mas-atualizar-pode-quebrar class=heading>&ldquo;Mas atualizar pode quebrar&rdquo;<a href=#mas-atualizar-pode-quebrar aria-labelledby=mas-atualizar-pode-quebrar>
+<svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 576 512" overflow="visible"><use href="#fas-link"/></svg>&nbsp;
+</a>
+</h2>
+<p>Pode, e esse é um argumento perfeitamente válido. Um patch pode causar indisponibilidade, uma nova versão de biblioteca pode alterar comportamento, uma atualização de framework pode exigir mudanças na aplicação e uma atualização de infraestrutura pode afetar componentes dependentes. O problema talvez esteja justamente aí: <strong>se temos medo de atualizar nossos sistemas, precisamos entender por que temos medo de atualizá-los.</strong></p>
+<p>Temos testes automatizados suficientes? Temos ambientes adequados para validação? Temos observabilidade? Conseguimos realizar rollback? Nossos deploys são automatizados? Conseguimos utilizar estratégias como canary ou blue/green quando necessário? Sabemos quais aplicações dependem daquele componente? Ou cada mudança ainda é uma aventura?</p>
+<p>A pesquisa <strong>DORA</strong> é particularmente interessante nesse contexto porque há anos estuda a capacidade das organizações de realizar mudanças de software de maneira rápida e confiável. Métricas como deployment frequency, change fail rate e failed deployment recovery time ajudam a deslocar a discussão de simplesmente evitar mudanças para desenvolver a capacidade de mudar com segurança. Talvez, portanto, a pergunta não devesse ser apenas <strong>&ldquo;e se o patch quebrar?&rdquo;</strong>, mas também <strong>&ldquo;por que nossa engenharia não nos permite atualizar com segurança?&rdquo;</strong>. Essa segunda pergunta provavelmente revela problemas muito mais interessantes do que a vulnerabilidade específica que iniciou a discussão.</p>
+<h2 id=o-risco-de-fazer-alguma-coisa-é-visível-o-de-não-fazer-nada-nem-sempre-é class=heading>O risco de fazer alguma coisa é visível. O de não fazer nada nem sempre é.<a href=#o-risco-de-fazer-alguma-coisa-%c3%a9-vis%c3%advel-o-de-n%c3%a3o-fazer-nada-nem-sempre-%c3%a9 aria-labelledby=o-risco-de-fazer-alguma-coisa-é-visível-o-de-não-fazer-nada-nem-sempre-é>
+<svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 576 512" overflow="visible"><use href="#fas-link"/></svg>&nbsp;
+</a>
+</h2>
+<p>Talvez exista também um componente comportamental nessa história. Se aplicarmos um patch hoje e a aplicação parar, teremos um incidente hoje. Alguém vai ligar, alguém vai reclamar e alguém provavelmente precisará explicar o que aconteceu. Existe uma consequência clara e imediata. Agora imagine a decisão oposta: não aplicar. Hoje nada acontece, amanhã também não, passam três meses e continua tudo funcionando. Aos poucos surge a sensação de que não fazer nada foi a decisão correta.</p>
+<p>Mas não necessariamente foi. Apenas ainda não experimentamos a consequência daquela decisão.</p>
+<p>É um pouco como dirigir sem cinto de segurança. Podemos dirigir durante anos sem precisar dele e isso não significa que foi prudente dirigir sem ele. A ausência de um incidente não transforma automaticamente uma decisão ruim em uma boa decisão.</p>
+<h2 id=talvez-a-palavra-seja-justamente-prudência class=heading>Talvez a palavra seja justamente prudência<a href=#talvez-a-palavra-seja-justamente-prud%c3%aancia aria-labelledby=talvez-a-palavra-seja-justamente-prudência>
+<svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 576 512" overflow="visible"><use href="#fas-link"/></svg>&nbsp;
+</a>
+</h2>
+<p>Quanto mais penso nesse assunto, menos acredito que seja exclusivamente um problema de Segurança. Talvez seja uma questão de <strong>prudência na gestão da tecnologia</strong>. E é interessante observar que referências de áreas bastante diferentes acabam convergindo para essa necessidade.</p>
+<p>A <strong>ISO/IEC 27002:2022</strong>, por exemplo, possui controles relacionados ao gerenciamento de vulnerabilidades técnicas. O <strong>PCI DSS v4.0.1</strong>, em seus requisitos 6 e 11, estabelece expectativas relacionadas à identificação e ao tratamento de vulnerabilidades em sistemas e aplicações. A <strong>OWASP</strong> fala explicitamente sobre componentes vulneráveis e desatualizados. O <strong>NIST</strong> trata patch management como manutenção preventiva. O <strong>ITIL</strong> aborda práticas relacionadas ao ciclo de vida, mudança, deployment, ativos e melhoria contínua, enquanto o <strong>COBIT</strong> coloca tecnologia dentro de um sistema maior de governança e accountability. Já a pesquisa <strong>DORA</strong> nos ajuda a olhar para nossa capacidade de realizar mudanças de maneira frequente e confiável.</p>
+<p>São comunidades diferentes olhando para o problema por perspectivas diferentes: Segurança, Governança, Gestão de Serviços, Engenharia de Software, Operações e Compliance. Talvez isso seja um bom indicativo de que não estamos simplesmente diante de um &ldquo;problema do time de Segurança&rdquo;.</p>
+<h2 id=nem-tudo-deveria-precisar-virar-um-controle class=heading>Nem tudo deveria precisar virar um controle<a href=#nem-tudo-deveria-precisar-virar-um-controle aria-labelledby=nem-tudo-deveria-precisar-virar-um-controle>
+<svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 576 512" overflow="visible"><use href="#fas-link"/></svg>&nbsp;
+</a>
+</h2>
+<p>Nem todo comportamento correto precisa existir porque existe uma norma obrigando. Nem tudo precisa virar política, SLA, indicador ou reunião de acompanhamento. Algumas coisas deveriam acontecer simplesmente porque <strong>somos profissionais responsáveis pela tecnologia que colocamos e mantemos em produção</strong>.</p>
+<p>Se um componente chegou ao fim do suporte, precisamos planejar sua substituição. Se determinada plataforma acumula anos de defasagem, temos dívida técnica. Se repetidamente não conseguimos atualizar uma aplicação, precisamos questionar sua arquitetura. Se cada patch exige um projeto extraordinário, talvez seja necessário questionar nosso modelo operacional. Se não sabemos quais bibliotecas nossas aplicações utilizam, precisamos melhorar nosso processo de desenvolvimento. Isso não deveria ser apenas uma discussão de Segurança. <strong>Isso é engenharia.</strong></p>
+<p>E talvez seja exatamente aqui que esteja a parte que mais me incomoda. Um time de Segurança não deveria precisar passar boa parte do seu tempo dizendo para outros profissionais de Tecnologia: &ldquo;atualize seu servidor&rdquo;, &ldquo;atualize sua biblioteca&rdquo;, &ldquo;essa versão não possui mais suporte&rdquo;, &ldquo;o prazo venceu&rdquo;, &ldquo;precisamos de um plano&rdquo;, &ldquo;você já conseguiu aplicar o patch?&rdquo;. Depois repetir a mesma conversa na semana seguinte, no mês seguinte e, algumas vezes, no trimestre seguinte.</p>
+<p>Segurança possui um papel importante. Precisamos identificar problemas, trazer contexto, ajudar na priorização, testar, questionar, orientar e alertar. Mas existe um limite para aquilo que conseguimos resolver através de scanners, processos, dashboards, reuniões e escalonamentos. Depois desse limite existe algo muito mais simples: <strong>responsabilidade profissional</strong>.</p>
+<h2 id=uma-reflexão class=heading>Uma reflexão<a href=#uma-reflex%c3%a3o aria-labelledby=uma-reflexão>
+<svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 576 512" overflow="visible"><use href="#fas-link"/></svg>&nbsp;
+</a>
+</h2>
+<p>Então gostaria de terminar deixando algumas perguntas para quem trabalha com Tecnologia. Se você trabalha com infraestrutura, a manutenção de segurança faz parte do seu ciclo normal de operação ou acontece apenas quando Segurança abre uma vulnerabilidade? Se você desenvolve software, atualizar frameworks e dependências faz parte da manutenção normal do seu produto ou só entra no backlog quando alguma ferramenta reclama? Se você é Product Owner, existe capacidade reservada para manter a saúde técnica do produto ou tudo precisa necessariamente virar feature? Se você trabalha com Arquitetura, nossas decisões permitem que os componentes evoluam ou estamos criando sistemas tão acoplados que qualquer atualização vira um projeto?</p>
+<p>E, principalmente, se você lidera times de Tecnologia: <strong>se amanhã o time de Segurança parasse de cobrar vulnerabilidades, seus times continuariam atualizando seus ambientes e aplicações?</strong></p>
+<p>Talvez essa seja a pergunta mais importante deste texto. Se a resposta for &ldquo;não&rdquo;, provavelmente você não possui um processo maduro de manutenção. Possui um processo de <strong>cobrança de Segurança</strong>, e são coisas bastante diferentes.</p>
+<p>Podemos implementar scanners melhores, melhorar processos, criar indicadores e adotar NIST, ISO, PCI, COBIT, ITIL, OWASP e qualquer outro framework. Tudo isso ajuda, mas nenhum deles consegue substituir algo muito mais básico: <strong>prudência, diligência, conscientização e responsabilidade sobre aquilo que colocamos e mantemos em produção</strong>.</p>
+<p>Talvez, antes de procurar a próxima ferramenta ou processo de gestão de vulnerabilidades que melhor se encaixa com sua organização, precisemos voltar a discutir uma coisa bem mais simples:</p>
+<p><strong>O que significa ser owner de uma tecnologia?</strong></p>
+<p>👾</p>
+<h2 id=referências class=heading>Referências 📚<a href=#refer%c3%aancias aria-labelledby=referências>
+<svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 576 512" overflow="visible"><use href="#fas-link"/></svg>&nbsp;
+</a>
+</h2>
+<p><strong>NIST SP 800-40 Rev. 4 - Guide to Enterprise Patch Management Planning: Preventive Maintenance for Technology</strong><br>
+<a href=https://csrc.nist.gov/pubs/sp/800/40/r4/final>https://csrc.nist.gov/pubs/sp/800/40/r4/final</a>
+</p>
+<p><strong>ISO/IEC 27002:2022 - Information security, cybersecurity and privacy protection - Information security controls</strong><br>
+Especialmente o controle 8.8 - Management of technical vulnerabilities.<br>
+<a href=https://www.iso.org/standard/75652.html>https://www.iso.org/standard/75652.html</a>
+</p>
+<p><strong>PCI DSS v4.0.1 - Payment Card Industry Data Security Standard</strong><br>
+Especialmente Requirements 6 e 11.<br>
+<a href=https://www.pcisecuritystandards.org/document_library/>https://www.pcisecuritystandards.org/document_library/</a>
+</p>
+<p><strong>OWASP Top 10 - A06: Vulnerable and Outdated Components</strong><br>
+<a href=https://owasp.org/Top10/2021/A06_2021-Vulnerable_and_Outdated_Components/>https://owasp.org/Top10/2021/A06_2021-Vulnerable_and_Outdated_Components/</a>
+</p>
+<p><strong>OWASP - Component Analysis</strong><br>
+<a href=https://owasp.org/www-community/Component_Analysis>https://owasp.org/www-community/Component_Analysis</a>
+</p>
+<p><strong>OWASP - Software Component Verification Standard (SCVS)</strong><br>
+<a href=https://scvs.owasp.org/>https://scvs.owasp.org/</a>
+</p>
+<p><strong>DORA - Software Delivery Performance</strong><br>
+<a href=https://dora.dev/guides/dora-metrics/>https://dora.dev/guides/dora-metrics/</a>
+</p>
+<p><strong>ISACA - COBIT</strong><br>
+<a href=https://www.isaca.org/resources/cobit>https://www.isaca.org/resources/cobit</a>
+</p>
+<p><strong>ITIL - ITIL Practices</strong><br>
+<a href=https://www.peoplecert.org/ITIL4-practices>https://www.peoplecert.org/ITIL4-practices</a>
+</p>
+<h3 id=outras-publicações-deste-blog class=heading>Outras publicações deste blog<a href=#outras-publica%c3%a7%c3%b5es-deste-blog aria-labelledby=outras-publicações-deste-blog>
+<svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 576 512" overflow="visible"><use href="#fas-link"/></svg>&nbsp;
+</a>
+</h3>
+<p><strong>Gestão de Vulnerabilidades com Greenbone OpenVAS</strong><br>
+<a href=/blog/gestao-de-vulnerabilidades-com-greenbone-openvas_dez2021/>https://tiagotavares.io/blog/gestao-de-vulnerabilidades-com-greenbone-openvas_dez2021/</a>
+</p>
+<p><strong>Processo de Gestão de Vulnerabilidades e Automação para OffSec e AppSec utilizando Atlassian Jira</strong><br>
+<a href=/blog/vulnerability_management_jira_context_offsec_appsec/>https://tiagotavares.io/blog/vulnerability_management_jira_context_offsec_appsec/</a>
+</p>
+<div class="row row-cols-2 mt-5 mb-3">
+<div class=col><a class=page-nav-prev href=/blog/miro_insecurity/>
+<span class=visually-hidden>Previous page:&nbsp;</span>
+<svg class="svg-inline--fa fas fa-arrow-left" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512" overflow="visible"><use href="#fas-arrow-left"/></svg>&nbsp;Miro's free accounts (in)security
+</a></div>
+<div class="col text-end"><a class=page-nav-next href=/blog/ofimdostimesdeappsec/>
+<span class=visually-hidden>Next page:&nbsp;</span>O fim dos times de AppSec&nbsp;
+<svg class="svg-inline--fa fas fa-arrow-right" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512" overflow="visible"><use href="#fas-arrow-right"/></svg>
+</a></div>
+</div>
+<div id=disqus_thread></div>
+<script>window.disqus_config=function(){},function(){var d=document,s=d.createElement("script");s.async=!0,s.src="//tiagotavares-io.disqus.com/embed.js",console.log(s.src),s.setAttribute("data-timestamp",+new Date),(d.head||d.body).appendChild(s)}()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+<div class="col col-md-3 col-lg-2 d-none d-md-block">
+<div class="toc toc-sidebar mb-5 my-md-0 mb-lg-5 pb-3 text-body-secondary sticky-top">
+<h2 class="h6 fw-bold lh-base mt-0 mb-2" id=toc-heading>On this page</h2>
+<nav class=toc aria-labelledby=toc-heading>
+<a class="toc-item toc-level-1" href=/blog/patchphobia-em-2026/#atualizar-nem-sempre-é-simples>Atualizar nem sempre é simples</a>
+<a class="toc-item toc-level-1" href=/blog/patchphobia-em-2026/#patch-não-deveria-ser-uma-atividade-de-segurança>Patch não deveria ser uma atividade de Segurança</a>
+<a class="toc-item toc-level-1" href=/blog/patchphobia-em-2026/#ownership-também-significa-responsabilidade>Ownership também significa responsabilidade</a>
+<a class="toc-item toc-level-1" href=/blog/patchphobia-em-2026/#e-isso-não-é-um-problema-apenas-de-infraestrutura>E isso não é um problema apenas de infraestrutura</a>
+<a class="toc-item toc-level-1" href=/blog/patchphobia-em-2026/#mas-atualizar-pode-quebrar>&ldquo;Mas atualizar pode quebrar&rdquo;</a>
+<a class="toc-item toc-level-1" href=/blog/patchphobia-em-2026/#o-risco-de-fazer-alguma-coisa-é-visível-o-de-não-fazer-nada-nem-sempre-é>O risco de fazer alguma coisa é visível. O de não fazer nada nem sempre é.</a>
+<a class="toc-item toc-level-1" href=/blog/patchphobia-em-2026/#talvez-a-palavra-seja-justamente-prudência>Talvez a palavra seja justamente prudência</a>
+<a class="toc-item toc-level-1" href=/blog/patchphobia-em-2026/#nem-tudo-deveria-precisar-virar-um-controle>Nem tudo deveria precisar virar um controle</a>
+<a class="toc-item toc-level-1" href=/blog/patchphobia-em-2026/#uma-reflexão>Uma reflexão</a>
+<a href=#toc-collapse-items id=btnTOCShowMore class="btn btn-link link-primary position-relative toc-item" data-bs-toggle=collapse aria-expanded=false aria-controls=toc-collapse-items role=button>
+<span class="d-flex justify-content-start">
+<span class=my-auto>Show 2 more</span>
+</span></a>
+<div class=collapse id=toc-collapse-items>
+<a class="toc-item toc-level-1" href=/blog/patchphobia-em-2026/#referências>Referências 📚</a>
+<a class="toc-item toc-level-2" href=/blog/patchphobia-em-2026/#outras-publicações-deste-blog>Outras publicações deste blog</a>
+&nbsp;
+<a href=#toc-collapse-items id=btnTOCShowLess class="btn btn-link link-primary position-relative toc-item" data-bs-toggle=collapse aria-expanded=false aria-controls=toc-collapse-items role=button>
+<span class="d-flex justify-content-start">
+<span class=my-auto>Show less</span>
+</span></a>
+</div>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</main><div class="container-fluid bg-primary bg-opacity-10">
+<div class="container-xxl px-4 px-xxl-0">
+<div class="row row-cols-2 py-3 align-items-center">
+<div class="col col-6">
+<div class="row justify-content-end p-0">
+<div class="col-12 col-md-8 p-0">
+<div class="fs-3 fw-bold">👾</div>
+<p>Eternal student.</p>
+</div>
+</div>
+</div>
+<div class="col col-6 text-sm-start">
+<a href=https://linkedin.com/in/tiagotavi aria-label=LinkedIn class="text-decoration-none link-secondary d-inline p-2">
+<svg class="svg-inline--fa fab fa-linkedin fa-2x" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512" overflow="visible"><use href="#fab-linkedin"/></svg>&nbsp;
+</a>
+<a href=https://github.com/tiagotavi aria-label=GitHub class="text-decoration-none link-secondary d-inline p-2">
+<svg class="svg-inline--fa fab fa-github fa-2x" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512" overflow="visible"><use href="#fab-github"/></svg>&nbsp;
+</a>
+<a href=https://x.com/tiagotavi aria-label=X class="text-decoration-none link-secondary d-inline p-2">
+<svg class="svg-inline--fa fab fa-x-twitter fa-2x" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512" overflow="visible"><use href="#fab-x-twitter"/></svg>&nbsp;
+</a>
+</div>
+</div>
+</div>
+</div>
+<footer class="container-fluid footer text-center p-3">
+<div class="container-xxl text-center">
+<small>
+Copyright © 2026 Tiago Tavares.
+</small>
+</div>
+</footer>
+<div id=toast-container class="toast-container position-fixed bottom-0 end-0 p-3">
+<div id=toast-copied-code-message class=toast role=alert aria-live=assertive aria-atomic=true>
+<div class=toast-header>
+<strong class=me-auto>debugging the life</strong>
+<button type=button class=btn-close data-bs-dismiss=toast aria-label=Close></button>
+</div>
+<div class=toast-body>Code copied to clipboard</div>
+</div>
+</div>
+<dialog class=lightbox aria-label="Enlarged view">
+<button type=button class=lightbox-close aria-label=Close>
+<svg class="svg-inline--fa fas fa-xmark fa-fw fa-xl" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 384 512" overflow="visible"><use href="#fas-xmark"/></svg></button>
+<div class=lightbox-content></div>
+</dialog>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" display="none"><symbol id="fab-facebook" overflow="visible" viewBox="0 0 512 512"><path fill="currentColor" d="M512 256C512 114.6 397.4.0 256 0S0 114.6.0 256C0 376 82.7 476.8 194.2 504.5V334.2h-52.8V256h52.8v-33.7c0-87.1 39.4-127.5 125-127.5 16.2.0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287v175.9C413.8 494.8 512 386.9 512 256z"/></symbol><symbol id="fab-github" overflow="visible" viewBox="0 0 512 512"><path fill="currentColor" d="M216.5 362.5c-66-8-112.5-55.5-112.5-117 0-25 9-52 24-70-6.5-16.5-5.5-51.5 2-66 20-2.5 47 8 63 22.5 19-6 39-9 63.5-9s44.5 3 62.5 8.5c15.5-14 43-24.5 63-22 7 13.5 8 48.5 1.5 65.5 16 19 24.5 44.5 24.5 70.5.0 61.5-46.5 108-113.5 116.5 17 11 28.5 35 28.5 62.5v52c0 15 12.5 23.5 27.5 17.5C441 459.5 512 369 512 257 512 115.5 397 0 255.5.0S0 115.5.0 257c0 111 70.5 203 165.5 237.5 13.5 5 26.5-4 26.5-17.5v-40c-7 3-16 5-24 5-33 0-52.5-18-66.5-51.5-5.5-13.5-11.5-21.5-23-23-6-.5-8-3-8-6 0-6 10-10.5 20-10.5 14.5.0 27 9 40 27.5 10 14.5 20.5 21 33 21s20.5-4.5 32-16c8.5-8.5 15-16 21-21z"/></symbol><symbol id="fab-linkedin" overflow="visible" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5.0 64.3V447.7C0 465.5 14.3 480 31.9 480H416c17.6.0 32-14.5 32-32.3V64.3C448 46.5 433.6 32 416 32zM135.4 416H69V202.2h66.5V416h-.1zM102.2 96a38.5 38.5.0 110 77 38.5 38.5.0 110-77zM384.3 416h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6.0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2.0 79.7 44.3 79.7 101.9V416z"/></symbol><symbol id="fab-whatsapp" overflow="visible" viewBox="0 0 448 512"><path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4.0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3.0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2.0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2.0-101.7 82.8-184.5 184.6-184.5 49.3.0 95.6 19.2 130.4 54.1s56.2 81.2 56.1 130.5c0 101.8-84.9 184.6-186.6 184.6zM325.1 300.5c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8s-14.3 18-17.6 21.8c-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7s-12.5-30.1-17.1-41.2c-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2s-9.7 1.4-14.8 6.9c-5.1 5.6-19.4 19-19.4 46.3s19.9 53.7 22.6 57.4c2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4s4.6-24.1 3.2-26.4c-1.3-2.5-5-3.9-10.5-6.6z"/></symbol><symbol id="fab-x-twitter" overflow="visible" viewBox="0 0 448 512"><path fill="currentColor" d="M357.2 48h70.6L273.6 224.2 455 464H313L201.7 318.6 74.5 464H3.8L168.7 275.5-5.2 48H140.4L240.9 180.9 357.2 48zM332.4 421.8h39.1L119.1 88h-42l255.3 333.8z"/></symbol><symbol id="fas-angle-left" overflow="visible" viewBox="0 0 256 512"><path fill="currentColor" d="M9.4 233.4c-12.5 12.5-12.5 32.8.0 45.3l160 160c12.5 12.5 32.8 12.5 45.3.0s12.5-32.8.0-45.3L77.3 256 214.6 118.6c12.5-12.5 12.5-32.8.0-45.3s-32.8-12.5-45.3.0l-160 160z"/></symbol><symbol id="fas-arrow-left" overflow="visible" viewBox="0 0 512 512"><path fill="currentColor" d="M9.4 233.4c-12.5 12.5-12.5 32.8.0 45.3l160 160c12.5 12.5 32.8 12.5 45.3.0s12.5-32.8.0-45.3L109.3 288H480c17.7.0 32-14.3 32-32s-14.3-32-32-32H109.3l105.4-105.4c12.5-12.5 12.5-32.8.0-45.3s-32.8-12.5-45.3.0l-160 160z"/></symbol><symbol id="fas-arrow-right" overflow="visible" viewBox="0 0 512 512"><path fill="currentColor" d="M502.6 278.6c12.5-12.5 12.5-32.8.0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3.0s-12.5 32.8.0 45.3L402.7 224H32c-17.7.0-32 14.3-32 32s14.3 32 32 32h370.7L297.3 393.4c-12.5 12.5-12.5 32.8.0 45.3s32.8 12.5 45.3.0l160-160z"/></symbol><symbol id="fas-ellipsis" overflow="visible" viewBox="0 0 448 512"><path fill="currentColor" d="M0 256a56 56 0 11112 0A56 56 0 110 256zm168 0a56 56 0 11112 0 56 56 0 11-112 0zm224-56a56 56 0 110 112 56 56 0 110-112z"/></symbol><symbol id="fas-link" overflow="visible" viewBox="0 0 576 512"><path fill="currentColor" d="M419.5 96c-16.6.0-32.7 4.5-46.8 12.7-15.8-16-34.2-29.4-54.5-39.5 28.2-24 64.1-37.2 101.3-37.2C505.9 32 576 102 576 188.5c0 41.5-16.5 81.3-45.8 110.6l-71.1 71.1C429.8 399.5 390 416 348.5 416 262.1 416 192 346 192 259.5c0-1.5.0-3 .1-4.5.5-17.7 15.2-31.6 32.9-31.1s31.6 15.2 31.1 32.9c0 .9.0 1.8.0 2.6.0 51.1 41.4 92.5 92.5 92.5 24.5.0 48-9.7 65.4-27.1l71.1-71.1c17.3-17.3 27.1-40.9 27.1-65.4.0-51.1-41.4-92.5-92.5-92.5zM275.2 173.3c-1.9-.8-3.8-1.9-5.5-3.1-12.6-6.5-27-10.2-42.1-10.2-24.5.0-48 9.7-65.4 27.1L91.1 258.2C73.8 275.5 64 299.1 64 323.6c0 51.1 41.4 92.5 92.5 92.5 16.5.0 32.6-4.4 46.7-12.6 15.8 16 34.2 29.4 54.6 39.5-28.2 23.9-64 37.2-101.3 37.2C70.1 480.2.0 410.2.0 323.7c0-41.5 16.5-81.3 45.8-110.6l71.1-71.1c29.3-29.3 69.1-45.8 110.6-45.8 86.6.0 156.5 70.6 156.5 156.9.0 1.3.0 2.6.0 3.9-.4 17.7-15.1 31.6-32.8 31.2s-31.6-15.1-31.2-32.8c0-.8.0-1.5.0-2.3.0-33.7-18-63.3-44.8-79.6z"/></symbol><symbol id="fas-moon" overflow="visible" viewBox="0 0 512 512"><path fill="currentColor" d="M256 0C114.6.0.0 114.6.0 256S114.6 512 256 512c68.8.0 131.3-27.2 177.3-71.4 7.3-7 9.4-17.9 5.3-27.1s-13.7-14.9-23.8-14.1c-4.9.4-9.8.6-14.8.6-101.6.0-184-82.4-184-184 0-72.1 41.5-134.6 102.1-164.8 9.1-4.5 14.3-14.3 13.1-24.4S322.6 8.5 312.7 6.3C294.4 2.2 275.4.0 256 0z"/></symbol><symbol id="fas-share-nodes" overflow="visible" viewBox="0 0 512 512"><path fill="currentColor" d="M384 192c53 0 96-43 96-96S437 0 384 0s-96 43-96 96c0 5.4.5 10.8 1.3 16L159.6 184.1c-16.9-15-39.2-24.1-63.6-24.1-53 0-96 43-96 96s43 96 96 96c24.4.0 46.6-9.1 63.6-24.1L289.3 4e2c-.9 5.2-1.3 10.5-1.3 16 0 53 43 96 96 96s96-43 96-96-43-96-96-96c-24.4.0-46.6 9.1-63.6 24.1L190.7 272c.9-5.2 1.3-10.5 1.3-16s-.5-10.8-1.3-16l129.7-72.1c16.9 15 39.2 24.1 63.6 24.1z"/></symbol><symbol id="fas-sort" overflow="visible" viewBox="0 0 384 512"><path fill="currentColor" d="M2.4 204.2C7.4 216.2 19 224 32 224h320c12.9.0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-160-160c-12.5-12.5-32.8-12.5-45.3.0l-160 160c-9.2 9.2-11.9 22.9-6.9 34.9zm0 103.5c-5 12-2.2 25.7 6.9 34.9l160 160c12.5 12.5 32.8 12.5 45.3.0l160-160c9.2-9.2 11.9-22.9 6.9-34.9S364.9 288 352 288H32c-12.9.0-24.6 7.8-29.6 19.8z"/></symbol><symbol id="fas-sun" overflow="visible" viewBox="0 0 576 512"><path fill="currentColor" d="M288-32c8.4.0 16.3 4.4 20.6 11.7l55.5 92.6L468.9 46c8.2-2 16.9.4 22.8 6.3S5e2 67 498 75.1l-26.3 104.7 92.7 55.5c7.2 4.3 11.7 12.2 11.7 20.6s-4.4 16.3-11.7 20.6l-92.7 55.6L498 436.8c2 8.2-.4 16.9-6.3 22.8S477 468 468.9 466l-104.7-26.3-55.5 92.7c-4.3 7.2-12.2 11.7-20.6 11.7s-16.3-4.4-20.6-11.7L211.9 439.7 107.2 466c-8.2 2-16.8-.4-22.8-6.3S76 445 78 436.8l26.2-104.7-92.6-55.5C4.4 272.2.0 264.4.0 256s4.4-16.3 11.7-20.6l92.6-55.5L78 75.1c-2-8.2.3-16.8 6.3-22.8S99 44 107.2 46l104.7 26.2 55.5-92.6 1.8-2.6c4.5-5.7 11.4-9.1 18.8-9.1zm0 144a144 144 0 100 288 144 144 0 100-288zm0 240a96 96 0 110-192 96 96 0 110 192z"/></symbol><symbol id="fas-xmark" overflow="visible" viewBox="0 0 384 512"><path fill="currentColor" d="M55.1 73.4c-12.5-12.5-32.8-12.5-45.3.0s-12.5 32.8.0 45.3L147.2 256 9.9 393.4c-12.5 12.5-12.5 32.8.0 45.3s32.8 12.5 45.3.0L192.5 301.3 329.9 438.6c12.5 12.5 32.8 12.5 45.3.0s12.5-32.8.0-45.3L237.8 256 375.1 118.6c12.5-12.5 12.5-32.8.0-45.3s-32.8-12.5-45.3.0L192.5 210.7 55.1 73.4z"/></symbol></svg>
+<script src=/js/core.bundle-analytics.en.1e918db28e82b276cfc90b4b8e21f3c5d32a7ea2384e6d01d8cb09821f736cea.js data-category=analytics integrity="sha256-HpGNso6CsnbPyQtLjiHzxdMqfqI4Tm0B2MsJgh9zbOo=" crossorigin=anonymous defer></script>
+<script src=/js/core.bundle.en.ca9eeaba92874a33b3af9a4677458238ce67c4ff24499e518a1f8e878d870a25.js integrity="sha256-yp7qupKHSjOzr5pGd0WCOM5nxP8kSZ5Rih+Oh42HCiU=" crossorigin=anonymous defer></script>
+<script src=/js/core.bundle.en.0d1c7da2f981dd0ce32e008ebfbf8a1f8c9ff66189e19ed54f46589c18bb4c2f.mjs type=module integrity="sha256-DRx9ovmB3QzjLgCOv7+KH4yf9mGJ4Z7VT0ZYnBi7TC8=" crossorigin=anonymous defer></script></body>
+</html>
